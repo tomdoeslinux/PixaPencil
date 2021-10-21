@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         setBindings()
 
         // TODO: In the future we can navigate using Jetpack Navigation
+        binding.floatingActionButton.setOnClickListener {
+            // TODO: Add code for setOnClickListener
+        }
     }
 
     private fun setBindings() {
