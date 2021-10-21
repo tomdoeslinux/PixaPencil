@@ -14,7 +14,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     }
 
     private fun setUpFragment() {
-        val canvasFragment = supportFragmentManager.findFragmentById(R.id.fragmentHost)
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragmentHost, CanvasFragment.newInstance()).commit()
