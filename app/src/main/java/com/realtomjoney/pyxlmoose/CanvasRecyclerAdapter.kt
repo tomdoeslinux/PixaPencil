@@ -1,8 +1,12 @@
 package com.realtomjoney.pyxlmoose
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+@SuppressLint("ClickableViewAccessibility")
 
 class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
                             private val caller: CanvasFragmentListener) :
@@ -15,9 +19,15 @@ class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
         val currentPixel = pixels[position]
         holder.tileParent.addView(currentPixel)
 
-        holder.tileParent.setOnClickListener {
-            caller.onPixelTapped(currentPixel)
-        }
+        holder.tileParent.setOnTouchListener (object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if(event?.action == MotionEvent.ACTION_DOWN){
+                    caller.onPixelTapped(currentPixel)
+                    return true
+                }
+                return false
+            }
+        })
     }
 
     override fun getItemCount() = pixels.size
