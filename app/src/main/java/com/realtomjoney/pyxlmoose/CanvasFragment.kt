@@ -15,7 +15,7 @@ class CanvasFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
         return binding.root
     }
