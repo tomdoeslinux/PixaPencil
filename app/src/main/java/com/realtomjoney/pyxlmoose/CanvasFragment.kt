@@ -35,13 +35,16 @@ class CanvasFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
+        setUpRecyclerView()
 
+        return binding.root
+    }
+
+    private fun setUpRecyclerView() {
         val context = activity as Context
         binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, 10)
         val pixels = caller.initPixels()
         binding.canvasRecyclerView.adapter = CanvasRecyclerAdapter(pixels, caller)
-
-        return binding.root
     }
 
     override fun onDestroyView() {
