@@ -47,9 +47,10 @@
 
         <View
             android:id="@+id/colorRed"
-            android:layout_weight="1"
-            android:layout_height="50dp"
             android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_red_light"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
