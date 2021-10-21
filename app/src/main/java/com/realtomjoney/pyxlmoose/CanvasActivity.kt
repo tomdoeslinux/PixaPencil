@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 
-class CanvasActivity : AppCompatActivity() {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,5 +23,13 @@ class CanvasActivity : AppCompatActivity() {
     private fun setBindings() {
         binding = ActivityCanvasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun initPixels(): ArrayList<Pixel> {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPixelTapped(pixel: Pixel) {
+        TODO("Not yet implemented")
     }
 }
