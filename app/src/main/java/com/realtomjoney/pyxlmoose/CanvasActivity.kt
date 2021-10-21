@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
@@ -33,6 +34,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     }
 
     override fun onPixelTapped(pixel: Pixel) {
-        TODO("Not yet implemented")
+        pixel.setBackgroundColor(Color.BLACK)
     }
 }
