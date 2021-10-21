@@ -12,6 +12,10 @@ class CanvasActivity : AppCompatActivity() {
         setBindings()
     }
 
+    private fun setUpFragment() {
+
+    }
+
     private fun setBindings() {
         binding = ActivityCanvasBinding.inflate(layoutInflater)
         setContentView(binding.root)
