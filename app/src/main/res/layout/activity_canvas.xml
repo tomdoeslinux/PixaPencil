@@ -65,25 +65,28 @@
 
         <View
             android:id="@+id/colorBlue"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
             app:layout_constraintStart_toEndOf="@+id/colorGreen"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <View
             android:id="@+id/colorPurple"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_purple"
             app:layout_constraintStart_toEndOf="@+id/colorBlue"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <View
             android:id="@+id/colorPink"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background=" #FFC0CB"
             app:layout_constraintStart_toEndOf="@+id/colorPurple"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
     </LinearLayout>
