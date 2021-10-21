@@ -17,7 +17,7 @@ class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
                             private val caller: CanvasFragmentListener) :
     RecyclerView.Adapter<RecyclerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        TODO("Not yet implemented")
+        return RecyclerViewHolder(LayoutInflater.from(parent.context), parent)
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
