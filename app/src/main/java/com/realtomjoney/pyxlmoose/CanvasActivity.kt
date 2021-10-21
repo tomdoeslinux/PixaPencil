@@ -24,8 +24,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         setContentView(binding.root)
     }
 
-    override fun initPixels(): ArrayList<Pixel> {
-        TODO("Not yet implemented")
+    override fun initPixels(): List<Pixel> {
+        val list = mutableListOf<Pixel>()
+        for (i in 1..10) {
+            list.add(Pixel(this))
+        }
+        return list.toList();
     }
 
     override fun onPixelTapped(pixel: Pixel) {

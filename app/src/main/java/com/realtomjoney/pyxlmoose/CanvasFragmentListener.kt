@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
 interface CanvasFragmentListener {
-    fun initPixels(): ArrayList<Pixel>
+    fun initPixels(): List<Pixel>
     fun onPixelTapped(pixel: Pixel)
 }
