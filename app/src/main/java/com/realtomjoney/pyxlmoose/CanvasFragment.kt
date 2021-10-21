@@ -42,9 +42,10 @@ class CanvasFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         val context = activity as Context
-        binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, 10)
+        binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, 25)
         val pixels = caller.initPixels()
         binding.canvasRecyclerView.adapter = CanvasRecyclerAdapter(pixels, caller)
+        binding.canvasRecyclerView.suppressLayout(true)
     }
 
     override fun onDestroyView() {

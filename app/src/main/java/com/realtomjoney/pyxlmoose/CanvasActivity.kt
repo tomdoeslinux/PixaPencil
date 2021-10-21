@@ -27,7 +27,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
     override fun initPixels(): List<Pixel> {
         val list = mutableListOf<Pixel>()
-        for (i in 1..100) {
+        for (i in 1..625) {
             list.add(Pixel(this))
         }
         return list.toList();
