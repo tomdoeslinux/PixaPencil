@@ -21,7 +21,12 @@ class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentPixel = pixels[position]
+        holder.tileParent.addView(currentPixel)
+
+        holder.tileParent.setOnClickListener {
+            caller.onPixelTapped(currentPixel)
+        }
     }
 
     override fun getItemCount() = pixels.size
