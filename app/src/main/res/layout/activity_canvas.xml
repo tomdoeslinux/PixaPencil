@@ -56,9 +56,10 @@
 
         <View
             android:id="@+id/colorGreen"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/holo_green_light"
             app:layout_constraintStart_toEndOf="@+id/colorRed"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
