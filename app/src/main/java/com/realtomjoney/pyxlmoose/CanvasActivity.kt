@@ -14,6 +14,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         setUpFragment()
     }
 
+    private fun setColourClickListeners() {
+
+    }
+
     private fun setUpFragment() {
         supportFragmentManager
             .beginTransaction()
