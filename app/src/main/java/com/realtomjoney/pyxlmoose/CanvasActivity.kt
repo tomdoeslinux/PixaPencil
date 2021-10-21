@@ -15,7 +15,21 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     }
 
     private fun setColourClickListeners() {
+        binding.colorRed.setOnClickListener {
 
+        }
+        binding.colorGreen.setOnClickListener {
+
+        }
+        binding.colorBlue.setOnClickListener {
+
+        }
+        binding.colorPurple.setOnClickListener {
+
+        }
+        binding.colorPink.setOnClickListener {
+
+        }
     }
 
     private fun setUpFragment() {
