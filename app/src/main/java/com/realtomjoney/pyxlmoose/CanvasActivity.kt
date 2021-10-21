@@ -10,10 +10,14 @@ class CanvasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+        setUpFragment()
     }
 
     private fun setUpFragment() {
-
+        val canvasFragment = supportFragmentManager.findFragmentById(R.id.fragmentHost)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragmentHost, CanvasFragment.newInstance()).commit()
     }
 
     private fun setBindings() {
