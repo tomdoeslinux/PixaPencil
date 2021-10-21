@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: In the future we can navigate using Jetpack Navigation
         binding.floatingActionButton.setOnClickListener {
-            // TODO: Add code for setOnClickListener
+            startActivity(Intent(this, CanvasActivity::class.java))
         }
     }
 
