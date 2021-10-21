@@ -24,7 +24,5 @@ class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = pixels.size
 }
