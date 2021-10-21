@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+
+        // TODO: In the future we can navigate using Jetpack Navigation
     }
 
     private fun setBindings() {
