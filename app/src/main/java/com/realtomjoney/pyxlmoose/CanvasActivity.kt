@@ -48,7 +48,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         for (i in 1..625) {
             list.add(Pixel(this))
         }
-        return list.toList();
+        return list.toList()
     }
 
     override fun onPixelTapped(pixel: Pixel) {
