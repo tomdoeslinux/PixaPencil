@@ -12,18 +12,18 @@ class CanvasFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    companion object {
+        fun newInstance(): CanvasFragment {
+            return CanvasFragment()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    companion object {
-        fun newInstance(): CanvasFragment {
-            return CanvasFragment()
-        }
     }
 
     override fun onDestroyView() {
