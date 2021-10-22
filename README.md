@@ -14,6 +14,9 @@ I would love your input! I have a goal of making contributing to this project as
 - _Proposing new features_
 - _Becoming a maintainer_
 
+# Want to collaborate?
+If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
+
 # Use a Consistent Coding Style
 
 #### Functions:
