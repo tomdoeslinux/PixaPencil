@@ -59,5 +59,25 @@ class Dog : Animal {
 ```Kotlin
 const val MY_AGE = 15
 ```
+#### Ordering of modifiers (from Kotlin documentation):
+
+``` Kotlin
+public / protected / private / internal
+expect / actual
+final / open / abstract / sealed / const
+external
+override
+lateinit
+tailrec
+vararg
+suspend
+inner
+enum / annotation / fun // as a modifier in `fun interface`
+companion
+inline / value
+infix
+operator
+data
+```
 
 _Do not use the PyxlMoose name anywhere else other than this project.😊_
