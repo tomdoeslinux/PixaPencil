@@ -1,11 +1,14 @@
 package com.realtomjoney.pyxlmoose
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
@@ -36,7 +39,6 @@ class CanvasFragment : Fragment() {
     ): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
         setUpRecyclerView()
-
         return binding.root
     }
 
