@@ -4,6 +4,8 @@
 **A pixel art creator for Android using RecyclerView.**
 
 ----
+![Fri Oct 22 2021 10_20_15 PM](https://user-images.githubusercontent.com/50536495/138430387-76f56fbe-14de-4624-b330-cb9eab59eac7.gif)
+
 
 # Contributing Guidelines
 I would love your input! I have a goal of making contributing to this project as easy and transparent as possible, whether it's:
@@ -83,6 +85,4 @@ operator
 data
 ```
 
-_Do not use the PyxlMoose name anywhere else other than this project.😊_
-
-![Fri_Oct_22_2021_6_56_56_PM](https://user-images.githubusercontent.com/50536495/138416703-d790ddcf-2179-4dba-a230-75dc8df86cb4.gif)
+_**Do not** use the PyxlMoose name anywhere else other than this project.😊_
