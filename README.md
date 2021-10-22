@@ -60,7 +60,7 @@ class Dog : Animal {
 const val MY_AGE = 15
 ```
 #### Ordering of modifiers (from Kotlin documentation):
-
+---
 ``` Kotlin
 public / protected / private / internal
 expect / actual
