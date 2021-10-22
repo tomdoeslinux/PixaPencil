@@ -17,6 +17,7 @@ class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val currentPixel = pixels[position]
+        currentPixel.id = R.id.pixel
         holder.tileParent.addView(currentPixel)
 
         holder.tileParent.setOnTouchListener (object : View.OnTouchListener {

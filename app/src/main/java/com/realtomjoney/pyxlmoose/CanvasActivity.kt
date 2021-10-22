@@ -22,6 +22,8 @@ var colour: Int = Color.BLACK
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
 
+    var data = listOf<Pixel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
@@ -52,13 +54,19 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     override fun initPixels(): List<Pixel> {
         val list = mutableListOf<Pixel>()
         for (i in 1..625) {
-            list.add(Pixel(this))
+            val px = Pixel(this)
+            list.add(px)
         }
+        data = list
         return list.toList()
     }
 
     override fun onPixelTapped(pixel: Pixel) {
-        pixel.setBackgroundColor(colour)
+        try {
+            pixel.setBackgroundColor(colour)
+        } catch (e: Exception) {
+
+        }
     }
 }
 
