@@ -22,6 +22,13 @@ class MainActivity : AppCompatActivity() {
         setGreetingText()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (BitmapDatabase.toList().isNotEmpty()) {
+            binding.lastCreation.setImageBitmap(BitmapDatabase.toList().last())
+        }
+    }
+
     private fun setGreetingText() {
         binding.titleTextView.text = setGreeting()
     }

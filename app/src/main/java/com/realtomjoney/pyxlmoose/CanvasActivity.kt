@@ -67,8 +67,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     override fun onPixelTapped(pixel: Pixel) {
         try {
             pixel.setBackgroundColor(colour)
+            BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap())
         } catch (e: Exception) {
-
         }
     }
 }
