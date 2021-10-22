@@ -37,7 +37,7 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:orientation="horizontal"
@@ -48,7 +48,7 @@
         <View
             android:id="@+id/colorRed"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:background="@android:color/holo_red_light"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         <View
             android:id="@+id/colorGreen"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:background="@android:color/holo_green_light"
             app:layout_constraintStart_toEndOf="@+id/colorRed"
@@ -66,7 +66,7 @@
         <View
             android:id="@+id/colorBlue"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:background="@android:color/holo_blue_bright"
             app:layout_constraintStart_toEndOf="@+id/colorGreen"
@@ -75,7 +75,7 @@
         <View
             android:id="@+id/colorPurple"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:background="@android:color/holo_purple"
             app:layout_constraintStart_toEndOf="@+id/colorBlue"
@@ -84,7 +84,7 @@
         <View
             android:id="@+id/colorPink"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="65dp"
             android:layout_weight="1"
             android:background=" #FFC0CB"
             app:layout_constraintStart_toEndOf="@+id/colorPurple"
