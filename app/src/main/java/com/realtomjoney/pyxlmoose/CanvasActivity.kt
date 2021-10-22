@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose
 
-import android.app.Dialog
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,16 +10,7 @@ import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import android.widget.RelativeLayout
-
-import android.content.DialogInterface
 import android.content.res.ColorStateList
-
-import android.graphics.drawable.ColorDrawable
-import android.view.Window
-import android.widget.ImageView
-import androidx.core.view.ViewCompat.setBackgroundTintList
-
 
 var colour: Int = Color.BLACK
 
