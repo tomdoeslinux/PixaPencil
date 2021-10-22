@@ -22,24 +22,24 @@ fun myFunc() {
 
 }
 ```
-
+---
 #### Functions with one line:
 ``` Kotlin
 fun getInt() = 5 
 ```
-
+---
 #### Functions that return something and have more than one line:
 ``` Kotlin
 fun getDog(): Dog {
   return Dog()
 }
 ```
-
+---
 #### Variables:
 ```Kotlin
 val x = "Hello"
 ```
-
+---
 
 #### Parameters:
 ```Kotlin
@@ -47,8 +47,7 @@ fun myFunc(any: Any) {
 
 }
 ```
-
-
+---
 #### Classes:
 ```Kotlin
 class Dog : Animal {
