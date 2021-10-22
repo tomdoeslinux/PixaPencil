@@ -14,10 +14,12 @@ import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.widget.RelativeLayout
 
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.widget.ImageView
+import androidx.core.view.ViewCompat.setBackgroundTintList
 
 
 var colour: Int = Color.BLACK
@@ -88,7 +90,7 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.view.setBackgroundColor(list[position])
+        holder.view.backgroundTintList = ColorStateList.valueOf(list[position])
 
         holder.view.setOnClickListener {
             colour = list[position]
