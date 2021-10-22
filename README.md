@@ -1,5 +1,4 @@
 # PyxlMoose
-![stack Overflow](https://i.imgur.com/siBjI07.png)
 
 ----
 
