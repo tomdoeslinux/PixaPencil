@@ -87,6 +87,15 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
         return gd
     }
 
+    fun updateColourSelectedIndicator(it: View) {
+        previousView?.background = background
+
+        previousView = it
+        background = it.background
+
+        it.background = getGradientDrawable()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(
@@ -104,24 +113,12 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
         holder.view.setOnClickListener {
             colour = list[position]
 
-            if (!isSelected) {
-                previousView?.background = background
-
-                previousView = it
-                background = holder.view.background
-
-                holder.view.background = getGradientDrawable()
-
-                isSelected = true
+            isSelected = if (!isSelected) {
+                updateColourSelectedIndicator(it)
+                true
             } else {
-                previousView!!.background = background
-
-                previousView = it
-                background = holder.view.background
-
-                it.background = getGradientDrawable()
-
-                isSelected = false
+                updateColourSelectedIndicator(it)
+                false
             }
         }
     }
