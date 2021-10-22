@@ -14,3 +14,36 @@ I would love your input! I have a goal of making contributing to this project as
 - _Proposing new features_
 - _Becoming a maintainer_
 
+# Use a Consistent Coding Style
+
+#### Functions:
+``` Kotlin
+fun myFunc() {
+
+}
+```
+
+
+#### Variables:
+```Kotlin
+val x = "Hello"
+```
+
+
+#### Parameters:
+```Kotlin
+fun myFunc(any: Any) {
+
+}
+```
+
+
+#### Classes:
+```Kotlin
+class Dog : Animal {
+
+}
+```
+
+
+_Do not use the PyxlMoose name anywhere else other than this project.😊_
