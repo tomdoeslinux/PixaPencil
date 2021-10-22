@@ -13,11 +13,6 @@ import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.shapes.OvalShape
-import android.graphics.drawable.ShapeDrawable
-
-
-
 
 var colour: Int = Color.BLACK
 
@@ -75,11 +70,11 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
-    var isSelected = false
-    var previousView: View? = null
-    var background: Drawable? = null
+    private var isSelected = false
+    private var previousView: View? = null
+    private var background: Drawable? = null
 
-    fun getGradientDrawable(): GradientDrawable {
+    private fun getGradientDrawable(): GradientDrawable {
         val gd = GradientDrawable()
         gd.setColor(Color.RED)
         gd.cornerRadius = 10f
@@ -87,7 +82,7 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
         return gd
     }
 
-    fun updateColourSelectedIndicator(it: View) {
+    private fun updateColourSelectedIndicator(it: View) {
         previousView?.background = background
 
         previousView = it
