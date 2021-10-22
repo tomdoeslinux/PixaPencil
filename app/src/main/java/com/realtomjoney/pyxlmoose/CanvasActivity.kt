@@ -11,6 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.shapes.OvalShape
+import android.graphics.drawable.ShapeDrawable
+
+
+
 
 var colour: Int = Color.BLACK
 
@@ -68,6 +75,18 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
+    var isSelected = false
+    var previousView: View? = null
+    var background: Drawable? = null
+
+    fun getGradientDrawable(): GradientDrawable {
+        val gd = GradientDrawable()
+        gd.setColor(Color.RED)
+        gd.cornerRadius = 10f
+        gd.setStroke(2, Color.BLACK)
+        return gd
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(
@@ -83,7 +102,28 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
         holder.view.backgroundTintList = ColorStateList.valueOf(list[position])
 
         holder.view.setOnClickListener {
-            colour = list[position]
+
+            if (!isSelected) {
+                colour = list[position]
+
+                previousView?.background = background
+
+                previousView = it
+                background = holder.view.background
+
+                holder.view.background = getGradientDrawable()
+
+                isSelected = true
+            } else {
+                previousView!!.background = background
+
+                previousView = it
+                background = holder.view.background
+
+                it.background = getGradientDrawable()
+
+                isSelected = false
+            }
         }
     }
 
