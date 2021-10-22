@@ -1,20 +1,13 @@
 package com.realtomjoney.pyxlmoose
 
-import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 
 var colour: Int = Color.BLACK
@@ -22,7 +15,7 @@ var colour: Int = Color.BLACK
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
 
-    var data = listOf<Pixel>()
+    private var data = listOf<Pixel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +30,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         binding.colourPickerRecyclerView.layoutManager = layoutManager
 
         binding.colourPickerRecyclerView.adapter = MyAdapter(listOf(
-            Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.BLACK, Color.argb(100, 255, 69, 0)), binding.rootLayout)
+            Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.BLACK, Color.argb(100, 255, 69, 0)))
     }
 
     private fun setUpFragment() {
@@ -70,8 +63,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     }
 }
 
-class MyAdapter(private val list: List<Int>,
-                private val rootLayout: View) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
