@@ -1,4 +1,6 @@
 # PyxlMoose
-A pixel art creator for Android.
+![stack Overflow](https://i.imgur.com/siBjI07.png)
 
-<img src="https://static01.bbi.io/2Wt9Tk.gif"/>
+----
+
+**A pixel art creator for Android.**
