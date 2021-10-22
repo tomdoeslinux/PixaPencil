@@ -23,6 +23,17 @@ fun myFunc() {
 }
 ```
 
+#### Functions with one line:
+``` Kotlin
+fun getInt() = 5 
+```
+
+#### Functions that return something and have more than one line:
+``` Kotlin
+fun getDog(): Dog {
+  return Dog()
+}
+```
 
 #### Variables:
 ```Kotlin
