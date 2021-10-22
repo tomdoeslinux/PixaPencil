@@ -14,9 +14,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:background="@null"
-        android:fontFamily="sans-serif-black"
-        android:text="Drawing 1"
+        android:fontFamily="sans-serif-light"
         android:textColor="@color/black"
+        android:hint="Name"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
