@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rootLayout"
     tools:context=".CanvasActivity">
 
     <EditText
@@ -36,6 +37,7 @@
     </com.realtomjoney.pyxlmoose.SquareFrameLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -43,59 +45,19 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentHost">
+        app:layout_constraintTop_toBottomOf="@+id/fragmentHost"/>
 
-        <View
-            android:id="@+id/colorRed"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_red_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-        <View
-            android:id="@+id/colorGreen"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_light"
-            app:layout_constraintStart_toEndOf="@+id/colorRed"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/colourPickerRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <View
-            android:id="@+id/colorBlue"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_blue_bright"
-            app:layout_constraintStart_toEndOf="@+id/colorGreen"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-        <View
-            android:id="@+id/colorPurple"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_purple"
-            app:layout_constraintStart_toEndOf="@+id/colorBlue"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-        <View
-            android:id="@+id/colorPink"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:background=" #FFC0CB"
-            app:layout_constraintStart_toEndOf="@+id/colorPurple"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
-    </LinearLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="435dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
