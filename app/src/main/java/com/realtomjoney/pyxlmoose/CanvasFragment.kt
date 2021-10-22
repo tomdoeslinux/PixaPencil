@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
-class CanvasFragment : Fragment() {
+class CanvasFragment(private val spanCount: Int) : Fragment() {
     private var _binding: FragmentCanvasBinding? = null
 
     private val binding get() = _binding!!
@@ -17,8 +17,8 @@ class CanvasFragment : Fragment() {
     private lateinit var caller: CanvasFragmentListener
 
     companion object {
-        fun newInstance(): CanvasFragment {
-            return CanvasFragment()
+        fun newInstance(spanCount: Int): CanvasFragment {
+            return CanvasFragment(spanCount)
         }
     }
 
@@ -41,7 +41,7 @@ class CanvasFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         val context = activity as Context
-        binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, 25)
+        binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, spanCount)
         val pixels = caller.initPixels()
         binding.canvasRecyclerView.adapter = CanvasRecyclerAdapter(pixels, caller)
         binding.canvasRecyclerView.suppressLayout(true)

@@ -3,6 +3,7 @@ package com.realtomjoney.pyxlmoose
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 
@@ -16,7 +17,13 @@ class MainActivity : AppCompatActivity() {
 
         // TODO: In the future we can navigate using Jetpack Navigation
         binding.floatingActionButton.setOnClickListener {
-            startActivity(Intent(this, CanvasActivity::class.java))
+            val intent = Intent(this, CanvasActivity::class.java)
+
+            val asInt = Integer.parseInt(binding.spanCountEditText.text.toString())
+
+            intent.putExtra("SPAN_COUNT", asInt)
+
+            startActivity(intent)
         }
 
         setGreetingText()

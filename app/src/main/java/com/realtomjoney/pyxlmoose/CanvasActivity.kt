@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 
 var colour: Int = Color.BLACK
+var spanCount = 5
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
@@ -23,6 +24,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
         setBindings()
         setUpFragment()
         setUpRecyclerView()
@@ -40,7 +42,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private fun setUpFragment() {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragmentHost, CanvasFragment.newInstance()).commit()
+            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount)).commit()
     }
 
     private fun setBindings() {
@@ -50,7 +52,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
     override fun initPixels(): List<Pixel> {
         val list = mutableListOf<Pixel>()
-        for (i in 1..625) {
+        for (i in 1..spanCount * spanCount) {
             val px = Pixel(this)
             list.add(px)
         }
