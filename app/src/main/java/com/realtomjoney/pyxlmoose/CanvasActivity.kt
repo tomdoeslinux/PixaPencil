@@ -25,9 +25,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
+
         setBindings()
         setUpFragment()
         setUpRecyclerView()
+
+        binding.doneButton.setOnClickListener {
+            if (binding.titleTextView.text.toString() != "") {
+                finish()
+            }
+        }
     }
 
     private fun setUpRecyclerView() {
