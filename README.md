@@ -54,6 +54,10 @@ class Dog : Animal {
 
 }
 ```
-
+---
+#### Constants:
+```Kotlin
+const val MY_AGE = 15
+```
 
 _Do not use the PyxlMoose name anywhere else other than this project.😊_
