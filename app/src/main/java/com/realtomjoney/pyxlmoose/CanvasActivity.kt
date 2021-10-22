@@ -103,9 +103,8 @@ class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.My
 
         holder.view.setOnClickListener {
 
-            colour = list[position]
-
             if (!isSelected) {
+                colour = list[position]
 
                 previousView?.background = background
 
