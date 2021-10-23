@@ -79,12 +79,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="RGB"
-        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromHexButton2"
-        app:layout_constraintStart_toEndOf="@+id/chooseColourFromHexButton2"
-        app:layout_constraintTop_toTopOf="@+id/chooseColourFromHexButton2" />
+        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromHexButton"
+        app:layout_constraintStart_toEndOf="@+id/chooseColourFromHexButton"
+        app:layout_constraintTop_toTopOf="@+id/chooseColourFromHexButton" />
 
     <Button
-        android:id="@+id/chooseColourFromHexButton2"
+        android:id="@+id/chooseColourFromHexButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
