@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         if (!hasNavigatedBack) {
-            binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
+            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 3)
             binding.recentCreationsRecyclerView.adapter =
                 RecentCreationsAdapter(BitmapDatabase.toList())
         } else {
