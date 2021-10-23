@@ -9,19 +9,11 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/doneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:clickable="true"
-        android:paddingStart="20dp"
-        android:paddingEnd="0dp"
+        style="@style/default_extended_fab_style"
         android:text="@string/button_done_str"
-        android:textAllCaps="false"
         app:icon="@drawable/ic_baseline_check_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:shapeAppearanceOverlay="@style/fab_3_rounded" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/titleTextView"

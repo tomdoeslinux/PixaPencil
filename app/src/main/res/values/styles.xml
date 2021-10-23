@@ -4,4 +4,15 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">25%</item>
     </style>
+
+    <style name="default_extended_fab_style" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="shapeAppearanceOverlay">@style/fab_3_rounded</item>
+    </style>
 </resources>
