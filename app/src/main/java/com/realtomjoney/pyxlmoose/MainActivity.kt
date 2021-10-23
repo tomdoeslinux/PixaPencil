@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         if (!hasNavigatedBack) {
-            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 3)
+            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 4)
             binding.recentCreationsRecyclerView.adapter =
                 RecentCreationsAdapter(BitmapDatabase.toList())
         } else {
