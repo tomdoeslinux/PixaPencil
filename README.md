@@ -7,6 +7,7 @@
 ![Fri Oct 22 2021 10_20_15 PM](https://user-images.githubusercontent.com/50536495/138430387-76f56fbe-14de-4624-b330-cb9eab59eac7.gif)
 # Showcasing the app's capabilities
 ![drawing](https://user-images.githubusercontent.com/50536495/138544026-4bd15055-3794-4786-a758-9c2f2633381f.png)
+![Screenshot 2021-10-24 110235](https://user-images.githubusercontent.com/50536495/138572942-c017eb05-85a4-4159-a351-3204e5d422aa.png)
 
 
 # Contributing Guidelines
