@@ -18,11 +18,16 @@ import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
 
-var colour: Int = Color.BLACK
+var selectedColour: Int = Color.BLACK
 var spanCount = 5
 const val TOAST_MESSAGE = "Please name your project."
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
+interface ColourPickerListener {
+    fun onColourTapped(colour: Int, it: View)
+}
+
+
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
 
     private var data = listOf<Pixel>()
@@ -220,7 +225,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
         builder.setView(input)
         builder.setPositiveButton("OK") { _, _ ->
-            colour = Color.parseColor(input.text.toString())
+            selectedColour = Color.parseColor(input.text.toString())
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -254,7 +259,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         builder.setView(layout)
 
         builder.setPositiveButton("OK") { _, _ ->
-            colour = Color.argb(
+            selectedColour = Color.argb(
                 100,
                 editTexts[0].text.toString().toInt(),
                 editTexts[0].text.toString().toInt(),
@@ -272,7 +277,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.colourPickerRecyclerView.layoutManager = layoutManager
 
-        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(colourData)
+        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(colourData, this)
     }
 
     private fun setUpFragment() {
@@ -298,14 +303,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
     override fun onPixelTapped(pixel: Pixel) {
         try {
-            pixel.setBackgroundColor(colour)
+            pixel.setBackgroundColor(selectedColour)
         } catch (e: Exception) {
         }
     }
-}
-
-class ColourPickerAdapter(private val list: List<Int>) : RecyclerView.Adapter<ColourPickerAdapter.MyViewHolder>() {
-    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     private var isSelected = false
     private var previousView: View? = null
@@ -328,6 +329,22 @@ class ColourPickerAdapter(private val list: List<Int>) : RecyclerView.Adapter<Co
         it.background = getGradientDrawable()
     }
 
+    override fun onColourTapped(colour: Int, it: View) {
+        selectedColour = colour
+
+        isSelected = if (!isSelected) {
+            updateColourSelectedIndicator(it)
+            true
+        } else {
+            updateColourSelectedIndicator(it)
+            false
+        }
+    }
+}
+
+class ColourPickerAdapter(private val list: List<Int>, private val caller: ColourPickerListener) : RecyclerView.Adapter<ColourPickerAdapter.MyViewHolder>() {
+    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(
@@ -343,15 +360,7 @@ class ColourPickerAdapter(private val list: List<Int>) : RecyclerView.Adapter<Co
         holder.view.backgroundTintList = ColorStateList.valueOf(list[position])
 
         holder.view.setOnClickListener {
-            colour = list[position]
-
-            isSelected = if (!isSelected) {
-                updateColourSelectedIndicator(it)
-                true
-            } else {
-                updateColourSelectedIndicator(it)
-                false
-            }
+            caller.onColourTapped(list[position], it)
         }
     }
 
