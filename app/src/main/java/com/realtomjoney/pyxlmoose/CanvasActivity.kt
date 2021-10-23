@@ -201,22 +201,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         }
 
         binding.chooseColourFromHexButton.setOnClickListener {
-            getHexDialogBuilder("Hexadecimal", "Input a hexadecimal value", "Hex value").create().show()
+            getHexDialogBuilder().create().show()
         }
 
         binding.chooseColourFromRGBButton.setOnClickListener {
-            getRGBDialogBuilder("RGB", "Input an RGB value", listOf("R", "G", "B")).create().show()
+            getRGBDialogBuilder().create().show()
         }
     }
 
-    private fun getHexDialogBuilder(title: String, msg: String, hint: String): AlertDialog.Builder {
+    private fun getHexDialogBuilder(): AlertDialog.Builder {
         val builder = AlertDialog.Builder(this)
 
-        builder.setTitle(title)
-        builder.setMessage(msg)
+        builder.setTitle("Hexadecimal")
+        builder.setMessage("Input a hexadecimal value")
 
         val input = EditText(this)
-        input.hint = hint
+        input.hint = "Hex value"
 
         builder.setView(input)
         builder.setPositiveButton("OK") { _, _ ->
@@ -228,13 +228,15 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         return builder
     }
 
-    private fun getRGBDialogBuilder(title: String, msg: String, hints: List<String>): AlertDialog.Builder {
+    private fun getRGBDialogBuilder(): AlertDialog.Builder {
+        val hints = listOf("R", "G", "B")
+
         val editTextNum: Int = hints.size
 
         val builder = AlertDialog.Builder(this)
 
-        builder.setTitle(title)
-        builder.setMessage(msg)
+        builder.setTitle("RGB")
+        builder.setMessage("Input an RGB value")
 
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
