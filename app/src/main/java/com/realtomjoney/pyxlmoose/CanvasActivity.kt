@@ -31,7 +31,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         setBindings()
         setUpFragment()
         setUpRecyclerView()
+        setOnClickListeners()
+    }
 
+    private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString() != "") {
                 BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap())
