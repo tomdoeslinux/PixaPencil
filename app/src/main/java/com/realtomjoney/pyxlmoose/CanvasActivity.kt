@@ -17,7 +17,6 @@ import android.graphics.drawable.GradientDrawable
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
-import androidx.core.graphics.toColor
 
 var selectedColour: Int = Color.BLACK
 var spanCount = 5
