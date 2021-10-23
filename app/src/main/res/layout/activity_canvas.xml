@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="RGB"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromHexButton"
         app:layout_constraintStart_toEndOf="@+id/chooseColourFromHexButton"
         app:layout_constraintTop_toTopOf="@+id/chooseColourFromHexButton" />
@@ -80,6 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Hex"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:layout_constraintStart_toStartOf="@+id/colourPickerRecyclerView"
         app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView" />
 
