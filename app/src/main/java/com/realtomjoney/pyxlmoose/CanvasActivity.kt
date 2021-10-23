@@ -17,6 +17,7 @@ import android.graphics.drawable.GradientDrawable
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
+import androidx.core.graphics.toColor
 
 var selectedColour: Int = Color.BLACK
 var spanCount = 5
@@ -193,6 +194,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setUpFragment()
         setUpRecyclerView()
         setOnClickListeners()
+
+        binding.colourSelected.setBackgroundColor(selectedColour)
     }
 
     private fun setOnClickListeners() {
@@ -226,6 +229,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         builder.setView(input)
         builder.setPositiveButton("OK") { _, _ ->
             selectedColour = Color.parseColor(input.text.toString())
+            binding.colourSelected.setBackgroundColor(selectedColour)
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -265,6 +269,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 editTexts[0].text.toString().toInt(),
                 editTexts[0].text.toString().toInt(),
             )
+            binding.colourSelected.setBackgroundColor(selectedColour)
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -331,6 +336,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onColourTapped(colour: Int, it: View) {
         selectedColour = colour
+        binding.colourSelected.setBackgroundColor(selectedColour)
 
         isSelected = if (!isSelected) {
             updateColourSelectedIndicator(it)
