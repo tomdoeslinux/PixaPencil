@@ -22,13 +22,7 @@
 
     <TextView
         android:id="@+id/subtitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/subtitle_str"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        style="@style/main_activity_subtitle_style"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
