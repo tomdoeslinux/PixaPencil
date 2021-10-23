@@ -43,6 +43,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
                 Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.chooseColourFromHexButton.setOnClickListener {
+
+        }
+
+        binding.chooseColourFromRGBButton.setOnClickListener {
+
+        }
     }
 
     private fun setUpRecyclerView() {
