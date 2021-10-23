@@ -16,6 +16,10 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.widget.EditText
 import android.widget.Toast
+import android.widget.LinearLayout
+
+
+
 
 var colour: Int = Color.BLACK
 var spanCount = 5
@@ -47,15 +51,15 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         }
 
         binding.chooseColourFromHexButton.setOnClickListener {
-            showAlertDialogWithEditText("Hexadecimal", "Input a hexadecimal value", "Hex value")
+            getHexDialogBuilder("Hexadecimal", "Input a hexadecimal value", "Hex value").create().show()
         }
 
         binding.chooseColourFromRGBButton.setOnClickListener {
-
+            getRGBDialogBuilder("RGB", "Input an RGB value", listOf("R", "G", "B")).create().show()
         }
     }
 
-    private fun showAlertDialogWithEditText(title: String, msg: String, hint: String) {
+    private fun getHexDialogBuilder(title: String, msg: String, hint: String): AlertDialog.Builder {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle(title)
@@ -69,12 +73,46 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
             colour = Color.parseColor(input.text.toString())
         }
 
-        builder.setNegativeButton("Cancel") { _, _ ->
+        builder.setNegativeButton("Cancel") { _, _ -> }
 
+        return builder
+    }
+
+    private fun getRGBDialogBuilder(title: String, msg: String, hints: List<String>): AlertDialog.Builder {
+        val editTextNum: Int = hints.size
+
+        val builder = AlertDialog.Builder(this)
+
+        builder.setTitle(title)
+        builder.setMessage(msg)
+
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+
+        val editTexts = mutableListOf<EditText>()
+
+        for (i in 0 until editTextNum) {
+            val editText = EditText(this)
+            editText.hint = hints[i]
+            layout.addView(editText)
+
+            editTexts.add(editText)
         }
 
-        val dialog = builder.create()
-        dialog.show()
+        builder.setView(layout)
+
+        builder.setPositiveButton("OK") { _, _ ->
+            colour = Color.argb(
+                100,
+                editTexts[0].text.toString().toInt(),
+                editTexts[0].text.toString().toInt(),
+                editTexts[0].text.toString().toInt(),
+            )
+        }
+
+        builder.setNegativeButton("Cancel") { _, _ -> }
+
+        return builder
     }
 
     private fun setUpRecyclerView() {
