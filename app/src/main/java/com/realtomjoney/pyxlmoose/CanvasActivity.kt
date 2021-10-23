@@ -270,8 +270,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.colourPickerRecyclerView.layoutManager = layoutManager
 
-        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(listOf(
-            Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.BLACK, Color.argb(100, 255, 69, 0)))
+        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(colourData)
     }
 
     private fun setUpFragment() {
