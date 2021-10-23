@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.widget.Toast
 
 var colour: Int = Color.BLACK
 var spanCount = 5
+const val TOAST_MESSAGE = "Please name your project."
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
@@ -32,7 +35,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
 
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString() != "") {
-                finish()
+                BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap())
+                super.onBackPressed()
+            } else {
+                Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -42,7 +48,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.colourPickerRecyclerView.layoutManager = layoutManager
 
-        binding.colourPickerRecyclerView.adapter = MyAdapter(listOf(
+        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(listOf(
             Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.BLACK, Color.argb(100, 255, 69, 0)))
     }
 
@@ -70,13 +76,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
     override fun onPixelTapped(pixel: Pixel) {
         try {
             pixel.setBackgroundColor(colour)
-            BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap())
         } catch (e: Exception) {
         }
     }
 }
 
-class MyAdapter(private val list: List<Int>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class ColourPickerAdapter(private val list: List<Int>) : RecyclerView.Adapter<ColourPickerAdapter.MyViewHolder>() {
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     private var isSelected = false

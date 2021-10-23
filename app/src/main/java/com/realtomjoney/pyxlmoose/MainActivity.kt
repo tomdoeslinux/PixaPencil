@@ -1,15 +1,28 @@
 package com.realtomjoney.pyxlmoose
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var hasNavigatedBack = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +42,16 @@ class MainActivity : AppCompatActivity() {
         setGreetingText()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-        if (BitmapDatabase.toList().isNotEmpty()) {
-            binding.lastCreation.setImageBitmap(BitmapDatabase.toList().last())
+
+        if (!hasNavigatedBack) {
+            binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
+            binding.recentCreationsRecyclerView.adapter =
+                RecentCreationsAdapter(BitmapDatabase.toList())
+        } else {
+            binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
     }
 
@@ -56,3 +75,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 }
+
+class RecentCreationsAdapter(private val list: List<Bitmap>) : RecyclerView.Adapter<RecentCreationsAdapter.ImageViewHolder>() {
+    class ImageViewHolder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
+        val imageView = LayoutInflater.from(parent.context)
+            .inflate(
+                R.layout.recent_creations_layout,
+                parent,
+                false
+            ) as ImageView
+
+        return ImageViewHolder(imageView)
+    }
+
+    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
+        for (bitmap in list) {
+            holder.imageView.setImageBitmap(list[position])
+        }
+    }
+
+    override fun getItemCount() = list.size
+
+
+}
+
