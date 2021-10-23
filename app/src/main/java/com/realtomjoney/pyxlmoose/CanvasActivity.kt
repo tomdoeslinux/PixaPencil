@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.app.AlertDialog
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.widget.EditText
 import android.widget.Toast
 
 var colour: Int = Color.BLACK
@@ -45,12 +47,34 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener {
         }
 
         binding.chooseColourFromHexButton.setOnClickListener {
-
+            showAlertDialogWithEditText("Hexadecimal", "Input a hexadecimal value", "Hex value")
         }
 
         binding.chooseColourFromRGBButton.setOnClickListener {
 
         }
+    }
+
+    private fun showAlertDialogWithEditText(title: String, msg: String, hint: String) {
+        val builder = AlertDialog.Builder(this)
+
+        builder.setTitle(title)
+        builder.setMessage(msg)
+
+        val input = EditText(this)
+        input.hint = hint
+
+        builder.setView(input)
+        builder.setPositiveButton("OK") { _, _ ->
+            colour = Color.parseColor(input.text.toString())
+        }
+
+        builder.setNegativeButton("Cancel") { _, _ ->
+
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun setUpRecyclerView() {
