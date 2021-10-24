@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import android.content.res.ColorStateList
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
@@ -23,17 +21,10 @@ var spanCount = 5
 const val TOAST_MESSAGE = "Please name your project."
 var isPrimaryColourSelected = true
 
-interface ColourPickerListener {
-    fun onColourTapped(colour: Int, it: View)
-}
-
-
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
 
     private var data = listOf<Pixel>()
-
-    private var colourData = ColourDatabase.toList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +52,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             R.id.zoom_in -> {
                 binding.fragmentHost.scaleX += zoom; binding.fragmentHost.scaleY += zoom
             }
-        }
-        return true
+        }; return true
     }
 
     private fun setColours() {
@@ -70,9 +60,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setSecondaryPixelColour(Color.MAGENTA)
     }
 
-    private fun setPixelColour(it: Int) {
-        if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
-    }
+    private fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
+
 
     private fun setPrimaryPixelColour(colour: Int) {
         primaryColour = colour
@@ -175,8 +164,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.colourPickerRecyclerView.layoutManager = layoutManager
-
-        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(colourData, this)
+        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(ColourDatabase.toList(), this)
     }
 
     private fun setUpFragment() {
@@ -193,8 +181,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun initPixels(): List<Pixel> {
         val list = mutableListOf<Pixel>()
         for (i in 1..spanCount * spanCount) {
-            val px = Pixel(this)
-            list.add(px)
+            list.add(Pixel(this))
         }
         data = list
         return list.toList()
@@ -237,30 +224,5 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             false
         }
     }
-}
-
-class ColourPickerAdapter(private val list: List<Int>, private val caller: ColourPickerListener) : RecyclerView.Adapter<ColourPickerAdapter.MyViewHolder>() {
-    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val textView = LayoutInflater.from(parent.context)
-            .inflate(
-                R.layout.colour_picker_layout,
-                parent,
-                false
-            ) as View
-
-        return MyViewHolder(textView)
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.view.backgroundTintList = ColorStateList.valueOf(list[position])
-
-        holder.view.setOnClickListener {
-            caller.onColourTapped(list[position], it)
-        }
-    }
-
-    override fun getItemCount() = list.size
 }
 
