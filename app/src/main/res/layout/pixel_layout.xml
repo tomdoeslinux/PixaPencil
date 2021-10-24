@@ -2,6 +2,7 @@
 <com.realtomjoney.pyxlmoose.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/pixelParent">
+    android:id="@+id/pixelParent"
+    android:background="@drawable/border_drawable_thin">
 
 </com.realtomjoney.pyxlmoose.SquareFrameLayout>
