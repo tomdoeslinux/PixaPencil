@@ -12,15 +12,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.content.res.ColorStateList
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
 
-var selectedColour: Int = Color.BLACK
+var primaryColour: Int = Color.BLACK
+var secondaryColour: Int = Color.MAGENTA
 var spanCount = 5
 const val TOAST_MESSAGE = "Please name your project."
+var isPrimaryColourSelected = true
 
 interface ColourPickerListener {
     fun onColourTapped(colour: Int, it: View)
@@ -43,7 +46,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setUpRecyclerView()
         setOnClickListeners()
 
-        binding.colourPrimarySelected.setBackgroundColor(selectedColour)
+        setPrimaryPixelColour(Color.BLACK)
+        setSecondaryPixelColour(Color.MAGENTA)
+    }
+
+    private fun setPixelColour(it: Int) {
+        if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
+    }
+
+    private fun setPrimaryPixelColour(colour: Int) {
+        primaryColour = colour
+        binding.colourPrimarySelected.setBackgroundColor(colour)
+    }
+
+    private fun setSecondaryPixelColour(colour: Int) {
+        secondaryColour = colour
+        binding.colourSecondarySelected.setBackgroundColor(colour)
     }
 
     private fun setOnClickListeners() {
@@ -63,6 +81,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.chooseColourFromRGBButton.setOnClickListener {
             getRGBDialogBuilder().create().show()
         }
+
+        binding.colourSecondarySelected.setOnClickListener {
+            isPrimaryColourSelected = false
+            setPixelColour((binding.colourSecondarySelected.background as ColorDrawable).color)
+        }
+
+        binding.colourPrimarySelected.setOnClickListener {
+            isPrimaryColourSelected = true
+            setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
+        }
     }
 
     private fun getHexDialogBuilder(): AlertDialog.Builder {
@@ -76,8 +104,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         builder.setView(input)
         builder.setPositiveButton("OK") { _, _ ->
-            selectedColour = Color.parseColor(input.text.toString())
-            binding.colourPrimarySelected.setBackgroundColor(selectedColour)
+            setPixelColour(Color.parseColor(input.text.toString()))
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -111,13 +138,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         builder.setView(layout)
 
         builder.setPositiveButton("OK") { _, _ ->
-            selectedColour = Color.argb(
+            setPixelColour(Color.argb(
                 100,
                 editTexts[0].text.toString().toInt(),
                 editTexts[0].text.toString().toInt(),
                 editTexts[0].text.toString().toInt(),
-            )
-            binding.colourPrimarySelected.setBackgroundColor(selectedColour)
+            ))
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -155,10 +181,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun onPixelTapped(pixel: Pixel) {
-        try {
-            pixel.setBackgroundColor(selectedColour)
-        } catch (e: Exception) {
-        }
+        if (isPrimaryColourSelected) pixel.setBackgroundColor(primaryColour) else pixel.setBackgroundColor(
+            secondaryColour)
     }
 
     private var isSelected = false
@@ -183,8 +207,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun onColourTapped(colour: Int, it: View) {
-        selectedColour = colour
-        binding.colourPrimarySelected.setBackgroundColor(selectedColour)
+        setPixelColour(colour)
 
         isSelected = if (!isSelected) {
             updateColourSelectedIndicator(it)
