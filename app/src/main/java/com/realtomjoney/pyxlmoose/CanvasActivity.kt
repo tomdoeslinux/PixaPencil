@@ -43,7 +43,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setUpRecyclerView()
         setOnClickListeners()
 
-        binding.colourSelected.setBackgroundColor(selectedColour)
+        binding.colourPrimarySelected.setBackgroundColor(selectedColour)
     }
 
     private fun setOnClickListeners() {
@@ -77,7 +77,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         builder.setView(input)
         builder.setPositiveButton("OK") { _, _ ->
             selectedColour = Color.parseColor(input.text.toString())
-            binding.colourSelected.setBackgroundColor(selectedColour)
+            binding.colourPrimarySelected.setBackgroundColor(selectedColour)
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -117,7 +117,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 editTexts[0].text.toString().toInt(),
                 editTexts[0].text.toString().toInt(),
             )
-            binding.colourSelected.setBackgroundColor(selectedColour)
+            binding.colourPrimarySelected.setBackgroundColor(selectedColour)
         }
 
         builder.setNegativeButton("Cancel") { _, _ -> }
@@ -184,7 +184,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onColourTapped(colour: Int, it: View) {
         selectedColour = colour
-        binding.colourSelected.setBackgroundColor(selectedColour)
+        binding.colourPrimarySelected.setBackgroundColor(selectedColour)
 
         isSelected = if (!isSelected) {
             updateColourSelectedIndicator(it)
