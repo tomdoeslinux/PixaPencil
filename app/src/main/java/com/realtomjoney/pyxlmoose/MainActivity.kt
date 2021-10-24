@@ -2,14 +2,9 @@ package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 
@@ -22,17 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setBindings()
 
-        // TODO: In the future we can navigate using Jetpack Navigation
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, CanvasActivity::class.java)
-
-            val asInt = Integer.parseInt(binding.spanCountEditText.text.toString())
-
-            intent.putExtra("SPAN_COUNT", asInt)
+            intent.putExtra("SPAN_COUNT", Integer.parseInt(binding.spanCountEditText.text.toString()))
 
             startActivity(intent)
         }
-
         setGreetingText()
     }
 
@@ -68,30 +58,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-}
-
-class RecentCreationsAdapter(private val list: List<Bitmap>) : RecyclerView.Adapter<RecentCreationsAdapter.ImageViewHolder>() {
-    class ImageViewHolder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView)
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-        val imageView = LayoutInflater.from(parent.context)
-            .inflate(
-                R.layout.recent_creations_layout,
-                parent,
-                false
-            ) as ImageView
-
-        return ImageViewHolder(imageView)
-    }
-
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        for (bitmap in list) {
-            holder.imageView.setImageBitmap(list[position])
-        }
-    }
-
-    override fun getItemCount() = list.size
-
-
 }
 
