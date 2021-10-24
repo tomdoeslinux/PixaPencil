@@ -15,6 +15,7 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.view.Menu
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
@@ -48,6 +49,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         setPrimaryPixelColour(Color.BLACK)
         setSecondaryPixelColour(Color.MAGENTA)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.app_menu, menu)
+        return true
     }
 
     private fun setPixelColour(it: Int) {
