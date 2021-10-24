@@ -43,9 +43,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setUpFragment()
         setUpRecyclerView()
         setOnClickListeners()
-
-        setPrimaryPixelColour(Color.BLACK)
-        setSecondaryPixelColour(Color.MAGENTA)
+        setColours()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -65,6 +63,11 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             }
         }
         return true
+    }
+
+    private fun setColours() {
+        setPrimaryPixelColour(Color.BLACK)
+        setSecondaryPixelColour(Color.MAGENTA)
     }
 
     private fun setPixelColour(it: Int) {
