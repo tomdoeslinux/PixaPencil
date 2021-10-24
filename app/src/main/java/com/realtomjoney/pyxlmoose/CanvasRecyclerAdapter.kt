@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 @SuppressLint("ClickableViewAccessibility")
 
-class CanvasRecyclerAdapter(private val pixels: List<Pixel>,
+class CanvasRecyclerAdapter(private val pixels: List<View>,
                             private val caller: CanvasFragmentListener) :
     RecyclerView.Adapter<RecyclerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {

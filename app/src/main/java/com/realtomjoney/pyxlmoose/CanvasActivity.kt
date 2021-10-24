@@ -24,7 +24,7 @@ var isPrimaryColourSelected = true
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
 
-    private var data = listOf<Pixel>()
+    private var data = listOf<View>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -178,16 +178,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setContentView(binding.root)
     }
 
-    override fun initPixels(): List<Pixel> {
-        val list = mutableListOf<Pixel>()
+    override fun initPixels(): List<View> {
+        val list = mutableListOf<View>()
         for (i in 1..spanCount * spanCount) {
-            list.add(Pixel(this))
+            list.add(View(this))
         }
         data = list
         return list.toList()
     }
 
-    override fun onPixelTapped(pixel: Pixel) {
+    override fun onPixelTapped(pixel: View) {
         if (isPrimaryColourSelected) pixel.setBackgroundColor(primaryColour) else pixel.setBackgroundColor(
             secondaryColour)
     }
