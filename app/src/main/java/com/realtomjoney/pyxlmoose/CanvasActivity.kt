@@ -4,9 +4,6 @@ import android.app.AlertDialog
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +12,7 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.view.Menu
+import android.view.*
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
@@ -54,6 +51,19 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.app_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val zoom = 0.3f
+        when (item.itemId) {
+            R.id.zoom_out -> {
+                binding.fragmentHost.scaleX -= zoom; binding.fragmentHost.scaleY -= zoom
+            }
+            R.id.zoom_in -> {
+                binding.fragmentHost.scaleX += zoom; binding.fragmentHost.scaleY += zoom
+            }
+        }
         return true
     }
 
