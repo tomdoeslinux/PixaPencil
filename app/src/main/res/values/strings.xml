@@ -10,4 +10,6 @@
     <string name="zoom_out">Zoom out</string>
     <string name="name_str">Name</string>
     <string name="rgb_str">RGB</string>
+    <string name="hex_str">Hex</string>
+    <string name="mirror_str">Mirror</string>
 </resources>
