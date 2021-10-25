@@ -120,11 +120,18 @@
         android:id="@+id/mirrorSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Mirror"
-        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromRGBButton"
-        app:layout_constraintStart_toEndOf="@+id/chooseColourFromRGBButton"
-        app:layout_constraintTop_toTopOf="@+id/chooseColourFromRGBButton" />
+        android:layout_marginTop="16dp"
+        android:text="Mirror Horizontal"
+        app:layout_constraintStart_toStartOf="@+id/chooseColourFromHexButton"
+        app:layout_constraintTop_toBottomOf="@+id/chooseColourFromHexButton" />
+
+    <Switch
+        android:id="@+id/mirrorSwitch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mirror Vertical"
+        app:layout_constraintStart_toStartOf="@+id/chooseColourFromHexButton"
+        app:layout_constraintTop_toBottomOf="@+id/mirrorSwitch" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

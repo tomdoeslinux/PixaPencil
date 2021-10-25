@@ -56,6 +56,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         }; return true
     }
 
+    private fun getSelectedColour(): Int {
+        return if (isPrimaryColourSelected) primaryColour else secondaryColour
+    }
+
     private fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
         setSecondaryPixelColour(Color.MAGENTA)
@@ -198,12 +202,11 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         if (isMirrorMode) {
             data[(indexOfIt - pos) + (spanCount - pos) - 1].setBackgroundColor(
-                primaryColour
+                getSelectedColour()
             ) // Credits to PapaBread for this masterpiece of a solution
         }
 
-        if (isPrimaryColourSelected) pixel.setBackgroundColor(primaryColour) else pixel.setBackgroundColor(
-            secondaryColour)
+        pixel.setBackgroundColor(getSelectedColour())
     }
 
     private var isSelected = false
