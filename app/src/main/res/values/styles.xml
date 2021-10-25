@@ -16,6 +16,9 @@
         <item name="android:tint">@color/white</item>
         <item name="tint">@null</item>
         <item name="shapeAppearanceOverlay">@style/fab_3_rounded</item>
+        <item name="android:backgroundTint">@android:color/holo_blue_light</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconTint">@color/white</item>
     </style>
 
     <style name="main_activity_title_style" parent="Widget.AppCompat.TextView">

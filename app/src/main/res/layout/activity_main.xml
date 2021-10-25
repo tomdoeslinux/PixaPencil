@@ -11,10 +11,7 @@
         style="@style/default_extended_fab_style"
         android:text="@string/floating_action_button_str"
         app:icon="@drawable/ic_baseline_add_24"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
