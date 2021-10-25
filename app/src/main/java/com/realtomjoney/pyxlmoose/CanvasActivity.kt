@@ -20,6 +20,7 @@ var secondaryColour: Int = Color.MAGENTA
 var spanCount = 5
 const val TOAST_MESSAGE = "Please name your project."
 var isPrimaryColourSelected = true
+var isMirrorMode = false
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
@@ -99,6 +100,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.colourPrimarySelected.setOnClickListener {
             isPrimaryColourSelected = true
             setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
+        }
+
+        binding.mirrorSwitch.setOnCheckedChangeListener { _, isChecked ->
+            isMirrorMode = isChecked
         }
     }
 
@@ -188,6 +193,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun onPixelTapped(pixel: View) {
+        val indexOfIt = data.indexOf(pixel)
+
+        if (isMirrorMode) {
+            data[(indexOfIt - (indexOfIt % spanCount)) + (spanCount - indexOfIt % spanCount) - 1].setBackgroundColor(
+                primaryColour
+            ) // Credits to PapaBread for this masterpiece of a solution
+        }
+
         if (isPrimaryColourSelected) pixel.setBackgroundColor(primaryColour) else pixel.setBackgroundColor(
             secondaryColour)
     }

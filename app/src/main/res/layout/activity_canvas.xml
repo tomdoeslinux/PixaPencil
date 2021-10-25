@@ -116,7 +116,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <Switch
+        android:id="@+id/mirrorSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Mirror"
+        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromRGBButton"
+        app:layout_constraintStart_toEndOf="@+id/chooseColourFromRGBButton"
+        app:layout_constraintTop_toTopOf="@+id/chooseColourFromRGBButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
