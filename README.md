@@ -41,6 +41,8 @@ override fun onPixelTapped(pixel: View) {
     }
 ```
 
+_Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
+
 ## Use a Consistent Coding Style
 <details><summary><b>Examples</b></summary>
 
