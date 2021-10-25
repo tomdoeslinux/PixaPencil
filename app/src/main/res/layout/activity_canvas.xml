@@ -12,9 +12,8 @@
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/border_drawable"
+        android:background="@drawable/border_drawable_frame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view">
 
@@ -122,10 +121,11 @@
         android:id="@+id/mirrorSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
         android:text="@string/mirror_str"
-        app:layout_constraintStart_toStartOf="@+id/chooseColourFromHexButton"
-        app:layout_constraintTop_toBottomOf="@+id/chooseColourFromHexButton" />
+        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromRGBButton"
+        app:layout_constraintStart_toEndOf="@+id/chooseColourFromRGBButton"
+        app:layout_constraintTop_toTopOf="@+id/chooseColourFromRGBButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
