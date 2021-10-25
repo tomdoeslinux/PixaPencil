@@ -21,6 +21,10 @@ I would love your input! I have a goal of making contributing to this project as
 ## Want to collaborate?
 If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
 
+## Shoutout
+Thank you to PapaBread#3820 for helping me out with the mathematics required to add a mirror tool into the app.
+
+
 ## Use a Consistent Coding Style
 <details><summary><b>Examples</b></summary>
 
