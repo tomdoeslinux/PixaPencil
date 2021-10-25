@@ -83,6 +83,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             if (binding.titleTextView.text.toString() != "") {
                 BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap())
                 super.onBackPressed()
+                isMirrorMode = false
             } else {
                 Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
             }
@@ -205,6 +206,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 getSelectedColour()
             ) // Credits to PapaBread for this masterpiece of a solution
         }
+
 
         pixel.setBackgroundColor(getSelectedColour())
     }
