@@ -1,9 +1,12 @@
 package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
@@ -19,9 +22,25 @@ class MainActivity : AppCompatActivity() {
 
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, CanvasActivity::class.java)
-            intent.putExtra("SPAN_COUNT", Integer.parseInt(binding.spanCountEditText.text.toString()))
 
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this)
+
+            builder.setTitle("Span Count")
+            builder.setMessage("Input a span count value:")
+
+            val input = EditText(this)
+            input.hint = "Span count value"
+
+            builder.setView(input)
+            builder.setPositiveButton("OK") { _, _ ->
+                intent.putExtra("SPAN_COUNT", Integer.parseInt(input.text.toString()))
+
+                startActivity(intent)
+            }
+
+            builder.setNegativeButton("Cancel") { _, _ -> }
+
+            builder.show()
         }
         setGreetingText()
     }

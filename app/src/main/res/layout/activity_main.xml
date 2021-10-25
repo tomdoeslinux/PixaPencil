@@ -26,25 +26,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
-    <EditText
-        android:id="@+id/spanCountEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:hint="Span Count"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentCreationsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/spanCountEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/subtitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
