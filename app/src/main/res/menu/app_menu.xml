@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/pixel_grid_on_off"
+        android:icon="@drawable/ic_baseline_grid_on_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/zoom_out" />
     <item android:id="@+id/zoom_in"
         android:icon="@drawable/ic_baseline_zoom_in_24"
         app:showAsAction="ifRoom"
