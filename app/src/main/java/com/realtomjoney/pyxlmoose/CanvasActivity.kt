@@ -15,7 +15,6 @@ import android.view.*
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
-import android.graphics.PorterDuff
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
 
@@ -114,8 +113,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         binding.mirrorButton.setOnClickListener {
             isMirrorMode = !isMirrorMode
-
-            val colour = binding.mirrorButton.background
 
             if (isMirrorMode) {
                 ImageViewCompat.setImageTintList(
