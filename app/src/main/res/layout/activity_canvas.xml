@@ -8,6 +8,7 @@
     android:id="@+id/rootLayout"
     tools:context=".CanvasActivity">
 
+
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"
@@ -34,8 +35,10 @@
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentHost" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentHost"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/doneButton"
@@ -123,9 +126,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/mirror_str"
+
         app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromRGBButton"
         app:layout_constraintStart_toEndOf="@+id/chooseColourFromRGBButton"
         app:layout_constraintTop_toTopOf="@+id/chooseColourFromRGBButton" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:elevation="0dp"
+        app:elevation="0dp"
+        app:tint="@color/white"
+        android:backgroundTint="@android:color/holo_blue_light"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_mirror" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

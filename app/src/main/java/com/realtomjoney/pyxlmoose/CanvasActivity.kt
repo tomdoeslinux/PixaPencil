@@ -200,7 +200,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onPixelTapped(pixel: View) {
         val indexOfIt = data.indexOf(pixel)
         val pos = indexOfIt % spanCount
-
         if (isMirrorMode) {
             data[(indexOfIt - pos) + (spanCount - pos) - 1].setBackgroundColor(
                 getSelectedColour()
