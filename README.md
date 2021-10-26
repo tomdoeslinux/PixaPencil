@@ -22,8 +22,26 @@ I would love your input! I have a goal of making contributing to this project as
 If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
 
 ## Shoutout
-Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app.
+_Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
 
+Because I want the code from this project to be accessible and open, I will show you guys the methodology used to mirror a pixel, I thought it would also be quite interesting to share:
+
+``` Kotlin
+override fun onPixelTapped(pixel: View) {
+        val indexOfIt = data.indexOf(pixel)
+        val pos = indexOfIt % spanCount
+        if (isMirrorMode) {
+            data[(indexOfIt - pos) + (spanCount - pos) - 1].setBackgroundColor(
+                getSelectedColour()
+            ) // Credits to PapaBread for this masterpiece of a solution
+        }
+
+
+        pixel.setBackgroundColor(getSelectedColour())
+    }
+```
+
+_Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 
 ## Use a Consistent Coding Style
 <details><summary><b>Examples</b></summary>
