@@ -2,6 +2,8 @@
 
 **A pixel art creator for Android using RecyclerView.**
 
+_Join our Discord: https://discord.gg/fZPWBfPvWd_
+
 ----
 ![Fri Oct 22 2021 10_20_15 PM](https://user-images.githubusercontent.com/50536495/138430387-76f56fbe-14de-4624-b330-cb9eab59eac7.gif)
 ## Showcasing the app's capabilities
