@@ -130,7 +130,6 @@
         android:elevation="0dp"
         app:elevation="0dp"
         app:tint="@color/white"
-        android:backgroundTint="@android:color/holo_blue_light"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_mirror" />

@@ -10,7 +10,6 @@ object ColourDatabase {
     }
 
     fun toList() = database.toList()
-
     init {
         val tempData = listOf(
             Color.parseColor("#0048BA"),

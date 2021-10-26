@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose
 
 import android.app.AlertDialog
+import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,10 @@ import android.view.*
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
+import android.graphics.PorterDuff
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.widget.ImageViewCompat
+
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -109,6 +114,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         binding.mirrorButton.setOnClickListener {
             isMirrorMode = !isMirrorMode
+
+            val colour = binding.mirrorButton.background
+
+            if (isMirrorMode) {
+                ImageViewCompat.setImageTintList(
+                    binding.mirrorButton,
+                    ColorStateList.valueOf(Color.BLACK)
+                )
+                binding.mirrorButton.backgroundTintList = AppCompatResources.getColorStateList(this, R.color.white)
+            } else {
+                ImageViewCompat.setImageTintList(
+                    binding.mirrorButton,
+                    ColorStateList.valueOf(Color.WHITE)
+                )
+                binding.mirrorButton.backgroundTintList = AppCompatResources.getColorStateList(this, R.color.teal_200)
+            }
         }
     }
 
