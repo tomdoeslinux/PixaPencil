@@ -17,11 +17,6 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
-import android.widget.RelativeLayout
-
-
-
-
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -64,7 +59,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             R.id.pixel_grid_on_off -> {
                 for (p in data) {
                     if (p.background == null) {
-
                         val gd = GradientDrawable()
                         gd.setColor(Color.WHITE)
                         gd.cornerRadius = 0f
