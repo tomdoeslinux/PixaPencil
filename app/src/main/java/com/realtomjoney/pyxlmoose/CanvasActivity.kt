@@ -107,8 +107,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
         }
 
-        binding.mirrorSwitch.setOnCheckedChangeListener { _, isChecked ->
-            isMirrorMode = isChecked
+        binding.mirrorButton.setOnClickListener {
+            isMirrorMode = !isMirrorMode
         }
     }
 

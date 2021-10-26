@@ -120,19 +120,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/mirrorSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/mirror_str"
-
-        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromRGBButton"
-        app:layout_constraintStart_toEndOf="@+id/chooseColourFromRGBButton"
-        app:layout_constraintTop_toTopOf="@+id/chooseColourFromRGBButton" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/mirrorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
