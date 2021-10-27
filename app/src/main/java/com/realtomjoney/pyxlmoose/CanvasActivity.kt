@@ -156,9 +156,17 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         binding.darkenButton.setOnClickListener {
             if (isPrimaryColourSelected) {
-                primaryColour = ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f)
+                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
             } else {
-                secondaryColour = ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f)
+                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
+            }
+        }
+
+        binding.lightenButton.setOnClickListener {
+            if (isPrimaryColourSelected) {
+                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
+            } else {
+                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
             }
         }
     }
