@@ -6,10 +6,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
-import android.graphics.drawable.ColorDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
@@ -21,9 +19,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
-
-        actionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)));
-
 
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, CanvasActivity::class.java)
