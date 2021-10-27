@@ -61,14 +61,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 if (pixelGridOn) {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false)).commit()
+                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false, data)).commit()
 
                     pixelGridOn = false
 
                 } else if (!pixelGridOn) {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
+                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, data)).commit()
 
                     pixelGridOn = true
                 }
@@ -216,7 +216,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setUpFragment() {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
+            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, null)).commit()
     }
 
     private fun setBindings() {
