@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose
 
-import android.app.AlertDialog
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -121,7 +120,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         binding.chooseColourFromHexButton.setOnClickListener { getHexDialogBuilder().show() }
 
-        binding.chooseColourFromRGBButton.setOnClickListener { getRGBDialogBuilder().create().show() }
+        binding.chooseColourFromRGBButton.setOnClickListener { getRGBDialogBuilder().show() }
 
         binding.colourSecondarySelected.setOnClickListener {
             isPrimaryColourSelected = false
@@ -164,41 +163,32 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             .setNegativeButton("Back") { _, _ -> }
     }
 
-    private fun getRGBDialogBuilder(): AlertDialog.Builder {
-        val hints = listOf("R", "G", "B")
-
-        val editTextNum: Int = hints.size
-
-        val builder = AlertDialog.Builder(this)
-
-        builder.setTitle("RGB")
-        builder.setMessage("Input an RGB value")
-
-        val layout = LinearLayout(this)
-        layout.orientation = LinearLayout.VERTICAL
+    private fun getRGBDialogBuilder(): MaterialAlertDialogBuilder {
+        val dialogueLayout = LinearLayout(this)
+        dialogueLayout.orientation = LinearLayout.VERTICAL
 
         val editTexts = mutableListOf<EditText>()
 
-        for (i in 0 until editTextNum) {
+        listOf("R", "G", "B").forEach {
             val editText = EditText(this)
-            editText.hint = hints[i]
-            layout.addView(editText)
-
+            editText.hint = it
+            dialogueLayout.addView(editText)
             editTexts.add(editText)
         }
 
-        builder.setView(layout)
-
-        builder.setPositiveButton("OK") { _, _ ->
-            setPixelColour(Color.argb(
-                100,
-                editTexts[0].text.toString().toInt(),
-                editTexts[0].text.toString().toInt(),
-                editTexts[0].text.toString().toInt(),
-            ))
-        }
-
-        builder.setNegativeButton("Cancel") { _, _ -> }
+        val builder = MaterialAlertDialogBuilder(this)
+            .setTitle("RGB")
+            .setMessage("Please input a valid RGB value:")
+            .setView(dialogueLayout)
+            .setPositiveButton("Done") { _, _ ->
+                setPixelColour(Color.argb(
+                    100,
+                    editTexts[0].text.toString().toInt(),
+                    editTexts[1].text.toString().toInt(),
+                    editTexts[2].text.toString().toInt(),
+                ))
+            }
+            .setNegativeButton("Back") { _, _ -> }
 
         return builder
     }
