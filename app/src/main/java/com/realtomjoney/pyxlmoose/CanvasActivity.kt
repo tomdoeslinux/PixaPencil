@@ -61,7 +61,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             R.id.pixel_grid_on_off -> {
                 for (p in data) {
                     if (pixelGridOn) {
-                        Snackbar.make(binding.rootLayout, "Turned off", Snackbar.LENGTH_LONG).show()
                         supportFragmentManager
                             .beginTransaction()
                             .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false)).commit()
@@ -69,7 +68,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                         pixelGridOn = false
 
                     } else if (!pixelGridOn) {
-                        Snackbar.make(binding.rootLayout, "Turned on", Snackbar.LENGTH_LONG).show()
                         supportFragmentManager
                             .beginTransaction()
                             .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
