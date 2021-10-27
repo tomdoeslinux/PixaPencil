@@ -17,6 +17,8 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
+import androidx.core.graphics.toColor
 import androidx.core.widget.ImageViewCompat
 
 var primaryColour: Int = Color.BLACK
@@ -64,6 +66,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                         .beginTransaction()
                         .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false, data)).commit()
                     item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_on_24)
+                    item.title = "Turn Grid On"
 
                     pixelGridOn = false
 
@@ -72,6 +75,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                         .beginTransaction()
                         .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, data)).commit()
                     item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_off_24)
+                    item.title = "Turn Grid Off"
 
                     pixelGridOn = true
                 }
@@ -147,6 +151,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                     ColorStateList.valueOf(Color.WHITE)
                 )
                 binding.mirrorButton.backgroundTintList = AppCompatResources.getColorStateList(this, R.color.teal_200)
+            }
+        }
+
+        binding.darkenButton.setOnClickListener {
+            if (isPrimaryColourSelected) {
+                primaryColour = ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f)
+            } else {
+                secondaryColour = ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f)
             }
         }
     }
