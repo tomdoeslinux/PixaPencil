@@ -18,7 +18,6 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
-import androidx.core.graphics.toColor
 import androidx.core.widget.ImageViewCompat
 
 var primaryColour: Int = Color.BLACK
