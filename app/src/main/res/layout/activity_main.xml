@@ -6,11 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        style="@style/default_extended_fab_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:fabCustomSize="80dp"
         android:text="@string/floating_action_button_str"
-        app:icon="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,5 +40,5 @@
         app:layout_constraintStart_toStartOf="@+id/subtitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
 
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
