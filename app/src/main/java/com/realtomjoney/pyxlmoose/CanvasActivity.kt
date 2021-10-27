@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
 import android.app.AlertDialog
-import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,10 +14,8 @@ import android.view.*
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
-import androidx.core.widget.ImageViewCompat
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -30,20 +27,15 @@ var pixelGridOn = true
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
-
-    var data = listOf<View>()
-
-    var index: Int? = null
-
+    private var data = listOf<View>()
+    private var index: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
         index = intent.getIntExtra("INDEX", -1)
 
-        if (index != -1) {
-            data = BitmapDatabase.toList()[index!!].pixelData
-        }
+        if (index != -1) data = BitmapDatabase.toList()[index!!].pixelData
 
         setBindings()
         setUpFragment()
@@ -116,22 +108,18 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
-            if (binding.titleTextView.text.toString() != "") {
+            if (binding.titleTextView.text.toString().isNotBlank()) {
                 BitmapDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data))
-                super.onBackPressed()
                 isMirrorMode = false
+                super.onBackPressed()
             } else {
                 Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
             }
         }
 
-        binding.chooseColourFromHexButton.setOnClickListener {
-            getHexDialogBuilder().create().show()
-        }
+        binding.chooseColourFromHexButton.setOnClickListener { getHexDialogBuilder().create().show() }
 
-        binding.chooseColourFromRGBButton.setOnClickListener {
-            getRGBDialogBuilder().create().show()
-        }
+        binding.chooseColourFromRGBButton.setOnClickListener { getRGBDialogBuilder().create().show() }
 
         binding.colourSecondarySelected.setOnClickListener {
             isPrimaryColourSelected = false
@@ -143,35 +131,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
         }
 
-        binding.mirrorButton.setOnClickListener {
-            isMirrorMode = !isMirrorMode
-
-            if (isMirrorMode) {
-                ImageViewCompat.setImageTintList(
-                    binding.mirrorButton,
-                    ColorStateList.valueOf(Color.BLACK)
-                ) } else {
-                ImageViewCompat.setImageTintList(
-                    binding.mirrorButton,
-                    ColorStateList.valueOf(Color.WHITE)
-                )
-                }
-        }
+        binding.mirrorButton.setOnClickListener { isMirrorMode = !isMirrorMode }
 
         binding.darkenButton.setOnClickListener {
-            if (isPrimaryColourSelected) {
-                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
-            } else {
-                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
-            }
+            if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
+            else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
         }
 
         binding.lightenButton.setOnClickListener {
-            if (isPrimaryColourSelected) {
-                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
-            } else {
-                setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
-            }
+            if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
+            else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
         }
     }
 
@@ -252,28 +221,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun initPixels(): List<View> {
-        if (index == -1) {
+        return if (index == -1) {
             val list = mutableListOf<View>()
-            for (i in 1..spanCount * spanCount) {
-                list.add(View(this))
-            }
+            for (i in 1..spanCount * spanCount) { list.add(View(this)) }
             data = list
-            return list.toList()
+            list.toList()
         } else {
-            return data.toList()
+            data.toList()
         }
     }
 
     override fun onPixelTapped(pixel: View) {
-        val indexOfIt = data.indexOf(pixel)
-        val pos = indexOfIt % spanCount
         if (isMirrorMode) {
-            data[(indexOfIt - pos) + (spanCount - pos) - 1].setBackgroundColor(
+            data[((data.indexOf(pixel)) - ((data.indexOf(pixel)).mod(spanCount))) + (spanCount -  ((data.indexOf(pixel)).mod(spanCount))) - 1].setBackgroundColor(
                 getSelectedColour()
             ) // Credits to PapaBread for this masterpiece of a solution
         }
-
-
         pixel.setBackgroundColor(getSelectedColour())
     }
 
