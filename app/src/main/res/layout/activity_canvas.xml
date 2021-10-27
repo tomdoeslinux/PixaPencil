@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootLayout"
     tools:context=".CanvasActivity">
-
-
+    
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"

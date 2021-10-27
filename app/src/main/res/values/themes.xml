@@ -5,7 +5,7 @@
         <item name="colorPrimary">@android:color/holo_blue_dark</item>
 
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@android:color/holo_blue_dark</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
@@ -19,10 +19,9 @@
         <item name="colorPrimaryInverse">@android:color/holo_blue_dark</item>
         <item name="colorPrimaryContainer">@android:color/holo_blue_dark</item>
         <item name="colorOnPrimaryContainer">@android:color/white</item>
-        <item name="colorSecondaryContainer">@android:color/white</item>
-        <item name="colorOnSecondaryContainer">@android:color/white</item>
-        <item name="colorTertiary">@android:color/white</item>
-        <item name="colorOnTertiary">@android:color/white</item>
+        <item name="colorOnSecondaryContainer">@android:color/holo_blue_light</item>
+        <item name="colorTertiary">@android:color/holo_blue_dark</item>
+        <item name="colorOnTertiary">@android:color/holo_blue_dark</item>
         <item name="colorTertiaryContainer">@android:color/holo_blue_dark</item>
         <item name="colorOnTertiaryContainer">@android:color/holo_blue_dark</item>
         <item name="colorSurfaceVariant">@android:color/holo_blue_dark</item>

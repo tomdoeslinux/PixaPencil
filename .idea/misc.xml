@@ -10,6 +10,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/border_drawable_thin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.259375" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.259375" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_home.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_mirror.xml" value="0.2171875" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/mirror_icon.xml" value="0.2171875" />
@@ -18,7 +19,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/round.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/selector_radio_button.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_canvas.xml" value="0.2" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/change_colour_layout.xml" value="0.67" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/colour_picker_layout.xml" value="0.5" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_canvas.xml" value="0.2280130293159609" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/pixel_layout.xml" value="0.21" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/recent_creations_layout.xml" value="0.25" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/menu/app_menu.xml" value="0.5" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.21979166666666666" />
       </map>
     </option>
   </component>

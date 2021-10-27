@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconTint="@android:color/black"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -13,9 +24,9 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/ic_baseline_add_24"
-        app:fabCustomSize="80dp"
         android:text="@string/floating_action_button_str"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:fabCustomSize="80dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -39,6 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/subtitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

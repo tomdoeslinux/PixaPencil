@@ -13,4 +13,5 @@
     <string name="hex_str">Hex</string>
     <string name="mirror_str">Mirror</string>
     <string name="grid_text">Turn Grid On</string>
+    <string name="home_str">Home</string>
 </resources>
