@@ -58,23 +58,23 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 binding.fragmentHost.scaleX += zoom; binding.fragmentHost.scaleY += zoom
             }
             R.id.pixel_grid_on_off -> {
-                for (p in data) {
-                    if (pixelGridOn) {
-                        supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false)).commit()
+                if (pixelGridOn) {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false)).commit()
 
-                        pixelGridOn = false
+                    pixelGridOn = false
 
-                    } else if (!pixelGridOn) {
-                        supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
+                } else if (!pixelGridOn) {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
 
-                        pixelGridOn = true
-                    }
+                    pixelGridOn = true
                 }
+
             }
+
         }; return true
     }
 
