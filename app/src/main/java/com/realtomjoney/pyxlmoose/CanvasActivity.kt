@@ -16,6 +16,8 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -117,7 +119,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             }
         }
 
-        binding.chooseColourFromHexButton.setOnClickListener { getHexDialogBuilder().create().show() }
+        binding.chooseColourFromHexButton.setOnClickListener { getHexDialogBuilder().show() }
 
         binding.chooseColourFromRGBButton.setOnClickListener { getRGBDialogBuilder().create().show() }
 
@@ -144,21 +146,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         }
     }
 
-    private fun getHexDialogBuilder(): AlertDialog.Builder {
-        val builder = AlertDialog.Builder(this)
+    private fun getHexDialogBuilder(): MaterialAlertDialogBuilder {
+        val hexadecimalDialogInput = EditText(this)
+        hexadecimalDialogInput.hint = "Hex value"
 
-        builder.setTitle("Hexadecimal")
-        builder.setMessage("Input a hexadecimal value")
-
-        val input = EditText(this)
-        input.hint = "Hex value"
-
-        builder.setView(input)
-        builder.setPositiveButton("OK") { _, _ ->
-            setPixelColour(Color.parseColor(input.text.toString()))
-        }
-
-        builder.setNegativeButton("Cancel") { _, _ -> }
+        val builder = MaterialAlertDialogBuilder(this)
+            .setTitle("Hexadecimal")
+            .setMessage("Please input a valid hexadecimal value:")
+            .setView(hexadecimalDialogInput)
+            .setPositiveButton("Done") { _, _ ->
+                try {
+                    setPixelColour(Color.parseColor(hexadecimalDialogInput.text.toString()))
+                } catch (exception: Exception) {
+                    Snackbar.make(binding.rootLayout, exception.message.toString(), Snackbar.LENGTH_LONG).show()
+                }
+            }
+            .setNegativeButton("Back") { _, _ -> }
 
         return builder
     }
