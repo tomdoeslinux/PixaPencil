@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
-class CanvasFragment(private val spanCount: Int, private val isGridVisible: Boolean, private val savedGridState: List<View>? = null) : Fragment() {
+class CanvasFragment(private val spanCount: Int,
+                     private val isGridVisible: Boolean,
+                     private val savedGridState: List<View>? = null) : Fragment() {
     private var _binding: FragmentCanvasBinding? = null
 
     private val binding get() = _binding!!
@@ -25,9 +27,7 @@ class CanvasFragment(private val spanCount: Int, private val isGridVisible: Bool
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        if (context is CanvasFragmentListener) {
-            caller = context
-        }
+        if (context is CanvasFragmentListener) caller = context
     }
 
     override fun onCreateView(
@@ -39,19 +39,12 @@ class CanvasFragment(private val spanCount: Int, private val isGridVisible: Bool
         return binding.root
     }
 
+    private fun getPixelData() = savedGridState ?: caller.initPixels()
+
     private fun setUpRecyclerView() {
-        val context = activity as Context
-        binding.canvasRecyclerView.layoutManager = GridLayoutManager(context, spanCount)
-
-        if (savedGridState == null) {
-            val pixels = caller.initPixels()
-            binding.canvasRecyclerView.adapter =
-                CanvasRecyclerAdapter(pixels, caller, isGridVisible)
-        } else {
-            binding.canvasRecyclerView.adapter =
-                CanvasRecyclerAdapter(savedGridState, caller, isGridVisible)
-        }
-
+        binding.canvasRecyclerView.layoutManager = GridLayoutManager(activity as Context, spanCount)
+        binding.canvasRecyclerView.adapter =
+            CanvasRecyclerAdapter(getPixelData(), caller, isGridVisible)
         binding.canvasRecyclerView.suppressLayout(true)
     }
 
