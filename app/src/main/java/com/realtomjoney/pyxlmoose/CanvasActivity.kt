@@ -109,7 +109,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString() != "") {
-                BitmapDatabase.addBitmap(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString())
+                BitmapDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data))
                 super.onBackPressed()
                 isMirrorMode = false
             } else {

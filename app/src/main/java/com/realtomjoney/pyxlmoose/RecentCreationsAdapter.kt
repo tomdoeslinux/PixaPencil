@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 
-class RecentCreationsAdapter(private val data: Map<Bitmap, String>) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private val data: List<SavedPixelArt>) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
     class RecentCreationsViewHolder(val constraintLayout: ConstraintLayout) : RecyclerView.ViewHolder(constraintLayout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         RecentCreationsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recent_creations_layout, parent, false) as ConstraintLayout)
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
-        (holder.constraintLayout.getChildAt(0) as ImageView).setImageBitmap(data.keys.toList()[position])
-        holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data.values.toList()[position]
+        (holder.constraintLayout.getChildAt(0) as ImageView).setImageBitmap(data[position].bitmap)
+        holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data[position].title
     }
 
     override fun getItemCount() = data.size

@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
             binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(BitmapDatabase.toMap())
+                RecentCreationsAdapter(BitmapDatabase.toList())
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }

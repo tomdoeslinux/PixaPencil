@@ -3,11 +3,11 @@ package com.realtomjoney.pyxlmoose
 import android.graphics.Bitmap
 
 object BitmapDatabase {
-    private val database = mutableMapOf<Bitmap, String>()
+    private val database = mutableListOf<SavedPixelArt>()
 
-    fun addBitmap(param: Bitmap, str: String) {
-        database[param] = str
+    fun addBitmap(param: SavedPixelArt) {
+        database.add(param)
     }
 
-    fun toMap() = database.toMap()
+    fun toList() = database.toList()
 }
