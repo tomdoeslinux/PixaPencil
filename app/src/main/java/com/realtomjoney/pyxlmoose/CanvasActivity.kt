@@ -17,7 +17,6 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
-import com.google.android.material.snackbar.Snackbar
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
