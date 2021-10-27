@@ -6,9 +6,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.TextView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.datepicker.MaterialTextInputPicker
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
@@ -21,25 +24,19 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         setBindings()
 
         binding.floatingActionButton.setOnClickListener {
-            val intent = Intent(this, CanvasActivity::class.java)
+            val dialogueEditText = EditText(this)
+            dialogueEditText.hint = "Span count"
 
-            val builder = AlertDialog.Builder(this)
-
-            builder.setTitle("Span Count")
-            builder.setMessage("Input a span count value:")
-
-            val input = EditText(this)
-            input.hint = "Span count value"
-
-            builder.setView(input)
-            builder.setPositiveButton("OK") { _, _ ->
-                intent.putExtra("SPAN_COUNT", Integer.parseInt(input.text.toString()))
-
-                startActivity(intent)
-            }
-
-            builder.setNegativeButton("Cancel") { _, _ -> }
-
+            val builder = MaterialAlertDialogBuilder(this)
+                .setTitle("Span Count")
+                .setMessage("Please input an appropriate span count value:")
+                .setView(dialogueEditText)
+                .setPositiveButton("Done") { _, _ ->
+                    startActivity(
+                        Intent(this, CanvasActivity::class.java)
+                            .putExtra("SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())))
+                }
+                .setNegativeButton("Back") { _, _ -> }
             builder.show()
         }
         setGreetingText()
