@@ -19,20 +19,15 @@ class CanvasFragment(private val spanCount: Int,
     private lateinit var caller: CanvasFragmentListener
 
     companion object {
-        fun newInstance(spanCount: Int, isGridVisible: Boolean, savedGridState: List<View>?): CanvasFragment {
-            return CanvasFragment(spanCount, isGridVisible, savedGridState)
-        }
+        fun newInstance(spanCount: Int, isGridVisible: Boolean, savedGridState: List<View>?) = CanvasFragment(spanCount, isGridVisible, savedGridState)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
         if (context is CanvasFragmentListener) caller = context
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
         setUpRecyclerView()
