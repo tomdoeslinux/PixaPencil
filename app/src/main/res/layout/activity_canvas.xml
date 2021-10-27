@@ -149,7 +149,7 @@
         app:tint="@color/white" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/lightenIcon"
+        android:id="@+id/lightenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
