@@ -5,8 +5,6 @@
 _Join our Discord: https://discord.gg/fZPWBfPvWd_
 
 ----
-![Wed Oct 27 2021 6_41_08 PM (2)](https://user-images.githubusercontent.com/50536495/139019482-2f3aaf4d-25cd-4ef6-93f4-7b7f44b5abee.gif)
-
 ## Showcasing the app's capabilities
 ![drawing](https://user-images.githubusercontent.com/50536495/138544026-4bd15055-3794-4786-a758-9c2f2633381f.png)
 ![Screenshot 2021-10-24 110235](https://user-images.githubusercontent.com/50536495/138572942-c017eb05-85a4-4159-a351-3204e5d422aa.png)
