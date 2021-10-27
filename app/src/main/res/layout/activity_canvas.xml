@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rootLayout"
     tools:context=".CanvasActivity">
-    
+
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"
@@ -39,13 +39,19 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentHost"
         app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/doneButton"
-        style="@style/default_extended_fab_style"
-        android:text="@string/button_done_str"
-        app:icon="@drawable/ic_baseline_check_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#eaddff"
+        android:src="@drawable/ic_baseline_check_24"
+        android:text="@string/floating_action_button_str"
+        app:fabCustomSize="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/black" />
 
     <EditText
         android:autofillHints="name"
