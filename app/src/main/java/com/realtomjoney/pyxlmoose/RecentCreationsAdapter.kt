@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 
-class RecentCreationsAdapter(private val data: List<SavedPixelArt>) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
     class RecentCreationsViewHolder(val constraintLayout: ConstraintLayout) : RecyclerView.ViewHolder(constraintLayout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -17,6 +18,10 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>) : RecyclerVi
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
         holder.constraintLayout.findViewById<ImageView>(R.id.mImageView).setImageBitmap(data[position].bitmap)
         holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data[position].title
+
+        holder.constraintLayout.setOnClickListener {
+            listener.onCreationTapped(BitmapDatabase.toList()[position])
+        }
     }
 
     override fun getItemCount() = data.size

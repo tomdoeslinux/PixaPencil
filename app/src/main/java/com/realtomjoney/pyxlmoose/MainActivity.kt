@@ -11,7 +11,7 @@ import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
     private lateinit var binding: ActivityMainBinding
     private var hasNavigatedBack = false
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
             binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(BitmapDatabase.toList())
+                RecentCreationsAdapter(BitmapDatabase.toList(), this)
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
@@ -76,6 +76,12 @@ class MainActivity : AppCompatActivity() {
     private fun setBindings() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onCreationTapped(param: SavedPixelArt) {
+        val intent = Intent(this, CanvasActivity::class.java)
+        intent.putExtra("INDEX", BitmapDatabase.toList().indexOf(param))
+        startActivity(intent)
     }
 }
 

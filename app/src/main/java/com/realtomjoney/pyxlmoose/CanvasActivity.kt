@@ -31,11 +31,19 @@ var pixelGridOn = true
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
 
-    private var data = listOf<View>()
+    var data = listOf<View>()
+
+    var index: Int? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
+        index = intent.getIntExtra("INDEX", -1)
+
+        if (index != -1) {
+            data = BitmapDatabase.toList()[index!!].pixelData
+        }
 
         setBindings()
         setUpFragment()
@@ -244,12 +252,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun initPixels(): List<View> {
-        val list = mutableListOf<View>()
-        for (i in 1..spanCount * spanCount) {
-            list.add(View(this))
+        if (index == -1) {
+            val list = mutableListOf<View>()
+            for (i in 1..spanCount * spanCount) {
+                list.add(View(this))
+            }
+            data = list
+            return list.toList()
+        } else {
+            return data.toList()
         }
-        data = list
-        return list.toList()
     }
 
     override fun onPixelTapped(pixel: View) {
