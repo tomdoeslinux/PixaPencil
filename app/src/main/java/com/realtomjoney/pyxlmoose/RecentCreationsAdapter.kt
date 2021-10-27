@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,7 +17,7 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>) : RecyclerVi
         RecentCreationsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recent_creations_layout, parent, false) as ConstraintLayout)
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
-        (holder.constraintLayout.getChildAt(0) as ImageView).setImageBitmap(data[position].bitmap)
+        holder.constraintLayout.findViewById<ImageView>(R.id.mImageView).setImageBitmap(data[position].bitmap)
         holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data[position].title
     }
 
