@@ -176,7 +176,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             editTexts.add(editText)
         }
 
-        val builder = MaterialAlertDialogBuilder(this)
+        return MaterialAlertDialogBuilder(this)
             .setTitle("RGB")
             .setMessage("Please input a valid RGB value:")
             .setView(dialogueLayout)
@@ -189,8 +189,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 ))
             }
             .setNegativeButton("Back") { _, _ -> }
-
-        return builder
     }
 
     private fun setUpRecyclerView() {
