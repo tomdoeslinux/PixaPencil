@@ -150,7 +150,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         val hexadecimalDialogInput = EditText(this)
         hexadecimalDialogInput.hint = "Hex value"
 
-        val builder = MaterialAlertDialogBuilder(this)
+        return MaterialAlertDialogBuilder(this)
             .setTitle("Hexadecimal")
             .setMessage("Please input a valid hexadecimal value:")
             .setView(hexadecimalDialogInput)
@@ -162,8 +162,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 }
             }
             .setNegativeButton("Back") { _, _ -> }
-
-        return builder
     }
 
     private fun getRGBDialogBuilder(): AlertDialog.Builder {
