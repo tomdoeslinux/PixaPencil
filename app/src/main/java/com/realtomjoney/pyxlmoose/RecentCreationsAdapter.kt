@@ -4,18 +4,21 @@ import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.constraintlayout.widget.ConstraintLayout
 
-class RecentCreationsAdapter(private val list: List<Bitmap>) : RecyclerView.Adapter<RecentCreationsAdapter.ImageViewHolder>() {
-    class ImageViewHolder(val imageView: ImageView) : RecyclerView.ViewHolder(imageView)
+
+class RecentCreationsAdapter(private val data: Map<Bitmap, String>) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
+    class RecentCreationsViewHolder(val constraintLayout: ConstraintLayout) : RecyclerView.ViewHolder(constraintLayout)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recent_creations_layout, parent, false) as ImageView)
+        RecentCreationsViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.recent_creations_layout, parent, false) as ConstraintLayout)
 
-
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) = list.forEach { _ ->
-        holder.imageView.setImageBitmap(list[position])
+    override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
+        (holder.constraintLayout.getChildAt(0) as ImageView).setImageBitmap(data.keys.toList()[position])
+        holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data.values.toList()[position]
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = data.size
 }

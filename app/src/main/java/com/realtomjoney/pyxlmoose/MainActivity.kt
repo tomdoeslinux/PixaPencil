@@ -1,10 +1,8 @@
 package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
-import android.app.ActionBar
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -12,8 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import android.graphics.drawable.ColorDrawable
-
-
+import androidx.recyclerview.widget.LinearLayoutManager
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,9 +55,9 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         if (!hasNavigatedBack) {
-            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 4)
+            binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
             binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(BitmapDatabase.toList())
+                RecentCreationsAdapter(BitmapDatabase.toMap())
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
