@@ -17,6 +17,7 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.ImageViewCompat
+import com.google.android.material.snackbar.Snackbar
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -24,6 +25,7 @@ var spanCount = 5
 const val TOAST_MESSAGE = "Please name your project."
 var isPrimaryColourSelected = true
 var isMirrorMode = false
+var pixelGridOn = true
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
@@ -58,12 +60,21 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             }
             R.id.pixel_grid_on_off -> {
                 for (p in data) {
-                    if (p.background == null) {
-                        val gd = GradientDrawable()
-                        gd.setColor(Color.WHITE)
-                        gd.cornerRadius = 0f
-                        gd.setStroke(0, Color.WHITE)
-                        p.background = gd
+                    if (pixelGridOn) {
+                        Snackbar.make(binding.rootLayout, "Turned off", Snackbar.LENGTH_LONG).show()
+                        supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false)).commit()
+
+                        pixelGridOn = false
+
+                    } else if (!pixelGridOn) {
+                        Snackbar.make(binding.rootLayout, "Turned on", Snackbar.LENGTH_LONG).show()
+                        supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
+
+                        pixelGridOn = true
                     }
                 }
             }
@@ -208,7 +219,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setUpFragment() {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount)).commit()
+            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true)).commit()
     }
 
     private fun setBindings() {
