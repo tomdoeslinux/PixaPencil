@@ -26,6 +26,8 @@
         android:src="@drawable/ic_baseline_add_24"
         android:text="@string/floating_action_button_str"
         app:fabCustomSize="80dp"
+        android:backgroundTint="#eaddff"
+        app:tint="@color/black"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
