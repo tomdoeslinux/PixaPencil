@@ -36,4 +36,5 @@
         app:layout_constraintStart_toStartOf="@+id/subtitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
 
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
