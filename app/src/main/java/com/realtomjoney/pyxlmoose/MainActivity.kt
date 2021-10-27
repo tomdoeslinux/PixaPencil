@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
+import android.app.ActionBar
 import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
@@ -10,6 +11,10 @@ import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
+import android.graphics.drawable.ColorDrawable
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +24,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+
+        actionBar?.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.white)));
+
 
         binding.floatingActionButton.setOnClickListener {
             val intent = Intent(this, CanvasActivity::class.java)
