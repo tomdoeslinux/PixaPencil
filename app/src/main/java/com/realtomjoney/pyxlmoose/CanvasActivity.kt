@@ -142,15 +142,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 ImageViewCompat.setImageTintList(
                     binding.mirrorButton,
                     ColorStateList.valueOf(Color.BLACK)
-                )
-                binding.mirrorButton.backgroundTintList = AppCompatResources.getColorStateList(this, R.color.white)
-            } else {
+                ) } else {
                 ImageViewCompat.setImageTintList(
                     binding.mirrorButton,
                     ColorStateList.valueOf(Color.WHITE)
                 )
-                binding.mirrorButton.backgroundTintList = AppCompatResources.getColorStateList(this, R.color.teal_200)
-            }
+                }
         }
 
         binding.darkenButton.setOnClickListener {

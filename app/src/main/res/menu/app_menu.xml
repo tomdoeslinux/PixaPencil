@@ -4,8 +4,6 @@
     <item android:id="@+id/pixel_grid_on_off"
         android:icon="@drawable/ic_baseline_grid_off_24"
         app:showAsAction="ifRoom"
-        app:iconTint="@color/white"
-        android:iconTint="@color/white"
         android:title="@string/grid_text" />
     <item android:id="@+id/zoom_in"
         android:icon="@drawable/ic_baseline_zoom_in_24"
