@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
+   
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
         android:src="@drawable/ic_baseline_add_24"
         android:text="@string/floating_action_button_str"
         app:fabCustomSize="80dp"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         android:backgroundTint="#eaddff"
         app:tint="@color/black"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
@@ -34,12 +36,18 @@
     <TextView
         android:id="@+id/titleTextView"
         style="@style/main_activity_title_style"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/manrope_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/subtitleTextView"
         style="@style/main_activity_subtitle_style"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/manrope_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
@@ -47,6 +55,9 @@
         android:id="@+id/recentCreationsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

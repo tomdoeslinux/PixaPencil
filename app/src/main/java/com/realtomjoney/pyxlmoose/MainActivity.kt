@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -19,6 +20,16 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+
+        binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 2 || dy < 2 && binding.floatingActionButton.isShown) binding.floatingActionButton.hide()
+            }
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.floatingActionButton.show()
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        }) // Great solution by VelocityPulse
 
         binding.floatingActionButton.setOnClickListener {
             val dialogueEditText = EditText(this)

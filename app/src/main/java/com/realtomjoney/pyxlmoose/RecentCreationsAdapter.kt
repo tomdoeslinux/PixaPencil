@@ -19,6 +19,7 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
         val rootLayout = holder.frame.findViewById<FrameLayout>(R.id.rootFrameLayout)
         with (rootLayout.findViewById<CardView>(R.id.mCard))  {
             findViewById<ImageView>(R.id.mImageView).setImageBitmap(data[position].bitmap)
+            findViewById<TextView>(R.id.mdate).text = data[position].dateCreated
             val title: TextView = findViewById(R.id.mtext)
 
             if (data[position].title.length > 6) {
