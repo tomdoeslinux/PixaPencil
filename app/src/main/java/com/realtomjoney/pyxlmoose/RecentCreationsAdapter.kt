@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import android.content.Context
 import android.text.TextUtils
 
 class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
@@ -23,7 +22,7 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
             val title: TextView = findViewById(R.id.mtext)
 
             if (data[position].title.length > 6) {
-                title.ellipsize = TextUtils.TruncateAt.MARQUEE;
+                title.ellipsize = TextUtils.TruncateAt.MARQUEE
                 title.isSelected = true
                 title.isSingleLine = true
                 title.text = (data[position].title + "                    ").repeat(200)
