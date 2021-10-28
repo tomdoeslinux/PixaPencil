@@ -18,6 +18,7 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
         holder.constraintLayout.findViewById<ImageView>(R.id.mImageView).setImageBitmap(data[position].bitmap)
         holder.constraintLayout.findViewById<TextView>(R.id.mtext).text = data[position].title
+        holder.constraintLayout.findViewById<TextView>(R.id.mdate).text = data[position].dateCreated
 
         holder.constraintLayout.setOnClickListener {
             listener.onCreationTapped(BitmapDatabase.toList()[position])

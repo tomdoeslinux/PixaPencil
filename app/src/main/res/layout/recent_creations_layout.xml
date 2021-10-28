@@ -25,10 +25,21 @@
         android:id="@+id/mtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/manrope_bold"
         android:text="TextView"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/mImageView"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/mImageView"
         app:layout_constraintTop_toBottomOf="@+id/mImageView" />
+
+    <TextView
+        android:id="@+id/mdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/manrope_light"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/mImageView"
+        app:layout_constraintTop_toBottomOf="@+id/mtext" />
 </androidx.constraintlayout.widget.ConstraintLayout>
