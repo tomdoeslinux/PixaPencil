@@ -25,6 +25,7 @@ const val TOAST_MESSAGE = "Please name your project."
 var isPrimaryColourSelected = true
 var isMirrorMode = false
 var pixelGridOn = true
+var hasSaved = false
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
     private lateinit var binding: ActivityCanvasBinding
@@ -98,7 +99,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onPause() {
         super.onPause()
-        BitmapDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), "Unnamed project", data))
+
+        if (!hasSaved) {
+            BitmapDatabase.addBitmap(
+                SavedPixelArt(
+                    binding.fragmentHost.drawToBitmap(),
+                    "Unnamed project",
+                    data
+                )
+            )
+        }
     }
 
     private fun setPrimaryPixelColour(colour: Int) {
@@ -116,6 +126,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             if (binding.titleTextView.text.toString().isNotBlank()) {
                 BitmapDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data))
                 isMirrorMode = false
+                hasSaved = true
                 super.onBackPressed()
             } else {
                 Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
