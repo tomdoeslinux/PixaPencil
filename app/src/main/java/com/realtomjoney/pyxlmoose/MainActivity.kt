@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         super.onResume()
 
         if (!hasNavigatedBack) {
-            binding.recentCreationsRecyclerView.layoutManager = LinearLayoutManager(this)
+            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
             binding.recentCreationsRecyclerView.adapter =
                 RecentCreationsAdapter(BitmapDatabase.toList(), this)
         } else {
