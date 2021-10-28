@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
-object BitmapDatabase {
+object SavedPixelArtDatabase {
     private val database = mutableListOf<SavedPixelArt>()
 
     fun addBitmap(param: SavedPixelArt) {

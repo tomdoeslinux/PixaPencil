@@ -1,19 +1,13 @@
 package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.datepicker.MaterialTextInputPicker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
@@ -52,7 +46,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
             binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(BitmapDatabase.toList(), this)
+                RecentCreationsAdapter(SavedPixelArtDatabase.toList(), this)
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
@@ -80,7 +74,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
     override fun onCreationTapped(param: SavedPixelArt) {
         val intent = Intent(this, CanvasActivity::class.java)
-        intent.putExtra("INDEX", BitmapDatabase.toList().indexOf(param))
+        intent.putExtra("INDEX", SavedPixelArtDatabase.toList().indexOf(param))
         startActivity(intent)
     }
 }
