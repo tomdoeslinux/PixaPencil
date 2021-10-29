@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
         binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy <= 1) {
+                if (dy == 1 || dy == 0) {
                     return
                 }
 
