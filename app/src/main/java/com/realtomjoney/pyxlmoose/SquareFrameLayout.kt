@@ -10,8 +10,6 @@ class SquareFrameLayout : FrameLayout {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-        val width = measuredWidth
-        setMeasuredDimension(width, width)
+        setMeasuredDimension(measuredWidth, width)
     }
 }
