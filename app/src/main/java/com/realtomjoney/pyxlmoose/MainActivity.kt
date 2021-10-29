@@ -22,9 +22,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
         binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy == 1 || dy == 0) {
-                    return
-                }
+                if (dy == 1 || dy == 0) return
 
                 if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) binding.floatingActionButton.hide() else binding.floatingActionButton.show()
             }
