@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
 
     override fun onCreationLongTapped(param: PixelArt) {
-        PixelArtDatabase.removeItem(PixelArtDatabase.toList().indexOf(param))
+        PixelArtDatabase.removeItem(param)
         binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
         binding.recentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
 

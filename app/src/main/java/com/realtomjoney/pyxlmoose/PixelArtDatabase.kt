@@ -1,11 +1,11 @@
 package com.realtomjoney.pyxlmoose
 
-object PixelArtDatabase {
+object PixelArtDatabase : Database<PixelArt> {
     private val database = mutableListOf<PixelArt>()
 
-    fun addItem(param: PixelArt) = database.add(param)
+    override fun addItem(item: PixelArt) { database.add(item) }
 
-    fun removeItem(index: Int) = database.removeAt(index)
+    override fun removeItem(item: PixelArt) { database.remove(item) }
 
-    fun toList() = database.toList()
+    override fun toList() = database.toList()
 }
