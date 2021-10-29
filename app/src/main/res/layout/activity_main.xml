@@ -27,7 +27,6 @@
         android:src="@drawable/ic_baseline_add_24"
         android:text="@string/floating_action_button_str"
         app:fabCustomSize="80dp"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         android:backgroundTint="#eaddff"
         app:tint="@color/black"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"

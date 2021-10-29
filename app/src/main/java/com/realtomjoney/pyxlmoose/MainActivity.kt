@@ -4,12 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
+
+
+
 
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
@@ -23,10 +29,24 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
         binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                if (dy > 2 || dy < 2 && binding.floatingActionButton.isShown) binding.floatingActionButton.hide()
+                if (dy <= 1) {
+                    binding.floatingActionButton.animate().setDuration(200).scaleX(1f).scaleY(1f)
+                        .setInterpolator(LinearOutSlowInInterpolator())
+                    Toast.makeText(this@MainActivity, "Pog", Toast.LENGTH_LONG).show()
+                    return
+                }
+
+                if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) {
+                    binding.floatingActionButton.hide()
+                } else {
+                    binding.floatingActionButton.show()
+                }
+                super.onScrolled(recyclerView, dx, dy)
             }
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.floatingActionButton.show()
+                if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                    binding.floatingActionButton.show()
+
                 super.onScrollStateChanged(recyclerView, newState)
             }
         }) // Great solution by VelocityPulse
@@ -52,7 +72,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
-        super.onResume()
+        binding.floatingActionButton.show()
 
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
@@ -61,6 +81,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
+
+        super.onResume()
     }
 
     private fun setGreetingText() {

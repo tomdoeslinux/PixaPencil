@@ -102,8 +102,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
 
     override fun onPause() {
-        super.onPause()
-
         if (!hasSaved) {
             SavedPixelArtDatabase.addBitmap(
                 SavedPixelArt(
@@ -113,6 +111,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 )
             )
         }
+
+        super.onPause()
     }
 
     private fun setPrimaryPixelColour(colour: Int) {
