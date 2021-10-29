@@ -63,7 +63,6 @@ class RecentCreationsAdapter(private var data: List<SavedPixelArt>, private val 
         if (savedPixelArt.isFavourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
         else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
     }
-
     private fun favouriteRecentCreation(contextView: View, savedPixelArt: SavedPixelArt) {
         Snackbar.make(contextView,
             "Saved ${savedPixelArt.title} to favourites.",

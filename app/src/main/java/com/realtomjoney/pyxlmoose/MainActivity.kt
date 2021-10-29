@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         startActivity(intent)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreationLongTapped(param: SavedPixelArt) {
         val filtered = PixelArtDatabase.toList().filter { it != param }
         PixelArtDatabase.removeItem(PixelArtDatabase.toList().indexOf(param))

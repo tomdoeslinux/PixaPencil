@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ColourPickerAdapter(private val list: List<Int>, private val caller: ColourPickerListener) : RecyclerView.Adapter<ColourPickerAdapter.MyViewHolder>() {
-    class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+class ColourPickerAdapter(private val list: List<Int>, private val caller: ColourPickerListener) : RecyclerView.Adapter<ColourPickerAdapter.ColourPickerViewHolder>() {
+    class ColourPickerViewHolder(val colourView: View) : RecyclerView.ViewHolder(colourView)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.colour_picker_layout, parent, false) as View)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColourPickerViewHolder {
+        return ColourPickerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.colour_picker_layout, parent, false) as View)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.view.backgroundTintList = ColorStateList.valueOf(list[position])
+    override fun onBindViewHolder(holder: ColourPickerViewHolder, position: Int) {
+        holder.colourView.backgroundTintList = ColorStateList.valueOf(list[position])
 
-        holder.view.setOnClickListener {
+        holder.colourView.setOnClickListener {
             caller.onColourTapped(list[position], it)
         }
     }
