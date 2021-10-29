@@ -22,6 +22,8 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
         val rootLayout = holder.frame.findViewById<FrameLayout>(R.id.rootFrameLayout)
+
+
         with (rootLayout.findViewById<CardView>(R.id.mCard))  {
             findViewById<ImageView>(R.id.mImageView).setImageBitmap(data[position].bitmap)
             findViewById<TextView>(R.id.mdate).text = data[position].dateCreated
@@ -39,6 +41,8 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
             this.setOnClickListener {
                 listener.onCreationTapped(data[position])
             }
+
+            changeStarredIndicator((findViewById(R.id.mFavouriteButton)), data[position])
 
             this.findViewById<ImageButton>(R.id.mFavouriteButton).setOnClickListener {
                 if (!data[position].isFavourited) favouriteRecentCreation(this, data[position])
