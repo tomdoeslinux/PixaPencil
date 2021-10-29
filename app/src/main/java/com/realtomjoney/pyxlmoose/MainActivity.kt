@@ -30,9 +30,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy <= 1) {
-                    binding.floatingActionButton.animate().setDuration(200).scaleX(1f).scaleY(1f)
-                        .setInterpolator(LinearOutSlowInInterpolator())
-                    Toast.makeText(this@MainActivity, "Pog", Toast.LENGTH_LONG).show()
                     return
                 }
 
