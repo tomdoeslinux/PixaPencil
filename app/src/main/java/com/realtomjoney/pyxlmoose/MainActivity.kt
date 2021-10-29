@@ -33,11 +33,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
                     return
                 }
 
-                if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) {
-                    binding.floatingActionButton.hide()
-                } else {
-                    binding.floatingActionButton.show()
-                }
+                if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) binding.floatingActionButton.hide() else binding.floatingActionButton.show()
                 super.onScrolled(recyclerView, dx, dy)
             }
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
