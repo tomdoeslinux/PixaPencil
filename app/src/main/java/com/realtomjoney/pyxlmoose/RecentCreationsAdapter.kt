@@ -14,7 +14,7 @@ import android.widget.ImageButton
 import androidx.core.graphics.ColorUtils
 import com.google.android.material.snackbar.Snackbar
 
-class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private var data: List<SavedPixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
     class RecentCreationsViewHolder(val frame: FrameLayout) : RecyclerView.ViewHolder(frame)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -40,6 +40,11 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
 
             this.setOnClickListener {
                 listener.onCreationTapped(data[position])
+            }
+
+            this.setOnLongClickListener {
+                listener.onCreationLongTapped(data[position])
+                true
             }
 
             changeStarredIndicator((findViewById(R.id.mFavouriteButton)), data[position])

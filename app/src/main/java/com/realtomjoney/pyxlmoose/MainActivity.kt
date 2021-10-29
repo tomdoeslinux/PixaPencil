@@ -2,6 +2,7 @@ package com.realtomjoney.pyxlmoose
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import java.util.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
@@ -21,18 +23,22 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         super.onCreate(savedInstanceState)
         setBindings()
 
+        title = "Home"
+
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_home -> {
                     binding.recentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(SavedPixelArtDatabase.toList(), this)
                     binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                    title = "Home"
                 }
                 R.id.page_starred -> {
                     val starred = SavedPixelArtDatabase.toList().filter { it.isFavourited }
                     binding.recentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(starred, this)
                     binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                    title = "Favorites"
                 }
             }
             true
@@ -65,7 +71,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
                 .setNegativeButton("Back") { _, _ -> }
             builder.show()
         }
-        setGreetingText()
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -83,21 +88,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         super.onResume()
     }
 
-    private fun setGreetingText() {
-        binding.titleTextView.text = setGreeting()
-    }
-
-    private fun setGreeting(): String {
-        val calendar = Calendar.getInstance()
-
-        when (calendar.get(Calendar.HOUR_OF_DAY)) {
-            in 0..11 -> return "Good Morning"
-            in 12..21 -> return "Good Afternoon"
-            in 21..24 -> return "Good Night"
-        }
-        return ""
-    }
-
     private fun setBindings() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -107,6 +97,21 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         val intent = Intent(this, CanvasActivity::class.java)
         intent.putExtra("INDEX", SavedPixelArtDatabase.toList().indexOf(param))
         startActivity(intent)
+    }
+
+    override fun onCreationLongTapped(param: SavedPixelArt) {
+        val filtered = SavedPixelArtDatabase.toList().filter { it != param }
+        SavedPixelArtDatabase.remove(SavedPixelArtDatabase.toList().indexOf(param))
+        binding.recentCreationsRecyclerView.adapter =
+            RecentCreationsAdapter(filtered, this)
+        binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+
+        Snackbar.make(binding.recentCreationsRecyclerView,
+            "You have deleted ${param.title}.",
+            Snackbar.LENGTH_LONG)
+            .setTextColor(Color.BLACK)
+            .setBackgroundTint(Color.parseColor("#eaddff"))
+            .show()
     }
 }
 

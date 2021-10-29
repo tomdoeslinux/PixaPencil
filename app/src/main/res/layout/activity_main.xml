@@ -32,25 +32,6 @@
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/titleTextView"
-        style="@style/main_activity_title_style"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/manrope_bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/subtitleTextView"
-        style="@style/main_activity_subtitle_style"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:autoSizeTextType="uniform"
-        android:fontFamily="@font/manrope_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentCreationsRecyclerView"
         android:layout_width="0dp"
@@ -61,6 +42,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

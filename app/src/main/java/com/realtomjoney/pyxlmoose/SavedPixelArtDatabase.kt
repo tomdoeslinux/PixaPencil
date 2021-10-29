@@ -7,5 +7,9 @@ object SavedPixelArtDatabase {
         database.add(param)
     }
 
+    fun remove(index: Int) {
+        database.removeAt(index)
+    }
+
     fun toList() = database.toList()
 }
