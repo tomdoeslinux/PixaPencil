@@ -9,7 +9,6 @@ import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
-import java.util.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -29,12 +28,12 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             when(item.itemId) {
                 R.id.page_home -> {
                     binding.recentCreationsRecyclerView.adapter =
-                        RecentCreationsAdapter(SavedPixelArtDatabase.toList(), this)
+                        RecentCreationsAdapter(PixelArtDatabase.toList(), this)
                     binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
                     title = "Home"
                 }
                 R.id.page_starred -> {
-                    val starred = SavedPixelArtDatabase.toList().filter { it.isFavourited }
+                    val starred = PixelArtDatabase.toList().filter { it.isFavourited }
                     binding.recentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(starred, this)
                     binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
@@ -80,7 +79,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
             binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(SavedPixelArtDatabase.toList(), this)
+                RecentCreationsAdapter(PixelArtDatabase.toList(), this)
         } else {
             binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
         }
@@ -95,13 +94,13 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
     override fun onCreationTapped(param: SavedPixelArt) {
         val intent = Intent(this, CanvasActivity::class.java)
-        intent.putExtra("INDEX", SavedPixelArtDatabase.toList().indexOf(param))
+        intent.putExtra("INDEX", PixelArtDatabase.toList().indexOf(param))
         startActivity(intent)
     }
 
     override fun onCreationLongTapped(param: SavedPixelArt) {
-        val filtered = SavedPixelArtDatabase.toList().filter { it != param }
-        SavedPixelArtDatabase.remove(SavedPixelArtDatabase.toList().indexOf(param))
+        val filtered = PixelArtDatabase.toList().filter { it != param }
+        PixelArtDatabase.removeItem(PixelArtDatabase.toList().indexOf(param))
         binding.recentCreationsRecyclerView.adapter =
             RecentCreationsAdapter(filtered, this)
         binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()

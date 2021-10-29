@@ -37,7 +37,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
         index = intent.getIntExtra("INDEX", -1)
 
-        if (index != -1) data = SavedPixelArtDatabase.toList()[index!!].pixelData
+        if (index != -1) data = PixelArtDatabase.toList()[index!!].pixelData
 
         setBindings()
         setUpFragment()
@@ -99,7 +99,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onPause() {
         if (!hasSaved) {
-            SavedPixelArtDatabase.addBitmap(
+            PixelArtDatabase.addItem(
                 SavedPixelArt(
                     binding.fragmentHost.drawToBitmap(),
                     "Unnamed project",
@@ -125,7 +125,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString().isNotBlank()) {
-                SavedPixelArtDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
+                PixelArtDatabase.addItem(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
                 isMirrorMode = false
                 hasSaved = true
                 super.onBackPressed()
