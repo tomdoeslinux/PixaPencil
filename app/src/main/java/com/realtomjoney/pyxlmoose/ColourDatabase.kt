@@ -2,12 +2,14 @@ package com.realtomjoney.pyxlmoose
 
 import android.graphics.Color
 
-object ColourDatabase {
+object ColourDatabase : Database<Int> {
     private val database = mutableListOf<Int>()
 
-    private fun addColour(colour: Int) = database.add(colour)
+    override fun addItem(item: Int) { database.add(item) }
 
-    fun toList() = database.toList()
+    override fun removeItem(item: Int) { database.remove(item) }
+
+    override fun toList() = database.toList()
 
     init {
         val tempData = listOf(
@@ -163,7 +165,7 @@ object ColourDatabase {
             )
 
         tempData.forEach {
-            addColour(it)
+            addItem(it)
         }
     }
 }
