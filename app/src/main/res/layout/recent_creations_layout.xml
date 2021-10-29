@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootFrameLayout"
-    android:backgroundTint="@color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white">
+
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        app:contentPadding="16dp"
-        app:cardElevation="2dp"
-        app:cardCornerRadius="5dp"
         android:id="@+id/mCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:foreground="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:layout_height="wrap_content">
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        app:contentPadding="16dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recentCreationsLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recentCreationsLayout">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/mImageView"
@@ -36,12 +38,12 @@
 
             <TextView
                 android:id="@+id/mtext"
-                android:ellipsize = "marquee"
-                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:ellipsize="marquee"
                 android:fontFamily="@font/manrope_bold"
+                android:singleLine="true"
                 android:text="TextView"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/mImageView"
@@ -57,6 +59,19 @@
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/mImageView"
                 app:layout_constraintTop_toBottomOf="@+id/mtext" />
+
+            <ImageButton
+                android:id="@+id/mFavouriteButton"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:src="@drawable/ic_baseline_star_border_24"
+                app:iconGravity="start"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
