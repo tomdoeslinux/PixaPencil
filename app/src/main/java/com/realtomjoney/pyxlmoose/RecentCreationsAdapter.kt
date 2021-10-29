@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
+import android.view.View
 import android.widget.ImageButton
 import androidx.core.graphics.ColorUtils
 import com.google.android.material.snackbar.Snackbar
@@ -40,11 +41,40 @@ class RecentCreationsAdapter(private val data: List<SavedPixelArt>, private val 
             }
 
             this.findViewById<ImageButton>(R.id.mFavouriteButton).setOnClickListener {
-                Snackbar.make(this, "Saved to favourites ${data[position].title}.", Snackbar.LENGTH_LONG).setTextColor(
-                    Color.BLACK).setBackgroundTint(Color.parseColor("#eaddff")).show()
+                if (!data[position].isFavourited) favouriteRecentCreation(this, data[position])
+                else unFavouriteRecentCreation(this, data[position])
+
+                changeStarredIndicator((it as ImageButton), data[position])
             }
         }
 
+    }
+
+    private fun changeStarredIndicator(imageButton: ImageButton, savedPixelArt: SavedPixelArt) {
+        if (savedPixelArt.isFavourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
+        else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
+    }
+
+    private fun favouriteRecentCreation(contextView: View, savedPixelArt: SavedPixelArt) {
+        Snackbar.make(contextView,
+            "Saved ${savedPixelArt.title} to favourites.",
+            Snackbar.LENGTH_LONG)
+            .setTextColor(Color.BLACK)
+            .setBackgroundTint(Color.parseColor("#eaddff"))
+            .show()
+
+        savedPixelArt.isFavourited = true
+    }
+
+    private fun unFavouriteRecentCreation(contextView: View, savedPixelArt: SavedPixelArt) {
+        Snackbar.make(contextView,
+            "You have removed ${savedPixelArt.title} from your favourites.",
+            Snackbar.LENGTH_LONG)
+            .setTextColor(Color.BLACK)
+            .setBackgroundTint(Color.parseColor("#eaddff"))
+            .show()
+
+        savedPixelArt.isFavourited = false
     }
 
     override fun getItemCount() = data.size

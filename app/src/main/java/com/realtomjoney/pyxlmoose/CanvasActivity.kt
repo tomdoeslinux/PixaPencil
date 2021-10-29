@@ -107,7 +107,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 SavedPixelArt(
                     binding.fragmentHost.drawToBitmap(),
                     "Unnamed project",
-                    data
+                    data,
+                    false
                 )
             )
         }
@@ -128,7 +129,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString().isNotBlank()) {
-                SavedPixelArtDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data))
+                SavedPixelArtDatabase.addBitmap(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
                 isMirrorMode = false
                 hasSaved = true
                 super.onBackPressed()
