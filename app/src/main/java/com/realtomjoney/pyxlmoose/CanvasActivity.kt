@@ -17,10 +17,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import androidx.recyclerview.widget.RecyclerView
-
-
-
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
