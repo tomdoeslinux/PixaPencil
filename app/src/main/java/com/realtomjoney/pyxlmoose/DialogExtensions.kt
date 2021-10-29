@@ -13,7 +13,7 @@ fun Activity.showDialog(
     dialogNegativeButtonText: String?,
     dialogNegativeButtonAction: DialogInterface.OnClickListener?,
     view: View?) {
-    MaterialAlertDialogBuilder(this)
+    MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
         .setTitle(dialogTitle.replaceFirstChar { it.titlecase() })
         .setMessage(dialogMessage.replaceFirstChar { it.titlecase() })
         .setView(view)
