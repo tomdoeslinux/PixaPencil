@@ -58,17 +58,12 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             val dialogueEditText = EditText(this)
             dialogueEditText.hint = "Span count"
 
-            val builder = MaterialAlertDialogBuilder(this)
-                .setTitle("Span Count")
-                .setMessage("Please input an appropriate span count value:")
-                .setView(dialogueEditText)
-                .setPositiveButton("Done") { _, _ ->
-                    startActivity(
-                        Intent(this, CanvasActivity::class.java)
-                            .putExtra("SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())))
-                }
-                .setNegativeButton("Back") { _, _ -> }
-            builder.show()
+            showDialog(
+                "Span count",
+                "Please input an appropriate span count value:",
+                "Done",
+                { _, _ -> startActivity(Intent(this, CanvasActivity::class.java).putExtra("SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())))
+            }, "Back", { _, _ -> }, dialogueEditText)
         }
     }
 
