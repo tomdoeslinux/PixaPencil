@@ -16,9 +16,27 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
     private lateinit var binding: ActivityMainBinding
     private var hasNavigatedBack = false
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.page_home -> {
+                    binding.recentCreationsRecyclerView.adapter =
+                        RecentCreationsAdapter(SavedPixelArtDatabase.toList(), this)
+                    binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                }
+                R.id.page_starred -> {
+                    val starred = SavedPixelArtDatabase.toList().filter { it.isFavourited }
+                    binding.recentCreationsRecyclerView.adapter =
+                        RecentCreationsAdapter(starred, this)
+                    binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                }
+            }
+            true
+        }
 
         binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
