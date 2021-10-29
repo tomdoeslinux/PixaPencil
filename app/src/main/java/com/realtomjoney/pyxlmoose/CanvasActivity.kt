@@ -21,7 +21,6 @@ import com.google.android.material.snackbar.Snackbar
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
 var spanCount = 5
-const val TOAST_MESSAGE = "Please name your project."
 var isPrimaryColourSelected = true
 var isMirrorMode = false
 var pixelGridOn = true
@@ -34,8 +33,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        spanCount = intent.getIntExtra("SPAN_COUNT", spanCount)
-        index = intent.getIntExtra("INDEX", -1)
+        spanCount = intent.getIntExtra(StringValues.SPAN_COUNT_EXTRA, spanCount)
+        index = intent.getIntExtra(StringValues.INDEX_EXTRA, -1)
 
         if (index != -1) data = PixelArtDatabase.toList()[index!!].pixelData
 
@@ -67,7 +66,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                         .beginTransaction()
                         .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false, data)).commit()
                     item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_on_24)
-                    item.title = "Turn Grid On"
+                    item.title = StringValues.GRID_ON
 
                     pixelGridOn = false
 
@@ -76,7 +75,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                         .beginTransaction()
                         .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, data)).commit()
                     item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_off_24)
-                    item.title = "Turn Grid Off"
+                    item.title = StringValues.GRID_OFF
 
                     pixelGridOn = true
                 }
@@ -102,7 +101,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             PixelArtDatabase.addItem(
                 PixelArt(
                     binding.fragmentHost.drawToBitmap(),
-                    "Unnamed project",
+                    StringValues.DEFAULT_PROJECT_NAME,
                     data,
                     false
                 )
@@ -130,7 +129,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 hasSaved = true
                 super.onBackPressed()
             } else {
-                Toast.makeText(this, TOAST_MESSAGE, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, StringValues.MESSAGE_NAME_PROJECT, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -163,20 +162,20 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     private fun getHexDialogBuilder(): MaterialAlertDialogBuilder {
         val hexadecimalDialogInput = EditText(this)
-        hexadecimalDialogInput.hint = "Hex value"
+        hexadecimalDialogInput.hint = StringValues.HEX_DIALOG_EDIT_TEXT_HINT
 
         return MaterialAlertDialogBuilder(this)
-            .setTitle("Hexadecimal")
-            .setMessage("Please input a valid hexadecimal value:")
+            .setTitle(StringValues.HEX_DIALOG_TITLE)
+            .setMessage(StringValues.HEX_DIALOG_MESSAGE)
             .setView(hexadecimalDialogInput)
-            .setPositiveButton("Done") { _, _ ->
+            .setPositiveButton(StringValues.DIALOG_DONE) { _, _ ->
                 try {
                     setPixelColour(Color.parseColor(hexadecimalDialogInput.text.toString()))
                 } catch (exception: Exception) {
                     Snackbar.make(binding.rootLayout, exception.message.toString(), Snackbar.LENGTH_LONG).show()
                 }
             }
-            .setNegativeButton("Back") { _, _ -> }
+            .setNegativeButton(StringValues.DIALOG_BACK) { _, _ -> }
     }
 
     private fun getRGBDialogBuilder(): MaterialAlertDialogBuilder {
@@ -193,8 +192,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         }
 
         return MaterialAlertDialogBuilder(this)
-            .setTitle("RGB")
-            .setMessage("Please input a valid RGB value:")
+            .setTitle(StringValues.RGB_DIALOG_TITLE)
+            .setMessage(StringValues.RGB_DIALOG_MESSAGE)
             .setView(dialogueLayout)
             .setPositiveButton("Done") { _, _ ->
                 setPixelColour(Color.argb(
@@ -204,7 +203,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                     editTexts[2].text.toString().toInt(),
                 ))
             }
-            .setNegativeButton("Back") { _, _ -> }
+            .setNegativeButton(StringValues.DIALOG_BACK) { _, _ -> }
     }
 
     private fun setUpRecyclerView() {
