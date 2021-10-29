@@ -5,4 +5,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="@string/home_str"/>
+
+    <item
+        android:id="@+id/page_starred"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_star_border_24"
+        android:title="@string/star_str"/>
 </menu>
