@@ -27,13 +27,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
                 }
 
                 if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) binding.floatingActionButton.hide() else binding.floatingActionButton.show()
-                super.onScrolled(recyclerView, dx, dy)
             }
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                    binding.floatingActionButton.show()
-
-                super.onScrollStateChanged(recyclerView, newState)
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.floatingActionButton.show()
             }
         }) // Great solution by VelocityPulse
 
