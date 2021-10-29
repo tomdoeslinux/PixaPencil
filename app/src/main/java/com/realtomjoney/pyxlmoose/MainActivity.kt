@@ -106,12 +106,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             RecentCreationsAdapter(filtered, this)
         binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
 
-        Snackbar.make(binding.recentCreationsRecyclerView,
-            "You have deleted ${param.title}.",
-            Snackbar.LENGTH_LONG)
-            .setTextColor(Color.BLACK)
-            .setBackgroundTint(Color.parseColor("#eaddff"))
-            .show()
+        (binding.recentCreationsRecyclerView).showSnackbar("You have deleted ${param.title}", SnackbarDuration.DEFAULT)
     }
 }
 
