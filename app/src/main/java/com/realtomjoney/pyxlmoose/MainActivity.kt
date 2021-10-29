@@ -17,26 +17,26 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
     private lateinit var binding: ActivityMainBinding
     private var hasNavigatedBack = false
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
+        setOnClickListeners()
+        setTitle()
+    }
 
+    private fun setTitle() {
         title = "Home"
+    }
 
+    private fun setOnClickListeners() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_home -> {
-                    binding.recentCreationsRecyclerView.adapter =
-                        RecentCreationsAdapter(PixelArtDatabase.toList(), this)
-                    binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
                     title = "Home"
                 }
                 R.id.page_starred -> {
-                    val starred = PixelArtDatabase.toList().filter { it.isFavourited }
-                    binding.recentCreationsRecyclerView.adapter =
-                        RecentCreationsAdapter(starred, this)
-                    binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList().filter { it.isFavourited }, this)
                     title = "Favorites"
                 }
             }
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.floatingActionButton.show()
             }
-        }) // Great solution by VelocityPulse
+        }) // Great solution by VelocityPulse (with a small twist from myself)
 
         binding.floatingActionButton.setOnClickListener {
             val dialogueEditText = EditText(this)
@@ -63,20 +63,18 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
                 "Please input an appropriate span count value:",
                 "Done",
                 { _, _ -> startActivity(Intent(this, CanvasActivity::class.java).putExtra("SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())))
-            }, "Back", { _, _ -> }, dialogueEditText)
+                }, "Back", { _, _ -> }, dialogueEditText)
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         binding.floatingActionButton.show()
 
         if (!hasNavigatedBack) {
             binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
-            binding.recentCreationsRecyclerView.adapter =
-                RecentCreationsAdapter(PixelArtDatabase.toList(), this)
+            binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
         } else {
-            binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+            binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(ColourDatabase.toList().last())
         }
 
         super.onResume()
@@ -87,19 +85,14 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         setContentView(binding.root)
     }
 
-    override fun onCreationTapped(param: PixelArt) {
-        val intent = Intent(this, CanvasActivity::class.java)
-        intent.putExtra("INDEX", PixelArtDatabase.toList().indexOf(param))
-        startActivity(intent)
-    }
+    override fun onCreationTapped(param: PixelArt) =
+        startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList().indexOf(param)))
 
-    @SuppressLint("NotifyDataSetChanged")
+
     override fun onCreationLongTapped(param: PixelArt) {
-        val filtered = PixelArtDatabase.toList().filter { it != param }
         PixelArtDatabase.removeItem(PixelArtDatabase.toList().indexOf(param))
-        binding.recentCreationsRecyclerView.adapter =
-            RecentCreationsAdapter(filtered, this)
-        binding.recentCreationsRecyclerView.adapter?.notifyDataSetChanged()
+        binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
+        binding.recentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
 
         (binding.recentCreationsRecyclerView).showSnackbar("You have deleted ${param.title}", SnackbarDuration.DEFAULT)
     }
