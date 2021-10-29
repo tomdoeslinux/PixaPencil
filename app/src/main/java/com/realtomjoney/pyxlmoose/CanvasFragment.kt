@@ -27,8 +27,7 @@ class CanvasFragment(private val spanCount: Int,
         if (context is CanvasFragmentListener) caller = context
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
         setUpRecyclerView()
         return binding.root
@@ -37,10 +36,11 @@ class CanvasFragment(private val spanCount: Int,
     private fun getPixelData() = savedGridState ?: caller.initPixels()
 
     private fun setUpRecyclerView() {
-        binding.canvasRecyclerView.layoutManager = GridLayoutManager(activity as Context, spanCount)
-        binding.canvasRecyclerView.adapter =
-            CanvasRecyclerAdapter(getPixelData(), caller, isGridVisible)
-        binding.canvasRecyclerView.suppressLayout(true)
+        with (binding) {
+            canvasRecyclerView.layoutManager = GridLayoutManager(activity as Context, spanCount)
+            canvasRecyclerView.adapter = CanvasRecyclerAdapter(getPixelData(), caller, isGridVisible)
+            canvasRecyclerView.suppressLayout(true)
+        }
     }
 
     override fun onDestroyView() {

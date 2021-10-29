@@ -5,11 +5,10 @@ import android.graphics.Color
 object ColourDatabase {
     private val database = mutableListOf<Int>()
 
-    private fun addColour(colour: Int) {
-        database.add(colour)
-    }
+    private fun addColour(colour: Int) = database.add(colour)
 
     fun toList() = database.toList()
+
     init {
         val tempData = listOf(
             Color.parseColor("#0048BA"),

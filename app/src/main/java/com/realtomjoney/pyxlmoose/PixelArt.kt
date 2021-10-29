@@ -5,7 +5,7 @@ import android.view.View
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-data class SavedPixelArt(
+data class PixelArt(
     val bitmap: Bitmap,
     val title: String,
     val pixelData: List<View>,

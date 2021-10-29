@@ -10,8 +10,6 @@ class RecyclerViewHolder(inflater: LayoutInflater, parent: ViewGroup, isGridVisi
     val tileParent: SquareFrameLayout = itemView.findViewById(R.id.pixelParent)
 
     init {
-        val gridLineFrame: SquareFrameLayout = itemView.findViewById(R.id.gridLineFrame)
-
-        if (!isGridVisible) gridLineFrame.visibility = View.INVISIBLE
+        if (!isGridVisible) (itemView.findViewById<SquareFrameLayout>(R.id.gridLineFrame)).visibility = View.INVISIBLE
     }
 }

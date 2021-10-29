@@ -11,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
 import android.view.View
 import android.widget.ImageButton
-import androidx.core.graphics.ColorUtils
 import com.google.android.material.snackbar.Snackbar
 
-class RecentCreationsAdapter(private var data: List<SavedPixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private var data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsAdapter.RecentCreationsViewHolder>() {
     class RecentCreationsViewHolder(val frame: FrameLayout) : RecyclerView.ViewHolder(frame)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -59,30 +58,30 @@ class RecentCreationsAdapter(private var data: List<SavedPixelArt>, private val 
 
     }
 
-    private fun changeStarredIndicator(imageButton: ImageButton, savedPixelArt: SavedPixelArt) {
-        if (savedPixelArt.isFavourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
+    private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
+        if (pixelArt.isFavourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
         else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
     }
-    private fun favouriteRecentCreation(contextView: View, savedPixelArt: SavedPixelArt) {
+    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         Snackbar.make(contextView,
-            "Saved ${savedPixelArt.title} to favourites.",
+            "Saved ${pixelArt.title} to favourites.",
             Snackbar.LENGTH_LONG)
             .setTextColor(Color.BLACK)
             .setBackgroundTint(Color.parseColor("#eaddff"))
             .show()
 
-        savedPixelArt.isFavourited = true
+        pixelArt.isFavourited = true
     }
 
-    private fun unFavouriteRecentCreation(contextView: View, savedPixelArt: SavedPixelArt) {
+    private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         Snackbar.make(contextView,
-            "You have removed ${savedPixelArt.title} from your favourites.",
+            "You have removed ${pixelArt.title} from your favourites.",
             Snackbar.LENGTH_LONG)
             .setTextColor(Color.BLACK)
             .setBackgroundTint(Color.parseColor("#eaddff"))
             .show()
 
-        savedPixelArt.isFavourited = false
+        pixelArt.isFavourited = false
     }
 
     override fun getItemCount() = data.size

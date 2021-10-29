@@ -18,7 +18,6 @@ class CanvasRecyclerAdapter(private val pixels: List<View>,
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val currentPixel = pixels[position]
-        currentPixel.id = R.id.pixel
         if (currentPixel.parent != null) {
             (currentPixel.parent as ViewGroup).removeView(currentPixel) // <- fix
         }

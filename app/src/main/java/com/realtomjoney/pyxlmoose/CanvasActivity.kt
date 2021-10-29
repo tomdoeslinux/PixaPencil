@@ -100,7 +100,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onPause() {
         if (!hasSaved) {
             PixelArtDatabase.addItem(
-                SavedPixelArt(
+                PixelArt(
                     binding.fragmentHost.drawToBitmap(),
                     "Unnamed project",
                     data,
@@ -125,7 +125,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     private fun setOnClickListeners() {
         binding.doneButton.setOnClickListener {
             if (binding.titleTextView.text.toString().isNotBlank()) {
-                PixelArtDatabase.addItem(SavedPixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
+                PixelArtDatabase.addItem(PixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
                 isMirrorMode = false
                 hasSaved = true
                 super.onBackPressed()

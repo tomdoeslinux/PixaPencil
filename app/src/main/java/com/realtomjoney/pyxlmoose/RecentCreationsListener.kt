@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
 interface RecentCreationsListener {
-    fun onCreationTapped(param: SavedPixelArt)
-    fun onCreationLongTapped(param: SavedPixelArt)
+    fun onCreationTapped(param: PixelArt)
+    fun onCreationLongTapped(param: PixelArt)
 }

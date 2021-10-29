@@ -92,14 +92,14 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         setContentView(binding.root)
     }
 
-    override fun onCreationTapped(param: SavedPixelArt) {
+    override fun onCreationTapped(param: PixelArt) {
         val intent = Intent(this, CanvasActivity::class.java)
         intent.putExtra("INDEX", PixelArtDatabase.toList().indexOf(param))
         startActivity(intent)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onCreationLongTapped(param: SavedPixelArt) {
+    override fun onCreationLongTapped(param: PixelArt) {
         val filtered = PixelArtDatabase.toList().filter { it != param }
         PixelArtDatabase.removeItem(PixelArtDatabase.toList().indexOf(param))
         binding.recentCreationsRecyclerView.adapter =

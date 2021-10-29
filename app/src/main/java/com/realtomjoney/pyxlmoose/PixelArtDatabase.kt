@@ -1,9 +1,9 @@
 package com.realtomjoney.pyxlmoose
 
 object PixelArtDatabase {
-    private val database = mutableListOf<SavedPixelArt>()
+    private val database = mutableListOf<PixelArt>()
 
-    fun addItem(param: SavedPixelArt) = database.add(param)
+    fun addItem(param: PixelArt) = database.add(param)
 
     fun removeItem(index: Int) = database.removeAt(index)
 
