@@ -10,14 +10,8 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.view.*
-import android.widget.EditText
 import android.widget.Toast
-import android.widget.LinearLayout
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
-import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import com.realtomjoney.pyxlmoose.*
 
 var primaryColour: Int = Color.BLACK
@@ -119,52 +113,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
             else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
         }
-    }
-
-    private fun getHexDialogBuilder(): MaterialAlertDialogBuilder {
-        val hexadecimalDialogInput = EditText(this)
-        hexadecimalDialogInput.hint = StringValues.HEX_DIALOG_EDIT_TEXT_HINT
-
-        return MaterialAlertDialogBuilder(this)
-            .setTitle(StringValues.HEX_DIALOG_TITLE)
-            .setMessage(StringValues.HEX_DIALOG_MESSAGE)
-            .setView(hexadecimalDialogInput)
-            .setPositiveButton(StringValues.DIALOG_DONE) { _, _ ->
-                try {
-                    setPixelColour(Color.parseColor(hexadecimalDialogInput.text.toString()))
-                } catch (exception: Exception) {
-                    Snackbar.make(binding.rootLayout, exception.message.toString(), Snackbar.LENGTH_LONG).show()
-                }
-            }
-            .setNegativeButton(StringValues.DIALOG_BACK) { _, _ -> }
-    }
-
-    private fun getRGBDialogBuilder(): MaterialAlertDialogBuilder {
-        val dialogueLayout = LinearLayout(this)
-        dialogueLayout.orientation = LinearLayout.VERTICAL
-
-        val editTexts = mutableListOf<EditText>()
-
-        listOf("R", "G", "B").forEach {
-            val editText = EditText(this)
-            editText.hint = it
-            dialogueLayout.addView(editText)
-            editTexts.add(editText)
-        }
-
-        return MaterialAlertDialogBuilder(this)
-            .setTitle(StringValues.RGB_DIALOG_TITLE)
-            .setMessage(StringValues.RGB_DIALOG_MESSAGE)
-            .setView(dialogueLayout)
-            .setPositiveButton("Done") { _, _ ->
-                setPixelColour(Color.argb(
-                    100,
-                    editTexts[0].text.toString().toInt(),
-                    editTexts[1].text.toString().toInt(),
-                    editTexts[2].text.toString().toInt(),
-                ))
-            }
-            .setNegativeButton(StringValues.DIALOG_BACK) { _, _ -> }
     }
 
     private fun setUpRecyclerView() {
