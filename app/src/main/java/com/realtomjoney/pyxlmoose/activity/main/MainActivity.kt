@@ -39,9 +39,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList()
             .indexOf(param)))
 
-    fun refreshAdapter() {
-        binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
-    }
+    fun refreshAdapter() = extendedRefreshAdapter()
 
     override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
 }
