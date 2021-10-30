@@ -30,8 +30,8 @@ var hasSaved = false
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener {
-    private lateinit var binding: ActivityCanvasBinding
-    private var data = listOf<View>()
+    lateinit var binding: ActivityCanvasBinding
+    var data = listOf<View>()
     private var index: Int? = null
 
 //    private val transaction = supportFragmentManager
@@ -56,9 +56,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 //        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu, this)
+    override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
-    override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item, binding, this, data)
+    override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
     private fun getSelectedColour(): Int {
         return if (isPrimaryColourSelected) primaryColour else secondaryColour
