@@ -227,7 +227,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun initPixels(): List<View> {
         return if (index == -1) {
             val list = mutableListOf<View>()
-            for (i in 1..spanCount * spanCount) { list.add(View(this)) }
+            for (i in 1..spanCount * spanCount) {
+                list.add(View(this))
+            }
             data = list
             list.toList()
         } else {

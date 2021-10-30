@@ -97,9 +97,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             .showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
                 PixelArtDatabase.addItem(param)
                 refreshAdapter()
-                binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(
-                    PixelArtDatabase.toList().indexOf((param))
-                )
+                binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(PixelArtDatabase.toList().indexOf((param)))
             }
     }
 }
