@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         setContentView(binding.root)
     }
 
-    override fun onCreationTapped(param: PixelArt) =
-        startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList()
-            .indexOf(param)))
+    override fun onCreationTapped(param: PixelArt) = extendedOnCreationTapped(param)
 
     fun refreshAdapter() = extendedRefreshAdapter()
 
