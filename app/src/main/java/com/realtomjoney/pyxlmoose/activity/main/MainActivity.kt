@@ -11,7 +11,7 @@ import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
 
     lateinit var binding: ActivityMainBinding
-    private var hasNavigatedBack = false
+    var hasNavigatedBack = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,15 +27,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
     private fun setOnClickListeners() = extendedSetOnClickListeners()
 
     override fun onResume() {
-        binding.floatingActionButton.show()
-
-        if (!hasNavigatedBack) {
-            binding.recentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
-            binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
-        } else {
-            binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(ColourDatabase.toList().last())
-        }
-
+        extendedOnResume()
         super.onResume()
     }
 
