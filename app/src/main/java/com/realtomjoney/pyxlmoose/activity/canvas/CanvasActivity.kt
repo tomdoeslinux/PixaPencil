@@ -81,14 +81,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun initPixels() = extendedInitPixels()
 
-    override fun onPixelTapped(pixel: View) {
-        if (isMirrorMode) {
-            data[((data.indexOf(pixel)) - ((data.indexOf(pixel)).mod(spanCount))) + (spanCount -  ((data.indexOf(pixel)).mod(spanCount))) - 1].setBackgroundColor(
-                getSelectedColour()
-            ) // Credits to PapaBread for this masterpiece of a solution
-        }
-        pixel.setBackgroundColor(getSelectedColour())
-    }
+    override fun onPixelTapped(pixel: View) = extendedOnPixelTapped(pixel)
 
     private var isSelected = false
     private var previousView: View? = null
