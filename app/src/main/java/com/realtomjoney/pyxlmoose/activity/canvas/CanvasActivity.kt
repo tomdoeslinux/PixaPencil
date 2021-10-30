@@ -8,19 +8,9 @@ import android.graphics.drawable.*
 import android.view.*
 import com.realtomjoney.pyxlmoose.*
 
-var primaryColour: Int = Color.BLACK
-var secondaryColour: Int = Color.MAGENTA
-var spanCount = 5
-var isPrimaryColourSelected = true
-var isMirrorMode = false
-var pixelGridOn = true
-var hasSaved = false
-
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener {
-    lateinit var binding: ActivityCanvasBinding
-    var data = listOf<View>()
-    var index: Int? = null
+    var previousView: View? = null
 
 //    private val transaction = supportFragmentManager
 //        .beginTransaction()
@@ -67,21 +57,13 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     fun setUpRecyclerView() = extendedSetUpRecyclerView()
 
-    fun setUpFragment() {
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, null)).commit()
-    }
+    fun setUpFragment() = extendedSetUpFragment()
 
     fun setBindings() = extendedSetBindings()
 
     override fun initPixels() = extendedInitPixels()
 
     override fun onPixelTapped(pixel: View) = extendedOnPixelTapped(pixel)
-
-    var isSelected = false
-    var previousView: View? = null
-    var background: Drawable? = null
 
     fun getGradientDrawable() = extendedGetGradientDrawable()
 
