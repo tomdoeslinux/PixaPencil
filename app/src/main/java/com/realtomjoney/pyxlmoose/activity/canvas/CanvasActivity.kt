@@ -77,6 +77,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setPixelColour(selectedColor)
 
         binding.colorPickerFragmentHost.visibility = View.INVISIBLE
+        binding.doneButton.scaleX = 1f
+        binding.doneButton.scaleY = 1f
+        binding.doneButton.visibility = View.VISIBLE
     }
 }
 

@@ -28,7 +28,9 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.colourSecondarySelected.setOnClickListener {
         isPrimaryColourSelected = false
         setPixelColour((binding.colourSecondarySelected.background as ColorDrawable).color)
+    }
 
+    binding.colourSecondarySelected.setOnLongClickListener {
         val transaction = supportFragmentManager
             .beginTransaction()
 
@@ -38,11 +40,16 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
             binding.doneButton.visibility = View.GONE
         }
+        true
     }
+
 
     binding.colourPrimarySelected.setOnClickListener {
         isPrimaryColourSelected = true
         setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
+    }
+
+    binding.colourPrimarySelected.setOnLongClickListener {
 
         val transaction = supportFragmentManager
             .beginTransaction()
@@ -53,6 +60,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
             binding.doneButton.visibility = View.GONE
         }
+        true
     }
 
     binding.mirrorButton.setOnClickListener { isMirrorMode = !isMirrorMode }
