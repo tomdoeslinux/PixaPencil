@@ -4,8 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.*
 import android.view.*
 import com.realtomjoney.pyxlmoose.*
 
@@ -84,13 +83,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     var previousView: View? = null
     var background: Drawable? = null
 
-    fun getGradientDrawable(): GradientDrawable {
-        val gd = GradientDrawable()
-        gd.setColor(Color.RED)
-        gd.cornerRadius = 10f
-        gd.setStroke(2, Color.BLACK)
-        return gd
-    }
+    fun getGradientDrawable() = extendedGetGradientDrawable()
 
     fun updateColourSelectedIndicator(it: View) = extendedUpdateColourSelectedIndicator(it)
 
