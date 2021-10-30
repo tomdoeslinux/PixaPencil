@@ -3,8 +3,6 @@ package com.realtomjoney.pyxlmoose.activity.canvas
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import android.graphics.drawable.*
 import android.view.*
 import com.realtomjoney.pyxlmoose.*
 
