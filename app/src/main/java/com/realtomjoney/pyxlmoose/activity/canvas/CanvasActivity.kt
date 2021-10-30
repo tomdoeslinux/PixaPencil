@@ -80,7 +80,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onPixelTapped(pixel: View) = extendedOnPixelTapped(pixel)
 
-    private var isSelected = false
+    var isSelected = false
     private var previousView: View? = null
     private var background: Drawable? = null
 
@@ -92,7 +92,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         return gd
     }
 
-    private fun updateColourSelectedIndicator(it: View) {
+    fun updateColourSelectedIndicator(it: View) {
         previousView?.background = background
 
         previousView = it
@@ -101,17 +101,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         it.background = getGradientDrawable()
     }
 
-    override fun onColourTapped(colour: Int, it: View) {
-        setPixelColour(colour)
-
-        isSelected = if (!isSelected) {
-            updateColourSelectedIndicator(it)
-            true
-        } else {
-            updateColourSelectedIndicator(it)
-            false
-        }
-    }
+    override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
 
     override fun onDoneButtonPressed() {
 //        with(supportFragmentManager.beginTransaction()) {
