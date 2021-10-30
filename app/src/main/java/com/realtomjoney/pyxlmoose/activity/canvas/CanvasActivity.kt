@@ -22,7 +22,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     ColorPickerFragmentListener {
     lateinit var binding: ActivityCanvasBinding
     var data = listOf<View>()
-    private var index: Int? = null
+    var index: Int? = null
 
 //    private val transaction = supportFragmentManager
 //        .beginTransaction()
@@ -30,17 +30,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        spanCount = intent.getIntExtra(StringValues.SPAN_COUNT_EXTRA, spanCount)
-        index = intent.getIntExtra(StringValues.INDEX_EXTRA, -1)
-
-        if (index != -1) data = PixelArtDatabase.toList()[index!!].pixelData
-
-        setBindings()
-        setUpFragment()
-        setUpRecyclerView()
-        setOnClickListeners()
-        setColours()
-
+        extendedOnCreate()
 //        binding.colorPickerFragmentHost.bringToFront()
 
 //        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
@@ -54,7 +44,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         return if (isPrimaryColourSelected) primaryColour else secondaryColour
     }
 
-    private fun setColours() {
+    fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
         setSecondaryPixelColour(Color.MAGENTA)
     }
@@ -76,22 +66,22 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.colourSecondarySelected.setBackgroundColor(colour)
     }
 
-    private fun setOnClickListeners() = extendedSetOnClickListeners()
+    fun setOnClickListeners() = extendedSetOnClickListeners()
 
-    private fun setUpRecyclerView() {
+    fun setUpRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.colourPickerRecyclerView.layoutManager = layoutManager
         binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(ColourDatabase.toList(), this)
     }
 
-    private fun setUpFragment() {
+    fun setUpFragment() {
         supportFragmentManager
             .beginTransaction()
             .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, null)).commit()
     }
 
-    private fun setBindings() {
+    fun setBindings() {
         binding = ActivityCanvasBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
