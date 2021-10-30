@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.activity.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
