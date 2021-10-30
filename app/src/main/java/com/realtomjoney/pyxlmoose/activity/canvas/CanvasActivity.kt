@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.activity.canvas
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
@@ -40,9 +39,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
-    fun getSelectedColour(): Int {
-        return if (isPrimaryColourSelected) primaryColour else secondaryColour
-    }
+    fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
+
 
     fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
@@ -68,12 +66,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     fun setOnClickListeners() = extendedSetOnClickListeners()
 
-    fun setUpRecyclerView() {
-        val layoutManager = LinearLayoutManager(this)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        binding.colourPickerRecyclerView.layoutManager = layoutManager
-        binding.colourPickerRecyclerView.adapter = ColourPickerAdapter(ColourDatabase.toList(), this)
-    }
+    fun setUpRecyclerView() = extendedSetUpRecyclerView()
 
     fun setUpFragment() {
         supportFragmentManager
