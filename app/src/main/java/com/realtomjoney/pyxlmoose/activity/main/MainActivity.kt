@@ -30,10 +30,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         super.onResume()
     }
 
-    private fun setBindings() {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+    private fun setBindings() = extendedSetBindings()
 
     override fun onCreationTapped(param: PixelArt) = extendedOnCreationTapped(param)
 
