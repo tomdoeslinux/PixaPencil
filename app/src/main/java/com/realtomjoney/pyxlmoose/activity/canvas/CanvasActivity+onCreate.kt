@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
+import android.view.View
 import com.realtomjoney.pyxlmoose.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.StringValues
 
@@ -14,4 +15,6 @@ fun CanvasActivity.extendedOnCreate() {
     setUpRecyclerView()
     setOnClickListeners()
     setColours()
+
+    binding.colorPickerFragmentHost.visibility = View.INVISIBLE
 }

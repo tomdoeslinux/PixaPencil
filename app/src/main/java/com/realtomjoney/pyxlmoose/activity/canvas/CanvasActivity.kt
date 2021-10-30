@@ -4,22 +4,19 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener {
     var previousView: View? = null
 
-//    private val transaction = supportFragmentManager
-//        .beginTransaction()
-//    private val instance = ColorPickerFragment.newInstance()
+    val instance = ColorPickerFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         extendedOnCreate()
-//        binding.colorPickerFragmentHost.bringToFront()
-
-//        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
@@ -28,6 +25,13 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
 
+    override fun onResume() {
+        binding.doneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction {
+            binding.doneButton.visibility = View.VISIBLE
+        }
+
+        super.onResume()
+    }
 
     fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
@@ -35,11 +39,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
-
-    override fun onPause() {
-        extendedOnPause()
-        super.onPause()
-    }
 
     private fun setPrimaryPixelColour(colour: Int) {
         primaryColour = colour
@@ -69,12 +68,15 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
 
-    override fun onDoneButtonPressed() {
-//        with(supportFragmentManager.beginTransaction()) {
-//            remove(instance)
-//            commit()
-//            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-//        }
+    override fun onDoneButtonPressed(selectedColor: Int) {
+        with(supportFragmentManager.beginTransaction()) {
+            remove(instance)
+            commit()
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+        }
+        setPixelColour(selectedColor)
+
+        binding.colorPickerFragmentHost.visibility = View.INVISIBLE
     }
 }
 

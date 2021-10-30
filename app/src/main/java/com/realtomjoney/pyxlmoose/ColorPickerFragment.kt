@@ -39,7 +39,7 @@ class ColorPickerFragment : Fragment() {
         binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
 
         binding.colorDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed()
+            caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
         }
 
         binding.redProgressBar.addOnChangeListener { _, value, _ ->

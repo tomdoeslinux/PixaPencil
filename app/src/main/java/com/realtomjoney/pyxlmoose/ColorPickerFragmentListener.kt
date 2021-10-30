@@ -1,5 +1,5 @@
 package com.realtomjoney.pyxlmoose
 
 interface ColorPickerFragmentListener {
-    fun onDoneButtonPressed()
+    fun onDoneButtonPressed(selectedColor: Int)
 }

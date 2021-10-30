@@ -3,11 +3,14 @@ package com.realtomjoney.pyxlmoose.activity.canvas
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
+import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.PixelArt
 import com.realtomjoney.pyxlmoose.PixelArtDatabase
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.StringValues
 
 fun CanvasActivity.extendedSetOnClickListeners() {
@@ -25,11 +28,31 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.colourSecondarySelected.setOnClickListener {
         isPrimaryColourSelected = false
         setPixelColour((binding.colourSecondarySelected.background as ColorDrawable).color)
+
+        val transaction = supportFragmentManager
+            .beginTransaction()
+
+        binding.colorPickerFragmentHost.visibility = View.VISIBLE
+        binding.colorPickerFragmentHost.bringToFront()
+        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
+        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
+            binding.doneButton.visibility = View.GONE
+        }
     }
 
     binding.colourPrimarySelected.setOnClickListener {
         isPrimaryColourSelected = true
         setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
+
+        val transaction = supportFragmentManager
+            .beginTransaction()
+
+        binding.colorPickerFragmentHost.visibility = View.VISIBLE
+        binding.colorPickerFragmentHost.bringToFront()
+        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
+        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
+            binding.doneButton.visibility = View.GONE
+        }
     }
 
     binding.mirrorButton.setOnClickListener { isMirrorMode = !isMirrorMode }
