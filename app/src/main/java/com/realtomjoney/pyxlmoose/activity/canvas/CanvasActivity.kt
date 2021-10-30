@@ -79,6 +79,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.doneButton.scaleX = 1f
         binding.doneButton.scaleY = 1f
         binding.doneButton.visibility = View.VISIBLE
+
+        title = "PyxlMoose"
     }
 }
 

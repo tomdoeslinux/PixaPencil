@@ -13,6 +13,15 @@ import com.realtomjoney.pyxlmoose.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.StringValues
 
+fun CanvasActivity.openColorPickerDialog() {
+    title = "Select Color"
+
+    binding.colorPickerFragmentHost.visibility = View.VISIBLE
+    binding.colorPickerFragmentHost.bringToFront()
+    (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, instance).commit()
+    binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
+}
+
 fun CanvasActivity.extendedSetOnClickListeners() {
     binding.doneButton.setOnClickListener {
         if (binding.titleTextView.text.toString().isNotBlank()) {
@@ -31,15 +40,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourSecondarySelected.setOnLongClickListener {
-        val transaction = supportFragmentManager
-            .beginTransaction()
-
-        binding.colorPickerFragmentHost.visibility = View.VISIBLE
-        binding.colorPickerFragmentHost.bringToFront()
-        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
-        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
-            binding.doneButton.visibility = View.GONE
-        }
+        openColorPickerDialog()
         true
     }
 
@@ -50,16 +51,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourPrimarySelected.setOnLongClickListener {
-
-        val transaction = supportFragmentManager
-            .beginTransaction()
-
-        binding.colorPickerFragmentHost.visibility = View.VISIBLE
-        binding.colorPickerFragmentHost.bringToFront()
-        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
-        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction {
-            binding.doneButton.visibility = View.GONE
-        }
+        openColorPickerDialog()
         true
     }
 
