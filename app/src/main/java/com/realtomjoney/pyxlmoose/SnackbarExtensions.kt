@@ -16,3 +16,11 @@ fun View.showSnackbar(snackbarText: String, duration: SnackbarDuration) {
             .setBackgroundTint(Color.parseColor(snackbarBackgroundTint))
             .show()
 }
+
+fun View.showSnackbarWithAction(snackbarText: String, duration: SnackbarDuration, actionButtonText: String, action: View.OnClickListener) {
+    Snackbar.make(this, snackbarText, duration.timeValue)
+        .setTextColor(Color.BLACK)
+        .setBackgroundTint(Color.parseColor(snackbarBackgroundTint))
+        .setAction(actionButtonText, action)
+        .show()
+}
