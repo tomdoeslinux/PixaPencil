@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose
+package com.realtomjoney.pyxlmoose.activity.canvas
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +15,10 @@ import android.widget.Toast
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
+import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.realtomjoney.pyxlmoose.*
 
 var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.MAGENTA
@@ -26,10 +28,15 @@ var isMirrorMode = false
 var pixelGridOn = true
 var hasSaved = false
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
+    ColorPickerFragmentListener {
     private lateinit var binding: ActivityCanvasBinding
     private var data = listOf<View>()
     private var index: Int? = null
+
+//    private val transaction = supportFragmentManager
+//        .beginTransaction()
+//    private val instance = ColorPickerFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +50,13 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setUpRecyclerView()
         setOnClickListeners()
         setColours()
+
+//        binding.colorPickerFragmentHost.bringToFront()
+
+//        transaction.replace(R.id.colorPickerFragmentHost, instance).commit()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.app_menu, menu)
-        return true
-    }
+    override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu, this)
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val zoom = 0.3f
@@ -132,10 +139,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 Toast.makeText(this, StringValues.MESSAGE_NAME_PROJECT, Toast.LENGTH_SHORT).show()
             }
         }
-
-        binding.chooseColourFromHexButton.setOnClickListener { getHexDialogBuilder().show() }
-
-        binding.chooseColourFromRGBButton.setOnClickListener { getRGBDialogBuilder().show() }
 
         binding.colourSecondarySelected.setOnClickListener {
             isPrimaryColourSelected = false
@@ -277,6 +280,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             updateColourSelectedIndicator(it)
             false
         }
+    }
+
+    override fun onDoneButtonPressed() {
+//        with(supportFragmentManager.beginTransaction()) {
+//            remove(instance)
+//            commit()
+//            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+//        }
     }
 }
 

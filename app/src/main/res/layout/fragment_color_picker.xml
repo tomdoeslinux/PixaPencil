@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doneButton"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ColorPickerFragment">
 
     <View
@@ -15,8 +17,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.slider.Slider
-        app:trackColor="#ff0000"
-        app:thumbColor="#ff0000"
         android:id="@+id/redProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
@@ -28,7 +28,9 @@
         android:valueTo="255"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorPickerPreview" />
+        app:layout_constraintTop_toBottomOf="@+id/colorPickerPreview"
+        app:thumbColor="#ff0000"
+        app:trackColor="#ff0000" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/greenProgressBar"
@@ -55,14 +57,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:valueFrom="0"
         android:valueTo="255"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greenProgressBar"
         app:thumbColor="#0000ff"
         app:trackColor="#0000ff" />
+
+    <Button
+        android:id="@+id/colorDoneButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

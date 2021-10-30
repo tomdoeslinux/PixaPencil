@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose
+package com.realtomjoney.pyxlmoose.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
@@ -28,11 +30,13 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.page_home -> {
-                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
+                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(
+                        PixelArtDatabase.toList(), this)
                     title = "Home"
                 }
                 R.id.page_starred -> {
-                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList().filter { it.isFavourited }, this)
+                    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(
+                        PixelArtDatabase.toList().filter { it.isFavourited }, this)
                     title = "Favorites"
                 }
             }
@@ -82,7 +86,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
     }
 
     override fun onCreationTapped(param: PixelArt) =
-        startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList().indexOf(param)))
+        startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList()
+            .indexOf(param)))
 
     private fun refreshAdapter() {
         binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
@@ -97,7 +102,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
             .showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
                 PixelArtDatabase.addItem(param)
                 refreshAdapter()
-                binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(PixelArtDatabase.toList().indexOf((param)))
+                binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(
+                    PixelArtDatabase.toList().indexOf((param)))
             }
     }
 }

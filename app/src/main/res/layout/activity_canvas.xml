@@ -6,7 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rootLayout"
-    tools:context=".CanvasActivity">
+    tools:context=".activity.canvas.CanvasActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/colorPickerFragmentHost"/>
+
 
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
@@ -82,28 +88,6 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentHost"
         tools:listitem="@layout/colour_picker_layout" />
 
-    <Button
-        android:id="@+id/chooseColourFromRGBButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/rgb_str"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:layout_constraintBottom_toBottomOf="@+id/chooseColourFromHexButton"
-        app:layout_constraintStart_toEndOf="@+id/chooseColourFromHexButton"
-        app:layout_constraintTop_toTopOf="@+id/chooseColourFromHexButton" />
-
-    <Button
-        android:id="@+id/chooseColourFromHexButton"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/hex_str"
-        app:layout_constraintStart_toStartOf="@+id/colourPickerRecyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView" />
-
     <View
         android:id="@+id/colourSecondarySelected"
         android:layout_width="50dp"
@@ -166,5 +150,4 @@
         app:layout_constraintStart_toEndOf="@+id/darkenButton"
         app:srcCompat="@drawable/lighten_icon"
         app:tint="@color/white" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

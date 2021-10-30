@@ -80,10 +80,9 @@ fun myFunc(any: Any) {
 ```
 ---
 #### Classes:
-```Kotlin
-class Dog : Animal {
 
-}
+```Kotlin
+class Dog : Animal 
 ```
 ---
 #### Constants:
