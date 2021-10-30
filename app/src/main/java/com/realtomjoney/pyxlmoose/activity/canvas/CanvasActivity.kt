@@ -81,10 +81,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onPixelTapped(pixel: View) = extendedOnPixelTapped(pixel)
 
     var isSelected = false
-    private var previousView: View? = null
-    private var background: Drawable? = null
+    var previousView: View? = null
+    var background: Drawable? = null
 
-    private fun getGradientDrawable(): GradientDrawable {
+    fun getGradientDrawable(): GradientDrawable {
         val gd = GradientDrawable()
         gd.setColor(Color.RED)
         gd.cornerRadius = 10f
@@ -92,14 +92,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         return gd
     }
 
-    fun updateColourSelectedIndicator(it: View) {
-        previousView?.background = background
-
-        previousView = it
-        background = it.background
-
-        it.background = getGradientDrawable()
-    }
+    fun updateColourSelectedIndicator(it: View) = extendedUpdateColourSelectedIndicator(it)
 
     override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
 
