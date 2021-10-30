@@ -48,22 +48,10 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener {
         startActivity(Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList()
             .indexOf(param)))
 
-    private fun refreshAdapter() {
+    fun refreshAdapter() {
         binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
     }
 
-    override fun onCreationLongTapped(param: PixelArt) {
-        PixelArtDatabase.removeItem(param)
-        refreshAdapter()
-        binding.recentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
-
-        (binding.recentCreationsRecyclerView)
-            .showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
-                PixelArtDatabase.addItem(param)
-                refreshAdapter()
-                binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(
-                    PixelArtDatabase.toList().indexOf((param)))
-            }
-    }
+    override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
 }
 
