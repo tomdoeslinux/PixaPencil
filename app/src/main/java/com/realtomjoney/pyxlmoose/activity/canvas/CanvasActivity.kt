@@ -79,18 +79,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setContentView(binding.root)
     }
 
-    override fun initPixels(): List<View> {
-        return if (index == -1) {
-            val list = mutableListOf<View>()
-            for (i in 1..spanCount * spanCount) {
-                list.add(View(this))
-            }
-            data = list
-            list.toList()
-        } else {
-            data.toList()
-        }
-    }
+    override fun initPixels() = extendedInitPixels()
 
     override fun onPixelTapped(pixel: View) {
         if (isMirrorMode) {
