@@ -3,15 +3,11 @@ package com.realtomjoney.pyxlmoose.activity.canvas
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.drawToBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.view.*
-import android.widget.Toast
-import androidx.core.graphics.ColorUtils
 import com.realtomjoney.pyxlmoose.*
 
 var primaryColour: Int = Color.BLACK
@@ -54,7 +50,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
-    private fun getSelectedColour(): Int {
+    fun getSelectedColour(): Int {
         return if (isPrimaryColourSelected) primaryColour else secondaryColour
     }
 
@@ -63,7 +59,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         setSecondaryPixelColour(Color.MAGENTA)
     }
 
-    private fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
+    fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
 
     override fun onPause() {
         extendedOnPause()
@@ -80,40 +76,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.colourSecondarySelected.setBackgroundColor(colour)
     }
 
-    private fun setOnClickListeners() {
-        binding.doneButton.setOnClickListener {
-            if (binding.titleTextView.text.toString().isNotBlank()) {
-                PixelArtDatabase.addItem(PixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
-                isMirrorMode = false
-                hasSaved = true
-                super.onBackPressed()
-            } else {
-                Toast.makeText(this, StringValues.MESSAGE_NAME_PROJECT, Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        binding.colourSecondarySelected.setOnClickListener {
-            isPrimaryColourSelected = false
-            setPixelColour((binding.colourSecondarySelected.background as ColorDrawable).color)
-        }
-
-        binding.colourPrimarySelected.setOnClickListener {
-            isPrimaryColourSelected = true
-            setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
-        }
-
-        binding.mirrorButton.setOnClickListener { isMirrorMode = !isMirrorMode }
-
-        binding.darkenButton.setOnClickListener {
-            if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
-            else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
-        }
-
-        binding.lightenButton.setOnClickListener {
-            if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
-            else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
-        }
-    }
+    private fun setOnClickListeners() = extendedSetOnClickListeners()
 
     private fun setUpRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
