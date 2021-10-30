@@ -4,7 +4,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
 
