@@ -74,10 +74,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, null)).commit()
     }
 
-    fun setBindings() {
-        binding = ActivityCanvasBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+    fun setBindings() = extendedSetBindings()
 
     override fun initPixels() = extendedInitPixels()
 
