@@ -41,7 +41,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourSecondarySelected.setOnLongClickListener {
-        setPixelColour(secondaryColour)
+        isPrimaryColourSelected = false
         openColorPickerDialog()
         true
     }
@@ -53,7 +53,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourPrimarySelected.setOnLongClickListener {
-        setPixelColour(primaryColour)
+        isPrimaryColourSelected = true
         openColorPickerDialog()
         true
     }
