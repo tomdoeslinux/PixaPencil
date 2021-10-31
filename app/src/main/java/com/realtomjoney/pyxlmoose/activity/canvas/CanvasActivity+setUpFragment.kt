@@ -6,5 +6,5 @@ import com.realtomjoney.pyxlmoose.R
 fun CanvasActivity.extendedSetUpFragment() {
     supportFragmentManager
         .beginTransaction()
-        .add(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, null)).commit()
+        .add(R.id.fragmentHost, instance2).commit()
 }

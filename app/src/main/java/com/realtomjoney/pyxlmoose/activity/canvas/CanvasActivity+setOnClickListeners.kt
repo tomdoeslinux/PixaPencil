@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
@@ -8,10 +9,8 @@ import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.FragmentTransaction
-import com.realtomjoney.pyxlmoose.PixelArt
-import com.realtomjoney.pyxlmoose.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.StringValues
+import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.activity.main.extendedSetOnClickListeners
 
 fun CanvasActivity.openColorPickerDialog() {
     title = "Select Color"
@@ -73,5 +72,22 @@ fun CanvasActivity.extendedSetOnClickListeners() {
 
     binding.colorPickerButton.setOnClickListener {
         colorPickerMode = !colorPickerMode
+    }
+
+    binding.clearAllButton.setOnClickListener {
+        showDialog(
+            "Clear canvas",
+            "Are you sure you want to clear the canvas? This cannot be undone.",
+            "OK",
+            { _, _ ->
+                with(supportFragmentManager.beginTransaction()) {
+                    remove(instance2)
+                    commit()
+                }
+                instance2 = CanvasFragment.newInstance(spanCount, true, null)
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragmentHost, instance2).commit()
+            }, "Back", { _, _ -> }, null)
     }
 }

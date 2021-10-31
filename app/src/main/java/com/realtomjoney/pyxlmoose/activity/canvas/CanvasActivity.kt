@@ -12,6 +12,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     var previousView: View? = null
 
     var instance = initColorPickerFragmentInstance()
+    var instance2 = CanvasFragment.newInstance(spanCount, true, null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
