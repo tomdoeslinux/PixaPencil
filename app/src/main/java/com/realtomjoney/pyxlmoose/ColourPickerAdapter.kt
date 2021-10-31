@@ -1,6 +1,9 @@
 package com.realtomjoney.pyxlmoose
 
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +15,15 @@ class ColourPickerAdapter(private val list: List<Int>, private val caller: Colou
     }
 
     override fun onBindViewHolder(holder: ColourPickerViewHolder, position: Int) {
+        holder.colourView.setBackgroundResource(R.drawable.round)
         holder.colourView.backgroundTintList = ColorStateList.valueOf(list[position])
 
         holder.colourView.setOnClickListener {
             caller.onColourTapped(list[position], it)
+        }
+
+        if (position == 0) {
+            caller.onColourTapped(list[position], holder.colourView)
         }
     }
 
