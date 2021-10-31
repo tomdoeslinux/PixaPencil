@@ -10,7 +10,7 @@ var data = listOf<View>()
 var index: Int? = null
 
 var primaryColour: Int = Color.BLACK
-var secondaryColour: Int = Color.MAGENTA
+var secondaryColour: Int = Color.BLUE
 var spanCount = 5
 var isPrimaryColourSelected = true
 var isMirrorMode = false

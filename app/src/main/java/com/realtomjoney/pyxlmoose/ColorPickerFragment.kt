@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
-class ColorPickerFragment : Fragment() {
+class ColorPickerFragment(private val oldColor: Int) : Fragment() {
 
     private var _binding: FragmentColorPickerBinding? = null
 
@@ -22,7 +22,7 @@ class ColorPickerFragment : Fragment() {
     private var valueB = 0
 
     companion object {
-        fun newInstance() = ColorPickerFragment()
+        fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
     }
 
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
@@ -35,6 +35,7 @@ class ColorPickerFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentColorPickerBinding.inflate(inflater, container, false)
 
+        binding.oldColorPreview.setBackgroundColor(oldColor)
         binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
 
         binding.colorDoneButton.setOnClickListener {

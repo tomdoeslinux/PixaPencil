@@ -11,12 +11,14 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     ColorPickerFragmentListener {
     var previousView: View? = null
 
-    val instance = ColorPickerFragment.newInstance()
+    var instance = initColorPickerFragmentInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         extendedOnCreate()
     }
+
+    fun initColorPickerFragmentInstance() = ColorPickerFragment.newInstance(getSelectedColour())
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
@@ -34,7 +36,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
-        setSecondaryPixelColour(Color.MAGENTA)
+        setSecondaryPixelColour(Color.BLUE)
     }
 
     fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)

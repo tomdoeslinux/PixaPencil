@@ -16,6 +16,8 @@ import com.realtomjoney.pyxlmoose.StringValues
 fun CanvasActivity.openColorPickerDialog() {
     title = "Select Color"
 
+    instance = initColorPickerFragmentInstance()
+
     binding.colorPickerFragmentHost.visibility = View.VISIBLE
     binding.colorPickerFragmentHost.bringToFront()
     (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, instance).commit()
@@ -40,6 +42,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourSecondarySelected.setOnLongClickListener {
+        setPixelColour(secondaryColour)
         openColorPickerDialog()
         true
     }
@@ -51,6 +54,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.colourPrimarySelected.setOnLongClickListener {
+        setPixelColour(primaryColour)
         openColorPickerDialog()
         true
     }
