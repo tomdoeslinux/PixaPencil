@@ -8,10 +8,6 @@
     android:id="@+id/rootLayout"
     tools:context=".activity.canvas.CanvasActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/colorPickerFragmentHost"/>
 
 
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
@@ -23,6 +19,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view">
 
+        <FrameLayout
+            android:id="@+id/colorPickerFragmentHost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </com.realtomjoney.pyxlmoose.SquareFrameLayout>
 
     <View
@@ -109,59 +109,88 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/mirrorButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        app:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_mirror" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/colorPickerButton"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:clickable="true"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/mirrorButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView"
-        app:srcCompat="@drawable/ic_baseline_colorize_24"
-        app:tint="@color/white" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/darkenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toEndOf="@+id/mirrorButton"
-        app:srcCompat="@drawable/darken_icon"
-        app:tint="@color/white" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/lightenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintStart_toEndOf="@+id/darkenButton"
-        app:srcCompat="@drawable/lighten_icon"
-        app:tint="@color/white" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/mirrorButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    app:borderWidth="3dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_mirror"
+                    app:tint="@android:color/holo_blue_dark" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/colorPickerButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="300dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    app:borderWidth="3dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/lightenButton"
+                    app:srcCompat="@drawable/ic_baseline_colorize_24"
+                    app:tint="@android:color/holo_blue_dark" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/darkenButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    app:borderWidth="3dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/mirrorButton"
+                    app:srcCompat="@drawable/darken_icon"
+                    app:tint="@android:color/holo_blue_dark" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/lightenButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    app:borderWidth="3dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/darkenButton"
+                    app:srcCompat="@drawable/lighten_icon"
+                    app:tint="@android:color/holo_blue_dark" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
