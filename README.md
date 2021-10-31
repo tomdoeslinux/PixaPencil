@@ -4,6 +4,10 @@
 
 _Join our Discord: https://discord.gg/fZPWBfPvWd_
 
+_COMMITS ARE NOT STABLE AND HAVEN'T BEEN CHECKED FOR BUGS._
+
+_IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONSIDERATION. IT IS RECOMMENDED THAT YOU BRANCH ONLY WHEN RELEASE 0.1 COMES OUT AND MOST COMMITS AREN'T CHECKED BECAUSE OF THE LACK OF UNIT TESTS!_
+
 ----
 ## Showcasing the app's capabilities
 ![image](https://user-images.githubusercontent.com/50536495/139562893-ea67558d-24c3-416b-a802-8898805d5514.png)
@@ -45,6 +49,20 @@ override fun onPixelTapped(pixel: View) {
 ```
 
 _Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
+
+## User Inteface Evolution
+
+_PyxlMoose has made a tremendous amount of progress!_
+
+#### Then:
+
+![image](https://user-images.githubusercontent.com/50536495/139565804-fe80c56c-7d92-46b0-bd24-9d7f328962f0.png)
+![image](https://user-images.githubusercontent.com/50536495/139565798-65f42d72-81a7-4a2e-ae5e-0816fa07d0db.png)
+
+#### Now:
+![image](https://user-images.githubusercontent.com/50536495/139565858-d55ce8d8-d9e6-4c2e-adae-451cd73fcb91.png)
+![image](https://user-images.githubusercontent.com/50536495/139565849-17e280c6-65ef-40c0-b693-67b5b9e906db.png)
+
 
 ## Use a Consistent Coding Style
 <details><summary><b>Examples</b></summary>
