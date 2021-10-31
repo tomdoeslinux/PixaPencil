@@ -8,6 +8,10 @@
     android:id="@+id/rootLayout"
     tools:context=".activity.canvas.CanvasActivity">
 
+    <FrameLayout
+        android:id="@+id/colorPickerFragmentHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
@@ -19,10 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view">
 
-        <FrameLayout
-            android:id="@+id/colorPickerFragmentHost"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </com.realtomjoney.pyxlmoose.SquareFrameLayout>
 
     <View
