@@ -70,4 +70,8 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
         else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
     }
+
+    binding.colorPickerButton.setOnClickListener {
+        colorPickerMode = !colorPickerMode
+    }
 }

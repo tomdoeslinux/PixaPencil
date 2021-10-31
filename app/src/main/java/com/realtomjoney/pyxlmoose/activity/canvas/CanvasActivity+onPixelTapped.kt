@@ -1,12 +1,17 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.view.View
 
 fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
-    if (isMirrorMode) {
+    if (isMirrorMode && !colorPickerMode) {
         data[((data.indexOf(pixel)) - ((data.indexOf(pixel)).mod(spanCount))) + (spanCount -  ((data.indexOf(pixel)).mod(spanCount))) - 1].setBackgroundColor(
             getSelectedColour()
         ) // Credits to PapaBread for this masterpiece of a solution
     }
-    pixel.setBackgroundColor(getSelectedColour())
+    else if (colorPickerMode) {
+        val background: Drawable? = pixel.background
+        background?.let { setPixelColour((it as ColorDrawable).color) }
+    } else { pixel.setBackgroundColor(getSelectedColour()) }
 }

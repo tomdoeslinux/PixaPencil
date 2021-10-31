@@ -19,3 +19,5 @@ var hasSaved = false
 
 var isSelected = false
 var background: Drawable? = null
+
+var colorPickerMode = false
