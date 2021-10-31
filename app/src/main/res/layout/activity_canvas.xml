@@ -148,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginEnd="300dp"
+                    android:layout_marginEnd="24dp"
                     android:backgroundTint="@color/white"
                     android:clickable="true"
                     android:elevation="0dp"
@@ -189,6 +189,23 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/darkenButton"
                     app:srcCompat="@drawable/lighten_icon"
+                    app:tint="@android:color/holo_blue_dark" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/clearAllButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="100dp"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    app:borderWidth="3dp"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/colorPickerButton"
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
                     app:tint="@android:color/holo_blue_dark" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
