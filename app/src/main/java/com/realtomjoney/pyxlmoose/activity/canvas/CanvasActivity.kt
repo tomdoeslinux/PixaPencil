@@ -1,11 +1,15 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
 import android.graphics.Color
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
+import kotlin.math.roundToInt
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener {
@@ -34,6 +38,33 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
         super.onResume()
     }
+
+    fun evaluate(event: MotionEvent) {
+        var count = 0
+        for (px in data) {
+            val originalPos = IntArray(2)
+            px.getLocationInWindow(originalPos)
+
+            if (originalPos[0] - event.x.toInt() in -60..60 && originalPos[1] - event.y.toInt() in -60..60) {
+                onPixelTapped(px)
+                count++
+
+                if (count == 1)
+                return
+            }
+        }
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return when (event!!.actionMasked) {
+            MotionEvent.ACTION_MOVE -> {
+                evaluate(event)
+                true
+            }
+            else -> super.onTouchEvent(event)
+        }
+    }
+
 
     fun setColours() {
         setPrimaryPixelColour(Color.BLACK)
