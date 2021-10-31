@@ -1,16 +1,13 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
 import android.app.Activity
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
-import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
-import com.realtomjoney.pyxlmoose.activity.main.extendedSetOnClickListeners
 
 fun CanvasActivity.openColorPickerDialog() {
     title = "Select Color"
