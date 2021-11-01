@@ -5,14 +5,9 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
-import com.realtomjoney.pyxlmoose.showDialog
 import android.graphics.drawable.Drawable
-
-
+import com.realtomjoney.pyxlmoose.*
 
 
 fun MainActivity.extendedSetOnClickListeners() {
@@ -46,12 +41,32 @@ fun MainActivity.extendedSetOnClickListeners() {
     binding.floatingActionButton.setOnClickListener {
         val dialogueEditText = EditText(this)
         dialogueEditText.hint = "Span count"
-
         showDialog(
             "Span count",
             "Please input an appropriate span count value:",
             "Done",
-            { _, _ -> startActivity(Intent(this, CanvasActivity::class.java).putExtra("SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())))
+            { _, _ ->
+                if (Integer.parseInt(dialogueEditText.text.toString()) > 55) {
+                    it.showSnackbarWithAction(
+                        "Are you sure you want to proceed? Canvas sizes over 55 by 55 are not supported well..",
+                        SnackbarDuration.LONG, "OK"
+                    ) {
+                        startActivity(
+                            Intent(this, CanvasActivity::class.java).putExtra(
+                                "SPAN_COUNT",
+                                Integer.parseInt(dialogueEditText.text.toString())
+                            )
+                        )
+                    }
+                } else {
+                    startActivity(
+                        Intent(this, CanvasActivity::class.java).putExtra(
+                            "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
+                        )
+                    )
+                }
             }, "Back", { _, _ -> }, dialogueEditText)
+
+
     }
 }
