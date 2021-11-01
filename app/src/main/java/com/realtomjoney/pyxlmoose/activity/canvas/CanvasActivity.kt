@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
+import kotlin.math.pow
 import kotlin.math.roundToInt
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
@@ -45,9 +47,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             val originalPos = IntArray(2)
             px.getLocationInWindow(originalPos)
 
-            val sensitivity = spanCount + 30 - spanCount
+            val sensitivity = ((400) * (0.9.pow(spanCount)) + 8.9)
 
-            if (originalPos[0] - event.x.toInt() in -sensitivity..sensitivity && originalPos[1] - event.y.toInt() in -sensitivity..sensitivity) {
+            if (originalPos[0] - event.x.toDouble() in -sensitivity..sensitivity && originalPos[1] - event.y.toDouble() in -sensitivity..sensitivity) {
                 onPixelTapped(px)
                 count++
 
