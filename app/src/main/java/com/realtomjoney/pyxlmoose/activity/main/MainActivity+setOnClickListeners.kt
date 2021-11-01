@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activity.main
 
 import android.content.Intent
-import android.graphics.Color
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
