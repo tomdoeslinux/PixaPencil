@@ -76,23 +76,6 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
 
-    <EditText
-        android:id="@+id/sensitivityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints="name"
-        android:background="@null"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/name_str"
-        android:inputType="text"
-        android:text="50"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/colourSecondarySelected"
-        app:layout_constraintStart_toEndOf="@+id/titleTextView"
-        app:layout_constraintTop_toTopOf="@+id/view" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/colourPickerRecyclerView"
         android:layout_width="0dp"
