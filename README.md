@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/50536495/139613214-b062259e-bf3e-4719-88d8-1279ede234d2.png)
+![image](https://user-images.githubusercontent.com/50536495/139613827-1d5ea69b-5ffc-4413-86ae-cba9c4e8160d.png)
 
 **A pixel art creator for Android using RecyclerView.**
 
