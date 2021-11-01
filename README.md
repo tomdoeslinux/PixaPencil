@@ -11,8 +11,6 @@ _IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONS
 ----
 ## Showcasing the app's capabilities
 ![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
-![image](https://user-images.githubusercontent.com/50536495/139618775-2701756a-f4a3-4a73-9e4d-a94048d84bc6.png)
-
 
 ![drawing](https://user-images.githubusercontent.com/50536495/138544026-4bd15055-3794-4786-a758-9c2f2633381f.png)
 ![Screenshot 2021-10-24 110235](https://user-images.githubusercontent.com/50536495/138572942-c017eb05-85a4-4159-a351-3204e5d422aa.png)
