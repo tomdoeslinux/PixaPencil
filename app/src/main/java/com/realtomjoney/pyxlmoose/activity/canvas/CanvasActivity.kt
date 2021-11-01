@@ -45,7 +45,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
             val originalPos = IntArray(2)
             px.getLocationInWindow(originalPos)
 
-            if (originalPos[0] - event.x.toInt() in -60..60 && originalPos[1] - event.y.toInt() in -60..60) {
+            val sensitivity = spanCount + 30 - spanCount
+
+            if (originalPos[0] - event.x.toInt() in -sensitivity..sensitivity && originalPos[1] - event.y.toInt() in -sensitivity..sensitivity) {
                 onPixelTapped(px)
                 count++
 
