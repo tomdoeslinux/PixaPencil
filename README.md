@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/Aq8kgtZ.png"/>
+![image](https://user-images.githubusercontent.com/50536495/139613827-1d5ea69b-5ffc-4413-86ae-cba9c4e8160d.png)
 
 **A pixel art creator for Android using RecyclerView.**
 
@@ -10,7 +10,9 @@ _IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONS
 
 ----
 ## Showcasing the app's capabilities
+![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
 ![image](https://user-images.githubusercontent.com/50536495/139562893-ea67558d-24c3-416b-a802-8898805d5514.png)
+
 
 ![drawing](https://user-images.githubusercontent.com/50536495/138544026-4bd15055-3794-4786-a758-9c2f2633381f.png)
 ![Screenshot 2021-10-24 110235](https://user-images.githubusercontent.com/50536495/138572942-c017eb05-85a4-4159-a351-3204e5d422aa.png)
