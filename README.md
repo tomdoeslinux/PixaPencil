@@ -8,6 +8,8 @@ _COMMITS ARE NOT STABLE AND HAVEN'T BEEN CHECKED FOR BUGS._
 
 _IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONSIDERATION. IT IS RECOMMENDED THAT YOU BRANCH ONLY WHEN RELEASE 0.1 COMES OUT AND MOST COMMITS AREN'T CHECKED BECAUSE OF THE LACK OF UNIT TESTS!_
 
+_Do not use the PyxlMoose name anywhere else. The first two preview images (and the logo) are originally made by myself so please do not claim as your own. 😊_
+
 ----
 ## Showcasing the app's capabilities
 ![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
@@ -130,6 +132,6 @@ inline / value
 infix
 operator
 data
-```
-
-_**Do not** use the PyxlMoose name anywhere else other than this project.😊_
+```       
+        
+     
