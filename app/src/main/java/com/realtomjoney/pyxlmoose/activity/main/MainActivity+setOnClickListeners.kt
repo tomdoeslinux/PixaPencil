@@ -46,25 +46,11 @@ fun MainActivity.extendedSetOnClickListeners() {
             "Please input an appropriate span count value:",
             "Done",
             { _, _ ->
-                if (Integer.parseInt(dialogueEditText.text.toString()) > 55) {
-                    it.showSnackbarWithAction(
-                        "Are you sure you want to proceed? Canvas sizes over 55 by 55 are not supported well..",
-                        SnackbarDuration.LONG, "OK"
-                    ) {
-                        startActivity(
-                            Intent(this, CanvasActivity::class.java).putExtra(
-                                "SPAN_COUNT",
-                                Integer.parseInt(dialogueEditText.text.toString())
-                            )
-                        )
-                    }
-                } else {
-                    startActivity(
-                        Intent(this, CanvasActivity::class.java).putExtra(
-                            "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
-                        )
+                startActivity(
+                    Intent(this, CanvasActivity::class.java).putExtra(
+                        "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
                     )
-                }
+                )
             }, "Back", { _, _ -> }, dialogueEditText)
 
 
