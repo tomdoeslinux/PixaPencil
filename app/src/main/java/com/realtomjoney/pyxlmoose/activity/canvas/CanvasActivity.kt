@@ -39,7 +39,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         super.onResume()
     }
 
-    fun evaluate(event: MotionEvent) {
+    private fun evaluate(event: MotionEvent) {
         var count = 0
         for (px in data) {
             val originalPos = IntArray(2)
