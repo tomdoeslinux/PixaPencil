@@ -132,4 +132,7 @@ operator
 data
 ```
 
-_**Do not** use the PyxlMoose name anywhere else other than this project.😊_
+_**Do not** use the PyxlMoose name anywhere else. The first two preview images are original so please do not claim as your own. 😊_
+       
+        
+     
