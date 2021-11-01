@@ -1,17 +1,12 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
-import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
 import kotlin.math.pow
-import kotlin.math.roundToInt
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener {
