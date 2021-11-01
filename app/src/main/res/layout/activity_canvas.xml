@@ -155,12 +155,12 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/colorPickerButton"
+                    style="@style/canvas_activity_button_tool_style"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/lightenButton"
-                    app:srcCompat="@drawable/ic_baseline_colorize_24"
-                    style="@style/canvas_activity_button_tool_style"/>
+                    app:srcCompat="@drawable/ic_baseline_colorize_24" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/darkenButton"
@@ -178,19 +178,26 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clearAllButton"
+                    style="@style/canvas_activity_button_tool_style"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lightenButton"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
-                    style="@style/canvas_activity_button_tool_style" />
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/undoButton"
                     style="@style/canvas_activity_button_tool_style"
-                    android:layout_marginEnd="132dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/colorPickerButton"
                     app:srcCompat="@drawable/ic_baseline_undo_24" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/changeBackgroundButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/undoButton"
+                    app:srcCompat="@drawable/change_background_icon" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
     </FrameLayout>
