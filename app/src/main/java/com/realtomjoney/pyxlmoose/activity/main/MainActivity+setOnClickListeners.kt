@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activity.main
 
 import android.content.Intent
+import android.graphics.Color
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
@@ -40,14 +41,16 @@ fun MainActivity.extendedSetOnClickListeners() {
         dialogueEditText.hint = "Span count"
         showDialog(
             "Span count",
-            "Please input an appropriate span count value:",
+            "Please input an appropriate span count value between 1 and 100:",
             "Done",
             { _, _ ->
-                startActivity(
-                    Intent(this, CanvasActivity::class.java).putExtra(
-                        "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
+                if (Integer.parseInt(dialogueEditText.text.toString()) in 1..100) {
+                    startActivity(
+                        Intent(this, CanvasActivity::class.java).putExtra(
+                            "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
+                        )
                     )
-                )
+                }
             }, "Back", { _, _ -> }, dialogueEditText)
 
 
