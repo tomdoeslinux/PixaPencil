@@ -163,13 +163,19 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clearAllButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lightenButton"
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
+                    style="@style/canvas_activity_button_tool_style" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/undoButton"
                     style="@style/canvas_activity_button_tool_style"
                     android:layout_marginEnd="132dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/colorPickerButton"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
-
+                    app:srcCompat="@drawable/ic_baseline_undo_24" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </HorizontalScrollView>
     </FrameLayout>
