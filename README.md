@@ -10,7 +10,7 @@ _IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONS
 
 ----
 ## Showcasing the app's capabilities
-![image](https://user-images.githubusercontent.com/50536495/139562893-ea67558d-24c3-416b-a802-8898805d5514.png)
+![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
 ![image](https://user-images.githubusercontent.com/50536495/139618775-2701756a-f4a3-4a73-9e4d-a94048d84bc6.png)
 
 
