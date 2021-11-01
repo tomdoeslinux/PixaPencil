@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/Aq8kgtZ.png"/>
+![image](https://user-images.githubusercontent.com/50536495/139613214-b062259e-bf3e-4719-88d8-1279ede234d2.png)
 
 **A pixel art creator for Android using RecyclerView.**
 
