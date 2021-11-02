@@ -29,7 +29,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             hasSaved = true
             (this as Activity).onBackPressed()
         } else {
-            Toast.makeText(this, StringValues.MESSAGE_NAME_PROJECT, Toast.LENGTH_SHORT).show()
+            binding.rootLayout.showSnackbar(StringValues.MESSAGE_NAME_PROJECT, SnackbarDuration.DEFAULT)
         }
     }
 
