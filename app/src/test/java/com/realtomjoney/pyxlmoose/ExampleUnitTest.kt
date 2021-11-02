@@ -35,6 +35,16 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun test_canDeleteColors() {
+        val previousSize = ColourDatabase.toList().size
+
+        val last = ColourDatabase.toList().last()
+        ColourDatabase.removeItem(last)
+
+        assert(ColourDatabase.toList().size == previousSize - 1)
+    }
+
+    @Test
     fun test_initPixels() {
         ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
             val pixelData = activity.initPixels()
