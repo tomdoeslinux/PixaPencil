@@ -84,23 +84,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     }
 
     override fun onPause() {
-        currentBackground = null
-        hasSetBackgroundYet = false
-        wantsToChangeBackground = false
-
-        if (binding.titleTextView.text.toString().isBlank()) {
-            PixelArtDatabase.addItem(
-                PixelArt(
-                    binding.fragmentHost.drawToBitmap(),
-                    "Unnamed project",
-                    data,
-                    false
-                )
-            )
-            isMirrorMode = false
-            hasSaved = true
-        }
-
+        extendedOnPause()
         super.onPause()
     }
 

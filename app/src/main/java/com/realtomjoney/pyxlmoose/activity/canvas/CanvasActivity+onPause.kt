@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.realtomjoney.pyxlmoose.activity.canvas
 
 import androidx.core.view.drawToBitmap
@@ -6,14 +8,20 @@ import com.realtomjoney.pyxlmoose.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.StringValues
 
 fun CanvasActivity.extendedOnPause() {
-    if (!hasSaved) {
+    currentBackground = null
+    hasSetBackgroundYet = false
+    wantsToChangeBackground = false
+
+    if (binding.titleTextView.text.toString().isBlank()) {
         PixelArtDatabase.addItem(
             PixelArt(
                 binding.fragmentHost.drawToBitmap(),
-                StringValues.DEFAULT_PROJECT_NAME,
+                "Unnamed project",
                 data,
                 false
             )
         )
+        isMirrorMode = false
+        hasSaved = true
     }
 }
