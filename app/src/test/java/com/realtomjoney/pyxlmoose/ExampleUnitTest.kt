@@ -49,7 +49,7 @@ class ExampleUnitTest {
 
             val pixelArtData = PixelArtDatabase.toList()
 
-            assert(pixelArtData.last().title == "Unnamed project")
+            assert(pixelArtData.last().title == StringValues.DEFAULT_PROJECT_NAME)
         }
     }
 }
