@@ -64,4 +64,16 @@
         <item name="tint">@android:color/holo_blue_dark</item>
         <item name="rippleColor">@android:color/holo_blue_light</item>
     </style>
+
+    <style name="canvas_done_button_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:backgroundTint">#eaddff</item>
+        <item name="android:src">@drawable/ic_baseline_check_24</item>
+        <item name="android:text">@string/floating_action_button_str</item>
+        <item name="fabCustomSize">80dp</item>
+        <item name="tint">@color/black</item>
+    </style>
 </resources>

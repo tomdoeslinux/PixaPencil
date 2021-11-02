@@ -12,10 +12,6 @@
         android:id="@+id/colorPickerFragmentHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-
-
-
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"
@@ -49,17 +45,9 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/doneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#eaddff"
-        android:src="@drawable/ic_baseline_check_24"
-        android:text="@string/floating_action_button_str"
-        app:fabCustomSize="80dp"
+        style="@style/canvas_done_button_style"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/black" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/colorSwapButton"
