@@ -24,6 +24,8 @@ I would love your input! I have a goal of making contributing to this project as
 - _Proposing new features_
 - _Becoming a maintainer_
 
+Make sure to follow clean code guidelines when contributing to this project.
+
 ## Want to collaborate?
 If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
 
@@ -61,8 +63,3 @@ _PyxlMoose has made a tremendous amount of progress!_
 #### Now:
 ![image](https://user-images.githubusercontent.com/50536495/139565858-d55ce8d8-d9e6-4c2e-adae-451cd73fcb91.png)
 ![image](https://user-images.githubusercontent.com/50536495/139565849-17e280c6-65ef-40c0-b693-67b5b9e906db.png)
-
-
-## Contributor Notice
-
-Make sure to follow clean code guidelines when contributing to this project.
