@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose
 
+import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -24,5 +25,11 @@ class ExampleUnitTest {
             val squareFrameLayout = SquareFrameLayout(activity)
             assertEquals(squareFrameLayout.width, squareFrameLayout.height)
         }
+    }
+
+    @Test
+    fun test_ColorPickerDatabase() {
+        ColourDatabase.addItem(Color.BLUE)
+        assert(ColourDatabase.toList().last() == Color.BLUE)
     }
 }
