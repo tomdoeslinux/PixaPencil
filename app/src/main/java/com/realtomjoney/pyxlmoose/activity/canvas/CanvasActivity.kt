@@ -82,6 +82,13 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         binding.colourSecondarySelected.setBackgroundColor(colour)
     }
 
+    override fun onPause() {
+        currentBackground = null
+        hasSetBackgroundYet = false
+        wantsToChangeBackground = false
+        super.onPause()
+    }
+
     fun setOnClickListeners() = extendedSetOnClickListeners()
 
     fun setUpRecyclerView() = extendedSetUpRecyclerView()
