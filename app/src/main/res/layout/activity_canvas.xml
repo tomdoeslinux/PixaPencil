@@ -14,6 +14,8 @@
         android:layout_height="match_parent" />
 
 
+
+
     <com.realtomjoney.pyxlmoose.SquareFrameLayout
         android:id="@+id/fragmentHost"
         android:layout_width="0dp"
@@ -58,6 +60,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/black" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/colorSwapButton"
+        style="@style/canvas_activity_button_tool_style"
+        android:layout_marginEnd="16dp"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentHost"
+        app:layout_constraintEnd_toStartOf="@+id/colourSecondarySelected"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/color_swap_icon" />
 
     <EditText
         android:id="@+id/titleTextView"
