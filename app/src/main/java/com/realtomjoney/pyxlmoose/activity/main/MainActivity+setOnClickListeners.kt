@@ -43,12 +43,16 @@ fun MainActivity.extendedSetOnClickListeners() {
             "Please input an appropriate span count value between 1 and 100:",
             "Done",
             { _, _ ->
-                if (Integer.parseInt(dialogueEditText.text.toString()) in 1..100) {
-                    startActivity(
-                        Intent(this, CanvasActivity::class.java).putExtra(
-                            "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
+                try {
+                    if (Integer.parseInt(dialogueEditText.text.toString()) in 1..100) {
+                        startActivity(
+                            Intent(this, CanvasActivity::class.java).putExtra(
+                                "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
+                            )
                         )
-                    )
+                    }
+                } catch (ex: Exception) {
+                    binding.mainRoot.showSnackbar(ex.toString(), SnackbarDuration.DEFAULT)
                 }
             }, "Back", { _, _ -> }, dialogueEditText)
 
