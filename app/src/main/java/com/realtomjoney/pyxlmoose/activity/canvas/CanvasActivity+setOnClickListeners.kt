@@ -92,4 +92,13 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.changeBackgroundButton.setOnClickListener {
         wantsToChangeBackground = !wantsToChangeBackground
     }
+
+    binding.colorSwapButton.setOnClickListener {
+        binding.colourPrimarySelected.setBackgroundColor(secondaryColour)
+        binding.colourSecondarySelected.setBackgroundColor(primaryColour)
+
+        val temp = primaryColour
+        primaryColour = secondaryColour
+        secondaryColour = temp
+    }
 }
