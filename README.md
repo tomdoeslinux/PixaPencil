@@ -4,11 +4,11 @@
 
 _Join our Discord: https://discord.gg/fZPWBfPvWd_
 
-_COMMITS ARE NOT STABLE AND HAVEN'T BEEN CHECKED FOR BUGS._
+_Commits may contain bugs._
 
-_IF YOU ARE INTERESTED IN BRANCHING THIS PROJECT PLEASE TAKE THAT FACT INTO CONSIDERATION. IT IS RECOMMENDED THAT YOU BRANCH ONLY WHEN RELEASE 0.1 COMES OUT AND MOST COMMITS AREN'T CHECKED BECAUSE OF THE LACK OF UNIT TESTS!_
+_If you are interested in contributing to this project please take that fact into consideration._
 
-_Do not use the PyxlMoose name anywhere else. The first two preview images (and the logo) are originally made by myself so please do not claim as your own. 😊_
+_Do not use the PyxlMoose name anywhere else. The first two preview images (and the logo) are originally made by myself so please do not claim them as your own. 😊_
 
 ----
 ## Showcasing the app's capabilities
@@ -50,6 +50,7 @@ override fun onPixelTapped(pixel: View) {
 _Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 
 ## User Inteface Evolution
+<details><summary><b>Progress PyxlMoose has made:</b></summary>
 
 _PyxlMoose has made a tremendous amount of progress!_
 
@@ -64,7 +65,7 @@ _PyxlMoose has made a tremendous amount of progress!_
 
 
 ## Use a Consistent Coding Style
-<details><summary><b>Examples</b></summary>
+<details><summary><b>Examples:</b></summary>
 
 #### Functions:
 ``` Kotlin
