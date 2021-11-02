@@ -43,6 +43,17 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun test_userCanDeletePixelArtItems() {
+        ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
+            activity.extendedOnPause()
+
+            PixelArtDatabase.removeItem(PixelArtDatabase.toList().last())
+
+            assert(PixelArtDatabase.toList().isEmpty())
+        }
+    }
+
+    @Test
     fun test_extendedOnPause() {
         ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
             activity.extendedOnPause()
@@ -50,6 +61,8 @@ class ExampleUnitTest {
             val pixelArtData = PixelArtDatabase.toList()
 
             assert(pixelArtData.last().title == StringValues.DEFAULT_PROJECT_NAME)
+
+            PixelArtDatabase.removeItem(PixelArtDatabase.toList().last())
         }
     }
 }
