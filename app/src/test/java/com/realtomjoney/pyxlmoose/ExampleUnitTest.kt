@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
+import com.realtomjoney.pyxlmoose.activity.canvas.extendedOnPause
 import com.realtomjoney.pyxlmoose.activity.main.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -44,6 +45,17 @@ class ExampleUnitTest {
         ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
             val pixelData = activity.initPixels()
             assert(pixelData.isNotEmpty())
+        }
+    }
+
+    @Test
+    fun test_extendedOnPause() {
+        ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
+            activity.extendedOnPause()
+
+            val pixelArtData = PixelArtDatabase.toList()
+
+            assert(pixelArtData.last().title == "Unnamed project")
         }
     }
 }
