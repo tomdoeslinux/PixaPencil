@@ -42,6 +42,9 @@ If you want to collaborate with me on the project flick me an email at tomdoesco
 #### Color picker tool:
 ![Screen Recording - Made with RecordCast (3)](https://user-images.githubusercontent.com/50536495/139820352-c6e194b6-1df1-4fbb-94e6-636e006587ff.gif)
 
+#### Use any color you want to create beautiful art (hopefully better than mine):
+![Screen Recording - Made with RecordCast (4)](https://user-images.githubusercontent.com/50536495/139821358-0f38e9a9-fd35-40f0-bd23-1b6e2435511d.gif)
+
 ## User interface evolution
 
 _PyxlMoose has made a tremendous amount of progress!_
