@@ -29,6 +29,33 @@ Make sure to follow clean code guidelines when contributing to this project.
 ## Want to collaborate?
 If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
 
+## Features
+#### Mirror tool:
+![Screen Recording - Made with RecordCast](https://user-images.githubusercontent.com/50536495/139818972-d6daea00-5925-4f48-a17b-168ed8520306.gif)
+
+#### Lighten tool:
+![Screen Recording - Made with RecordCast (1)](https://user-images.githubusercontent.com/50536495/139819623-fe66a42d-3b6a-4180-b335-4c1b6ddc1c05.gif)
+
+#### Darken tool:
+![Screen Recording - Made with RecordCast (2)](https://user-images.githubusercontent.com/50536495/139819953-c84c6f89-a3d0-4958-a82f-10edfd499f0a.gif)
+
+#### Color picker tool:
+![Screen Recording - Made with RecordCast (3)](https://user-images.githubusercontent.com/50536495/139820352-c6e194b6-1df1-4fbb-94e6-636e006587ff.gif)
+
+## User interface evolution
+
+_PyxlMoose has made a tremendous amount of progress!_
+
+#### Then:
+
+![image](https://user-images.githubusercontent.com/50536495/139565804-fe80c56c-7d92-46b0-bd24-9d7f328962f0.png)
+![image](https://user-images.githubusercontent.com/50536495/139565798-65f42d72-81a7-4a2e-ae5e-0816fa07d0db.png)
+
+#### Now:
+![image](https://user-images.githubusercontent.com/50536495/139565858-d55ce8d8-d9e6-4c2e-adae-451cd73fcb91.png)
+![image](https://user-images.githubusercontent.com/50536495/139565849-17e280c6-65ef-40c0-b693-67b5b9e906db.png)
+
+
 ## Shoutout
 _Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
 
@@ -50,16 +77,3 @@ override fun onPixelTapped(pixel: View) {
 ```
 
 _Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
-
-## User interface evolution
-
-_PyxlMoose has made a tremendous amount of progress!_
-
-#### Then:
-
-![image](https://user-images.githubusercontent.com/50536495/139565804-fe80c56c-7d92-46b0-bd24-9d7f328962f0.png)
-![image](https://user-images.githubusercontent.com/50536495/139565798-65f42d72-81a7-4a2e-ae5e-0816fa07d0db.png)
-
-#### Now:
-![image](https://user-images.githubusercontent.com/50536495/139565858-d55ce8d8-d9e6-4c2e-adae-451cd73fcb91.png)
-![image](https://user-images.githubusercontent.com/50536495/139565849-17e280c6-65ef-40c0-b693-67b5b9e906db.png)
