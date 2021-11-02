@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.*
 import kotlin.math.pow
@@ -86,6 +87,20 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         currentBackground = null
         hasSetBackgroundYet = false
         wantsToChangeBackground = false
+
+        if (binding.titleTextView.text.toString().isBlank()) {
+            PixelArtDatabase.addItem(
+                PixelArt(
+                    binding.fragmentHost.drawToBitmap(),
+                    "Unnamed project",
+                    data,
+                    false
+                )
+            )
+            isMirrorMode = false
+            hasSaved = true
+        }
+
         super.onPause()
     }
 
