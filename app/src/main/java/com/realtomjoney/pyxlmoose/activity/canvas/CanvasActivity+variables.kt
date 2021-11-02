@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activity.canvas
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
@@ -21,3 +22,8 @@ var isSelected = false
 var background: Drawable? = null
 
 var colorPickerMode = false
+
+var wantsToChangeBackground = false
+
+var currentBackground: Int? = null
+var hasSetBackgroundYet = false

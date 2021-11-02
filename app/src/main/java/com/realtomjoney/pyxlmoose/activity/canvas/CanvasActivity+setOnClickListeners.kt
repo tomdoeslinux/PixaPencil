@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.Toast
 import androidx.core.graphics.ColorUtils
+import androidx.core.graphics.toColor
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
 
@@ -86,5 +87,9 @@ fun CanvasActivity.extendedSetOnClickListeners() {
                     .beginTransaction()
                     .add(R.id.fragmentHost, instance2).commit()
             }, "Back", { _, _ -> }, null)
+    }
+
+    binding.changeBackgroundButton.setOnClickListener {
+        wantsToChangeBackground = !wantsToChangeBackground
     }
 }
