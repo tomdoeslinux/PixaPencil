@@ -4,9 +4,7 @@ import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.View
-import android.widget.Toast
 import androidx.core.graphics.ColorUtils
-import androidx.core.graphics.toColor
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
 

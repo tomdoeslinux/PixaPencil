@@ -62,5 +62,6 @@
         <item name="elevation">0dp</item>
         <item name="borderWidth">3dp</item>
         <item name="tint">@android:color/holo_blue_dark</item>
+        <item name="rippleColor">@android:color/holo_blue_light</item>
     </style>
 </resources>
