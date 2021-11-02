@@ -49,8 +49,7 @@ override fun onPixelTapped(pixel: View) {
 
 _Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 
-## User Inteface Evolution
-<details><summary><b>Progress PyxlMoose has made:</b></summary>
+## User interface evolution
 
 _PyxlMoose has made a tremendous amount of progress!_
 
@@ -64,70 +63,6 @@ _PyxlMoose has made a tremendous amount of progress!_
 ![image](https://user-images.githubusercontent.com/50536495/139565849-17e280c6-65ef-40c0-b693-67b5b9e906db.png)
 
 
-## Use a Consistent Coding Style
-<details><summary><b>Examples:</b></summary>
+## Contributor Notice
 
-#### Functions:
-``` Kotlin
-fun myFunc() {
-
-}
-```
----
-#### Functions with one line:
-``` Kotlin
-fun getInt() = 5 
-```
----
-#### Functions that return something and have more than one line:
-``` Kotlin
-fun getDog(): Dog {
-  return Dog()
-}
-```
----
-#### Variables:
-```Kotlin
-val x = "Hello"
-```
----
-
-#### Parameters:
-```Kotlin
-fun myFunc(any: Any) {
-
-}
-```
----
-#### Classes:
-
-```Kotlin
-class Dog : Animal 
-```
----
-#### Constants:
-```Kotlin
-const val MY_AGE = 15
-```
-#### Ordering of modifiers (from Kotlin documentation):
----
-``` Kotlin
-public / protected / private / internal
-expect / actual
-final / open / abstract / sealed / const
-external
-override
-lateinit
-tailrec
-vararg
-suspend
-inner
-enum / annotation / fun // as a modifier in `fun interface`
-companion
-inline / value
-infix
-operator
-data
-```       
-        
-     
+Make sure to follow clean code guidelines when contributing to this project.
