@@ -1,14 +1,20 @@
 package com.realtomjoney.pyxlmoose
 
 import android.graphics.Color
+import android.support.v4.media.session.PlaybackStateCompat
 import android.widget.LinearLayout
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.realtomjoney.pyxlmoose.activity.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.activity.main.MainActivity
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
+import org.junit.Rule
+
+
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -31,5 +37,13 @@ class ExampleUnitTest {
     fun test_ColorPickerDatabase() {
         ColourDatabase.addItem(Color.BLUE)
         assert(ColourDatabase.toList().last() == Color.BLUE)
+    }
+
+    @Test
+    fun test_initPixels() {
+        ActivityScenario.launch(CanvasActivity::class.java).onActivity { activity ->
+            val pixelData = activity.initPixels()
+            assert(pixelData.isNotEmpty())
+        }
     }
 }
