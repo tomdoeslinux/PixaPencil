@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PyxlMoose">
         <activity
-            android:name=".activity.canvas.CanvasActivity"
+            android:name=".activities.canvas.CanvasActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.main.MainActivity"
+            android:name=".activities.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
