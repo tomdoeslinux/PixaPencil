@@ -30,6 +30,7 @@
         app:fabCustomSize="80dp"
         android:backgroundTint="#eaddff"
         app:tint="@color/black"
+        android:contentDescription="@string/content_description_activity_main_fab"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
