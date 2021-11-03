@@ -75,21 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="12sp"
-        android:id="@+id/toolsSelected"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_canvasColorsRecyclerView"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/colourPickerRecyclerView"
         android:layout_width="0dp"
