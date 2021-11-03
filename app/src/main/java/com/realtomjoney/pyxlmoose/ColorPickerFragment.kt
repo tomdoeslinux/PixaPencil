@@ -2,11 +2,17 @@ package com.realtomjoney.pyxlmoose
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.blue
+import androidx.core.graphics.green
+import androidx.core.graphics.red
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
 class ColorPickerFragment(private val oldColor: Int) : Fragment() {
@@ -21,11 +27,15 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
     private var valueG = 0
     private var valueB = 0
 
+    private var isInvalidHexValue = false
+
     companion object {
         fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
     }
 
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
+
+    private fun updateHexadecimalEditText() = binding.hexadecimalEditText.setText(Integer.toHexString((binding.colorPickerPreview.background as ColorDrawable).color))
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -38,6 +48,20 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
         binding.oldColorPreview.setBackgroundColor(oldColor)
         binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
 
+        updateHexadecimalEditText()
+
+        binding.hexadecimalEditText.doAfterTextChanged {
+            try {
+                val color = Color.parseColor("#" + binding.hexadecimalEditText.text.toString())
+                binding.colorPickerPreview.setBackgroundColor(color)
+
+                valueR = color.red
+                valueG = color.green
+                valueB = color.blue
+
+            } catch (ex: Exception) { }
+        }
+
         binding.colorDoneButton.setOnClickListener {
             caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
         }
@@ -45,16 +69,19 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
         binding.redProgressBar.addOnChangeListener { _, value, _ ->
             valueR = value.toInt()
             updateColorSelectedPreview()
+            updateHexadecimalEditText()
         }
 
         binding.greenProgressBar.addOnChangeListener { _, value, _ ->
             valueG = value.toInt()
             updateColorSelectedPreview()
+            updateHexadecimalEditText()
         }
 
         binding.blueProgressBar.addOnChangeListener { _, value, _ ->
             valueB = value.toInt()
             updateColorSelectedPreview()
+            updateHexadecimalEditText()
         }
 
         return binding.root
