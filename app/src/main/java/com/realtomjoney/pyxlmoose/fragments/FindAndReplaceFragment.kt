@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
 
 class FindAndReplaceFragment : Fragment() {
@@ -24,7 +22,7 @@ class FindAndReplaceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
-        
+
         return binding.root
     }
 
