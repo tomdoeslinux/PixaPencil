@@ -76,4 +76,23 @@
         <item name="fabCustomSize">80dp</item>
         <item name="tint">@color/black</item>
     </style>
+
+    <style name="default_large_fab_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fabCustomSize">80dp</item>
+        <item name="android:backgroundTint">#eaddff</item>
+        <item name="tint">@color/black</item>
+    </style>
+
+    <style name="default_large_fab_style_activity_main" parent="default_large_fab_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fabCustomSize">80dp</item>
+        <item name="android:backgroundTint">#eaddff</item>
+        <item name="tint">@color/black</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:src">@drawable/ic_baseline_add_24</item>
+    </style>
 </resources>

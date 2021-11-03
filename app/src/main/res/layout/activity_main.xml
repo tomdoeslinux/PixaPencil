@@ -21,15 +21,7 @@
    
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:src="@drawable/ic_baseline_add_24"
-        android:text="@string/floating_action_button_str"
-        app:fabCustomSize="80dp"
-        android:backgroundTint="#eaddff"
-        app:tint="@color/black"
+        style="@style/default_large_fab_style_activity_main"
         android:contentDescription="@string/content_description_activity_main_fab"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
