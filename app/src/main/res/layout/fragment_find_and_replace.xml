@@ -27,7 +27,7 @@
         android:text="Replace with"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_currentColorsRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_canvasColorsRecyclerView" />
 
     <TextView
         android:id="@+id/fragmentFindAndReplace_colorsInCanvasTextView"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_findTextView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragmentFindAndReplace_currentColorsRecyclerView"
+        android:id="@+id/fragmentFindAndReplace_canvasColorsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"

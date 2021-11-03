@@ -20,7 +20,7 @@
         android:id="@+id/hexadecimalEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:autofillHints="name"
         android:background="@null"
         android:fontFamily="sans-serif-light"
@@ -28,7 +28,7 @@
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentFindAndReplace_doneButton"
+        app:layout_constraintBottom_toTopOf="@+id/colorDoneButton"
         app:layout_constraintEnd_toEndOf="@+id/blueProgressBar" />
 
     <View
@@ -91,7 +91,7 @@
         app:trackColor="#0000ff" />
 
     <Button
-        android:id="@+id/fragmentFindAndReplace_doneButton"
+        android:id="@+id/colorDoneButton"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
