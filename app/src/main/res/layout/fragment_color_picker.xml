@@ -28,7 +28,7 @@
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/colorDoneButton"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentFindAndReplace_doneButton"
         app:layout_constraintEnd_toEndOf="@+id/blueProgressBar" />
 
     <View
@@ -91,7 +91,7 @@
         app:trackColor="#0000ff" />
 
     <Button
-        android:id="@+id/colorDoneButton"
+        android:id="@+id/fragmentFindAndReplace_doneButton"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

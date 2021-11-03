@@ -83,7 +83,7 @@
         android:id="@+id/toolsSelected"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/canvasColorsRecyclerView"
         android:orientation="horizontal">
 
 
@@ -91,7 +91,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/colourPickerRecyclerView"
+        android:id="@+id/canvasColorsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -130,7 +130,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/doneButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colourPickerRecyclerView">
+        app:layout_constraintTop_toBottomOf="@+id/canvasColorsRecyclerView">
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
