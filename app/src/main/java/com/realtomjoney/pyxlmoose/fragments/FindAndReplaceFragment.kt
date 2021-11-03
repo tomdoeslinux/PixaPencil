@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.realtomjoney.pyxlmoose.activities.canvas.extendedSetUpRecyclerView
 import com.realtomjoney.pyxlmoose.adapters.ColourPickerAdapter
 import com.realtomjoney.pyxlmoose.database.ColourDatabase
 import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
