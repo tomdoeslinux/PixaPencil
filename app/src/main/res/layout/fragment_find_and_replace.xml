@@ -66,9 +66,26 @@
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/str_button_done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/fragmentFindAndReplace_colorToFind"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragmentFindAndReplace_availableColorsRecyclerView" />
+
+    <View
+        android:id="@+id/fragmentFindAndReplace_colorToReplace"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentFindAndReplace_colorToFind"
+        app:layout_constraintStart_toEndOf="@+id/fragmentFindAndReplace_colorToFind" />
 </androidx.constraintlayout.widget.ConstraintLayout>

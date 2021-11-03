@@ -35,10 +35,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
 
     override fun onResume() {
-        binding.doneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction {
-            binding.doneButton.visibility = View.VISIBLE
-        }
-
+        binding.doneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction { binding.doneButton.visibility = View.VISIBLE }
         super.onResume()
     }
 
@@ -54,8 +51,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
                 onPixelTapped(px)
                 count++
 
-                if (count == 1)
-                    return
+                if (count == 1) return
             }
         }
     }
