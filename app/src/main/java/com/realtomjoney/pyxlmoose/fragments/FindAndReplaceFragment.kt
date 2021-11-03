@@ -1,5 +1,7 @@
 package com.realtomjoney.pyxlmoose.fragments
 
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,12 +12,23 @@ import com.realtomjoney.pyxlmoose.adapters.ColourPickerAdapter
 import com.realtomjoney.pyxlmoose.database.ColourDatabase
 import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
 import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
+import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
 class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
 
     private var _binding: FragmentFindAndReplaceBinding? = null
 
     private val binding get() = _binding!!
+
+    private lateinit var caller: FindAndReplaceFragmentListener
+
+    private val colorToFind: Int? = null
+    private val colorToReplace: Int? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FindAndReplaceFragmentListener) caller = context
+    }
 
     internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColourPickerListener {
         override fun onColourTapped(colour: Int, it: View) {
@@ -54,6 +67,11 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
         _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
         setUpCanvasColorsRecyclerView()
         setUpAvailableColorsRecyclerView()
+
+        binding.fragmentFindAndReplaceDoneButton.setOnClickListener {
+            caller.onDoneButtonPressed((binding.fragmentFindAndReplaceColorToFind.background as ColorDrawable).color,
+                (binding.fragmentFindAndReplaceColorToReplace.background as ColorDrawable).color)
+        }
         return binding.root
     }
 

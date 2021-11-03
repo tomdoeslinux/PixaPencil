@@ -1,20 +1,23 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.FragmentTransaction
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
+import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import kotlin.math.pow
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
-    ColorPickerFragmentListener {
+    ColorPickerFragmentListener, FindAndReplaceFragmentListener {
     var previousView: View? = null
 
     lateinit var colorPickerFragmentInstance: ColorPickerFragment
@@ -108,5 +111,25 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
 
     override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
+
+    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
+        with(supportFragmentManager.beginTransaction()) {
+        remove(findAndReplaceFragmentInstance)
+            commit()
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+        }
+
+        data.forEach {
+            if (it.background != null) {
+                if ((it.background as ColorDrawable).color == colorToFind) {
+                    if (colorToReplace != null) {
+                        it.setBackgroundColor(colorToReplace)
+                    }
+                }
+            }
+        }
+
+        canvasFragmentInstance.modifyPixels(data)
+    }
 }
 

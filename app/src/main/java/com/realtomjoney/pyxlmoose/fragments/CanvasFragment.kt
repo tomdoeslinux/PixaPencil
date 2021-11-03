@@ -45,6 +45,14 @@ class CanvasFragment(private val spanCount: Int,
         }
     }
 
+    fun modifyPixels(newData: List<View>) {
+        with (binding) {
+            canvasRecyclerView.layoutManager = GridLayoutManager(activity as Context, spanCount)
+            canvasRecyclerView.adapter = CanvasRecyclerAdapter(newData, caller, isGridVisible)
+            canvasRecyclerView.suppressLayout(true)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
