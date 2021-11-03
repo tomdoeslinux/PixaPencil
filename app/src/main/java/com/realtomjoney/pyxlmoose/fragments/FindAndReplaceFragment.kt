@@ -23,6 +23,7 @@ class FindAndReplaceFragment : Fragment() {
     ): View {
         _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
 
+
         return binding.root
     }
 
