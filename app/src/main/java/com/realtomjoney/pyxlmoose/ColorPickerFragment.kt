@@ -12,7 +12,6 @@ import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
 class ColorPickerFragment(private val oldColor: Int) : Fragment() {
@@ -26,8 +25,6 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
     private var valueR = 0
     private var valueG = 0
     private var valueB = 0
-
-    private var isInvalidHexValue = false
 
     companion object {
         fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
