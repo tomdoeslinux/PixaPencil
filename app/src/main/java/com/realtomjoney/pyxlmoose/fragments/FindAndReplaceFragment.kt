@@ -22,9 +22,6 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
 
     private lateinit var caller: FindAndReplaceFragmentListener
 
-    private val colorToFind: Int? = null
-    private val colorToReplace: Int? = null
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FindAndReplaceFragmentListener) caller = context
