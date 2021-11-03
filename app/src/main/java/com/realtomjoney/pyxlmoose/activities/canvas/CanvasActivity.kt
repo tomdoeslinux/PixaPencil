@@ -7,6 +7,7 @@ import android.view.*
 import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
+import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
@@ -16,8 +17,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     ColorPickerFragmentListener {
     var previousView: View? = null
 
-    var instance = initColorPickerFragmentInstance()
-    var instance2 = CanvasFragment.newInstance(spanCount, true, null)
+    lateinit var colorPickerFragmentInstance: ColorPickerFragment
+    lateinit var canvasFragmentInstance: CanvasFragment
+    lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,7 +113,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onDoneButtonPressed(selectedColor: Int) {
         with(supportFragmentManager.beginTransaction()) {
-            remove(instance)
+            remove(colorPickerFragmentInstance)
             commit()
             setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
         }

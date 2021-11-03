@@ -12,17 +12,18 @@ import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.utility.StringValues
 
 fun CanvasActivity.openColorPickerDialog() {
     title = "Select Color"
 
-    instance = initColorPickerFragmentInstance()
+    colorPickerFragmentInstance = initColorPickerFragmentInstance()
 
     binding.colorPickerFragmentHost.visibility = View.VISIBLE
     binding.colorPickerFragmentHost.bringToFront()
-    (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, instance).commit()
+    (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, colorPickerFragmentInstance).commit()
     binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
 }
 
@@ -84,13 +85,13 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             "OK",
             { _, _ ->
                 with(supportFragmentManager.beginTransaction()) {
-                    remove(instance2)
+                    remove(canvasFragmentInstance)
                     commit()
                 }
-                instance2 = CanvasFragment.newInstance(spanCount, true, null)
+                canvasFragmentInstance = CanvasFragment.newInstance(spanCount, true, null)
                 supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.fragmentHost, instance2).commit()
+                    .add(R.id.fragmentHost, canvasFragmentInstance).commit()
             }, "Back", { _, _ -> }, null)
     }
 
@@ -105,5 +106,16 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         val temp = primaryColour
         primaryColour = secondaryColour
         secondaryColour = temp
+    }
+
+    binding.findAndReplaceButton.setOnClickListener {
+        findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
+
+        title = "Find and Replace"
+
+        binding.colorPickerFragmentHost.visibility = View.VISIBLE
+        binding.colorPickerFragmentHost.bringToFront()
+        (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, findAndReplaceFragmentInstance).commit()
+        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
     }
 }
