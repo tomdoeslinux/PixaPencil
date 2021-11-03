@@ -16,4 +16,5 @@
     <string name="home_str">Home</string>
     <string name="star_str">Favorited</string>
     <string name="str_hexadecimal">Hexadecimal</string>
+    <string name="str_button_done">Done</string>
 </resources>
