@@ -24,7 +24,7 @@
         android:autofillHints="name"
         android:background="@null"
         android:fontFamily="sans-serif-light"
-        android:hint="Hexadecimal"
+        android:hint="@string/str_hexadecimal"
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="24sp"

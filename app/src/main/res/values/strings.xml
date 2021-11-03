@@ -15,4 +15,5 @@
     <string name="grid_text">Turn Grid On</string>
     <string name="home_str">Home</string>
     <string name="star_str">Favorited</string>
+    <string name="str_hexadecimal">Hexadecimal</string>
 </resources>
