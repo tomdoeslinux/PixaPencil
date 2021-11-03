@@ -107,20 +107,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
 
-    override fun onDoneButtonPressed(selectedColor: Int) {
-        with(supportFragmentManager.beginTransaction()) {
-            remove(colorPickerFragmentInstance)
-            commit()
-            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-        }
-        setPixelColour(selectedColor)
-
-        binding.colorPickerFragmentHost.visibility = View.INVISIBLE
-        binding.doneButton.scaleX = 1f
-        binding.doneButton.scaleY = 1f
-        binding.doneButton.visibility = View.VISIBLE
-
-        title = "PyxlMoose"
-    }
+    override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
 }
 
