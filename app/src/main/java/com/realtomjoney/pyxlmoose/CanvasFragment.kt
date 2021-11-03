@@ -43,10 +43,6 @@ class CanvasFragment(private val spanCount: Int,
         }
     }
 
-    fun updatePixelData(pixelData: List<View>) {
-        binding.canvasRecyclerView.adapter = CanvasRecyclerAdapter(pixelData, caller, isGridVisible)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
