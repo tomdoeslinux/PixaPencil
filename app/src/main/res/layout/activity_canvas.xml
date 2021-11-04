@@ -138,7 +138,7 @@
                     android:id="@+id/lightenButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/lighten_icon"
-                    android:contentDescription="Lighten Tool"/>
+                    android:contentDescription="@string/content_description_lighten_tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clearAllButton"
