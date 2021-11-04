@@ -126,7 +126,7 @@
                     android:id="@+id/mirrorButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_mirror"
-                    android:contentDescription="Mirror Tool"/>
+                    android:contentDescription="@string/content_description_mirror_tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/darkenButton"

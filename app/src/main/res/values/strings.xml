@@ -19,4 +19,5 @@
     <string name="str_button_done">Done</string>
     <string name="content_description_activity_main_fab">New Project</string>
     <string name="content_description_color_swap_tool">Color Swap Tool</string>
+    <string name="content_description_mirror_tool">Mirror Tool</string>
 </resources>
