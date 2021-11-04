@@ -157,7 +157,7 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:backgroundTint="@color/white"
                     app:srcCompat="@drawable/ic_baseline_undo_24"
-                    android:contentDescription="Undo Tool"/>
+                    android:contentDescription="@string/content_description_undo_tool"/>
 
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
