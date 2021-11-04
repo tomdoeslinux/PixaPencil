@@ -142,7 +142,8 @@
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/clearAllButton"
                     style="@style/canvas_activity_button_tool_style"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
+                    android:contentDescription="Clear Canvas Tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/changeBackgroundButton"
