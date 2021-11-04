@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toStartOf="@+id/colourSecondarySelected"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/color_swap_icon"
-        android:contentDescription="Color Swap Tool"/>
+        android:contentDescription="@string/content_description_color_swap_tool"/>
 
     <EditText
         android:id="@+id/titleTextView"
