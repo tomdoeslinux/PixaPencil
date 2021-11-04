@@ -132,7 +132,7 @@
                     android:id="@+id/darkenButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/darken_icon"
-                    android:contentDescription="Darken Tool"/>
+                    android:contentDescription="@string/content_description_darken_tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/lightenButton"
