@@ -47,7 +47,8 @@
         android:id="@+id/doneButton"
         style="@style/default_large_fab_style_activity_canvas"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="Save Creation"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/colorSwapButton"
