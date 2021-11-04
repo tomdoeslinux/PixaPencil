@@ -58,7 +58,8 @@
         app:layout_constraintBottom_toTopOf="@+id/fragmentHost"
         app:layout_constraintEnd_toStartOf="@+id/colourSecondarySelected"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/color_swap_icon" />
+        app:srcCompat="@drawable/color_swap_icon"
+        android:contentDescription="Color Swap Tool"/>
 
     <EditText
         android:id="@+id/titleTextView"
