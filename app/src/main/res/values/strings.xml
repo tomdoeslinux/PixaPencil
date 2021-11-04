@@ -23,4 +23,5 @@
     <string name="content_description_save_creation">Save Creation</string>
     <string name="content_description_darken_tool">Darken Tool</string>
     <string name="content_description_lighten_tool">Lighten Tool</string>
+    <string name="content_description_clear_canvas_tool">Clear Canvas Tool</string>
 </resources>
