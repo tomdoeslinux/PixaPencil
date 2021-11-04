@@ -164,7 +164,7 @@
                     android:id="@+id/colorPickerButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_baseline_colorize_24"
-                    android:contentDescription="Color Picker Tool"/>
+                    android:contentDescription="@string/content_description_color_picker_tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/findAndReplaceButton"
