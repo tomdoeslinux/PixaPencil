@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.FragmentTransaction
-import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
