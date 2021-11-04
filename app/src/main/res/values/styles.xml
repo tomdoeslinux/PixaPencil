@@ -82,4 +82,8 @@
     <style name="default_large_fab_style_activity_canvas" parent="default_large_fab_style">
         <item name="android:src">@drawable/ic_baseline_check_24</item>
     </style>
+
+    <style name="default_canvas_creation_edit_text_style_activity_canvas">
+
+    </style>
 </resources>
