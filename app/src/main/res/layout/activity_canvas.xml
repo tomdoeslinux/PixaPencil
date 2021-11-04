@@ -61,16 +61,7 @@
 
     <EditText
         android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:autofillHints="name"
-        android:background="@null"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/name_str"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+        style="@style/default_canvas_creation_edit_text_style_activity_canvas"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view" />
