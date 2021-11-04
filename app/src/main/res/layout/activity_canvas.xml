@@ -150,7 +150,7 @@
                     android:id="@+id/changeBackgroundButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/change_background_icon"
-                    android:contentDescription="Change Background Tool"/>
+                    android:contentDescription="@string/content_description_change_background_tool"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/undoButton"
