@@ -169,7 +169,7 @@
                     android:id="@+id/findAndReplaceButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_baseline_find_replace_24"
-                    android:contentDescription="Find and Replace Tool"/>
+                    android:contentDescription="@string/content_description_find_and_replace_tool"/>
             </LinearLayout>
         </HorizontalScrollView>
     </FrameLayout>
