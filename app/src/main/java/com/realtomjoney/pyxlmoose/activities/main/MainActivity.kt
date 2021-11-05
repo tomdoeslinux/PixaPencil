@@ -7,7 +7,6 @@ import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener {
-
     lateinit var binding: ActivityMainBinding
     var hasNavigatedBack = false
 
