@@ -30,4 +30,5 @@
     <string name="content_description_undo_tool">Undo Tool</string>
     <string name="content_description_eraser_tool">Eraser Tool</string>
     <string name="content_description_favorite">Favorite</string>
+    <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
 </resources>
