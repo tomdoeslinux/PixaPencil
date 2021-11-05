@@ -176,7 +176,7 @@
                     android:id="@+id/eraseButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_eraser"
-                    android:contentDescription="Eraser Tool" />
+                    android:contentDescription="@string/content_description_eraser_tool" />
             </LinearLayout>
         </HorizontalScrollView>
     </FrameLayout>
