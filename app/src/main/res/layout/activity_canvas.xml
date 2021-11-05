@@ -175,7 +175,8 @@
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/eraseButton"
                     style="@style/canvas_activity_button_tool_style"
-                    app:srcCompat="@drawable/ic_eraser"/>
+                    app:srcCompat="@drawable/ic_eraser"
+                    android:contentDescription="Eraser Tool" />
             </LinearLayout>
         </HorizontalScrollView>
     </FrameLayout>
