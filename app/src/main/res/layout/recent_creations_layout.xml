@@ -60,7 +60,8 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                style="@style/recent_creations_image_button_style"/>
+                style="@style/recent_creations_image_button_style"
+                android:contentDescription="Favorite" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
