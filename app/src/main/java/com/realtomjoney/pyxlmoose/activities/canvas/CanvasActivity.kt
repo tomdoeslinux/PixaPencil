@@ -111,26 +111,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
 
-    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
-        with(supportFragmentManager.beginTransaction()) {
-        remove(findAndReplaceFragmentInstance)
-            commit()
-            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-        }
-
-        data.forEach {
-            if (it.background != null) {
-                if ((it.background as ColorDrawable).color == colorToFind) {
-                    if (colorToReplace != null) {
-                        it.setBackgroundColor(colorToReplace)
-                    }
-                }
-            }
-        }
-
-        canvasFragmentInstance.modifyPixels(data)
-
-        title = "PyxlMoose"
-    }
+    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 }
 
