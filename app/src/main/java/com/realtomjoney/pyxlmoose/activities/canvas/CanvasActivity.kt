@@ -39,22 +39,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         super.onResume()
     }
 
-    private fun evaluate(event: MotionEvent) {
-        var count = 0
-        for (px in data) {
-            val originalPos = IntArray(2)
-            px.getLocationInWindow(originalPos)
-
-            val sensitivity = ((400) * (0.9.pow(spanCount)) + 8.9)
-
-            if (originalPos[0] - event.x.toDouble() in -sensitivity..sensitivity && originalPos[1] - event.y.toDouble() in -sensitivity..sensitivity) {
-                onPixelTapped(px)
-                count++
-
-                if (count == 1) return
-            }
-        }
-    }
+    private fun evaluate(event: MotionEvent) = extendedEvaluate(event)
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         return when (event!!.actionMasked) {
