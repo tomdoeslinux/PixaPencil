@@ -171,6 +171,11 @@
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_baseline_find_replace_24"
                     android:contentDescription="@string/content_description_find_and_replace_tool"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/eraseButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    app:srcCompat="@drawable/ic_eraser"/>
             </LinearLayout>
         </HorizontalScrollView>
     </FrameLayout>
