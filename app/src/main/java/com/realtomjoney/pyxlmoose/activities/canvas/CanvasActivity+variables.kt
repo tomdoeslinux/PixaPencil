@@ -26,3 +26,6 @@ var wantsToChangeBackground = false
 
 var currentBackground: Int? = null
 var hasSetBackgroundYet = false
+
+var isErasing = false
+

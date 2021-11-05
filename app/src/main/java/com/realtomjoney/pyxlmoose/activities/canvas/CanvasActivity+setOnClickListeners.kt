@@ -118,4 +118,8 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, findAndReplaceFragmentInstance).commit()
         binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
     }
+
+    binding.eraseButton.setOnClickListener {
+        isErasing = !isErasing
+    }
 }
