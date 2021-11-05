@@ -11,7 +11,6 @@ import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
-import kotlin.math.pow
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
     ColorPickerFragmentListener, FindAndReplaceFragmentListener {
