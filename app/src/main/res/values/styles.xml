@@ -121,4 +121,11 @@
         <item name="android:text">TextView</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="recent_creations_text_view_style2" parent="recent_creations_text_view_style">
+        <item name="android:fontFamily">@font/manrope_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
 </resources>
