@@ -11,8 +11,7 @@ fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
             hasSetBackgroundYet = true
             data.forEach {
                 if (it.background == null) it.setBackgroundColor(getSelectedColour())
-                currentBackground = getSelectedColour()
-            } } else {
+                currentBackground = getSelectedColour() } } else {
             data.forEach { if ((it.background as ColorDrawable).color == currentBackground) it.setBackgroundColor(getSelectedColour()) }
             currentBackground = getSelectedColour()
         } } else if (isErasing) { if (!hasSetBackgroundYet) pixel.background = null else pixel.setBackgroundColor(currentBackground!!) } else { pixel.setBackgroundColor(getSelectedColour()) }
