@@ -129,6 +129,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
         }
 
         canvasFragmentInstance.modifyPixels(data)
+
+        title = "PyxlMoose"
     }
 }
 
