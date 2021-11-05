@@ -105,4 +105,13 @@
         <item name="cardElevation">2dp</item>
         <item name="contentPadding">16dp</item>
     </style>
+
+    <style name="recent_creations_image_button_style">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+        <item name="android:src">@drawable/ic_baseline_star_border_24</item>
+        <item name="iconGravity">start</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
 </resources>
