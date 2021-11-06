@@ -20,7 +20,6 @@ fun CanvasActivity.extendedOnPause() {
                 false
             )
         )
-        isMirrorMode = false
         isErasing = false
 
         hasSaved = true

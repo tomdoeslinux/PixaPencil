@@ -31,7 +31,6 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.doneButton.setOnClickListener {
         if (binding.titleTextView.text.toString().isNotBlank()) {
             PixelArtDatabase.addItem(PixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
-            isMirrorMode = false
             hasSaved = true
             (this as Activity).onBackPressed()
         } else {
@@ -62,7 +61,14 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         true
     }
 
-    binding.mirrorButton.setOnClickListener { isMirrorMode = !isMirrorMode }
+    binding.horizontalMirrorButton.setOnClickListener {
+        if (isVerticalMirrorEnabled) !isVerticalMirrorEnabled
+        isHorizontalMirrorEnabled = !isHorizontalMirrorEnabled
+    }
+    binding.verticalMirrorButton.setOnClickListener {
+        if (isHorizontalMirrorEnabled) !isHorizontalMirrorEnabled
+        isVerticalMirrorEnabled = !isVerticalMirrorEnabled
+    }
 
     binding.darkenButton.setOnClickListener {
         if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))

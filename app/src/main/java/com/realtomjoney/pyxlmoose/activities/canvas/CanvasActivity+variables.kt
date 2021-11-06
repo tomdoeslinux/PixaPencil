@@ -13,7 +13,6 @@ var primaryColour: Int = Color.BLACK
 var secondaryColour: Int = Color.BLUE
 var spanCount = 5
 var isPrimaryColourSelected = true
-var isMirrorMode = false
 var pixelGridOn = true
 var hasSaved = false
 
@@ -29,3 +28,5 @@ var hasSetBackgroundYet = false
 
 var isErasing = false
 
+var isHorizontalMirrorEnabled = false
+var isVerticalMirrorEnabled = false
