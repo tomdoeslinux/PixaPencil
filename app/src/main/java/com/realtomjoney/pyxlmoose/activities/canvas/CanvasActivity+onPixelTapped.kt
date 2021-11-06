@@ -2,21 +2,15 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
 import android.view.View
-import kotlin.math.ceil
-
-fun reflectIndexHorizontally(index: Int) =
-    ((((((ceil((index / spanCount).toDouble())) + spanCount) - (ceil((index / spanCount).toDouble()))) - (ceil((index / spanCount).toDouble()))) + (spanCount - 1) * (((ceil((index / spanCount).toDouble())) + spanCount) - (ceil((index / spanCount).toDouble())) - (ceil((index / spanCount).toDouble())))) + index.mod(spanCount) - spanCount).toInt()
-
-fun reflectIndexVertically(index: Int) =
-    (index - (index.mod(spanCount))) + (spanCount - (index.mod(spanCount))) - 1
+import com.realtomjoney.pyxlmoose.utility.MathExtensions
 
 fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
     if (isHorizontalMirrorEnabled && !colorPickerMode) {
         pixel.setBackgroundColor(getSelectedColour())
-        data[reflectIndexHorizontally(data.indexOf(pixel))].setBackgroundColor(getSelectedColour())
+        data[MathExtensions.reflectIndexHorizontally(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColour())
     } else if (isVerticalMirrorEnabled && !colorPickerMode) {
         pixel.setBackgroundColor(getSelectedColour())
-        data[reflectIndexVertically(data.indexOf(pixel))].setBackgroundColor(getSelectedColour())
+        data[MathExtensions.reflectIndexVertically(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColour())
     } else if (colorPickerMode) {
         (pixel.background)?.let { setPixelColour((it as ColorDrawable).color) }
     } else if (wantsToChangeBackground) {
