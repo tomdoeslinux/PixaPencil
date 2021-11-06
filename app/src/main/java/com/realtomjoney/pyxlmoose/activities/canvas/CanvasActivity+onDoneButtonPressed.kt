@@ -4,14 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.fragment.app.FragmentTransaction
 
-fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
-    with(supportFragmentManager.beginTransaction()) {
-        remove(colorPickerFragmentInstance)
-        commit()
-        setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-    }
-    setPixelColour(selectedColor)
-
+fun CanvasActivity.onNavigatedBack() {
     with (binding) {
         colorPickerFragmentHost.visibility = View.INVISIBLE
         doneButton.scaleX = 1f
@@ -20,6 +13,16 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
     }
 
     title = "PyxlMoose"
+}
+
+fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
+    with(supportFragmentManager.beginTransaction()) {
+        remove(colorPickerFragmentInstance)
+        commit()
+        setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+    }
+    setPixelColour(selectedColor)
+    onNavigatedBack()
 }
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
@@ -40,13 +43,5 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace
     }
 
     canvasFragmentInstance.modifyPixels(data)
-
-    with (binding) {
-        colorPickerFragmentHost.visibility = View.INVISIBLE
-        doneButton.scaleX = 1f
-        doneButton.scaleY = 1f
-        doneButton.visibility = View.VISIBLE
-    }
-
-    title = "PyxlMoose"
+    onNavigatedBack()
 }
