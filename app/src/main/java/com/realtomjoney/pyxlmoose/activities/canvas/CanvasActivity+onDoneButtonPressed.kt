@@ -41,5 +41,12 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace
 
     canvasFragmentInstance.modifyPixels(data)
 
+    with (binding) {
+        colorPickerFragmentHost.visibility = View.INVISIBLE
+        doneButton.scaleX = 1f
+        doneButton.scaleY = 1f
+        doneButton.visibility = View.VISIBLE
+    }
+
     title = "PyxlMoose"
 }
