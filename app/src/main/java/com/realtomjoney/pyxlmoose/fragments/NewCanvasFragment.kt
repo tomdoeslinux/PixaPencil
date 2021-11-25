@@ -6,17 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
+import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
 
 class NewCanvasFragment : Fragment() {
+
+    private var _binding: FragmentNewCanvasBinding? = null
+
+    private val binding get() = _binding!!
+
+    companion object {
+        fun newInstance() = NewCanvasFragment()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_new_canvas, container, false)
+    ): View {
+        _binding = FragmentNewCanvasBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
-    companion object {
-        fun newInstance() = NewCanvasFragment()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
