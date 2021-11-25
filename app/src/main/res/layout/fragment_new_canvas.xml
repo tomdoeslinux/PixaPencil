@@ -24,7 +24,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/manrope_bold"
-        android:text="New Canvas"
+        android:text="@string/new_canvas_str"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
