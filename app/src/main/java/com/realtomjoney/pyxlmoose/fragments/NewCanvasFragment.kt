@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
 import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
 
 class NewCanvasFragment : Fragment() {
