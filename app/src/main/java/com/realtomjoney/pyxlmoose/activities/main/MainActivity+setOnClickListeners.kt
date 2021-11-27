@@ -1,16 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
-import android.content.Intent
-import android.view.View
-import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
-import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 
 
