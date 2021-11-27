@@ -8,7 +8,6 @@ const val snackbarBackgroundTint: String = "#eaddff"
 
 enum class SnackbarDuration(val timeValue: Int) {
     DEFAULT(1500),
-    LONG(10000)
 }
 
 fun View.showSnackbar(snackbarText: String, duration: SnackbarDuration) {
