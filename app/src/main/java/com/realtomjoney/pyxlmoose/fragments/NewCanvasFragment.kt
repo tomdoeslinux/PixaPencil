@@ -40,9 +40,8 @@ class NewCanvasFragment : Fragment() {
         root = binding.fragmentNewCanvasRootLayout
 
         binding.fragmentNewCanvasDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed(Integer.parseInt(binding.textField.text.toString()), binding.textField)
+            caller.onDoneButtonPressed(Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()), binding.fragmentNewCanvasSpanCountTextInputEditText)
         }
-
         return binding.root
     }
 

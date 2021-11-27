@@ -8,6 +8,7 @@
     tools:context=".fragments.NewCanvasFragment">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragmentNewCanvas_spanCountTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textField"
+            android:id="@+id/fragmentNewCanvas_spanCountTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
