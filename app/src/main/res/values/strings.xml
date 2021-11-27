@@ -33,4 +33,5 @@
     <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
     <string name="new_canvas_str">New Canvas</string>
     <string name="span_count_str">Span count</string>
+    <string name="project_name_str">Project name</string>
 </resources>

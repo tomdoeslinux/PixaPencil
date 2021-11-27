@@ -45,7 +45,7 @@ class NewCanvasFragment : Fragment() {
                 caller.onDoneButtonPressed(
                     Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()),
                     binding.fragmentNewCanvasSpanCountTextInputEditText,
-                    binding.fragmentNewCanvasSpanCountTextInputLayout
+                    binding.fragmentNewCanvasProjectTitleTextInputEditText
                 )
             } catch (ex: Exception) {
                 (root as ConstraintLayout).showSnackbar(ex.message.toString(), SnackbarDuration.DEFAULT)

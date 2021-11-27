@@ -56,9 +56,13 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
         this.navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.newCanvasFragmentHost,"PyxlMoose")
     }
 
-    override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textInputLayout: TextInputLayout) {
+    override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) {
         if (spanCount in 1..100) {
-            startActivity(Intent(this, CanvasActivity::class.java).putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString())))
+            startActivity(
+                Intent(this, CanvasActivity::class.java)
+                    .putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString()))
+                    .putExtra("PROJECT_TITLE", textFieldTwo.text.toString())
+            )
         }
         with(supportFragmentManager.beginTransaction()) {
             remove(newCanvasFragmentInstance)
