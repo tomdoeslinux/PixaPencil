@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
@@ -40,7 +41,15 @@ class NewCanvasFragment : Fragment() {
         root = binding.fragmentNewCanvasRootLayout
 
         binding.fragmentNewCanvasDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed(Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()), binding.fragmentNewCanvasSpanCountTextInputEditText)
+            try {
+                caller.onDoneButtonPressed(
+                    Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()),
+                    binding.fragmentNewCanvasSpanCountTextInputEditText,
+                    binding.fragmentNewCanvasSpanCountTextInputLayout
+                )
+            } catch (ex: Exception) {
+                (root as ConstraintLayout).showSnackbar(ex.message.toString(), SnackbarDuration.DEFAULT)
+            }
         }
         return binding.root
     }

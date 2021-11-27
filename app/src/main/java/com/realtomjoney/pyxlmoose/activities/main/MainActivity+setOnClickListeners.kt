@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
+import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 
 
@@ -37,6 +38,6 @@ fun MainActivity.extendedSetOnClickListeners() {
 
     binding.floatingActionButton.setOnClickListener {
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
-        navigateTo(newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
+        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
     }
 }
