@@ -46,13 +46,17 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
     private fun setBindings() = extendedSetBindings()
 
     private fun navigateHome(fragmentInstance: Fragment, rootLayout: View, newTitle: String) {
-        (rootLayout as ViewGroup).doSomethingWithChildElements({ view -> view.visibility = View.VISIBLE })
+        (rootLayout as ViewGroup).doSomethingWithChildElements { view ->
+            view.visibility = View.VISIBLE
+        }
         binding.newCanvasFragmentHost.visibility = View.GONE
         removeFragmentByInstance(fragmentInstance, newTitle)
     }
 
     fun navigateTo(fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View) {
-        (rootLayout as ViewGroup).doSomethingWithChildElements({ view -> view.visibility = View.GONE })
+        (rootLayout as ViewGroup).doSomethingWithChildElements { view ->
+            view.visibility = View.GONE
+        }
 
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
         hostView.visibility = View.VISIBLE
