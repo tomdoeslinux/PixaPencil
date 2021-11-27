@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import android.content.Intent
+import android.view.View
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
@@ -10,6 +11,7 @@ import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
+import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 
 
 fun MainActivity.extendedSetOnClickListeners() {
@@ -41,26 +43,7 @@ fun MainActivity.extendedSetOnClickListeners() {
     }) // Great solution by VelocityPulse (with a small twist from myself)
 
     binding.floatingActionButton.setOnClickListener {
-        val dialogueEditText = EditText(this)
-        dialogueEditText.hint = "Span count"
-        showDialog(
-            "Span count",
-            "Please input an appropriate span count value between 1 and 100:",
-            "Done",
-            { _, _ ->
-                try {
-                    if (Integer.parseInt(dialogueEditText.text.toString()) in 1..100) {
-                        startActivity(
-                            Intent(this, CanvasActivity::class.java).putExtra(
-                                "SPAN_COUNT", Integer.parseInt(dialogueEditText.text.toString())
-                            )
-                        )
-                    }
-                } catch (ex: Exception) {
-                    binding.mainRoot.showSnackbar(ex.toString(), SnackbarDuration.DEFAULT)
-                }
-            }, "Back", { _, _ -> }, dialogueEditText)
-
-
+        newCanvasFragmentInstance = NewCanvasFragment.newInstance()
+        navigateTo(newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
     }
 }
