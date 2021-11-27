@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
+import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
@@ -43,23 +45,14 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     private fun setBindings() = extendedSetBindings()
 
-    private fun doSomethingWithChildElements(func: (View) -> Unit, rootLayout: View) {
-        val childCount = (rootLayout as ConstraintLayout).childCount
-        var view: View?
-        for (i in 0 until childCount) {
-            view = rootLayout.getChildAt(i)
-            func(view)
-        }
-    }
-
     private fun navigateHome(fragmentInstance: Fragment, rootLayout: View, newTitle: String) {
-        doSomethingWithChildElements({ view -> view.visibility = View.VISIBLE }, rootLayout)
+        (rootLayout as ViewGroup).doSomethingWithChildElements({ view -> view.visibility = View.VISIBLE })
         binding.newCanvasFragmentHost.visibility = View.GONE
         removeFragmentByInstance(fragmentInstance, newTitle)
     }
 
     fun navigateTo(fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View) {
-        doSomethingWithChildElements({ view -> view.visibility = View.GONE }, rootLayout)
+        (rootLayout as ViewGroup).doSomethingWithChildElements({ view -> view.visibility = View.GONE })
 
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
         hostView.visibility = View.VISIBLE
