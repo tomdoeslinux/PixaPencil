@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 
 fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     startActivity(
-        Intent(this, CanvasActivity::class.java).putExtra("INDEX", PixelArtDatabase.toList()
-            .indexOf(param)))
+        Intent(this, CanvasActivity::class.java)
+            .putExtra("INDEX", PixelArtDatabase.toList().indexOf(param))
+            .putExtra("PROJECT_TITLE", param.title))
 }

@@ -168,4 +168,8 @@ object ColourDatabase : Database<Int> {
             addItem(it)
         }
     }
+
+    override fun replaceItemByIndex(index: Int, newItem: Int) {
+        TODO("Not yet implemented")
+    }
 }

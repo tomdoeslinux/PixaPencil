@@ -29,12 +29,26 @@ fun CanvasActivity.openColorPickerDialog() {
 
 fun CanvasActivity.extendedSetOnClickListeners() {
     binding.doneButton.setOnClickListener {
-        if (binding.titleTextView.text.toString().isNotBlank()) {
-            PixelArtDatabase.addItem(PixelArt(binding.fragmentHost.drawToBitmap(), binding.titleTextView.text.toString(), data, false))
+        if (index == -1) {
+            PixelArtDatabase.addItem(
+                PixelArt(
+                    binding.fragmentHost.drawToBitmap(),
+                    binding.titleTextView.text.toString(),
+                    data,
+                    false
+                )
+            )
             hasSaved = true
             (this as Activity).onBackPressed()
         } else {
-            binding.rootLayout.showSnackbar(StringValues.MESSAGE_NAME_PROJECT, SnackbarDuration.DEFAULT)
+            PixelArtDatabase.replaceItemByIndex(index!!, PixelArt(
+                binding.fragmentHost.drawToBitmap(),
+                binding.titleTextView.text.toString(),
+                data,
+                false
+            ))
+            hasSaved = true
+            (this as Activity).onBackPressed()
         }
     }
 

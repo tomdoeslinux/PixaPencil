@@ -10,4 +10,8 @@ object PixelArtDatabase : Database<PixelArt> {
     override fun removeItem(item: PixelArt) { database.remove(item) }
 
     override fun toList() = database.toList()
+
+    override fun replaceItemByIndex(index: Int, newItem: PixelArt) {
+        database[index] = newItem
+    }
 }
