@@ -11,6 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 
 
 @LargeTest
@@ -31,6 +32,11 @@ class MainActivityTest {
         onView(withId(R.id.floatingActionButton))
             .perform(click())
         onView(withId(R.id.fragmentNewCanvas_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasRootLayout_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_rootLayout)).check(doesNotExist())
     }
 
     @Test
