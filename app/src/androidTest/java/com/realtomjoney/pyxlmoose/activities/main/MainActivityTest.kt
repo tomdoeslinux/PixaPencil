@@ -22,8 +22,14 @@ class MainActivityTest {
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun activityMainFAB_isDisplayed_test() {
+    fun uitest_activityMainFAB_isDisplayed() {
         onView(withId(R.id.floatingActionButton))
+            .check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun uitest_recentCreationsRecyclerView_isDisplayed() {
+        onView(withId(R.id.recentCreationsRecyclerView))
             .check(matches(isDisplayed()))
     }
 }
