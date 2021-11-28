@@ -11,6 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 
 
@@ -97,6 +98,23 @@ class MainActivityTest {
     @Test
     fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed() {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+        onView(withId(R.id.floatingActionButton))
+            .perform(click())
+
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText))
+            .perform(replaceText("Untitled Project"))
+
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText))
+            .perform(replaceText("5"))
+
+        onView(withId(R.id.fragmentNewCanvas_doneButton))
+            .perform(click())
+
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(doesNotExist())
     }
 
 
