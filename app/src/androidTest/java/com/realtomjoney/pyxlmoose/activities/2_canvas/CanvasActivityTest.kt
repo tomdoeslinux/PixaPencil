@@ -33,4 +33,9 @@ class CanvasActivityTest {
     fun uitest_titleTextView_isDisplayed() {
         onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun uitest_colorSwapButton_isDisplayed() {
+        onView(withId(R.id.colorSwapButton)).check(matches(isDisplayed()))
+    }
 }
