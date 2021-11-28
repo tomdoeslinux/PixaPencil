@@ -22,4 +22,9 @@ class CanvasActivityTest {
     fun uitest_doneButtonFAB_isDisplayed() {
         onView(withId(R.id.doneButton)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun uitest_colourPickerRecyclerView_isDisplayed() {
+        onView(withId(R.id.colourPickerRecyclerView)).check(matches(isDisplayed()))
+    }
 }
