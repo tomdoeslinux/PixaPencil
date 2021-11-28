@@ -28,32 +28,27 @@ class MainActivityTestsWhenNewProjectIsCreated {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+    @Test fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(ViewAssertions.doesNotExist())
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+    @Test fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(ViewAssertions.doesNotExist())
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+    @Test fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(ViewAssertions.doesNotExist())
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+    @Test fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputLayout)).check(ViewAssertions.doesNotExist())
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+    @Test fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(ViewAssertions.doesNotExist())
     }

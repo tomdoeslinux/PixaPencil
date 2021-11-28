@@ -20,38 +20,32 @@ class MainActivityTestsOnFABTap {
     @get:Rule
     var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
-    @Test
-    fun uitest_fragmentNewCanvasRootLayout_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasRootLayout_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_rootLayout)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputLayout)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_fragmentNewCanvasDoneButton_isDisplayed() {
+    @Test fun uitest_fragmentNewCanvasDoneButton_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(matches(isDisplayed()))
     }

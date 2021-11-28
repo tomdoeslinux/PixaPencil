@@ -19,23 +19,19 @@ class CanvasActivityTest {
     @get:Rule
     var activityTestRule = ActivityTestRule(CanvasActivity::class.java)
 
-    @Test
-    fun uitest_doneButtonFAB_isDisplayed() {
+    @Test fun uitest_doneButtonFAB_isDisplayed() {
         onView(withId(R.id.doneButton)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_colourPickerRecyclerView_isDisplayed() {
+    @Test fun uitest_colourPickerRecyclerView_isDisplayed() {
         onView(withId(R.id.colourPickerRecyclerView)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_titleTextView_isDisplayed() {
+    @Test fun uitest_titleTextView_isDisplayed() {
         onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun uitest_colorSwapButton_isDisplayed() {
+    @Test fun uitest_colorSwapButton_isDisplayed() {
         onView(withId(R.id.colorSwapButton)).check(matches(isDisplayed()))
     }
 }
