@@ -132,6 +132,12 @@ class MainActivityTest {
     }
 
     @Test
+    fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+        createNewProject()
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).check(doesNotExist())
+    }
+
+    @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
         onView(withId(R.id.recentCreationsRecyclerView))
             .check(matches(isDisplayed()))
