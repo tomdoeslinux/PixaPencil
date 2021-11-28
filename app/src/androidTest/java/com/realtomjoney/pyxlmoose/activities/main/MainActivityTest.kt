@@ -53,6 +53,12 @@ class MainActivityTest {
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isDisplayed() {
+        onView(withId(R.id.floatingActionButton))
+            .perform(click())
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(matches(isDisplayed()))
+    }
 
     @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
