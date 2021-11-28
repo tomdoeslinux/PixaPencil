@@ -34,4 +34,12 @@ class CanvasActivityTest {
     @Test fun uitest_colorSwapButton_isDisplayed() {
         onView(withId(R.id.colorSwapButton)).check(matches(isDisplayed()))
     }
+
+    @Test fun uitest_colourPrimarySelected_isDisplayed() {
+        onView(withId(R.id.colourPrimarySelected)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_colourSecondarySelected_isDisplayed() {
+        onView(withId(R.id.colourSecondarySelected)).check(matches(isDisplayed()))
+    }
 }
