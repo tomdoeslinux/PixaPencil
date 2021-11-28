@@ -117,6 +117,23 @@ class MainActivityTest {
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(doesNotExist())
     }
 
+    @Test
+    fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+        onView(withId(R.id.floatingActionButton))
+            .perform(click())
+
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText))
+            .perform(replaceText("Untitled Project"))
+
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText))
+            .perform(replaceText("5"))
+
+        onView(withId(R.id.fragmentNewCanvas_doneButton))
+            .perform(click())
+
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(doesNotExist())
+    }
+
 
     @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
