@@ -68,6 +68,14 @@ class MainActivityTest {
     }
 
     @Test
+    fun uitest_fragmentNewCanvasDoneButton_isDisplayed() {
+        onView(withId(R.id.floatingActionButton))
+            .perform(click())
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).check(matches(isDisplayed()))
+    }
+
+
+    @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
         onView(withId(R.id.recentCreationsRecyclerView))
             .check(matches(isDisplayed()))
