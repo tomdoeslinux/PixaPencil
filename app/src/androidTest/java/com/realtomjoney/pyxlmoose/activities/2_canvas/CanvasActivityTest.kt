@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.`2_canvas`
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
@@ -41,5 +42,43 @@ class CanvasActivityTest {
 
     @Test fun uitest_colourSecondarySelected_isDisplayed() {
         onView(withId(R.id.colourSecondarySelected)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_verticalMirrorButton_isDisplayed() {
+        onView(withId(R.id.verticalMirrorButton)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_horizontalMirrorButton_isDisplayed() {
+        onView(withId(R.id.horizontalMirrorButton)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_darkenButton_isDisplayed() {
+        onView(withId(R.id.darkenButton)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_lightenButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test fun uitest_clearAllButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test fun uitest_undoButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+
+    }
+
+    @Test fun uitest_colorPickerButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+    @Test fun uitest_findAndReplaceButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+    }
+
+
+    @Test fun uitest_eraseButton_isDisplayed() {
+        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 }
