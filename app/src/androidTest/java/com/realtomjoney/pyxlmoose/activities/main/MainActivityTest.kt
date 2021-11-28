@@ -74,6 +74,31 @@ class MainActivityTest {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputLayout)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).check(doesNotExist())
+    }
+
 
     @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
