@@ -38,10 +38,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation_menu" />
 
-   
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         style="@style/default_large_fab_style_activity_main"
+        android:backgroundTint="@color/activityMainFAB_backgroundColor"
         android:contentDescription="@string/content_description_activity_main_fab"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
