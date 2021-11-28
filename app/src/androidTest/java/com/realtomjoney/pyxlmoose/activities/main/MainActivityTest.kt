@@ -5,7 +5,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
@@ -13,14 +12,14 @@ import org.junit.runner.RunWith
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 
 
 @LargeTest
-@RunWith(AndroidJUnit4::class)
+@RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
-    @Rule
-    @JvmField
-    var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
+    @get:Rule
+    var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun uitest_activityMainFAB_isDisplayed() {

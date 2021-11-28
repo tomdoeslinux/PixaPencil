@@ -3,16 +3,21 @@ package com.realtomjoney.pyxlmoose.activities.main
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.rule.ActivityTestRule
 import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.filters.LargeTest
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.rule.ActivityTestRule
+import org.junit.runner.RunWith
 
+
+@LargeTest
+@RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTestTwo {
-    @Rule
-    @JvmField
-    var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
+    @get:Rule
+    var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun uitest_fragmentNewCanvasRootLayout_isDisplayed() {
