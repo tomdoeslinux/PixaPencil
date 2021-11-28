@@ -40,6 +40,13 @@ class MainActivityTest {
     }
 
     @Test
+    fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isDisplayed() {
+        onView(withId(R.id.floatingActionButton))
+            .perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(matches(isDisplayed()))
+    }
+
+    @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
         onView(withId(R.id.recentCreationsRecyclerView))
             .check(matches(isDisplayed()))
