@@ -13,12 +13,7 @@ fun CanvasActivity.extendedOnPause() {
 
     if (binding.titleTextView.text.toString().isBlank()) {
         PixelArtDatabase.addItem(
-            PixelArt(
-                binding.fragmentHost.drawToBitmap(),
-                "Unnamed project",
-                data,
-                false
-            )
+            PixelArt(binding.fragmentHost.drawToBitmap(), "Unnamed project", data, false)
         )
         isErasing = false
 

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
-class MainActivityTestTwo {
+class MainActivityTestsOnFABTap {
     @get:Rule
     var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
