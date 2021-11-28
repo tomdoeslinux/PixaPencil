@@ -119,6 +119,17 @@ class MainActivityTest {
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(doesNotExist())
     }
 
+    @Test
+    fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+        createNewProject()
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(doesNotExist())
+    }
+
+    @Test
+    fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
+        createNewProject()
+        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputLayout)).check(doesNotExist())
+    }
 
     @Test
     fun uitest_recentCreationsRecyclerView_isDisplayed() {
