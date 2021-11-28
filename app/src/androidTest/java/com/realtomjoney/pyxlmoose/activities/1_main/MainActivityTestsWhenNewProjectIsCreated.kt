@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.activities.main
+package com.realtomjoney.pyxlmoose.activities.`1_main`
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
@@ -11,6 +11,7 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
+import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import org.junit.runner.RunWith
 
 

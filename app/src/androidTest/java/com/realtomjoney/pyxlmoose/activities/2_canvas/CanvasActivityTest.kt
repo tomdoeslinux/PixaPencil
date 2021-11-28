@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.activities.canvas
+package com.realtomjoney.pyxlmoose.activities.`2_canvas`
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -10,6 +10,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 
 
 @LargeTest
@@ -26,5 +27,10 @@ class CanvasActivityTest {
     @Test
     fun uitest_colourPickerRecyclerView_isDisplayed() {
         onView(withId(R.id.colourPickerRecyclerView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun uitest_titleTextView_isDisplayed() {
+        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
     }
 }
