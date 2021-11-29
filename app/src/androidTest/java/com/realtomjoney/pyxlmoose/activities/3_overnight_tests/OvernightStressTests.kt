@@ -24,7 +24,7 @@ class OvernightStressTests {
     @get:Rule
     var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
-    val projectName = "Untitled Project"
+    private val projectName = "Untitled Project"
 
     private fun createNewProject(boardSize: Int = 5) {
         onView(withId(R.id.floatingActionButton)).perform(click())
