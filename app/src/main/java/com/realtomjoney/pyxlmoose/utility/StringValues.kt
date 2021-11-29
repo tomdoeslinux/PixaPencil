@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.utility
 
 object StringValues {
-    const val MESSAGE_NAME_PROJECT = "Please name your project."
     const val DEFAULT_PROJECT_NAME = "Unnamed project"
     const val GRID_ON = "Turn grid on"
     const val GRID_OFF = "Turn grid off"
