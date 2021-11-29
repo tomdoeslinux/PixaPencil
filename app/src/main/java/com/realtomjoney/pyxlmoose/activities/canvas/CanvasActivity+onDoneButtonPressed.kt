@@ -1,8 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
-import android.view.View
-import androidx.fragment.app.FragmentTransaction
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
