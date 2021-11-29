@@ -122,13 +122,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
 
     binding.findAndReplaceButton.setOnClickListener {
         findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
-
-        title = "Find and Replace"
-
-        binding.colorPickerFragmentHost.visibility = View.VISIBLE
-        binding.colorPickerFragmentHost.bringToFront()
-        (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, findAndReplaceFragmentInstance).commit()
-        binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
+        navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.colorPickerFragmentHost, "Find and Replace", binding.colorPickerFragmentHost, binding.rootLayout)
     }
 
     binding.eraseButton.setOnClickListener {
