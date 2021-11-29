@@ -13,7 +13,6 @@ import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.database.ColourDatabase
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 import kotlin.random.Random
 
