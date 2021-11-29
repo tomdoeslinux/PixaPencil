@@ -13,6 +13,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
+import com.realtomjoney.pyxlmoose.database.ColourDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 
 
@@ -87,6 +88,12 @@ class CanvasActivityTest {
     @Test fun uitest_userCanTapOnPixel() {
         for (i in 0..24) {
             onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
+        }
+    }
+
+    @Test fun uitest_userCanSelectColors() {
+        for (i in ColourDatabase.toList().indices) {
+            onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
         }
     }
 }
