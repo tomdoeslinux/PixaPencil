@@ -114,4 +114,20 @@ class CanvasActivityTest {
             }
         }
     }
+
+    @Test fun uitest_userCanSwipeLeft() {
+        onView(withId(R.id.canvasRecyclerView)).perform(swipeLeft())
+    }
+
+    @Test fun uitest_userCanSwipeRight() {
+        onView(withId(R.id.canvasRecyclerView)).perform(swipeRight())
+    }
+
+    @Test fun uitest_userCanSwipeUp() {
+        onView(withId(R.id.canvasRecyclerView)).perform(swipeUp())
+    }
+
+    @Test fun uitest_userCanSwipeDown() {
+        onView(withId(R.id.canvasRecyclerView)).perform(swipeDown())
+    }
 }
