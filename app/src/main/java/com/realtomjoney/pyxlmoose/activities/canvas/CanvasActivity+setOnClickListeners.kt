@@ -15,6 +15,7 @@ import com.realtomjoney.pyxlmoose.models.PixelArt
 
 fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
+    currentFragmentInstance = findAndReplaceFragmentInstance
     navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.colorPickerFragmentHost, "Select Color", binding.colorPickerFragmentHost, binding.rootLayout)
 }
 
@@ -121,6 +122,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
 
     binding.findAndReplaceButton.setOnClickListener {
         findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
+        currentFragmentInstance = findAndReplaceFragmentInstance
         navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.colorPickerFragmentHost, "Find and Replace", binding.colorPickerFragmentHost, binding.rootLayout)
     }
 

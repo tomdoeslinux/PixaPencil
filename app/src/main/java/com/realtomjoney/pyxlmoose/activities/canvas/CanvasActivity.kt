@@ -97,7 +97,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 
     override fun onBackPressed() {
-        this.navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.rootLayout, binding.colorPickerFragmentHost,"PyxlMoose")
+        if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.rootLayout, binding.colorPickerFragmentHost,"PyxlMoose") else super.onBackPressed()
     }
 }
 

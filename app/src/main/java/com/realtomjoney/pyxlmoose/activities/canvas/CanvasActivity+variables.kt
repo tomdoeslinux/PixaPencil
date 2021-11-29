@@ -3,6 +3,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 
 lateinit var binding: ActivityCanvasBinding
@@ -30,3 +31,5 @@ var isErasing = false
 
 var isHorizontalMirrorEnabled = false
 var isVerticalMirrorEnabled = false
+
+var currentFragmentInstance: Fragment? = null
