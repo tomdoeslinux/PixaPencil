@@ -18,7 +18,7 @@ class NewCanvasFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    var root: View? = null
+    private var root: View? = null
 
     private lateinit var caller: NewCanvasFragmentListener
 
