@@ -36,6 +36,8 @@ class OvernightStressTests {
         onView(withId(R.id.canvasRecyclerView)).perform(viewAction)
     }
 
+    private fun goBack() = onView(isRoot()).perform(pressBack())
+
     @Test fun uitest_canvasStressTest() {
         (1..30).forEach { i ->
             createNewProject(i)
@@ -52,7 +54,7 @@ class OvernightStressTests {
                     onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
                     onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i3, click()))
                 }
-            }; onView(isRoot()).perform(pressBack())
+            }; goBack()
         }
     }
 
@@ -60,7 +62,7 @@ class OvernightStressTests {
         (1..30).forEach { i ->
             createNewProject(i)
             onView(withId(R.id.doneButton)).perform(click())
-            onView(isRoot()).perform(pressBack())
+            goBack()
         }
     }
 }
