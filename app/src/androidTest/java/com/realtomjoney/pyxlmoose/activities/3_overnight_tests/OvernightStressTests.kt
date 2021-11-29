@@ -24,9 +24,11 @@ class OvernightStressTests {
     @get:Rule
     var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
+    val projectName = "Untitled Project"
+
     private fun createNewProject(boardSize: Int = 5) {
         onView(withId(R.id.floatingActionButton)).perform(click())
-        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(replaceText("Untitled Project"))
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(replaceText(projectName))
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).perform(replaceText(boardSize.toString()))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
