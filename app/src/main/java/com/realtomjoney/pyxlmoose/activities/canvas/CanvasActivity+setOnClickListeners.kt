@@ -8,20 +8,15 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
+import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
 fun CanvasActivity.openColorPickerDialog() {
-    title = "Select Color"
-
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
-
-    binding.colorPickerFragmentHost.visibility = View.VISIBLE
-    binding.colorPickerFragmentHost.bringToFront()
-    (supportFragmentManager.beginTransaction()).replace(R.id.colorPickerFragmentHost, colorPickerFragmentInstance).commit()
-    binding.doneButton.animate().scaleX(0f).scaleY(0f).setDuration(300).withEndAction { binding.doneButton.visibility = View.GONE }
+    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.colorPickerFragmentHost, "Select Color", binding.colorPickerFragmentHost, binding.rootLayout)
 }
 
 fun CanvasActivity.extendedSetOnClickListeners() {

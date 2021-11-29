@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
@@ -94,5 +95,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
+
+    override fun onBackPressed() {
+        this.navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.rootLayout, binding.colorPickerFragmentHost,"PyxlMoose")
+    }
 }
 
