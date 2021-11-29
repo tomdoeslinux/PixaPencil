@@ -7,14 +7,11 @@ import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
-import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 import org.junit.runner.RunWith
 
 
