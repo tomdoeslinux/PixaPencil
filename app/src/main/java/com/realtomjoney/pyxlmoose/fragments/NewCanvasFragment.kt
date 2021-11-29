@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
-import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
