@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.text.Editable
 import android.view.View
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.utility.StringValues
