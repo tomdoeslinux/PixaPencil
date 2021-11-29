@@ -15,7 +15,7 @@ import com.realtomjoney.pyxlmoose.models.PixelArt
 
 fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
-    currentFragmentInstance = findAndReplaceFragmentInstance
+    currentFragmentInstance = colorPickerFragmentInstance
     navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.colorPickerFragmentHost, "Select Color", binding.colorPickerFragmentHost, binding.rootLayout)
 }
 
