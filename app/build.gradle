@@ -53,4 +53,6 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha03'
     androidTestImplementation 'androidx.test:rules:1.4.1-alpha03'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 }
