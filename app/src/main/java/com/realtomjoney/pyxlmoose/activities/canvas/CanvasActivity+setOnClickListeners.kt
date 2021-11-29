@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.View
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
