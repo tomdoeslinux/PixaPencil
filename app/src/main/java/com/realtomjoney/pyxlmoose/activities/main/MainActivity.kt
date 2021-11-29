@@ -4,15 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
-import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
