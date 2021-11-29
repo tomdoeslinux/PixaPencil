@@ -8,17 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 fun Activity.navigateHome(fragmentManager: FragmentManager, fragmentInstance: Fragment, rootLayout: View, fragmentHost: FrameLayout, newTitle: String) {
-    (rootLayout as ViewGroup).doSomethingWithChildElements { view ->
-        view.visibility = View.VISIBLE
-    }
+    (rootLayout as ViewGroup).doSomethingWithChildElements { view -> view.visibility = View.VISIBLE }
     fragmentHost.visibility = View.GONE
     removeFragmentByInstance(fragmentManager, fragmentInstance, newTitle)
 }
 
 fun Activity.navigateTo(fragmentManager: FragmentManager, fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View) {
-    (rootLayout as ViewGroup).doSomethingWithChildElements { view ->
-        view.visibility = View.GONE
-    }
+    (rootLayout as ViewGroup).doSomethingWithChildElements { view -> view.visibility = View.GONE }
 
     hostView.visibility = View.VISIBLE
     (fragmentManager.beginTransaction()).replace(fragmentInstanceId, fragmentInstance).commit()

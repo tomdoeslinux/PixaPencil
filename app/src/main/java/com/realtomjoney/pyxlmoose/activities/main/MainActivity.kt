@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
             newCanvasFragmentHost.visibility = View.GONE
             bottomNavigationView.visibility = View.VISIBLE
         }
+
+        title = "PyxlMoose"
     }
 }
 
