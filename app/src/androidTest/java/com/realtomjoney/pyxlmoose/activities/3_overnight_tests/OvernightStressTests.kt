@@ -37,7 +37,7 @@ class OvernightStressTests {
     }
 
     @Test fun uitest_canvasStressTest() {
-        for (i in 1..30) {
+        (1..30).forEach { i ->
             createNewProject(i)
 
             (1..20).forEach { _ ->
@@ -47,19 +47,17 @@ class OvernightStressTests {
                 pickRandomColorFromColourPickerRecyclerViewAndThen(swipeLeft())
             }
 
-            for (i3 in 0 until i) {
-                for (i4 in ColourDatabase.toList().indices) {
+            (0 until i).forEach { i3 ->
+                (ColourDatabase.toList().indices).forEach { i4 ->
                     onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
                     onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i3, click()))
                 }
-            }
-
-            onView(isRoot()).perform(pressBack())
+            }; onView(isRoot()).perform(pressBack())
         }
     }
 
     @Test fun uitest_projectCreationStressTest() {
-        for (i in 1..30) {
+        (1..30).forEach { i ->
             createNewProject(i)
             onView(withId(R.id.doneButton)).perform(click())
             onView(isRoot()).perform(pressBack())
