@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.`3_overnight_tests`
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -30,27 +31,20 @@ class OvernightStressTests {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
 
-    private fun pickRandomColorFromColourPickerRecyclerView() {
-        onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(
-            Random.nextInt(0, (ColourDatabase.toList().size - 1)), click()))
+    private fun pickRandomColorFromColourPickerRecyclerViewAndThen(viewAction: ViewAction) {
+        onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(Random.nextInt(0, (ColourDatabase.toList().size - 1)), click()))
+        onView(withId(R.id.canvasRecyclerView)).perform(viewAction)
     }
 
     @Test fun uitest_canvasStressTest() {
         for (i in 1..30) {
             createNewProject(i)
 
-            for (i2 in 1..20) {
-                pickRandomColorFromColourPickerRecyclerView()
-                onView(withId(R.id.canvasRecyclerView)).perform(swipeDown())
-
-                pickRandomColorFromColourPickerRecyclerView()
-                onView(withId(R.id.canvasRecyclerView)).perform(swipeUp())
-
-                pickRandomColorFromColourPickerRecyclerView()
-                onView(withId(R.id.canvasRecyclerView)).perform(swipeRight())
-
-                pickRandomColorFromColourPickerRecyclerView()
-                onView(withId(R.id.canvasRecyclerView)).perform(swipeLeft())
+            (1..20).forEach { _ ->
+                pickRandomColorFromColourPickerRecyclerViewAndThen(swipeDown())
+                pickRandomColorFromColourPickerRecyclerViewAndThen(swipeUp())
+                pickRandomColorFromColourPickerRecyclerViewAndThen(swipeRight())
+                pickRandomColorFromColourPickerRecyclerViewAndThen(swipeLeft())
             }
 
             for (i3 in 0 until i) {
