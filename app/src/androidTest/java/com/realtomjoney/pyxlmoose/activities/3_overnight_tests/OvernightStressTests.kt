@@ -13,6 +13,7 @@ import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.database.ColourDatabase
+import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 import kotlin.random.Random
 
@@ -36,7 +37,7 @@ class OvernightStressTests {
     }
 
     @Test fun uitest_canvasStressTest() {
-        for (i in 1..100) {
+        for (i in 1..30) {
             createNewProject(i)
 
             for (i2 in 1..20) {
@@ -60,6 +61,14 @@ class OvernightStressTests {
                 }
             }
 
+            onView(isRoot()).perform(pressBack())
+        }
+    }
+
+    @Test fun uitest_projectCreationStressTest() {
+        for (i in 1..30) {
+            createNewProject(i)
+            onView(withId(R.id.doneButton)).perform(click())
             onView(isRoot()).perform(pressBack())
         }
     }
