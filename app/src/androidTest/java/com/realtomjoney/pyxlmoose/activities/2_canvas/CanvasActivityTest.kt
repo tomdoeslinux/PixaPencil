@@ -96,4 +96,22 @@ class CanvasActivityTest {
             onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
         }
     }
+
+    @Test fun uitest_userCanSelectColorsAndTapOnPixel_long() {
+        for (i in 0..24) {
+            for (i2 in ColourDatabase.toList().indices) {
+                onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i2, click()))
+                onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
+            }
+        }
+    }
+
+    @Test fun uitest_userCanSelectColorsAndTapOnPixel_short() {
+        for (i in 0..24) {
+            for (i2 in 0..4) {
+                onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i2, click()))
+                onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
+            }
+        }
+    }
 }
