@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
     override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
 
     override fun onBackPressed() {
+        binding.floatingActionButton.show()
         this.navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.newCanvasFragmentHost,"PyxlMoose")
     }
 
