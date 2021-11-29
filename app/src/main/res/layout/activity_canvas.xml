@@ -127,13 +127,15 @@
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/verticalMirrorButton"
                     style="@style/canvas_activity_button_tool_style"
-                    app:srcCompat="@drawable/ic_mirror"/>
+                    app:srcCompat="@drawable/ic_mirror"
+                    android:contentDescription="@string/content_description_mirror_tool" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/horizontalMirrorButton"
                     style="@style/canvas_activity_button_tool_style"
                     app:srcCompat="@drawable/ic_mirror"
-                    android:rotation="90"/>
+                    android:rotation="90"
+                    android:contentDescription="@string/content_description_mirror_tool_2" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/darkenButton"

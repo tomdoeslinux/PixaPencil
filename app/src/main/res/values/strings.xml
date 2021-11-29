@@ -19,7 +19,6 @@
     <string name="str_button_done">Done</string>
     <string name="content_description_activity_main_fab">New Project</string>
     <string name="content_description_color_swap_tool">Color Swap Tool</string>
-    <string name="content_description_mirror_tool">Mirror Tool</string>
     <string name="content_description_save_creation">Save Creation</string>
     <string name="content_description_darken_tool">Darken Tool</string>
     <string name="content_description_lighten_tool">Lighten Tool</string>
@@ -34,4 +33,6 @@
     <string name="new_canvas_str">New Canvas</string>
     <string name="span_count_str">Span count</string>
     <string name="project_name_str">Project name</string>
+    <string name="content_description_mirror_tool">Mirror Tool</string>
+    <string name="content_description_mirror_tool_2">Mirror Tool 2</string>
 </resources>
