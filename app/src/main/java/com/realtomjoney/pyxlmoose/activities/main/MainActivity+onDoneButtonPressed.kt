@@ -6,12 +6,12 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 
-fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) {
+fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: TextInputEditText) {
     if (spanCount in 1..100) {
         startActivity(
             Intent(this, CanvasActivity::class.java)
                 .putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString()))
-                .putExtra("PROJECT_TITLE", textFieldTwo.text.toString())
+                .putExtra("PROJECT_TITLE", titleEditText.text.toString())
         )
     }
     with(supportFragmentManager.beginTransaction()) {

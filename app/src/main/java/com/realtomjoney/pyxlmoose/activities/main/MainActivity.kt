@@ -45,6 +45,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     override fun onBackPressed() = extendedOnBackPressed()
 
-    override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) = extendedOnDoneButtonPressed(spanCount, textField, textFieldTwo)
+    override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) = extendedOnDoneButtonPressed(spanCount, textFieldTwo)
 }
 
