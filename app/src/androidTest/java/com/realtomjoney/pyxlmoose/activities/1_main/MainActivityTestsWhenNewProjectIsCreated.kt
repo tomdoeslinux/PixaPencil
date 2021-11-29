@@ -55,26 +55,4 @@ class MainActivityTestsWhenNewProjectIsCreated {
         createNewProject()
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(ViewAssertions.doesNotExist())
     }
-
-    @Test fun uitest_canvasStressTest() {
-        for (i in 1..100) {
-            createNewProject(i)
-
-            for (i2 in 1..20) {
-                onView(withId(R.id.canvasRecyclerView)).perform(ViewActions.swipeDown())
-                onView(withId(R.id.canvasRecyclerView)).perform(ViewActions.swipeUp())
-                onView(withId(R.id.canvasRecyclerView)).perform(ViewActions.swipeRight())
-                onView(withId(R.id.canvasRecyclerView)).perform(ViewActions.swipeLeft())
-            }
-
-            for (i3 in 0 until i) {
-                for (i4 in 0..4) {
-                    onView(withId(R.id.colourPickerRecyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
-                    onView(withId(R.id.canvasRecyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerViewHolder>(i3, click()))
-                }
-            }
-
-            onView(isRoot()).perform(pressBack())
-        }
-    }
 }
