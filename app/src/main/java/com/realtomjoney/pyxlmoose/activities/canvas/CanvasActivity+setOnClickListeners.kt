@@ -8,13 +8,10 @@ import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
-import com.realtomjoney.pyxlmoose.utility.StringValues
 
 fun CanvasActivity.openColorPickerDialog() {
     title = "Select Color"
