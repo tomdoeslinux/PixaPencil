@@ -86,8 +86,7 @@ class CanvasActivityTest {
 
     @Test fun uitest_userCanTapOnPixel() {
         for (i in 0..24) {
-            onView(withId(R.id.canvasRecyclerView))
-                .perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
+            onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
         }
     }
 }
