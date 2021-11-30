@@ -24,11 +24,12 @@ class CanvasActivityTest {
     var activityTestRule = ActivityTestRule(CanvasActivity::class.java)
 
     private fun goToFindAndReplaceFragment() {
-
+        onView(withId(R.id.activityCanvasHorizontalScrollView)).perform(swipeLeft())
+        onView(withId(R.id.findAndReplaceButton)).perform(click())
     }
 
     private fun goToColorPickerFragment() {
-
+        onView(withId(R.id.colourPrimarySelected)).perform(longClick())
     }
 
 
@@ -129,5 +130,13 @@ class CanvasActivityTest {
 
     @Test fun uitest_userCanSwipeDown() {
         onView(withId(R.id.canvasRecyclerView)).perform(swipeDown())
+    }
+
+    @Test fun uitest_userCanNavigateToFindAndReplaceFragment() {
+        goToFindAndReplaceFragment()
+    }
+
+    @Test fun uitest_userCanNavigateToColorPickerFragment() {
+        goToColorPickerFragment()
     }
 }
