@@ -50,7 +50,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
-        isPrimaryColourSelected = false
+        isPrimaryColourSelected = true
         openColorPickerDialog()
         true
     }
@@ -61,8 +61,8 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         setPixelColour((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorPrimaryView.setOnLongClickListener {
-        isPrimaryColourSelected = true
+    binding.activityCanvasColorSecondaryView.setOnLongClickListener {
+        isPrimaryColourSelected = false
         openColorPickerDialog()
         true
     }

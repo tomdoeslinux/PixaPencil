@@ -15,11 +15,8 @@ import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener,
     ColorPickerFragmentListener, FindAndReplaceFragmentListener {
-    var previousView: View? = null
 
-    lateinit var colorPickerFragmentInstance: ColorPickerFragment
-    lateinit var canvasFragmentInstance: CanvasFragment
-    lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
+    var previousView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,23 +31,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
 
-    override fun onResume() {
-        binding.activityCanvasDoneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction { binding.activityCanvasDoneButton.visibility = View.VISIBLE }
-        super.onResume()
-    }
+    fun evaluate(event: MotionEvent) = extendedEvaluate(event)
 
-    private fun evaluate(event: MotionEvent) = extendedEvaluate(event)
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return when (event!!.actionMasked) {
-            MotionEvent.ACTION_MOVE -> {
-                evaluate(event)
-                true
-            }
-            else -> super.onTouchEvent(event)
-        }
-    }
-
+    override fun onTouchEvent(event: MotionEvent?) = if (extendedOnTouchEvent(event)) extendedOnTouchEvent(event) else super.onTouchEvent(event)
 
     fun setColours() {
         setPrimaryPixelColour(Color.BLACK)

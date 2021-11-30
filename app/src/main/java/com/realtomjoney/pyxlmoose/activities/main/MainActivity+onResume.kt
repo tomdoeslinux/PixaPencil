@@ -1,11 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 
 fun MainActivity.extendedOnResume() {
+    binding.activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
     binding.activityMainNewProjectButton.show()
 
     if (!hasNavigatedBack) {
