@@ -11,7 +11,7 @@ fun CanvasActivity.extendedOnPause() {
     hasSetBackgroundYet = false
     wantsToChangeBackground = false
 
-    if (binding.titleTextView.text.toString().isBlank()) {
+    if (binding.activityCanvasCanvasTitleEditText.text.toString().isBlank()) {
         PixelArtDatabase.addItem(
             PixelArt(binding.fragmentHost.drawToBitmap(), "Unnamed project", data, false)
         )

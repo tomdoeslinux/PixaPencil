@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.database
 
 import android.graphics.Color
 
-object ColourDatabase : Database<Int> {
+object ColorDatabase : Database<Int> {
     private val database = mutableListOf<Int>()
 
     override fun addItem(item: Int) { database.add(item) }

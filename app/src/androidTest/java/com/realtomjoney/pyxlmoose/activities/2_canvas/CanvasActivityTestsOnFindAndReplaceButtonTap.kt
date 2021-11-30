@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.`2_canvas`
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -23,36 +22,36 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
     @Test
     fun uitest_doneButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
     @Test
     fun uitest_colourPickerRecyclerView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.colourPickerRecyclerView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
     @Test
     fun uitest_titleTextView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.titleTextView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_canvasTitleEditText)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
     @Test
     fun uitest_colorSwapButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.colorSwapButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
     @Test
     fun uitest_colourPrimarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.colourPrimarySelected)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
     @Test
     fun uitest_colourSecondarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.colourSecondarySelected)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 }

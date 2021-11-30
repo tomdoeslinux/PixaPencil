@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
     private fun setOnClickListeners() = extendedSetOnClickListeners()
 
     override fun onResume() {
-        binding.recentCreationsRecyclerView.visibility = View.VISIBLE
+        binding.activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
         extendedOnResume()
         super.onResume()
     }

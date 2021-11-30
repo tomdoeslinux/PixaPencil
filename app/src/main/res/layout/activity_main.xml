@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recentCreationsRecyclerView"
+        android:id="@+id/activityMain_recentCreationsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -40,7 +40,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/activityMain_newProjectButton"
         style="@style/default_large_fab_style_activity_main"
         android:backgroundTint="@color/activityMainFAB_backgroundColor"
         android:contentDescription="@string/content_description_activity_main_fab"

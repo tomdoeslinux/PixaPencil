@@ -12,12 +12,12 @@ fun MainActivity.extendedSetOnClickListeners() {
     binding.bottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.page_home -> {
-                binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(
+                binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(
                     PixelArtDatabase.toList(), this)
                 title = "Home"
             }
             R.id.page_starred -> {
-                binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(
+                binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(
                     PixelArtDatabase.toList().filter { it.isFavourited }, this)
                 title = "Favorites"
             }
@@ -25,18 +25,18 @@ fun MainActivity.extendedSetOnClickListeners() {
         true
     }
 
-    binding.recentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+    binding.activityMainRecentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (dy == 1 || dy == 0) return
 
-            if (binding.floatingActionButton.isShown && dy > 2 || dy < 2) binding.floatingActionButton.hide() else binding.floatingActionButton.show()
+            if (binding.activityMainNewProjectButton.isShown && dy > 2 || dy < 2) binding.activityMainNewProjectButton.hide() else binding.activityMainNewProjectButton.show()
         }
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-            if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.floatingActionButton.show()
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.activityMainNewProjectButton.show()
         }
     }) // Great solution by VelocityPulse (with a small twist from myself)
 
-    binding.floatingActionButton.setOnClickListener {
+    binding.activityMainNewProjectButton.setOnClickListener {
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
         navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
     }

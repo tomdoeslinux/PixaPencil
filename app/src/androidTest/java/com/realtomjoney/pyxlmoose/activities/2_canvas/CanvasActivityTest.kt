@@ -13,7 +13,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
-import com.realtomjoney.pyxlmoose.database.ColourDatabase
+import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 
 
@@ -24,27 +24,27 @@ class CanvasActivityTest {
     var activityTestRule = ActivityScenarioRule(CanvasActivity::class.java)
 
     @Test fun uitest_doneButtonFAB_isDisplayed() {
-        onView(withId(R.id.doneButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_doneButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_colourPickerRecyclerView_isDisplayed() {
-        onView(withId(R.id.colourPickerRecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_titleTextView_isDisplayed() {
-        onView(withId(R.id.titleTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_canvasTitleEditText)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_colorSwapButton_isDisplayed() {
-        onView(withId(R.id.colorSwapButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_colourPrimarySelected_isDisplayed() {
-        onView(withId(R.id.colourPrimarySelected)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_colourSecondarySelected_isDisplayed() {
-        onView(withId(R.id.colourSecondarySelected)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_verticalMirrorButton_isDisplayed() {
@@ -92,15 +92,15 @@ class CanvasActivityTest {
     }
 
     @Test fun uitest_userCanSelectColors() {
-        for (i in ColourDatabase.toList().indices) {
-            onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
+        for (i in ColorDatabase.toList().indices) {
+            onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
         }
     }
 
     @Test fun uitest_userCanSelectColorsAndTapOnPixel() {
         for (i in 0..24) {
             for (i2 in 0..4) {
-                onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i2, click()))
+                onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i2, click()))
                 onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i, click()))
             }
         }

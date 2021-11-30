@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.realtomjoney.pyxlmoose.adapters.ColourPickerAdapter
-import com.realtomjoney.pyxlmoose.database.ColourDatabase
+import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
-import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
+import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
 class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
@@ -27,13 +27,13 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
         if (context is FindAndReplaceFragmentListener) caller = context
     }
 
-    internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColourPickerListener {
+    internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColourTapped(colour: Int, it: View) {
             binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(colour)
         }
     }
 
-    internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColourPickerListener {
+    internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColourTapped(colour: Int, it: View) {
             binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(colour)
         }
@@ -54,7 +54,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
         val layoutManager = LinearLayoutManager(this.activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = layoutManager
-        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColourPickerAdapter(ColourDatabase.toList(), FragmentFindAndReplaceAvailableColorsRecyclerView(binding))
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColourPickerAdapter(ColorDatabase.toList(), FragmentFindAndReplaceAvailableColorsRecyclerView(binding))
     }
 
     override fun onCreateView(

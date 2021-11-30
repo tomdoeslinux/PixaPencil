@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.activities.canvas.extendedOnPause
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.customviews.SquareFrameLayout
-import com.realtomjoney.pyxlmoose.database.ColourDatabase
+import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.utility.StringValues
 import org.junit.Assert.assertEquals
@@ -34,18 +34,18 @@ class ExampleUnitTest {
 
     @Test
     fun test_ColorPickerDatabase() {
-        ColourDatabase.addItem(Color.BLUE)
-        assert(ColourDatabase.toList().last() == Color.BLUE)
+        ColorDatabase.addItem(Color.BLUE)
+        assert(ColorDatabase.toList().last() == Color.BLUE)
     }
 
     @Test
     fun test_canDeleteColors() {
-        val previousSize = ColourDatabase.toList().size
+        val previousSize = ColorDatabase.toList().size
 
-        val last = ColourDatabase.toList().last()
-        ColourDatabase.removeItem(last)
+        val last = ColorDatabase.toList().last()
+        ColorDatabase.removeItem(last)
 
-        assert(ColourDatabase.toList().size == previousSize - 1)
+        assert(ColorDatabase.toList().size == previousSize - 1)
     }
 
     @Test

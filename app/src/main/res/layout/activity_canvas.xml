@@ -45,32 +45,32 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/doneButton"
+        android:id="@+id/activityCanvas_doneButton"
         style="@style/default_large_fab_style_activity_canvas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/content_description_save_creation"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/colorSwapButton"
+        android:id="@+id/activityCanvas_colorSwapButton"
         style="@style/canvas_activity_button_tool_style"
         android:layout_marginEnd="16dp"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toTopOf="@+id/fragmentHost"
-        app:layout_constraintEnd_toStartOf="@+id/colourSecondarySelected"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/color_swap_icon"
         android:contentDescription="@string/content_description_color_swap_tool"/>
 
     <EditText
-        android:id="@+id/titleTextView"
+        android:id="@+id/activityCanvas_canvasTitleEditText"
         style="@style/default_canvas_creation_edit_text_style_activity_canvas"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/colourPickerRecyclerView"
+        android:id="@+id/activityCanvas_colorPickerRecyclerView"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -80,18 +80,18 @@
         tools:listitem="@layout/colour_picker_layout" />
 
     <View
-        android:id="@+id/colourSecondarySelected"
+        android:id="@+id/activityCanvas_colorSecondaryView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="24dp"
         android:background="@android:color/holo_blue_bright"
-        app:layout_constraintBottom_toBottomOf="@+id/colourPrimarySelected"
-        app:layout_constraintEnd_toStartOf="@+id/colourPrimarySelected"
-        app:layout_constraintTop_toTopOf="@+id/colourPrimarySelected"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPrimaryView"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorPrimaryView"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPrimaryView"
         app:layout_constraintVertical_bias="0.8" />
 
     <View
-        android:id="@+id/colourPrimarySelected"
+        android:id="@+id/activityCanvas_colorPrimaryView"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="32dp"
@@ -106,16 +106,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/doneButton"
-        app:layout_constraintEnd_toStartOf="@+id/doneButton"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_doneButton"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_doneButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/doneButton">
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_doneButton">
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            android:id="@+id/activityCanvasHorizontalScrollView"
+            android:id="@+id/activityCanvas_canvasToolsScrollView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 

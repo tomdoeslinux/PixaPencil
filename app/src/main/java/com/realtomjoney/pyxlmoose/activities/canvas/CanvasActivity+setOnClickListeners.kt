@@ -20,12 +20,12 @@ fun CanvasActivity.openColorPickerDialog() {
 }
 
 fun CanvasActivity.extendedSetOnClickListeners() {
-    binding.doneButton.setOnClickListener {
+    binding.activityCanvasDoneButton.setOnClickListener {
         if (index == -1) {
             PixelArtDatabase.addItem(
                 PixelArt(
                     binding.fragmentHost.drawToBitmap(),
-                    binding.titleTextView.text.toString(),
+                    binding.activityCanvasCanvasTitleEditText.text.toString(),
                     data,
                     false
                 )
@@ -35,7 +35,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         } else {
             PixelArtDatabase.replaceItemByIndex(index!!, PixelArt(
                 binding.fragmentHost.drawToBitmap(),
-                binding.titleTextView.text.toString(),
+                binding.activityCanvasCanvasTitleEditText.text.toString(),
                 data,
                 false
             ))
@@ -44,24 +44,24 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         }
     }
 
-    binding.colourSecondarySelected.setOnClickListener {
+    binding.activityCanvasColorSecondaryView.setOnClickListener {
         isPrimaryColourSelected = false
-        setPixelColour((binding.colourSecondarySelected.background as ColorDrawable).color)
+        setPixelColour((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     }
 
-    binding.colourSecondarySelected.setOnLongClickListener {
+    binding.activityCanvasColorPrimaryView.setOnLongClickListener {
         isPrimaryColourSelected = false
         openColorPickerDialog()
         true
     }
 
 
-    binding.colourPrimarySelected.setOnClickListener {
+    binding.activityCanvasColorPrimaryView.setOnClickListener {
         isPrimaryColourSelected = true
-        setPixelColour((binding.colourPrimarySelected.background as ColorDrawable).color)
+        setPixelColour((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
-    binding.colourPrimarySelected.setOnLongClickListener {
+    binding.activityCanvasColorPrimaryView.setOnLongClickListener {
         isPrimaryColourSelected = true
         openColorPickerDialog()
         true
@@ -111,9 +111,9 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         wantsToChangeBackground = !wantsToChangeBackground
     }
 
-    binding.colorSwapButton.setOnClickListener {
-        binding.colourPrimarySelected.setBackgroundColor(secondaryColour)
-        binding.colourSecondarySelected.setBackgroundColor(primaryColour)
+    binding.activityCanvasColorSwapButton.setOnClickListener {
+        binding.activityCanvasColorPrimaryView.setBackgroundColor(secondaryColour)
+        binding.activityCanvasColorSecondaryView.setBackgroundColor(primaryColour)
 
         val temp = primaryColour
         primaryColour = secondaryColour

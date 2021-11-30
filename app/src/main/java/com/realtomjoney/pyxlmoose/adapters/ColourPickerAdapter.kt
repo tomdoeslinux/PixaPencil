@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.viewholders.ColourPickerViewHolder
 import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
+import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
+import com.realtomjoney.pyxlmoose.viewholders.ColorPickerViewHolder
 
-class ColourPickerAdapter(private val list: List<Int>, private val caller: ColourPickerListener) : RecyclerView.Adapter<ColourPickerViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColourPickerViewHolder {
-        return ColourPickerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.colour_picker_layout, parent, false) as View)
+class ColourPickerAdapter(private val list: List<Int>, private val caller: ColorPickerListener) : RecyclerView.Adapter<ColorPickerViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPickerViewHolder {
+        return ColorPickerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.colour_picker_layout, parent, false) as View)
     }
 
-    override fun onBindViewHolder(holder: ColourPickerViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
         holder.colourView.setBackgroundResource(R.drawable.round)
         holder.colourView.backgroundTintList = ColorStateList.valueOf(list[position])
 

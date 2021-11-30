@@ -4,7 +4,6 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
-import androidx.test.rule.ActivityTestRule
 import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
@@ -21,7 +20,7 @@ class MainActivityTest {
     var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test fun uitest_activityMainFAB_isDisplayed() {
-        onView(withId(R.id.floatingActionButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityMain_newProjectButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_fragmentNewCanvasRootLayout_isNotDisplayed() {
@@ -49,6 +48,6 @@ class MainActivityTest {
     }
 
     @Test fun uitest_recentCreationsRecyclerView_isDisplayed() {
-        onView(withId(R.id.recentCreationsRecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityMain_recentCreationsRecyclerView)).check(matches(isDisplayed()))
     }
 }

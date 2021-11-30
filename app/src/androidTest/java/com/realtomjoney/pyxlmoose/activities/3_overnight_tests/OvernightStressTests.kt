@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.AndroidTestUtilityFunctions
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
-import com.realtomjoney.pyxlmoose.database.ColourDatabase
+import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 import kotlin.random.Random
 
@@ -26,7 +26,7 @@ class OvernightStressTests {
     var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     private fun pickRandomColorFromColourPickerRecyclerViewAndThen(viewAction: ViewAction) {
-        onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(Random.nextInt(0, (ColourDatabase.toList().size - 1)), click()))
+        onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(Random.nextInt(0, (ColorDatabase.toList().size - 1)), click()))
         onView(withId(R.id.canvasRecyclerView)).perform(viewAction)
     }
 
@@ -42,8 +42,8 @@ class OvernightStressTests {
             }
 
             (0 until i).forEach { i3 ->
-                (ColourDatabase.toList().indices).forEach { i4 ->
-                    onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
+                (ColorDatabase.toList().indices).forEach { i4 ->
+                    onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
                     onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i3, click()))
                 }
             }
@@ -54,7 +54,7 @@ class OvernightStressTests {
     @Test fun uitest_projectCreationStressTest() {
         (1..30).forEach { i ->
             AndroidTestUtilityFunctions.createNewProject("Unnamed Project", i)
-            onView(withId(R.id.doneButton)).perform(click())
+            onView(withId(R.id.activityCanvas_doneButton)).perform(click())
             AndroidTestUtilityFunctions.goBack()
         }
     }

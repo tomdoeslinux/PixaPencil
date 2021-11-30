@@ -8,16 +8,16 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction
 fun MainActivity.restoreDeletedItem(param: PixelArt) {
     PixelArtDatabase.addItem(param)
     refreshAdapter()
-    binding.recentCreationsRecyclerView.adapter?.notifyItemInserted(
+    binding.activityMainRecentCreationsRecyclerView.adapter?.notifyItemInserted(
         PixelArtDatabase.toList().indexOf((param)))
 }
 
 fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
     PixelArtDatabase.removeItem(param)
     refreshAdapter()
-    binding.recentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
+    binding.activityMainRecentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
 
-    (binding.recentCreationsRecyclerView).showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
+    (binding.activityMainRecentCreationsRecyclerView).showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
         restoreDeletedItem(param)
     }
 }

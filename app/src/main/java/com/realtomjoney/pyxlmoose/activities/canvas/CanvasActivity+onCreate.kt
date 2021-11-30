@@ -17,5 +17,5 @@ fun CanvasActivity.extendedOnCreate() {
     setColours()
 
     binding.colorPickerFragmentHost.visibility = View.INVISIBLE
-    binding.titleTextView.setText(intent.getStringExtra("PROJECT_TITLE"))
+    binding.activityCanvasCanvasTitleEditText.setText(intent.getStringExtra("PROJECT_TITLE"))
 }

@@ -4,5 +4,5 @@ import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 
 fun MainActivity.extendedRefreshAdapter() {
-    binding.recentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
+    binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(PixelArtDatabase.toList(), this)
 }

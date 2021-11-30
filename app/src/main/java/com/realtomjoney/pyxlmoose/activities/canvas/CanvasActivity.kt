@@ -10,10 +10,10 @@ import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
-import com.realtomjoney.pyxlmoose.listeners.ColourPickerListener
+import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPickerListener,
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener,
     ColorPickerFragmentListener, FindAndReplaceFragmentListener {
     var previousView: View? = null
 
@@ -35,7 +35,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
     fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
 
     override fun onResume() {
-        binding.doneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction { binding.doneButton.visibility = View.VISIBLE }
+        binding.activityCanvasDoneButton.animate().scaleX(1f).scaleY(1f).setDuration(300).withEndAction { binding.activityCanvasDoneButton.visibility = View.VISIBLE }
         super.onResume()
     }
 
@@ -61,12 +61,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColourPicker
 
     private fun setPrimaryPixelColour(colour: Int) {
         primaryColour = colour
-        binding.colourPrimarySelected.setBackgroundColor(colour)
+        binding.activityCanvasColorPrimaryView.setBackgroundColor(colour)
     }
 
     private fun setSecondaryPixelColour(colour: Int) {
         secondaryColour = colour
-        binding.colourSecondarySelected.setBackgroundColor(colour)
+        binding.activityCanvasColorSecondaryView.setBackgroundColor(colour)
     }
 
     override fun onPause() {
