@@ -34,7 +34,7 @@ fun MainActivity.extendedSetOnClickListeners() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.activityMainNewProjectButton.show()
         }
-    }) // Great solution by VelocityPulse (with a small twist from myself)
+    })
 
     binding.activityMainNewProjectButton.setOnClickListener {
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
