@@ -36,38 +36,32 @@ class CanvasActivityTestsOnPrimaryOrSecondaryColorLongTap {
         longTapSecondaryColor()
     }
 
-    @Test
-    fun uitest_doneButton_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_doneButton_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_doneButton)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test
-    fun uitest_colourPickerRecyclerView_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_colourPickerRecyclerView_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test
-    fun uitest_titleTextView_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_titleTextView_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_canvasTitleEditText)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test
-    fun uitest_colorSwapButton_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_colorSwapButton_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_colorSwapButton)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test
-    fun uitest_colourPrimarySelected_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_colourPrimarySelected_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_colorPrimaryView)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test
-    fun uitest_colourSecondarySelected_isNotDisplayed_after_primaryColor_isLongPressed() {
+    @Test fun uitest_colourSecondarySelected_isNotDisplayed_after_primaryColor_isLongPressed() {
         longTapPrimaryColor()
         onView(withId(R.id.activityCanvas_colorSecondaryView)).check(ViewAssertions.matches(withEffectiveVisibility(Visibility.GONE)))
     }
