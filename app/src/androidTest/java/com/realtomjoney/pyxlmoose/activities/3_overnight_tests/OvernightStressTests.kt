@@ -5,6 +5,7 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import com.realtomjoney.pyxlmoose.R
@@ -23,7 +24,7 @@ import kotlin.random.Random
 @RunWith(AndroidJUnit4ClassRunner::class)
 class OvernightStressTests {
     @get:Rule
-    var activityTestRule = ActivityTestRule(MainActivity::class.java)
+    var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     private fun pickRandomColorFromColourPickerRecyclerViewAndThen(viewAction: ViewAction) {
         onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(Random.nextInt(0, (ColourDatabase.toList().size - 1)), click()))
