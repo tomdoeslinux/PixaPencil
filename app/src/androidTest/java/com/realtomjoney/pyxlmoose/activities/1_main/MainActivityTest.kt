@@ -13,7 +13,6 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 
-
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {

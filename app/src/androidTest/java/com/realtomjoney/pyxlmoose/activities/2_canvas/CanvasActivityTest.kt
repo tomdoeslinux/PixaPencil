@@ -23,6 +23,15 @@ class CanvasActivityTest {
     @get:Rule
     var activityTestRule = ActivityTestRule(CanvasActivity::class.java)
 
+    private fun goToFindAndReplaceFragment() {
+
+    }
+
+    private fun goToColorPickerFragment() {
+
+    }
+
+
     @Test fun uitest_doneButtonFAB_isDisplayed() {
         onView(withId(R.id.doneButton)).check(matches(isDisplayed()))
     }
