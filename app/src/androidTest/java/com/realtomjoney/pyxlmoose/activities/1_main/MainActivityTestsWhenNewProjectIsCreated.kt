@@ -12,6 +12,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
+import com.realtomjoney.pyxlmoose.AndroidTestUtilityFunctions
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import org.junit.runner.RunWith
 
@@ -22,35 +23,28 @@ class MainActivityTestsWhenNewProjectIsCreated {
     @get:Rule
     var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
-    private fun createNewProject(boardSize: Int = 5) {
-        onView(withId(R.id.floatingActionButton)).perform(click())
-        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(ViewActions.replaceText("Untitled Project"))
-        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).perform(ViewActions.replaceText(boardSize.toString()))
-        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
-    }
-
     @Test fun uitest_fragmentNewCanvasProjectTitleTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
-        createNewProject()
+        AndroidTestUtilityFunctions.createNewProject()
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).check(ViewAssertions.doesNotExist())
     }
 
     @Test fun uitest_fragmentNewCanvasProjectTitleTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
-        createNewProject()
+        AndroidTestUtilityFunctions.createNewProject()
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(ViewAssertions.doesNotExist())
     }
 
     @Test fun uitest_fragmentNewCanvasSpanCountTextInputEditText_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
-        createNewProject()
+        AndroidTestUtilityFunctions.createNewProject()
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).check(ViewAssertions.doesNotExist())
     }
 
     @Test fun uitest_fragmentNewCanvasSpanCountTextInputLayout_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
-        createNewProject()
+        AndroidTestUtilityFunctions.createNewProject()
         onView(withId(R.id.fragmentNewCanvas_spanCountTextInputLayout)).check(ViewAssertions.doesNotExist())
     }
 
     @Test fun uitest_fragmentNewCanvasDoneButton_isNotDisplayed_after_fragmentNewCanvasDoneButton_isPressed() {
-        createNewProject()
+        AndroidTestUtilityFunctions.createNewProject()
         onView(withId(R.id.fragmentNewCanvas_doneButton)).check(ViewAssertions.doesNotExist())
     }
 }

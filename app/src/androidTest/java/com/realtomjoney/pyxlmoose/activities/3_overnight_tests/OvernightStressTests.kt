@@ -12,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import com.realtomjoney.pyxlmoose.AndroidTestUtilityFunctions
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.database.ColourDatabase
 import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
@@ -24,25 +25,14 @@ class OvernightStressTests {
     @get:Rule
     var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
-    private val projectName = "Untitled Project"
-
-    private fun createNewProject(boardSize: Int = 5) {
-        onView(withId(R.id.floatingActionButton)).perform(click())
-        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(replaceText(projectName))
-        onView(withId(R.id.fragmentNewCanvas_spanCountTextInputEditText)).perform(replaceText(boardSize.toString()))
-        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
-    }
-
     private fun pickRandomColorFromColourPickerRecyclerViewAndThen(viewAction: ViewAction) {
         onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(Random.nextInt(0, (ColourDatabase.toList().size - 1)), click()))
         onView(withId(R.id.canvasRecyclerView)).perform(viewAction)
     }
 
-    private fun goBack() = onView(isRoot()).perform(pressBack())
-
     @Test fun uitest_canvasStressTest() {
         (1..30).forEach { i ->
-            createNewProject(i)
+            AndroidTestUtilityFunctions.createNewProject("Unnamed Project", i)
 
             (1..20).forEach { _ ->
                 pickRandomColorFromColourPickerRecyclerViewAndThen(swipeDown())
@@ -56,15 +46,16 @@ class OvernightStressTests {
                     onView(withId(R.id.colourPickerRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i4, click()))
                     onView(withId(R.id.canvasRecyclerView)).perform(actionOnItemAtPosition<RecyclerViewHolder>(i3, click()))
                 }
-            }; goBack()
+            }
+            AndroidTestUtilityFunctions.goBack()
         }
     }
 
     @Test fun uitest_projectCreationStressTest() {
         (1..30).forEach { i ->
-            createNewProject(i)
+            AndroidTestUtilityFunctions.createNewProject("Unnamed Project", i)
             onView(withId(R.id.doneButton)).perform(click())
-            goBack()
+            AndroidTestUtilityFunctions.goBack()
         }
     }
 }
