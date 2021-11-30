@@ -5,8 +5,8 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import androidx.test.rule.ActivityTestRule
 import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
@@ -21,17 +21,7 @@ import com.realtomjoney.pyxlmoose.viewholders.RecyclerViewHolder
 @RunWith(AndroidJUnit4ClassRunner::class)
 class CanvasActivityTest {
     @get:Rule
-    var activityTestRule = ActivityTestRule(CanvasActivity::class.java)
-
-    private fun goToFindAndReplaceFragment() {
-        onView(withId(R.id.activityCanvasHorizontalScrollView)).perform(swipeLeft())
-        onView(withId(R.id.findAndReplaceButton)).perform(click())
-    }
-
-    private fun goToColorPickerFragment() {
-        onView(withId(R.id.colourPrimarySelected)).perform(longClick())
-    }
-
+    var activityTestRule = ActivityScenarioRule(CanvasActivity::class.java)
 
     @Test fun uitest_doneButtonFAB_isDisplayed() {
         onView(withId(R.id.doneButton)).check(matches(isDisplayed()))
@@ -74,25 +64,25 @@ class CanvasActivityTest {
     }
 
     @Test fun uitest_clearAllButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.clearAllButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_undoButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.undoButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
 
     }
 
     @Test fun uitest_colorPickerButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.colorPickerButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_findAndReplaceButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.findAndReplaceButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
 
     @Test fun uitest_eraseButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.eraseButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_userCanTapOnPixel() {
@@ -130,13 +120,5 @@ class CanvasActivityTest {
 
     @Test fun uitest_userCanSwipeDown() {
         onView(withId(R.id.canvasRecyclerView)).perform(swipeDown())
-    }
-
-    @Test fun uitest_userCanNavigateToFindAndReplaceFragment() {
-        goToFindAndReplaceFragment()
-    }
-
-    @Test fun uitest_userCanNavigateToColorPickerFragment() {
-        goToColorPickerFragment()
     }
 }

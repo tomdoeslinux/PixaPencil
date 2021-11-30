@@ -8,6 +8,7 @@ import org.junit.Rule
 import org.junit.Test
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
@@ -19,7 +20,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTestsWhenNewProjectIsCreated {
     @get:Rule
-    var activityTestRule = ActivityTestRule(MainActivity::class.java)
+    var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     private fun createNewProject(boardSize: Int = 5) {
         onView(withId(R.id.floatingActionButton)).perform(click())

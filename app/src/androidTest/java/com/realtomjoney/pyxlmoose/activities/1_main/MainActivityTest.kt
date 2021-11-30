@@ -10,6 +10,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 
@@ -17,7 +18,7 @@ import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
     @get:Rule
-    var activityTestRule = ActivityTestRule(MainActivity::class.java)
+    var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test fun uitest_activityMainFAB_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).check(matches(isDisplayed()))

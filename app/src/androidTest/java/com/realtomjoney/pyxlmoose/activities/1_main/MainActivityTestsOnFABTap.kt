@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
 import org.junit.Test
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.rule.ActivityTestRule
@@ -18,7 +19,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTestsOnFABTap {
     @get:Rule
-    var activityTestRule = ActivityTestRule(MainActivity::class.java)
+    var activityTestRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test fun uitest_fragmentNewCanvasRootLayout_isDisplayed() {
         onView(withId(R.id.floatingActionButton)).perform(click())
