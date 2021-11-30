@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.app.Activity
 import android.view.MotionEvent
 
 fun CanvasActivity.extendedOnTouchEvent(event: MotionEvent?): Boolean {
