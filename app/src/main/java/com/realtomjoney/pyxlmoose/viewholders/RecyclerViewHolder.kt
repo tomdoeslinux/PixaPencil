@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.customviews.SquareFrameLayout
 
-class RecyclerViewHolder(inflater: LayoutInflater, parent: ViewGroup, isGridVisible: Boolean) : RecyclerView.ViewHolder(inflater.inflate(
-    R.layout.pixel_layout, parent, false)) {
+class RecyclerViewHolder(inflater: LayoutInflater, parent: ViewGroup, isGridVisible: Boolean) : RecyclerView.ViewHolder(inflater.inflate(R.layout.pixel_layout, parent, false)) {
     val tileParent: SquareFrameLayout = itemView.findViewById(R.id.pixelParent)
 
     init {

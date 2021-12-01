@@ -48,4 +48,44 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
         onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
+
+    @Test fun uitest_fragmentFindAndReplaceAvailableColorsRecyclerView_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_availableColorsRecyclerView)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceCanvasColorsRecyclerView_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_canvasColorsRecyclerView)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceColorToFind_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_colorToFind)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceColorToReplace_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_colorToReplace)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceColorsInCanvasTextView_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceDoneButton_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_doneButton)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceFindTextView_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_findTextView)).check(matches(isDisplayed()))
+    }
+
+    @Test fun uitest_fragmentFindAndReplaceReplaceWithTextView_isDisplayed_after_findAndReplaceButton_isPressed() {
+        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+        onView(withId(R.id.fragmentFindAndReplace_replaceWithTextView)).check(matches(isDisplayed()))
+    }
 }

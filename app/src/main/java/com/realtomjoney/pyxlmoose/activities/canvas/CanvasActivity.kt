@@ -11,8 +11,7 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener,
-    ColorPickerFragmentListener, FindAndReplaceFragmentListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
 
     var previousView: View? = null
 
