@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageButton
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
+import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
@@ -55,8 +56,8 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
             changeStarredIndicator(binding.mFavouriteButton, item)
 
             binding.mFavouriteButton.setOnClickListener {
-                if (item.favourited) unFavouriteRecentCreation(this, item)
-                else favouriteRecentCreation(this, item)
+                if (item.favourited) { unFavouriteRecentCreation(this, item); AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId) }
+                else { favouriteRecentCreation(this, item); AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId) }
 
                 changeStarredIndicator((it as ImageButton), item)
             }
