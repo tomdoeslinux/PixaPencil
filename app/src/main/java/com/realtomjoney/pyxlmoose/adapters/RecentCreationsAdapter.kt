@@ -27,46 +27,54 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
     }
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
-        with (binding.mCard)  {
+        binding.mCard.apply parent@{
             val item = data[position]
 
-            binding.mImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
-            binding.mdate.text = item.dateCreated
+            binding.apply {
+                mImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
+                mdate.text = item.dateCreated
 
-            if (data[position].title.length > 6) {
-                binding.mtext.ellipsize = TextUtils.TruncateAt.MARQUEE
-                binding.mtext.isSelected = true
-                binding.mtext.isSingleLine = true
-                binding.mtext.text = (item.title + " ".repeat(10)).repeat(200)
-            } else {
-                binding.mtext.text = item.title
-            }
-
-            this.setOnClickListener {
-                if (!userHasLongPressed) {
-                    listener.onCreationTapped(item)
+                mtext.apply {
+                    if (data[position].title.length > 6) {
+                        ellipsize = TextUtils.TruncateAt.MARQUEE
+                        isSelected = true
+                        isSingleLine = true
+                        text = (item.title + " ".repeat(10)).repeat(200)
+                    } else {
+                        text = item.title
+                    }
                 }
-            }
 
-            this.setOnLongClickListener {
-                listener.onCreationLongTapped(item)
-                true
-            }
+                this@parent.setOnClickListener {
+                    if (!userHasLongPressed) listener.onCreationTapped(item)
+                }
 
-            changeStarredIndicator(binding.mFavouriteButton, item)
+                this@parent.setOnLongClickListener {
+                    listener.onCreationLongTapped(item)
+                    true
+                }
 
-            binding.mFavouriteButton.setOnClickListener {
-                if (item.favourited) { unFavouriteRecentCreation(this, item); AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId) }
-                else { favouriteRecentCreation(this, item); AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId) }
+                changeStarredIndicator(mFavouriteButton, item)
 
-                changeStarredIndicator((it as ImageButton), item)
+                mFavouriteButton.setOnClickListener {
+                    if (item.favourited) {
+                        unFavouriteRecentCreation(this@parent, item)
+                        AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId)
+                    } else {
+                        favouriteRecentCreation(this@parent, item)
+                        AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId)
+                    }
+                    changeStarredIndicator((it as ImageButton), item)
+                }
             }
         }
     }
 
     private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
-        if (pixelArt.favourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
-        else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
+        imageButton.apply {
+            if (pixelArt.favourited) setImageResource(R.drawable.ic_baseline_star_24)
+            else setImageResource(R.drawable.ic_baseline_star_border_24)
+        }
     }
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         contextView.showSnackbar("Saved ${pixelArt.title} to favourites.", SnackbarDuration.DEFAULT)
@@ -74,9 +82,7 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
     }
 
     private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
-        contextView.showSnackbar("You have removed ${pixelArt.title} from your favourites.",
-            SnackbarDuration.DEFAULT
-        )
+        contextView.showSnackbar("You have removed ${pixelArt.title} from your favourites.", SnackbarDuration.DEFAULT)
         pixelArt.favourited = false
     }
 
