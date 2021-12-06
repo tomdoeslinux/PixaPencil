@@ -11,17 +11,11 @@ abstract class PixelArtDatabase: RoomDatabase() {
     abstract fun pixelArtCreationsDao(): PixelArtCreationsDao
 
     companion object {
-        var instance: PixelArtDatabase? = null
+        private var instance: PixelArtDatabase? = null
         fun getDatabase(context: Context): PixelArtDatabase {
             if (instance == null) {
                 synchronized(PixelArtDatabase::class) {
-                    if (instance == null) {
-                        instance = Room.databaseBuilder(
-                            context.applicationContext,
-                            PixelArtDatabase::class.java,
-                            AppData.dbFileName
-                        ).allowMainThreadQueries().build()
-                    }
+                    if (instance == null) instance = Room.databaseBuilder(context.applicationContext, PixelArtDatabase::class.java, AppData.dbFileName).allowMainThreadQueries().build()
                 }
             }
             return instance!!
