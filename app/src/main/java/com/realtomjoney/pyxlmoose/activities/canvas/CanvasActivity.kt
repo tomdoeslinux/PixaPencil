@@ -87,16 +87,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 
-    override fun onBackPressed() {
-        if (index != -1) {
-            AppData.db.pixelArtCreationsDao().apply {
-                updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()), currentPixelArtObj.objId)
-                updatePixelArtCreationPixelData(JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()), currentPixelArtObj.objId)
-            }
-        }
-        if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.rootLayout, binding.colorPickerFragmentHost, StringValues.APP_NAME)
-        startActivity(Intent(context, MainActivity::class.java))
-    }
+    override fun onBackPressed() = extendedOnBackPressed()
 
     fun dataAsListOfPixels(): List<Pixel> {
         val dataAsListOfPixels = mutableListOf<Pixel>()
