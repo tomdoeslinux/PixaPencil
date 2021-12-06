@@ -20,33 +20,33 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
         extendedOnCreate()
     }
 
-    fun initColorPickerFragmentInstance() = ColorPickerFragment.newInstance(getSelectedColour())
+    fun initColorPickerFragmentInstance() = ColorPickerFragment.newInstance(getSelectedColor())
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
     override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
-    fun getSelectedColour() = if (isPrimaryColourSelected) primaryColour else secondaryColour
+    fun getSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
 
     fun evaluate(event: MotionEvent) = extendedEvaluate(event)
 
     override fun onTouchEvent(event: MotionEvent?) = if (extendedOnTouchEvent(event)) extendedOnTouchEvent(event) else super.onTouchEvent(event)
 
-    fun setColours() {
-        setPrimaryPixelColour(Color.BLACK)
-        setSecondaryPixelColour(Color.BLUE)
+    fun setColors() {
+        setPrimaryPixelColor(Color.BLACK)
+        setSecondaryPixelColor(Color.BLUE)
     }
 
-    fun setPixelColour(it: Int) = if (isPrimaryColourSelected) setPrimaryPixelColour(it) else setSecondaryPixelColour(it)
+    fun setPixelColor(it: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(it) else setSecondaryPixelColor(it)
 
-    private fun setPrimaryPixelColour(colour: Int) {
-        primaryColour = colour
-        binding.activityCanvasColorPrimaryView.setBackgroundColor(colour)
+    private fun setPrimaryPixelColor(color: Int) {
+        primaryColor = color
+        binding.activityCanvasColorPrimaryView.setBackgroundColor(color)
     }
 
-    private fun setSecondaryPixelColour(colour: Int) {
-        secondaryColour = colour
-        binding.activityCanvasColorSecondaryView.setBackgroundColor(colour)
+    private fun setSecondaryPixelColor(color: Int) {
+        secondaryColor = color
+        binding.activityCanvasColorSecondaryView.setBackgroundColor(color)
     }
 
     override fun onPause() {
@@ -68,9 +68,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun getGradientDrawable() = extendedGetGradientDrawable()
 
-    fun updateColourSelectedIndicator(it: View) = extendedUpdateColourSelectedIndicator(it)
+    fun updateColorSelectedIndicator(it: View) = extendedUpdateColorSelectedIndicator(it)
 
-    override fun onColourTapped(colour: Int, it: View) = extendedOnColourTapped(colour, it)
+    override fun onColorTapped(color: Int, it: View) = extendedOnColorTapped(color, it)
 
     override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
 

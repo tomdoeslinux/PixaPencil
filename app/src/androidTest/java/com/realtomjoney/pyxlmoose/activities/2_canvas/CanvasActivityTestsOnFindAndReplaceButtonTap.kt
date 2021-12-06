@@ -24,7 +24,7 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
         onView(withId(R.id.activityCanvas_doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test fun uitest_colourPickerRecyclerView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+    @Test fun uitest_colorPickerRecyclerView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
         onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
@@ -39,12 +39,12 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
         onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test fun uitest_colourPrimarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+    @Test fun uitest_colorPrimarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
         onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 
-    @Test fun uitest_colourSecondarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+    @Test fun uitest_colorSecondarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
         AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
         onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }

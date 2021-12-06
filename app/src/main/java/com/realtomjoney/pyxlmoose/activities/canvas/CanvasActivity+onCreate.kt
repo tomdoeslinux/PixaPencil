@@ -44,7 +44,7 @@ fun CanvasActivity.extendedOnCreate() {
     setBindings()
     setUpRecyclerView()
     setOnClickListeners()
-    setColours()
+    setColors()
 
     binding.colorPickerFragmentHost.visibility = View.INVISIBLE
     binding.activityCanvasCanvasTitleEditText.setText(intent.getStringExtra("PROJECT_TITLE"))

@@ -13,10 +13,10 @@ lateinit var binding: ActivityCanvasBinding
 var data = listOf<View>()
 var index: Int? = null
 
-var primaryColour: Int = Color.BLACK
-var secondaryColour: Int = Color.BLUE
+var primaryColor: Int = Color.BLACK
+var secondaryColor: Int = Color.BLUE
 var spanCount = 5
-var isPrimaryColourSelected = true
+var isPrimaryColorSelected = true
 var pixelGridOn = true
 var hasSaved = false
 

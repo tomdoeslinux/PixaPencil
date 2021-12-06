@@ -2,14 +2,14 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.view.View
 
-fun CanvasActivity.extendedOnColourTapped(colour: Int, it: View) {
-    setPixelColour(colour)
+fun CanvasActivity.extendedOnColorTapped(color: Int, it: View) {
+    setPixelColor(color)
 
     isSelected = if (!isSelected) {
-        updateColourSelectedIndicator(it)
+        updateColorSelectedIndicator(it)
         true
     } else {
-        updateColourSelectedIndicator(it)
+        updateColorSelectedIndicator(it)
         false
     }
 }

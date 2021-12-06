@@ -43,24 +43,24 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.activityCanvasColorSecondaryView.setOnClickListener {
-        isPrimaryColourSelected = false
-        setPixelColour((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
+        isPrimaryColorSelected = false
+        setPixelColor((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     }
 
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
-        isPrimaryColourSelected = true
+        isPrimaryColorSelected = true
         openColorPickerDialog()
         true
     }
 
 
     binding.activityCanvasColorPrimaryView.setOnClickListener {
-        isPrimaryColourSelected = true
-        setPixelColour((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
+        isPrimaryColorSelected = true
+        setPixelColor((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
     binding.activityCanvasColorSecondaryView.setOnLongClickListener {
-        isPrimaryColourSelected = false
+        isPrimaryColorSelected = false
         openColorPickerDialog()
         true
     }
@@ -75,13 +75,13 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.darkenButton.setOnClickListener {
-        if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
-        else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.BLACK, 0.2f))
+        if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
+        else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
     }
 
     binding.lightenButton.setOnClickListener {
-        if (isPrimaryColourSelected) setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
-        else setPixelColour(ColorUtils.blendARGB(getSelectedColour(), Color.WHITE, 0.2f))
+        if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
+        else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
     }
 
     binding.colorPickerButton.setOnClickListener {
@@ -110,12 +110,12 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.activityCanvasColorSwapButton.setOnClickListener {
-        binding.activityCanvasColorPrimaryView.setBackgroundColor(secondaryColour)
-        binding.activityCanvasColorSecondaryView.setBackgroundColor(primaryColour)
+        binding.activityCanvasColorPrimaryView.setBackgroundColor(secondaryColor)
+        binding.activityCanvasColorSecondaryView.setBackgroundColor(primaryColor)
 
-        val temp = primaryColour
-        primaryColour = secondaryColour
-        secondaryColour = temp
+        val temp = primaryColor
+        primaryColor = secondaryColor
+        secondaryColor = temp
     }
 
     binding.findAndReplaceButton.setOnClickListener {

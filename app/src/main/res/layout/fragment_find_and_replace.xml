@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_colorsInCanvasTextView"
-        tools:listitem="@layout/colour_picker_layout" />
+        tools:listitem="@layout/color_picker_layout" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragmentFindAndReplace_availableColorsRecyclerView"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_replaceWithTextView"
-        tools:listitem="@layout/colour_picker_layout" />
+        tools:listitem="@layout/color_picker_layout" />
 
     <Button
         android:id="@+id/fragmentFindAndReplace_doneButton"

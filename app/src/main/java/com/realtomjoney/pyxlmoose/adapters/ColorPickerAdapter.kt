@@ -9,21 +9,21 @@ import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.viewholders.ColorPickerViewHolder
 
-class ColourPickerAdapter(private val list: List<Int>, private val caller: ColorPickerListener) : RecyclerView.Adapter<ColorPickerViewHolder>() {
+class ColorPickerAdapter(private val list: List<Int>, private val caller: ColorPickerListener) : RecyclerView.Adapter<ColorPickerViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPickerViewHolder {
-        return ColorPickerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.colour_picker_layout, parent, false) as View)
+        return ColorPickerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.color_picker_layout, parent, false) as View)
     }
 
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
-        holder.colourView.setBackgroundResource(R.drawable.round)
-        holder.colourView.backgroundTintList = ColorStateList.valueOf(list[position])
+        holder.colorView.setBackgroundResource(R.drawable.round)
+        holder.colorView.backgroundTintList = ColorStateList.valueOf(list[position])
 
-        holder.colourView.setOnClickListener {
-            caller.onColourTapped(list[position], it)
+        holder.colorView.setOnClickListener {
+            caller.onColorTapped(list[position], it)
         }
 
         if (position == 0) {
-            caller.onColourTapped(list[position], holder.colourView)
+            caller.onColorTapped(list[position], holder.colorView)
         }
     }
 

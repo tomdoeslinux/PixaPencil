@@ -77,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentHost"
-        tools:listitem="@layout/colour_picker_layout" />
+        tools:listitem="@layout/color_picker_layout" />
 
     <View
         android:id="@+id/activityCanvas_colorSecondaryView"

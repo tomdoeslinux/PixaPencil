@@ -27,7 +27,7 @@ class CanvasActivityTest {
         onView(withId(R.id.activityCanvas_doneButton)).check(matches(isDisplayed()))
     }
 
-    @Test fun uitest_colourPickerRecyclerView_isDisplayed() {
+    @Test fun uitest_colorPickerRecyclerView_isDisplayed() {
         onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(isDisplayed()))
     }
 
@@ -39,11 +39,11 @@ class CanvasActivityTest {
         onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(isDisplayed()))
     }
 
-    @Test fun uitest_colourPrimarySelected_isDisplayed() {
+    @Test fun uitest_colorPrimarySelected_isDisplayed() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(isDisplayed()))
     }
 
-    @Test fun uitest_colourSecondarySelected_isDisplayed() {
+    @Test fun uitest_colorSecondarySelected_isDisplayed() {
         onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(isDisplayed()))
     }
 
