@@ -1,24 +1,16 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
-import androidx.core.view.drawToBitmap
-import com.realtomjoney.pyxlmoose.activities.main.MainActivity
-import com.realtomjoney.pyxlmoose.converters.BitmapConverter
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
-import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
-import com.realtomjoney.pyxlmoose.utility.StringValues
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
 
