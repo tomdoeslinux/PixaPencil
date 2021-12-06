@@ -57,11 +57,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 
     // ROOM
-    implementation "androidx.room:room-runtime:2.3.0"
-    implementation "androidx.room:room-ktx:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
+    implementation "androidx.room:room-runtime:2.4.0-beta02"
+    implementation "androidx.room:room-ktx:2.4.0-beta02"
+    kapt "androidx.room:room-compiler:2.4.0-beta02"
 
     // COROUTINE
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-RC'
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+
+    implementation 'com.google.code.gson:gson:2.8.7'
 }

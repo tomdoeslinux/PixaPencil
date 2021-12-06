@@ -7,15 +7,18 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageButton
 import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
-import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.models.PixelArts
 import com.realtomjoney.pyxlmoose.viewholders.RecentCreationsViewHolder
 
-class RecentCreationsAdapter(private var data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private var data: List<PixelArts>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
     private lateinit var binding: RecentCreationsLayoutBinding
+
+    var userHasLongPressed = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCreationsViewHolder {
         binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
@@ -26,7 +29,7 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
         with (binding.mCard)  {
             val item = data[position]
 
-            binding.mImageView.setImageBitmap(item.bitmap)
+            binding.mImageView.setImageBitmap(BitmapConverter.stringToBitmap(item.bitmap))
             binding.mdate.text = item.dateCreated
 
             if (data[position].title.length > 6) {
@@ -39,7 +42,9 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
             }
 
             this.setOnClickListener {
-                listener.onCreationTapped(item)
+                if (!userHasLongPressed) {
+                    listener.onCreationTapped(item)
+                }
             }
 
             this.setOnLongClickListener {
@@ -50,7 +55,7 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
             changeStarredIndicator(binding.mFavouriteButton, item)
 
             binding.mFavouriteButton.setOnClickListener {
-                if (item.isFavourited) unFavouriteRecentCreation(this, item)
+                if (item.favourited) unFavouriteRecentCreation(this, item)
                 else favouriteRecentCreation(this, item)
 
                 changeStarredIndicator((it as ImageButton), item)
@@ -58,20 +63,20 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
         }
     }
 
-    private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
-        if (pixelArt.isFavourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
+    private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArts) {
+        if (pixelArt.favourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
         else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
     }
-    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
+    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArts) {
         contextView.showSnackbar("Saved ${pixelArt.title} to favourites.", SnackbarDuration.DEFAULT)
-        pixelArt.isFavourited = true
+        pixelArt.favourited = true
     }
 
-    private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
+    private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArts) {
         contextView.showSnackbar("You have removed ${pixelArt.title} from your favourites.",
             SnackbarDuration.DEFAULT
         )
-        pixelArt.isFavourited = false
+        pixelArt.favourited = false
     }
 
     override fun getItemCount() = data.size

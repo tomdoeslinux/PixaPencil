@@ -6,12 +6,18 @@ import android.graphics.drawable.ColorDrawable
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.converters.BitmapConverter
+import com.realtomjoney.pyxlmoose.converters.JsonConverter
+import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
-import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.models.PixelArts
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
@@ -22,23 +28,16 @@ fun CanvasActivity.openColorPickerDialog() {
 fun CanvasActivity.extendedSetOnClickListeners() {
     binding.activityCanvasDoneButton.setOnClickListener {
         if (index == -1) {
-            PixelArtDatabase.addItem(
-                PixelArt(
-                    binding.fragmentHost.drawToBitmap(),
-                    binding.activityCanvasCanvasTitleEditText.text.toString(),
-                    data,
-                    false
+            CoroutineScope(Dispatchers.IO).launch {
+                AppData.db.pixelArtCreationsDao().insertPixelArt(
+                    PixelArts(
+                        BitmapConverter.bitmapToString(binding.fragmentHost.drawToBitmap()),
+                        binding.activityCanvasCanvasTitleEditText.text.toString(),
+                        JsonConverter.convertListOfViewToJsonString(dataAsListOfPixels()),
+                        false
+                    )
                 )
-            )
-            hasSaved = true
-            (this as Activity).onBackPressed()
-        } else {
-            PixelArtDatabase.replaceItemByIndex(index!!, PixelArt(
-                binding.fragmentHost.drawToBitmap(),
-                binding.activityCanvasCanvasTitleEditText.text.toString(),
-                data,
-                false
-            ))
+            }
             hasSaved = true
             (this as Activity).onBackPressed()
         }
@@ -129,4 +128,5 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.eraseButton.setOnClickListener {
         isErasing = !isErasing
     }
+
 }

@@ -1,23 +1,32 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
-import com.realtomjoney.pyxlmoose.models.PixelArt
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
-import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction
+import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
+import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.models.PixelArts
 
-fun MainActivity.restoreDeletedItem(param: PixelArt) {
-    PixelArtDatabase.addItem(param)
-    refreshAdapter()
-    binding.activityMainRecentCreationsRecyclerView.adapter?.notifyItemInserted(
-        PixelArtDatabase.toList().indexOf((param)))
-}
+//fun MainActivity.restoreDeletedItem(param: PixelArts) {
+//    CoroutineScope(Dispatchers.IO).launch {
+//        AppData.db.pixelArtCreationsDao().insertPixelArt(param)
+//    }
+//
+//    AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+//         binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
+//    })
+//
+//    (binding.activityMainRecentCreationsRecyclerView.adapter as RecentCreationsAdapter).userHasLongPressed = false
+//
+//}
 
-fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
-    PixelArtDatabase.removeItem(param)
-    refreshAdapter()
-    binding.activityMainRecentCreationsRecyclerView.adapter?.notifyItemRemoved(PixelArtDatabase.toList().indexOf((param)))
+fun MainActivity.extendedOnCreationLongTapped(param: PixelArts) {
+    (binding.activityMainRecentCreationsRecyclerView.adapter as RecentCreationsAdapter).userHasLongPressed = true
 
-    (binding.activityMainRecentCreationsRecyclerView).showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
-        restoreDeletedItem(param)
-    }
+    AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+        AppData.db.pixelArtCreationsDao().deletePixelArtCreation(param.objId)
+        binding.activityMainRecentCreationsRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(param))
+     })
+
+//
+//    (binding.activityMainRecentCreationsRecyclerView).showSnackbarWithAction("You have deleted ${param.title}", SnackbarDuration.DEFAULT, "Undo") {
+//        restoreDeletedItem(param)
+//    }
 }
