@@ -1,11 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.*
-import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
-import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 

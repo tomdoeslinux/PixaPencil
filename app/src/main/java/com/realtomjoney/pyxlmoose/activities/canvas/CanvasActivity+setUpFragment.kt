@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.view.View
-import android.widget.Toast
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.R
 

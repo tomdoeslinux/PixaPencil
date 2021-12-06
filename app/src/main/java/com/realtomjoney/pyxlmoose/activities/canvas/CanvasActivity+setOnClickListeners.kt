@@ -9,7 +9,6 @@ import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment

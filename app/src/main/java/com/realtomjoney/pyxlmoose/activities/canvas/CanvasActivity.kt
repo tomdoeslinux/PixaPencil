@@ -1,33 +1,23 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.*
-import android.widget.Toast
 import androidx.core.view.drawToBitmap
-import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
-import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
-import com.realtomjoney.pyxlmoose.models.PixelArts
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlin.math.sqrt
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
 

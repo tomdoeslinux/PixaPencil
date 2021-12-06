@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.realtomjoney.pyxlmoose.activities.canvas.canvasFragmentInstance
 import com.realtomjoney.pyxlmoose.activities.canvas.data
 import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.activities.canvas.pixelDataAsViews

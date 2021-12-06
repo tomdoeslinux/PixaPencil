@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import android.content.Intent
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.models.PixelArts

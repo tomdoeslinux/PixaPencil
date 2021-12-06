@@ -1,17 +1,12 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArts
 import com.realtomjoney.pyxlmoose.utility.StringValues
-import java.lang.Exception
 import kotlin.math.sqrt
 
 lateinit var currentPixelArtsObj: PixelArts

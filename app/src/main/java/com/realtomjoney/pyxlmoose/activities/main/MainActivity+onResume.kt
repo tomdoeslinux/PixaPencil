@@ -1,12 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import kotlin.math.sqrt
 
 fun MainActivity.extendedOnResume() {
     binding.activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
