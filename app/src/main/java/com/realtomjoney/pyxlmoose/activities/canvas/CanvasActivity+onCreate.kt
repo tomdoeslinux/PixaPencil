@@ -5,11 +5,11 @@ import android.view.View
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.models.Pixel
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.utility.StringValues
 import kotlin.math.sqrt
 
-lateinit var currentPixelArtsObj: PixelArts
+lateinit var currentPixelArtObj: PixelArt
 lateinit var pixelData: List<Pixel>
 var pixelDataAsViews = mutableListOf<View>()
 
@@ -19,9 +19,9 @@ fun CanvasActivity.extendedOnCreate() {
 
     if (index != -1) {
         AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
-            currentPixelArtsObj = it[index!!]
+            currentPixelArtObj = it[index!!]
 
-            pixelData = JsonConverter.convertJsonStringToPixelList(currentPixelArtsObj.pixelData)
+            pixelData = JsonConverter.convertJsonStringToPixelList(currentPixelArtObj.pixelData)
             spanCount = sqrt(pixelData.size.toDouble()).toInt()
 
             val temp = mutableListOf<View>()

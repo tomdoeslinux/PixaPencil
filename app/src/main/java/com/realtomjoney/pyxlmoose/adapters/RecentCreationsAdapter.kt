@@ -12,10 +12,10 @@ import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.viewholders.RecentCreationsViewHolder
 
-class RecentCreationsAdapter(private var data: List<PixelArts>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private var data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
@@ -63,16 +63,16 @@ class RecentCreationsAdapter(private var data: List<PixelArts>, private val list
         }
     }
 
-    private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArts) {
+    private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
         if (pixelArt.favourited) imageButton.setImageResource(R.drawable.ic_baseline_star_24)
         else imageButton.setImageResource(R.drawable.ic_baseline_star_border_24)
     }
-    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArts) {
+    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         contextView.showSnackbar("Saved ${pixelArt.title} to favourites.", SnackbarDuration.DEFAULT)
         pixelArt.favourited = true
     }
 
-    private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArts) {
+    private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         contextView.showSnackbar("You have removed ${pixelArt.title} from your favourites.",
             SnackbarDuration.DEFAULT
         )

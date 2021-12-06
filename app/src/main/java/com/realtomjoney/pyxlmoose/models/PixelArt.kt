@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @Entity
-data class PixelArts(
+data class PixelArt(
     @ColumnInfo(name = "item_bitmap") var bitmap: String,
     @ColumnInfo(name = "item_title") var title: String,
     @ColumnInfo(name = "item_pixel_data") var pixelData: String,

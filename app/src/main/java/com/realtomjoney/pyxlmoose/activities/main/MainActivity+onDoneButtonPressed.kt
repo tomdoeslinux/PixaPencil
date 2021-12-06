@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
+import com.realtomjoney.pyxlmoose.utility.StringValues
 
 fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: TextInputEditText) {
     if (spanCount in 1..100) {
@@ -25,5 +26,5 @@ fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: Text
         bottomNavigationView.visibility = View.VISIBLE
     }
 
-    title = "PyxlMoose"
+    title = StringValues.APP_NAME
 }

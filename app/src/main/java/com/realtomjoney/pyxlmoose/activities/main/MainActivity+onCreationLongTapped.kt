@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.main
 
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 
 //fun MainActivity.restoreDeletedItem(param: PixelArts) {
 //    CoroutineScope(Dispatchers.IO).launch {
@@ -17,7 +17,7 @@ import com.realtomjoney.pyxlmoose.models.PixelArts
 //
 //}
 
-fun MainActivity.extendedOnCreationLongTapped(param: PixelArts) {
+fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
     (binding.activityMainRecentCreationsRecyclerView.adapter as RecentCreationsAdapter).userHasLongPressed = true
 
     AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {

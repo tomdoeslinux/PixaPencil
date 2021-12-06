@@ -1,8 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
+import com.realtomjoney.pyxlmoose.utility.StringValues
 
 fun MainActivity.extendedOnBackPressed() {
     binding.activityMainNewProjectButton.show()
-    navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.newCanvasFragmentHost,"PyxlMoose")
+    navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.newCanvasFragmentHost, StringValues.APP_NAME)
 }

@@ -9,7 +9,7 @@ import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFragmentListener {
     lateinit var binding: ActivityMainBinding
@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     private fun setBindings() = extendedSetBindings()
 
-    override fun onCreationTapped(param: PixelArts) = extendedOnCreationTapped(param)
+    override fun onCreationTapped(param: PixelArt) = extendedOnCreationTapped(param)
 
-    override fun onCreationLongTapped(param: PixelArts) = extendedOnCreationLongTapped(param)
+    override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
 
     override fun onBackPressed() = extendedOnBackPressed()
 

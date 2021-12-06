@@ -7,17 +7,17 @@ import com.realtomjoney.pyxlmoose.models.*
 @Dao
 interface PixelArtCreationsDao {
     @Insert
-    suspend fun insertPixelArt(pixelArt: PixelArts)
+    suspend fun insertPixelArt(pixelArt: PixelArt)
 
-    @Query("SELECT * FROM PixelArts ")
-    fun getAllPixelArtCreations(): LiveData<List<PixelArts>>
+    @Query("SELECT * FROM PixelArt ")
+    fun getAllPixelArtCreations(): LiveData<List<PixelArt>>
 
-    @Query("DELETE FROM PixelArts WHERE objId=:pixelArtId")
+    @Query("DELETE FROM PixelArt WHERE objId=:pixelArtId")
     fun deletePixelArtCreation(pixelArtId: Int)
 
-    @Query("UPDATE PixelArts SET item_bitmap=:bitmap WHERE objId=:id_t")
+    @Query("UPDATE PixelArt SET item_bitmap=:bitmap WHERE objId=:id_t")
     fun updatePixelArtCreationBitmap(bitmap: String, id_t: Int): Int
 
-    @Query("UPDATE PixelArts SET item_pixel_data=:pixelData WHERE objId=:id_t")
+    @Query("UPDATE PixelArt SET item_pixel_data=:pixelData WHERE objId=:id_t")
     fun updatePixelArtCreationPixelData(pixelData: String, id_t: Int): Int
 }

@@ -3,9 +3,9 @@ package com.realtomjoney.pyxlmoose.activities.main
 import android.content.Intent
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 
-fun MainActivity.extendedOnCreationTapped(param: PixelArts) {
+fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
         startActivity(Intent(context, CanvasActivity::class.java)
             .putExtra("INDEX", it.indexOf(param))

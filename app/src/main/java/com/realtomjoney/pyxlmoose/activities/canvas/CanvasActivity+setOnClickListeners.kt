@@ -13,7 +13,7 @@ import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         if (index == -1) {
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.db.pixelArtCreationsDao().insertPixelArt(
-                    PixelArts(
+                    PixelArt(
                         BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()),
                         binding.activityCanvasCanvasTitleEditText.text.toString(),
                         JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),

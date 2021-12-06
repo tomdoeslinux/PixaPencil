@@ -18,6 +18,7 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
+import com.realtomjoney.pyxlmoose.utility.StringValues
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
 
@@ -88,17 +89,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onBackPressed() {
         if (index != -1) {
-            AppData.db.pixelArtCreationsDao().updatePixelArtCreationBitmap(
-                BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()),
-                currentPixelArtsObj.objId
-            )
-
-            AppData.db.pixelArtCreationsDao().updatePixelArtCreationPixelData(
-                JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),
-                currentPixelArtsObj.objId
-            )
+            AppData.db.pixelArtCreationsDao().apply {
+                updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()), currentPixelArtObj.objId)
+                updatePixelArtCreationPixelData(JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()), currentPixelArtObj.objId)
+            }
         }
-        if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.rootLayout, binding.colorPickerFragmentHost,"PyxlMoose")
+        if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.rootLayout, binding.colorPickerFragmentHost, StringValues.APP_NAME)
         startActivity(Intent(context, MainActivity::class.java))
     }
 

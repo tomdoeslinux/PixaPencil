@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.*
 import androidx.room.Database
 import com.realtomjoney.pyxlmoose.dao.PixelArtCreationsDao
-import com.realtomjoney.pyxlmoose.models.PixelArts
+import com.realtomjoney.pyxlmoose.models.PixelArt
 
-@Database(entities = [PixelArts::class], version = 1)
+@Database(entities = [PixelArt::class], version = 1)
 abstract class PixelArtDatabase: RoomDatabase() {
     abstract fun pixelArtCreationsDao(): PixelArtCreationsDao
 
