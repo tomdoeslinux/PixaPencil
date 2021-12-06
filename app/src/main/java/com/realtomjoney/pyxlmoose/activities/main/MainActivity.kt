@@ -2,6 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
     val context = this
 
     lateinit var newCanvasFragmentInstance: NewCanvasFragment
+
+    var currentFragmentInstance: Fragment? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +47,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
 
-    override fun onBackPressed() = extendedOnBackPressed()
+    override fun onBackPressed() {
+        if (currentFragmentInstance != null) extendedOnBackPressed() else super.onBackPressed()
+    }
 
     override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) = extendedOnDoneButtonPressed(spanCount, textFieldTwo)
 }

@@ -27,4 +27,6 @@ fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: Text
     }
 
     title = StringValues.APP_NAME
+
+    currentFragmentInstance = null
 }

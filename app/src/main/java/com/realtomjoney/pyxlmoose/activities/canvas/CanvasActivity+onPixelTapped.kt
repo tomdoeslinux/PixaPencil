@@ -12,7 +12,9 @@ fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
         pixel.setBackgroundColor(getSelectedColor())
         data[MathExtensions.reflectIndexVertically(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColor())
     } else if (colorPickerMode) {
-        (pixel.background)?.let { setPixelColor((it as ColorDrawable).color) }
+        (pixel.background)?.let {
+            setPixelColor((it as ColorDrawable).color)
+        }
     } else if (wantsToChangeBackground) {
         if (!hasSetBackgroundYet) {
             hasSetBackgroundYet = true

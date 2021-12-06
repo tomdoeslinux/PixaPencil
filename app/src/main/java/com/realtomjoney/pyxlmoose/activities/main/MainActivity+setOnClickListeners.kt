@@ -36,6 +36,7 @@ fun MainActivity.extendedSetOnClickListeners() {
 
     binding.activityMainNewProjectButton.setOnClickListener {
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
+        currentFragmentInstance = newCanvasFragmentInstance
         navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
     }
 }
