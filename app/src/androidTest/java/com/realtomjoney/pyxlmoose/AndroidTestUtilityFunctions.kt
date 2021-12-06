@@ -9,8 +9,6 @@ object AndroidTestUtilityFunctions {
     private const val defaultProjectName = "Unnamed Project"
     private const val defaultProjectSpanCount = 5
 
-    fun goBack(): ViewInteraction? = onView(isRoot()).perform(pressBack())
-
     fun goToFindAndReplaceFragment() {
         onView(withId(R.id.activityCanvas_canvasToolsScrollView)).perform(swipeLeft())
         onView(withId(R.id.findAndReplaceButton)).perform(click())
