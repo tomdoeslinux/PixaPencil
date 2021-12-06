@@ -5,17 +5,15 @@ import android.view.View
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 
 fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
-    if (isHorizontalMirrorEnabled && !colorPickerMode) {
+    if (currentTool == Tools.HORIZONTAL_MIRROR_TOOL) {
         pixel.setBackgroundColor(getSelectedColor())
         data[MathExtensions.reflectIndexHorizontally(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColor())
-    } else if (isVerticalMirrorEnabled && !colorPickerMode) {
+    } else if (currentTool == Tools.VERTICAL_MIRROR_TOOL) {
         pixel.setBackgroundColor(getSelectedColor())
         data[MathExtensions.reflectIndexVertically(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColor())
-    } else if (colorPickerMode) {
-        (pixel.background)?.let {
-            setPixelColor((it as ColorDrawable).color)
-        }
-    } else if (wantsToChangeBackground) {
+    } else if (currentTool == Tools.COLOR_PICKER_TOOL) {
+        (pixel.background)?.let { setPixelColor((it as ColorDrawable).color) }
+    } else if (currentTool == Tools.CHANGE_BACKGROUND_TOOL) {
         if (!hasSetBackgroundYet) {
             hasSetBackgroundYet = true
             data.forEach {
@@ -30,7 +28,7 @@ fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
             }
             currentBackground = getSelectedColor()
         }
-    } else if (isErasing) {
+    } else if (currentTool == Tools.ERASE_TOOL) {
         if (!hasSetBackgroundYet) pixel.background = null else pixel.setBackgroundColor(
             currentBackground!!
         )

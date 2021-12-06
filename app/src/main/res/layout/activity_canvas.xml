@@ -123,6 +123,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/pencilButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    app:srcCompat="@drawable/ic_baseline_pencil_24"
+                    android:contentDescription="@string/content_description_pencil_tool" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/verticalMirrorButton"

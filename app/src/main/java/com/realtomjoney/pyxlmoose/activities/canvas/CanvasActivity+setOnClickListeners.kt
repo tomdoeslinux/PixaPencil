@@ -18,6 +18,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+enum class Tools {
+    PENCIL_TOOL, HORIZONTAL_MIRROR_TOOL, VERTICAL_MIRROR_TOOL, DARKEN_TOOL, LIGHTEN_TOOL, CHANGE_BACKGROUND_TOOL, COLOR_PICKER_TOOL, ERASE_TOOL
+}
+
+var currentTool: Tools? = null
+
 fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
     currentFragmentInstance = colorPickerFragmentInstance
@@ -65,27 +71,33 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         true
     }
 
+    binding.pencilButton.setOnClickListener {
+        currentTool = Tools.PENCIL_TOOL
+    }
+
     binding.horizontalMirrorButton.setOnClickListener {
-        if (isVerticalMirrorEnabled) !isVerticalMirrorEnabled
-        isHorizontalMirrorEnabled = !isHorizontalMirrorEnabled
+        currentTool = Tools.HORIZONTAL_MIRROR_TOOL
     }
     binding.verticalMirrorButton.setOnClickListener {
-        if (isHorizontalMirrorEnabled) !isHorizontalMirrorEnabled
-        isVerticalMirrorEnabled = !isVerticalMirrorEnabled
+        currentTool = Tools.VERTICAL_MIRROR_TOOL
     }
 
     binding.darkenButton.setOnClickListener {
         if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
         else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
+
+        currentTool = Tools.DARKEN_TOOL
     }
 
     binding.lightenButton.setOnClickListener {
         if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
         else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
+
+        currentTool = Tools.LIGHTEN_TOOL
     }
 
     binding.colorPickerButton.setOnClickListener {
-        colorPickerMode = !colorPickerMode
+        currentTool = Tools.COLOR_PICKER_TOOL
     }
 
     binding.clearAllButton.setOnClickListener {
@@ -106,7 +118,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.changeBackgroundButton.setOnClickListener {
-        wantsToChangeBackground = !wantsToChangeBackground
+        currentTool = Tools.CHANGE_BACKGROUND_TOOL
     }
 
     binding.activityCanvasColorSwapButton.setOnClickListener {
@@ -125,7 +137,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     }
 
     binding.eraseButton.setOnClickListener {
-        isErasing = !isErasing
+        currentTool = Tools.ERASE_TOOL
     }
 
 }
