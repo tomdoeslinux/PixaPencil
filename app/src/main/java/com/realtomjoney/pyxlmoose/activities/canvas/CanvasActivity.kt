@@ -6,10 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
-import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
-import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
-import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
-import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
+import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Pixel
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
