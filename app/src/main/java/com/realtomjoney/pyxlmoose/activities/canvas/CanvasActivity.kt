@@ -89,12 +89,12 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     override fun onBackPressed() {
         if (index != -1) {
             AppData.db.pixelArtCreationsDao().updatePixelArtCreationBitmap(
-                BitmapConverter.bitmapToString(binding.fragmentHost.drawToBitmap()),
+                BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()),
                 currentPixelArtsObj.objId
             )
 
             AppData.db.pixelArtCreationsDao().updatePixelArtCreationPixelData(
-                JsonConverter.convertListOfViewToJsonString(dataAsListOfPixels()),
+                JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),
                 currentPixelArtsObj.objId
             )
         }

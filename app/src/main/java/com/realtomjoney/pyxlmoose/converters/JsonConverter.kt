@@ -4,8 +4,8 @@ import com.google.gson.Gson
 import com.realtomjoney.pyxlmoose.models.Pixel
 
 object JsonConverter {
-    fun convertListOfViewToJsonString(list: List<Pixel>): String {
+    fun convertPixelListToJsonString(list: List<Pixel>): String {
         return Gson().toJson(list)
     }
-    fun convertJsonStringToListOfView(str: String) = Gson().fromJson(str, Array<Pixel>::class.java).toList()
+    fun convertJsonStringToPixelList(str: String) = Gson().fromJson(str, Array<Pixel>::class.java).toList()
 }

@@ -21,7 +21,7 @@ fun CanvasActivity.extendedOnCreate() {
         AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
             currentPixelArtsObj = it[index!!]
 
-            pixelData = JsonConverter.convertJsonStringToListOfView(currentPixelArtsObj.pixelData)
+            pixelData = JsonConverter.convertJsonStringToPixelList(currentPixelArtsObj.pixelData)
             spanCount = sqrt(pixelData.size.toDouble()).toInt()
 
             val temp = mutableListOf<View>()

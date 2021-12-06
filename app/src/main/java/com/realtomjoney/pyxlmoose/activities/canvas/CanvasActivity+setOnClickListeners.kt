@@ -30,9 +30,9 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.db.pixelArtCreationsDao().insertPixelArt(
                     PixelArts(
-                        BitmapConverter.bitmapToString(binding.fragmentHost.drawToBitmap()),
+                        BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()),
                         binding.activityCanvasCanvasTitleEditText.text.toString(),
-                        JsonConverter.convertListOfViewToJsonString(dataAsListOfPixels()),
+                        JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),
                         false
                     )
                 )

@@ -29,7 +29,7 @@ class RecentCreationsAdapter(private var data: List<PixelArts>, private val list
         with (binding.mCard)  {
             val item = data[position]
 
-            binding.mImageView.setImageBitmap(BitmapConverter.stringToBitmap(item.bitmap))
+            binding.mImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
             binding.mdate.text = item.dateCreated
 
             if (data[position].title.length > 6) {
