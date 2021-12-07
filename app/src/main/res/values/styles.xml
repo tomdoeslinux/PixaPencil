@@ -141,4 +141,18 @@
         <item name="itemIconTint">@android:color/black</item>
         <item name="menu">@menu/bottom_navigation_menu</item>
     </style>
+
+    <style name="recentCreationsLayout_imageView_style_constraints">
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+    </style>
+
+
+    <style name="recentCreationsLayout_imageView_style" parent="recentCreationsLayout_imageView_style_constraints">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+    </style>
 </resources>

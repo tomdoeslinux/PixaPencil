@@ -6,7 +6,8 @@
     android:id="@+id/rootFrameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="@color/white"
+    tools:ignore="MissingConstraints">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mCard"
@@ -21,15 +22,9 @@
 
             <ImageView
                 android:id="@+id/recentCreationsLayout_imageView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/content_description_pixel_art_preview" />
+                android:contentDescription="@string/content_description_pixel_art_preview"
+                style="@style/recentCreationsLayout_imageView_style" />
 
             <TextView
                 android:id="@+id/recentCreationsLayout_title"
