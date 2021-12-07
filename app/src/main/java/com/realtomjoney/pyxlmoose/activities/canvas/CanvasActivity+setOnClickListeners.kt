@@ -27,7 +27,7 @@ var currentTool: Tools? = null
 fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
     currentFragmentInstance = colorPickerFragmentInstance
-    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.colorPickerFragmentHost, "Select Color", binding.colorPickerFragmentHost, binding.rootLayout)
+    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_colorPickerFragmentHost, "Select Color", binding.activityCanvasColorPickerFragmentHost, binding.activityCanvasRootLayout)
 }
 
 fun CanvasActivity.extendedSetOnClickListeners() {
@@ -36,7 +36,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.db.pixelArtCreationsDao().insertPixelArt(
                     PixelArt(
-                        BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()),
+                        BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()),
                         binding.activityCanvasCanvasTitleEditText.text.toString(),
                         JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),
                         false
@@ -71,36 +71,36 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         true
     }
 
-    binding.pencilButton.setOnClickListener {
+    binding.activityCanvasPencilButton.setOnClickListener {
         currentTool = Tools.PENCIL_TOOL
     }
 
-    binding.horizontalMirrorButton.setOnClickListener {
+    binding.activityCanvasHorizontalMirrorButton.setOnClickListener {
         currentTool = Tools.HORIZONTAL_MIRROR_TOOL
     }
-    binding.verticalMirrorButton.setOnClickListener {
+    binding.activityCanvasVerticalMirrorButton.setOnClickListener {
         currentTool = Tools.VERTICAL_MIRROR_TOOL
     }
 
-    binding.darkenButton.setOnClickListener {
+    binding.activityCanvasDarkenButton.setOnClickListener {
         if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
         else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
 
         currentTool = Tools.DARKEN_TOOL
     }
 
-    binding.lightenButton.setOnClickListener {
+    binding.activityCanvasLightenButton.setOnClickListener {
         if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
         else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
 
         currentTool = Tools.LIGHTEN_TOOL
     }
 
-    binding.colorPickerButton.setOnClickListener {
+    binding.activityCanvasColorPickerButton.setOnClickListener {
         currentTool = Tools.COLOR_PICKER_TOOL
     }
 
-    binding.clearAllButton.setOnClickListener {
+    binding.activityCanvasResetCanvasButton.setOnClickListener {
         showDialog(
             "Clear canvas",
             "Are you sure you want to clear the canvas? This cannot be undone.",
@@ -113,11 +113,11 @@ fun CanvasActivity.extendedSetOnClickListeners() {
                 canvasFragmentInstance = CanvasFragment.newInstance(spanCount, true, null)
                 supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.fragmentHost, canvasFragmentInstance).commit()
+                    .add(R.id.activityCanvas_canvasFragmentHost, canvasFragmentInstance).commit()
             }, "Back", { _, _ -> }, null)
     }
 
-    binding.changeBackgroundButton.setOnClickListener {
+    binding.activityCanvasChangeBackgroundButton.setOnClickListener {
         currentTool = Tools.CHANGE_BACKGROUND_TOOL
     }
 
@@ -130,13 +130,13 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         secondaryColor = temp
     }
 
-    binding.findAndReplaceButton.setOnClickListener {
+    binding.activityCanvasFindAndReplaceButton.setOnClickListener {
         findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
         currentFragmentInstance = findAndReplaceFragmentInstance
-        navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.colorPickerFragmentHost, "Find and Replace", binding.colorPickerFragmentHost, binding.rootLayout)
+        navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_colorPickerFragmentHost, "Find and Replace", binding.activityCanvasColorPickerFragmentHost, binding.activityCanvasRootLayout)
     }
 
-    binding.eraseButton.setOnClickListener {
+    binding.activityCanvasEraseButton.setOnClickListener {
         currentTool = Tools.ERASE_TOOL
     }
 

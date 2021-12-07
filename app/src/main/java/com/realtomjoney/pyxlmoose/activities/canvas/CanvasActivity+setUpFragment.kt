@@ -8,5 +8,5 @@ fun CanvasActivity.extendedSetUpFragment(savedGridState: List<View>? = null) {
     canvasFragmentInstance = CanvasFragment.newInstance(spanCount, true, savedGridState)
     supportFragmentManager
         .beginTransaction()
-        .add(R.id.fragmentHost, canvasFragmentInstance).commit()
+        .add(R.id.activityCanvas_canvasFragmentHost, canvasFragmentInstance).commit()
 }

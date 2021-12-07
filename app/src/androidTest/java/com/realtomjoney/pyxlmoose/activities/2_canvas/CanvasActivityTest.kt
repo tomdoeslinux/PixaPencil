@@ -48,41 +48,41 @@ class CanvasActivityTest {
     }
 
     @Test fun uitest_verticalMirrorButton_isDisplayed() {
-        onView(withId(R.id.verticalMirrorButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_verticalMirrorButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_horizontalMirrorButton_isDisplayed() {
-        onView(withId(R.id.horizontalMirrorButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_horizontalMirrorButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_darkenButton_isDisplayed() {
-        onView(withId(R.id.darkenButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_darkenButton)).check(matches(isDisplayed()))
     }
 
     @Test fun uitest_lightenButton_isDisplayed() {
-        onView(withId(R.id.lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_lightenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_clearAllButton_isDisplayed() {
-        onView(withId(R.id.clearAllButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_resetCanvasButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_undoButton_isDisplayed() {
-        onView(withId(R.id.undoButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_undoButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
 
     }
 
     @Test fun uitest_colorPickerButton_isDisplayed() {
-        onView(withId(R.id.colorPickerButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_colorPickerButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_findAndReplaceButton_isDisplayed() {
-        onView(withId(R.id.findAndReplaceButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_findAndReplaceButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
 
     @Test fun uitest_eraseButton_isDisplayed() {
-        onView(withId(R.id.eraseButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
+        onView(withId(R.id.activityCanvas_eraseButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_userCanTapOnPixel() {

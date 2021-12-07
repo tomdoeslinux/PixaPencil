@@ -8,7 +8,7 @@
     tools:context=".activities.main.MainActivity">
 
     <FrameLayout
-        android:id="@+id/newCanvasFragmentHost"
+        android:id="@+id/activityMain_primaryFragmentHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/activityMain_bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
         style="@style/default_large_fab_style_activity_main"
         android:backgroundTint="@color/activityMainFAB_backgroundColor"
         android:contentDescription="@string/content_description_activity_main_fab"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@id/activityMain_bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

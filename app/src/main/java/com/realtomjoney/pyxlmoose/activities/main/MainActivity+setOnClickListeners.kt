@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 
 
 fun MainActivity.extendedSetOnClickListeners() {
-    binding.bottomNavigationView.setOnItemSelectedListener { item ->
+    binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.page_home -> {
 //                binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(
@@ -37,6 +37,6 @@ fun MainActivity.extendedSetOnClickListeners() {
     binding.activityMainNewProjectButton.setOnClickListener {
         newCanvasFragmentInstance = NewCanvasFragment.newInstance()
         currentFragmentInstance = newCanvasFragmentInstance
-        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.newCanvasFragmentHost, "New Canvas", binding.newCanvasFragmentHost, binding.mainRoot)
+        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, "New Canvas", binding.activityMainPrimaryFragmentHost, binding.mainRoot)
     }
 }

@@ -10,7 +10,7 @@ object AndroidTestUtilityFunctions {
 
     fun goToFindAndReplaceFragment() {
         onView(withId(R.id.activityCanvas_canvasToolsScrollView)).perform(swipeLeft())
-        onView(withId(R.id.findAndReplaceButton)).perform(click())
+        onView(withId(R.id.activityCanvas_findAndReplaceButton)).perform(click())
     }
 
     fun createNewProject(projectName: String = defaultProjectName, spanCount: Int = defaultProjectSpanCount) {

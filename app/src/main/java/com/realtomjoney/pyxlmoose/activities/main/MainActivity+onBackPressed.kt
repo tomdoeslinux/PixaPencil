@@ -5,5 +5,5 @@ import com.realtomjoney.pyxlmoose.utility.StringValues
 
 fun MainActivity.extendedOnBackPressed() {
     binding.activityMainNewProjectButton.show()
-    navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.newCanvasFragmentHost, StringValues.APP_NAME)
+    navigateHome(supportFragmentManager, newCanvasFragmentInstance, binding.mainRoot, binding.activityMainPrimaryFragmentHost, StringValues.APP_NAME)
 }

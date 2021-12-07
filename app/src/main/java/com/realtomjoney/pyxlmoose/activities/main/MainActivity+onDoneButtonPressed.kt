@@ -22,8 +22,8 @@ fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: Text
     }
 
     with(binding) {
-        newCanvasFragmentHost.visibility = View.GONE
-        bottomNavigationView.visibility = View.VISIBLE
+        activityMainPrimaryFragmentHost.visibility = View.GONE
+        activityMainBottomNavigationView.visibility = View.VISIBLE
     }
 
     title = StringValues.APP_NAME

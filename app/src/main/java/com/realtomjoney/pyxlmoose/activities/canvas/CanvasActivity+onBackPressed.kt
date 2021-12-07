@@ -12,10 +12,10 @@ import com.realtomjoney.pyxlmoose.utility.StringValues
 fun CanvasActivity.extendedOnBackPressed() {
     if (index != -1) {
         AppData.db.pixelArtCreationsDao().apply {
-            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.fragmentHost.drawToBitmap()), currentPixelArtObj.objId)
+            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), currentPixelArtObj.objId)
             updatePixelArtCreationPixelData(JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()), currentPixelArtObj.objId)
         }
     }
-    if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.rootLayout, binding.colorPickerFragmentHost, StringValues.APP_NAME)
+    if (currentFragmentInstance != null) this.navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasColorPickerFragmentHost, StringValues.APP_NAME)
     startActivity(Intent(context, MainActivity::class.java))
 }

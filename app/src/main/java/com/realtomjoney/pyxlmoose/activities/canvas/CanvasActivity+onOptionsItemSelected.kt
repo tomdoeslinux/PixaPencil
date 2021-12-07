@@ -10,16 +10,16 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     val zoom = 0.3f
     when (item.itemId) {
         R.id.zoom_out -> {
-            binding.fragmentHost.scaleX -= zoom; binding.fragmentHost.scaleY -= zoom
+            binding.activityCanvasCanvasFragmentHost.scaleX -= zoom; binding.activityCanvasCanvasFragmentHost.scaleY -= zoom
         }
         R.id.zoom_in -> {
-            binding.fragmentHost.scaleX += zoom; binding.fragmentHost.scaleY += zoom
+            binding.activityCanvasCanvasFragmentHost.scaleX += zoom; binding.activityCanvasCanvasFragmentHost.scaleY += zoom
         }
         R.id.pixel_grid_on_off -> {
             if (pixelGridOn) {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, false, data)).commit()
+                    .replace(R.id.activityCanvas_canvasFragmentHost, CanvasFragment.newInstance(spanCount, false, data)).commit()
                 item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_on_24)
                 item.title = StringValues.GRID_ON
 
@@ -28,7 +28,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             } else if (!pixelGridOn) {
                 supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fragmentHost, CanvasFragment.newInstance(spanCount, true, data)).commit()
+                    .replace(R.id.activityCanvas_canvasFragmentHost, CanvasFragment.newInstance(spanCount, true, data)).commit()
                 item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_grid_off_24)
                 item.title = StringValues.GRID_OFF
 

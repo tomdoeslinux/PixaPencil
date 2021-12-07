@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.utility.StringValues
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
     currentFragmentInstance = null
     setPixelColor(selectedColor)
-    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.rootLayout, binding.colorPickerFragmentHost,StringValues.APP_NAME)
+    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasColorPickerFragmentHost,StringValues.APP_NAME)
 
     data.forEach { data_it ->
         val index = data.indexOf(data_it)
@@ -21,5 +21,5 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace
     currentFragmentInstance = null
     data.forEach { if (it.background != null && (it.background as ColorDrawable).color == colorToFind && colorToReplace != null) it.setBackgroundColor(colorToReplace) }
     canvasFragmentInstance.modifyPixels(data)
-    navigateHome(supportFragmentManager, findAndReplaceFragmentInstance, binding.rootLayout, binding.colorPickerFragmentHost, StringValues.APP_NAME)
+    navigateHome(supportFragmentManager, findAndReplaceFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasColorPickerFragmentHost, StringValues.APP_NAME)
 }
