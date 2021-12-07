@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainRoot"
+    tools:ignore="MissingConstraints"
     tools:context=".activities.main.MainActivity">
 
     <FrameLayout
@@ -30,13 +31,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/activityMain_bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:itemIconTint="@android:color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu" />
+        style="@style/activityCanvas_bottomNavigationView_style"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
