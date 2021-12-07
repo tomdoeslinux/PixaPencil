@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/mImageView"
+                android:id="@+id/recentCreationsLayout_imageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="24dp"
@@ -32,23 +32,23 @@
                 android:contentDescription="@string/content_description_pixel_art_preview" />
 
             <TextView
-                android:id="@+id/mtext"
+                android:id="@+id/recentCreationsLayout_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/mImageView"
-                app:layout_constraintTop_toBottomOf="@+id/mImageView"
+                app:layout_constraintStart_toStartOf="@+id/recentCreationsLayout_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/recentCreationsLayout_imageView"
                 style="@style/recent_creations_text_view_style2"/>
 
             <TextView
-                android:id="@+id/mdate"
+                android:id="@+id/recentCreationsLayout_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/mImageView"
-                app:layout_constraintTop_toBottomOf="@+id/mtext"
+                app:layout_constraintStart_toStartOf="@+id/recentCreationsLayout_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/recentCreationsLayout_title"
                 style="@style/recent_creations_text_view_style"/>
 
             <ImageButton
-                android:id="@+id/mFavouriteButton"
+                android:id="@+id/recentCreationsLayout_favoriteButton"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

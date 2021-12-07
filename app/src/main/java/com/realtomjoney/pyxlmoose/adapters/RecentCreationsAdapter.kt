@@ -31,10 +31,10 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
             val item = data[position]
 
             binding.apply {
-                mImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
-                mdate.text = item.dateCreated
+                recentCreationsLayoutImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
+                recentCreationsLayoutSubtitle.text = item.dateCreated
 
-                mtext.apply {
+                recentCreationsLayoutTitle.apply {
                     if (data[position].title.length > 6) {
                         ellipsize = TextUtils.TruncateAt.MARQUEE
                         isSelected = true
@@ -54,9 +54,9 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
                     true
                 }
 
-                changeStarredIndicator(mFavouriteButton, item)
+                changeStarredIndicator(recentCreationsLayoutFavoriteButton, item)
 
-                mFavouriteButton.setOnClickListener {
+                recentCreationsLayoutFavoriteButton.setOnClickListener {
                     if (item.favourited) {
                         unFavouriteRecentCreation(this@parent, item)
                         AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId)
