@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,6 +15,11 @@ import com.realtomjoney.pyxlmoose.activities.canvas.pixelDataAsViews
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.adapters.CanvasRecyclerAdapter
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
+import android.graphics.drawable.GradientDrawable
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
+import com.realtomjoney.pyxlmoose.R
+
 
 class CanvasFragment(private val spanCount: Int,
                      private val isGridVisible: Boolean,

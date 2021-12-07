@@ -8,6 +8,12 @@
     <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/gridLineFrame"
-        android:background="@drawable/border_drawable_thin"/>
+        android:id="@+id/pixelBackground"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_drawable_thin"
+        android:id="@+id/gridLineFrame">
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </com.realtomjoney.pyxlmoose.customviews.SquareFrameLayout>

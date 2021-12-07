@@ -9,6 +9,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/border_drawable_px.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/border_drawable_thin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/button_selected_drawable.xml" value="0.26510416666666664" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/change_background_icon.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.259375" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.259375" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_home.xml" value="0.22083333333333333" />
@@ -30,7 +31,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_color_picker.xml" value="0.2" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_find_and_replace.xml" value="0.22" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_canvas.xml" value="0.16" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/pixel_layout.xml" value="0.1" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/pixel_layout.xml" value="0.4022491349480969" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/recent_creations_layout.xml" value="0.5" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/menu/app_menu.xml" value="0.1" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
