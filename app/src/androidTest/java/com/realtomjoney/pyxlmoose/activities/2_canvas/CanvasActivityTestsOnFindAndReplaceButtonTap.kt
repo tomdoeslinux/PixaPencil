@@ -19,33 +19,33 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
     @get:Rule
     var activityTestRule = ActivityScenarioRule(CanvasActivity::class.java)
 
-    @Test fun uitest_doneButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
-
-    @Test fun uitest_colorPickerRecyclerView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
-
-    @Test fun uitest_titleTextView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_canvasTitleEditText)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
-
-    @Test fun uitest_colorSwapButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
-
-    @Test fun uitest_colorPrimarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
-
-    @Test fun uitest_colorSecondarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
-        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
-        onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-    }
+//    @Test fun uitest_doneButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
+//
+//    @Test fun uitest_colorPickerRecyclerView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_colorPickerRecyclerView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
+//
+//    @Test fun uitest_titleTextView_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_canvasTitleEditText)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
+//
+//    @Test fun uitest_colorSwapButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_colorSwapButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
+//
+//    @Test fun uitest_colorPrimarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_colorPrimaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
+//
+//    @Test fun uitest_colorSecondarySelected_isNotDisplayed_after_findAndReplaceButton_isPressed() {
+//        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
+//        onView(withId(R.id.activityCanvas_colorSecondaryView)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+//    }
 }

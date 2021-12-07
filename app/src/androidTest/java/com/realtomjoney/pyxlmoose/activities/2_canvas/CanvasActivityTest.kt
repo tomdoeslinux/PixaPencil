@@ -56,7 +56,7 @@ class CanvasActivityTest {
     }
 
     @Test fun uitest_darkenButton_isDisplayed() {
-        onView(withId(R.id.activityCanvas_darkenButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityCanvas_darkenButton)).check(matches(withEffectiveVisibility(Visibility.VISIBLE)))
     }
 
     @Test fun uitest_lightenButton_isDisplayed() {
