@@ -5,4 +5,5 @@ import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 
 interface CanvasFragmentListener {
     fun onPixelTapped(instance: MyCanvasView, rectTapped: RectF)
+    fun onActionUp()
 }

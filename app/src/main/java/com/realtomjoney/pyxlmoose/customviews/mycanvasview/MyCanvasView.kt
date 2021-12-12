@@ -8,6 +8,8 @@ import androidx.lifecycle.LifecycleOwner
 import com.realtomjoney.pyxlmoose.activities.canvas.*
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
+import android.graphics.Bitmap
+
 
 class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
     lateinit var extraCanvas: Canvas
@@ -67,6 +69,9 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
         when (event.actionMasked) {
             MotionEvent.ACTION_MOVE -> drawRectAt(event.x, event.y)
             MotionEvent.ACTION_DOWN -> drawRectAt(event.x, event.y)
+            MotionEvent.ACTION_UP -> {
+                caller.onActionUp()
+            }
         }
         return true
     }

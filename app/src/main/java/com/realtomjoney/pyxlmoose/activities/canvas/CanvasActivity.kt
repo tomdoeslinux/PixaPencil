@@ -11,7 +11,6 @@ import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
-
     var previousView: View? = null
 
     val context = this
@@ -22,8 +21,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     }
 
     fun initColorPickerFragmentInstance() = ColorPickerFragment.newInstance(getSelectedColor())
-
-    fun initFindAndReplaceFragmentInstance() = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
@@ -60,6 +57,10 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     fun setBindings() = extendedSetBindings()
 
     override fun onPixelTapped(instance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(instance, rectTapped)
+
+    override fun onActionUp() {
+        canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+    }
 
     fun getGradientDrawable() = extendedGetGradientDrawable()
 

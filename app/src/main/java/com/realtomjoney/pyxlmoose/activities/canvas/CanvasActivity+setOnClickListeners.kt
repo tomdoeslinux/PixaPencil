@@ -18,12 +18,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-enum class Tools {
-    PENCIL_TOOL, HORIZONTAL_MIRROR_TOOL, VERTICAL_MIRROR_TOOL, DARKEN_TOOL, LIGHTEN_TOOL, CHANGE_BACKGROUND_TOOL, COLOR_PICKER_TOOL, ERASE_TOOL
-}
-
-var currentTool: Tools? = Tools.PENCIL_TOOL
-
 private fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
     currentFragmentInstance = colorPickerFragmentInstance
@@ -37,6 +31,16 @@ private fun CanvasActivity.filterSelectedColor(color: Int, ratio: Float) {
 
 private fun CanvasActivity.darkenSelectedColor() = filterSelectedColor(Color.BLACK, 0.2f)
 private fun CanvasActivity.lightenSelectedColor() = filterSelectedColor(Color.WHITE, 0.2f)
+
+private fun CanvasActivity.clearCanvas() {
+    val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+    for (pixel in dataAsPixelList) {
+        pixel.pixelColor = null
+    }
+
+    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+}
 
 fun CanvasActivity.extendedSetOnClickListeners() {
     binding.activityCanvasDoneButton.setOnClickListener {
@@ -103,13 +107,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             "Are you sure you want to clear the canvas? This cannot be undone.",
             StringConstants.DIALOG_POSITIVE_BUTTON_TEXT,
             { _, _ ->
-                val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
-
-                for (pixel in dataAsPixelList) {
-                    pixel.pixelColor = null
-                }
-
-                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+                clearCanvas()
             }, StringConstants.DIALOG_NEGATIVE_BUTTON_TEXT, { _, _ -> }, null)
     }
 
@@ -134,6 +132,16 @@ fun CanvasActivity.extendedSetOnClickListeners() {
 
     binding.activityCanvasEraseButton.setOnClickListener {
         currentTool = Tools.ERASE_TOOL
+    }
+
+    binding.activityCanvasUndoButton.setOnClickListener {
+        if (canvasStates.size > 1) {
+            canvasStates.remove(canvasStates.last())
+            canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
+        } else {
+            clearCanvas()
+            canvasStates.clear()
+        }
     }
 
 }

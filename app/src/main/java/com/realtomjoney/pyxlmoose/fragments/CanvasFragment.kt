@@ -1,12 +1,14 @@
 package com.realtomjoney.pyxlmoose.fragments
 
 import android.content.Context
+import android.graphics.Canvas
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasFragmentInstance
+import com.realtomjoney.pyxlmoose.activities.canvas.canvasStates
 import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
@@ -41,7 +43,6 @@ class CanvasFragment(private val spanCount: Int) : Fragment() {
         if (index != -1) {
             canvasFragmentInstance.myCanvasViewInstance.loadData(this, index!!)
         }
-
 
         return binding.root
     }

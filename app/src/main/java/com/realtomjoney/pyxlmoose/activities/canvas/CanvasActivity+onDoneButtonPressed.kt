@@ -10,6 +10,8 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
 }
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
+    canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+
     currentFragmentInstance = null
 
     val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
