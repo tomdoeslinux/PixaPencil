@@ -2,14 +2,12 @@ package com.realtomjoney.pyxlmoose.customviews.mycanvasview
 
 import android.content.Context
 import android.graphics.*
-import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import com.realtomjoney.pyxlmoose.activities.canvas.*
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
-import kotlin.math.sqrt
 
 class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
     lateinit var extraCanvas: Canvas

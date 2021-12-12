@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.customviews.mycanvasview
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
 import com.realtomjoney.pyxlmoose.converters.JsonConverter

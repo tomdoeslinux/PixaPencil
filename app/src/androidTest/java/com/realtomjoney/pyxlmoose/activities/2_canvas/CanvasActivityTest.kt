@@ -1,19 +1,11 @@
 package com.realtomjoney.pyxlmoose.activities.`2_canvas`
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import com.realtomjoney.pyxlmoose.R
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
-import com.realtomjoney.pyxlmoose.database.ColorDatabase
 
 
 @LargeTest

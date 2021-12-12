@@ -10,7 +10,6 @@ import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 
 lateinit var binding: ActivityCanvasBinding
-var data = listOf<View>()
 var index: Int? = null
 
 var primaryColor: Int = Color.BLACK

@@ -1,7 +1,5 @@
-@file:Suppress("unused")
-
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-fun CanvasActivity.extendedOnPause() {
+fun extendedOnPause() {
     currentBackground = null
 }

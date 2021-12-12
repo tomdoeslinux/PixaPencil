@@ -5,7 +5,6 @@ import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 lateinit var currentPixelArtObj: PixelArt
-var pixelDataAsViews = mutableListOf<View>()
 
 fun CanvasActivity.extendedOnCreate() {
     spanCount = intent.getIntExtra(StringConstants.SPAN_COUNT_EXTRA, spanCount)
