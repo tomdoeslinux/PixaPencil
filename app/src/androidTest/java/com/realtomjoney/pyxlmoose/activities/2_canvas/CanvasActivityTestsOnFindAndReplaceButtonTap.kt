@@ -19,6 +19,8 @@ class CanvasActivityTestsOnFindAndReplaceButtonTap {
     @get:Rule
     var activityTestRule = ActivityScenarioRule(CanvasActivity::class.java)
 
+    // TODO - Rewrite CanvasActivityTestsOnFindAndReplaceButtonTap
+
 //    @Test fun uitest_doneButton_isNotDisplayed_after_findAndReplaceButton_isPressed() {
 //        AndroidTestUtilityFunctions.goToFindAndReplaceFragment()
 //        onView(withId(R.id.activityCanvas_doneButton)).check(matches(withEffectiveVisibility(Visibility.GONE)))

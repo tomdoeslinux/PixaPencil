@@ -1,12 +1,10 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.view.View
 import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.models.Pixel
 
-fun CanvasActivity.extendedSetUpFragment(savedGridState: List<View>? = null) {
-    canvasFragmentInstance = CanvasFragment.newInstance(spanCount, true, savedGridState)
-    supportFragmentManager
-        .beginTransaction()
-        .add(R.id.activityCanvas_canvasFragmentHost, canvasFragmentInstance).commit()
+fun CanvasActivity.extendedSetUpFragment() {
+    canvasFragmentInstance = CanvasFragment.newInstance(spanCount)
+    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_canvasFragmentHost, canvasFragmentInstance).commit()
 }

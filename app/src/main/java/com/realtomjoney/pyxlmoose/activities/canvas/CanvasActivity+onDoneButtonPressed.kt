@@ -1,25 +1,25 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
-import com.realtomjoney.pyxlmoose.utility.StringValues
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int) {
     currentFragmentInstance = null
     setPixelColor(selectedColor)
-    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasColorPickerFragmentHost,StringValues.APP_NAME)
-
-    data.forEach { data_it ->
-        val index = data.indexOf(data_it)
-
-        if (pixelDataAsViews[index].background != null) data_it.setBackgroundColor((pixelDataAsViews[index].background as ColorDrawable).color)
-    }
-    canvasFragmentInstance.modifyPixels(data)
+    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, StringConstants.APP_NAME)
 }
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
     currentFragmentInstance = null
-    data.forEach { if (it.background != null && (it.background as ColorDrawable).color == colorToFind && colorToReplace != null) it.setBackgroundColor(colorToReplace) }
-    canvasFragmentInstance.modifyPixels(data)
-    navigateHome(supportFragmentManager, findAndReplaceFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasColorPickerFragmentHost, StringValues.APP_NAME)
+
+    val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+    for (pixel in dataAsPixelList) {
+        if (pixel.pixelColor != null && pixel.pixelColor == colorToFind && colorToReplace != null)
+            pixel.pixelColor = colorToReplace
+    }
+
+    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+
+    navigateHome(supportFragmentManager, findAndReplaceFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, StringConstants.APP_NAME)
 }

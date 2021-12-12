@@ -11,9 +11,9 @@ import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,28 +22,28 @@ enum class Tools {
     PENCIL_TOOL, HORIZONTAL_MIRROR_TOOL, VERTICAL_MIRROR_TOOL, DARKEN_TOOL, LIGHTEN_TOOL, CHANGE_BACKGROUND_TOOL, COLOR_PICKER_TOOL, ERASE_TOOL
 }
 
-var currentTool: Tools? = null
+var currentTool: Tools? = Tools.PENCIL_TOOL
 
-fun CanvasActivity.openColorPickerDialog() {
+private fun CanvasActivity.openColorPickerDialog() {
     colorPickerFragmentInstance = initColorPickerFragmentInstance()
     currentFragmentInstance = colorPickerFragmentInstance
-    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_colorPickerFragmentHost, "Select Color", binding.activityCanvasColorPickerFragmentHost, binding.activityCanvasRootLayout)
+    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_COLOR_PICKER_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
 }
+
+private fun CanvasActivity.filterSelectedColor(color: Int, ratio: Float) {
+    if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), color, ratio))
+    else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), color, ratio))
+}
+
+private fun CanvasActivity.darkenSelectedColor() = filterSelectedColor(Color.BLACK, 0.2f)
+private fun CanvasActivity.lightenSelectedColor() = filterSelectedColor(Color.WHITE, 0.2f)
 
 fun CanvasActivity.extendedSetOnClickListeners() {
     binding.activityCanvasDoneButton.setOnClickListener {
         if (index == -1) {
             CoroutineScope(Dispatchers.IO).launch {
-                AppData.db.pixelArtCreationsDao().insertPixelArt(
-                    PixelArt(
-                        BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()),
-                        binding.activityCanvasCanvasTitleEditText.text.toString(),
-                        JsonConverter.convertPixelListToJsonString(dataAsListOfPixels()),
-                        false
-                    )
-                )
+                AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), binding.activityCanvasCanvasTitleEditText.text.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
             }
-            hasSaved = true
             (this as Activity).onBackPressed()
         }
     }
@@ -78,21 +78,18 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.activityCanvasHorizontalMirrorButton.setOnClickListener {
         currentTool = Tools.HORIZONTAL_MIRROR_TOOL
     }
+
     binding.activityCanvasVerticalMirrorButton.setOnClickListener {
         currentTool = Tools.VERTICAL_MIRROR_TOOL
     }
 
     binding.activityCanvasDarkenButton.setOnClickListener {
-        if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
-        else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.BLACK, 0.2f))
-
+        darkenSelectedColor()
         currentTool = Tools.DARKEN_TOOL
     }
 
     binding.activityCanvasLightenButton.setOnClickListener {
-        if (isPrimaryColorSelected) setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
-        else setPixelColor(ColorUtils.blendARGB(getSelectedColor(), Color.WHITE, 0.2f))
-
+        lightenSelectedColor()
         currentTool = Tools.LIGHTEN_TOOL
     }
 
@@ -104,17 +101,16 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         showDialog(
             "Clear canvas",
             "Are you sure you want to clear the canvas? This cannot be undone.",
-            "OK",
+            StringConstants.DIALOG_POSITIVE_BUTTON_TEXT,
             { _, _ ->
-                with(supportFragmentManager.beginTransaction()) {
-                    remove(canvasFragmentInstance)
-                    commit()
+                val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+                for (pixel in dataAsPixelList) {
+                    pixel.pixelColor = null
                 }
-                canvasFragmentInstance = CanvasFragment.newInstance(spanCount, true, null)
-                supportFragmentManager
-                    .beginTransaction()
-                    .add(R.id.activityCanvas_canvasFragmentHost, canvasFragmentInstance).commit()
-            }, "Back", { _, _ -> }, null)
+
+                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+            }, StringConstants.DIALOG_NEGATIVE_BUTTON_TEXT, { _, _ -> }, null)
     }
 
     binding.activityCanvasChangeBackgroundButton.setOnClickListener {
@@ -133,7 +129,7 @@ fun CanvasActivity.extendedSetOnClickListeners() {
     binding.activityCanvasFindAndReplaceButton.setOnClickListener {
         findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
         currentFragmentInstance = findAndReplaceFragmentInstance
-        navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_colorPickerFragmentHost, "Find and Replace", binding.activityCanvasColorPickerFragmentHost, binding.activityCanvasRootLayout)
+        navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
     }
 
     binding.activityCanvasEraseButton.setOnClickListener {

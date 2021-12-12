@@ -1,38 +1,79 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.drawable.ColorDrawable
-import android.view.View
+import android.graphics.*
+import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
+import kotlin.math.sqrt
 
-fun CanvasActivity.extendedOnPixelTapped(pixel: View) {
-    if (currentTool == Tools.HORIZONTAL_MIRROR_TOOL) {
-        pixel.setBackgroundColor(getSelectedColor())
-        data[MathExtensions.reflectIndexHorizontally(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColor())
-    } else if (currentTool == Tools.VERTICAL_MIRROR_TOOL) {
-        pixel.setBackgroundColor(getSelectedColor())
-        data[MathExtensions.reflectIndexVertically(data.indexOf(pixel), spanCount)].setBackgroundColor(getSelectedColor())
-    } else if (currentTool == Tools.COLOR_PICKER_TOOL) {
-        (pixel.background)?.let { setPixelColor((it as ColorDrawable).color) }
-    } else if (currentTool == Tools.CHANGE_BACKGROUND_TOOL) {
-        if (!hasSetBackgroundYet) {
-            hasSetBackgroundYet = true
-            data.forEach {
-                if (it.background == null) it.setBackgroundColor(getSelectedColor())
-                currentBackground = getSelectedColor()
+fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
+    val defaultErasePaint = Paint().apply {
+        style = Paint.Style.FILL
+        color = currentBackground ?: Color.WHITE
+    }
+
+    val defaultRectPaint = Paint().apply {
+        style = Paint.Style.FILL
+        isAntiAlias = false
+        color = getSelectedColor()
+    }
+
+    val rectangleData = instance.rectangles.keys.toList()
+
+    when (currentTool) {
+        Tools.PENCIL_TOOL -> {
+            instance.rectangles[rectTapped] = defaultRectPaint
+            instance.extraCanvas.apply {
+                drawRect(rectTapped, defaultRectPaint)
             }
-        } else {
-            data.forEach {
-                if ((it.background as ColorDrawable).color == currentBackground) it.setBackgroundColor(
-                    getSelectedColor()
-                )
-            }
-            currentBackground = getSelectedColor()
         }
-    } else if (currentTool == Tools.ERASE_TOOL) {
-        if (!hasSetBackgroundYet) pixel.background = null else pixel.setBackgroundColor(
-            currentBackground!!
-        )
-    } else {
-        pixel.setBackgroundColor(getSelectedColor())
+        Tools.HORIZONTAL_MIRROR_TOOL -> {
+            instance.extraCanvas.apply {
+                val horizontallyReflectedIndex = MathExtensions.reflectIndexVertically(rectangleData.indexOf(rectTapped), sqrt(instance.rectangles.keys.size.toDouble()).toInt())
+
+                instance.rectangles[rectTapped] = defaultRectPaint
+                instance.rectangles[rectangleData[horizontallyReflectedIndex]] =
+                    defaultRectPaint
+
+                drawRect(rectTapped, defaultRectPaint)
+                drawRect(rectangleData[horizontallyReflectedIndex], defaultRectPaint)
+            }
+        }
+        Tools.VERTICAL_MIRROR_TOOL -> {
+            instance.extraCanvas.apply {
+                val verticallyReflectedIndex = MathExtensions.reflectIndexHorizontally(rectangleData.indexOf(rectTapped), sqrt(instance.rectangles.keys.size.toDouble()).toInt())
+
+                instance.rectangles[rectTapped] = defaultRectPaint
+                instance.rectangles[rectangleData[verticallyReflectedIndex]] = defaultRectPaint
+
+                drawRect(rectTapped, defaultRectPaint)
+                drawRect(rectangleData[verticallyReflectedIndex], defaultRectPaint)
+            }
+        }
+        Tools.COLOR_PICKER_TOOL -> {
+            if (instance.rectangles[rectTapped] == null) setPixelColor(Color.WHITE) else setPixelColor(instance.rectangles[rectTapped]!!.color)
+        }
+        Tools.CHANGE_BACKGROUND_TOOL -> {
+            instance.extraCanvas.drawColor(getSelectedColor())
+            currentBackground = getSelectedColor()
+
+            for (pair in instance.rectangles) {
+                pair.setValue(Paint().apply {
+                    style = Paint.Style.FILL
+                    color = getSelectedColor()
+                })
+            }
+        }
+        Tools.ERASE_TOOL -> {
+            instance.rectangles[rectTapped] = defaultErasePaint
+            instance.extraCanvas.apply {
+                drawRect(rectTapped, defaultErasePaint)
+            }
+        }
+        else -> {
+            instance.rectangles[rectTapped] = defaultRectPaint
+            instance.extraCanvas.apply {
+                drawRect(rectTapped, defaultRectPaint)
+            }
+        }
     }
 }

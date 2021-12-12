@@ -2,17 +2,15 @@ package com.realtomjoney.pyxlmoose.database
 
 import android.graphics.Color
 
-object ColorDatabase : Database<Int> {
+object ColorDatabase {
     private val database = mutableListOf<Int>()
 
-    override fun addItem(item: Int) { database.add(item) }
+    private fun addItem(item: Int) = database.add(item)
 
-    override fun removeItem(item: Int) { database.remove(item) }
-
-    override fun toList() = database.toList()
+    fun toList() = database.toList()
 
     init {
-        val tempData = listOf(
+        val colorData = listOf(
             Color.parseColor("#0048BA"),
             Color.parseColor("#B0BF1A"),
             Color.parseColor("#7CB9E8"),
@@ -162,14 +160,8 @@ object ColorDatabase : Database<Int> {
             Color.parseColor("#D70040"),
             Color.parseColor("#FFA6C9"),
             Color.parseColor("#B31B1B"),
-            )
+        )
 
-        tempData.forEach {
-            addItem(it)
-        }
-    }
-
-    override fun replaceItemByIndex(index: Int, newItem: Int) {
-        TODO("Not yet implemented")
+        for (color in colorData) addItem(color)
     }
 }

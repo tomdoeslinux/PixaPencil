@@ -1,13 +1,15 @@
-@file:Suppress("unused")
-
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.drawable.ColorDrawable
-
-fun CanvasActivity.extendedGetCanvasColors(): List<Int> {
+fun extendedGetCanvasColors(): List<Int> {
     val canvasColors = mutableListOf<Int>()
 
-    data.forEach { if (it.background != null) { if (!canvasColors.contains((it.background as ColorDrawable).color)) canvasColors.add((it.background as ColorDrawable).color) } }
+    for (it in canvasFragmentInstance.myCanvasViewInstance.saveData()) {
+        if (it.pixelColor != null) {
+            if (!canvasColors.contains((it.pixelColor!!))) {
+                canvasColors.add(it.pixelColor!!)
+            }
+        }
+    }
 
     return canvasColors
 }

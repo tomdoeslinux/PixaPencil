@@ -1,3 +1,3 @@
 package com.realtomjoney.pyxlmoose.models
 
-data class Pixel(val pixelColor: Int?)
+data class Pixel(var pixelColor: Int?)

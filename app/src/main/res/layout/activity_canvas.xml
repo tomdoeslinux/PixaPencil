@@ -9,7 +9,7 @@
     tools:context=".activities.canvas.CanvasActivity">
 
     <FrameLayout
-        android:id="@+id/activityCanvas_colorPickerFragmentHost"
+        android:id="@+id/activityCanvas_primaryFragmentHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

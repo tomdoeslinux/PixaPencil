@@ -17,23 +17,11 @@ var primaryColor: Int = Color.BLACK
 var secondaryColor: Int = Color.BLUE
 var spanCount = 5
 var isPrimaryColorSelected = true
-var pixelGridOn = true
-var hasSaved = false
 
 var isSelected = false
 var background: Drawable? = null
 
-var colorPickerMode = false
-
-var wantsToChangeBackground = false
-
 var currentBackground: Int? = null
-var hasSetBackgroundYet = false
-
-var isErasing = false
-
-var isHorizontalMirrorEnabled = false
-var isVerticalMirrorEnabled = false
 
 var currentFragmentInstance: Fragment? = null
 

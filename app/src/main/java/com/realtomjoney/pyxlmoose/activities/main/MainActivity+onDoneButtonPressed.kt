@@ -5,16 +5,15 @@ import android.view.View
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
-import com.realtomjoney.pyxlmoose.utility.StringValues
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: TextInputEditText) {
-    if (spanCount in 1..100) {
-        startActivity(
-            Intent(this, CanvasActivity::class.java)
-                .putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString()))
-                .putExtra("PROJECT_TITLE", titleEditText.text.toString())
-        )
-    }
+    startActivity(
+        Intent(this, CanvasActivity::class.java)
+            .putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString()))
+            .putExtra("PROJECT_TITLE", titleEditText.text.toString())
+    )
+
     with(supportFragmentManager.beginTransaction()) {
         remove(newCanvasFragmentInstance)
         commit()
@@ -26,7 +25,6 @@ fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: Text
         activityMainBottomNavigationView.visibility = View.VISIBLE
     }
 
-    title = StringValues.APP_NAME
-
+    title = StringConstants.APP_NAME
     currentFragmentInstance = null
 }

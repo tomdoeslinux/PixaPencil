@@ -1,8 +1,8 @@
 package com.realtomjoney.pyxlmoose.listeners
 
-import android.view.View
+import android.graphics.RectF
+import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 
 interface CanvasFragmentListener {
-    fun initPixels(): List<View>
-    fun onPixelTapped(pixel: View)
+    fun onPixelTapped(instance: MyCanvasView, rectTapped: RectF)
 }
