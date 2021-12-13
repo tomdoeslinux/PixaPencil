@@ -3,6 +3,8 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
+import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
@@ -138,9 +140,17 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         if (canvasStates.size > 1) {
             canvasStates.remove(canvasStates.last())
             canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
-        } else {
-            clearCanvas()
-            canvasStates.clear()
+        } else if (canvasStates.size == 1 && index != -1) {
+            canvasStates.remove(canvasStates.last())
+            AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
+                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(JsonConverter.convertJsonStringToPixelList((it[index!!]).pixelData))
+            })
+        }
+        else {
+            if (index == -1) {
+                clearCanvas()
+                canvasStates.clear()
+            }
         }
     }
 
