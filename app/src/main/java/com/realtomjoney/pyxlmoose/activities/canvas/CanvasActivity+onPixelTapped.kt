@@ -11,10 +11,11 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
         color = currentBackground ?: Color.WHITE
     }
 
-    val defaultRectPaint = Paint().apply {
-        style = Paint.Style.FILL
-        isAntiAlias = false
+    val defaultRectPaint =  Paint().apply {
+        style = Paint.Style.FILL_AND_STROKE
         color = getSelectedColor()
+//        strokeWidth = (10 * instance.scale).toFloat()
+        isAntiAlias = false
     }
 
     val rectangleData = instance.rectangles.keys.toList()

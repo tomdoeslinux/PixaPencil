@@ -10,6 +10,10 @@ import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
 import android.graphics.Bitmap
 import android.os.SystemClock
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 
@@ -76,14 +80,18 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
             }
         }
 
-        for (h in 0 until event.historySize) {
-            for (p in 0 until event.pointerCount) {
-                drawRectAt(event.getHistoricalX(p, h), event.getHistoricalY(p, h))
-            }
-            for (p in 0 until event.pointerCount) {
-                drawRectAt(event.getX(p), event.getY(p))
+
+        if (spanCount < 270) { // TODO - Fix performance of for loop so this won't be restricted for spanCounts of under 270 OR only run this code on faster swipes
+            for (h in 0 until event.historySize) {
+                for (p in 0 until event.pointerCount) {
+                    drawRectAt(event.getHistoricalX(p, h), event.getHistoricalY(p, h))
+                }
+                for (p in 0 until event.pointerCount) {
+                    drawRectAt(event.getX(p), event.getY(p))
+                }
             }
         }
+
 
         return true
     }

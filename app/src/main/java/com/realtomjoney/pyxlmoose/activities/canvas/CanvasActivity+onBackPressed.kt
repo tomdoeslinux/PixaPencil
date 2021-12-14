@@ -12,21 +12,10 @@ import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnBackPressed() {
-    if (index != -1 ) {
-        AppData.db.pixelArtCreationsDao().apply {
-            updatePixelArtCreationBitmap(
-                BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()),
-                currentPixelArtObj.objId
-            )
-            updatePixelArtCreationPixelData(
-                JsonConverter.convertPixelListToJsonString(
-                    canvasFragmentInstance.myCanvasViewInstance.saveData()
-                ), currentPixelArtObj.objId
-            )
-        }
+    if (currentFragmentInstance != null) {
+        currentFragmentInstance = null
+        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, StringConstants.APP_NAME)
+    } else {
+        startActivity(Intent(context, MainActivity::class.java))
     }
-
-    canvasFragmentInstance.myCanvasViewInstance.invalidate()
-
-    startActivity(Intent(context, MainActivity::class.java))
 }

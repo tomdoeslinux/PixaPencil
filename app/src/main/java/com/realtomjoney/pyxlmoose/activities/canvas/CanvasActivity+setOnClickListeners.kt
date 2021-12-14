@@ -43,14 +43,14 @@ private fun clearCanvas() {
 }
 
 fun CanvasActivity.extendedSetOnClickListeners() {
-    binding.activityCanvasDoneButton.setOnClickListener {
-        if (index == -1) {
-            CoroutineScope(Dispatchers.IO).launch {
-                AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), binding.activityCanvasCanvasTitleEditText.text.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
-            }
-            (this as Activity).onBackPressed()
-        }
-    }
+//    binding.activityCanvasDoneButton.setOnClickListener {
+//        if (index == -1) {
+//            CoroutineScope(Dispatchers.IO).launch {
+//                AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), binding.activityCanvasCanvasTitleEditText.text.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
+//            }
+//            (this as Activity).onBackPressed()
+//        }
+//    }
 
     binding.activityCanvasColorSecondaryView.setOnClickListener {
         isPrimaryColorSelected = false
