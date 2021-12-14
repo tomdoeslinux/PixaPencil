@@ -22,9 +22,6 @@ I would love your input! I have a goal of making contributing to this project as
 
 Make sure to follow clean code guidelines when contributing to this project.
 
-## Want to collaborate?
-If you want to collaborate with me on the project flick me an email at tomdoescodeallday@gmail.com.
-
 ## Features
 #### Mirror tool:
 ![Screen Recording - Made with RecordCast](https://user-images.githubusercontent.com/50536495/139818972-d6daea00-5925-4f48-a17b-168ed8520306.gif)
@@ -58,21 +55,4 @@ _PyxlMoose has made a tremendous amount of progress!_
 ## Shoutout
 _Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
 
-Because I want the code from this project to be accessible and open, I will show you guys the methodology used to mirror a pixel, I thought it would also be quite interesting to share:
-
-``` Kotlin
-override fun onPixelTapped(pixel: View) {
-        val indexOfIt = data.indexOf(pixel)
-        val pos = indexOfIt % spanCount
-        if (isMirrorMode) {
-            data[(indexOfIt - pos) + (spanCount - pos) - 1].setBackgroundColor(
-                getSelectedColour()
-            ) // Credits to PapaBread for this masterpiece of a solution
-        }
-
-
-        pixel.setBackgroundColor(getSelectedColour())
-    }
-```
-
-_Also thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
+_Thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
