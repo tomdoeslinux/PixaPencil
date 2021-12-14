@@ -11,17 +11,6 @@ This project is **closed** for contributions as of the 15th of December 2021.
 ![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
 ![image](https://user-images.githubusercontent.com/50536495/139562893-ea67558d-24c3-416b-a802-8898805d5514.png)
 
-## Contributing Guidelines
-I would love your input! I have a goal of making contributing to this project as easy and transparent as possible, whether it's:
-
-- _Reporting a bug_
-- _Discussing the current state of the code_
-- _Submitting a fix_
-- _Proposing new features_
-- _Becoming a maintainer_
-
-Make sure to follow clean code guidelines when contributing to this project.
-
 ## Features
 #### Mirror tool:
 ![Screen Recording - Made with RecordCast](https://user-images.githubusercontent.com/50536495/139818972-d6daea00-5925-4f48-a17b-168ed8520306.gif)
