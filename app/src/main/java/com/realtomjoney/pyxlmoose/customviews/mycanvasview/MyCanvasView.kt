@@ -9,6 +9,8 @@ import com.realtomjoney.pyxlmoose.activities.canvas.*
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.Pixel
 import android.graphics.Bitmap
+import android.os.SystemClock
+import java.lang.Exception
 
 
 class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
@@ -73,6 +75,16 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
                 caller.onActionUp()
             }
         }
+
+        for (h in 0 until event.historySize) {
+            for (p in 0 until event.pointerCount) {
+                drawRectAt(event.getHistoricalX(p, h), event.getHistoricalY(p, h))
+            }
+            for (p in 0 until event.pointerCount) {
+                drawRectAt(event.getX(p), event.getY(p))
+            }
+        }
+
         return true
     }
 

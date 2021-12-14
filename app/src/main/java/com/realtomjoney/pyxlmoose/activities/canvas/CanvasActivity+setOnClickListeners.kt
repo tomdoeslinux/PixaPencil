@@ -3,8 +3,6 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
-import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.*
@@ -34,7 +32,7 @@ private fun CanvasActivity.filterSelectedColor(color: Int, ratio: Float) {
 private fun CanvasActivity.darkenSelectedColor() = filterSelectedColor(Color.BLACK, 0.2f)
 private fun CanvasActivity.lightenSelectedColor() = filterSelectedColor(Color.WHITE, 0.2f)
 
-private fun CanvasActivity.clearCanvas() {
+private fun clearCanvas() {
     val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
 
     for (pixel in dataAsPixelList) {
@@ -153,5 +151,4 @@ fun CanvasActivity.extendedSetOnClickListeners() {
             }
         }
     }
-
 }
