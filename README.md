@@ -4,11 +4,7 @@
 
 _Join our Discord: https://discord.gg/fZPWBfPvWd_
 
-_Commits may contain bugs._
-
-_If you are interested in contributing to this project please take that fact into consideration._
-
-_Do not use the PyxlMoose name anywhere else. The first two preview images (and the logo) are originally made by myself so please do not claim them as your own. 😊_
+This project is **closed** for contributions as of the 15th of December 2021.
 
 ----
 ## Showcasing the app's capabilities
