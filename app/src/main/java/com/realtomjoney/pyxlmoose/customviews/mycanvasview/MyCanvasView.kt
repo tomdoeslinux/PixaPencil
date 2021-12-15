@@ -75,9 +75,7 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
         when (event.actionMasked) {
             MotionEvent.ACTION_MOVE -> drawRectAt(event.x, event.y)
             MotionEvent.ACTION_DOWN -> drawRectAt(event.x, event.y)
-            MotionEvent.ACTION_UP -> {
-                caller.onActionUp()
-            }
+            MotionEvent.ACTION_UP -> caller.onActionUp()
         }
 
 
