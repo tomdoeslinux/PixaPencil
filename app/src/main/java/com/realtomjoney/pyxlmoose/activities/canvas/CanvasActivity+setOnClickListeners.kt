@@ -115,15 +115,6 @@ fun CanvasActivity.extendedSetOnClickListeners() {
         currentTool = Tools.CHANGE_BACKGROUND_TOOL
     }
 
-    binding.activityCanvasColorSwapButton.setOnClickListener {
-        binding.activityCanvasColorPrimaryView.setBackgroundColor(secondaryColor)
-        binding.activityCanvasColorSecondaryView.setBackgroundColor(primaryColor)
-
-        val temp = primaryColor
-        primaryColor = secondaryColor
-        secondaryColor = temp
-    }
-
     binding.activityCanvasFindAndReplaceButton.setOnClickListener {
         findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
         currentFragmentInstance = findAndReplaceFragmentInstance

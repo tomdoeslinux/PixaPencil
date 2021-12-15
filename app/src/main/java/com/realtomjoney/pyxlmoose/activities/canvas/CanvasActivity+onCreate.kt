@@ -12,5 +12,5 @@ fun CanvasActivity.extendedOnCreate() {
     setOnClickListeners()
     setColors()
 
-    binding.activityCanvasCanvasTitleEditText.setText(intent.getStringExtra("PROJECT_TITLE"))
+    title = (intent.getStringExtra("PROJECT_TITLE"))
 }

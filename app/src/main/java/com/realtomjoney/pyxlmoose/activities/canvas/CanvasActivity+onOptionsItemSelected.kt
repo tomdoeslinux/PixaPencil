@@ -18,7 +18,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
         R.id.zoom_out -> {
-            binding.activityCanvasCanvasFragmentHost.apply {
+            binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
                 if (scaleX > maxZoomOut && scaleY > maxZoomOut) {
                     scaleX -= zoom
                     scaleY -= zoom
@@ -26,7 +26,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             }
         }
         R.id.zoom_in -> {
-            binding.activityCanvasCanvasFragmentHost.apply {
+            binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
                 scaleX += zoom
                 scaleY += zoom
             }
@@ -34,7 +34,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.save_project -> {
             if (index == -1) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), binding.activityCanvasCanvasTitleEditText.text.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
+                    AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), title.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
                 }
                 (this as Activity).onBackPressed()
             } else {

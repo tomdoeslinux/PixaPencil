@@ -31,6 +31,8 @@ enum class Tools {
     PENCIL_TOOL, HORIZONTAL_MIRROR_TOOL, VERTICAL_MIRROR_TOOL, DARKEN_TOOL, LIGHTEN_TOOL, CHANGE_BACKGROUND_TOOL, COLOR_PICKER_TOOL, ERASE_TOOL
 }
 
+val currentProjectTitle: String? = null
+
 var currentTool: Tools = Tools.PENCIL_TOOL
 
 val canvasStates = mutableListOf<List<Pixel>>()
