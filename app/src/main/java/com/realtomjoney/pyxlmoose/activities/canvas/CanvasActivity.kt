@@ -35,51 +35,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val zoom = 0.8f
-        val maxZoomOut = 0.19999999 // TODO - look into why Android is buggy when user zooms out past this number
-
-        when (item.itemId) {
-            R.id.zoom_out -> {
-                binding.activityCanvasCanvasFragmentHost.apply {
-                    if (scaleX > maxZoomOut && scaleY > maxZoomOut) {
-                        scaleX -= zoom
-                        scaleY -= zoom
-                    }
-                }
-            }
-            R.id.zoom_in -> {
-                binding.activityCanvasCanvasFragmentHost.apply {
-                    scaleX += zoom
-                    scaleY += zoom
-                }
-            }
-            R.id.save_project -> {
-                if (index == -1) {
-                    CoroutineScope(Dispatchers.IO).launch {
-                        AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), binding.activityCanvasCanvasTitleEditText.text.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
-                    }
-                    (this as Activity).onBackPressed()
-                } else {
-                    canvasFragmentInstance.myCanvasViewInstance.invalidate()
-
-                    AppData.db.pixelArtCreationsDao().apply {
-                        updatePixelArtCreationBitmap(
-                            BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()),
-                            currentPixelArtObj.objId
-                        )
-                        updatePixelArtCreationPixelData(
-                            JsonConverter.convertPixelListToJsonString(
-                                canvasFragmentInstance.myCanvasViewInstance.saveData()
-                            ), currentPixelArtObj.objId
-                        )
-                    }
-                    (this as Activity).onBackPressed()
-                }
-            }
-        }
-        return true
-    }
+    override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
     fun getSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
 
