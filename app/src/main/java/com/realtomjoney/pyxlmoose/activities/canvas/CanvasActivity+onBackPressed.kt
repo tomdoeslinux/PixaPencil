@@ -13,8 +13,8 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnBackPressed() {
     if (currentFragmentInstance != null) {
-        currentFragmentInstance = null
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, StringConstants.APP_NAME)
+        currentFragmentInstance = null
     } else {
         startActivity(Intent(context, MainActivity::class.java))
     }
