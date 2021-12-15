@@ -86,9 +86,6 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
                 for (p in 0 until event.pointerCount) {
                     drawRectAt(event.getHistoricalX(p, h), event.getHistoricalY(p, h))
                 }
-                for (p in 0 until event.pointerCount) {
-                    drawRectAt(event.getX(p), event.getY(p))
-                }
             }
         }
 
