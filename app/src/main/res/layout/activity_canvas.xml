@@ -154,7 +154,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="0dp"
-        app:cardElevation="40dp"
+        app:cardElevation="10dp"
         android:elevation="50dp"
         app:strokeWidth="0dp"
         android:id="@+id/activityCanvas_canvasFragmentHostCardViewParent"
