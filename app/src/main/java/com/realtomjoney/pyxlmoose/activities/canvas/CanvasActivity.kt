@@ -1,25 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.app.Activity
 import android.graphics.Color
 import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import androidx.core.view.drawToBitmap
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.converters.BitmapConverter
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
-import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
-import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.*
-import com.realtomjoney.pyxlmoose.models.PixelArt
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
     var previousView: View? = null
