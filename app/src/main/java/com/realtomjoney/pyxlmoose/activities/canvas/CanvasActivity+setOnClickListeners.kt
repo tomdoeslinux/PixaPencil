@@ -32,7 +32,7 @@ private fun CanvasActivity.filterSelectedColor(color: Int, ratio: Float) {
 private fun CanvasActivity.darkenSelectedColor() = filterSelectedColor(Color.BLACK, 0.2f)
 private fun CanvasActivity.lightenSelectedColor() = filterSelectedColor(Color.WHITE, 0.2f)
 
-private fun clearCanvas() {
+fun clearCanvas() {
     val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
 
     for (pixel in dataAsPixelList) {
@@ -123,23 +123,5 @@ fun CanvasActivity.extendedSetOnClickListeners() {
 
     binding.activityCanvasEraseButton.setOnClickListener {
         currentTool = Tools.ERASE_TOOL
-    }
-
-    binding.activityCanvasUndoButton.setOnClickListener {
-        if (canvasStates.size > 1) {
-            canvasStates.remove(canvasStates.last())
-            canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
-        } else if (canvasStates.size == 1 && index != -1) {
-            canvasStates.remove(canvasStates.last())
-            AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
-                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(JsonConverter.convertJsonStringToPixelList((it[index!!]).pixelData))
-            })
-        }
-        else {
-            if (index == -1) {
-                clearCanvas()
-                canvasStates.clear()
-            }
-        }
     }
 }

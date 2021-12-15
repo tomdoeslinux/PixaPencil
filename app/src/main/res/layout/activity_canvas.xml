@@ -122,14 +122,6 @@
                     app:srcCompat="@drawable/change_background_icon" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/activityCanvas_undoButton"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:backgroundTint="@color/white"
-                    android:contentDescription="@string/content_description_undo_tool"
-                    app:srcCompat="@drawable/ic_baseline_undo_24" />
-
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/activityCanvas_colorPickerButton"
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/content_description_color_picker_tool"

@@ -47,6 +47,23 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 (this as Activity).onBackPressed()
             }
         }
+        R.id.undo -> {
+            if (canvasStates.size > 1) {
+                canvasStates.remove(canvasStates.last())
+                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
+            } else if (canvasStates.size == 1 && index != -1) {
+                canvasStates.remove(canvasStates.last())
+                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
+                    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(JsonConverter.convertJsonStringToPixelList((it[index!!]).pixelData))
+                })
+            }
+            else {
+                if (index == -1) {
+                    clearCanvas()
+                    canvasStates.clear()
+                }
+            }
+        }
     }
     return true
 }

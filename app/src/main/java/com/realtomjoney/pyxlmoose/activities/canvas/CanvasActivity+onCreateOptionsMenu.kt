@@ -16,8 +16,8 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(menu: Menu?): Boolean {
     inflater.inflate(R.menu.app_menu, menu)
 
     if (index != -1) {
-        menu!!.getItem(2).icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_save_24)
-        menu.getItem(2).icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
+        menu!!.getItem(3).icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_save_24)
+        menu.getItem(3).icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
     }
 
     return true
