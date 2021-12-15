@@ -2,6 +2,8 @@ package com.realtomjoney.pyxlmoose.activities.main
 
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
+import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
 
@@ -10,13 +12,16 @@ fun MainActivity.extendedSetOnClickListeners() {
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.page_home -> {
-//                binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(
-//                    AppData.db.pixelArtCreationsDao().getAllPixelArtCreations(), this)
+                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+                    binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
+                })
                 title = "Home"
             }
             R.id.page_starred -> {
-//                binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(
-//                    AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().filter { it.favourited }, this)
+                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+                    binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.favourited }, this)
+                })
+
                 title = "Favorites"
             }
         }
