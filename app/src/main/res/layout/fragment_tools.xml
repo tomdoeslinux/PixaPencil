@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/frameLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="105dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <HorizontalScrollView
+        android:id="@+id/activityCanvas_canvasToolsScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_pencilButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/content_description_pencil_tool"
+                app:srcCompat="@drawable/ic_baseline_pencil_24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_verticalMirrorButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_mirror_tool"
+                app:srcCompat="@drawable/ic_mirror" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_horizontalMirrorButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_mirror_tool_2"
+                android:rotation="90"
+                app:srcCompat="@drawable/ic_mirror" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_darkenButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_darken_tool"
+                app:srcCompat="@drawable/darken_icon" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_lightenButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_lighten_tool"
+                app:srcCompat="@drawable/lighten_icon" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_resetCanvasButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_clear_canvas_tool"
+                app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_changeBackgroundButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_change_background_tool"
+                app:srcCompat="@drawable/change_background_icon" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_colorPickerButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_color_picker_tool"
+                app:srcCompat="@drawable/ic_baseline_colorize_24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_findAndReplaceButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_find_and_replace_tool"
+                app:srcCompat="@drawable/ic_baseline_find_replace_24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_eraseButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_eraser_tool"
+                app:srcCompat="@drawable/ic_eraser"
+                android:layout_marginEnd="16dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+</FrameLayout>

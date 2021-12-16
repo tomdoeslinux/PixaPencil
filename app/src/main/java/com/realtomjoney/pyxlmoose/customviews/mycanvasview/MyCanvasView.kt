@@ -56,7 +56,10 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
                     rectangles[rect] = null
                     extraCanvas.drawRect(
                         rect,
-                        Paint().apply { style = Paint.Style.FILL; color = Color.WHITE })
+                        Paint().apply {
+                            style = Paint.Style.FILL
+                            color = Color.WHITE
+                        })
                 }
             }
         }

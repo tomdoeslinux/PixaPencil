@@ -5,11 +5,17 @@ import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import androidx.core.graphics.ColorUtils
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
+import com.realtomjoney.pyxlmoose.extensions.navigateTo
+import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
+import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.*
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener {
     var previousView: View? = null
 
     val context = this
@@ -74,5 +80,8 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 
     override fun onBackPressed() = extendedOnBackPressed()
-}
 
+    override fun onToolTapped(toolName: String) = extendedOnToolTapped(toolName)
+
+    override fun onFilterSelected(filterType: String) = extendedOnFilterSelected(filterType)
+}

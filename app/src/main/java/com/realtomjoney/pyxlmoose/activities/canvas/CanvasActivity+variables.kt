@@ -4,9 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
-import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
-import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
+import com.realtomjoney.pyxlmoose.fragments.*
 import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
@@ -31,12 +29,14 @@ enum class Tools {
     PENCIL_TOOL, HORIZONTAL_MIRROR_TOOL, VERTICAL_MIRROR_TOOL, DARKEN_TOOL, LIGHTEN_TOOL, CHANGE_BACKGROUND_TOOL, COLOR_PICKER_TOOL, ERASE_TOOL
 }
 
-val currentProjectTitle: String? = null
-
 var currentTool: Tools = Tools.PENCIL_TOOL
 
 val canvasStates = mutableListOf<List<Pixel>>()
 
+var brushThickness = 0
+
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasFragmentInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
+var toolsFragmentInstance: ToolsFragment? = null
+var filtersFragmentInstance: FiltersFragment? = null

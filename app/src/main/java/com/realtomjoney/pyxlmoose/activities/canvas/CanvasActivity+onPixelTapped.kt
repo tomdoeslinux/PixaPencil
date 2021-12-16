@@ -9,12 +9,13 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
     val defaultErasePaint = Paint().apply {
         style = Paint.Style.FILL
         color = currentBackground ?: Color.WHITE
+        strokeWidth = (brushThickness * instance.scale).toFloat()
     }
 
     val defaultRectPaint =  Paint().apply {
         style = Paint.Style.FILL_AND_STROKE
         color = getSelectedColor()
-//        strokeWidth = (10 * instance.scale).toFloat()
+        strokeWidth = (brushThickness * instance.scale).toFloat()
         isAntiAlias = false
     }
 

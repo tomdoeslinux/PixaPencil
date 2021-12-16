@@ -37,4 +37,8 @@
     <string name="content_description_mirror_tool_2">Mirror Tool 2</string>
     <string name="content_description_pencil_tool">Pencil Tool</string>
     <string name="save_text">Save</string>
+    <string name="tab_export_str">Export</string>
+    <string name="tab_filters_str">Filters</string>
+    <string name="tab_brushes_str">Brushes</string>
+    <string name="tab_tools_str">Tools</string>
 </resources>

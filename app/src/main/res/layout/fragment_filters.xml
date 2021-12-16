@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/frameLayout"
+android:layout_width="wrap_content"
+android:layout_height="105dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@color/white"
+xmlns:app="http://schemas.android.com/apk/res-auto">
+<HorizontalScrollView
+    android:id="@+id/activityCanvas_canvasToolsScrollView"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_colorFilterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Color Filter"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/ic_baseline_color_lens_24"
+            style="@style/fragmentFilters_button_style"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_lightenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lighten"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/ic_baseline_wb_sunny_24"
+            style="@style/fragmentFilters_button_style"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_darkenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Darken"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/darken_icon"
+            android:layout_marginEnd="16dp"
+            style="@style/fragmentFilters_button_style"/>
+    </LinearLayout>
+</HorizontalScrollView>
+</FrameLayout>
