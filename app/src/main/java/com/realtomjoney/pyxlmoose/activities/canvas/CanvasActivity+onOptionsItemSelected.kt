@@ -1,12 +1,18 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.app.Activity
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.view.MenuItem
+import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
 import com.realtomjoney.pyxlmoose.models.PixelArt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -62,6 +68,30 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                     clearCanvas()
                     canvasStates.clear()
                 }
+            }
+        }
+        R.id.fullscreen -> {
+            if (!fullscreenEnabled) {
+                binding.activityCanvasRootLayout.doSomethingWithChildElements {
+                    it.visibility = View.GONE
+                }
+                binding.activityCanvasCanvasFragmentHostCardViewParent.visibility = View.VISIBLE
+
+                item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_fullscreen_exit_24)
+                item.tooltipText = "Exit Fullscreen"
+                item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
+
+                fullscreenEnabled = true
+            } else {
+                binding.activityCanvasRootLayout.doSomethingWithChildElements {
+                    it.visibility = View.VISIBLE
+                }
+
+                item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_fullscreen_24)
+                item.tooltipText = "Fullscreen"
+                item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
+
+                fullscreenEnabled = false
             }
         }
     }

@@ -40,3 +40,5 @@ lateinit var canvasFragmentInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 var toolsFragmentInstance: ToolsFragment? = null
 var filtersFragmentInstance: FiltersFragment? = null
+
+var fullscreenEnabled = false

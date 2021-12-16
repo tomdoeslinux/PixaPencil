@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/fullscreen"
+        android:icon="@drawable/ic_baseline_fullscreen_24"
+        android:iconTint="@color/white"
+        app:showAsAction="always"
+        android:title="Fullscreen" />
 
     <item android:id="@+id/undo"
         android:icon="@drawable/ic_baseline_undo_24"
