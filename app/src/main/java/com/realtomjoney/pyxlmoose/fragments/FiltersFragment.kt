@@ -62,6 +62,18 @@ class FiltersFragment : Fragment() {
             caller.onFilterSelected("INVERT_BLUE_FILTER")
         }
 
+        binding.fragmentFiltersGrayScaleButton.setOnClickListener {
+            caller.onFilterSelected("GRAYSCALE_FILTER")
+        }
+
+        binding.fragmentFiltersGrayScaleButtonTwo.setOnClickListener {
+            caller.onFilterSelected("GRAYSCALE_FILTER_TWO")
+        }
+
+        binding.fragmentFiltersGrayScaleButtonThree.setOnClickListener {
+            caller.onFilterSelected("GRAYSCALE_FILTER_THREE")
+        }
+
         return binding.root
     }
 

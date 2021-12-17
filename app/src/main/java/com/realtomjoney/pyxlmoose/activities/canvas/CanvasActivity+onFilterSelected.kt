@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.Color
+import android.graphics.*
 
 fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
     canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
@@ -37,6 +37,29 @@ fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
 
             canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
         }
+        "GRAYSCALE_FILTER" -> {
+            val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+            for (pixel in dataAsPixelList) pixel.pixelColor = performCustomGrayscaleAlgorithm(pixel.pixelColor ?: Color.WHITE)
+
+            canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+        }
+
+        "GRAYSCALE_FILTER_TWO" -> {
+            val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+            for (pixel in dataAsPixelList) pixel.pixelColor = performCustomGrayscaleAlgorithm(pixel.pixelColor ?: Color.WHITE, 0)
+
+            canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+        }
+
+        "GRAYSCALE_FILTER_THREE" -> {
+            val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+            for (pixel in dataAsPixelList) pixel.pixelColor = performCustomGrayscaleAlgorithm(pixel.pixelColor ?: Color.WHITE, 1)
+
+            canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+        }
     }
 }
 
@@ -46,4 +69,20 @@ fun flipBits(n: Int) = n xor 0x00ffffff // TODO - Understand how this works a bi
 fun flipRed(n: Int) = n xor 0x00ff0000 // TODO - Understand how this works a bit better
 fun flipGreen(n: Int) = n xor 0x0000ff00 // TODO - Understand how this works a bit better
 fun flipBlue(n: Int) = n xor 0x0000000ff // TODO - Understand how this works a bit better
+
+fun performCustomGrayscaleAlgorithm(n: Int, strength: Int = 10): Int {
+    // TODO - research whether this a good way to convert a color to grayscale?
+
+    var color = n
+
+    for (i in 0..strength) {
+        val r = Color.valueOf(color).red()
+        val g = Color.valueOf(color).green()
+        val b = Color.valueOf(color).blue()
+
+        color = (Color.rgb((r + g + b) / 3.toFloat(), r, r))
+    }
+
+    return color
+}
 
