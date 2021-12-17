@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
+import android.view.View
 import androidx.core.graphics.ColorUtils
 
 fun darkenCanvas(ratio: Float = 0.2f) = applyColorFilterToCanvas(Color.BLACK, ratio)
@@ -44,5 +45,13 @@ fun performCustomGrayscaleAlgorithm(n: Int, strength: Int = 10): Int {
     }
 
     return color
+}
+
+fun applyCanvasFilter(lambda: (Int) -> Int) {
+    val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
+
+    for (pixel in dataAsPixelList) pixel.pixelColor = lambda(pixel.pixelColor ?: Color.WHITE)
+
+    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
 }
 
