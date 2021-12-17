@@ -50,6 +50,17 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:icon="@drawable/darken_icon"
             android:layout_marginEnd="16dp"
             style="@style/fragmentFilters_button_style"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_invertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Invert"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/ic_baseline_invert_colors_24"
+            android:layout_marginEnd="16dp"
+            style="@style/fragmentFilters_button_style"/>
     </LinearLayout>
 </HorizontalScrollView>
 </FrameLayout>

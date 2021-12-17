@@ -46,6 +46,10 @@ class FiltersFragment : Fragment() {
             caller.onFilterSelected("DARKEN_FILTER")
         }
 
+        binding.fragmentFiltersInvertButton.setOnClickListener {
+            caller.onFilterSelected("INVERT_FILTER")
+        }
+
         return binding.root
     }
 
