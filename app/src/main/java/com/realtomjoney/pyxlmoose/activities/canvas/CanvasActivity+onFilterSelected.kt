@@ -19,6 +19,5 @@ fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
     }
 }
 
-fun flipBits(n: Int): Int {
-    return n xor 0x00ffffff // TODO - Understand how this works a bit better
-}
+// Solution by Andrew Gallasch (https://stackoverflow.com/users/3841420/andrew-gallasch) on StackOverFlow (https://stackoverflow.com/questions/18141976/how-to-invert-an-rgb-color-in-integer-form)
+fun flipBits(n: Int) = n xor 0x00ffffff // TODO - Understand how this works a bit better
