@@ -101,11 +101,6 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
 
     fun saveData() = extendedSaveData()
 
-    fun saveCustomData(newData: MutableMap<RectF, Paint?>): List<Pixel> {
-        rectangles = newData
-        return extendedSaveData()
-    }
-
     fun loadData(context: LifecycleOwner, index: Int) = extendedLoadData(context, index)
 
     fun drawFromPixelList(pixelList: List<Pixel>) = extendedDrawFromPixelList(pixelList)
