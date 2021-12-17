@@ -60,6 +60,36 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:icon="@drawable/ic_baseline_invert_colors_24"
             android:layout_marginEnd="16dp"
             style="@style/fragmentFilters_button_style"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_invertRedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Invert Red"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/ic_baseline_invert_colors_24"
+            android:layout_marginEnd="16dp"
+            style="@style/fragmentFilters_button_style"/>
+
+        <com.google.android.material.button.MaterialButton
+        android:id="@+id/fragmentFilters_invertGreenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Invert Green"
+        android:textColor="@android:color/holo_blue_dark"
+        app:icon="@drawable/ic_baseline_invert_colors_24"
+        android:layout_marginEnd="16dp"
+        style="@style/fragmentFilters_button_style"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fragmentFilters_invertBlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Invert Blue"
+            android:textColor="@android:color/holo_blue_dark"
+            app:icon="@drawable/ic_baseline_invert_colors_24"
+            android:layout_marginEnd="16dp"
+            style="@style/fragmentFilters_button_style"/>
     </LinearLayout>
 </HorizontalScrollView>
 </FrameLayout>

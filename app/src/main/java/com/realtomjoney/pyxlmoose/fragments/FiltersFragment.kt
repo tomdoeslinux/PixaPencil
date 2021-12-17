@@ -50,6 +50,18 @@ class FiltersFragment : Fragment() {
             caller.onFilterSelected("INVERT_FILTER")
         }
 
+        binding.fragmentFiltersInvertRedButton.setOnClickListener {
+            caller.onFilterSelected("INVERT_RED_FILTER")
+        }
+
+        binding.fragmentFiltersInvertGreenButton.setOnClickListener {
+            caller.onFilterSelected("INVERT_GREEN_FILTER")
+        }
+
+        binding.fragmentFiltersInvertBlueButton.setOnClickListener {
+            caller.onFilterSelected("INVERT_BLUE_FILTER")
+        }
+
         return binding.root
     }
 
