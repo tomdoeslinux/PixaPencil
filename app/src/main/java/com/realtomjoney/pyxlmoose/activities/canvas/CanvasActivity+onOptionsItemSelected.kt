@@ -18,6 +18,25 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+fun CanvasActivity.setMenuItemIcon(item: MenuItem, icon: Int, tooltipText: CharSequence? = item.tooltipText) {
+    item.icon = ContextCompat.getDrawable(this, icon)
+    item.tooltipText = tooltipText
+    item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
+}
+
+fun enableFullscreen() {
+    binding.activityCanvasRootLayout.doSomethingWithChildElements {
+        it.visibility = View.GONE
+    }
+    binding.activityCanvasCanvasFragmentHostCardViewParent.visibility = View.VISIBLE
+}
+
+fun disableFullscreen() {
+    binding.activityCanvasRootLayout.doSomethingWithChildElements {
+        it.visibility = View.VISIBLE
+    }
+}
+
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     val zoom = 0.8f
     val maxZoomOut = 0.19999999 // TODO - look into why Android is buggy when user zooms out past this number
@@ -72,25 +91,12 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
         R.id.fullscreen -> {
             if (!fullscreenEnabled) {
-                binding.activityCanvasRootLayout.doSomethingWithChildElements {
-                    it.visibility = View.GONE
-                }
-                binding.activityCanvasCanvasFragmentHostCardViewParent.visibility = View.VISIBLE
-
-                item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_fullscreen_exit_24)
-                item.tooltipText = "Exit Fullscreen"
-                item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
-
+                enableFullscreen()
+                setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_exit_24, "Exit Fullscreen")
                 fullscreenEnabled = true
             } else {
-                binding.activityCanvasRootLayout.doSomethingWithChildElements {
-                    it.visibility = View.VISIBLE
-                }
-
-                item.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_fullscreen_24)
-                item.tooltipText = "Fullscreen"
-                item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
-
+                disableFullscreen()
+                setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_24, "Fullscreen")
                 fullscreenEnabled = false
             }
         }
