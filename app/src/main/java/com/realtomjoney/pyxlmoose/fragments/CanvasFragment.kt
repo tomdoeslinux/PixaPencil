@@ -29,6 +29,14 @@ class CanvasFragment(private val spanCount: Int) : Fragment() {
 
     lateinit var myCanvasViewInstance: MyCanvasView
 
+    private fun setupCanvas() {
+        myCanvasViewInstance = MyCanvasView(requireContext(), spanCount.toDouble())
+
+        binding.fragmentCanvasRootLayout.addView(myCanvasViewInstance)
+
+        if (index != -1) canvasFragmentInstance.myCanvasViewInstance.loadData(this, index!!)
+    }
+
     companion object {
         fun newInstance(spanCount: Int) = CanvasFragment(spanCount)
     }
@@ -41,11 +49,7 @@ class CanvasFragment(private val spanCount: Int) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCanvasBinding.inflate(inflater, container, false)
 
-        myCanvasViewInstance = MyCanvasView(requireContext(), spanCount.toDouble())
-
-        binding.fragmentCanvasRootLayout.addView(myCanvasViewInstance)
-
-        if (index != -1) canvasFragmentInstance.myCanvasViewInstance.loadData(this, index!!)
+        setupCanvas()
 
         return binding.root
     }

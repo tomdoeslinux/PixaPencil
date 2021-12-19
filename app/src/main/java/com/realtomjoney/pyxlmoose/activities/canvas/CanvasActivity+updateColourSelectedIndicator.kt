@@ -7,6 +7,4 @@ fun CanvasActivity.extendedUpdateColorSelectedIndicator(it: View) {
 
     previousView = it
     background = it.background
-
-    it.background = getGradientDrawable()
 }

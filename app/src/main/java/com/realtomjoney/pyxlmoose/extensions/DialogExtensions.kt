@@ -15,10 +15,10 @@ fun Activity.showDialog(
     dialogNegativeButtonAction: DialogInterface.OnClickListener?,
     view: View?) {
     MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
-        .setTitle(dialogTitle.replaceFirstChar { it.titlecase() })
-        .setMessage(dialogMessage.replaceFirstChar { it.titlecase() })
+        .setTitle(dialogTitle)
+        .setMessage(dialogMessage)
         .setView(view)
-        .setPositiveButton(dialogPositiveButtonText.replaceFirstChar { it.titlecase() }, dialogPositiveButtonAction)
-        .setNegativeButton(dialogNegativeButtonText?.replaceFirstChar { it.titlecase() }, dialogNegativeButtonAction)
+        .setPositiveButton(dialogPositiveButtonText, dialogPositiveButtonAction)
+        .setNegativeButton(dialogNegativeButtonText, dialogNegativeButtonAction)
         .show()
 }

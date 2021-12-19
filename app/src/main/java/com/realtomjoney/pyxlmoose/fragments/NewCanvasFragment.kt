@@ -13,7 +13,6 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
 class NewCanvasFragment : Fragment() {
-
     private var _binding: FragmentNewCanvasBinding? = null
 
     private val binding get() = _binding!!
@@ -22,23 +21,7 @@ class NewCanvasFragment : Fragment() {
 
     private lateinit var caller: NewCanvasFragmentListener
 
-    companion object {
-        fun newInstance() = NewCanvasFragment()
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is NewCanvasFragmentListener) caller = context
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentNewCanvasBinding.inflate(inflater, container, false)
-
-        root = binding.fragmentNewCanvasRootLayout
-
+    private fun setOnClickListeners() {
         binding.fragmentNewCanvasDoneButton.setOnClickListener {
             try {
                 caller.onDoneButtonPressed(
@@ -50,6 +33,23 @@ class NewCanvasFragment : Fragment() {
                 (root as ConstraintLayout).showSnackbar(ex.message.toString(), SnackbarDuration.DEFAULT)
             }
         }
+    }
+
+    companion object {
+        fun newInstance() = NewCanvasFragment()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is NewCanvasFragmentListener) caller = context
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentNewCanvasBinding.inflate(inflater, container, false)
+
+        root = binding.fragmentNewCanvasRootLayout
+        setOnClickListeners()
+
         return binding.root
     }
 

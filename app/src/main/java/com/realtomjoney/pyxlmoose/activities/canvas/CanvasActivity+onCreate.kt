@@ -12,5 +12,5 @@ fun CanvasActivity.extendedOnCreate() {
     setOnClickListeners()
     setColors()
 
-    title = (intent.getStringExtra("PROJECT_TITLE"))
+    title = (intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA))
 }

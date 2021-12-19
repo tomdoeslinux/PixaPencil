@@ -1,19 +1,23 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Color
+import com.realtomjoney.pyxlmoose.utility.ColorFilters
+import com.realtomjoney.pyxlmoose.utility.StringConstants
+
 fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
     canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
 
     when (filterType) {
-        "COLOR_FILTER" -> applyColorFilterToCanvas(getSelectedColor())
-        "DARKEN_FILTER" -> darkenCanvas()
-        "LIGHTEN_FILTER" -> lightenCanvas()
-        "INVERT_FILTER" -> applyCanvasFilter { flipBits(it) }
-        "INVERT_RED_FILTER" ->  applyCanvasFilter { flipRed(it) }
-        "INVERT_GREEN_FILTER" -> applyCanvasFilter { flipGreen(it) }
-        "INVERT_BLUE_FILTER" -> applyCanvasFilter { flipBlue(it) }
-        "GRAYSCALE_FILTER" -> applyCanvasFilter { performCustomGrayscaleAlgorithm(it) }
-        "GRAYSCALE_FILTER_TWO" -> applyCanvasFilter { performCustomGrayscaleAlgorithm(it, 0) }
-        "GRAYSCALE_FILTER_THREE" -> applyCanvasFilter { performCustomGrayscaleAlgorithm(it, 1) }
+        StringConstants.COLOR_FILTER_IDENTIFIER -> applyCanvasFilter { ColorFilters.blendColor(it, getSelectedColor()) }
+        StringConstants.DARKEN_FILTER_IDENTIFIER -> applyCanvasFilter { ColorFilters.blendColor(it, Color.BLACK) }
+        StringConstants.LIGHTEN_FILTER_IDENTIFIER -> applyCanvasFilter { ColorFilters.blendColor(it, Color.WHITE) }
+        StringConstants.INVERT_FILTER_IDENTIFIER  -> applyCanvasFilter { ColorFilters.inverseRGB(it) }
+        StringConstants.INVERT_RED_FILTER_IDENTIFIER ->  applyCanvasFilter { ColorFilters.inverseRed(it) }
+        StringConstants.INVERT_GREEN_FILTER_IDENTIFIER ->  applyCanvasFilter { ColorFilters.inverseGreen(it) }
+        StringConstants.INVERT_BLUE_FILTER_IDENTIFIER ->  applyCanvasFilter { ColorFilters.inverseBlue(it) }
+        StringConstants.GRAYSCALE_FILTER_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it) }
+        StringConstants.GRAYSCALE_FILTER_TWO_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it, 0) }
+        StringConstants.GRAYSCALE_FILTER_THREE_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it, 1) }
     }
 }
 

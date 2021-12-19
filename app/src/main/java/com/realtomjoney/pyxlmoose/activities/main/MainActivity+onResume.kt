@@ -6,10 +6,12 @@ import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.AppData
 
 fun MainActivity.extendedOnResume() {
-    binding.activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
-    binding.activityMainNewProjectButton.show()
+    binding.apply {
+        activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
+        activityMainNewProjectButton.show()
+        activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(context, 2)
+    }
 
-    binding.activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
     AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
         binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
     })

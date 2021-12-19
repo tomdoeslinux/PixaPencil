@@ -22,20 +22,23 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
 
     private lateinit var caller: FindAndReplaceFragmentListener
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is FindAndReplaceFragmentListener) caller = context
+    private val primaryLayoutManager = LinearLayoutManager(this.activity).apply {
+        orientation = LinearLayoutManager.HORIZONTAL
     }
 
-    internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(color: Int, it: View) {
-            binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(color)
-        }
+    private fun setUpCanvasColorsRecyclerView() {
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = primaryLayoutManager
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(canvasColors, FragmentFindAndReplaceCanvasColorsCaller(binding))
     }
 
-    internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(color: Int, it: View) {
-            binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(color)
+    private fun setUpAvailableColorsRecyclerView() {
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = primaryLayoutManager
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(ColorDatabase.toList(), FragmentFindAndReplaceAvailableColorsRecyclerView(binding))
+    }
+
+    private fun setOnClickListeners() {
+        binding.fragmentFindAndReplaceDoneButton.setOnClickListener {
+            caller.onDoneButtonPressed((binding.fragmentFindAndReplaceColorToFind.background as ColorDrawable).color, (binding.fragmentFindAndReplaceColorToReplace.background as ColorDrawable).color)
         }
     }
 
@@ -43,32 +46,26 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
         fun newInstance(canvasColors: List<Int>) = FindAndReplaceFragment(canvasColors)
     }
 
-    private fun setUpCanvasColorsRecyclerView() {
-        val layoutManager = LinearLayoutManager(this.activity)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = layoutManager
-        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(canvasColors, FragmentFindAndReplaceCanvasColorsCaller(binding))
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FindAndReplaceFragmentListener) caller = context
     }
 
-    private fun setUpAvailableColorsRecyclerView() {
-        val layoutManager = LinearLayoutManager(this.activity)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = layoutManager
-        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(ColorDatabase.toList(), FragmentFindAndReplaceAvailableColorsRecyclerView(binding))
+    internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+        override fun onColorTapped(selectedColor: Int, it: View) = binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(selectedColor)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+        override fun onColorTapped(selectedColor: Int, it: View) = binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(selectedColor)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
+
         setUpCanvasColorsRecyclerView()
         setUpAvailableColorsRecyclerView()
+        setOnClickListeners()
 
-        binding.fragmentFindAndReplaceDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed((binding.fragmentFindAndReplaceColorToFind.background as ColorDrawable).color,
-                (binding.fragmentFindAndReplaceColorToReplace.background as ColorDrawable).color)
-        }
         return binding.root
     }
 

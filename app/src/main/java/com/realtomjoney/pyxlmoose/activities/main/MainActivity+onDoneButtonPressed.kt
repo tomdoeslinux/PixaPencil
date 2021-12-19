@@ -10,20 +10,9 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: TextInputEditText) {
     startActivity(
         Intent(this, CanvasActivity::class.java)
-            .putExtra("SPAN_COUNT", Integer.parseInt(spanCount.toString()))
-            .putExtra("PROJECT_TITLE", titleEditText.text.toString())
+            .putExtra(StringConstants.SPAN_COUNT_EXTRA, Integer.parseInt(spanCount.toString()))
+            .putExtra(StringConstants.PROJECT_TITLE_EXTRA, titleEditText.text.toString())
     )
-
-    with(supportFragmentManager.beginTransaction()) {
-        remove(newCanvasFragmentInstance)
-        commit()
-        setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
-    }
-
-    with(binding) {
-        activityMainPrimaryFragmentHost.visibility = View.GONE
-        activityMainBottomNavigationView.visibility = View.VISIBLE
-    }
 
     title = StringConstants.APP_NAME
     currentFragmentInstance = null

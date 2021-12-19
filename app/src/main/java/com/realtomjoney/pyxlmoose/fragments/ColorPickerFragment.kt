@@ -27,43 +27,16 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
     private var valueG = 0
     private var valueB = 0
 
-    companion object {
-        fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
-    }
-
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
-
     private fun updateHexadecimalEditText() = binding.hexadecimalEditText.setText(Integer.toHexString((binding.colorPickerPreview.background as ColorDrawable).color))
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is ColorPickerFragmentListener) caller = context
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentColorPickerBinding.inflate(inflater, container, false)
-
-        binding.oldColorPreview.setBackgroundColor(oldColor)
-        binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
-
-        updateHexadecimalEditText()
-
-        binding.hexadecimalEditText.doAfterTextChanged {
-            try {
-                val color = Color.parseColor("#" + binding.hexadecimalEditText.text.toString())
-                binding.colorPickerPreview.setBackgroundColor(color)
-
-                valueR = color.red
-                valueG = color.green
-                valueB = color.blue
-
-            } catch (ex: Exception) { }
-        }
-
+    private fun setOnClickListeners() {
         binding.colorDoneButton.setOnClickListener {
             caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
         }
+    }
 
+    private fun setOnChangeListeners() {
         binding.redProgressBar.addOnChangeListener { _, value, _ ->
             valueR = value.toInt()
             updateColorSelectedPreview()
@@ -81,6 +54,42 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
             updateColorSelectedPreview()
             updateHexadecimalEditText()
         }
+    }
+
+    private fun setDoAfterTextChangedListeners() {
+        binding.hexadecimalEditText.doAfterTextChanged {
+            try {
+                val color = Color.parseColor("#" + binding.hexadecimalEditText.text.toString())
+                binding.colorPickerPreview.setBackgroundColor(color)
+
+                valueR = color.red
+                valueG = color.green
+                valueB = color.blue
+
+            } catch (ex: Exception) { }
+        }
+
+    }
+
+    companion object {
+        fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is ColorPickerFragmentListener) caller = context
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentColorPickerBinding.inflate(inflater, container, false)
+
+        binding.oldColorPreview.setBackgroundColor(oldColor)
+        binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
+
+        updateHexadecimalEditText()
+        setDoAfterTextChangedListeners()
+        setOnClickListeners()
+        setOnChangeListeners()
 
         return binding.root
     }

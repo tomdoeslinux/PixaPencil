@@ -43,9 +43,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     private fun setBindings() = extendedSetBindings()
 
-    override fun onCreationTapped(param: PixelArt) = extendedOnCreationTapped(param)
+    override fun onCreationTapped(creation: PixelArt) = extendedOnCreationTapped(creation)
 
-    override fun onCreationLongTapped(param: PixelArt) = extendedOnCreationLongTapped(param)
+    override fun onCreationLongTapped(pixelArtLongTapped: PixelArt) = extendedOnCreationLongTapped(pixelArtLongTapped)
 
     override fun onBackPressed() {
         if (currentFragmentInstance != null) extendedOnBackPressed() else super.onBackPressed()

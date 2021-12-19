@@ -1,5 +1,5 @@
 package com.realtomjoney.pyxlmoose.listeners
 
 interface FiltersFragmentListener {
-    fun onFilterSelected(filterType: String)
+    fun onFilterSelected(filterName: String)
 }

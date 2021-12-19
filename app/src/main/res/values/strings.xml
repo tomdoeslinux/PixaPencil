@@ -1,36 +1,22 @@
 <resources>
     <string name="app_name">PyxlMoose</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="floating_action_button_str">New</string>
-    <string name="title_str">Good Morning</string>
-    <string name="subtitle_str">Recent Creations</string>
-    <string name="button_done_str">OK</string>
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
-    <string name="name_str">Name</string>
-    <string name="rgb_str">RGB</string>
-    <string name="hex_str">Hex</string>
-    <string name="mirror_str">Mirror</string>
-    <string name="grid_text">Turn Grid On</string>
     <string name="home_str">Home</string>
     <string name="star_str">Favorited</string>
     <string name="str_hexadecimal">Hexadecimal</string>
     <string name="str_button_done">Done</string>
     <string name="content_description_activity_main_fab">New Project</string>
-    <string name="content_description_color_swap_tool">Color Swap Tool</string>
-    <string name="content_description_save_creation">Save Creation</string>
     <string name="content_description_darken_tool">Darken Tool</string>
     <string name="content_description_lighten_tool">Lighten Tool</string>
     <string name="content_description_clear_canvas_tool">Clear Canvas Tool</string>
     <string name="content_description_change_background_tool">Change Background Tool</string>
     <string name="content_description_find_and_replace_tool">Find and Replace Tool</string>
     <string name="content_description_color_picker_tool">Color Picker Tool</string>
-    <string name="content_description_undo_tool">Undo Tool</string>
     <string name="content_description_eraser_tool">Eraser Tool</string>
     <string name="content_description_favorite">Favorite</string>
     <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
-    <string name="new_canvas_str">New Canvas</string>
     <string name="span_count_str">Span count</string>
     <string name="project_name_str">Project name</string>
     <string name="content_description_mirror_tool">Mirror Tool</string>
@@ -39,6 +25,5 @@
     <string name="save_text">Save</string>
     <string name="tab_export_str">Export</string>
     <string name="tab_filters_str">Filters</string>
-    <string name="tab_brushes_str">Brushes</string>
     <string name="tab_tools_str">Tools</string>
 </resources>

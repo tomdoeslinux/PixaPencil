@@ -5,7 +5,7 @@ import android.graphics.Color
 object ColorDatabase {
     private val database = mutableListOf<Int>()
 
-    private fun addItem(item: Int) = database.add(item)
+    private fun addColor(color: Int) = database.add(color)
 
     fun toList() = database.toList()
 
@@ -162,6 +162,6 @@ object ColorDatabase {
             Color.parseColor("#B31B1B"),
         )
 
-        for (color in colorData) addItem(color)
+        for (color in colorData) addColor(color)
     }
 }

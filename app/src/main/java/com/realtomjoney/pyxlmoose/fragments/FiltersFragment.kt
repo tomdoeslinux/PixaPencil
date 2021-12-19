@@ -10,6 +10,7 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentFiltersBinding
 import com.realtomjoney.pyxlmoose.databinding.FragmentToolsBinding
 import com.realtomjoney.pyxlmoose.listeners.FiltersFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 
 class FiltersFragment : Fragment() {
@@ -18,6 +19,50 @@ class FiltersFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var caller: FiltersFragmentListener
+
+    private fun setOnClickListeners() {
+        binding.apply {
+            fragmentFiltersColorFilterButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.COLOR_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersLightenButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.LIGHTEN_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersDarkenButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.DARKEN_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersInvertButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.INVERT_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersInvertRedButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.INVERT_RED_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersInvertGreenButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.INVERT_GREEN_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersInvertBlueButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.INVERT_BLUE_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersGrayScaleButton.setOnClickListener {
+                caller.onFilterSelected(StringConstants.GRAYSCALE_FILTER_IDENTIFIER)
+            }
+
+            fragmentFiltersGrayScaleButtonTwo.setOnClickListener {
+                caller.onFilterSelected(StringConstants.GRAYSCALE_FILTER_TWO_IDENTIFIER)
+            }
+
+            fragmentFiltersGrayScaleButtonThree.setOnClickListener {
+                caller.onFilterSelected(StringConstants.GRAYSCALE_FILTER_THREE_IDENTIFIER)
+            }
+        }
+    }
 
     companion object {
         fun newInstance() = FiltersFragment()
@@ -28,51 +73,10 @@ class FiltersFragment : Fragment() {
         if (context is FiltersFragmentListener) caller = context
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFiltersBinding.inflate(inflater, container, false)
 
-        binding.fragmentFiltersColorFilterButton.setOnClickListener {
-            caller.onFilterSelected("COLOR_FILTER")
-        }
-
-        binding.fragmentFiltersLightenButton.setOnClickListener {
-            caller.onFilterSelected("LIGHTEN_FILTER")
-        }
-
-        binding.fragmentFiltersDarkenButton.setOnClickListener {
-            caller.onFilterSelected("DARKEN_FILTER")
-        }
-
-        binding.fragmentFiltersInvertButton.setOnClickListener {
-            caller.onFilterSelected("INVERT_FILTER")
-        }
-
-        binding.fragmentFiltersInvertRedButton.setOnClickListener {
-            caller.onFilterSelected("INVERT_RED_FILTER")
-        }
-
-        binding.fragmentFiltersInvertGreenButton.setOnClickListener {
-            caller.onFilterSelected("INVERT_GREEN_FILTER")
-        }
-
-        binding.fragmentFiltersInvertBlueButton.setOnClickListener {
-            caller.onFilterSelected("INVERT_BLUE_FILTER")
-        }
-
-        binding.fragmentFiltersGrayScaleButton.setOnClickListener {
-            caller.onFilterSelected("GRAYSCALE_FILTER")
-        }
-
-        binding.fragmentFiltersGrayScaleButtonTwo.setOnClickListener {
-            caller.onFilterSelected("GRAYSCALE_FILTER_TWO")
-        }
-
-        binding.fragmentFiltersGrayScaleButtonThree.setOnClickListener {
-            caller.onFilterSelected("GRAYSCALE_FILTER_THREE")
-        }
+        setOnClickListeners()
 
         return binding.root
     }

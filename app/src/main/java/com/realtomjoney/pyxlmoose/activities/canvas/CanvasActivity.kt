@@ -5,15 +5,9 @@ import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
-import androidx.core.graphics.ColorUtils
-import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
-import com.realtomjoney.pyxlmoose.extensions.navigateTo
-import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.ColorPickerFragment
-import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.listeners.*
-import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener {
     var previousView: View? = null
@@ -38,7 +32,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
         setSecondaryPixelColor(Color.BLUE)
     }
 
-    fun setPixelColor(it: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(it) else setSecondaryPixelColor(it)
+    fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
 
     private fun setPrimaryPixelColor(color: Int) {
         primaryColor = color
@@ -63,17 +57,15 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun setBindings() = extendedSetBindings()
 
-    override fun onPixelTapped(instance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(instance, rectTapped)
+    override fun onPixelTapped(canvasInstance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(canvasInstance, rectTapped)
 
     override fun onActionUp() {
         canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
     }
 
-    fun getGradientDrawable() = extendedGetGradientDrawable()
-
     fun updateColorSelectedIndicator(it: View) = extendedUpdateColorSelectedIndicator(it)
 
-    override fun onColorTapped(color: Int, it: View) = extendedOnColorTapped(color, it)
+    override fun onColorTapped(selectedColor: Int, it: View) = extendedOnColorTapped(selectedColor, it)
 
     override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
 
@@ -83,5 +75,5 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onToolTapped(toolName: String) = extendedOnToolTapped(toolName)
 
-    override fun onFilterSelected(filterType: String) = extendedOnFilterSelected(filterType)
+    override fun onFilterSelected(filterName: String) = extendedOnFilterSelected(filterName)
 }
