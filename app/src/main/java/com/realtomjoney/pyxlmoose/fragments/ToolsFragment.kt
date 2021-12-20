@@ -58,6 +58,10 @@ class ToolsFragment : Fragment() {
             fragmentToolsEraseButton.setOnClickListener {
                 caller.onToolTapped(StringConstants.ERASE_TOOL_IDENTIFIER)
             }
+
+            fragmentToolsGridButton.setOnClickListener {
+                caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
+            }
         }
     }
 

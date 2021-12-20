@@ -4,4 +4,5 @@ fun extendedOnPause() {
     currentBackground = null
     canvasStates.clear()
     currentTool = Tools.PENCIL_TOOL
+    gridEnabled = false
 }

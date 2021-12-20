@@ -33,4 +33,5 @@ object StringConstants {
     const val COLOR_PICKER_TOOL_IDENTIFIER = "COLOR_PICKER"
     const val FIND_AND_REPLACE_TOOL_IDENTIFIER = "FIND_AND_REPLACE"
     const val ERASE_TOOL_IDENTIFIER = "ERASE"
+    const val GRID_TOOL_IDENTIFIER = "GRID"
 }

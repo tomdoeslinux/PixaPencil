@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
+    canvasFragmentInstance.myCanvasViewInstance.removeGrid()
     when (toolName) {
         StringConstants.PENCIL_TOOL_IDENTIFIER -> {
             currentTool = Tools.PENCIL_TOOL
@@ -46,8 +47,14 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentFragmentInstance = findAndReplaceFragmentInstance
             navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
         }
-        StringConstants.ERASE_TOOL_IDENTIFIER  -> {
+        StringConstants.ERASE_TOOL_IDENTIFIER -> {
             currentTool = Tools.ERASE_TOOL
+        }
+        StringConstants.GRID_TOOL_IDENTIFIER -> {
+            if (!gridEnabled) canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
+            else canvasFragmentInstance.myCanvasViewInstance.removeGrid()
+
+            gridEnabled = !gridEnabled
         }
     }
 }

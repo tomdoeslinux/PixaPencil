@@ -31,6 +31,8 @@ enum class Tools {
 
 var currentTool: Tools = Tools.PENCIL_TOOL
 
+var gridEnabled = false
+
 val canvasStates = mutableListOf<List<Pixel>>()
 
 var brushThickness = 0

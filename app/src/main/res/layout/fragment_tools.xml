@@ -83,7 +83,13 @@
                 android:id="@+id/fragmentTools_eraseButton"
                 style="@style/canvas_activity_button_tool_style"
                 android:contentDescription="@string/content_description_eraser_tool"
-                app:srcCompat="@drawable/ic_eraser"
+                app:srcCompat="@drawable/ic_eraser" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_gridButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_eraser_tool"
+                app:srcCompat="@drawable/ic_baseline_grid_on_24"
                 android:layout_marginEnd="16dp"/>
         </LinearLayout>
     </HorizontalScrollView>

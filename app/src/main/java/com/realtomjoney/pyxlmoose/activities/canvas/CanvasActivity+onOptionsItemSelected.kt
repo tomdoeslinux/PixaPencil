@@ -90,14 +90,14 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             }
         }
         R.id.fullscreen -> {
-            if (!fullscreenEnabled) {
+            fullscreenEnabled = if (!fullscreenEnabled) {
                 enableFullscreen()
                 setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_exit_24, "Exit Fullscreen")
-                fullscreenEnabled = true
+                true
             } else {
                 disableFullscreen()
                 setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_24, "Fullscreen")
-                fullscreenEnabled = false
+                false
             }
         }
     }
