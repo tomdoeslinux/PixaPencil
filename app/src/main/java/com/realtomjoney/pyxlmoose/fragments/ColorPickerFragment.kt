@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
+import androidx.core.graphics.toColor
 import androidx.core.widget.doAfterTextChanged
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
@@ -65,7 +66,6 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
                 valueR = color.red
                 valueG = color.green
                 valueB = color.blue
-
             } catch (ex: Exception) { }
         }
 
@@ -90,6 +90,10 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
         setDoAfterTextChangedListeners()
         setOnClickListeners()
         setOnChangeListeners()
+
+        binding.redProgressBar.value = Color.red(oldColor).toFloat()
+        binding.blueProgressBar.value = Color.blue(oldColor).toFloat()
+        binding.greenProgressBar.value = Color.green(oldColor).toFloat()
 
         return binding.root
     }
