@@ -22,17 +22,17 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
 
     private lateinit var caller: FindAndReplaceFragmentListener
 
-    private val primaryLayoutManager = LinearLayoutManager(this.activity).apply {
-        orientation = LinearLayoutManager.HORIZONTAL
-    }
-
     private fun setUpCanvasColorsRecyclerView() {
-        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = primaryLayoutManager
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
+            orientation = LinearLayoutManager.HORIZONTAL
+        }
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(canvasColors, FragmentFindAndReplaceCanvasColorsCaller(binding))
     }
 
     private fun setUpAvailableColorsRecyclerView() {
-        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = primaryLayoutManager
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
+            orientation = LinearLayoutManager.HORIZONTAL
+        }
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(ColorDatabase.toList(), FragmentFindAndReplaceAvailableColorsRecyclerView(binding))
     }
 
