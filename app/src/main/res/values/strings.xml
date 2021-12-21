@@ -19,8 +19,8 @@
     <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
     <string name="span_count_str">Span count</string>
     <string name="project_name_str">Project name</string>
-    <string name="content_description_mirror_tool">Vertical Mirror Tool</string>
-    <string name="content_description_mirror_tool_2">Horizontal Mirror Tool</string>
+    <string name="content_description_vertical_mirror_tool">Vertical Mirror Tool</string>
+    <string name="content_description_horizontal_mirror_tool">Horizontal Mirror Tool</string>
     <string name="content_description_pencil_tool">Pencil Tool</string>
     <string name="save_text">Save</string>
     <string name="tab_export_str">Export</string>

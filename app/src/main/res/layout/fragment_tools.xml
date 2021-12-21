@@ -33,13 +33,13 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_verticalMirrorButton"
                 style="@style/canvas_activity_button_tool_style"
-                android:contentDescription="@string/content_description_mirror_tool"
+                android:contentDescription="@string/content_description_vertical_mirror_tool"
                 app:srcCompat="@drawable/ic_mirror" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_horizontalMirrorButton"
                 style="@style/canvas_activity_button_tool_style"
-                android:contentDescription="@string/content_description_mirror_tool_2"
+                android:contentDescription="@string/content_description_horizontal_mirror_tool"
                 android:rotation="90"
                 app:srcCompat="@drawable/ic_mirror" />
 
