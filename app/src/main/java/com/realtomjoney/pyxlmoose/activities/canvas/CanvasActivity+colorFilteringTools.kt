@@ -19,5 +19,6 @@ fun applyCanvasFilter(lambda: (Int) -> Int) {
     for (pixel in dataAsPixelList) pixel.pixelColor = lambda(pixel.pixelColor ?: Color.WHITE)
 
     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+    canvasFragmentInstance.myCanvasViewInstance.invalidate()
 }
 

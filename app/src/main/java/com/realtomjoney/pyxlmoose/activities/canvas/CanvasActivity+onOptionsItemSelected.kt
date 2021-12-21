@@ -88,6 +88,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                     canvasStates.clear()
                 }
             }
+            canvasFragmentInstance.myCanvasViewInstance.invalidate()
         }
         R.id.fullscreen -> {
             fullscreenEnabled = if (!fullscreenEnabled) {
