@@ -6,15 +6,12 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
-import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
-import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFragmentListener {
-    lateinit var binding: ActivityMainBinding
-
     val context = this
 
     lateinit var newCanvasFragmentInstance: NewCanvasFragment

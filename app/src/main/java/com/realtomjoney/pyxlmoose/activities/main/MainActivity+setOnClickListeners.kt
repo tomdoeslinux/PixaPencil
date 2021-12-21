@@ -5,7 +5,7 @@ import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
-import com.realtomjoney.pyxlmoose.fragments.NewCanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 
 
 fun MainActivity.extendedSetOnClickListeners() {

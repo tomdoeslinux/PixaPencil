@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.fragments
+package com.realtomjoney.pyxlmoose.fragments.newcanvas
 
 import android.content.Context
 import android.os.Bundle
@@ -13,13 +13,7 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
 class NewCanvasFragment : Fragment() {
-    private var _binding: FragmentNewCanvasBinding? = null
-
-    private val binding get() = _binding!!
-
     private var root: View? = null
-
-    private lateinit var caller: NewCanvasFragmentListener
 
     private fun setOnClickListeners() {
         binding.fragmentNewCanvasDoneButton.setOnClickListener {

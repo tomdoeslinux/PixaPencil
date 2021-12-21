@@ -8,11 +8,6 @@ object AndroidTestUtilityFunctions {
     private const val defaultProjectName = "Unnamed Project"
     private const val defaultProjectSpanCount = 5
 
-    fun goToFindAndReplaceFragment() {
-        onView(withId(R.id.activityCanvas_canvasToolsScrollView)).perform(swipeLeft())
-        onView(withId(R.id.activityCanvas_findAndReplaceButton)).perform(click())
-    }
-
     fun createNewProject(projectName: String = defaultProjectName, spanCount: Int = defaultProjectSpanCount) {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(replaceText(projectName))
