@@ -59,9 +59,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onPixelTapped(canvasInstance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(canvasInstance, rectTapped)
 
-    override fun onActionUp() {
-        canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
-    }
+    override fun onActionUp() = extendedOnActionUp()
 
     fun updateColorSelectedIndicator(it: View) = extendedUpdateColorSelectedIndicator(it)
 
