@@ -57,16 +57,11 @@
         android:id="@+id/activityCanvas_canvasFragmentHostCardViewParent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_drawable_frame"
-        android:elevation="50dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="10dp"
         app:layout_constraintBottom_toTopOf="@+id/activityCanvas_tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:strokeWidth="0dp">
+        style="@style/activityCanvas_canvasFragmentHostCardViewParent_style">
 
         <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayout
             android:id="@+id/activityCanvas_canvasFragmentHost"

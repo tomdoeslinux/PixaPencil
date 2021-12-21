@@ -17,8 +17,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace
     val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
 
     for (pixel in dataAsPixelList) {
-        if (pixel.pixelColor != null && pixel.pixelColor == colorToFind && colorToReplace != null)
-            pixel.pixelColor = colorToReplace
+        if (pixel.pixelColor != null && pixel.pixelColor == colorToFind && colorToReplace != null) pixel.pixelColor = colorToReplace
     }
 
     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
