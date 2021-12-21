@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.fragments
+package com.realtomjoney.pyxlmoose.fragments.colorpicker
 
 import android.content.Context
 import android.graphics.Color
@@ -11,23 +11,11 @@ import android.view.ViewGroup
 import androidx.core.graphics.blue
 import androidx.core.graphics.green
 import androidx.core.graphics.red
-import androidx.core.graphics.toColor
 import androidx.core.widget.doAfterTextChanged
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
 class ColorPickerFragment(private val oldColor: Int) : Fragment() {
-
-    private var _binding: FragmentColorPickerBinding? = null
-
-    private val binding get() = _binding!!
-
-    private lateinit var caller: ColorPickerFragmentListener
-
-    private var valueR = 0
-    private var valueG = 0
-    private var valueB = 0
-
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
     private fun updateHexadecimalEditText() = binding.hexadecimalEditText.setText(Integer.toHexString((binding.colorPickerPreview.background as ColorDrawable).color))
 
