@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/frameLayout"
+<FrameLayout android:id="@+id/fragmentTools_rootLayout"
     android:layout_width="wrap_content"
     android:layout_height="105dp"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <HorizontalScrollView
-        android:id="@+id/activityCanvas_canvasToolsScrollView"
+        android:id="@+id/fragmentTools_primaryScrollView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:scrollbars="none"

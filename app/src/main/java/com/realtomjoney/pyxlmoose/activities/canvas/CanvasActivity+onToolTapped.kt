@@ -3,7 +3,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.fragments.FindAndReplaceFragment
+import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {

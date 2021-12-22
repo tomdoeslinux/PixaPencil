@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.*
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
+import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArt
 

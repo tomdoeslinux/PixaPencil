@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.fragments
+package com.realtomjoney.pyxlmoose.fragments.findandreplace
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -15,12 +15,6 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
 class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
-
-    private var _binding: FragmentFindAndReplaceBinding? = null
-
-    private val binding get() = _binding!!
-
-    private lateinit var caller: FindAndReplaceFragmentListener
 
     private fun setUpCanvasColorsRecyclerView() {
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
