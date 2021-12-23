@@ -7,11 +7,8 @@ _Join our Discord: https://discord.gg/fZPWBfPvWd_
 This project is **closed** for contributions as of the 15th of December 2021.
 
 ----
-## Showcasing the app's capabilities
-![image](https://user-images.githubusercontent.com/50536495/147198860-51a8fd52-9b77-4ecf-a813-cbe823fd8917.PNG)
-![image](https://user-images.githubusercontent.com/50536495/146149199-831e5ec6-7af2-47bf-98c6-93d4c003e649.png)
-![image](https://user-images.githubusercontent.com/50536495/139620161-c0ef2fc9-12e5-4404-a269-c9e7023a6e87.png)
-![image](https://user-images.githubusercontent.com/50536495/139562893-ea67558d-24c3-416b-a802-8898805d5514.png)
+## Images
+![Untitled-2](https://user-images.githubusercontent.com/50536495/147199991-aed5c8e4-f70c-4d1a-ae24-b7ced61bfefc.png)
 
 ## Features
 #### Mirror tool:
