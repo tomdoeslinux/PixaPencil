@@ -5,9 +5,7 @@ fun extendedGetCanvasColors(): List<Int> {
 
     for (it in canvasFragmentInstance.myCanvasViewInstance.saveData()) {
         if (it.pixelColor != null) {
-            if (!canvasColors.contains((it.pixelColor!!))) {
-                canvasColors.add(it.pixelColor!!)
-            }
+            if (!canvasColors.contains((it.pixelColor!!))) canvasColors.add(it.pixelColor!!)
         }
     }
 

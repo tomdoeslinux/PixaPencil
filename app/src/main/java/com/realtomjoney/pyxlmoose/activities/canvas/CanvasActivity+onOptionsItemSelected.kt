@@ -1,43 +1,19 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.app.Activity
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.MenuItem
-import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.view.drawToBitmap
 import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.converters.BitmapConverter
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
-import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
-import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.utility.StringConstants
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 fun CanvasActivity.setMenuItemIcon(item: MenuItem, icon: Int, tooltipText: CharSequence? = item.tooltipText) {
     item.icon = ContextCompat.getDrawable(this, icon)
     item.tooltipText = tooltipText
     item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
-}
-
-fun enableFullscreen() {
-    binding.activityCanvasRootLayout.doSomethingWithChildElements {
-        it.visibility = View.GONE
-    }
-    binding.activityCanvasCanvasFragmentHostCardViewParent.visibility = View.VISIBLE
-}
-
-fun disableFullscreen() {
-    binding.activityCanvasRootLayout.doSomethingWithChildElements {
-        it.visibility = View.VISIBLE
-    }
 }
 
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
@@ -59,40 +35,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 scaleY += zoom
             }
         }
-        R.id.save_project -> {
-            if (index == -1) {
-                CoroutineScope(Dispatchers.IO).launch {
-                    AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), title.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
-                }
-                (this as Activity).onBackPressed()
-            } else {
-                canvasFragmentInstance.myCanvasViewInstance.invalidate()
+        R.id.save_project -> extendedSaveProject()
 
-                AppData.pixelArtDB.pixelArtCreationsDao().apply {
-                    updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), currentPixelArtObj.objId)
-                    updatePixelArtCreationPixelData(JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), currentPixelArtObj.objId)
-                }
-                (this as Activity).onBackPressed()
-            }
-        }
-        R.id.undo -> {
-            if (canvasStates.size > 1) {
-                canvasStates.remove(canvasStates.last())
-                canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
-            } else if (canvasStates.size == 1 && index != -1) {
-                canvasStates.remove(canvasStates.last())
-                AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
-                    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(JsonConverter.convertJsonStringToPixelList((it[index!!]).pixelData))
-                })
-            }
-            else {
-                if (index == -1) {
-                    clearCanvas()
-                    canvasStates.clear()
-                }
-            }
-            canvasFragmentInstance.myCanvasViewInstance.invalidate()
-        }
+        R.id.undo -> extendedUndo()
+
         R.id.fullscreen -> {
             fullscreenEnabled = if (!fullscreenEnabled) {
                 enableFullscreen()

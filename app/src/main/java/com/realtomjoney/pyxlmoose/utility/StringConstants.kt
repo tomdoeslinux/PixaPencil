@@ -7,8 +7,12 @@ object StringConstants {
     const val PROJECT_TITLE_EXTRA = "PROJECT_TITLE"
 
     const val INDEX_EXTRA = "INDEX"
+
     const val DIALOG_POSITIVE_BUTTON_TEXT = "OK"
-    const val DIALOG_NEGATIVE_BUTTON_TEXT = "Back"
+    const val DIALOG_NEGATIVE_BUTTON_TEXT = "Cancel"
+
+    const val DIALOG_CLEAR_CANVAS_TITLE = "Clear canvas"
+    const val DIALOG_CLEAR_CANVAS_MESSAGE = "Are you sure you want to clear the canvas?"
 
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
