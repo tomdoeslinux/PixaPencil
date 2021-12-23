@@ -10,13 +10,13 @@
     tools:ignore="MissingConstraints">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/mCard"
+        android:id="@+id/recentCreationsLayout_materialCardView"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         style="@style/recent_creations_layout_card_view_style">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/recentCreationsLayout"
+            android:id="@+id/colorPalettesLayout_frameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

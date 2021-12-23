@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Color
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
@@ -19,11 +20,11 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.HORIZONTAL_MIRROR_TOOL
         }
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
-            darkenSelectedColor()
+            filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DARKEN_TOOL
         }
         StringConstants.LIGHTEN_TOOL_IDENTIFIER  -> {
-            lightenSelectedColor()
+            filterSelectedColor(Color.WHITE, 0.2f)
             currentTool = Tools.LIGHTEN_TOOL
         }
         StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER  -> {

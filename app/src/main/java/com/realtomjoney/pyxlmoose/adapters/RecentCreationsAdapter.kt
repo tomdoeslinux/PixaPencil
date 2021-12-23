@@ -16,7 +16,7 @@ import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
 import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.viewholders.RecentCreationsViewHolder
 
-class RecentCreationsAdapter(private var data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
+class RecentCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
@@ -27,7 +27,7 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
     }
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
-        binding.mCard.apply parent@{
+        binding.recentCreationsLayoutMaterialCardView.apply parent@{
             val item = data[position]
 
             binding.apply {
@@ -59,10 +59,10 @@ class RecentCreationsAdapter(private var data: List<PixelArt>, private val liste
                 recentCreationsLayoutFavoriteButton.setOnClickListener {
                     if (item.favourited) {
                         unFavouriteRecentCreation(this@parent, item)
-                        AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId)
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId)
                     } else {
                         favouriteRecentCreation(this@parent, item)
-                        AppData.db.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId)
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId)
                     }
                     changeStarredIndicator((it as ImageButton), item)
                 }

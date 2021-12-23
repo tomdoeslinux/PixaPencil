@@ -13,7 +13,10 @@ import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
+import com.realtomjoney.pyxlmoose.extensions.navigateTo
+import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,13 +62,13 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.save_project -> {
             if (index == -1) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    AppData.db.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), title.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
+                    AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), title.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))
                 }
                 (this as Activity).onBackPressed()
             } else {
                 canvasFragmentInstance.myCanvasViewInstance.invalidate()
 
-                AppData.db.pixelArtCreationsDao().apply {
+                AppData.pixelArtDB.pixelArtCreationsDao().apply {
                     updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), currentPixelArtObj.objId)
                     updatePixelArtCreationPixelData(JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), currentPixelArtObj.objId)
                 }
@@ -78,7 +81,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
             } else if (canvasStates.size == 1 && index != -1) {
                 canvasStates.remove(canvasStates.last())
-                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
+                AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
                     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(JsonConverter.convertJsonStringToPixelList((it[index!!]).pixelData))
                 })
             }
@@ -100,6 +103,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_24, "Fullscreen")
                 false
             }
+        }
+        R.id.new_color_palette -> {
+            newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
+            currentFragmentInstance = newColorPaletteFragmentInstance
+            navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_NEW_COLOR_PALETTE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
         }
     }
     return true

@@ -10,7 +10,7 @@ import com.realtomjoney.pyxlmoose.database.AppData
 import kotlin.math.sqrt
 
 fun MyCanvasView.extendedLoadData(context: LifecycleOwner, index: Int) {
-    AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
+    AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
         currentPixelArtObj = it[index]
 
         val localPixelData = JsonConverter.convertJsonStringToPixelList(currentPixelArtObj.pixelData)

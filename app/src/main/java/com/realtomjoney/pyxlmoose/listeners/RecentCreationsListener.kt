@@ -2,7 +2,9 @@ package com.realtomjoney.pyxlmoose.listeners
 
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
+// ✔ CLEAN
+
 interface RecentCreationsListener {
-    fun onCreationTapped(pixelArtTapped: PixelArt)
-    fun onCreationLongTapped(pixelArtLongTapped: PixelArt)
+    fun onCreationTapped(creationTapped: PixelArt)
+    fun onCreationLongTapped(creationTapped: PixelArt)
 }

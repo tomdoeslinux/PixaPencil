@@ -4,9 +4,13 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
-import com.realtomjoney.pyxlmoose.fragments.*
+import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
+import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
+import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
+import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
 import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
@@ -42,7 +46,10 @@ var brushThickness = 0
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasFragmentInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
+lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
+
 var toolsFragmentInstance: ToolsFragment? = null
 var filtersFragmentInstance: FiltersFragment? = null
+var colorPalettesFragmentInstance: ColorPalettesFragment? = null
 
 var fullscreenEnabled = false

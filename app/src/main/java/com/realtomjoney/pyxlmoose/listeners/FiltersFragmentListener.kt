@@ -1,5 +1,7 @@
 package com.realtomjoney.pyxlmoose.listeners
 
+// ✔ CLEAN
+
 interface FiltersFragmentListener {
-    fun onFilterSelected(filterName: String)
+    fun onFilterTapped(filterName: String)
 }

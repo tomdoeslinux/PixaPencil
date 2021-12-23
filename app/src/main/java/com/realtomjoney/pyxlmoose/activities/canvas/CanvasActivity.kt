@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.Color
 import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +7,9 @@ import android.view.*
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
+import com.realtomjoney.pyxlmoose.models.ColorPalette
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener {
     var previousView: View? = null
 
     val context = this
@@ -19,7 +19,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
         extendedOnCreate()
     }
 
-    fun initColorPickerFragmentInstance() = ColorPickerFragment.newInstance(getSelectedColor())
+    fun initColorPickerFragmentInstance(colorPaletteMode: Boolean) = ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
 
     override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
 
@@ -27,22 +27,13 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun getSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
 
-    fun setColors() {
-        setPrimaryPixelColor(Color.BLACK)
-        setSecondaryPixelColor(Color.BLUE)
-    }
+    fun setColors() = extendedSetColors()
 
     fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
 
-    private fun setPrimaryPixelColor(color: Int) {
-        primaryColor = color
-        binding.activityCanvasColorPrimaryView.setBackgroundColor(color)
-    }
+    private fun setPrimaryPixelColor(color: Int) = extendedSetPrimaryPixelColor(color)
 
-    private fun setSecondaryPixelColor(color: Int) {
-        secondaryColor = color
-        binding.activityCanvasColorSecondaryView.setBackgroundColor(color)
-    }
+    private fun setSecondaryPixelColor(color: Int) = extendedSetSecondaryPixelColor(color)
 
     override fun onPause() {
         extendedOnPause()
@@ -63,9 +54,11 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun updateColorSelectedIndicator(it: View) = extendedUpdateColorSelectedIndicator(it)
 
-    override fun onColorTapped(selectedColor: Int, it: View) = extendedOnColorTapped(selectedColor, it)
+    override fun onColorTapped(colorTapped: Int, view: View) = extendedOnColorTapped(colorTapped, view)
 
-    override fun onDoneButtonPressed(selectedColor: Int) = extendedOnDoneButtonPressed(selectedColor)
+    override fun onColorAdded(colorPalette: ColorPalette) = extendedOnAddColorTapped(colorPalette)
+
+    override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) = extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 
@@ -73,5 +66,9 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onToolTapped(toolName: String) = extendedOnToolTapped(toolName)
 
-    override fun onFilterSelected(filterName: String) = extendedOnFilterSelected(filterName)
+    override fun onFilterTapped(filterName: String) = extendedOnFilterSelected(filterName)
+
+    override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) = extendedOnColorPaletteTapped(selectedColorPalette)
+
+    override fun onDoneButtonPressed(colorPaletteTitle: String) = extendedOnDoneButtonPressed(colorPaletteTitle)
 }

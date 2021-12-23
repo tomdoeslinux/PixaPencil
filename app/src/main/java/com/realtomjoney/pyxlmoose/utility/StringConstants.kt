@@ -9,8 +9,10 @@ object StringConstants {
     const val INDEX_EXTRA = "INDEX"
     const val DIALOG_POSITIVE_BUTTON_TEXT = "OK"
     const val DIALOG_NEGATIVE_BUTTON_TEXT = "Back"
+
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
+    const val FRAGMENT_NEW_COLOR_PALETTE_TITLE = "New Color Palette"
 
     const val COLOR_FILTER_IDENTIFIER = "COLOR_FILTER"
     const val DARKEN_FILTER_IDENTIFIER = "DARKEN_FILTER"

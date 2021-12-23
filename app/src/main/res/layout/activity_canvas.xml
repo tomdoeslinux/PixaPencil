@@ -86,6 +86,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tab_filters_str" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_color_palettes_str" />
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

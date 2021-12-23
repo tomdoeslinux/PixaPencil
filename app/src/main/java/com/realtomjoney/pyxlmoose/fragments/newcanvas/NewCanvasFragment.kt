@@ -39,7 +39,7 @@ class NewCanvasFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentNewCanvasBinding.inflate(inflater, container, false)
+        binding_ = FragmentNewCanvasBinding.inflate(inflater, container, false)
 
         root = binding.fragmentNewCanvasRootLayout
         setOnClickListeners()
@@ -49,6 +49,6 @@ class NewCanvasFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding_ = null
     }
 }

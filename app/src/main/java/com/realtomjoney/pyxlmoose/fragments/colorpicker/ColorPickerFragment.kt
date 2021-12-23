@@ -15,13 +15,14 @@ import androidx.core.widget.doAfterTextChanged
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
-class ColorPickerFragment(private val oldColor: Int) : Fragment() {
+class ColorPickerFragment(private val oldColor: Int, private val colorPaletteMode: Boolean = false) : Fragment() {
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
     private fun updateHexadecimalEditText() = binding.hexadecimalEditText.setText(Integer.toHexString((binding.colorPickerPreview.background as ColorDrawable).color))
 
     private fun setOnClickListeners() {
         binding.colorDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
+            if (!colorPaletteMode) caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
+            else caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB), true)
         }
     }
 
@@ -60,7 +61,7 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
     }
 
     companion object {
-        fun newInstance(oldColor: Int) = ColorPickerFragment(oldColor)
+        fun newInstance(oldColor: Int, colorPaletteMode: Boolean = false) = ColorPickerFragment(oldColor, colorPaletteMode)
     }
 
     override fun onAttach(context: Context) {
@@ -69,7 +70,7 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentColorPickerBinding.inflate(inflater, container, false)
+        binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
 
         binding.oldColorPreview.setBackgroundColor(oldColor)
         binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
@@ -88,6 +89,6 @@ class ColorPickerFragment(private val oldColor: Int) : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding_ = null
     }
 }

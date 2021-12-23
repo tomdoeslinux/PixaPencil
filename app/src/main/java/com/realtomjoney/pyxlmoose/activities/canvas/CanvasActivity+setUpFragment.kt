@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.fragments.CanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.R
 
 fun CanvasActivity.extendedSetUpFragment() {

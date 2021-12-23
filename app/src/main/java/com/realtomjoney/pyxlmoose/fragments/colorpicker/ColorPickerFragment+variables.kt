@@ -3,9 +3,9 @@ package com.realtomjoney.pyxlmoose.fragments.colorpicker
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 
-var _binding: FragmentColorPickerBinding? = null
+var binding_: FragmentColorPickerBinding? = null
 
-val binding get() = _binding!!
+val binding get() = binding_!!
 
 lateinit var caller: ColorPickerFragmentListener
 

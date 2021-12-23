@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.fragments
+package com.realtomjoney.pyxlmoose.fragments.tools
 
 import android.content.Context
 import android.os.Bundle
@@ -11,12 +11,6 @@ import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 class ToolsFragment : Fragment() {
-    private var _binding: FragmentToolsBinding? = null
-
-    private val binding get() = _binding!!
-
-    private lateinit var caller: ToolsFragmentListener
-
     private fun setOnClickListeners() {
         binding.apply {
             fragmentToolsPencilButton.setOnClickListener {
@@ -75,7 +69,7 @@ class ToolsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentToolsBinding.inflate(inflater, container, false)
+        binding_ = FragmentToolsBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
 
@@ -84,7 +78,7 @@ class ToolsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding_ = null
     }
 
 }

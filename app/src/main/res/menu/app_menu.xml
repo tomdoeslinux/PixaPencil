@@ -29,4 +29,10 @@
         app:showAsAction="always"
         android:iconTint="@color/white"
         android:title="@string/save_text" />
+
+    <item android:id="@+id/new_color_palette"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="New Color Palette" />
 </menu>

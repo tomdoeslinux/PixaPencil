@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.database.ColorPalettesDatabase
 import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
         setOnClickListeners()
         setTitle()
 
-        AppData.db = PixelArtDatabase.getDatabase(this)
+        AppData.pixelArtDB = PixelArtDatabase.getDatabase(this)
+        AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(this)
     }
 
     private fun setTitle() {
@@ -40,9 +42,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     private fun setBindings() = extendedSetBindings()
 
-    override fun onCreationTapped(creation: PixelArt) = extendedOnCreationTapped(creation)
+    override fun onCreationTapped(creationTapped: PixelArt) = extendedOnCreationTapped(creationTapped)
 
-    override fun onCreationLongTapped(pixelArtLongTapped: PixelArt) = extendedOnCreationLongTapped(pixelArtLongTapped)
+    override fun onCreationLongTapped(creationTapped: PixelArt) = extendedOnCreationLongTapped(creationTapped)
 
     override fun onBackPressed() {
         if (currentFragmentInstance != null) extendedOnBackPressed() else super.onBackPressed()

@@ -12,13 +12,13 @@ fun MainActivity.extendedSetOnClickListeners() {
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.page_home -> {
-                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+                AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
                     binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
                 })
                 title = "Home"
             }
             R.id.page_starred -> {
-                AppData.db.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+                AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
                     binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.favourited }, this)
                 })
 
