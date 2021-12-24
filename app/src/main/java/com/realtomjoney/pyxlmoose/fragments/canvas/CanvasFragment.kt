@@ -13,7 +13,7 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 
 
-class CanvasFragment(private val spanCount: Int) : Fragment() {
+class CanvasFragment(val spanCount: Int) : Fragment() {
     private var _binding: FragmentCanvasBinding? = null
 
     private val binding get() = _binding!!

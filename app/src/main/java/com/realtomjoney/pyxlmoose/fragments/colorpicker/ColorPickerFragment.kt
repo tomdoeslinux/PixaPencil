@@ -15,16 +15,9 @@ import androidx.core.widget.doAfterTextChanged
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
-class ColorPickerFragment(private val oldColor: Int, private val colorPaletteMode: Boolean = false) : Fragment() {
+class ColorPickerFragment(private val oldColor: Int, val colorPaletteMode: Boolean = false) : Fragment() {
     private fun updateColorSelectedPreview() =  binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
     private fun updateHexadecimalEditText() = binding.hexadecimalEditText.setText(Integer.toHexString((binding.colorPickerPreview.background as ColorDrawable).color))
-
-    private fun setOnClickListeners() {
-        binding.colorDoneButton.setOnClickListener {
-            if (!colorPaletteMode) caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB))
-            else caller.onDoneButtonPressed(Color.argb(255, valueR, valueG, valueB), true)
-        }
-    }
 
     private fun setOnChangeListeners() {
         binding.redProgressBar.addOnChangeListener { _, value, _ ->

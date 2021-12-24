@@ -38,15 +38,6 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
         }
     }
 
-    companion object {
-        fun newInstance(canvasColors: List<Int>) = FindAndReplaceFragment(canvasColors)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is FindAndReplaceFragmentListener) caller = context
-    }
-
     internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(colorTapped)
         override fun onColorAdded(colorPalette: ColorPalette) {}
@@ -55,6 +46,15 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
     internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(colorTapped)
         override fun onColorAdded(colorPalette: ColorPalette) {}
+    }
+
+    companion object {
+        fun newInstance(canvasColors: List<Int>) = FindAndReplaceFragment(canvasColors)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FindAndReplaceFragmentListener) caller = context
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -15,17 +15,8 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPalettesFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
-class ColorPalettesFragment(private val lifecycleOwner: LifecycleOwner) : Fragment(), ColorPalettesListener {
-    private fun setUpRecyclerView() {
-        binding.apply {
-            fragmentColorPalettesRecyclerView.layoutManager = LinearLayoutManager(this@ColorPalettesFragment.activity).apply {
-                orientation = LinearLayoutManager.HORIZONTAL
-            }
-            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(lifecycleOwner) {
-                fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(it, this@ColorPalettesFragment)
-            }
-        }
-    }
+class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), ColorPalettesListener {
+    val context = this
 
     companion object {
         fun newInstance(lifecycleOwner: LifecycleOwner) = ColorPalettesFragment(lifecycleOwner)

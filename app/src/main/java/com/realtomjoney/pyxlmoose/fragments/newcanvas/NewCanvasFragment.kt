@@ -13,21 +13,7 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
 class NewCanvasFragment : Fragment() {
-    private var root: View? = null
-
-    private fun setOnClickListeners() {
-        binding.fragmentNewCanvasDoneButton.setOnClickListener {
-            try {
-                caller.onDoneButtonPressed(
-                    Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()),
-                    binding.fragmentNewCanvasSpanCountTextInputEditText,
-                    binding.fragmentNewCanvasProjectTitleTextInputEditText
-                )
-            } catch (ex: Exception) {
-                (root as ConstraintLayout).showSnackbar(ex.message.toString(), SnackbarDuration.DEFAULT)
-            }
-        }
-    }
+    var root: View? = null
 
     companion object {
         fun newInstance() = NewCanvasFragment()

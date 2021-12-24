@@ -10,12 +10,6 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentNewColorPaletteBinding
 import com.realtomjoney.pyxlmoose.listeners.NewColorPaletteFragmentListener
 
 class NewColorPaletteFragment : Fragment() {
-    private fun setOnClickListeners() {
-        binding.fragmentNewColorPaletteDoneButton.setOnClickListener {
-            caller.onDoneButtonPressed(binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString())
-        }
-    }
-
     companion object {
         fun newInstance() = NewColorPaletteFragment()
     }
