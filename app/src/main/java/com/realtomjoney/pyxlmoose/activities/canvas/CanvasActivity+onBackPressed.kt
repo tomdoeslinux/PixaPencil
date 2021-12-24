@@ -15,8 +15,8 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun CanvasActivity.extendedOnBackPressed() {
     if (!saved && currentFragmentInstance == null) {
         showDialog(
-            "Unsaved changes",
-            "You have unsaved changes, are you sure you want to exit?",
+            StringConstants.DIALOG_UNSAVED_CHANGES_TITLE,
+            StringConstants.DIALOG_UNSAVED_CHANGES_MESSAGE,
             StringConstants.DIALOG_POSITIVE_BUTTON_TEXT,
             { _, _ ->
                 startActivity(Intent(context, MainActivity::class.java))

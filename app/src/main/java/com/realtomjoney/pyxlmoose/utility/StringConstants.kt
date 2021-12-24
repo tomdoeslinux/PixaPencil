@@ -13,6 +13,8 @@ object StringConstants {
 
     const val DIALOG_CLEAR_CANVAS_TITLE = "Clear canvas"
     const val DIALOG_CLEAR_CANVAS_MESSAGE = "Are you sure you want to clear the canvas?"
+    const val DIALOG_UNSAVED_CHANGES_TITLE = "Unsaved changes"
+    const val DIALOG_UNSAVED_CHANGES_MESSAGE = "You have unsaved changes, are you sure you want to exit?"
 
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
