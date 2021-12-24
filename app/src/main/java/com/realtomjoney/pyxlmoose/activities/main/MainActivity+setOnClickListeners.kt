@@ -8,7 +8,7 @@ import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 
 
-fun MainActivity.extendedSetOnClickListeners() {
+fun MainActivity.setOnClickListeners() {
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.page_home -> {

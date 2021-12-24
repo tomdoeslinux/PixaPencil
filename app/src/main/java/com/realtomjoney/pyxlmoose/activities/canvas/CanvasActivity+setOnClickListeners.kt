@@ -26,7 +26,7 @@ fun clearCanvas() {
     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
 }
 
-fun CanvasActivity.extendedSetOnClickListeners() {
+fun CanvasActivity.setOnClickListeners() {
     colorPalettesFragmentInstance = ColorPalettesFragment.newInstance(this)
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
 

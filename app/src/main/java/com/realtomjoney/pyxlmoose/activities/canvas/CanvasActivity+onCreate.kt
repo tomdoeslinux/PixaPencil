@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun CanvasActivity.extendedOnCreate() {
+fun CanvasActivity.onCreate() {
     spanCount = intent.getIntExtra(StringConstants.SPAN_COUNT_EXTRA, spanCount)
     index = intent.getIntExtra(StringConstants.INDEX_EXTRA, -1)
 

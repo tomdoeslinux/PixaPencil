@@ -41,8 +41,6 @@ var gridEnabled = false
 
 val canvasStates = mutableListOf<List<Pixel>>()
 
-var brushThickness = 0
-
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasFragmentInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment

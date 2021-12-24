@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 
-fun CanvasActivity.extendedSetUpRecyclerView() {
+fun CanvasActivity.setUpRecyclerView() {
     val layoutManager = GridLayoutManager(this, 1)
     layoutManager.orientation = LinearLayoutManager.HORIZONTAL
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager

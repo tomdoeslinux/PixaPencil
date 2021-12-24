@@ -16,6 +16,5 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace
     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
 
     navigateHome(supportFragmentManager, findAndReplaceFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
-
-    extendedSetUpRecyclerView()
+    setUpRecyclerView()
 }

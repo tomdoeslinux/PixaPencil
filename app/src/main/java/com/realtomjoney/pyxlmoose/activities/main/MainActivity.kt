@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
-import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.database.ColorPalettesDatabase
-import com.realtomjoney.pyxlmoose.database.PixelArtDatabase
 import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
@@ -24,23 +21,13 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
         setBindings()
         setOnClickListeners()
         setTitle()
-
-        AppData.pixelArtDB = PixelArtDatabase.getDatabase(this)
-        AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(this)
+        initializeRoomDatabases()
     }
-
-    private fun setTitle() {
-        title = "Home"
-    }
-
-    private fun setOnClickListeners() = extendedSetOnClickListeners()
 
     override fun onResume() {
         extendedOnResume()
         super.onResume()
     }
-
-    private fun setBindings() = extendedSetBindings()
 
     override fun onCreationTapped(creationTapped: PixelArt) = extendedOnCreationTapped(creationTapped)
 

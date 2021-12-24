@@ -16,7 +16,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        extendedOnCreate()
+        onCreate()
     }
 
     fun initColorPickerFragmentInstance(colorPaletteMode: Boolean) = ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
@@ -27,32 +27,16 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     fun getSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
 
-    fun setColors() = extendedSetColors()
-
     fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
-
-    private fun setPrimaryPixelColor(color: Int) = extendedSetPrimaryPixelColor(color)
-
-    private fun setSecondaryPixelColor(color: Int) = extendedSetSecondaryPixelColor(color)
 
     override fun onPause() {
         extendedOnPause()
         super.onPause()
     }
 
-    fun setOnClickListeners() = extendedSetOnClickListeners()
-
-    fun setUpRecyclerView() = extendedSetUpRecyclerView()
-
-    fun setUpFragment() = extendedSetUpFragment()
-
-    fun setBindings() = extendedSetBindings()
-
     override fun onPixelTapped(canvasInstance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(canvasInstance, rectTapped)
 
     override fun onActionUp() = extendedOnActionUp()
-
-    fun updateColorSelectedIndicator(it: View) = extendedUpdateColorSelectedIndicator(it)
 
     override fun onColorTapped(colorTapped: Int, view: View) = extendedOnColorTapped(colorTapped, view)
 

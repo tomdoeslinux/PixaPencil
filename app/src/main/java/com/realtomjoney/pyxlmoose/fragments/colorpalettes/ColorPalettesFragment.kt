@@ -27,8 +27,6 @@ class ColorPalettesFragment(private val lifecycleOwner: LifecycleOwner) : Fragme
         }
     }
 
-    fun refreshRecyclerView() = setUpRecyclerView()
-
     companion object {
         fun newInstance(lifecycleOwner: LifecycleOwner) = ColorPalettesFragment(lifecycleOwner)
     }

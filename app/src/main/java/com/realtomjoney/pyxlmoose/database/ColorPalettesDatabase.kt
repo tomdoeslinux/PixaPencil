@@ -16,7 +16,6 @@ import java.util.concurrent.Executors
 @Database(entities = [ColorPalette::class], version = 3)
 abstract class ColorPalettesDatabase: RoomDatabase() {
     abstract fun colorPalettesDao(): ColorPalettesDao
-
     companion object {
         private var instance: ColorPalettesDatabase? = null
         fun getDatabase(context: Context): ColorPalettesDatabase {
