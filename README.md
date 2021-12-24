@@ -12,6 +12,29 @@ _⭐ If you are interested in this project please star it, we need to get as muc
 
 **If you want to showcase an image of your own please send me an email at todoescode@gmail.com.**
 
+## License
+
+To disclaim, this repository is licensed under the MIT license.
+
+Permissions:
+- Commercial use
+- Modification
+- Distribution
+- Private use
+Limitations
+- Liability
+- Warranty
+
+If you are wanting to make an app similar to PyxlMoose (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
+
+_Do not use the name 'PyxlMoose' or the logo in your app._
+
+## Goal
+PyxlMoose is a project I am submitting for NCEA Level 3 Digital Technologies.
+
+It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
+
+ 
 ## Shoutout
 _Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
 
