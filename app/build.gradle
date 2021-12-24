@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'com.google.android.material:material:1.5.0-beta01'
+    implementation 'com.google.android.material:material:1.6.0-alpha01'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'androidx.test:core-ktx:1.4.0'
@@ -58,9 +58,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 
     // ROOM
-    implementation "androidx.room:room-runtime:2.4.0-beta02"
-    implementation "androidx.room:room-ktx:2.4.0-beta02"
-    kapt "androidx.room:room-compiler:2.4.0-beta02"
+    implementation "androidx.room:room-runtime:2.4.0"
+    implementation "androidx.room:room-ktx:2.4.0"
+    kapt "androidx.room:room-compiler:2.4.0"
 
     // COROUTINE
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC'
