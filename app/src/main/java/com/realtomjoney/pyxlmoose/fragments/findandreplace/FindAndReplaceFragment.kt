@@ -48,12 +48,12 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
     }
 
     internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(selectedColor: Int, it: View) = binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(selectedColor)
+        override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(colorTapped)
         override fun onColorAdded(colorPalette: ColorPalette) {}
     }
 
     internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(selectedColor: Int, it: View) = binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(selectedColor)
+        override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(colorTapped)
         override fun onColorAdded(colorPalette: ColorPalette) {}
     }
 
