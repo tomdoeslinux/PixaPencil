@@ -13,11 +13,11 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.viewholders.ColorPickerViewHolder
 
-class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?) : RecyclerView.Adapter<ColorPickerViewHolder>() {
+class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?, private val isPaletteMode: Boolean = true) : RecyclerView.Adapter<ColorPickerViewHolder>() {
     private fun extractColorDataFromColorPalette(): List<Int> {
         val data = JsonConverter.convertJsonStringToListOfInt(data.colorPaletteColorData).toMutableList()
 
-        if (!data.contains(Color.TRANSPARENT)) data.add(Color.TRANSPARENT)
+        if (!data.contains(Color.TRANSPARENT) && isPaletteMode) data.add(Color.TRANSPARENT)
         return data.toList()
     }
 
