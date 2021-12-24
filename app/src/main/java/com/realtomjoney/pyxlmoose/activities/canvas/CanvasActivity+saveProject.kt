@@ -11,6 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedSaveProject() {
+    saved = true
+
     if (index == -1) {
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(PixelArt(BitmapConverter.convertBitmapToString(binding.activityCanvasCanvasFragmentHost.drawToBitmap()), title.toString(), JsonConverter.convertPixelListToJsonString(canvasFragmentInstance.myCanvasViewInstance.saveData()), false))

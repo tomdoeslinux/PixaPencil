@@ -6,6 +6,8 @@ import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import kotlin.math.sqrt
 
 fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
+    saved = false
+
     val defaultErasePaint = Paint().apply {
         style = Paint.Style.FILL
         color = currentBackground ?: Color.WHITE

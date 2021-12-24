@@ -37,6 +37,8 @@ enum class Tools {
 
 var currentTool: Tools = Tools.PENCIL_TOOL
 
+var saved = true
+
 var gridEnabled = false
 
 val canvasStates = mutableListOf<List<Pixel>>()
