@@ -36,6 +36,7 @@ It was intended as being a small pixel art editor app for Android, but over time
 
  
 ## Shoutout
-_Thank you to PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
-
-_Thank you JohnWick_007#8119 on Discord for providing me some icons to use in my app._
+Thank you to:
+- _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
+- _JohnWick_007#8119 on Discord for providing me some icons to use in my app._
+- Those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
