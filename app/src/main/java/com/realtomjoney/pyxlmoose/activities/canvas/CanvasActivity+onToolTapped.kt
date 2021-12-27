@@ -12,6 +12,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     when (toolName) {
         StringConstants.PENCIL_TOOL_IDENTIFIER -> currentTool = Tools.PENCIL_TOOL
 
+        StringConstants.FILL_TOOL_IDENTIFIER  -> currentTool = Tools.FILL_TOOL
+
         StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER  -> currentTool = Tools.VERTICAL_MIRROR_TOOL
 
         StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER -> currentTool = Tools.HORIZONTAL_MIRROR_TOOL

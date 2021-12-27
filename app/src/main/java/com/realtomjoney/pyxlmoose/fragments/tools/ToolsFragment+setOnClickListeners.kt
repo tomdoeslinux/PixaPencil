@@ -8,6 +8,10 @@ fun setOnClickListeners() {
             caller.onToolTapped(StringConstants.PENCIL_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsFillButton.setOnClickListener {
+            caller.onToolTapped(StringConstants.FILL_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsVerticalMirrorButton.setOnClickListener {
             caller.onToolTapped(StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER)
         }

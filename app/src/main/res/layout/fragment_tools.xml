@@ -31,6 +31,13 @@
                 app:srcCompat="@drawable/ic_baseline_pencil_24" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_fillButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/content_description_fill_tool"
+                app:srcCompat="@drawable/ic_format_color_fill" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_verticalMirrorButton"
                 style="@style/canvas_activity_button_tool_style"
                 android:contentDescription="@string/content_description_vertical_mirror_tool"
