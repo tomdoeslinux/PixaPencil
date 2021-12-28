@@ -76,7 +76,7 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
         val gridPaint = Paint().apply {
             style = Paint.Style.FILL
             color = Color.parseColor("#ededed")
-            strokeWidth = 2.5f
+            strokeWidth = (scale / 8).toFloat()
             isAntiAlias = false
         }
 
