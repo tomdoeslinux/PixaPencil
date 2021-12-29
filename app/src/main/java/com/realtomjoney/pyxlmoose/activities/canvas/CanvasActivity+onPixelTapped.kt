@@ -10,56 +10,52 @@ import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
 import kotlin.math.sqrt
 
-fun expandToNeighbors(instance: MyCanvasView, from: XYPosition): List<Int> {
-    var asIndex1 = from.x
-    var asIndex2 = from.x
-
-    var asIndex3 = from.y
-    var asIndex4 = from.y
-
-    if (from.x > 1) {
-        asIndex1 = xyPositionData!!.indexOf(XYPosition(from.x - 1, from.y))
-    }
-
-    if (from.x < instance.spanCount) {
-        asIndex2 = xyPositionData!!.indexOf(XYPosition(from.x + 1, from.y))
-    }
-
-    if (from.y > 1) {
-        asIndex3 = xyPositionData!!.indexOf(XYPosition(from.x, from.y - 1))
-    }
-
-    if (from.y < instance.spanCount) {
-        asIndex4 = xyPositionData!!.indexOf(XYPosition(from.x, from.y + 1))
-    }
-
-    return listOf(asIndex1, asIndex2, asIndex3, asIndex4)
-}
+//fun expandToNeighbors(instance: MyCanvasView, from: XYPosition): List<Int> {
+//    var asIndex1 = from.x
+//    var asIndex2 = from.x
+//
+//    var asIndex3 = from.y
+//    var asIndex4 = from.y
+//
+//    if (from.x > 1) {
+//        asIndex1 = xyPositionData!!.indexOf(XYPosition(from.x - 1, from.y))
+//    }
+//
+//    if (from.x < instance.spanCount) {
+//        asIndex2 = xyPositionData!!.indexOf(XYPosition(from.x + 1, from.y))
+//    }
+//
+//    if (from.y > 1) {
+//        asIndex3 = xyPositionData!!.indexOf(XYPosition(from.x, from.y - 1))
+//    }
+//
+//    if (from.y < instance.spanCount) {
+//        asIndex4 = xyPositionData!!.indexOf(XYPosition(from.x, from.y + 1))
+//    }
+//
+//    return listOf(asIndex1, asIndex2, asIndex3, asIndex4)
+//}
 
 fun expandToNeighborsWithMap(instance: MyCanvasView, from: XYPosition): List<Int> {
-    var asIndex1 = from.x
-    var asIndex2 = from.x
-
-    var asIndex3 = from.y
-    var asIndex4 = from.y
+    val toReturn = mutableListOf<Int>()
 
     if (from.x > 1) {
-        asIndex1 = rectangleDataMap!![XYPosition(from.x - 1, from.y)]!!
+        toReturn.add(rectangleDataMap!![XYPosition(from.x - 1, from.y)]!!)
     }
 
     if (from.x < instance.spanCount) {
-        asIndex2 =  rectangleDataMap!![XYPosition(from.x + 1, from.y)]!!
+        toReturn.add(rectangleDataMap!![XYPosition(from.x + 1, from.y)]!!)
     }
 
     if (from.y > 1) {
-        asIndex3 =  rectangleDataMap!![XYPosition(from.x, from.y - 1)]!!
+        toReturn.add(rectangleDataMap!![XYPosition(from.x, from.y - 1)]!!)
     }
 
     if (from.y < instance.spanCount) {
-        asIndex4 = rectangleDataMap!![XYPosition(from.x, from.y + 1)]!!
+        toReturn.add(rectangleDataMap!![XYPosition(from.x, from.y + 1)]!!)
     }
 
-    return listOf(asIndex1, asIndex2, asIndex3, asIndex4)
+    return toReturn
 }
 
 var xyPositionData: List<XYPosition>? = null
