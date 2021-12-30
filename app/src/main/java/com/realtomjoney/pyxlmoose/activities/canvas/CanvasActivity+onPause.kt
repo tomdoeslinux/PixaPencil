@@ -5,7 +5,4 @@ fun extendedOnPause() {
     canvasStates.clear()
     currentTool = Tools.PENCIL_TOOL
     gridEnabled = false
-    xyPositionData = null
-    rectangleData = null
-    rectangleDataMap = null
 }

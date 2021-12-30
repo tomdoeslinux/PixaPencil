@@ -23,6 +23,13 @@ object MathExtensions {
         return map
     }
 
+    fun convertXYPositionToIndex(xyPosition: XYPosition, spanCount: Int): Int {
+        val positionX = xyPosition.x
+        val positionY = xyPosition.y
+
+        return (spanCount - positionY) + (spanCount * (positionX - 1))
+    }
+
     fun convertIndexToXYPosition(index: Int, spanCount: Int): XYPosition {
         val div = (index + 1.0) / spanCount
         val positionX = ceil(div)

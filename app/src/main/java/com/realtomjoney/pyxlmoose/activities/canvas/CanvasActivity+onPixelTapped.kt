@@ -1,88 +1,44 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.R
 import android.graphics.*
-import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
 import kotlin.math.sqrt
 
-//fun expandToNeighbors(instance: MyCanvasView, from: XYPosition): List<Int> {
-//    var asIndex1 = from.x
-//    var asIndex2 = from.x
-//
-//    var asIndex3 = from.y
-//    var asIndex4 = from.y
-//
-//    if (from.x > 1) {
-//        asIndex1 = xyPositionData!!.indexOf(XYPosition(from.x - 1, from.y))
-//    }
-//
-//    if (from.x < instance.spanCount) {
-//        asIndex2 = xyPositionData!!.indexOf(XYPosition(from.x + 1, from.y))
-//    }
-//
-//    if (from.y > 1) {
-//        asIndex3 = xyPositionData!!.indexOf(XYPosition(from.x, from.y - 1))
-//    }
-//
-//    if (from.y < instance.spanCount) {
-//        asIndex4 = xyPositionData!!.indexOf(XYPosition(from.x, from.y + 1))
-//    }
-//
-//    return listOf(asIndex1, asIndex2, asIndex3, asIndex4)
-//}
+var totalTime = 0.0
+var totalTimeForExpandToNeighbors = 0.0
+var totalTimeForDrawingRectData = 0.0
+var loopTime = 0.0
+var pollTime = 0.0
 
-fun expandToNeighborsWithMap(instance: MyCanvasView, from: XYPosition): List<Int> {
+fun expandToNeighborsWithMap(spanCount: Int, from: XYPosition): List<Int> {
     val toReturn = mutableListOf<Int>()
 
     if (from.x > 1) {
-        toReturn.add(rectangleDataMap!![XYPosition(from.x - 1, from.y)]!!)
+        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x - 1, from.y), spanCount))
     }
 
-    if (from.x < instance.spanCount) {
-        toReturn.add(rectangleDataMap!![XYPosition(from.x + 1, from.y)]!!)
+    if (from.x < spanCount) {
+        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x + 1, from.y), spanCount))
     }
 
     if (from.y > 1) {
-        toReturn.add(rectangleDataMap!![XYPosition(from.x, from.y - 1)]!!)
+        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y - 1), spanCount))
     }
 
-    if (from.y < instance.spanCount) {
-        toReturn.add(rectangleDataMap!![XYPosition(from.x, from.y + 1)]!!)
+    if (from.y < spanCount) {
+        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y + 1), spanCount))
     }
 
     return toReturn
 }
 
-var xyPositionData: List<XYPosition>? = null
-var rectangleData: List<RectF>? = null
-var rectangleDataMap: Map<XYPosition, Int>? = null
-
-fun convertXYDataToIndex(instance: MyCanvasView, from: XYPosition): Int {
-
-    if (rectangleData == null) {
-        rectangleData = instance.rectangles.keys.toList()
-    }
-
-    if (xyPositionData == null) {
-        xyPositionData = MathExtensions.convertListOfSizeNToListOfXYPosition(
-            rectangleData!!.size,
-            instance.spanCount.toInt()
-        )
-    }
-
-    if (rectangleDataMap == null) {
-        rectangleDataMap = MathExtensions.convertListToMap(
-            rectangleData!!.size,
-            instance.spanCount.toInt()
-        )
-    }
-
-    return xyPositionData!!.indexOf(from)
+fun convertXYDataToIndex(spanCount: Int, from: XYPosition): Int {
+    return MathExtensions.convertXYPositionToIndex(from, spanCount)
 }
 
 fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
@@ -101,10 +57,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
     val rectangleData = instance.rectangles.keys.toList()
 
-    var totalTimeTaken = 0.0
-    var totalTimeTakenForExpandToNeighbors = 0.0
-    var totalTimeTakenForMath = 0.0
-
+    val startTime = System.currentTimeMillis()
     when (currentTool) {
         Tools.PENCIL_TOOL -> {
             instance.rectangles[rectTapped] = defaultRectPaint
@@ -117,28 +70,32 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
             val queue = LinkedList<XYPosition>()
 
-            queue.offer(MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), instance.spanCount.toInt()))
+            val spanCount = instance.spanCount.toInt()
+
+            queue.offer(MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), spanCount))
 
             val selectedColor = getSelectedColor()
 
-            while (queue.isNotEmpty() && seedColor != selectedColor) { // While the queue is not empty the code below will run
+            while (queue.isNotEmpty() && seedColor != selectedColor) {
+
                 val current = queue.poll()
-                val color = instance.rectangles.toList()[convertXYDataToIndex(instance, current)].second?.color ?: Color.WHITE
+
+                val color = instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]]?.color ?: Color.WHITE
 
                 if (color != seedColor) {
                     continue
                 }
 
-                instance.extraCanvas.apply {
-                    instance.rectangles[rectangleData[convertXYDataToIndex(instance, current)]] = defaultRectPaint // Colors in pixel with defaultRectPaint
-                    drawRect(rectangleData[convertXYDataToIndex(instance, current)], defaultRectPaint)
+                instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]] = defaultRectPaint // Colors in pixel with defaultRectPaint
+                instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(current, spanCount)], defaultRectPaint)
 
-                    for (index in expandToNeighborsWithMap(instance, current)) {
-                        val candidate = MathExtensions.convertIndexToXYPosition(index, instance.spanCount.toInt())
-                        queue.offer(candidate)
-                    }
+                for (index in expandToNeighborsWithMap(spanCount, current)) {
+                    val candidate = MathExtensions.convertIndexToXYPosition(index, spanCount)
+                    queue.offer(candidate)
                 }
             }
+            val timeTakenForThis = (System.currentTimeMillis()-startTime)
+            totalTime += timeTakenForThis
         }
         Tools.HORIZONTAL_MIRROR_TOOL -> {
             instance.extraCanvas.apply {
