@@ -12,6 +12,8 @@ fun MyCanvasView.extendedDrawFromPixelList(pixelList: List<Pixel>) {
 
     var pixelIndex = 0
 
+    spanCount = sqrt(pixelList.size.toDouble())
+
     for (i in 0 until pixelListSpanCount.toInt()) {
         for (i_2 in 0 until pixelListSpanCount.toInt()) {
             val left = (i * scale).toFloat()

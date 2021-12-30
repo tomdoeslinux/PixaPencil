@@ -1,19 +1,11 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.*
-import android.util.Log
-import android.widget.Toast
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
 import kotlin.math.sqrt
-
-var totalTime = 0.0
-var totalTimeForExpandToNeighbors = 0.0
-var totalTimeForDrawingRectData = 0.0
-var loopTime = 0.0
-var pollTime = 0.0
 
 fun expandToNeighborsWithMap(spanCount: Int, from: XYPosition): List<Int> {
     val toReturn = mutableListOf<Int>()
@@ -57,7 +49,6 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
     val rectangleData = instance.rectangles.keys.toList()
 
-    val startTime = System.currentTimeMillis()
     when (currentTool) {
         Tools.PENCIL_TOOL -> {
             instance.rectangles[rectTapped] = defaultRectPaint
@@ -77,7 +68,6 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             val selectedColor = getSelectedColor()
 
             while (queue.isNotEmpty() && seedColor != selectedColor) {
-
                 val current = queue.poll()
 
                 val color = instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]]?.color ?: Color.WHITE
@@ -94,8 +84,6 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                     queue.offer(candidate)
                 }
             }
-            val timeTakenForThis = (System.currentTimeMillis()-startTime)
-            totalTime += timeTakenForThis
         }
         Tools.HORIZONTAL_MIRROR_TOOL -> {
             instance.extraCanvas.apply {
