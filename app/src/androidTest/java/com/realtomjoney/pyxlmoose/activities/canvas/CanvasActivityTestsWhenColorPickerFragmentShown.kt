@@ -1,7 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches

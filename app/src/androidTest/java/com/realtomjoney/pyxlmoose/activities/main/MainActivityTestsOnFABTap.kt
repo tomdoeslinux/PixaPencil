@@ -31,8 +31,6 @@ class MainActivityTestsOnFABTap {
     }
 
     @Test fun uitest_activityMainRootLayout_childViews_haveGoneEffectiveVisibility() {
-        for (id in EspressoUtilities.getActivityMainRootLayoutChildElementIds()) {
-            if (id != R.id.activityMain_primaryFragmentHost) onView(withId(id)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-        }
+        for (id in EspressoUtilities.getActivityMainRootLayoutChildElementIds()) if (id != R.id.activityMain_primaryFragmentHost) onView(withId(id)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 }
