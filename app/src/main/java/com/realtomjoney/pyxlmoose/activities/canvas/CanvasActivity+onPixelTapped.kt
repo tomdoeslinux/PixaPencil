@@ -11,27 +11,15 @@ import kotlin.math.sqrt
 fun expandToNeighbors(spanCount: Int, from: XYPosition): List<Int> {
     val toReturn = mutableListOf<Int>()
 
-    if (from.x > 1) {
-        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x - 1, from.y), spanCount))
-    }
+    if (from.x > 1) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x - 1, from.y), spanCount))
 
-    if (from.x < spanCount) {
-        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x + 1, from.y), spanCount))
-    }
+    if (from.x < spanCount) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x + 1, from.y), spanCount))
 
-    if (from.y > 1) {
-        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y - 1), spanCount))
-    }
+    if (from.y > 1) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y - 1), spanCount))
 
-    if (from.y < spanCount) {
-        toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y + 1), spanCount))
-    }
+    if (from.y < spanCount) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y + 1), spanCount))
 
     return toReturn
-}
-
-fun convertXYDataToIndex(spanCount: Int, from: XYPosition): Int {
-    return MathExtensions.convertXYPositionToIndex(from, spanCount)
 }
 
 fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
@@ -40,6 +28,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
     val defaultErasePaint = Paint().apply {
         style = Paint.Style.FILL
         color = currentBackground ?: Color.WHITE
+        isAntiAlias = false
     }
 
     val defaultRectPaint =  Paint().apply {
@@ -80,13 +69,13 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             while (queue.isNotEmpty() && seedColor != selectedColor) {
                 val current = queue.poll()
 
-                val color = instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]]?.color ?: Color.WHITE
+                val color = instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(current, spanCount)]]?.color ?: Color.WHITE
 
                 if (color != seedColor) {
                     continue
                 }
 
-                instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]] = defaultRectPaint // Colors in pixel with defaultRectPaint
+                instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(current, spanCount)]] = defaultRectPaint // Colors in pixel with defaultRectPaint
                 instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(current, spanCount)], defaultRectPaint)
 
                 for (index in expandToNeighbors(spanCount, current)) {
