@@ -14,12 +14,13 @@ fun MyCanvasView.extendedLoadData(context: LifecycleOwner, index: Int) {
         currentPixelArtObj = it[index]
 
         val localPixelData = JsonConverter.convertJsonStringToPixelList(currentPixelArtObj.pixelData)
-        val spanCount = sqrt(localPixelData.size.toDouble())
 
         var pixelIndex = 0
 
         val localPixelDataSpanCount = sqrt(localPixelData.size.toDouble())
         val scale = thisWidth / localPixelDataSpanCount
+
+        spanCount = localPixelDataSpanCount
 
         for (i in 0 until spanCount.toInt()) {
             for (i_2 in 0 until spanCount.toInt()) {

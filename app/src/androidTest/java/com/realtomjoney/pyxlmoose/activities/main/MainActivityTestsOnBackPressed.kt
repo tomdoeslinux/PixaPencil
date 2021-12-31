@@ -19,8 +19,5 @@ class MainActivityTestsOnBackPressed {
     fun uitest_activityMain_onBackPressed_lifecycleStateIsDestroyed() {
         Espresso.pressBackUnconditionally()
         assert(activityTestRule.scenario.state == Lifecycle.State.DESTROYED)
-
-
-
     }
 }

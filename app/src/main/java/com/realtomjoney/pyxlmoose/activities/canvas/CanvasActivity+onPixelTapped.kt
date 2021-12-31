@@ -2,12 +2,13 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.*
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
+import com.realtomjoney.pyxlmoose.enums.BrushInstruction
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
 import kotlin.math.sqrt
 
-fun expandToNeighborsWithMap(spanCount: Int, from: XYPosition): List<Int> {
+fun expandToNeighbors(spanCount: Int, from: XYPosition): List<Int> {
     val toReturn = mutableListOf<Int>()
 
     if (from.x > 1) {
@@ -27,6 +28,87 @@ fun expandToNeighborsWithMap(spanCount: Int, from: XYPosition): List<Int> {
     }
 
     return toReturn
+}
+
+fun convertBrushInstructionToXYPosition(spanCount: Int, from: XYPosition, brushInstructions: List<BrushInstruction>): MutableList<XYPosition> {
+    val instructions = mutableListOf<XYPosition>()
+
+    for (brushInstruction in brushInstructions) {
+        when (brushInstruction) {
+            BrushInstruction.EXPAND_TOP -> {
+                if (from.y < spanCount) {
+                    instructions.add(XYPosition(from.x, from.y + 1))
+                }
+            }
+            BrushInstruction.EXPAND_BOTOM -> {
+                if (from.y > 1) {
+                    instructions.add(XYPosition(from.x, from.y - 1))
+                }
+            }
+            BrushInstruction.EXPAND_LEFT -> {
+                if (from.x > 1) {
+                    instructions.add(XYPosition(from.x - 1, from.y))
+                }
+            }
+            BrushInstruction.EXPAND_RIGHT -> {
+                if (from.x < spanCount) {
+                    instructions.add(XYPosition(from.x + 1, from.y))
+                }
+            }
+
+            BrushInstruction.EXPAND_TOP_RIGHT -> {
+                if (from.x < spanCount && from.y < spanCount) {
+                    instructions.add(XYPosition(from.x + 1, from.y + 1))
+                }
+            }
+            BrushInstruction.EXPAND_TOP_LEFT -> {
+                if (from.x > 1 && from.y < spanCount) {
+                    instructions.add(XYPosition(from.x - 1, from.y + 1))
+                }
+            }
+            BrushInstruction.EXPAND_BOTTOM_RIGHT -> {
+                if (from.x > 1 && from.y > 1) {
+                    instructions.add(XYPosition(from.x - 1, from.y - 1))
+                }
+            }
+            BrushInstruction.EXPAND_BOTTOM_LEFT -> {
+                if (from.x < spanCount && from.y > 1) {
+                    instructions.add(XYPosition(from.x + 1, from.y - 1))
+                }
+            }
+
+            BrushInstruction.EXPAND_ALL -> {
+                if (from.y < spanCount) {
+                    instructions.add(XYPosition(from.x, from.y + 1))
+                }
+                if (from.y > 1) {
+                    instructions.add(XYPosition(from.x, from.y - 1))
+                }
+                if (from.x > 1) {
+                    instructions.add(XYPosition(from.x - 1, from.y))
+                }
+                if (from.x < spanCount) {
+                    instructions.add(XYPosition(from.x + 1, from.y))
+                }
+                if (from.x < spanCount && from.y < spanCount) {
+                    instructions.add(XYPosition(from.x + 1, from.y + 1))
+                }
+                if (from.x > 1 && from.y < spanCount) {
+                    instructions.add(XYPosition(from.x - 1, from.y + 1))
+                }
+
+                if (from.x > 1 && from.y > 1) {
+                    instructions.add(XYPosition(from.x - 1, from.y - 1))
+                }
+
+                if (from.x < spanCount && from.y > 1) {
+                    instructions.add(XYPosition(from.x + 1, from.y - 1))
+                }
+            }
+        }
+    }
+
+    return instructions
 }
 
 fun convertXYDataToIndex(spanCount: Int, from: XYPosition): Int {
@@ -52,8 +134,17 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
     when (currentTool) {
         Tools.PENCIL_TOOL -> {
             instance.rectangles[rectTapped] = defaultRectPaint
+
             instance.extraCanvas.apply {
                 drawRect(rectTapped, defaultRectPaint)
+
+                if (currentBrush != null) {
+                    val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
+                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
+                        drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
+                    }
+                }
             }
         }
         Tools.FILL_TOOL -> {
@@ -79,7 +170,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                 instance.rectangles[rectangleData[convertXYDataToIndex(spanCount, current)]] = defaultRectPaint // Colors in pixel with defaultRectPaint
                 instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(current, spanCount)], defaultRectPaint)
 
-                for (index in expandToNeighborsWithMap(spanCount, current)) {
+                for (index in expandToNeighbors(spanCount, current)) {
                     val candidate = MathExtensions.convertIndexToXYPosition(index, spanCount)
                     queue.offer(candidate)
                 }
@@ -87,7 +178,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
         }
         Tools.HORIZONTAL_MIRROR_TOOL -> {
             instance.extraCanvas.apply {
-                val horizontallyReflectedIndex = MathExtensions.reflectIndexVertically(rectangleData.indexOf(rectTapped), sqrt(instance.rectangles.keys.size.toDouble()).toInt())
+                val horizontallyReflectedIndex = MathExtensions.reflectIndexVertically(rectangleData.indexOf(rectTapped), instance.spanCount.toInt())
 
                 instance.rectangles[rectTapped] = defaultRectPaint
                 instance.rectangles[rectangleData[horizontallyReflectedIndex]] =
@@ -95,6 +186,17 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
                 drawRect(rectTapped, defaultRectPaint)
                 drawRect(rectangleData[horizontallyReflectedIndex], defaultRectPaint)
+
+                if (currentBrush != null) {
+                    val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
+                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
+                        drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
+
+                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt()), instance.spanCount.toInt())]] = defaultRectPaint
+                        drawRect(instance.rectangles.keys.toList()[MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt()), instance.spanCount.toInt())], defaultRectPaint)
+                    }
+                }
             }
         }
         Tools.VERTICAL_MIRROR_TOOL -> {
@@ -106,6 +208,17 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
                 drawRect(rectTapped, defaultRectPaint)
                 drawRect(rectangleData[verticallyReflectedIndex], defaultRectPaint)
+
+                if (currentBrush != null) {
+                    val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
+                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
+                        drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
+
+                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt()), instance.spanCount.toInt())]] = defaultRectPaint
+                        drawRect(instance.rectangles.keys.toList()[MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt()), instance.spanCount.toInt())], defaultRectPaint)
+                    }
+                }
             }
         }
         Tools.COLOR_PICKER_TOOL -> {

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.databinding.ColorPalettesLayoutBinding
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette

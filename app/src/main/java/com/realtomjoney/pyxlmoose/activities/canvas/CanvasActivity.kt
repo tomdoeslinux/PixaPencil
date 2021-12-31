@@ -7,9 +7,10 @@ import android.view.*
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
+import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener {
     var previousView: View? = null
 
     val context = this
@@ -55,4 +56,6 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) = extendedOnColorPaletteTapped(selectedColorPalette)
 
     override fun onDoneButtonPressed(colorPaletteTitle: String) = extendedOnDoneButtonPressed(colorPaletteTitle)
+
+    override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
 }

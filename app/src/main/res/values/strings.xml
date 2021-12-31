@@ -32,4 +32,6 @@
     <string name="color_palette_name">Color Palette Name</string>
     <string name="add_color">Add Color</string>
     <string name="content_description_fill_tool">Fill Tool</string>
+    <string name="brush_item">Brush 1</string>
+    <string name="tab_brushes_str">Brushes</string>
 </resources>

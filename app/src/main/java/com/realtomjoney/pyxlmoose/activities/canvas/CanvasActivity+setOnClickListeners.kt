@@ -5,6 +5,7 @@ import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.realtomjoney.pyxlmoose.*
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
+import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
 import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
@@ -27,6 +28,9 @@ fun clearCanvas() {
 }
 
 fun CanvasActivity.setOnClickListeners() {
+    brushesFragmentInstance = BrushesFragment.newInstance()
+    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, brushesFragmentInstance!!).commit()
+
     colorPalettesFragmentInstance = ColorPalettesFragment.newInstance(this)
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
 
@@ -42,17 +46,26 @@ fun CanvasActivity.setOnClickListeners() {
                 getString(R.string.tab_tools_str) -> {
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
+                    brushesFragmentInstance!!.requireView().visibility = View.GONE
                     toolsFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
                 getString(R.string.tab_filters_str) -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
+                    brushesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
                 getString(R.string.tab_color_palettes_str) -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
+                    brushesFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.VISIBLE
+                }
+                getString(R.string.tab_brushes_str) -> {
+                    colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
+                    filtersFragmentInstance!!.requireView().visibility = View.GONE
+                    toolsFragmentInstance!!.requireView().visibility = View.GONE
+                    brushesFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
             }
         }
