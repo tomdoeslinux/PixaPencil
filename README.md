@@ -29,6 +29,15 @@ If you are wanting to make an app similar to PyxlMoose (a pixel art editor for A
 
 _Do not use the name 'PyxlMoose' or the logo in your app._
 
+## Progress
+PyxlMoose is the world's fastest progressing Android pixel art editor.
+
+**⭐ You can show your support for this project by starring this project! ⭐**
+
+
+
+![PROGRESSpng](https://user-images.githubusercontent.com/50536495/147825247-0b4e8f32-400a-498b-9e2a-57620f1fe9b5.png)
+
 ## Goal
 PyxlMoose is a project I am submitting for NCEA Level 3 Digital Technologies.
 
