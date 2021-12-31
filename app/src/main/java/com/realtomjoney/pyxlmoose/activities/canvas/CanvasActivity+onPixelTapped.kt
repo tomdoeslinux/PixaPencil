@@ -30,87 +30,6 @@ fun expandToNeighbors(spanCount: Int, from: XYPosition): List<Int> {
     return toReturn
 }
 
-fun convertBrushInstructionToXYPosition(spanCount: Int, from: XYPosition, brushInstructions: List<BrushInstruction>): MutableList<XYPosition> {
-    val instructions = mutableListOf<XYPosition>()
-
-    for (brushInstruction in brushInstructions) {
-        when (brushInstruction) {
-            BrushInstruction.EXPAND_TOP -> {
-                if (from.y < spanCount) {
-                    instructions.add(XYPosition(from.x, from.y + 1))
-                }
-            }
-            BrushInstruction.EXPAND_BOTTOM -> {
-                if (from.y > 1) {
-                    instructions.add(XYPosition(from.x, from.y - 1))
-                }
-            }
-            BrushInstruction.EXPAND_LEFT -> {
-                if (from.x > 1) {
-                    instructions.add(XYPosition(from.x - 1, from.y))
-                }
-            }
-            BrushInstruction.EXPAND_RIGHT -> {
-                if (from.x < spanCount) {
-                    instructions.add(XYPosition(from.x + 1, from.y))
-                }
-            }
-
-            BrushInstruction.EXPAND_TOP_RIGHT -> {
-                if (from.x < spanCount && from.y < spanCount) {
-                    instructions.add(XYPosition(from.x + 1, from.y + 1))
-                }
-            }
-            BrushInstruction.EXPAND_TOP_LEFT -> {
-                if (from.x > 1 && from.y < spanCount) {
-                    instructions.add(XYPosition(from.x - 1, from.y + 1))
-                }
-            }
-            BrushInstruction.EXPAND_BOTTOM_RIGHT -> {
-                if (from.x > 1 && from.y > 1) {
-                    instructions.add(XYPosition(from.x - 1, from.y - 1))
-                }
-            }
-            BrushInstruction.EXPAND_BOTTOM_LEFT -> {
-                if (from.x < spanCount && from.y > 1) {
-                    instructions.add(XYPosition(from.x + 1, from.y - 1))
-                }
-            }
-
-            BrushInstruction.EXPAND_ALL -> {
-                if (from.y < spanCount) {
-                    instructions.add(XYPosition(from.x, from.y + 1))
-                }
-                if (from.y > 1) {
-                    instructions.add(XYPosition(from.x, from.y - 1))
-                }
-                if (from.x > 1) {
-                    instructions.add(XYPosition(from.x - 1, from.y))
-                }
-                if (from.x < spanCount) {
-                    instructions.add(XYPosition(from.x + 1, from.y))
-                }
-                if (from.x < spanCount && from.y < spanCount) {
-                    instructions.add(XYPosition(from.x + 1, from.y + 1))
-                }
-                if (from.x > 1 && from.y < spanCount) {
-                    instructions.add(XYPosition(from.x - 1, from.y + 1))
-                }
-
-                if (from.x > 1 && from.y > 1) {
-                    instructions.add(XYPosition(from.x - 1, from.y - 1))
-                }
-
-                if (from.x < spanCount && from.y > 1) {
-                    instructions.add(XYPosition(from.x + 1, from.y - 1))
-                }
-            }
-        }
-    }
-
-    return instructions
-}
-
 fun convertXYDataToIndex(spanCount: Int, from: XYPosition): Int {
     return MathExtensions.convertXYPositionToIndex(from, spanCount)
 }
@@ -140,7 +59,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
                 if (currentBrush != null) {
                     val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
-                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(instance.spanCount.toInt(), xyData)) {
                         instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
                         drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
                     }
@@ -189,7 +108,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
                 if (currentBrush != null) {
                     val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
-                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(instance.spanCount.toInt(), xyData)) {
                         instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
                         drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
 
@@ -211,7 +130,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
                 if (currentBrush != null) {
                     val xyData = MathExtensions.convertIndexToXYPosition(instance.rectangles.keys.toList().indexOf(rectTapped), instance.spanCount.toInt())
-                    for (xyData in convertBrushInstructionToXYPosition(instance.spanCount.toInt(), xyData, currentBrush!!.brushInstructions)) {
+                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(instance.spanCount.toInt(), xyData)) {
                         instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
                         drawRect(instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
 

@@ -15,7 +15,7 @@ object BrushesDatabase {
         val brushesData = listOf(
             Brush("Default Brush", listOf(), R.drawable.default_brush),
             Brush("Brush 1", listOf(BrushInstruction.EXPAND_LEFT, BrushInstruction.EXPAND_RIGHT, BrushInstruction.EXPAND_TOP, BrushInstruction.EXPAND_BOTTOM), R.drawable.brush_1),
-            Brush("Brush 2", listOf(BrushInstruction.EXPAND_ALL), R.drawable.brush_2),
+            Brush("Brush 2", listOf(BrushInstruction.EXPAND_LEFT, BrushInstruction.EXPAND_RIGHT, BrushInstruction.EXPAND_TOP, BrushInstruction.EXPAND_BOTTOM, BrushInstruction.EXPAND_BOTTOM_LEFT, BrushInstruction.EXPAND_BOTTOM_RIGHT, BrushInstruction.EXPAND_TOP_LEFT,  BrushInstruction.EXPAND_TOP_RIGHT), R.drawable.brush_2),
             Brush("Brush 3", listOf(BrushInstruction.EXPAND_BOTTOM_LEFT, BrushInstruction.EXPAND_BOTTOM_RIGHT, BrushInstruction.EXPAND_TOP_LEFT,  BrushInstruction.EXPAND_TOP_RIGHT), R.drawable.brush_3),
             )
 
