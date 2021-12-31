@@ -40,7 +40,7 @@ fun convertBrushInstructionToXYPosition(spanCount: Int, from: XYPosition, brushI
                     instructions.add(XYPosition(from.x, from.y + 1))
                 }
             }
-            BrushInstruction.EXPAND_BOTOM -> {
+            BrushInstruction.EXPAND_BOTTOM -> {
                 if (from.y > 1) {
                     instructions.add(XYPosition(from.x, from.y - 1))
                 }

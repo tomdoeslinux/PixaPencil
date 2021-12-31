@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.enums
 
 enum class BrushInstruction {
     EXPAND_TOP,
-    EXPAND_BOTOM,
+    EXPAND_BOTTOM,
     EXPAND_LEFT,
     EXPAND_RIGHT,
 
