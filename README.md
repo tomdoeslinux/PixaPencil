@@ -43,7 +43,7 @@ PyxlMoose is a project I am submitting for NCEA Level 3 Digital Technologies.
 
 It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
 
-## Features as of 1 January 2022
+## Features (as of 1 January 2022)
 - Pencil
 - Fill tool
 - Horizontal mirror tool
@@ -64,6 +64,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Ability to select from four different brushes
 - Ability to select custom colors from HEX code or RGB sliders
 - Ability to unfavorite/favorite projects
+
+Go to https://github.com/realtomjoney/PyxlMoose/projects/1 to have a look at features we want to add to PyxlMoose.
 
 ## Shoutout
 Thank you to:
