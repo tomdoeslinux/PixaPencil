@@ -14,26 +14,6 @@
         android:layout_height="match_parent" />
 
     <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activityCanvas_colorPickerRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activityCanvas_primaryFragmentHost"
-        tools:listitem="@layout/color_picker_layout" />
-
-    <View
         android:id="@+id/activityCanvas_colorSecondaryView"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -52,6 +32,31 @@
         app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorSecondaryView"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorSecondaryView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activityCanvas_colorPickerRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_primaryFragmentHost"
+        tools:listitem="@layout/color_picker_layout" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/activityCanvas_canvasFragmentHostCardViewParent"

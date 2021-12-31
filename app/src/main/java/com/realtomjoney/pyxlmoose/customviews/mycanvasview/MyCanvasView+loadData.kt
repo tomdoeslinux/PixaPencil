@@ -18,9 +18,10 @@ fun MyCanvasView.extendedLoadData(context: LifecycleOwner, index: Int) {
         var pixelIndex = 0
 
         val localPixelDataSpanCount = sqrt(localPixelData.size.toDouble())
-        val scale = thisWidth / localPixelDataSpanCount
 
         spanCount = localPixelDataSpanCount
+
+        scale = (thisWidth / spanCount)
 
         for (i in 0 until spanCount.toInt()) {
             for (i_2 in 0 until spanCount.toInt()) {
