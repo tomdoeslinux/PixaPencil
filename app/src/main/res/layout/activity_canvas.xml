@@ -8,6 +8,13 @@
     android:id="@+id/activityCanvas_rootLayout"
     tools:context=".activities.canvas.CanvasActivity">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:id="@+id/activityCanvas_primaryFragmentHost"
         android:layout_width="match_parent"
@@ -32,19 +39,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorSecondaryView"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorSecondaryView" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityCanvas_colorPickerRecyclerView"
