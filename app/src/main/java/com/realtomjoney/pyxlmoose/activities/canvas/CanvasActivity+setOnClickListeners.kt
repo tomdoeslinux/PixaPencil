@@ -25,6 +25,7 @@ fun clearCanvas() {
     }
 
     canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+    canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
 }
 
 fun CanvasActivity.setOnClickListeners() {
