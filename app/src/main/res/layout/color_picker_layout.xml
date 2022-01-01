@@ -4,6 +4,5 @@
 <View android:id="@+id/colorView"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:background="@drawable/round"
-    android:backgroundTint="@android:color/holo_orange_dark"
+    android:background="@android:color/holo_orange_dark"
     xmlns:android="http://schemas.android.com/apk/res/android"/>
