@@ -58,3 +58,7 @@ var brushesFragmentInstance: BrushesFragment? = null
 var fullscreenEnabled = false
 
 var currentBrush: Brush? = null
+
+var currentCanvasScale: Double = 1.0
+
+var gridDisabledFromZoomOut = false

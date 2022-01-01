@@ -3,6 +3,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.util.Log
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import com.realtomjoney.pyxlmoose.R
@@ -26,6 +27,18 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 if (scaleX > maxZoomOut && scaleY > maxZoomOut) {
                     scaleX -= zoom
                     scaleY -= zoom
+
+                    currentCanvasScale = scaleX.toDouble()
+                    canvasFragmentInstance.myCanvasViewInstance.removeGrid()
+                    canvasFragmentInstance.myCanvasViewInstance.invalidate()
+
+                    if (canvasFragmentInstance.spanCount > 50) {
+                        if ((canvasFragmentInstance.spanCount / currentCanvasScale) >= 62.499996 && gridEnabled) canvasFragmentInstance.myCanvasViewInstance.removeGrid()
+                    } else if (canvasFragmentInstance.spanCount <= 50) {
+                        gridDisabledFromZoomOut = true
+                        gridEnabled = false
+                        canvasFragmentInstance.myCanvasViewInstance.removeGrid()
+                    }
                 }
             }
         }
@@ -33,6 +46,17 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
                 scaleX += zoom
                 scaleY += zoom
+
+                currentCanvasScale = scaleX.toDouble()
+
+                if (gridDisabledFromZoomOut) {
+                    gridEnabled = true
+                    canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
+                }
+
+                if ((canvasFragmentInstance.spanCount / currentCanvasScale) <= 62.499996 && gridEnabled && canvasFragmentInstance.spanCount > 50) {
+                    canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
+                }
             }
         }
         R.id.save_project -> extendedSaveProject()

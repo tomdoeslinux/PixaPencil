@@ -80,9 +80,16 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
             isAntiAlias = false
         }
 
-        for (rect in rectangles.keys) {
-            canvasParam.drawLine(rect.left, rect.top, rect.left, rect.bottom, gridPaint)
-            canvasParam.drawLine(rect.left, rect.top, rect.right, rect.top, gridPaint)
+        if ((canvasFragmentInstance.spanCount / currentCanvasScale) <= 62.499996 && gridEnabled) {
+            for (rect in rectangles.keys) {
+                canvasParam.drawLine(rect.left, rect.top, rect.left, rect.bottom, gridPaint)
+                canvasParam.drawLine(rect.left, rect.top, rect.right, rect.top, gridPaint)
+            }
+        } else if (canvasFragmentInstance.spanCount <= 50 && gridEnabled) {
+            for (rect in rectangles.keys) {
+                canvasParam.drawLine(rect.left, rect.top, rect.left, rect.bottom, gridPaint)
+                canvasParam.drawLine(rect.left, rect.top, rect.right, rect.top, gridPaint)
+            }
         }
     }
 
