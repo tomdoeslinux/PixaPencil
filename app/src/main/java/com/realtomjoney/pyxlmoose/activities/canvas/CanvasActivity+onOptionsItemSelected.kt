@@ -17,7 +17,7 @@ fun CanvasActivity.setMenuItemIcon(item: MenuItem, icon: Int, tooltipText: CharS
 }
 
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
-    val zoom = 0.8f
+    val zoom = 0.2f
     val maxZoomOut = 0.19999999 // TODO - look into why Android is buggy when user zooms out past this number
 
     when (item.itemId) {
