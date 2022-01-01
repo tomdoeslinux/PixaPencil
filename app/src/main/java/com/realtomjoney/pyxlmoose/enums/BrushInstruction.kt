@@ -10,6 +10,4 @@ enum class BrushInstruction {
     EXPAND_TOP_RIGHT,
     EXPAND_BOTTOM_LEFT,
     EXPAND_BOTTOM_RIGHT,
-
-    EXPAND_ALL
 }
