@@ -243,6 +243,28 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                 instance.rectangles[rectTapped] = defaultErasePaint
                 instance.extraCanvas.apply {
                     drawRect(rectTapped, defaultErasePaint)
+
+                    if (currentBrush != null) {
+                        val xyData = MathExtensions.convertIndexToXYPosition(
+                            instance.rectangles.keys.toList().indexOf(rectTapped),
+                            instance.spanCount.toInt()
+                        )
+                        for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(
+                            instance.spanCount.toInt(),
+                            xyData
+                        )) {
+                            instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
+                                xyData,
+                                instance.spanCount.toInt()
+                            )]] = defaultErasePaint
+                            drawRect(
+                                instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
+                                    xyData,
+                                    instance.spanCount.toInt()
+                                )], defaultErasePaint
+                            )
+                        }
+                    }
                 }
             }
             else -> {
