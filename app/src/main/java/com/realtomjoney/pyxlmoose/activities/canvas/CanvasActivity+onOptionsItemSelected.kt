@@ -32,13 +32,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                     canvasFragmentInstance.myCanvasViewInstance.removeGrid()
                     canvasFragmentInstance.myCanvasViewInstance.invalidate()
 
-                    if (canvasFragmentInstance.spanCount > 50) {
-                        if ((canvasFragmentInstance.spanCount / currentCanvasScale) >= 62.499996 && gridEnabled) canvasFragmentInstance.myCanvasViewInstance.removeGrid()
-                    } else if (canvasFragmentInstance.spanCount <= 50) {
-                        gridDisabledFromZoomOut = true
-                        gridEnabled = false
-                        canvasFragmentInstance.myCanvasViewInstance.removeGrid()
-                    }
+                    if ((canvasFragmentInstance.spanCount / currentCanvasScale) >= 62.499996 && gridEnabled) canvasFragmentInstance.myCanvasViewInstance.removeGrid()
                 }
             }
         }
@@ -49,12 +43,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
                 currentCanvasScale = scaleX.toDouble()
 
-                if (gridDisabledFromZoomOut) {
-                    gridEnabled = true
-                    canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
-                }
-
-                if ((canvasFragmentInstance.spanCount / currentCanvasScale) <= 62.499996 && gridEnabled && canvasFragmentInstance.spanCount > 50) {
+                if ((canvasFragmentInstance.spanCount / currentCanvasScale) <= 62.499996 && gridEnabled) {
                     canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
                 }
             }
