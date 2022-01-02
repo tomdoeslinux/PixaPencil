@@ -5,4 +5,5 @@ fun extendedOnPause() {
     canvasStates.clear()
     currentTool = Tools.PENCIL_TOOL
     gridEnabled = false
+    gridDisabledFromZoomOut = false
 }

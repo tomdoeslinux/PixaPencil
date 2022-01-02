@@ -51,6 +51,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             else canvasFragmentInstance.myCanvasViewInstance.removeGrid()
 
             gridEnabled = !gridEnabled
+
+            if (!gridEnabled) gridDisabledFromZoomOut = false
         }
     }
 }
