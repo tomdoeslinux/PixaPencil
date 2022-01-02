@@ -52,17 +52,6 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.undo -> extendedUndo()
 
-        R.id.fullscreen -> {
-            fullscreenEnabled = if (!fullscreenEnabled) {
-                enableFullscreen()
-                setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_exit_24, "Exit Fullscreen")
-                true
-            } else {
-                disableFullscreen()
-                setMenuItemIcon(item, R.drawable.ic_baseline_fullscreen_24, "Fullscreen")
-                false
-            }
-        }
         R.id.new_color_palette -> {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance
