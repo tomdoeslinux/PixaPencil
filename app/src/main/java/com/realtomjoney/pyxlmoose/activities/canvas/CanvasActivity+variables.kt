@@ -44,6 +44,9 @@ var saved = true
 var gridEnabled = false
 
 val canvasStates = mutableListOf<List<Pixel>>()
+var deletedCanvasStates = mutableListOf<List<Pixel>>()
+
+var indiciesBeforeCanvasCleared = mutableListOf<Int>()
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasFragmentInstance: CanvasFragment
@@ -55,10 +58,9 @@ var filtersFragmentInstance: FiltersFragment? = null
 var colorPalettesFragmentInstance: ColorPalettesFragment? = null
 var brushesFragmentInstance: BrushesFragment? = null
 
-var fullscreenEnabled = false
-
 var currentBrush: Brush? = null
 
 var currentCanvasScale: Double = 1.0
 
 var gridDisabledFromZoomOut = false
+

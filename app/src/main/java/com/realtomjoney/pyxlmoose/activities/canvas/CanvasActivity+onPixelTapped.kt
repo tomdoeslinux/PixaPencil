@@ -38,6 +38,8 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
         isAntiAlias = false
     }
 
+    deletedCanvasStates.clear()
+
     val rectangleData = instance.rectangles.keys.toList()
 
         when (currentTool) {

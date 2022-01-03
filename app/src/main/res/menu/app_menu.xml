@@ -7,6 +7,12 @@
         app:showAsAction="always"
         android:title="Undo" />
 
+    <item android:id="@+id/redo"
+        android:icon="@drawable/ic_baseline_redo_24"
+        android:iconTint="@color/white"
+        app:showAsAction="always"
+        android:title="Redo" />
+
     <item android:id="@+id/zoom_in"
         android:icon="@drawable/ic_baseline_zoom_in_24"
         android:iconTint="@color/white"

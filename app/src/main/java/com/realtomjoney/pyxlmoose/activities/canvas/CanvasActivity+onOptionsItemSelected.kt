@@ -52,6 +52,8 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.undo -> extendedUndo()
 
+        R.id.redo -> extendedRedo()
+
         R.id.new_color_palette -> {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance

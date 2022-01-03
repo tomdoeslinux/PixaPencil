@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.realtomjoney.pyxlmoose.*
@@ -24,8 +25,11 @@ fun clearCanvas() {
         pixel.pixelColor = null
     }
 
-    canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
-    canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+    if (canvasStates.isNotEmpty()) {
+        canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
+        canvasStates.remove(canvasStates.last())
+        canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+    }
 }
 
 fun CanvasActivity.setOnClickListeners() {

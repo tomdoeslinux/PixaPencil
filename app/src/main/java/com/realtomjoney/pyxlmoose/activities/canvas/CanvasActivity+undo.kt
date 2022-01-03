@@ -4,6 +4,8 @@ import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 
 fun CanvasActivity.extendedUndo() {
+    if (canvasStates.isNotEmpty()) deletedCanvasStates.add(canvasStates.last())
+
     if (canvasStates.size > 1) {
         canvasStates.remove(canvasStates.last())
         canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(canvasStates.last())
