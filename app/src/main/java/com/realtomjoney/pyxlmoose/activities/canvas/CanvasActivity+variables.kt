@@ -46,8 +46,6 @@ var gridEnabled = false
 val canvasStates = mutableListOf<List<Pixel>>()
 var deletedCanvasStates = mutableListOf<List<Pixel>>()
 
-var indiciesBeforeCanvasCleared = mutableListOf<Int>()
-
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasFragmentInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
