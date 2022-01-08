@@ -20,6 +20,10 @@ fun setOnClickListeners() {
             caller.onToolTapped(StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsLineButton.setOnClickListener {
+            caller.onToolTapped(StringConstants.LINE_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsDarkenButton.setOnClickListener {
             caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
         }

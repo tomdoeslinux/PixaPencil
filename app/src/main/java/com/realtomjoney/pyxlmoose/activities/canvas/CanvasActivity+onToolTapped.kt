@@ -19,6 +19,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER -> currentTool = Tools.HORIZONTAL_MIRROR_TOOL
 
+        StringConstants.LINE_TOOL_IDENTIFIER -> currentTool = Tools.LINE_TOOL
+
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
             filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DARKEN_TOOL

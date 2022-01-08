@@ -50,6 +50,12 @@
                 app:srcCompat="@drawable/ic_mirror" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_lineButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_line_tool"
+                app:srcCompat="@drawable/ic_vector_line" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_darkenButton"
                 style="@style/canvas_activity_button_tool_style"
                 android:contentDescription="@string/content_description_darken_tool"
