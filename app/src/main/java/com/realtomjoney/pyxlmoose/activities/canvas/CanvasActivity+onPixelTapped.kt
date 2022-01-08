@@ -320,9 +320,9 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
 
             if (lineOrigin == null) {
-                lineOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), spanCount)
+                lineOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt())
             } else {
-                drawLine(lineOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), spanCount), canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
+                drawLine(lineOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()), canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
             }
 
             canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
