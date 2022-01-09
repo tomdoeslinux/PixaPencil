@@ -26,8 +26,8 @@ class LineAlgorithm(private val instance: MyCanvasView, private val defaultRectP
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
+            instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
             instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-            instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
             x++
 
             if (p < 0) {
@@ -59,8 +59,8 @@ class LineAlgorithm(private val instance: MyCanvasView, private val defaultRectP
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
+           instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
             instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-            instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
             y++
 
             if (p < 0) {
