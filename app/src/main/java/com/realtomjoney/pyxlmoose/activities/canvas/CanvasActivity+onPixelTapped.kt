@@ -1,114 +1,17 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.*
+import com.realtomjoney.pyxlmoose.algorithms.ExpandToNeighborsAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
-import kotlin.math.abs
 import kotlin.math.sqrt
 
-fun expandToNeighbors(spanCount: Int, from: XYPosition): List<Int> {
-    val toReturn = mutableListOf<Int>()
-
-    if (from.x > 1) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x - 1, from.y), spanCount))
-
-    if (from.x < spanCount) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x + 1, from.y), spanCount))
-
-    if (from.y > 1) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y - 1), spanCount))
-
-    if (from.y < spanCount) toReturn.add(MathExtensions.convertXYPositionToIndex(XYPosition(from.x, from.y + 1), spanCount))
-
-    return toReturn
-}
-
-fun drawLineY(from: XYPosition, to: XYPosition, instance: MyCanvasView, defaultRectPaint: Paint, rectangleData: List<RectF>) {
-    var x = from.x
-    var y = from.y
-
-    val differenceX = to.x - x
-    var differenceY = to.y - y
-
-    var yi = 1
-    val xi = 1
-
-    if (differenceY < 0) {
-        differenceY = -differenceY
-        yi = -1
-    }
-
-    var p = 2 * differenceY - differenceX
-
-    while (x <= to.x) {
-        instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-        x++
-
-        if (p < 0) {
-            p += 2 * differenceY
-            if (differenceY > differenceX) {
-                x += xi
-            }
-        } else {
-            p = p + 2 * differenceY - 2 * differenceX
-            y += yi
-        }
-    }
-}
-
-fun drawLineX(from: XYPosition, to: XYPosition, instance: MyCanvasView, defaultRectPaint: Paint, rectangleData: List<RectF>) {
-    var x = from.x
-    var y = from.y
-
-    var differenceX = to.x - x
-    val differenceY = to.y - y
-
-    var xi = 1
-
-    if (differenceX <= 0) {
-        differenceX = -differenceX
-        xi = -1
-    }
-
-    var p = 2 * differenceX - differenceY
-
-    while (y <= to.y) {
-        instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-        y++
-
-        if (p < 0) {
-            p += 2 * differenceX
-        } else {
-            p = p + 2 * differenceX - 2 * differenceY
-            x += xi
-        }
-    }
-}
-
-fun drawLine(from: XYPosition, to: XYPosition, instance: MyCanvasView, defaultRectPaint: Paint, rectangleData: List<RectF>) {
-    val x = from.x
-    val y = from.y
-
-    val differenceX = to.x - x
-    val differenceY = to.y - y
-
-    if (differenceY <= differenceX) {
-        if (abs(differenceY) > differenceX) {
-            drawLineX(to, from, instance, defaultRectPaint, rectangleData)
-        } else {
-             drawLineY(from, to, instance, defaultRectPaint, rectangleData)
-        }
-    } else if (differenceX < differenceY) {
-        if (abs(differenceX) > differenceY) {
-            drawLineY(to, from, instance, defaultRectPaint, rectangleData)
-        } else {
-            drawLineX(from, to, instance, defaultRectPaint, rectangleData)
-        }
-    }
-}
-
 var lineOrigin: XYPosition? = null
+
+var expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm()
 
 fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
     saved = false
@@ -199,7 +102,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                     )], defaultRectPaint
                 )
 
-                for (index in expandToNeighbors(spanCount, current)) {
+                for (index in expandToNeighborsAlgorithmInstance.compute(spanCount, current)) {
                     val candidate = MathExtensions.convertIndexToXYPosition(index, spanCount)
                     queue.offer(candidate)
                 }
@@ -313,16 +216,14 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.LINE_TOOL -> {
-            if (!lineMode_hasLetGo) {
-                extendedUndo()
-            } else {
-                lineMode_hasLetGo = false
-            }
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
+
+            if (!lineMode_hasLetGo) extendedUndo() else lineMode_hasLetGo = false
 
             if (lineOrigin == null) {
                 lineOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt())
             } else {
-                drawLine(lineOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()), canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
+                lineAlgorithmInstance.compute(lineOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()))
             }
 
             canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
