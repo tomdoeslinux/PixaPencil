@@ -31,12 +31,6 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.EXPAND_TOP_LEFT, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_TOP_RIGHT, 1),
             ), R.drawable.brush_2),
-            Brush("Brush 3", listOf(
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_LEFT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_RIGHT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_LEFT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_RIGHT, 1),
-            ), R.drawable.brush_3),
             Brush("Brush 4", listOf(
                 BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 2),
@@ -44,17 +38,6 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.EXPAND_LEFT, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_LEFT, 2),
             ), R.drawable.brush_4),
-            Brush("Brush 5", listOf(
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_LEFT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_RIGHT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_LEFT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_RIGHT, 1),
-
-                BrushInstructionCommand(BrushInstruction.EXPAND_LEFT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM, 2),
-                ), R.drawable.brush_5),
             Brush("Brush 6", listOf(
                 BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_LEFT, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_RIGHT, 1),
@@ -70,21 +53,7 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_TOP, 1),
                 BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM, 1),
-            ), R.drawable.brush_6),
-            Brush("Brush 7", listOf(
-                BrushInstructionCommand(BrushInstruction.EXPAND_LEFT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM, 1),
-                BrushInstructionCommand(BrushInstruction.EXPAND_LEFT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_RIGHT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_LEFT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_BOTTOM_RIGHT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_LEFT, 2),
-                BrushInstructionCommand(BrushInstruction.EXPAND_TOP_RIGHT, 2),
-            ), R.drawable.brush_7))
+            ), R.drawable.brush_6))
 
         for (brush in brushesData) addBrush(brush)
     }
