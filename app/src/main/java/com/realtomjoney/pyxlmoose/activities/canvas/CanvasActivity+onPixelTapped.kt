@@ -7,11 +7,12 @@ import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
-import kotlin.math.sqrt
 
 var lineOrigin: XYPosition? = null
 
 var expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm()
+
+var pixelsTappedAsXYPosition = mutableListOf<XYPosition>()
 
 fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: RectF) {
     saved = false
@@ -41,8 +42,15 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
     when (currentTool) {
         Tools.PENCIL_TOOL -> {
+            pixelsTappedAsXYPosition.add(pixelTappedAsXYPosition)
+
             rectangles[rectTapped] = defaultRectPaint
             canvas.drawRect(rectTapped, defaultRectPaint)
+
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData, currentBrush)
+
+            if (pixelsTappedAsXYPosition.size > 1)
+                lineAlgorithmInstance.compute(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], pixelsTappedAsXYPosition.last())
 
             if (currentBrush != null) {
                 for (xyData in currentBrushInstructionData!!) {
@@ -98,11 +106,20 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.HORIZONTAL_MIRROR_TOOL -> {
+            pixelsTappedAsXYPosition.add(pixelTappedAsXYPosition)
+
             rectangles[rectTapped] = defaultRectPaint
             rectangles[rectangleData[horizontallyReflectedIndex]] = defaultRectPaint
 
             canvas.drawRect(rectTapped, defaultRectPaint)
             canvas.drawRect(rectangleData[horizontallyReflectedIndex], defaultRectPaint)
+
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData, currentBrush)
+
+            if (pixelsTappedAsXYPosition.size > 1) {
+                lineAlgorithmInstance.compute(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], pixelsTappedAsXYPosition.last())
+                lineAlgorithmInstance.compute(MathExtensions.convertIndexToXYPosition(MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], spanCount), spanCount), spanCount), MathExtensions.convertIndexToXYPosition(MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 1], spanCount), spanCount), spanCount))
+            }
 
             if (currentBrush != null) {
                 for (xyData in currentBrushInstructionData!!) {
@@ -114,11 +131,20 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.VERTICAL_MIRROR_TOOL -> {
+            pixelsTappedAsXYPosition.add(pixelTappedAsXYPosition)
+
             rectangles[rectTapped] = defaultRectPaint
             rectangles[rectangleData[verticallyReflectedIndex]] = defaultRectPaint
 
             canvas.drawRect(rectTapped, defaultRectPaint)
             canvas.drawRect(rectangleData[verticallyReflectedIndex], defaultRectPaint)
+
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData, currentBrush)
+
+            if (pixelsTappedAsXYPosition.size > 1) {
+                lineAlgorithmInstance.compute(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], pixelsTappedAsXYPosition.last())
+                lineAlgorithmInstance.compute(MathExtensions.convertIndexToXYPosition(MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], spanCount), spanCount), spanCount), MathExtensions.convertIndexToXYPosition(MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 1], spanCount), spanCount), spanCount))
+            }
 
             if (currentBrush != null) {
                 for (xyData in currentBrushInstructionData!!) {
@@ -131,7 +157,7 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
         }
         Tools.LINE_TOOL -> {
-            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData, currentBrush)
 
             if (!lineMode_hasLetGo) extendedUndo() else lineMode_hasLetGo = false
 
@@ -160,8 +186,15 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.ERASE_TOOL -> {
+            pixelsTappedAsXYPosition.add(pixelTappedAsXYPosition)
+
             rectangles[rectTapped] = defaultErasePaint
             canvas.drawRect(rectTapped, defaultErasePaint)
+
+            val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultErasePaint, rectangleData, currentBrush)
+
+            if (pixelsTappedAsXYPosition.size > 1)
+                lineAlgorithmInstance.compute(pixelsTappedAsXYPosition[pixelsTappedAsXYPosition.size - 2], pixelsTappedAsXYPosition.last())
 
             if (currentBrush != null) {
                 for (xyData in currentBrushInstructionData!!) {

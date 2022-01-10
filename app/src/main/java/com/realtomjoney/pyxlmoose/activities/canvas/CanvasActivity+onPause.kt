@@ -7,4 +7,5 @@ fun extendedOnPause() {
     currentTool = Tools.PENCIL_TOOL
     gridEnabled = false
     gridDisabledFromZoomOut = false
+    pixelsTappedAsXYPosition.clear()
 }
