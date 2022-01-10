@@ -30,37 +30,26 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
 
     deletedCanvasStates.clear()
 
-    val rectangleData = instance.rectangles.keys.toList()
+    val rectangles = canvasFragmentInstance.myCanvasViewInstance.rectangles
+    val canvas = canvasFragmentInstance.myCanvasViewInstance.extraCanvas
+    val rectangleData = canvasFragmentInstance.myCanvasViewInstance.rectangles.keys.toList()
+    val spanCount = canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()
+    val pixelTappedAsXYPosition = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), spanCount)
+    val currentBrushInstructionData = currentBrush?.convertBrushInstructionDataToXYPositionData(spanCount, pixelTappedAsXYPosition)
+    val horizontallyReflectedIndex = MathExtensions.reflectIndexVertically(rectangleData.indexOf(rectTapped), spanCount)
+    val verticallyReflectedIndex = MathExtensions.reflectIndexHorizontally(rectangleData.indexOf(rectTapped), spanCount)
 
     when (currentTool) {
         Tools.PENCIL_TOOL -> {
-                instance.rectangles[rectTapped] = defaultRectPaint
+            rectangles[rectTapped] = defaultRectPaint
+            canvas.drawRect(rectTapped, defaultRectPaint)
 
-                instance.extraCanvas.apply {
-                    drawRect(rectTapped, defaultRectPaint)
-
-                    if (currentBrush != null) {
-                        val xyData = MathExtensions.convertIndexToXYPosition(
-                            instance.rectangles.keys.toList().indexOf(rectTapped),
-                            instance.spanCount.toInt()
-                        )
-                        for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(
-                            instance.spanCount.toInt(),
-                            xyData
-                        )) {
-                            instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            )]] = defaultRectPaint
-                            drawRect(
-                                instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                                    xyData,
-                                    instance.spanCount.toInt()
-                                )], defaultRectPaint
-                            )
-                        }
-                    }
+            if (currentBrush != null) {
+                for (xyData in currentBrushInstructionData!!) {
+                    rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)]] = defaultRectPaint
+                    canvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)], defaultRectPaint)
                 }
+            }
         }
         Tools.FILL_TOOL -> {
             val seedColor = instance.rectangles[rectTapped]?.color ?: Color.WHITE
@@ -109,111 +98,37 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.HORIZONTAL_MIRROR_TOOL -> {
-            instance.extraCanvas.apply {
-                val horizontallyReflectedIndex = MathExtensions.reflectIndexVertically(
-                    rectangleData.indexOf(rectTapped),
-                    instance.spanCount.toInt()
-                )
+            rectangles[rectTapped] = defaultRectPaint
+            rectangles[rectangleData[horizontallyReflectedIndex]] = defaultRectPaint
 
-                instance.rectangles[rectTapped] = defaultRectPaint
-                instance.rectangles[rectangleData[horizontallyReflectedIndex]] =
-                    defaultRectPaint
+            canvas.drawRect(rectTapped, defaultRectPaint)
+            canvas.drawRect(rectangleData[horizontallyReflectedIndex], defaultRectPaint)
 
-                drawRect(rectTapped, defaultRectPaint)
-                drawRect(rectangleData[horizontallyReflectedIndex], defaultRectPaint)
-
-                if (currentBrush != null) {
-                    val xyData = MathExtensions.convertIndexToXYPosition(
-                        instance.rectangles.keys.toList().indexOf(rectTapped),
-                        instance.spanCount.toInt()
-                    )
-                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(
-                        instance.spanCount.toInt(),
-                        xyData
-                    )) {
-                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                            xyData,
-                            instance.spanCount.toInt()
-                        )]] = defaultRectPaint
-                        drawRect(
-                            instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            )], defaultRectPaint
-                        )
-
-                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.reflectIndexVertically(
-                            MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            ),
-                            instance.spanCount.toInt()
-                        )]] = defaultRectPaint
-                        drawRect(
-                            instance.rectangles.keys.toList()[MathExtensions.reflectIndexVertically(
-                                MathExtensions.convertXYPositionToIndex(
-                                    xyData,
-                                    instance.spanCount.toInt()
-                                ),
-                                instance.spanCount.toInt()
-                            )], defaultRectPaint
-                        )
-                    }
+            if (currentBrush != null) {
+                for (xyData in currentBrushInstructionData!!) {
+                    rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)]] = defaultRectPaint
+                    rectangles[rectangleData[MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(xyData, spanCount), spanCount)]] = defaultRectPaint
+                    canvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)], defaultRectPaint)
+                    canvas.drawRect(rectangleData[MathExtensions.reflectIndexVertically(MathExtensions.convertXYPositionToIndex(xyData, spanCount), spanCount)], defaultRectPaint)
                 }
             }
         }
         Tools.VERTICAL_MIRROR_TOOL -> {
-            instance.extraCanvas.apply {
-                val verticallyReflectedIndex = MathExtensions.reflectIndexHorizontally(
-                    rectangleData.indexOf(rectTapped),
-                    sqrt(instance.rectangles.keys.size.toDouble()).toInt()
-                )
+            rectangles[rectTapped] = defaultRectPaint
+            rectangles[rectangleData[verticallyReflectedIndex]] = defaultRectPaint
 
-                instance.rectangles[rectTapped] = defaultRectPaint
-                instance.rectangles[rectangleData[verticallyReflectedIndex]] = defaultRectPaint
+            canvas.drawRect(rectTapped, defaultRectPaint)
+            canvas.drawRect(rectangleData[verticallyReflectedIndex], defaultRectPaint)
 
-                drawRect(rectTapped, defaultRectPaint)
-                drawRect(rectangleData[verticallyReflectedIndex], defaultRectPaint)
-
-                if (currentBrush != null) {
-                    val xyData = MathExtensions.convertIndexToXYPosition(
-                        instance.rectangles.keys.toList().indexOf(rectTapped),
-                        instance.spanCount.toInt()
-                    )
-                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(
-                        instance.spanCount.toInt(),
-                        xyData
-                    )) {
-                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                            xyData,
-                            instance.spanCount.toInt()
-                        )]] = defaultRectPaint
-                        drawRect(
-                            instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            )], defaultRectPaint
-                        )
-
-                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.reflectIndexHorizontally(
-                            MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            ),
-                            instance.spanCount.toInt()
-                        )]] = defaultRectPaint
-                        drawRect(
-                            instance.rectangles.keys.toList()[MathExtensions.reflectIndexHorizontally(
-                                MathExtensions.convertXYPositionToIndex(
-                                    xyData,
-                                    instance.spanCount.toInt()
-                                ),
-                                instance.spanCount.toInt()
-                            )], defaultRectPaint
-                        )
-                    }
+            if (currentBrush != null) {
+                for (xyData in currentBrushInstructionData!!) {
+                    rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)]] = defaultRectPaint
+                    rectangles[rectangleData[MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(xyData, spanCount), spanCount)]] = defaultRectPaint
+                    canvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)], defaultRectPaint)
+                    canvas.drawRect(rectangleData[MathExtensions.reflectIndexHorizontally(MathExtensions.convertXYPositionToIndex(xyData, spanCount), spanCount)], defaultRectPaint)
                 }
             }
+
         }
         Tools.LINE_TOOL -> {
             val lineAlgorithmInstance = LineAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
@@ -245,37 +160,14 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
             }
         }
         Tools.ERASE_TOOL -> {
-            instance.rectangles[rectTapped] = defaultErasePaint
-            instance.extraCanvas.apply {
-                drawRect(rectTapped, defaultErasePaint)
+            rectangles[rectTapped] = defaultErasePaint
+            canvas.drawRect(rectTapped, defaultErasePaint)
 
-                if (currentBrush != null) {
-                    val xyData = MathExtensions.convertIndexToXYPosition(
-                        instance.rectangles.keys.toList().indexOf(rectTapped),
-                        instance.spanCount.toInt()
-                    )
-                    for (xyData in currentBrush!!.convertBrushInstructionDataToXYPositionData(
-                        instance.spanCount.toInt(),
-                        xyData
-                    )) {
-                        instance.rectangles[instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                            xyData,
-                            instance.spanCount.toInt()
-                        )]] = defaultErasePaint
-                        drawRect(
-                            instance.rectangles.keys.toList()[MathExtensions.convertXYPositionToIndex(
-                                xyData,
-                                instance.spanCount.toInt()
-                            )], defaultErasePaint
-                        )
-                    }
+            if (currentBrush != null) {
+                for (xyData in currentBrushInstructionData!!) {
+                    rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)]] = defaultErasePaint
+                    canvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, spanCount)], defaultErasePaint)
                 }
-            }
-        }
-        else -> {
-            instance.rectangles[rectTapped] = defaultRectPaint
-            instance.extraCanvas.apply {
-                drawRect(rectTapped, defaultRectPaint)
             }
         }
     }
