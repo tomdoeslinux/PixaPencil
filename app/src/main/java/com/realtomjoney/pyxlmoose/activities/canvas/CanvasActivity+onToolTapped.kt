@@ -42,7 +42,6 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
                     clearCanvas()
                 }, StringConstants.DIALOG_NEGATIVE_BUTTON_TEXT, { _, _ -> }, null)
         }
-        StringConstants.CHANGE_BACKGROUND_TOOL_IDENTIFIER  -> currentTool = Tools.CHANGE_BACKGROUND_TOOL
 
         StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
 

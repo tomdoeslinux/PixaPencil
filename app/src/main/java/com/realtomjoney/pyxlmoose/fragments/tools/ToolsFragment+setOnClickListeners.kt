@@ -44,10 +44,6 @@ fun setOnClickListeners() {
             caller.onToolTapped(StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER)
         }
 
-        fragmentToolsChangeBackgroundButton.setOnClickListener {
-            caller.onToolTapped(StringConstants.CHANGE_BACKGROUND_TOOL_IDENTIFIER)
-        }
-
         fragmentToolsColorPickerButton.setOnClickListener {
             caller.onToolTapped(StringConstants.COLOR_PICKER_TOOL_IDENTIFIER)
         }

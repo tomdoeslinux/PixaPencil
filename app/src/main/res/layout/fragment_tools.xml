@@ -86,12 +86,6 @@
                 app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fragmentTools_changeBackgroundButton"
-                style="@style/canvas_activity_button_tool_style"
-                android:contentDescription="@string/content_description_change_background_tool"
-                app:srcCompat="@drawable/change_background_icon" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_colorPickerButton"
                 style="@style/canvas_activity_button_tool_style"
                 android:contentDescription="@string/content_description_color_picker_tool"

@@ -210,17 +210,6 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                 instance.rectangles[rectTapped]!!.color
             )
         }
-        Tools.CHANGE_BACKGROUND_TOOL -> {
-            instance.extraCanvas.drawColor(getSelectedColor())
-            currentBackground = getSelectedColor()
-
-            for (pair in instance.rectangles) {
-                pair.setValue(Paint().apply {
-                    style = Paint.Style.FILL
-                    color = getSelectedColor()
-                })
-            }
-        }
         Tools.ERASE_TOOL -> {
             pixelsTappedAsXYPosition.add(pixelTappedAsXYPosition)
 
