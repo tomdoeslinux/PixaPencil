@@ -12,6 +12,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/change_background_icon.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.259375" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.259375" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_fullscreen_24.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_format_color_fill.xml" value="0.33541666666666664" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_home.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14166666666666666" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/radio_button_colour_tapped.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/round.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/selector_radio_button.xml" value="0.38177083333333334" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/tool_item_background.xml" value="0.27760416666666665" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_canvas.xml" value="0.25" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/brushes_layout.xml" value="0.5" />
@@ -38,7 +40,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_find_and_replace.xml" value="0.22" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_canvas.xml" value="0.16" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_color_palette.xml" value="0.22" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_tools.xml" value="0.33" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_tools.xml" value="0.2" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/pixel_layout.xml" value="0.14" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/recent_creations_layout.xml" value="0.5" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/menu/app_menu.xml" value="0.33" />

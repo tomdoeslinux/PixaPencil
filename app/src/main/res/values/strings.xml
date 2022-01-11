@@ -6,6 +6,7 @@
     <string name="star_str">Favorited</string>
     <string name="str_hexadecimal">Hexadecimal</string>
     <string name="str_button_done">Done</string>
+
     <string name="content_description_activity_main_fab">New Project</string>
     <string name="content_description_darken_tool">Darken Tool</string>
     <string name="content_description_lighten_tool">Lighten Tool</string>
@@ -15,6 +16,7 @@
     <string name="content_description_color_picker_tool">Color Picker Tool</string>
     <string name="content_description_eraser_tool">Eraser Tool</string>
     <string name="content_description_favorite">Favorite</string>
+
     <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
     <string name="span_count_str">Span count</string>
     <string name="project_name_str">Project name</string>
@@ -22,17 +24,13 @@
     <string name="content_description_horizontal_mirror_tool">Horizontal Mirror Tool</string>
     <string name="content_description_pencil_tool">Pencil Tool</string>
     <string name="save_text">Save</string>
-    <string name="tab_export_str">Export</string>
     <string name="tab_filters_str">Filters</string>
     <string name="tab_tools_str">Tools</string>
     <string name="tab_color_palettes_str">Color Palettes</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="color_palette_item">Color Palette Item</string>
     <string name="color_palette_name">Color Palette Name</string>
-    <string name="add_color">Add Color</string>
     <string name="content_description_fill_tool">Fill Tool</string>
-    <string name="brush_item">Brush 1</string>
     <string name="tab_brushes_str">Brushes</string>
     <string name="content_description_line_tool">Line Tool</string>
     <string name="content_description_rectangle_tool">Rectangle Tool</string>
