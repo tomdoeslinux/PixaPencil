@@ -52,6 +52,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Horizontal mirror tool
 - Vertical mirror tool
 - Line tool
+- Rectangle tool
+- Outlined rectangle tool
 - Darkening tool
 - Lightening tool
 - Clear canvas tool
