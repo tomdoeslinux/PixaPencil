@@ -23,6 +23,9 @@ class ToolsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentToolsBinding.inflate(inflater, container, false)
 
+        setColorFor(binding.fragmentToolsPencilButton)
+        currentlySelectedFAB = binding.fragmentToolsPencilButton
+
         setOnClickListeners()
 
         return binding.root

@@ -9,8 +9,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@android:color/holo_blue_dark</item>
     </style>
-
-    <style name="canvas_activity_button_tool_style">
+    <style name="canvas_activity_button_tool_style_back">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">8dp</item>
@@ -20,6 +19,19 @@
         <item name="android:elevation">0dp</item>
         <item name="elevation">0dp</item>
         <item name="borderWidth">3dp</item>
+        <item name="tint">@android:color/holo_blue_dark</item>
+        <item name="rippleColor">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="canvas_activity_button_tool_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">0dp</item>
+        <item name="elevation">0dp</item>
         <item name="tint">@android:color/holo_blue_dark</item>
         <item name="rippleColor">@android:color/holo_blue_light</item>
     </style>
