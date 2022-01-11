@@ -24,6 +24,14 @@ fun setOnClickListeners() {
             caller.onToolTapped(StringConstants.LINE_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsRectangleButton.setOnClickListener {
+            caller.onToolTapped(StringConstants.RECTANGLE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsOutlinedRectangleButton.setOnClickListener {
+            caller.onToolTapped(StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsDarkenButton.setOnClickListener {
             caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
         }

@@ -56,6 +56,18 @@
                 app:srcCompat="@drawable/ic_vector_line" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_rectangleButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_rectangle_tool"
+                app:srcCompat="@drawable/ic_rectangle___copy" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragmentTools_outlinedRectangleButton"
+                style="@style/canvas_activity_button_tool_style"
+                android:contentDescription="@string/content_description_outlined_rectangle_tool"
+                app:srcCompat="@drawable/ic_rectangle_outline__1_" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fragmentTools_darkenButton"
                 style="@style/canvas_activity_button_tool_style"
                 android:contentDescription="@string/content_description_darken_tool"

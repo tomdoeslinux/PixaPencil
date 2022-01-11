@@ -3,12 +3,15 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.*
 import com.realtomjoney.pyxlmoose.algorithms.ExpandToNeighborsAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.models.XYPosition
 import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import java.util.*
 
 var lineOrigin: XYPosition? = null
+
+var rectangleOrigin: XYPosition? = null
 
 var expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm()
 
@@ -28,6 +31,13 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
         color = getSelectedColor()
         isAntiAlias = false
     }
+
+    val borderRectanglePaint = Paint().apply {
+        style = Paint.Style.FILL
+        color = secondaryColor
+        isAntiAlias = false
+    }
+
 
     deletedCanvasStates.clear()
 
@@ -165,6 +175,32 @@ fun CanvasActivity.extendedOnPixelTapped(instance: MyCanvasView, rectTapped: Rec
                 lineOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt())
             } else {
                 lineAlgorithmInstance.compute(lineOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()))
+            }
+
+            canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+        }
+        Tools.RECTANGLE_TOOL -> {
+            val rectangleAlgorithmInstance = RectangleAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData)
+
+            if (!rectangleMode_hasLetGo) extendedUndo() else rectangleMode_hasLetGo = false
+
+            if (rectangleOrigin == null) {
+                rectangleOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt())
+            } else {
+                rectangleAlgorithmInstance.compute(rectangleOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()))
+            }
+
+            canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
+        }
+        Tools.OUTLINED_RECTANGLE_TOOL -> {
+            val rectangleAlgorithmInstance = RectangleAlgorithm(canvasFragmentInstance.myCanvasViewInstance, defaultRectPaint, rectangleData, borderRectanglePaint)
+
+            if (!rectangleMode_hasLetGo) extendedUndo() else rectangleMode_hasLetGo = false
+
+            if (rectangleOrigin == null) {
+                rectangleOrigin = MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt())
+            } else {
+                rectangleAlgorithmInstance.compute(rectangleOrigin!!, MathExtensions.convertIndexToXYPosition(rectangleData.indexOf(rectTapped), canvasFragmentInstance.myCanvasViewInstance.spanCount.toInt()))
             }
 
             canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())

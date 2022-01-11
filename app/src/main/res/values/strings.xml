@@ -35,4 +35,6 @@
     <string name="brush_item">Brush 1</string>
     <string name="tab_brushes_str">Brushes</string>
     <string name="content_description_line_tool">Line Tool</string>
+    <string name="content_description_rectangle_tool">Rectangle Tool</string>
+    <string name="content_description_outlined_rectangle_tool">Outlined Rectangle Tool</string>
 </resources>

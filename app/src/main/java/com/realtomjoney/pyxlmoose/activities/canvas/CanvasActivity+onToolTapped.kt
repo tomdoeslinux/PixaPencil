@@ -21,6 +21,10 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.LINE_TOOL_IDENTIFIER -> currentTool = Tools.LINE_TOOL
 
+        StringConstants.RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.RECTANGLE_TOOL
+
+        StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
+
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
             filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DARKEN_TOOL
