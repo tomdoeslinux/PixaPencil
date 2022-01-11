@@ -99,24 +99,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:textColor="@android:color/holo_blue_dark"
             android:layout_marginEnd="16dp"
             style="@style/fragmentFilters_button_style"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/fragmentFilters_grayScaleButton_two"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Grayscale 2"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_marginEnd="16dp"
-            style="@style/fragmentFilters_button_style"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/fragmentFilters_grayScaleButton_three"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Grayscale 3"
-            android:textColor="@android:color/holo_blue_dark"
-            android:layout_marginEnd="16dp"
-            style="@style/fragmentFilters_button_style"/>
     </LinearLayout>
 </HorizontalScrollView>
 </FrameLayout>

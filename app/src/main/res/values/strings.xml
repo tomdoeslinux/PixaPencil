@@ -27,7 +27,6 @@
     <string name="tab_filters_str">Filters</string>
     <string name="tab_tools_str">Tools</string>
     <string name="tab_color_palettes_str">Color Palettes</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="color_palette_item">Color Palette Item</string>
     <string name="color_palette_name">Color Palette Name</string>
     <string name="content_description_fill_tool">Fill Tool</string>

@@ -16,8 +16,6 @@ fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
         StringConstants.INVERT_GREEN_FILTER_IDENTIFIER ->  applyCanvasFilter { ColorFilters.inverseGreen(it) }
         StringConstants.INVERT_BLUE_FILTER_IDENTIFIER ->  applyCanvasFilter { ColorFilters.inverseBlue(it) }
         StringConstants.GRAYSCALE_FILTER_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it) }
-        StringConstants.GRAYSCALE_FILTER_TWO_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it, 0) }
-        StringConstants.GRAYSCALE_FILTER_THREE_IDENTIFIER -> applyCanvasFilter { ColorFilters.grayScale(it, 1) }
     }
 }
 

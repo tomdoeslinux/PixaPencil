@@ -35,13 +35,5 @@ fun FiltersFragment.setOnClickListeners() {
         fragmentFiltersGrayScaleButton.setOnClickListener {
             caller.onFilterTapped(StringConstants.GRAYSCALE_FILTER_IDENTIFIER)
         }
-
-        fragmentFiltersGrayScaleButtonTwo.setOnClickListener {
-            caller.onFilterTapped(StringConstants.GRAYSCALE_FILTER_TWO_IDENTIFIER)
-        }
-
-        fragmentFiltersGrayScaleButtonThree.setOnClickListener {
-            caller.onFilterTapped(StringConstants.GRAYSCALE_FILTER_THREE_IDENTIFIER)
-        }
     }
 }
