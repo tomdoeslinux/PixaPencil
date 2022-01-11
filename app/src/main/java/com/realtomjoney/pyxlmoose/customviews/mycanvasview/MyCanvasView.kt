@@ -12,9 +12,7 @@ import android.graphics.Bitmap
 import android.graphics.PorterDuff
 
 import android.graphics.PorterDuffXfermode
-
-
-
+import android.util.Log
 
 
 class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
@@ -100,6 +98,8 @@ class MyCanvasView (context: Context, var spanCount: Double) : View(context) {
             if (rect.contains(x, y)) {
                 caller.onPixelTapped(this, rect)
                 invalidate()
+            } else if (x > this.right || x < this.left || y < this.top || y > this.bottom) {
+                pixelsTappedAsXYPosition.clear()
             }
         }
     }

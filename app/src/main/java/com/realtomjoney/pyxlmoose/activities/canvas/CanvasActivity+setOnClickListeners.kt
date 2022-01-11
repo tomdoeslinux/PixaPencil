@@ -2,6 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
+import android.view.DragEvent
 import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.realtomjoney.pyxlmoose.*
@@ -11,6 +12,10 @@ import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
 import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
+import android.view.MotionEvent
+
+import android.view.View.OnHoverListener
+
 
 fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
     colorPickerFragmentInstance = initColorPickerFragmentInstance(colorPaletteMode)

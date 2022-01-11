@@ -1,9 +1,12 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Rect
 import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.view.DragEvent.ACTION_DROP
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
