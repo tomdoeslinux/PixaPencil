@@ -4,8 +4,6 @@
 
 _Join our Discord: https://discord.gg/fZPWBfPvWd_
 
-This project is **closed** for contributions as of the 15th of December 2021.
-
 _⭐ If you are interested in this project please star it, we need to get as much stars as possible ⭐_
 ## Images
 ![Untitled-2](https://user-images.githubusercontent.com/50536495/147199991-aed5c8e4-f70c-4d1a-ae24-b7ced61bfefc.png)
