@@ -2,7 +2,7 @@
 
 **A pixel art creator for Android using Canvas, written 100% in Kotlin.**
 
-_Join our Discord: https://discord.gg/fZPWBfPvWd_
+_Join our Discord: https://discord.gg/DypHJzfa
 
 _⭐ If you are interested in this project please star it, we need to get as much stars as possible ⭐_
 ## Images
