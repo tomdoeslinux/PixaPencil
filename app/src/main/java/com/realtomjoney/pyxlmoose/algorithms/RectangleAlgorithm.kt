@@ -1,15 +1,14 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
+import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.RectF
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
+import com.realtomjoney.pyxlmoose.models.BitmapAction
+import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.XYPosition
-import com.realtomjoney.pyxlmoose.utility.MathExtensions
 
-class RectangleAlgorithm(private val instance: MyCanvasView, private val defaultRectPaint: Paint, private val rectangleData: List<RectF>, private val borderPaint: Paint? = null) {
+class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK, private val borderColor: Int? = null) {
     private fun drawBorder(from: XYPosition, to: XYPosition) {
-        val lineAlgorithmInstance = LineAlgorithm(instance, borderPaint!!, rectangleData)
+        val lineAlgorithmInstance = LineAlgorithm(bitmap, currentBitmapAction, borderColor!!)
         lineAlgorithmInstance.compute(XYPosition(from.x, from.y), XYPosition(to.x, from.y))
         lineAlgorithmInstance.compute(XYPosition(to.x, to.y), XYPosition(to.x, from.y))
         lineAlgorithmInstance.compute(XYPosition(from.x, to.y), XYPosition(from.x, from.y))
@@ -22,66 +21,76 @@ class RectangleAlgorithm(private val instance: MyCanvasView, private val default
 
         if (from.x >= to.x && from.y <= to.y) {
             while (x >= to.x) {
-                instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-                instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-
                 for (i in y..to.y) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())], defaultRectPaint)
+                    currentBitmapAction.actionData.add(BitmapActionData(
+                        XYPosition(x, i),
+                        bitmap.getPixel(x, i),
+                    ))
+                    bitmap.setPixel(x, i, color)
                 }
+
+                bitmap.setPixel(x, y, color)
 
                 x--
             }
 
-            if (borderPaint != null) {
+            if (borderColor != null) {
                 drawBorder(from, to)
             }
         } else if (from.x <= to.x && from.y <= to.y) {
             while (x <= to.x) {
-                instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-                instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-
                 for (i in y..to.y) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())], defaultRectPaint)
+                    currentBitmapAction.actionData.add(BitmapActionData(
+                        XYPosition(x, i),
+                        bitmap.getPixel(x, i),
+                    ))
+                    bitmap.setPixel(x, i, color)
                 }
+
+                bitmap.setPixel(x, y, color)
 
                 x++
             }
 
-            if (borderPaint != null) {
+            if (borderColor != null) {
                 drawBorder(from, to)
             }
         } else if (from.x <= to.x && from.y >= to.y) {
             while (x <= to.x) {
-                instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-                instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
 
                 for (i in to.y..y) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())], defaultRectPaint)
+                    currentBitmapAction.actionData.add(BitmapActionData(
+                        XYPosition(x, i),
+                        bitmap.getPixel(x, i),
+                    ))
+                    bitmap.setPixel(x, i, color)
                 }
+
+                bitmap.setPixel(x, y, color)
 
                 x++
             }
 
-            if (borderPaint != null) {
+            if (borderColor != null) {
                 drawBorder(from, to)
             }
         } else if (from.x >= to.x && from.y >= to.y) {
             while (x >= to.x) {
-                instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-                instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
 
                 for (i in to.y..y) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, i), instance.spanCount.toInt())], defaultRectPaint)
+                    currentBitmapAction.actionData.add(BitmapActionData(
+                        XYPosition(x, i),
+                        bitmap.getPixel(x, i),
+                    ))
+                    bitmap.setPixel(x, i, color)
                 }
+
+                bitmap.setPixel(x, y, color)
 
                 x--
             }
 
-            if (borderPaint != null) {
+            if (borderColor != null) {
                 drawBorder(from, to)
             }
         }

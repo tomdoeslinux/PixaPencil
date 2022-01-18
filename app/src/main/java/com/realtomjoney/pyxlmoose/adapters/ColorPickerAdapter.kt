@@ -28,12 +28,14 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
         holder.colorView.backgroundTintList = ColorStateList.valueOf(extractColorDataFromColorPalette()[position])
 
-        if (extractColorDataFromColorPalette()[position] == Color.TRANSPARENT) {
-            holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
-            holder.colorView.background.setColorFilter(
-                Color.GRAY,
-                PorterDuff.Mode.DST_OVER
-            )
+        if (isPaletteMode) {
+            if (extractColorDataFromColorPalette()[position] == Color.TRANSPARENT) {
+                holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
+                holder.colorView.background.setColorFilter(
+                    Color.GRAY,
+                    PorterDuff.Mode.DST_OVER
+                )
+            }
         }
 
         holder.colorView.setOnClickListener {

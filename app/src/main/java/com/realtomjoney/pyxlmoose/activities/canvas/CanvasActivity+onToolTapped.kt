@@ -5,11 +5,9 @@ import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
-import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    canvasFragmentInstance.myCanvasViewInstance.removeGrid()
     when (toolName) {
         StringConstants.PENCIL_TOOL_IDENTIFIER -> currentTool = Tools.PENCIL_TOOL
 
@@ -46,19 +44,19 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
 
         StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> {
-            findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(extendedGetCanvasColors())
+            findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(canvasInstance.myCanvasViewInstance.getNumberOfUniqueColors())
             currentFragmentInstance = findAndReplaceFragmentInstance
             navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
         }
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
 
-        StringConstants.GRID_TOOL_IDENTIFIER -> {
-            if (!gridEnabled) canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
-            else canvasFragmentInstance.myCanvasViewInstance.removeGrid()
-
-            gridEnabled = !gridEnabled
-
-            if (!gridEnabled) gridDisabledFromZoomOut = false
-        }
+//        StringConstants.GRID_TOOL_IDENTIFIER -> {
+//            if (!gridEnabled) canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
+//            else canvasFragmentInstance.myCanvasViewInstance.removeGrid()
+//
+//            gridEnabled = !gridEnabled
+//
+//            if (!gridEnabled) gridDisabledFromZoomOut = false
+//        }
     }
 }

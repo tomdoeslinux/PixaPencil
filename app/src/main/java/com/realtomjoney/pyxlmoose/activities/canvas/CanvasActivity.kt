@@ -1,17 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.Rect
-import android.graphics.RectF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.view.DragEvent.ACTION_DROP
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
+import com.realtomjoney.pyxlmoose.models.XYPosition
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener {
     var previousView: View? = null
@@ -38,7 +34,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
         super.onPause()
     }
 
-    override fun onPixelTapped(canvasInstance: MyCanvasView, rectTapped: RectF) = extendedOnPixelTapped(canvasInstance, rectTapped)
+    override fun onPixelTapped(coordinatesTapped: XYPosition) = extendedOnPixelTapped(coordinatesTapped)
 
     override fun onActionUp() = extendedOnActionUp()
 

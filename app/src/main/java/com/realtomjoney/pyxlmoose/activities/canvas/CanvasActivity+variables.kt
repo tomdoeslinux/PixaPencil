@@ -12,7 +12,6 @@ import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
-import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
@@ -26,8 +25,6 @@ var isPrimaryColorSelected = true
 
 var isSelected = false
 var background: Drawable? = null
-
-var currentBackground: Int? = null
 
 var currentFragmentInstance: Fragment? = null
 
@@ -50,13 +47,11 @@ var currentTool: Tools = Tools.PENCIL_TOOL
 
 var saved = true
 
-var gridEnabled = false
-
 val canvasStates = mutableListOf<List<Pixel>>()
 var deletedCanvasStates = mutableListOf<List<Pixel>>()
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
-lateinit var canvasFragmentInstance: CanvasFragment
+lateinit var canvasInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 
@@ -64,12 +59,6 @@ var toolsFragmentInstance: ToolsFragment? = null
 var filtersFragmentInstance: FiltersFragment? = null
 var colorPalettesFragmentInstance: ColorPalettesFragment? = null
 var brushesFragmentInstance: BrushesFragment? = null
-
-var currentBrush: Brush? = null
-
-var currentCanvasScale: Double = 1.0
-
-var gridDisabledFromZoomOut = false
 
 var lineMode_hasLetGo = false
 var rectangleMode_hasLetGo = false

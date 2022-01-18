@@ -31,7 +31,7 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
             val item = data[position]
 
             binding.apply {
-                recentCreationsLayoutImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.bitmap))
+                recentCreationsLayoutImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.coverBitmap))
                 recentCreationsLayoutSubtitle.text = item.dateCreated
 
                 recentCreationsLayoutTitle.apply {

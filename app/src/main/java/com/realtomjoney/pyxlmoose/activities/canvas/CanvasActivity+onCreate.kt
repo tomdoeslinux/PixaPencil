@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.database.ColorPalettesDatabase
 import com.realtomjoney.pyxlmoose.utility.StringConstants
@@ -15,6 +16,13 @@ fun CanvasActivity.onCreate() {
     setUpRecyclerView()
     setOnClickListeners()
     setColors()
+
+    if (index != -1) {
+        AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
+            currentPixelArtObj = it[index!!]
+            canvasInstance.myCanvasViewInstance.replaceBitmap(BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!)
+        })
+    }
 
     title = (intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA))
 }

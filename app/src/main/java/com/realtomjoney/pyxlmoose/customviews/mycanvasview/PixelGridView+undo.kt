@@ -1,0 +1,19 @@
+package com.realtomjoney.pyxlmoose.customviews.mycanvasview
+
+fun PixelGridView.extendedUndo() {
+    if (bitmapActionData.size > 0) {
+
+        if (!bitmapActionData.last().isFilterBased) {
+            for ((key, value) in bitmapActionData.last().actionData.distinctBy { it.xyPosition }) {
+                extraBitmap.setPixel(key.x, key.y, value)
+            }
+        } else {
+            for ((key, value) in bitmapActionData.last().actionData) {
+                extraBitmap.setPixel(key.x, key.y, value)
+            }
+        }
+
+        invalidate()
+        bitmapActionData.removeLast()
+    }
+}

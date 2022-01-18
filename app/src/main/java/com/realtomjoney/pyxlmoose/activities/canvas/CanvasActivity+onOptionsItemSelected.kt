@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.util.Log
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import com.realtomjoney.pyxlmoose.R
@@ -18,34 +17,19 @@ fun CanvasActivity.setMenuItemIcon(item: MenuItem, icon: Int, tooltipText: CharS
 }
 
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
-    val zoom = 0.2f
-    val maxZoomOut = 0.19999999 // TODO - look into why Android is buggy when user zooms out past this number
+    val zoomIncrement = 0.2f
 
     when (item.itemId) {
         R.id.zoom_out -> {
             binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
-                if (scaleX > maxZoomOut && scaleY > maxZoomOut) {
-                    scaleX -= zoom
-                    scaleY -= zoom
-
-                    currentCanvasScale = scaleX.toDouble()
-                    canvasFragmentInstance.myCanvasViewInstance.removeGrid()
-                    canvasFragmentInstance.myCanvasViewInstance.invalidate()
-
-                    if ((canvasFragmentInstance.spanCount / currentCanvasScale) >= 62.499996 && gridEnabled) canvasFragmentInstance.myCanvasViewInstance.removeGrid()
-                }
+                scaleX -= zoomIncrement
+                scaleY -= zoomIncrement
             }
         }
         R.id.zoom_in -> {
             binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
-                scaleX += zoom
-                scaleY += zoom
-
-                currentCanvasScale = scaleX.toDouble()
-
-                if ((canvasFragmentInstance.spanCount / currentCanvasScale) <= 62.499996 && gridEnabled) {
-                    canvasFragmentInstance.myCanvasViewInstance.drawGrid(canvasFragmentInstance.myCanvasViewInstance.extraCanvas)
-                }
+                scaleX += zoomIncrement
+                scaleY += zoomIncrement
             }
         }
         R.id.save_project -> extendedSaveProject()

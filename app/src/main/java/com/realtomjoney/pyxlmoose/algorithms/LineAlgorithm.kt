@@ -1,14 +1,14 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
-import android.graphics.Paint
-import android.graphics.RectF
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
-import com.realtomjoney.pyxlmoose.models.Brush
+import android.graphics.Bitmap
+import android.graphics.Color
+import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
+import com.realtomjoney.pyxlmoose.models.BitmapAction
+import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.XYPosition
-import com.realtomjoney.pyxlmoose.utility.MathExtensions
 import kotlin.math.abs
 
-class LineAlgorithm(private val instance: MyCanvasView, private val defaultRectPaint: Paint, private val rectangleData: List<RectF>, val brush: Brush? = null) {
+class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK) {
     private fun drawLineY(from: XYPosition, to: XYPosition) {
         var x = from.x
         var y = from.y
@@ -27,16 +27,11 @@ class LineAlgorithm(private val instance: MyCanvasView, private val defaultRectP
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-            instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-
-            if (brush != null) {
-                for (xyData in brush.convertBrushInstructionDataToXYPositionData(instance.spanCount.toInt(), XYPosition(x, y))) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
-                }
-            }
-
+            currentBitmapAction.actionData.add(BitmapActionData(
+                XYPosition(x, y),
+                bitmap.getPixel(x, y),
+            ))
+            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
             x++
 
             if (p < 0) {
@@ -68,17 +63,11 @@ class LineAlgorithm(private val instance: MyCanvasView, private val defaultRectP
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())]] = defaultRectPaint
-            instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(XYPosition(x, y), instance.spanCount.toInt())], defaultRectPaint)
-
-            if (brush != null) {
-                for (xyData in brush.convertBrushInstructionDataToXYPositionData(instance.spanCount.toInt(), XYPosition(x, y))) {
-                    instance.rectangles[rectangleData[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())]] = defaultRectPaint
-                    instance.extraCanvas.drawRect(rectangleData[MathExtensions.convertXYPositionToIndex(xyData, instance.spanCount.toInt())], defaultRectPaint)
-                }
-            }
-
-
+            currentBitmapAction.actionData.add(BitmapActionData(
+                XYPosition(x, y),
+                bitmap.getPixel(x, y),
+            ))
+            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
             y++
 
             if (p < 0) {

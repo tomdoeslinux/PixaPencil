@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.fragments.canvas
 
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.MyCanvasView
+import com.realtomjoney.pyxlmoose.customviews.mycanvasview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 
@@ -10,4 +10,4 @@ val binding get() = binding_!!
 
 lateinit var caller: CanvasFragmentListener
 
-lateinit var myCanvasViewInstance: MyCanvasView
+lateinit var myCanvasViewInstance: PixelGridView

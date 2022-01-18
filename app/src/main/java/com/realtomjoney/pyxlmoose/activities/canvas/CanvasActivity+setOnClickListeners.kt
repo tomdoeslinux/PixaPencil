@@ -24,17 +24,7 @@ fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
 }
 
 fun clearCanvas() {
-    val dataAsPixelList = canvasFragmentInstance.myCanvasViewInstance.saveData()
-
-    for (pixel in dataAsPixelList) {
-        pixel.pixelColor = null
-    }
-
-    if (canvasStates.isNotEmpty()) {
-        canvasFragmentInstance.myCanvasViewInstance.drawFromPixelList(dataAsPixelList)
-        canvasStates.remove(canvasStates.last())
-        canvasStates.add(canvasFragmentInstance.myCanvasViewInstance.saveData())
-    }
+    canvasInstance.myCanvasViewInstance.clearCanvas()
 }
 
 fun CanvasActivity.setOnClickListeners() {
