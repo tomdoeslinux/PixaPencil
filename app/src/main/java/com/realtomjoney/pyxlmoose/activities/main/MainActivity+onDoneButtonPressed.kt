@@ -1,8 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import android.content.Intent
-import android.view.View
-import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.utility.StringConstants
