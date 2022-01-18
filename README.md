@@ -5,8 +5,19 @@
 Join our Discord: https://discord.gg/DypHJzfa
 
 _⭐ If you are interested in this project please star it, we need to get as much stars as possible ⭐_
+
+## Bitmap Update
+PyxlMoose now uses Bitmap to handle the creaton of pixel art.
+
+Things to take in note:
+
+- Redo tool is not functioning.
+- Grid tool is not functioning.
+- Undo tool doesn't work for 'Find and Replace'.
+
+All these issues will be fixed soon!
+
 ## Images
-![Untitled-2](https://user-images.githubusercontent.com/50536495/147199991-aed5c8e4-f70c-4d1a-ae24-b7ced61bfefc.png)
 
 ![drawinnggg](https://user-images.githubusercontent.com/50536495/147852120-e9d54adf-20d6-48a4-a7e0-e0afb4f4e585.PNG)
 
@@ -55,10 +66,9 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Darkening tool
 - Lightening tool
 - Clear canvas tool
-- Change background tool
 - Color picker tool
 - Find and replace by color tool
-- Pixel grid (can be disabled or enabled)
+- Pixel grid (can be disabled or enabled) 
 - Eraser tool
 - Undo
 - Redo
@@ -74,6 +84,6 @@ Go to https://github.com/realtomjoney/PyxlMoose/projects/1 to have a look at fea
 
 ## Shoutout
 Thank you to:
-- _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._
 - _JohnWick_007#8119 on Discord for providing me some icons to use in my app._
-- Those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
+- _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._ **(For all commits prior to 733.)**
+- And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
