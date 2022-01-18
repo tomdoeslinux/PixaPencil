@@ -7,9 +7,9 @@ import com.realtomjoney.pyxlmoose.models.XYPosition
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: XYPosition, hasBorder: Boolean) {
 
     val rectangleAlgorithmInstance: RectangleAlgorithm = if (!hasBorder) {
-        RectangleAlgorithm(canvasInstance.myCanvasViewInstance.extraBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor())
+        RectangleAlgorithm(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor())
     } else {
-        RectangleAlgorithm(canvasInstance.myCanvasViewInstance.extraBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
+        RectangleAlgorithm(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
     if (!rectangleMode_hasLetGo) {

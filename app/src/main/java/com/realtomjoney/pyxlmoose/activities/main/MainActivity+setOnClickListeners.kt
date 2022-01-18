@@ -21,7 +21,6 @@ fun MainActivity.setOnClickListeners() {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
                     binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.favourited }, this)
                 })
-
                 title = "Favorites"
             }
         }

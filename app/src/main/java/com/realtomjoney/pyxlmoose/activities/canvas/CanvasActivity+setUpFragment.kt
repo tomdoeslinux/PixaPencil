@@ -4,6 +4,10 @@ import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.R
 
 fun CanvasActivity.setUpFragment() {
-    canvasInstance = CanvasFragment.newInstance(spanCount)
+    canvasInstance = if (index == -1) {
+        CanvasFragment.newInstance(spanCount)
+    } else {
+        CanvasFragment.newInstance(spanCount, true)
+    }
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_canvasFragmentHost, canvasInstance).commit()
 }

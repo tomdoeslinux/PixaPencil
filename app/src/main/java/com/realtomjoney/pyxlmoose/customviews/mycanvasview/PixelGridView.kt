@@ -11,9 +11,9 @@ import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.models.*
 
 
-class PixelGridView (context: Context, private var spanCount: Int) : View(context) {
-    lateinit var extraCanvas: Canvas
-    lateinit var extraBitmap: Bitmap
+class PixelGridView (context: Context, private var spanCount: Int, private var isEmpty: Boolean) : View(context) {
+    lateinit var pixelGridViewCanvas: Canvas
+    lateinit var pixelGridViewBitmap: Bitmap
 
     var scaleWidth = 0f
     var scaleHeight = 0f
@@ -33,13 +33,13 @@ class PixelGridView (context: Context, private var spanCount: Int) : View(contex
 
         caller = context as CanvasFragmentListener
 
-        if (::extraBitmap.isInitialized) {
-            extraBitmap.recycle()
+        if (::pixelGridViewBitmap.isInitialized) {
+            pixelGridViewBitmap.recycle()
         }
 
-        if (index == -1) {
-            extraBitmap = Bitmap.createBitmap(spanCount, spanCount, Bitmap.Config.ARGB_8888)
-            extraCanvas = Canvas(extraBitmap)
+        if (!isEmpty) {
+            pixelGridViewBitmap = Bitmap.createBitmap(spanCount, spanCount, Bitmap.Config.ARGB_8888)
+            pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
         }
     }
 
@@ -91,15 +91,15 @@ class PixelGridView (context: Context, private var spanCount: Int) : View(contex
     fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
         currentBitmapAction = BitmapAction(mutableListOf(), true)
 
-        for (i_1 in 0 until extraBitmap.width) {
-            for (i_2 in 0 until extraBitmap.height) {
+        for (i_1 in 0 until pixelGridViewBitmap.width) {
+            for (i_2 in 0 until pixelGridViewBitmap.height) {
                 currentBitmapAction!!.actionData.add(BitmapActionData(
                     XYPosition(i_1, i_2),
-                    extraBitmap.getPixel(i_1, i_2),
+                    pixelGridViewBitmap.getPixel(i_1, i_2),
                 ))
 
-                if (extraBitmap.getPixel(i_1, i_2) == colorToFind) {
-                    extraBitmap.setPixel(i_1, i_2, colorToReplace)
+                if (pixelGridViewBitmap.getPixel(i_1, i_2) == colorToFind) {
+                    pixelGridViewBitmap.setPixel(i_1, i_2, colorToReplace)
                 }
             }
         }
@@ -109,17 +109,17 @@ class PixelGridView (context: Context, private var spanCount: Int) : View(contex
     fun applyBitmapFilter(lambda: (Int) -> Int) {
         currentBitmapAction = BitmapAction(mutableListOf(), true)
 
-        for (i_1 in 0 until extraBitmap.width) {
-            for (i_2 in 0 until extraBitmap.height) {
-                if (extraBitmap.getPixel(i_1, i_2) != Color.TRANSPARENT) {
-                    val color = lambda(extraBitmap.getPixel(i_1, i_2))
+        for (i_1 in 0 until pixelGridViewBitmap.width) {
+            for (i_2 in 0 until pixelGridViewBitmap.height) {
+                if (pixelGridViewBitmap.getPixel(i_1, i_2) != Color.TRANSPARENT) {
+                    val color = lambda(pixelGridViewBitmap.getPixel(i_1, i_2))
 
                     currentBitmapAction!!.actionData.add(BitmapActionData(
                         XYPosition(i_1, i_2),
-                        extraBitmap.getPixel(i_1, i_2),
+                        pixelGridViewBitmap.getPixel(i_1, i_2),
                     ))
 
-                    extraBitmap.setPixel(i_1, i_2, color)
+                    pixelGridViewBitmap.setPixel(i_1, i_2, color)
                 }
             }
         }
@@ -133,31 +133,31 @@ class PixelGridView (context: Context, private var spanCount: Int) : View(contex
     fun overrideSetPixel(x: Int, y: Int, color: Int) {
         val xyPosition = XYPosition(x, y)
         if (currentBrush == null) {
-            extraBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
         } else {
-            extraBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
             for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(xyPosition)) {
                 if (xyPosition_2.x in 0 until spanCount && xyPosition_2.y in 0 until spanCount) {
                     canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
                         xyPosition_2,
-                        extraBitmap.getPixel(xyPosition_2.x, xyPosition_2.y)
+                        pixelGridViewBitmap.getPixel(xyPosition_2.x, xyPosition_2.y)
                     ))
-                    extraBitmap.setPixel(xyPosition_2.x, xyPosition_2.y, color)
+                    pixelGridViewBitmap.setPixel(xyPosition_2.x, xyPosition_2.y, color)
                 }
             }
         }
     }
 
     fun replaceBitmap(newBitmap: Bitmap) {
-        extraBitmap = Bitmap.createBitmap(newBitmap.width, newBitmap.height, Bitmap.Config.ARGB_8888)
-        extraCanvas = Canvas(extraBitmap)
+        pixelGridViewBitmap = Bitmap.createBitmap(newBitmap.width, newBitmap.height, Bitmap.Config.ARGB_8888)
+        pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
         spanCount = newBitmap.width
-        extraCanvas.drawBitmap(newBitmap, 0f, 0f, null)
+        pixelGridViewCanvas.drawBitmap(newBitmap, 0f, 0f, null)
         invalidate()
     }
 
     override fun onDraw(canvas: Canvas) {
-        if (::extraBitmap.isInitialized) canvas.drawBitmap(getResizedBitmap(extraBitmap, this.width, this.width)!!, 0f, 0f, null)
+        if (::pixelGridViewBitmap.isInitialized) canvas.drawBitmap(getResizedBitmap(pixelGridViewBitmap, this.width, this.width)!!, 0f, 0f, null)
     }
 
 }

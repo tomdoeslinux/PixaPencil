@@ -33,10 +33,6 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
 
                 x--
             }
-
-            if (borderColor != null) {
-                drawBorder(from, to)
-            }
         } else if (from.x <= to.x && from.y <= to.y) {
             while (x <= to.x) {
                 for (i in y..to.y) {
@@ -50,10 +46,6 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
                 bitmap.setPixel(x, y, color)
 
                 x++
-            }
-
-            if (borderColor != null) {
-                drawBorder(from, to)
             }
         } else if (from.x <= to.x && from.y >= to.y) {
             while (x <= to.x) {
@@ -70,10 +62,6 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
 
                 x++
             }
-
-            if (borderColor != null) {
-                drawBorder(from, to)
-            }
         } else if (from.x >= to.x && from.y >= to.y) {
             while (x >= to.x) {
 
@@ -89,10 +77,9 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
 
                 x--
             }
-
-            if (borderColor != null) {
-                drawBorder(from, to)
-            }
+        }
+        if (borderColor != null) {
+            drawBorder(from, to)
         }
     }
 }

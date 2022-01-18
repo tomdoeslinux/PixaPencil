@@ -5,11 +5,11 @@ fun PixelGridView.extendedUndo() {
 
         if (!bitmapActionData.last().isFilterBased) {
             for ((key, value) in bitmapActionData.last().actionData.distinctBy { it.xyPosition }) {
-                extraBitmap.setPixel(key.x, key.y, value)
+                pixelGridViewBitmap.setPixel(key.x, key.y, value)
             }
         } else {
             for ((key, value) in bitmapActionData.last().actionData) {
-                extraBitmap.setPixel(key.x, key.y, value)
+                pixelGridViewBitmap.setPixel(key.x, key.y, value)
             }
         }
 

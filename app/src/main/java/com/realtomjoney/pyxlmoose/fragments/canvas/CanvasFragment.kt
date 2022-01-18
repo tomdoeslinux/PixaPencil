@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.realtomjoney.pyxlmoose.customviews.mycanvasview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
-class CanvasFragment(val spanCount: Int) : Fragment() {
+class CanvasFragment(val spanCount: Int, val isEmpty: Boolean = false) : Fragment() {
     private var _binding: FragmentCanvasBinding? = null
 
     private val binding get() = _binding!!
@@ -19,12 +19,12 @@ class CanvasFragment(val spanCount: Int) : Fragment() {
     var bitmap: Bitmap? = null
 
     private fun setupCanvas() {
-        myCanvasViewInstance = PixelGridView(requireContext(), spanCount)
+        myCanvasViewInstance = PixelGridView(requireContext(), spanCount, isEmpty)
         binding.fragmentCanvasRootLayout.addView(myCanvasViewInstance)
     }
 
     companion object {
-        fun newInstance(spanCount: Int) = CanvasFragment(spanCount)
+        fun newInstance(spanCount: Int, isEmpty: Boolean = false) = CanvasFragment(spanCount, isEmpty)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
