@@ -13,12 +13,11 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.viewholders.ColorPickerViewHolder
 
-class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?, private val isPaletteMode: Boolean = true) : RecyclerView.Adapter<ColorPickerViewHolder>() {
-    private var colorData = mutableListOf<Int>()
+class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?, private val isPaletteMode: Boolean = true, private val isPreviewMode: Boolean = false) : RecyclerView.Adapter<ColorPickerViewHolder>() {
+    private var colorData = listOf<Int>()
 
     init {
-        colorData = JsonConverter.convertJsonStringToListOfInt(data.colorPaletteColorData).toMutableList()
-        colorData.add(Color.TRANSPARENT)
+        colorData = JsonConverter.convertJsonStringToListOfInt(data.colorPaletteColorData)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPickerViewHolder {
@@ -28,7 +27,7 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
         holder.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
 
-        if (isPaletteMode) {
+        if (isPaletteMode && !isPreviewMode) {
             if (colorData[position] == Color.TRANSPARENT) {
                 holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
                 holder.colorView.background.setColorFilter(

@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Color
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
@@ -10,6 +11,8 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
     else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
+        newData.removeIf { it == Color.TRANSPARENT }
+        newData.add(Color.TRANSPARENT)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListOfIntToJsonString(newData.toList()), fromDB!!.objId)
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this, {

@@ -1,10 +1,12 @@
 package com.realtomjoney.pyxlmoose.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.databinding.ColorPalettesLayoutBinding
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
@@ -28,7 +30,7 @@ class ColorPalettesAdapter(private val data: List<ColorPalette>, private val cal
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
                 colorPalettesLayoutColorPalettePreviewRecyclerView.layoutManager = layoutManager
-                colorPalettesLayoutColorPalettePreviewRecyclerView.adapter = ColorPickerAdapter(item, null)
+                colorPalettesLayoutColorPalettePreviewRecyclerView.adapter = ColorPickerAdapter(item, null, isPreviewMode = true)
             }
 
             binding.colorPalettesLayoutClickDetector.setOnClickListener {

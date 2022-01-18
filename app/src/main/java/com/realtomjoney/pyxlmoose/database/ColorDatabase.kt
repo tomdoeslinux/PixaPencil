@@ -160,6 +160,7 @@ object ColorDatabase {
             Color.parseColor("#D70040"),
             Color.parseColor("#FFA6C9"),
             Color.parseColor("#B31B1B"),
+            Color.TRANSPARENT
         )
 
         for (color in colorData) addColor(color)
