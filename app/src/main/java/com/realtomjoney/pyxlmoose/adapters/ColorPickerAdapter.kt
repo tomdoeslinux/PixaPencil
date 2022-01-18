@@ -14,11 +14,11 @@ import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.viewholders.ColorPickerViewHolder
 
 class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?, private val isPaletteMode: Boolean = true) : RecyclerView.Adapter<ColorPickerViewHolder>() {
-    private fun extractColorDataFromColorPalette(): List<Int> {
-        val data = JsonConverter.convertJsonStringToListOfInt(data.colorPaletteColorData).toMutableList()
+    private var colorData = mutableListOf<Int>()
 
-        if (!data.contains(Color.TRANSPARENT) && isPaletteMode) data.add(Color.TRANSPARENT)
-        return data.toList()
+    init {
+        colorData = JsonConverter.convertJsonStringToListOfInt(data.colorPaletteColorData).toMutableList()
+        colorData.add(Color.TRANSPARENT)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPickerViewHolder {
@@ -26,10 +26,10 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
     }
 
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
-        holder.colorView.backgroundTintList = ColorStateList.valueOf(extractColorDataFromColorPalette()[position])
+        holder.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
 
         if (isPaletteMode) {
-            if (extractColorDataFromColorPalette()[position] == Color.TRANSPARENT) {
+            if (colorData[position] == Color.TRANSPARENT) {
                 holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
                 holder.colorView.background.setColorFilter(
                     Color.GRAY,
@@ -39,17 +39,17 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
         }
 
         holder.colorView.setOnClickListener {
-            if (extractColorDataFromColorPalette()[position] != Color.TRANSPARENT) {
-                caller?.onColorTapped(extractColorDataFromColorPalette()[position], it)
+            if (colorData[position] != Color.TRANSPARENT) {
+                caller?.onColorTapped(colorData[position], it)
             } else {
                 caller?.onColorAdded(data)
             }
         }
 
         if (position == 0) {
-            caller?.onColorTapped(extractColorDataFromColorPalette()[position], holder.colorView)
+            caller?.onColorTapped(colorData[position], holder.colorView)
         }
     }
 
-    override fun getItemCount() = extractColorDataFromColorPalette().size
+    override fun getItemCount() = colorData.size
 }
