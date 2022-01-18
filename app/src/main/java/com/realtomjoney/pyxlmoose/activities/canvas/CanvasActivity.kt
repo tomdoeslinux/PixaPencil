@@ -54,7 +54,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) = extendedOnColorPaletteTapped(selectedColorPalette)
 
-    override fun onDoneButtonPressed(colorPaletteTitle: String) = extendedOnDoneButtonPressed(colorPaletteTitle)
+    override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) = extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
 
     override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
 }

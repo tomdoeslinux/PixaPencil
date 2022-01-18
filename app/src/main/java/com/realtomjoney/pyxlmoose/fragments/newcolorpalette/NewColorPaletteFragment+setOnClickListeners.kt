@@ -1,7 +1,8 @@
 package com.realtomjoney.pyxlmoose.fragments.newcolorpalette
 
-fun NewColorPaletteFragment.setOnClickListeners() {
+fun setOnClickListeners() {
     binding.fragmentNewColorPaletteDoneButton.setOnClickListener {
-        caller.onDoneButtonPressed(binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString())
+        val extractColorPaletteFromCanvas = binding.fragmentNewColorPaletteExtractFromCanvasCheckBox.isChecked
+        caller.onDoneButtonPressed(binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString(), extractColorPaletteFromCanvas)
     }
 }

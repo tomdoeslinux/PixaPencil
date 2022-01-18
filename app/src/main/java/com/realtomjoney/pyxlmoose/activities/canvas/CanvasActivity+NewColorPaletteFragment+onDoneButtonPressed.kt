@@ -9,12 +9,26 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String) {
+fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
     currentFragmentInstance = null
     navigateHome(supportFragmentManager, newColorPaletteFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
 
     CoroutineScope(Dispatchers.IO).launch {
-        AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(ColorPalette(colorPaletteTitle, JsonConverter.convertListOfIntToJsonString(listOf())))
+        if (!extractColorPaletteFromCanvas) {
+            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
+                ColorPalette(
+                    colorPaletteTitle,
+                    JsonConverter.convertListOfIntToJsonString(listOf())
+                )
+            )
+        } else {
+            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
+                ColorPalette(
+                    colorPaletteTitle,
+                    JsonConverter.convertListOfIntToJsonString(canvasInstance.myCanvasViewInstance.getNumberOfUniqueColors())
+                )
+            )
+        }
     }
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this, {
