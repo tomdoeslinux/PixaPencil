@@ -1,12 +1,12 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
-var lineOrigin: XYPosition? = null
-var rectangleOrigin: XYPosition? = null
+var lineOrigin: Coordinates? = null
+var rectangleOrigin: Coordinates? = null
 var first = true
 
-fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: XYPosition) {
+fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     saved = false
     when (currentTool) {
         Tools.PENCIL_TOOL -> pencilToolOnPixelTapped(coordinatesTapped)

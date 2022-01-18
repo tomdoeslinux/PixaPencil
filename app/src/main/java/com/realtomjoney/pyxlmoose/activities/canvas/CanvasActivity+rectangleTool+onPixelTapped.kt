@@ -2,9 +2,9 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
-fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: XYPosition, hasBorder: Boolean) {
+fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
     val rectangleAlgorithmInstance: RectangleAlgorithm = if (!hasBorder) {
         RectangleAlgorithm(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor())

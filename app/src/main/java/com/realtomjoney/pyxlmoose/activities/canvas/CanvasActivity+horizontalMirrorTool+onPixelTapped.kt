@@ -3,23 +3,23 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
-fun CanvasActivity.horizontalMirrorToolOnPixelTapped(coordinatesTapped: XYPosition) {
+fun CanvasActivity.horizontalMirrorToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (canvasInstance.myCanvasViewInstance.currentBitmapAction != null) {
         canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinatesTapped, canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x, coordinatesTapped.y)))
-        canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(XYPosition(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1), canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x,(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1)))
+        canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(Coordinates(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1), canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x,(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1)))
     } else {
         canvasInstance.myCanvasViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
         canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinatesTapped, canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x, coordinatesTapped.y)))
-        canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(XYPosition(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1), canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x,(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1)))
+        canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(Coordinates(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1), canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x,(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1)))
     }
 
     if (canvasInstance.myCanvasViewInstance.prevX != null && canvasInstance.myCanvasViewInstance.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor())
 
-        lineAlgorithmInstance.compute(XYPosition(canvasInstance.myCanvasViewInstance.prevX!!, canvasInstance.myCanvasViewInstance.prevY!!), coordinatesTapped)
-        lineAlgorithmInstance.compute(XYPosition(canvasInstance.myCanvasViewInstance.prevX!!, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - canvasInstance.myCanvasViewInstance.prevY!!) - 1), XYPosition(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1))
+        lineAlgorithmInstance.compute(Coordinates(canvasInstance.myCanvasViewInstance.prevX!!, canvasInstance.myCanvasViewInstance.prevY!!), coordinatesTapped)
+        lineAlgorithmInstance.compute(Coordinates(canvasInstance.myCanvasViewInstance.prevX!!, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - canvasInstance.myCanvasViewInstance.prevY!!) - 1), Coordinates(coordinatesTapped.x, (canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.height - coordinatesTapped.y) - 1))
     }
 
     canvasInstance.myCanvasViewInstance.overrideSetPixel(coordinatesTapped.x, coordinatesTapped.y, getSelectedColor())

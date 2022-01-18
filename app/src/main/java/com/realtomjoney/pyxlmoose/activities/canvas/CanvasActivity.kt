@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
 class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener {
     var previousView: View? = null
@@ -34,7 +34,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
         super.onPause()
     }
 
-    override fun onPixelTapped(coordinatesTapped: XYPosition) = extendedOnPixelTapped(coordinatesTapped)
+    override fun onPixelTapped(coordinatesTapped: Coordinates) = extendedOnPixelTapped(coordinatesTapped)
 
     override fun onActionUp() = extendedOnActionUp()
 

@@ -5,11 +5,11 @@ import android.graphics.Color
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
 class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK) {
-    private fun drawLineY(from: XYPosition, to: XYPosition) {
+    private fun drawLineY(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y
 
@@ -28,7 +28,7 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
 
         while (x <= to.x) {
             currentBitmapAction.actionData.add(BitmapActionData(
-                XYPosition(x, y),
+                Coordinates(x, y),
                 bitmap.getPixel(x, y),
             ))
             canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
@@ -46,7 +46,7 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
         }
     }
 
-    private fun drawLineX(from: XYPosition, to: XYPosition) {
+    private fun drawLineX(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y
 
@@ -64,7 +64,7 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
 
         while (y <= to.y) {
             currentBitmapAction.actionData.add(BitmapActionData(
-                XYPosition(x, y),
+                Coordinates(x, y),
                 bitmap.getPixel(x, y),
             ))
             canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
@@ -79,7 +79,7 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
         }
     }
 
-    fun compute(from: XYPosition, to: XYPosition) {
+    fun compute(from: Coordinates, to: Coordinates) {
         val x = from.x
         val y = from.y
 

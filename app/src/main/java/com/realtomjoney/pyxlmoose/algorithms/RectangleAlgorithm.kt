@@ -4,18 +4,18 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
-import com.realtomjoney.pyxlmoose.models.XYPosition
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
 class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK, private val borderColor: Int? = null) {
-    private fun drawBorder(from: XYPosition, to: XYPosition) {
+    private fun drawBorder(from: Coordinates, to: Coordinates) {
         val lineAlgorithmInstance = LineAlgorithm(bitmap, currentBitmapAction, borderColor!!)
-        lineAlgorithmInstance.compute(XYPosition(from.x, from.y), XYPosition(to.x, from.y))
-        lineAlgorithmInstance.compute(XYPosition(to.x, to.y), XYPosition(to.x, from.y))
-        lineAlgorithmInstance.compute(XYPosition(from.x, to.y), XYPosition(from.x, from.y))
-        lineAlgorithmInstance.compute(XYPosition(to.x, to.y), XYPosition(from.x, to.y))
+        lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
     }
 
-    fun compute(from: XYPosition, to: XYPosition) {
+    fun compute(from: Coordinates, to: Coordinates) {
         var x = from.x
         val y = from.y
 
@@ -23,7 +23,7 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
             while (x >= to.x) {
                 for (i in y..to.y) {
                     currentBitmapAction.actionData.add(BitmapActionData(
-                        XYPosition(x, i),
+                        Coordinates(x, i),
                         bitmap.getPixel(x, i),
                     ))
                     bitmap.setPixel(x, i, color)
@@ -37,7 +37,7 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
             while (x <= to.x) {
                 for (i in y..to.y) {
                     currentBitmapAction.actionData.add(BitmapActionData(
-                        XYPosition(x, i),
+                        Coordinates(x, i),
                         bitmap.getPixel(x, i),
                     ))
                     bitmap.setPixel(x, i, color)
@@ -52,7 +52,7 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
 
                 for (i in to.y..y) {
                     currentBitmapAction.actionData.add(BitmapActionData(
-                        XYPosition(x, i),
+                        Coordinates(x, i),
                         bitmap.getPixel(x, i),
                     ))
                     bitmap.setPixel(x, i, color)
@@ -67,7 +67,7 @@ class RectangleAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
 
                 for (i in to.y..y) {
                     currentBitmapAction.actionData.add(BitmapActionData(
-                        XYPosition(x, i),
+                        Coordinates(x, i),
                         bitmap.getPixel(x, i),
                     ))
                     bitmap.setPixel(x, i, color)

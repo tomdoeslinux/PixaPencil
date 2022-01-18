@@ -1,3 +1,3 @@
 package com.realtomjoney.pyxlmoose.models
 
-data class BitmapActionData(val xyPosition: XYPosition, val colorAtPosition: Int)
+data class BitmapActionData(val xyPosition: Coordinates, val colorAtPosition: Int)

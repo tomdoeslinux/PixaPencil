@@ -7,7 +7,6 @@ import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import android.graphics.*
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import android.graphics.Bitmap
-import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.models.*
 
 
@@ -54,7 +53,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
         when (event.actionMasked) {
             MotionEvent.ACTION_MOVE -> {
                 if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
-                    caller.onPixelTapped(XYPosition(coordinateX, coordinateY))
+                    caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
                 } else {
                     prevX = null
                     prevY = null
@@ -62,7 +61,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
             }
             MotionEvent.ACTION_DOWN -> {
                 if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
-                    caller.onPixelTapped(XYPosition(coordinateX, coordinateY))
+                    caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
                 } else {
                     prevX = null
                     prevY = null
@@ -94,7 +93,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
         for (i_1 in 0 until pixelGridViewBitmap.width) {
             for (i_2 in 0 until pixelGridViewBitmap.height) {
                 currentBitmapAction!!.actionData.add(BitmapActionData(
-                    XYPosition(i_1, i_2),
+                    Coordinates(i_1, i_2),
                     pixelGridViewBitmap.getPixel(i_1, i_2),
                 ))
 
@@ -115,7 +114,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
                     val color = lambda(pixelGridViewBitmap.getPixel(i_1, i_2))
 
                     currentBitmapAction!!.actionData.add(BitmapActionData(
-                        XYPosition(i_1, i_2),
+                        Coordinates(i_1, i_2),
                         pixelGridViewBitmap.getPixel(i_1, i_2),
                     ))
 
@@ -131,7 +130,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
     }
 
     fun overrideSetPixel(x: Int, y: Int, color: Int) {
-        val xyPosition = XYPosition(x, y)
+        val xyPosition = Coordinates(x, y)
         if (currentBrush == null) {
             pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
         } else {

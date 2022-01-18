@@ -2,18 +2,16 @@ package com.realtomjoney.pyxlmoose.algorithms
 
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.util.Log
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
-import com.realtomjoney.pyxlmoose.models.XYPosition
-import java.lang.Exception
+import com.realtomjoney.pyxlmoose.models.Coordinates
 import java.util.*
 
 class FloodFillAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK) {
-    fun compute(seed: XYPosition) {
+    fun compute(seed: Coordinates) {
         val colorAtSeed = bitmap.getPixel(seed.x, seed.y)
 
-        val queue = LinkedList<XYPosition>()
+        val queue = LinkedList<Coordinates>()
 
         queue.offer(seed)
 
@@ -25,7 +23,7 @@ class FloodFillAlgorithm(private val bitmap: Bitmap, private val currentBitmapAc
             }
 
             currentBitmapAction.actionData.add(BitmapActionData(
-                XYPosition(current.x, current.y),
+                Coordinates(current.x, current.y),
                 bitmap.getPixel(current.x, current.y),
             ))
             bitmap.setPixel(current.x, current.y, color)
