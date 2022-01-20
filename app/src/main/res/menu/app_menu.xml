@@ -35,4 +35,11 @@
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
         android:title="New Color Palette" />
+
+    <item android:id="@+id/pixel_perfect"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:checkable="true"
+        android:title="Pixel Perfect" />
 </menu>

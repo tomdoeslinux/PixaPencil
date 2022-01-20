@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import android.graphics.*
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import android.graphics.Bitmap
+import androidx.core.graphics.get
 import com.realtomjoney.pyxlmoose.models.*
 
 
@@ -24,6 +25,8 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
     var currentBitmapAction: BitmapAction? = null
 
     var currentBrush: Brush? = null
+
+    var pixelPerfectMode: Boolean = false
 
     private lateinit var caller: CanvasFragmentListener
 
@@ -131,6 +134,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
 
     fun overrideSetPixel(x: Int, y: Int, color: Int) {
         val xyPosition = Coordinates(x, y)
+
         if (currentBrush == null) {
             pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
         } else {

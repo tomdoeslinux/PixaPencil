@@ -1,6 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-fun extendedOnActionUp() {
+import com.realtomjoney.pyxlmoose.models.BitmapAction
+import com.realtomjoney.pyxlmoose.models.BitmapActionData
+
+fun CanvasActivity.extendedOnActionUp() {
     if (currentTool == Tools.LINE_TOOL) {
         lineOrigin = null
         lineMode_hasLetGo = true
@@ -10,6 +13,49 @@ fun extendedOnActionUp() {
         rectangleMode_hasLetGo = true
     } else {
         canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
+
+        if (canvasInstance.myCanvasViewInstance.pixelPerfectMode) {
+
+            // Thanks to https://rickyhan.com/jekyll/update/2018/11/22/pixel-art-algorithm-pixel-perfect.html
+
+            var distinct =
+                canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.distinctBy { it.xyPosition }
+            val data = mutableListOf<BitmapActionData>()
+
+            var c = 0
+
+            while (c < distinct.size) {
+                if (c > 0 && c + 1 < distinct.size
+                    && (distinct[c - 1].xyPosition.x == distinct[c].xyPosition.x || distinct[c - 1].xyPosition.y == distinct[c].xyPosition.y)
+                    && (distinct[c + 1].xyPosition.x == distinct[c].xyPosition.x || distinct[c + 1].xyPosition.y == distinct[c].xyPosition.y)
+                    && distinct[c - 1].xyPosition.x != distinct[c + 1].xyPosition.x
+                    && distinct[c - 1].xyPosition.y != distinct[c + 1].xyPosition.y
+                ) {
+                    c += 1
+                }
+
+                data.add(distinct[c])
+
+                c += 1
+            }
+
+            extendedUndo()
+
+            for (value in data) {
+                distinct = distinct.filter { it == value }
+            }
+
+            for (value in data) {
+                canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.setPixel(
+                    value.xyPosition.x,
+                    value.xyPosition.y,
+                    getSelectedColor()
+                )
+            }
+
+            canvasInstance.myCanvasViewInstance.bitmapActionData.add(BitmapAction(data))
+        }
+
         canvasInstance.myCanvasViewInstance.currentBitmapAction = null
 
         canvasInstance.myCanvasViewInstance.prevX = null

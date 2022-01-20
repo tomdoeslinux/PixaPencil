@@ -43,6 +43,12 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             currentFragmentInstance = newColorPaletteFragmentInstance
             navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_NEW_COLOR_PALETTE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
         }
+
+        R.id.pixel_perfect -> {
+            canvasInstance.myCanvasViewInstance.pixelPerfectMode = !canvasInstance.myCanvasViewInstance.pixelPerfectMode
+
+            menu.findItem(R.id.pixel_perfect).isChecked =  canvasInstance.myCanvasViewInstance.pixelPerfectMode
+        }
     }
     return true
 }

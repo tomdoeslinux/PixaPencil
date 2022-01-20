@@ -2,6 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
@@ -54,6 +55,8 @@ lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasInstance: CanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
+
+lateinit var menu: Menu
 
 var toolsFragmentInstance: ToolsFragment? = null
 var filtersFragmentInstance: FiltersFragment? = null
