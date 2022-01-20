@@ -7,7 +7,9 @@ import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
-    if (!colorPaletteMode) setPixelColor(selectedColor)
+    if (!colorPaletteMode) {
+        setPixelColor(selectedColor)
+    }
     else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
