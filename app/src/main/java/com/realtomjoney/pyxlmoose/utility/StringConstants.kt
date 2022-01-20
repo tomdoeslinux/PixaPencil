@@ -3,6 +3,8 @@ package com.realtomjoney.pyxlmoose.utility
 object StringConstants {
     const val APP_NAME = "PyxlMoose"
 
+    const val TAB_STARRED_TITLE = "Starred"
+
     const val SPAN_COUNT_EXTRA = "SPAN_COUNT"
     const val PROJECT_TITLE_EXTRA = "PROJECT_TITLE"
 

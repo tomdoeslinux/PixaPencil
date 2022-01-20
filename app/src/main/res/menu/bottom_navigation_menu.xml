@@ -10,5 +10,5 @@
         android:id="@+id/page_starred"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_star_border_24"
-        android:title="@string/star_str"/>
+        android:title="@string/starred_str"/>
 </menu>

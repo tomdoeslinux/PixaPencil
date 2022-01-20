@@ -6,6 +6,7 @@ import com.realtomjoney.pyxlmoose.adapters.RecentCreationsAdapter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 
 fun MainActivity.setOnClickListeners() {
@@ -15,13 +16,13 @@ fun MainActivity.setOnClickListeners() {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
                     binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
                 })
-                title = "Home"
+                title = StringConstants.APP_NAME
             }
             R.id.page_starred -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
                     binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.favourited }, this)
                 })
-                title = "Favorites"
+                title = StringConstants.TAB_STARRED_TITLE
             }
         }
         true
