@@ -47,6 +47,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(canvasInstance.myCanvasViewInstance.getNumberOfUniqueColors())
             currentFragmentInstance = findAndReplaceFragmentInstance
             navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
+            hideMenuItems()
         }
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
     }

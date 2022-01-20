@@ -83,6 +83,7 @@ fun CanvasActivity.setOnClickListeners() {
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
         isPrimaryColorSelected = true
         openColorPickerDialog()
+        hideMenuItems()
         true
     }
 
@@ -95,6 +96,7 @@ fun CanvasActivity.setOnClickListeners() {
     binding.activityCanvasColorSecondaryView.setOnLongClickListener {
         isPrimaryColorSelected = false
         openColorPickerDialog()
+        hideMenuItems()
         true
     }
 }

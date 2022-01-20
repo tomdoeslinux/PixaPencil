@@ -42,6 +42,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance
             navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_NEW_COLOR_PALETTE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
+            hideMenuItems()
         }
 
         R.id.pixel_perfect -> {

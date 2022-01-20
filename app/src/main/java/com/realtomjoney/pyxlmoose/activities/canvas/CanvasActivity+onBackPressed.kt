@@ -18,6 +18,7 @@ fun CanvasActivity.extendedOnBackPressed() {
     } else if (currentFragmentInstance != null) {
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
         currentFragmentInstance = null
+        showMenuItems()
     } else {
         startActivity(Intent(context, MainActivity::class.java))
     }
