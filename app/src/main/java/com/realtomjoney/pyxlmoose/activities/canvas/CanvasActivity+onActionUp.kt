@@ -14,7 +14,7 @@ fun CanvasActivity.extendedOnActionUp() {
     } else {
         canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
 
-        if (canvasInstance.myCanvasViewInstance.pixelPerfectMode) {
+        if (canvasInstance.myCanvasViewInstance.pixelPerfectMode && currentTool == Tools.PENCIL_TOOL || currentTool == Tools.VERTICAL_MIRROR_TOOL || currentTool == Tools.HORIZONTAL_MIRROR_TOOL || currentTool == Tools.ERASE_TOOL) {
 
             // Thanks to https://rickyhan.com/jekyll/update/2018/11/22/pixel-art-algorithm-pixel-perfect.html
 
