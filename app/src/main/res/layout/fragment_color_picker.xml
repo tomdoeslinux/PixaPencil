@@ -29,7 +29,6 @@
         android:id="@+id/hexadecimalEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:autofillHints="name"
         android:background="@null"
         android:fontFamily="sans-serif-light"
@@ -37,17 +36,8 @@
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/colorDoneButton"
-        app:layout_constraintEnd_toEndOf="@+id/blueProgressBar" />
-
-    <View
-        android:id="@+id/oldColorPreview"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/colorDoneButton"
+        app:layout_constraintStart_toStartOf="@+id/blueProgressBar" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/redProgressBar"

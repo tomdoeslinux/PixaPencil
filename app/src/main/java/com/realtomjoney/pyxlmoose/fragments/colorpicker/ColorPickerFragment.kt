@@ -65,7 +65,6 @@ class ColorPickerFragment(private val oldColor: Int, val colorPaletteMode: Boole
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
 
-        binding.oldColorPreview.setBackgroundColor(oldColor)
         binding.colorPickerPreview.setBackgroundColor(Color.argb(255, valueR, valueG, valueB))
 
         updateHexadecimalEditText()
