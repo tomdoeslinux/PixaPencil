@@ -70,6 +70,7 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Find and replace by color tool
 - Pixel grid (can be disabled or enabled) 
 - Eraser tool
+- Pixel perfect mode (not 100% stable)
 - Undo
 - Redo
 - Zoom in
