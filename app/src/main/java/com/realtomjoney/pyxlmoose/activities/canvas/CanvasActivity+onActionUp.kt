@@ -25,21 +25,21 @@ fun CanvasActivity.extendedOnActionUp() {
                 canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.distinctBy { it.xyPosition }
             val data = mutableListOf<BitmapActionData>()
 
-            var c = 0
+            var index = 0
 
-            while (c < distinct.size) {
-                if (c > 0 && c + 1 < distinct.size
-                    && (distinct[c - 1].xyPosition.x == distinct[c].xyPosition.x || distinct[c - 1].xyPosition.y == distinct[c].xyPosition.y)
-                    && (distinct[c + 1].xyPosition.x == distinct[c].xyPosition.x || distinct[c + 1].xyPosition.y == distinct[c].xyPosition.y)
-                    && distinct[c - 1].xyPosition.x != distinct[c + 1].xyPosition.x
-                    && distinct[c - 1].xyPosition.y != distinct[c + 1].xyPosition.y
+            while (index < distinct.size) {
+                if (index > 0 && index + 1 < distinct.size
+                    && (distinct[index - 1].xyPosition.x == distinct[index].xyPosition.x || distinct[index - 1].xyPosition.y == distinct[index].xyPosition.y)
+                    && (distinct[index + 1].xyPosition.x == distinct[index].xyPosition.x || distinct[index + 1].xyPosition.y == distinct[index].xyPosition.y)
+                    && distinct[index - 1].xyPosition.x != distinct[index + 1].xyPosition.x
+                    && distinct[index - 1].xyPosition.y != distinct[index + 1].xyPosition.y
                 ) {
-                    c += 1
+                    index += 1
                 }
 
-                data.add(distinct[c])
+                data.add(distinct[index])
 
-                c += 1
+                index += 1
             }
 
             extendedUndo()
