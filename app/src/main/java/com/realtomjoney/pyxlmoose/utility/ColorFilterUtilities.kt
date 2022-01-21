@@ -3,7 +3,7 @@ package com.realtomjoney.pyxlmoose.utility
 import android.graphics.Color
 import androidx.core.graphics.ColorUtils
 
-object ColorFilters {
+object ColorFilterUtilities {
     fun inverseRGB(color: Int) = color xor 0x00ffffff
 
     fun inverseRed(color: Int) = color xor 0x00ff0000

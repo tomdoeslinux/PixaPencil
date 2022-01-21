@@ -3,7 +3,6 @@
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
     <string name="home_str">Home</string>
-    <string name="star_str">Favorited</string>
     <string name="str_hexadecimal">Hexadecimal</string>
     <string name="str_button_done">Done</string>
 
@@ -35,4 +34,6 @@
     <string name="content_description_outlined_rectangle_tool">Outlined Rectangle Tool</string>
     <string name="content_description_grid_tool">Grid Tool</string>
     <string name="starred_str">Starred</string>
+    <string name="content_description_ellipse_tool">Ellipse Tool</string>
+    <string name="content_description_outlined_ellipse_tool">Outlined Ellipse Tool</string>
 </resources>

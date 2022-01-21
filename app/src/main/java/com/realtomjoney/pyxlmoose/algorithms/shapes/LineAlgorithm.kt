@@ -1,14 +1,13 @@
-package com.realtomjoney.pyxlmoose.algorithms
+package com.realtomjoney.pyxlmoose.algorithms.shapes
 
-import android.graphics.Bitmap
-import android.graphics.Color
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
-import com.realtomjoney.pyxlmoose.models.BitmapAction
+import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
-class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction: BitmapAction, private val color: Int = Color.BLACK) {
+class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter)
+    : ShapeAlgorithm {
     private fun drawLineY(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y
@@ -27,11 +26,11 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            currentBitmapAction.actionData.add(BitmapActionData(
+            algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
                 Coordinates(x, y),
-                bitmap.getPixel(x, y),
+                algorithmInfo.bitmap.getPixel(x, y),
             ))
-            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
+            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             x++
 
             if (p < 0) {
@@ -63,11 +62,11 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            currentBitmapAction.actionData.add(BitmapActionData(
+            algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
                 Coordinates(x, y),
-                bitmap.getPixel(x, y),
+                algorithmInfo.bitmap.getPixel(x, y),
             ))
-            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, color)
+            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             y++
 
             if (p < 0) {
@@ -79,24 +78,24 @@ class LineAlgorithm(private val bitmap: Bitmap, private val currentBitmapAction:
         }
     }
 
-    fun compute(from: Coordinates, to: Coordinates) {
-        val x = from.x
-        val y = from.y
+    override fun compute(p1: Coordinates, p2: Coordinates) {
+        val x = p1.x
+        val y = p1.y
 
-        val differenceX = to.x - x
-        val differenceY = to.y - y
+        val differenceX = p2.x - x
+        val differenceY = p2.y - y
 
         if (differenceY <= differenceX) {
             if (abs(differenceY) > differenceX) {
-                drawLineX(to, from)
+                drawLineX(p2, p1)
             } else {
-                drawLineY(from, to)
+                drawLineY(p1, p2)
             }
         } else if (differenceX < differenceY) {
             if (abs(differenceX) > differenceY) {
-                drawLineY(to, from)
+                drawLineY(p2, p1)
             } else {
-                drawLineX(from, to)
+                drawLineX(p1, p2)
             }
         }
     }

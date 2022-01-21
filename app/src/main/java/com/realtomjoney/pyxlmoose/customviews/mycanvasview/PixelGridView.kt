@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.customviews.mycanvasview
 
 import android.content.Context
+import android.content.res.Resources
 import android.view.MotionEvent
 import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
@@ -9,6 +10,10 @@ import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import android.graphics.Bitmap
 import androidx.core.graphics.get
 import com.realtomjoney.pyxlmoose.models.*
+import android.util.DisplayMetrics
+
+
+
 
 
 class PixelGridView (context: Context, private var spanCount: Int, private var isEmpty: Boolean) : View(context) {
@@ -151,6 +156,19 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
         }
     }
 
+    private fun drawGrid() {
+        val gridPaint = Paint().apply {
+            style = Paint.Style.STROKE
+            color = Color.BLACK
+            strokeWidth = 1f
+            isAntiAlias = false
+        }
+
+        for (i in 0 until spanCount) {
+            pixelGridViewCanvas.drawLine(1f, 1f, 100f, 100f, gridPaint)
+        }
+    }
+
     fun replaceBitmap(newBitmap: Bitmap) {
         pixelGridViewBitmap = Bitmap.createBitmap(newBitmap.width, newBitmap.height, Bitmap.Config.ARGB_8888)
         pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
@@ -160,7 +178,9 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
     }
 
     override fun onDraw(canvas: Canvas) {
-        if (::pixelGridViewBitmap.isInitialized) canvas.drawBitmap(getResizedBitmap(pixelGridViewBitmap, this.width, this.width)!!, 0f, 0f, null)
+        if (::pixelGridViewBitmap.isInitialized) {
+            canvas.drawBitmap(getResizedBitmap(pixelGridViewBitmap, this.width, this.width)!!, 0f, 0f, null)
+        }
     }
 
 }

@@ -29,14 +29,12 @@
                     style="@style/canvas_activity_button_tool_style_back"
                     android:layout_marginStart="16dp"
                     android:contentDescription="@string/content_description_pencil_tool" />
-
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_pencilButton"
                     style="@style/canvas_activity_button_tool_style"
                     android:layout_marginStart="16dp"
                     android:contentDescription="@string/content_description_pencil_tool"
                     app:srcCompat="@drawable/ic_baseline_pencil_24" />
-
             </FrameLayout>
 
             <FrameLayout
@@ -153,7 +151,6 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
                     android:contentDescription="@string/content_description_vertical_mirror_tool" />
@@ -162,9 +159,6 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/content_description_clear_canvas_tool"
                     app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
-
-
-
             </FrameLayout>
 
 
@@ -180,8 +174,6 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/content_description_color_picker_tool"
                     app:srcCompat="@drawable/ic_baseline_colorize_24" />
-
-
             </FrameLayout>
 
             <FrameLayout
@@ -195,7 +187,6 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/content_description_find_and_replace_tool"
                     app:srcCompat="@drawable/ic_baseline_find_replace_24" />
-
             </FrameLayout>
 
             <FrameLayout

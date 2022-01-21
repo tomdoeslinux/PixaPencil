@@ -1,10 +1,11 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.shapes.LineAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    val lineAlgorithmInstance = LineAlgorithm(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor())
+    val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
 
     if (!lineMode_hasLetGo) {
         if (!first) canvasInstance.myCanvasViewInstance.undo()

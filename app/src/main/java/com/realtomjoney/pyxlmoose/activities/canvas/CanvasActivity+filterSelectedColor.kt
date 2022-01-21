@@ -1,9 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.utility.ColorFilters
+import com.realtomjoney.pyxlmoose.utility.ColorFilterUtilities
 
 fun CanvasActivity.filterSelectedColor(color: Int, ratio: Float) {
-    if (isPrimaryColorSelected) setPixelColor(ColorFilters.blendColor(getSelectedColor(), color, ratio))
-    else setPixelColor(ColorFilters.blendColor(getSelectedColor(), color, ratio))
+    if (isPrimaryColorSelected) setPixelColor(ColorFilterUtilities.blendColor(getSelectedColor(), color, ratio))
+    else setPixelColor(ColorFilterUtilities.blendColor(getSelectedColor(), color, ratio))
 }
 
