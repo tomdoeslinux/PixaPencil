@@ -1,6 +1,6 @@
 ![PyxlmooseLogo](https://user-images.githubusercontent.com/50536495/150460490-7d4e839c-6828-47ef-b2ed-b55edca73488.png)
 
-_Logo by https://github.com/daspacebar._
+_Logo by daspacebar#3601 (https://github.com/daspacebar)._ 
 
 ## About
 **A pixel art creator for Android using Canvas, written 100% in Kotlin.**
