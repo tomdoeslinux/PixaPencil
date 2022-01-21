@@ -2,11 +2,10 @@
 
 _Logo by https://github.com/daspacebar._
 
+## About
 **A pixel art creator for Android using Canvas, written 100% in Kotlin.**
 
 Join our Discord: https://discord.gg/DypHJzfa
-
-_⭐ If you are interested in this project please star it, we need to get as much stars as possible ⭐_
 
 ## Bitmap Update
 PyxlMoose now uses Bitmap to handle the creaton of pixel art.
