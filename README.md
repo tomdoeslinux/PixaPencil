@@ -3,7 +3,7 @@
 _Logo by daspacebar#3601 (https://github.com/daspacebar)._ 
 
 ## About
-**A pixel art creator for Android using Canvas, written 100% in Kotlin.**
+**A pixel art creator for Android using Bitmap, written 100% in Kotlin.**
 
 Join our Discord: https://discord.gg/DypHJzfa
 
@@ -23,7 +23,7 @@ All these issues will be fixed soon!
 ![drawinnggg](https://user-images.githubusercontent.com/50536495/147852120-e9d54adf-20d6-48a4-a7e0-e0afb4f4e585.PNG)
 
 
-**If you want to showcase an image of your own please send me an email at todoescode@gmail.com.**
+**If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
 
 ## License
 
@@ -41,15 +41,6 @@ Limitations
 If you are wanting to make an app similar to PyxlMoose (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
 
 _Do not use the name 'PyxlMoose' or the logo in your app._
-
-## Progress
-PyxlMoose is the world's fastest progressing Android pixel art editor.
-
-**⭐ You can show your support for this project by starring this project! ⭐**
-
-
-
-![PROGRESSpng](https://user-images.githubusercontent.com/50536495/147825247-0b4e8f32-400a-498b-9e2a-57620f1fe9b5.png)
 
 ## Goal
 PyxlMoose is a project I am submitting for NCEA Level 3 Digital Technologies.
