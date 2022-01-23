@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.activities.canvas.showMenuItems
 import com.realtomjoney.pyxlmoose.databinding.FragmentHexadecimalColorPickerBinding
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
+import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
 import java.util.*
 
@@ -53,7 +54,7 @@ class HexadecimalColorPickerFragment : Fragment() {
             hideKeyboard()
             Handler(Looper.getMainLooper()).postDelayed({
                 try {
-                    caller.onDoneButtonPressed((binding.fragmentHexadecimalColorPickerColorPreview.background as ColorDrawable).color)
+                    caller.onDoneButtonPressed((binding.fragmentHexadecimalColorPickerColorPreview.background as ColorDrawable).color, colorPaletteMode_)
                 } catch (exception: Exception) {
 
                 } finally {

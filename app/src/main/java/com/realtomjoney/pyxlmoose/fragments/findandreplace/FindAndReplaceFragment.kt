@@ -17,7 +17,6 @@ import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
 class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
-
     private fun setUpCanvasColorsRecyclerView() {
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
             orientation = LinearLayoutManager.HORIZONTAL

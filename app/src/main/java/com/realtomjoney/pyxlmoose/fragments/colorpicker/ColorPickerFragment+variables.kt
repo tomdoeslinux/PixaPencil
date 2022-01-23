@@ -10,6 +10,7 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 var binding_: FragmentColorPickerBinding? = null
 
 var oldColor_ = Color.BLACK
+var colorPaletteMode_: Boolean = false
 
 val binding get() = binding_!!
 

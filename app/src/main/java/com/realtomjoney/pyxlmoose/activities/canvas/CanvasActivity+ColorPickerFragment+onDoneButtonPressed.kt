@@ -9,8 +9,7 @@ import com.realtomjoney.pyxlmoose.extensions.navigateHome
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
     if (!colorPaletteMode) {
         setPixelColor(selectedColor)
-    }
-    else {
+    } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
         newData.removeIf { it == Color.TRANSPARENT }
