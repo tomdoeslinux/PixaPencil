@@ -12,10 +12,6 @@ import androidx.core.graphics.get
 import com.realtomjoney.pyxlmoose.models.*
 import android.util.DisplayMetrics
 
-
-
-
-
 class PixelGridView (context: Context, private var spanCount: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap

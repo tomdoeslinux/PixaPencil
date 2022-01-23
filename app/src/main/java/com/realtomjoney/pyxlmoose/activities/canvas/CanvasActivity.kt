@@ -1,15 +1,17 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
+import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener {
+class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener, RGBColorPickerFragmentListener, HexadecimalColorPickerFragmentListener, HSVColorPickerFragmentListener {
     var previousView: View? = null
 
     val context = this
@@ -57,4 +59,25 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) = extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
 
     override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
+
+    override fun onHSVColorPickerFragmentDoneButtonPressed(selectedColor: Int) {
+        showMenuItems()
+        setPixelColor(selectedColor)
+        currentFragmentInstance = null
+        navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+    }
+
+    override fun onHexadecimalColorPickerFragmentDoneButtonPressed(selectedColor: Int) {
+        showMenuItems()
+        setPixelColor(selectedColor)
+        currentFragmentInstance = null
+        navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+    }
+
+    override fun onRGBColorPickerFragmentDoneButtonPressed(selectedColor: Int) {
+        showMenuItems()
+        setPixelColor(selectedColor)
+        currentFragmentInstance = null
+        navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+    }
 }

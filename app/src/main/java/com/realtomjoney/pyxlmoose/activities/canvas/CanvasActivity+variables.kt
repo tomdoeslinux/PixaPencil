@@ -13,7 +13,6 @@ import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
-import com.realtomjoney.pyxlmoose.models.Pixel
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
 lateinit var binding: ActivityCanvasBinding
@@ -39,8 +38,6 @@ enum class Tools {
     LINE_TOOL,
     RECTANGLE_TOOL,
     OUTLINED_RECTANGLE_TOOL,
-    MIDPOINT_CIRCLE_TOOL,
-    OUTLINED_MIDPOINT_CIRCLE_TOOL,
     DARKEN_TOOL,
     LIGHTEN_TOOL,
     COLOR_PICKER_TOOL,
@@ -50,9 +47,6 @@ enum class Tools {
 var currentTool: Tools = Tools.PENCIL_TOOL
 
 var saved = true
-
-val canvasStates = mutableListOf<List<Pixel>>()
-var deletedCanvasStates = mutableListOf<List<Pixel>>()
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var canvasInstance: CanvasFragment

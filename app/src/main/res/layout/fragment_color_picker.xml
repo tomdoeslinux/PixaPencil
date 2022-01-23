@@ -8,6 +8,31 @@
     android:background="@color/white"
     tools:context=".fragments.colorpicker.ColorPickerFragment">
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/fragmentColorPicker_tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:tabStripEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_rgb" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_hex" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tab_hsv" />
+    </com.google.android.material.tabs.TabLayout>
+
     <FrameLayout
         android:id="@+id/fragmentColorPicker_primaryFragmentHost"
         android:layout_width="match_parent"
@@ -17,86 +42,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/colorPickerPreview"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/hexadecimalEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints="name"
-        android:background="@null"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/str_hexadecimal"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/colorDoneButton"
-        app:layout_constraintStart_toStartOf="@+id/blueProgressBar" />
-
-    <com.google.android.material.slider.Slider
-        android:id="@+id/redProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:valueFrom="0"
-        android:valueTo="255"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorPickerPreview"
-        app:thumbColor="#ff0000"
-        app:trackColor="#ff0000" />
-
-    <com.google.android.material.slider.Slider
-        android:id="@+id/greenProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:valueFrom="0"
-        android:valueTo="255"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redProgressBar"
-        app:thumbColor="#00ff00"
-        app:trackColor="#00ff00" />
-
-    <com.google.android.material.slider.Slider
-        android:id="@+id/blueProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:valueFrom="0"
-        android:valueTo="255"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greenProgressBar"
-        app:thumbColor="#0000ff"
-        app:trackColor="#0000ff" />
-
-    <Button
-        android:id="@+id/colorDoneButton"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/str_button_done"
+    <FrameLayout
+        android:id="@+id/fragmentColorPicker_tabLayoutFragmentHost"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentColorPicker_tabLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
