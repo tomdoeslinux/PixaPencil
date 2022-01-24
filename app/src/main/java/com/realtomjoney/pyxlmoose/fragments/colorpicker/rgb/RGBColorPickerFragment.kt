@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.fragments.colorpicker.rgb
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -9,35 +8,22 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.activities.canvas.showMenuItems
 import com.realtomjoney.pyxlmoose.databinding.FragmentRGBColorPickerBinding
+import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
-import java.util.*
 
 class RGBColorPickerFragment : Fragment() {
-    private fun hideKeyboard() {
-        try {
-            val inputMethodManager =
-                (Objects.requireNonNull(requireActivity()).getSystemService(
-                    Context.INPUT_METHOD_SERVICE
-                ) as InputMethodManager)
-            inputMethodManager.hideSoftInputFromWindow(
-                this.requireActivity().currentFocus!!.windowToken, 0
-            )
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-        }
-    }
-
     private fun setup() {
-        binding.fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
-        binding.fragmentRGBColorPickerRedProgressBar.value = Color.red(oldColor_).toFloat()
-        binding.fragmentRGBColorPickerBlueProgressBar.value = Color.blue(oldColor_).toFloat()
-        binding.fragmentRGBColorPickerGreenProgressBar.value = Color.green(oldColor_).toFloat()
+        binding.apply {
+            fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
+            fragmentRGBColorPickerRedProgressBar.value = Color.red(oldColor_).toFloat()
+            fragmentRGBColorPickerBlueProgressBar.value = Color.blue(oldColor_).toFloat()
+            fragmentRGBColorPickerGreenProgressBar.value = Color.green(oldColor_).toFloat()
+        }
     }
 
     private fun updateColorSelectedPreview() {

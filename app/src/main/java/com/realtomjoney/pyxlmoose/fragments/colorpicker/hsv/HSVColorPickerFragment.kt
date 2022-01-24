@@ -17,26 +17,13 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Handler
 import android.os.Looper
+import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import java.util.*
 
 
 class HSVColorPickerFragment : Fragment() {
     private val floatArray = FloatArray(3)
-
-    private fun hideKeyboard() {
-        try {
-            val inputMethodManager =
-                (Objects.requireNonNull(requireActivity()).getSystemService(
-                    INPUT_METHOD_SERVICE
-                ) as InputMethodManager)
-            inputMethodManager.hideSoftInputFromWindow(
-                this.requireActivity().currentFocus!!.windowToken, 0
-            )
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-        }
-    }
 
     private fun setup() {
         binding.fragmentHSVColorPickerColorPreview.setBackgroundColor(oldColor_)
@@ -49,9 +36,11 @@ class HSVColorPickerFragment : Fragment() {
         hsvSaturation = hsv[1]
         hsvValue = hsv[2]
 
-        binding.fragmentHSVColorPickerHueValueTextInputEditText.setText(hsvHue.toInt().toString())
-        binding.fragmentHSVColorPickerSaturationValueTextInputEditText.setText(hsvSaturation.toInt().toString())
-        binding.fragmentHSVColorPickerValueValueTextInputEditText.setText(hsvValue.toInt().toString())
+        binding.apply {
+            fragmentHSVColorPickerHueValueTextInputEditText.setText(hsvHue.toInt().toString())
+            fragmentHSVColorPickerSaturationValueTextInputEditText.setText(hsvSaturation.toInt().toString())
+            fragmentHSVColorPickerValueValueTextInputEditText.setText(hsvValue.toInt().toString())
+        }
     }
 
     private fun updateColorPickerColorView() {
