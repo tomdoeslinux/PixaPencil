@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.PixelGridView
+import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
 class CanvasFragment(val spanCount: Int, val isEmpty: Boolean = false) : Fragment() {

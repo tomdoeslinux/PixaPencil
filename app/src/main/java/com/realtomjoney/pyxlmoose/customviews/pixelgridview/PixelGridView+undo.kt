@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.customviews.mycanvasview
+package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 fun PixelGridView.extendedUndo() {
     if (bitmapActionData.size > 0) {

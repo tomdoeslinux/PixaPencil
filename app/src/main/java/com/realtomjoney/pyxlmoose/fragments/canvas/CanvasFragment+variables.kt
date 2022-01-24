@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.fragments.canvas
 
-import com.realtomjoney.pyxlmoose.customviews.mycanvasview.PixelGridView
+import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 

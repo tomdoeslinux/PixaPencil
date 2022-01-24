@@ -1,17 +1,16 @@
-package com.realtomjoney.pyxlmoose.customviews.mycanvasview
+package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.view.MotionEvent
 import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import android.graphics.*
 import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import android.graphics.Bitmap
-import androidx.core.graphics.get
 import com.realtomjoney.pyxlmoose.models.*
-import android.util.DisplayMetrics
 
+@SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, private var spanCount: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap

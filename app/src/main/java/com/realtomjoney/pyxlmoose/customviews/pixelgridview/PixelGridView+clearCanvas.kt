@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.customviews.mycanvasview
+package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.graphics.Color
 

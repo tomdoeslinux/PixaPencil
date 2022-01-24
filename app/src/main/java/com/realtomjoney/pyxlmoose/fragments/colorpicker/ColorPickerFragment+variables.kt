@@ -4,6 +4,7 @@ import android.graphics.Color
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.hex.HexadecimalColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.hsv.HSVColorPickerFragment
+import com.realtomjoney.pyxlmoose.fragments.colorpicker.picker.ColorPickerPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.rgb.RGBColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 
@@ -19,3 +20,4 @@ lateinit var caller: ColorPickerFragmentListener
 var hexFragmentInstance: HexadecimalColorPickerFragment? = null
 var hsvFragmentInstance: HSVColorPickerFragment? = null
 var rgbFragmentInstance: RGBColorPickerFragment? = null
+var pickerFragmentInstance: ColorPickerPickerFragment? = null
