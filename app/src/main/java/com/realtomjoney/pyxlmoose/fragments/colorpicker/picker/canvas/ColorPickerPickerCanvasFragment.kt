@@ -11,7 +11,6 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerPickerCanvasBin
 class ColorPickerPickerCanvasFragment : Fragment() {
     private lateinit var colorPickerViewInstance: ColorPickerView
 
-
     private fun setupCanvas() {
         colorPickerViewInstance = ColorPickerView(requireContext())
         binding.fragmentColorPickerPickerCanvasRootLayout.addView(colorPickerViewInstance)
