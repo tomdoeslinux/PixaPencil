@@ -79,22 +79,22 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_tools_str" />
+            android:text="@string/activityCanvas_tab_tools_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_filters_str" />
+            android:text="@string/activityCanvas_tab_filters_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_color_palettes_str" />
+            android:text="@string/activityCanvas_tab_color_palettes_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_brushes_str" />
+            android:text="@string/activityCanvas_tab_brushes_str" />
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

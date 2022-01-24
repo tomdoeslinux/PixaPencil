@@ -25,25 +25,25 @@ fun ColorPickerFragment.setOnClickListeners() {
         TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab) {
             when (tab.text) {
-                getString(R.string.tab_color_picker) -> {
+                getString(R.string.fragmentColorPicker_tab_color_picker_str) -> {
                     hsvFragmentInstance!!.requireView().visibility = View.GONE
                     hexFragmentInstance!!.requireView().visibility = View.GONE
                     rgbFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.tab_rgb) -> {
+                getString(R.string.fragmentColorPicker_tab_rgb_str) -> {
                     hsvFragmentInstance!!.requireView().visibility = View.GONE
                     hexFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.GONE
                     rgbFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.tab_hex) -> {
+                getString(R.string.fragmentColorPicker_tab_hex_str) -> {
                     hsvFragmentInstance!!.requireView().visibility = View.GONE
                     rgbFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.GONE
                     hexFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.tab_hsv) -> {
+                getString(R.string.fragmentColorPicker_tab_hsv_str) -> {
                     rgbFragmentInstance!!.requireView().visibility = View.GONE
                     hexFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.GONE

@@ -19,22 +19,22 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_color_picker" />
+            android:text="@string/fragmentColorPicker_tab_color_picker_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_rgb" />
+            android:text="@string/fragmentColorPicker_tab_rgb_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_hex" />
+            android:text="@string/fragmentColorPicker_tab_hex_str" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tab_hsv" />
+            android:text="@string/fragmentColorPicker_tab_hsv_str" />
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

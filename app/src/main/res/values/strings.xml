@@ -15,31 +15,45 @@
     <string name="content_description_favorite">Favorite</string>
 
     <string name="content_description_pixel_art_preview">Pixel Art Preview</string>
-    <string name="span_count_str">Span count</string>
-    <string name="project_name_str">Project name</string>
+    <string name="fragmentNewCanvas_span_count_str">Span count</string>
+    <string name="fragmentNewCanvas_project_name_str">Project name</string>
     <string name="content_description_vertical_mirror_tool">Vertical Mirror Tool</string>
     <string name="content_description_horizontal_mirror_tool">Horizontal Mirror Tool</string>
     <string name="content_description_pencil_tool">Pencil Tool</string>
     <string name="save_text">Save</string>
-    <string name="tab_filters_str">Filters</string>
-    <string name="tab_tools_str">Tools</string>
-    <string name="tab_color_palettes_str">Color Palettes</string>
-    <string name="color_palette_item">Color Palette Item</string>
-    <string name="color_palette_name">Color Palette Name</string>
+    <string name="activityCanvas_tab_filters_str">Filters</string>
+    <string name="activityCanvas_tab_tools_str">Tools</string>
+    <string name="activityCanvas_tab_color_palettes_str">Color Palettes</string>
+    <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
+    <string name="fragmentNewColorPalette_color_palette_name_str">Color Palette Name</string>
     <string name="content_description_fill_tool">Fill Tool</string>
-    <string name="tab_brushes_str">Brushes</string>
+    <string name="activityCanvas_tab_brushes_str">Brushes</string>
     <string name="content_description_line_tool">Line Tool</string>
     <string name="content_description_rectangle_tool">Rectangle Tool</string>
     <string name="content_description_outlined_rectangle_tool">Outlined Rectangle Tool</string>
     <string name="content_description_grid_tool">Grid Tool</string>
     <string name="starred_str">Starred</string>
-    <string name="tab_rgb">RGB</string>
-    <string name="tab_hex">Hex</string>
-    <string name="tab_hsv">HSV</string>
+
+    <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
+    <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
+    <string name="fragmentColorPicker_tab_hex_str">Hex</string>
+    <string name="fragmentColorPicker_tab_hsv_str">HSV</string>
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hexadecimal_value">Hexadecimal value</string>
-    <string name="hue">Hue</string>
-    <string name="saturation">Saturation</string>
-    <string name="value">Value</string>
-    <string name="tab_color_picker">Color Picker</string>
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
+    <string name="fragmentHSVColorPicker_hue_str">Hue</string>
+    <string name="fragmentHSVColorPicker_saturation_str">Saturation</string>
+    <string name="fragmentHSVColorPicker_value_str">Value</string>
+    <string name="fragmentFilters_color_filter_str">Color Filter</string>
+    <string name="fragmentFilters_lighten_str">Lighten</string>
+    <string name="fragmentFilters_darken_str">Darken</string>
+    <string name="fragmentFilters_invert_str">Invert</string>
+    <string name="fragmentFilters_invert_red_str">Invert Red</string>
+    <string name="fragmentFilters_invert_green_str">Invert Green</string>
+    <string name="fragmentFilters_invert_blue_str">Invert Blue</string>
+    <string name="fragmentFilters_grayscale_str">Grayscale</string>
+    <string name="fragmentFindAndReplace_find_str">Find</string>
+    <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
 </resources>

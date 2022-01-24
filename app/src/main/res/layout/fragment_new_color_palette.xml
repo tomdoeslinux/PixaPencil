@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Extract From Canvas"
+        android:text="@string/fragmentNewColorPalette_extract_from_canvas_str"
         app:layout_constraintStart_toStartOf="@+id/fragmentNewColorPalette_colorPaletteNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/fragmentNewColorPalette_colorPaletteNameTextInputLayout" />
 
@@ -34,7 +34,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:hint="@string/color_palette_name"
+        android:hint="@string/fragmentNewColorPalette_color_palette_name_str"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
