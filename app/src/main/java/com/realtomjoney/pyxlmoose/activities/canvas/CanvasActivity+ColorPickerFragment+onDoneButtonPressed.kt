@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
+    showMenuItems()
     if (!colorPaletteMode) {
         setPixelColor(selectedColor)
     } else {
