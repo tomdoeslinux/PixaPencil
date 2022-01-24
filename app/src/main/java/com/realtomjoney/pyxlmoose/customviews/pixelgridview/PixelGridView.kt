@@ -11,7 +11,7 @@ import android.graphics.Bitmap
 import com.realtomjoney.pyxlmoose.models.*
 
 @SuppressLint("ViewConstructor")
-class PixelGridView (context: Context, private var spanCount: Int, private var isEmpty: Boolean) : View(context) {
+class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -28,7 +28,7 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
 
     var pixelPerfectMode: Boolean = false
 
-    private lateinit var caller: CanvasFragmentListener
+    lateinit var caller: CanvasFragmentListener
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
@@ -45,132 +45,25 @@ class PixelGridView (context: Context, private var spanCount: Int, private var i
         }
     }
 
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        val coordinateX = (event.x / scaleWidth).toInt()
-        val coordinateY = (event.y / scaleWidth).toInt()
-
-        if (currentBitmapAction == null) {
-            currentBitmapAction = BitmapAction(mutableListOf())
-        }
-
-        when (event.actionMasked) {
-            MotionEvent.ACTION_MOVE -> {
-                if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
-                    caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
-                } else {
-                    prevX = null
-                    prevY = null
-                }
-            }
-            MotionEvent.ACTION_DOWN -> {
-                if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
-                    caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
-                } else {
-                    prevX = null
-                    prevY = null
-                }
-            }
-            MotionEvent.ACTION_UP -> {
-                caller.onActionUp()
-            }
-        }
-
-        invalidate()
-
-        return true
-    }
+    override fun dispatchTouchEvent(event: MotionEvent) = extendedDispatchTouchEvent(event)
 
     fun undo() = extendedUndo()
 
     fun redo() {
-        // TODO - add in next commit
+        // TODO - add redo functionality asap
     }
 
     fun clearCanvas() = extendedClearCanvas()
 
     fun getNumberOfUniqueColors() = extendedGetNumberOfUniqueColors()
 
-    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
-        currentBitmapAction = BitmapAction(mutableListOf(), true)
+    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) = extendedReplacePixelsByColor(colorToFind, colorToReplace)
 
-        for (i_1 in 0 until pixelGridViewBitmap.width) {
-            for (i_2 in 0 until pixelGridViewBitmap.height) {
-                currentBitmapAction!!.actionData.add(BitmapActionData(
-                    Coordinates(i_1, i_2),
-                    pixelGridViewBitmap.getPixel(i_1, i_2),
-                ))
+    fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
-                if (pixelGridViewBitmap.getPixel(i_1, i_2) == colorToFind) {
-                    pixelGridViewBitmap.setPixel(i_1, i_2, colorToReplace)
-                }
-            }
-        }
-        invalidate()
-    }
+    fun overrideSetPixel(x: Int, y: Int, color: Int) = extendedOverrideSetPixel(x, y, color)
 
-    fun applyBitmapFilter(lambda: (Int) -> Int) {
-        currentBitmapAction = BitmapAction(mutableListOf(), true)
-
-        for (i_1 in 0 until pixelGridViewBitmap.width) {
-            for (i_2 in 0 until pixelGridViewBitmap.height) {
-                if (pixelGridViewBitmap.getPixel(i_1, i_2) != Color.TRANSPARENT) {
-                    val color = lambda(pixelGridViewBitmap.getPixel(i_1, i_2))
-
-                    currentBitmapAction!!.actionData.add(BitmapActionData(
-                        Coordinates(i_1, i_2),
-                        pixelGridViewBitmap.getPixel(i_1, i_2),
-                    ))
-
-                    pixelGridViewBitmap.setPixel(i_1, i_2, color)
-                }
-            }
-        }
-
-        canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
-        canvasInstance.myCanvasViewInstance.currentBitmapAction = null
-
-        invalidate()
-    }
-
-    fun overrideSetPixel(x: Int, y: Int, color: Int) {
-        val xyPosition = Coordinates(x, y)
-
-        if (currentBrush == null) {
-            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
-        } else {
-            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
-            for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(xyPosition)) {
-                if (xyPosition_2.x in 0 until spanCount && xyPosition_2.y in 0 until spanCount) {
-                    canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
-                        xyPosition_2,
-                        pixelGridViewBitmap.getPixel(xyPosition_2.x, xyPosition_2.y)
-                    ))
-                    pixelGridViewBitmap.setPixel(xyPosition_2.x, xyPosition_2.y, color)
-                }
-            }
-        }
-    }
-
-    private fun drawGrid() {
-        val gridPaint = Paint().apply {
-            style = Paint.Style.STROKE
-            color = Color.BLACK
-            strokeWidth = 1f
-            isAntiAlias = false
-        }
-
-        for (i in 0 until spanCount) {
-            pixelGridViewCanvas.drawLine(1f, 1f, 100f, 100f, gridPaint)
-        }
-    }
-
-    fun replaceBitmap(newBitmap: Bitmap) {
-        pixelGridViewBitmap = Bitmap.createBitmap(newBitmap.width, newBitmap.height, Bitmap.Config.ARGB_8888)
-        pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
-        spanCount = newBitmap.width
-        pixelGridViewCanvas.drawBitmap(newBitmap, 0f, 0f, null)
-        invalidate()
-    }
+    fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {

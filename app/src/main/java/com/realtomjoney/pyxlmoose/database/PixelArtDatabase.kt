@@ -15,7 +15,11 @@ abstract class PixelArtDatabase: RoomDatabase() {
         fun getDatabase(context: Context): PixelArtDatabase {
             if (instance == null) {
                 synchronized(PixelArtDatabase::class) {
-                    if (instance == null) instance = Room.databaseBuilder(context.applicationContext, PixelArtDatabase::class.java, AppData.pixelArtDBFileName).allowMainThreadQueries().build()
+                    if (instance == null) {
+                        instance = Room.databaseBuilder(context.applicationContext, PixelArtDatabase::class.java, AppData.pixelArtDBFileName)
+                            .allowMainThreadQueries()
+                            .build()
+                    }
                 }
             }
             return instance!!
