@@ -3,7 +3,6 @@
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
     <string name="home_str">Home</string>
-    <string name="str_hexadecimal">Hexadecimal</string>
     <string name="str_button_done">Done</string>
 
     <string name="content_description_activity_main_fab">New Project</string>
@@ -34,17 +33,13 @@
     <string name="content_description_outlined_rectangle_tool">Outlined Rectangle Tool</string>
     <string name="content_description_grid_tool">Grid Tool</string>
     <string name="starred_str">Starred</string>
-    <string name="content_description_ellipse_tool">Ellipse Tool</string>
-    <string name="content_description_outlined_ellipse_tool">Outlined Ellipse Tool</string>
     <string name="tab_rgb">RGB</string>
     <string name="tab_hex">Hex</string>
     <string name="tab_hsv">HSV</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hexadecimal_value">Hexadecimal value</string>
     <string name="hue">Hue</string>
     <string name="saturation">Saturation</string>
     <string name="value">Value</string>
-    <string name="tab_hsl">HSL</string>
     <string name="tab_color_picker">Color Picker</string>
 </resources>
