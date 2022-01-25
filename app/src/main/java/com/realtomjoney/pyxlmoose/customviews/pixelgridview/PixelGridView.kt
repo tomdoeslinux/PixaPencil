@@ -6,7 +6,6 @@ import android.view.MotionEvent
 import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import android.graphics.*
-import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
 import android.graphics.Bitmap
 import com.realtomjoney.pyxlmoose.models.*
 
@@ -15,8 +14,8 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
-    var scaleWidth = 0f
-    var scaleHeight = 0f
+    private var scaleWidth = 0f
+    private var scaleHeight = 0f
 
     var prevX: Int? = null
     var prevY: Int? = null
