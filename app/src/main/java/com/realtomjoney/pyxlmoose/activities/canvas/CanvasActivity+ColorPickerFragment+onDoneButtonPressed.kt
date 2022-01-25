@@ -5,6 +5,7 @@ import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
     showMenuItems()
@@ -24,5 +25,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
     }
 
     currentFragmentInstance = null
-    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(
+        StringConstants.PROJECT_TITLE_EXTRA)!!)
 }
