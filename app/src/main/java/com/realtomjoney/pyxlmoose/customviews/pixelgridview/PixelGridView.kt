@@ -64,7 +64,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
-    private fun getMatrix(bm: Bitmap, newHeight: Int, newWidth: Int): Matrix {
+    private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int): Matrix {
         val width = bm.width
         val height = bm.height
         val scaleWidth = newWidth.toFloat() / width
@@ -81,7 +81,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            canvas.drawBitmap(pixelGridViewBitmap, getMatrix(pixelGridViewBitmap, this.width, this.width), null)
+            canvas.drawBitmap(pixelGridViewBitmap, calculateMatrix(pixelGridViewBitmap, this.width, this.width), null)
         }
     }
 
