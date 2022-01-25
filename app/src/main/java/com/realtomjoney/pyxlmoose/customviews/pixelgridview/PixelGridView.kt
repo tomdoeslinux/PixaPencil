@@ -14,7 +14,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
-    private var scaleWidth = 0f
+    var scaleWidth = 0f
     private var scaleHeight = 0f
 
     var prevX: Int? = null
