@@ -10,6 +10,8 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/border_drawable_thin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/button_selected_drawable.xml" value="0.26510416666666664" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/change_background_icon.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/def_background.xml" value="0.3109375" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/default_shadow.xml" value="0.3109375" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/fab_background_selector.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/fab_border.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.259375" />
@@ -30,7 +32,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/round.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/selector_radio_button.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/drawable/tool_item_background.xml" value="0.27760416666666665" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_canvas.xml" value="0.2" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_canvas.xml" value="0.2016308376575241" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/brushes_layout.xml" value="0.5" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/change_colour_layout.xml" value="0.67" />
@@ -38,7 +40,7 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/color_picker_layout.xml" value="0.33" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/colour_picker_layout.xml" value="0.12" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_brushes.xml" value="0.31302083333333336" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_canvas.xml" value="0.1" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_canvas.xml" value="0.2" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_change_colour.xml" value="0.2" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_color_palettes.xml" value="0.33" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_color_picker.xml" value="0.33" />
@@ -48,8 +50,9 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_find_and_replace.xml" value="0.22" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_h_s_v_color_picker.xml" value="0.21" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.25317028985507245" />
-        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_canvas.xml" value="0.16" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_canvas.xml" value="0.18" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_new_color_palette.xml" value="0.33" />
+        <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_outer_canvas.xml" value="0.25" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/fragment_tools.xml" value="0.22" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/layout/pixel_layout.xml" value="0.14" />

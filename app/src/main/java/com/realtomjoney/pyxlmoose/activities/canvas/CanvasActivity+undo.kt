@@ -1,5 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 fun extendedUndo() {
-    canvasInstance.myCanvasViewInstance.undo()
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
 }

@@ -1,13 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.fragments.outercanvas.OuterCanvasFragment
 
 fun CanvasActivity.setUpFragment() {
-    canvasInstance = if (index == -1) {
-        CanvasFragment.newInstance(spanCount)
+    outerCanvasInstance = if (index == -1) {
+        OuterCanvasFragment.newInstance(spanCount)
     } else {
-        CanvasFragment.newInstance(spanCount, true)
+        OuterCanvasFragment.newInstance(spanCount, true)
     }
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_canvasFragmentHost, canvasInstance).commit()
+    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_outerCanvasFragmentHost, outerCanvasInstance).commit()
 }

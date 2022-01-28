@@ -24,7 +24,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
                 )
             )
         } else {
-            val data = canvasInstance.myCanvasViewInstance.getNumberOfUniqueColors().toMutableList()
+            val data = outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(

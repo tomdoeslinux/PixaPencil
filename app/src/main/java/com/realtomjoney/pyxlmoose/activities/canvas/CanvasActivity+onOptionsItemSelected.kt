@@ -11,13 +11,13 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
         R.id.zoom_out -> {
-            binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
+            outerCanvasInstance.cardViewParent.apply {
                 scaleX -= zoomIncrement
                 scaleY -= zoomIncrement
             }
         }
         R.id.zoom_in -> {
-            binding.activityCanvasCanvasFragmentHostCardViewParent.apply {
+            outerCanvasInstance.cardViewParent.apply {
                 scaleX += zoomIncrement
                 scaleY += zoomIncrement
             }
@@ -36,9 +36,9 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.pixel_perfect -> {
-            canvasInstance.myCanvasViewInstance.pixelPerfectMode = !canvasInstance.myCanvasViewInstance.pixelPerfectMode
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.pixel_perfect).isChecked =  canvasInstance.myCanvasViewInstance.pixelPerfectMode
+            menu.findItem(R.id.pixel_perfect).isChecked =   outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
         }
     }
     return true

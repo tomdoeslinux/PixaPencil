@@ -20,7 +20,7 @@ fun CanvasActivity.onCreate() {
     if (index != -1) {
         AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {
             currentPixelArtObj = it[index!!]
-            canvasInstance.myCanvasViewInstance.replaceBitmap(BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!)
         })
     }
 

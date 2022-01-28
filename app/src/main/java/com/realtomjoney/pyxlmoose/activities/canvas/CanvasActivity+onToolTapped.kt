@@ -44,7 +44,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
 
         StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> {
-            findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance(canvasInstance.myCanvasViewInstance.getNumberOfUniqueColors())
+            findAndReplaceFragmentInstance = FindAndReplaceFragment.newInstance( outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors())
             currentFragmentInstance = findAndReplaceFragmentInstance
             navigateTo(supportFragmentManager, findAndReplaceFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
             hideMenuItems()

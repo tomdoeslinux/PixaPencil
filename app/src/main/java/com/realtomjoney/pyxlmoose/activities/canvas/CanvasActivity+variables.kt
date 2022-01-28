@@ -12,6 +12,7 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
+import com.realtomjoney.pyxlmoose.fragments.outercanvas.OuterCanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
@@ -49,7 +50,7 @@ var currentTool: Tools = Tools.PENCIL_TOOL
 var saved = true
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
-lateinit var canvasInstance: CanvasFragment
+lateinit var outerCanvasInstance: OuterCanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 

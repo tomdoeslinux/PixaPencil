@@ -1,7 +1,7 @@
 package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
@@ -26,8 +26,8 @@ fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
         }
     }
 
-    canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
-    canvasInstance.myCanvasViewInstance.currentBitmapAction = null
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
 
     invalidate()
 }

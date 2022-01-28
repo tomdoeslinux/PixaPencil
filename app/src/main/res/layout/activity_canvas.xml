@@ -52,21 +52,14 @@
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_primaryFragmentHost"
         tools:listitem="@layout/color_picker_layout" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/activityCanvas_canvasFragmentHostCardViewParent"
+    <FrameLayout
+        android:id="@+id/activityCanvas_outerCanvasFragmentHost"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/activityCanvas_tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        style="@style/activityCanvas_canvasFragmentHostCardViewParent_style">
-
-        <FrameLayout
-            android:id="@+id/activityCanvas_canvasFragmentHost"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/activityCanvas_tabLayout"

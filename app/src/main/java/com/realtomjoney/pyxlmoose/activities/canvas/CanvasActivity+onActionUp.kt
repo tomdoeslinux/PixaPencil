@@ -13,16 +13,16 @@ fun CanvasActivity.extendedOnActionUp() {
         rectangleOrigin = null
         rectangleMode_hasLetGo = true
     } else {
-        canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
 
-        if (canvasInstance.myCanvasViewInstance.pixelPerfectMode
+        if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
             && (currentTool == Tools.PENCIL_TOOL)
-            && (canvasInstance.myCanvasViewInstance.currentBrush == null || canvasInstance.myCanvasViewInstance.currentBrush == BrushesDatabase.toList().first())) {
+            && (outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBrush == null || outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBrush == BrushesDatabase.toList().first())) {
 
             // Thanks to https://rickyhan.com/jekyll/update/2018/11/22/pixel-art-algorithm-pixel-perfect.html
 
             var distinct =
-                canvasInstance.myCanvasViewInstance.currentBitmapAction!!.actionData.distinctBy { it.xyPosition }
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.distinctBy { it.xyPosition }
             val data = mutableListOf<BitmapActionData>()
 
             var index = 0
@@ -49,19 +49,19 @@ fun CanvasActivity.extendedOnActionUp() {
             }
 
             for (value in data) {
-                canvasInstance.myCanvasViewInstance.pixelGridViewBitmap.setPixel(
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.setPixel(
                     value.xyPosition.x,
                     value.xyPosition.y,
                     getSelectedColor()
                 )
             }
 
-            canvasInstance.myCanvasViewInstance.bitmapActionData.add(BitmapAction(data))
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(BitmapAction(data))
         }
 
-        canvasInstance.myCanvasViewInstance.currentBitmapAction = null
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
 
-        canvasInstance.myCanvasViewInstance.prevX = null
-        canvasInstance.myCanvasViewInstance.prevY = null
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX = null
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY = null
     }
 }

@@ -56,4 +56,6 @@
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
     <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

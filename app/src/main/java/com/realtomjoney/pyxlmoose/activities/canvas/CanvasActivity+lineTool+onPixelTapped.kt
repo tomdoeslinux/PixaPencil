@@ -5,14 +5,14 @@ import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(canvasInstance.myCanvasViewInstance.pixelGridViewBitmap, canvasInstance.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
+    val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap, outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
 
     if (!lineMode_hasLetGo) {
-        if (!first) canvasInstance.myCanvasViewInstance.undo()
-        canvasInstance.myCanvasViewInstance.bitmapActionData.add(canvasInstance.myCanvasViewInstance.currentBitmapAction!!)
+        if (!first) outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
         first = false
     } else {
-        canvasInstance.myCanvasViewInstance.currentBitmapAction = null
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
         lineMode_hasLetGo = false
         first = true
     }

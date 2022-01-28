@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.algorithms.shapes
 
-import com.realtomjoney.pyxlmoose.activities.canvas.canvasInstance
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
@@ -30,7 +30,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter)
                 Coordinates(x, y),
                 algorithmInfo.bitmap.getPixel(x, y),
             ))
-            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             x++
 
             if (p < 0) {
@@ -66,7 +66,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter)
                 Coordinates(x, y),
                 algorithmInfo.bitmap.getPixel(x, y),
             ))
-            canvasInstance.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             y++
 
             if (p < 0) {
