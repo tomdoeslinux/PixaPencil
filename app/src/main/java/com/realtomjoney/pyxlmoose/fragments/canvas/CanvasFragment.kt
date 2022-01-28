@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
-class CanvasFragment(val spanCount: Int, val isEmpty: Boolean = false) : Fragment() {
+class CanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
     private var _binding: FragmentCanvasBinding? = null
 
     private val binding get() = _binding!!
