@@ -6,9 +6,7 @@ import com.realtomjoney.pyxlmoose.database.ColorPalettesDatabase
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.onCreate() {
-    spanCount = intent.getIntExtra(StringConstants.SPAN_COUNT_EXTRA, spanCount)
-    index = intent.getIntExtra(StringConstants.INDEX_EXTRA, -1)
-
+    getExtras()
     AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(this)
 
     setUpFragment()
@@ -24,6 +22,4 @@ fun CanvasActivity.onCreate() {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!)
         }
     }
-
-    title = (intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA))
 }
