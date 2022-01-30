@@ -66,8 +66,8 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
     private fun applyPixelPerfectValueFromPreference() {
-        if (sharedPreferenceObject.contains(StringConstants.SHARED_PREF_PIXEL_PIERFECT)) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.SHARED_PREF_PIXEL_PIERFECT, false)
+        if (sharedPreferenceObject.contains(StringConstants.SHARED_PREF_PIXEL_PERFECT)) {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.SHARED_PREF_PIXEL_PERFECT, false)
         }
     }
 

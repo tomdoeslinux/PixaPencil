@@ -45,7 +45,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             menu.findItem(R.id.pixel_perfect).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.SHARED_PREF_PIXEL_PIERFECT, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
+                putBoolean(StringConstants.SHARED_PREF_PIXEL_PERFECT, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
                 apply()
             }
         }

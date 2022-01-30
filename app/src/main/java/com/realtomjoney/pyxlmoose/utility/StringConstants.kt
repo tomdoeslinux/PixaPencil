@@ -46,5 +46,5 @@ object StringConstants {
     const val ERASE_TOOL_IDENTIFIER = "ERASE"
     const val GRID_TOOL_IDENTIFIER = "GRID"
 
-    const val SHARED_PREF_PIXEL_PIERFECT = "PIXEL_PERFECT"
+    const val SHARED_PREF_PIXEL_PERFECT = "PIXEL_PERFECT"
 }
