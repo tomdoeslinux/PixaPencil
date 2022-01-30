@@ -9,6 +9,7 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
 
     if (_menu != null) {
         menu = _menu
+        menu.findItem(R.id.pixel_perfect).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
     }
 
     if (index != -1) setMenuItemIcon(_menu!!.getItem(4), R.drawable.ic_baseline_save_24, "Save")

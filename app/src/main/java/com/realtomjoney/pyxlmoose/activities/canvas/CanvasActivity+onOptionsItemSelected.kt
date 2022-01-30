@@ -42,7 +42,12 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.pixel_perfect -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.pixel_perfect).isChecked =   outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+            menu.findItem(R.id.pixel_perfect).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+
+            with (sharedPreferenceObject.edit()) {
+                putBoolean(StringConstants.SHARED_PREF_PIXEL_PIERFECT, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
+                apply()
+            }
         }
     }
     return true

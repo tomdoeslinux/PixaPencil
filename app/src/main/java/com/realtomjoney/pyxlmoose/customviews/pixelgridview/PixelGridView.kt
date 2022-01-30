@@ -7,7 +7,10 @@ import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import android.graphics.*
 import android.graphics.Bitmap
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
+import com.realtomjoney.pyxlmoose.activities.canvas.sharedPreferenceObject
 import com.realtomjoney.pyxlmoose.models.*
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
@@ -42,6 +45,8 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
             pixelGridViewBitmap = Bitmap.createBitmap(spanCount, spanCount, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
         }
+
+        applyPixelPerfectValueFromPreference()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent) = extendedDispatchTouchEvent(event)
@@ -59,6 +64,12 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     fun overrideSetPixel(x: Int, y: Int, color: Int) = extendedOverrideSetPixel(x, y, color)
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
+
+    private fun applyPixelPerfectValueFromPreference() {
+        if (sharedPreferenceObject.contains(StringConstants.SHARED_PREF_PIXEL_PIERFECT)) {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.SHARED_PREF_PIXEL_PIERFECT, false)
+        }
+    }
 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int): Matrix {
         val width = bm.width

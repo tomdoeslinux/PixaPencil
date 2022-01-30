@@ -16,6 +16,7 @@ fun CanvasActivity.onCreate() {
     setUpRecyclerView()
     setOnClickListeners()
     setColors()
+    initSharedPreferenceObject()
 
     if (index != -1) {
         AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context, {

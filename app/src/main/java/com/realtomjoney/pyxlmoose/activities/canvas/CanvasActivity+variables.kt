@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
@@ -63,3 +64,5 @@ var brushesFragmentInstance: BrushesFragment? = null
 
 var lineMode_hasLetGo = false
 var rectangleMode_hasLetGo = false
+
+lateinit var sharedPreferenceObject: SharedPreferences
