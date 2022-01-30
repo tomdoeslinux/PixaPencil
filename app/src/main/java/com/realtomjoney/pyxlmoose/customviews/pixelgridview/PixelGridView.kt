@@ -48,10 +48,6 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     fun undo() = extendedUndo()
 
-    fun redo() {
-        // TODO - add redo functionality asap
-    }
-
     fun clearCanvas() = extendedClearCanvas()
 
     fun getNumberOfUniqueColors() = extendedGetNumberOfUniqueColors()
