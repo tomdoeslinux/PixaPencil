@@ -7,6 +7,9 @@ _Logo by daspacebar#3601 (https://github.com/daspacebar)._
 
 Join our Discord: https://discord.gg/DypHJzfa
 
+## Video
+https://youtu.be/qNQQLG1N_uE
+
 ## Bitmap Update
 PyxlMoose now uses Bitmap to handle the creaton of pixel art.
 
