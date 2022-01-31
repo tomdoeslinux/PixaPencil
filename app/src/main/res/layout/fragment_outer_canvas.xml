@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/fragmentOuterCanvas_canvasFragmentHostCardViewParent"
         style="@style/activityCanvas_canvasFragmentHostCardViewParent_style"
@@ -15,9 +14,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="matrix"
+                app:srcCompat="@drawable/checkerboard_pattern" />
+        </com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView>
+        <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView
             android:id="@+id/fragmentOuterCanvas_canvasFragmentHost"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
