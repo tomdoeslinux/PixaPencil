@@ -36,7 +36,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         }
     }
 
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this, {
+    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
         binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(it.last(), this)
-    })
+    }
 }
