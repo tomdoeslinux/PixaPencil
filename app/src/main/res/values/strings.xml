@@ -58,4 +58,5 @@
     <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_description_transparent_checkerboard">Transparent Checkerboard</string>
 </resources>

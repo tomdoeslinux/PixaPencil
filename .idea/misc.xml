@@ -65,6 +65,7 @@
         <entry key="app/src/main/res/layout/brushes_layout.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/color_palettes_layout.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/fragment_brushes.xml" value="0.275" />
+        <entry key="app/src/main/res/layout/fragment_canvas.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.2791666666666667" />
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.2833333333333333" />
