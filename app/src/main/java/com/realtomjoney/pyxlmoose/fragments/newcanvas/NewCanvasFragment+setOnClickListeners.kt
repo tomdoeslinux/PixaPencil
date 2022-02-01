@@ -6,14 +6,23 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 
 fun NewCanvasFragment.setOnClickListeners() {
     binding.fragmentNewCanvasDoneButton.setOnClickListener {
-        try {
-            caller.onDoneButtonPressed(
-                Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()),
-                binding.fragmentNewCanvasSpanCountTextInputEditText,
-                binding.fragmentNewCanvasProjectTitleTextInputEditText
-            )
-        } catch (ex: Exception) {
-            (root as ConstraintLayout).showSnackbar(ex.message.toString(), SnackbarDuration.DEFAULT)
+        val parsedSpanCountValue =  Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString())
+
+        if (parsedSpanCountValue == 0 || parsedSpanCountValue < 0) {
+            (root as ConstraintLayout).showSnackbar("Invalid span count value", SnackbarDuration.DEFAULT)
+        } else {
+            try {
+                caller.onDoneButtonPressed(
+                    Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString()),
+                    binding.fragmentNewCanvasSpanCountTextInputEditText,
+                    binding.fragmentNewCanvasProjectTitleTextInputEditText
+                )
+            } catch (ex: Exception) {
+                (root as ConstraintLayout).showSnackbar(
+                    "Invalid span count value",
+                    SnackbarDuration.DEFAULT
+                )
+            }
         }
     }
 }
