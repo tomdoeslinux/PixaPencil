@@ -11,7 +11,7 @@ data class PixelArt(
     @ColumnInfo(name = "item_width") var width: Int,
     @ColumnInfo(name = "item_height") var height: Int,
     @ColumnInfo(name = "item_title") var title: String,
-    @ColumnInfo(name = "item_favourited") var favourited: Boolean,
+    @ColumnInfo(name = "item_starred") var starred: Boolean,
     @ColumnInfo(name = "item_date_created") var dateCreated: String = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now())) {
     @PrimaryKey(autoGenerate = true) var objId = 0
 }

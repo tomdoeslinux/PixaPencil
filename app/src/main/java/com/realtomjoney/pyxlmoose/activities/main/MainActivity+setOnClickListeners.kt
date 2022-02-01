@@ -20,7 +20,7 @@ fun MainActivity.setOnClickListeners() {
             }
             R.id.page_starred -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
-                    binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.favourited }, this)
+                    binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it.filter { item -> item.starred }, this)
                 })
                 title = StringConstants.TAB_STARRED_TITLE
             }

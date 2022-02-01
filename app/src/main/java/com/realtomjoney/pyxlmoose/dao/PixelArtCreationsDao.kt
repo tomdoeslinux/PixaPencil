@@ -21,6 +21,6 @@ interface PixelArtCreationsDao {
     @Query("UPDATE PixelArt SET item_bitmap=:bitmap WHERE objId=:id_t")
     fun updatePixelArtCreationBitmap(bitmap: String, id_t: Int): Int
 
-    @Query("UPDATE PixelArt SET item_favourited=:favorited WHERE objId=:id_t")
-    fun updatePixelArtCreationFavorited(favorited: Boolean, id_t: Int): Int
+    @Query("UPDATE PixelArt SET item_starred=:starred WHERE objId=:id_t")
+    fun updatePixelArtCreationStarred(starred: Boolean, id_t: Int): Int
 }

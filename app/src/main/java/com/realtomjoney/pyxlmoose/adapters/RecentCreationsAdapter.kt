@@ -57,12 +57,12 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
                 changeStarredIndicator(recentCreationsLayoutFavoriteButton, item)
 
                 recentCreationsLayoutFavoriteButton.setOnClickListener {
-                    if (item.favourited) {
+                    if (item.starred) {
                         unFavouriteRecentCreation(this@parent, item)
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationFavorited(false, item.objId)
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(false, item.objId)
                     } else {
                         favouriteRecentCreation(this@parent, item)
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationFavorited(true, item.objId)
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(true, item.objId)
                     }
                     changeStarredIndicator((it as ImageButton), item)
                 }
@@ -72,18 +72,18 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
 
     private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
         imageButton.apply {
-            if (pixelArt.favourited) setImageResource(R.drawable.ic_baseline_star_24)
+            if (pixelArt.starred) setImageResource(R.drawable.ic_baseline_star_24)
             else setImageResource(R.drawable.ic_baseline_star_border_24)
         }
     }
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         contextView.showSnackbar("Saved ${pixelArt.title} to starred items.", SnackbarDuration.DEFAULT)
-        pixelArt.favourited = true
+        pixelArt.starred = true
     }
 
     private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
         contextView.showSnackbar("You have removed ${pixelArt.title} from your starred items.", SnackbarDuration.DEFAULT)
-        pixelArt.favourited = false
+        pixelArt.starred = false
     }
 
     override fun getItemCount() = data.size
