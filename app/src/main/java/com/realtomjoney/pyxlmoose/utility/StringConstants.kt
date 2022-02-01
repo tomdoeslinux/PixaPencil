@@ -49,4 +49,6 @@ object StringConstants {
     const val SHARED_PREF_PIXEL_PERFECT = "PIXEL_PERFECT"
 
     const val DEF_TOOLBAR_ITEM_COLOR = "#0099cc"
+
+    const val EX_INVALID_SPAN_COUNT = "Invalid span count value"
 }
