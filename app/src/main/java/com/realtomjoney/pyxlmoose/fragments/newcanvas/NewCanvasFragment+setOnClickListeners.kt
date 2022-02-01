@@ -9,7 +9,7 @@ fun NewCanvasFragment.setOnClickListeners() {
     binding.fragmentNewCanvasDoneButton.setOnClickListener {
         val parsedSpanCountValue =  Integer.parseInt(binding.fragmentNewCanvasSpanCountTextInputEditText.text.toString())
 
-        if (parsedSpanCountValue == 0 || parsedSpanCountValue < 0) {
+        if (parsedSpanCountValue <= 0) {
             (root as ConstraintLayout).showSnackbar(StringConstants.EX_INVALID_SPAN_COUNT, SnackbarDuration.DEFAULT)
         } else {
             try {
