@@ -5,9 +5,10 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.MenuItem
 import androidx.core.content.ContextCompat
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.setMenuItemIcon(item: MenuItem, icon: Int, tooltipText: CharSequence? = item.tooltipText) {
     item.icon = ContextCompat.getDrawable(this, icon)
     item.tooltipText = tooltipText
-    item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor("#0099cc"), PorterDuff.Mode.SRC_IN)
+    item.icon.colorFilter = PorterDuffColorFilter(Color.parseColor(StringConstants.DEF_TOOLBAR_ITEM_COLOR), PorterDuff.Mode.SRC_IN)
 }

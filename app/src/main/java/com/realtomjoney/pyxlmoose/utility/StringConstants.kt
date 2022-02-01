@@ -47,4 +47,6 @@ object StringConstants {
     const val GRID_TOOL_IDENTIFIER = "GRID"
 
     const val SHARED_PREF_PIXEL_PERFECT = "PIXEL_PERFECT"
+
+    const val DEF_TOOLBAR_ITEM_COLOR = "#0099cc"
 }
