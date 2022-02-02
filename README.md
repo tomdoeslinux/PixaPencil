@@ -72,9 +72,10 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Zoom out
 - 10 awesome filters
 - Custom color palettes
-- Ability to select from 8 different brushes
+- Ability to select from 5 different brushes
 - Ability to select custom colors from HEX code or RGB sliders
 - Ability to unfavorite/favorite projects
+- Ability to export projects to a PNG file
 
 Go to https://github.com/realtomjoney/PyxlMoose/projects/1 to have a look at features we want to add to PyxlMoose.
 
