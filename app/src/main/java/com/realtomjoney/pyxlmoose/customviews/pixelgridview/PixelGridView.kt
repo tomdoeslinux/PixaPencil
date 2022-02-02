@@ -96,9 +96,9 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
         return matrix
     }
 
-    enum class BitmapCompressionOutputCode(val message: String) {
-        SUCCESS("Successfully saved $projectTitle as PNG"),
-        FAILURE("Error saving $projectTitle as PNG")
+    enum class BitmapCompressionOutputCode {
+        SUCCESS,
+        FAILURE
     }
 
     // Thanks to https://stackoverflow.com/users/3571603/javatar on StackOverflow - quite a bit of the code is based off of their solution
