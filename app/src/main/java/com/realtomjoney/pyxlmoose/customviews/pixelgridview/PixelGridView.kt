@@ -104,7 +104,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
         val defOutQuality = 90
         val defOutCompressFormat = Bitmap.CompressFormat.PNG
         val defOutPathData = "image/jpeg"
-        val defDirPath = "/Camera/${StringConstants.APP_NAME}"
+        val defDirPath = "/Camera/${StringConstants.APP_NAME} Projects"
 
         var errorCode = BitmapCompressionOutputCode.SUCCESS
 
