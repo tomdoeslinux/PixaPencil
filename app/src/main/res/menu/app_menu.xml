@@ -30,6 +30,12 @@
         android:iconTint="@color/white"
         android:title="@string/save_text" />
 
+    <item android:id="@+id/export_to_png"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="Save as PNG" />
+
     <item android:id="@+id/new_color_palette"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
@@ -42,10 +48,4 @@
         android:iconTint="@color/white"
         android:checkable="true"
         android:title="Pixel Perfect" />
-
-    <item android:id="@+id/export_to_png"
-        android:icon="@drawable/ic_baseline_color_lens_24"
-        app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
-        android:title="Save as PNG" />
 </menu>
