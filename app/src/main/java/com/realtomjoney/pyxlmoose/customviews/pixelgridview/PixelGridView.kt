@@ -19,6 +19,7 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 import java.io.File
 import java.io.FileOutputStream
 
+@Suppress("DEPRECATION")
 @SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
