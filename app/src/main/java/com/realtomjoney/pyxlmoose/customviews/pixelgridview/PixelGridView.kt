@@ -12,12 +12,15 @@ import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.activities.canvas.projectTitle
 import com.realtomjoney.pyxlmoose.activities.canvas.sharedPreferenceObject
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.*
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 import java.io.File
 import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 @SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
@@ -104,13 +107,13 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
         val defOutQuality = 90
         val defOutCompressFormat = Bitmap.CompressFormat.PNG
         val defOutPathData = "image/jpeg"
-        val defDirPath = "/Camera/${StringConstants.APP_NAME} Projects"
-
         var errorCode = BitmapCompressionOutputCode.SUCCESS
 
-        val environmentRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + defDirPath
+        val environmentRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()
         val directory = File(environmentRoot)
+
         directory.mkdirs()
+
         val outputName = "$projectTitle.png"
         val file = File(directory, outputName)
 
@@ -122,9 +125,9 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
             errorCode = BitmapCompressionOutputCode.FAILURE
         } finally {
             if (errorCode == BitmapCompressionOutputCode.SUCCESS) {
-                showSnackbar(errorCode.message, SnackbarDuration.DEFAULT)
+                showSnackbar("Successfully saved $projectTitle as PNG", SnackbarDuration.DEFAULT)
             } else {
-                showSnackbar(errorCode.message, SnackbarDuration.DEFAULT)
+                showSnackbar("Error saving $projectTitle as PNG", SnackbarDuration.DEFAULT)
             }
         }
 

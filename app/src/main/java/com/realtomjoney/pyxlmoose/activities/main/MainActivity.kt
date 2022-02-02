@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
         setOnClickListeners()
         setTitle()
         initializeRoomDatabases()
+        requestPermissions()
     }
 
     override fun onResume() {
