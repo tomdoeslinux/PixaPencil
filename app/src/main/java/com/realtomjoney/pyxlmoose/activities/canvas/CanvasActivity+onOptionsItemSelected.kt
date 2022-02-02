@@ -49,6 +49,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                 apply()
             }
         }
+
+        R.id.export_to_png -> {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsPNG()
+        }
     }
     return true
 }
