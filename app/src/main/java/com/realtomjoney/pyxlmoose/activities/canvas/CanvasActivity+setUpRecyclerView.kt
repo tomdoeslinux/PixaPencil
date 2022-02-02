@@ -13,7 +13,10 @@ fun CanvasActivity.setUpRecyclerView() {
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        val toShow = if (fromDB != null) fromDB else it.first()
-        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(toShow!!, this)
+        val toShow = if (fromDB != null) fromDB else it.firstOrNull()
+        binding.activityCanvasColorPickerRecyclerView.adapter =
+            toShow?.let { obj ->
+                ColorPickerAdapter(obj, this)
+            }
     }
 }
