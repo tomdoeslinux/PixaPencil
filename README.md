@@ -1,6 +1,4 @@
-![PyxlmooseLogo](https://user-images.githubusercontent.com/50536495/150460490-7d4e839c-6828-47ef-b2ed-b55edca73488.png)
-
-_Logo by daspacebar#3601 (https://github.com/daspacebar)._ 
+![PyxlMooseLogo](https://user-images.githubusercontent.com/50536495/139613827-1d5ea69b-5ffc-4413-86ae-cba9c4e8160d.png)
 
 ## About
 **A pixel art creator for Android using Bitmap, written 100% in Kotlin.**
