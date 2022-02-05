@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.graphics.Bitmap
