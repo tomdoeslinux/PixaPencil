@@ -3,23 +3,11 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
-import android.media.MediaScannerConnection
-import android.os.Environment
 import android.view.MotionEvent
 import android.view.View
-import androidx.core.view.drawToBitmap
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
-import com.realtomjoney.pyxlmoose.activities.canvas.projectTitle
-import com.realtomjoney.pyxlmoose.activities.canvas.sharedPreferenceObject
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
-import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.*
-import com.realtomjoney.pyxlmoose.utility.StringConstants
-import java.io.File
-import java.io.FileOutputStream
 
-@Suppress("DEPRECATION")
 @SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
