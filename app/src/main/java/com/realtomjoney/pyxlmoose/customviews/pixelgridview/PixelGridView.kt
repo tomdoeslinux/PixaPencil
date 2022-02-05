@@ -26,7 +26,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     lateinit var pixelGridViewBitmap: Bitmap
 
     var scaleWidth = 0f
-    private var scaleHeight = 0f
+    var scaleHeight = 0f
 
     var prevX: Int? = null
     var prevY: Int? = null
@@ -73,64 +73,11 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
-    private fun applyPixelPerfectValueFromPreference() {
-        if (sharedPreferenceObject.contains(StringConstants.SHARED_PREF_PIXEL_PERFECT)) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.SHARED_PREF_PIXEL_PERFECT, false)
-        }
-    }
+    private fun applyPixelPerfectValueFromPreference() = extendedApplyPixelPerfectValueFromPreference()
 
-    private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int): Matrix {
-        val width = bm.width
-        val height = bm.height
-        val scaleWidth = newWidth.toFloat() / width
-        val scaleHeight = newHeight.toFloat() / height
+    private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
 
-        this.scaleWidth = scaleWidth
-        this.scaleHeight = scaleHeight
-
-        val matrix = Matrix()
-        matrix.postScale(scaleWidth, scaleHeight)
-
-        return matrix
-    }
-
-    enum class BitmapCompressionOutputCode {
-        SUCCESS,
-        FAILURE
-    }
-
-    // Thanks to https://stackoverflow.com/users/3571603/javatar on StackOverflow - quite a bit of the code is based off of their solution
-
-    fun saveAsPNG() {
-        val defOutQuality = 90
-        val defOutCompressFormat = Bitmap.CompressFormat.PNG
-        val defOutPathData = "image/jpeg"
-        var outputCode = BitmapCompressionOutputCode.SUCCESS
-
-        val environmentRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()
-        val directory = File(environmentRoot)
-
-        directory.mkdirs()
-
-        val outputName = "$projectTitle.png"
-        val file = File(directory, outputName)
-
-        try {
-            val outputStream = FileOutputStream(file)
-            outerCanvasInstance.fragmentHost.drawToBitmap().compress(defOutCompressFormat, defOutQuality, outputStream)
-            outputStream.close()
-        } catch (exception: Exception) {
-            outputCode = BitmapCompressionOutputCode.FAILURE
-        } finally {
-            if (outputCode == BitmapCompressionOutputCode.SUCCESS) {
-                showSnackbar("Successfully saved $projectTitle as PNG", SnackbarDuration.DEFAULT)
-            } else {
-                showSnackbar("Error saving $projectTitle as PNG", SnackbarDuration.DEFAULT)
-            }
-        }
-
-        MediaScannerConnection.scanFile(context, arrayOf(file.path), arrayOf(defOutPathData), null)
-    }
+    fun saveAsPNG() = extendedSaveAsPNG()
     
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
