@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.util.Log
 import android.view.MenuItem
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
@@ -12,7 +13,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
         R.id.zoom_out -> {
             outerCanvasInstance.cardViewParent.apply {
-                if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement >= 0f) {
+                if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > 0.2f) {
                     scaleX -= zoomIncrement
                     scaleY -= zoomIncrement
                 }
@@ -20,10 +21,8 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
         R.id.zoom_in -> {
             outerCanvasInstance.cardViewParent.apply {
-                if (outerCanvasInstance.cardViewParent.scaleX + zoomIncrement >= 0f) {
-                    scaleX += zoomIncrement
-                    scaleY += zoomIncrement
-                }
+                scaleX += zoomIncrement
+                scaleY += zoomIncrement
             }
         }
         R.id.save_project -> extendedSaveProject()
