@@ -12,11 +12,14 @@ object StringConstants {
 
     const val DIALOG_POSITIVE_BUTTON_TEXT = "OK"
     const val DIALOG_NEGATIVE_BUTTON_TEXT = "Cancel"
-
+    const val DIALOG_EXCEPTION_INFO_TITLE = "Exception Info"
+    const val DIALOG_VIEW_FILE_ERROR_TITLE = "Error trying to view file"
     const val DIALOG_CLEAR_CANVAS_TITLE = "Clear canvas"
     const val DIALOG_CLEAR_CANVAS_MESSAGE = "Are you sure you want to clear the canvas?"
     const val DIALOG_UNSAVED_CHANGES_TITLE = "Unsaved changes"
     const val DIALOG_UNSAVED_CHANGES_MESSAGE = "You have unsaved changes, are you sure you want to exit?"
+
+    const val SNACKBAR_VIEW_EX_INFO_BUTTON_TEXT = "View"
 
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
