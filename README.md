@@ -21,7 +21,8 @@ All these issues will be fixed soon!
 
 ## Images
 
-![drawinnggg](https://user-images.githubusercontent.com/50536495/147852120-e9d54adf-20d6-48a4-a7e0-e0afb4f4e585.PNG)
+![image](https://user-images.githubusercontent.com/50536495/152713363-a873fdd3-ecc6-4939-a495-28c4a35abbdb.png)
+![image](https://user-images.githubusercontent.com/50536495/152713464-9049586a-2332-4625-b31d-99d822625879.png)
 
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
