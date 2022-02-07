@@ -16,9 +16,13 @@ import java.io.File
 import java.io.FileOutputStream
 
 object FileHelperUtilities {
-    fun saveBitmapAsImage(compressionOutputQuality: Int, compressionFormat: Bitmap.CompressFormat, onTaskFinished: (OutputCode, File) -> Unit, context: Context) {
+    fun saveBitmapAsImage(compressionOutputQuality: Int,
+                          compressionFormat: Bitmap.CompressFormat,
+                          onTaskFinished: (OutputCode, File, String?) -> Unit,
+                          context: Context) {
         // Thanks to https://stackoverflow.com/users/3571603/javatar on StackOverflow - quite a bit of the code is based off of their solution
 
+        var exceptionMessage: String? = null
         var outputCode = OutputCode.SUCCESS
         val pathData = "image/jpeg"
         val outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$projectTitle.png" else "$projectTitle.jpg"
@@ -32,19 +36,22 @@ object FileHelperUtilities {
 
         try {
             val outputStream = FileOutputStream(file)
-            val bitmapToCompress =  outerCanvasInstance.fragmentHost.drawToBitmap()
+            val bitmapToCompress = outerCanvasInstance.fragmentHost.drawToBitmap()
             bitmapToCompress.compress(compressionFormat, compressionOutputQuality, outputStream)
             outputStream.close()
         } catch (exception: Exception) {
+            exceptionMessage = exception.message
             outputCode = OutputCode.FAILURE
         } finally {
-            onTaskFinished(outputCode, file)
+            onTaskFinished(outputCode, file, exceptionMessage)
         }
 
         MediaScannerConnection.scanFile(context, arrayOf(file.path), arrayOf(pathData), null)
     }
 
-    fun openImageFromUri(uri: Uri, onTaskFinished: (OutputCode) -> Unit, context: Context) {
+    fun openImageFromUri(uri: Uri, onTaskFinished: (OutputCode, String?) -> Unit,
+                         context: Context) {
+        var exceptionMessage: String? = null
         var outputCode = OutputCode.SUCCESS
         val intentAction = Intent.ACTION_VIEW
         val type = "image/*"
@@ -56,9 +63,10 @@ object FileHelperUtilities {
         try {
             context.startActivity(intent)
         } catch (exception: Exception) {
+            exceptionMessage = exception.message
             outputCode = OutputCode.FAILURE
         } finally {
-            onTaskFinished(outputCode)
+            onTaskFinished(outputCode, exceptionMessage)
         }
     }
 }
