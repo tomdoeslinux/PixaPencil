@@ -65,7 +65,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
 
-    fun saveAsPNG() = extendedSaveAsPNG()
+    fun saveAsImage(format: Bitmap.CompressFormat) = extendedSaveAsImage(format)
     
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {

@@ -36,6 +36,12 @@
         android:iconTint="@color/white"
         android:title="Save as PNG" />
 
+    <item android:id="@+id/export_to_jpg"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="Save as JPG" />
+
     <item android:id="@+id/new_color_palette"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"

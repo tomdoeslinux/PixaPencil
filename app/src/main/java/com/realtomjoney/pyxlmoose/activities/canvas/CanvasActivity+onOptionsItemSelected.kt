@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Bitmap
 import android.util.Log
 import android.view.MenuItem
 import com.realtomjoney.pyxlmoose.R
@@ -50,7 +51,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.export_to_png -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsPNG()
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
+        }
+
+        R.id.export_to_jpg -> {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
     }
     return true

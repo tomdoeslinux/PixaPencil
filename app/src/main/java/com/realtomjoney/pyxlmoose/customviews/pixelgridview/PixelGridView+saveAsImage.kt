@@ -17,12 +17,14 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsPNG() {
-   FileHelperUtilities.saveBitmapAsImage(90, Bitmap.CompressFormat.PNG, { outputCode, _file, exceptionMessage_1 ->
+fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
+    val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
+
+    FileHelperUtilities.saveBitmapAsImage(90, format, { outputCode, _file, exceptionMessage_1 ->
        if (outputCode == OutputCode.SUCCESS) {
            file = _file
 
-           showSnackbarWithAction("Successfully saved $projectTitle as PNG", SnackbarDuration.MEDIUM, "View") {
+           showSnackbarWithAction("Successfully saved $projectTitle as $formatName", SnackbarDuration.MEDIUM, "View") {
                FileHelperUtilities.openImageFromUri(Uri.fromFile(file), { outputCode, exceptionMessage_2 ->
                    if (outputCode == OutputCode.FAILURE) {
                        showSnackbar("Error trying to view file", SnackbarDuration.DEFAULT)
@@ -39,11 +41,11 @@ fun PixelGridView.extendedSaveAsPNG() {
            }
        } else {
            if (exceptionMessage_1 != null) {
-               showSnackbarWithAction("Error saving $projectTitle as PNG", SnackbarDuration.DEFAULT, "Exception Info") {
+               showSnackbarWithAction("Error saving $projectTitle as $formatName", SnackbarDuration.DEFAULT, "Exception Info") {
                    (context as Activity).showDialog("Exception Info", exceptionMessage_1, StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _-> }, null, null, null)
                }
            } else {
-               showSnackbar("Error saving $projectTitle as PNG", SnackbarDuration.DEFAULT)
+               showSnackbar("Error saving $projectTitle as $formatName", SnackbarDuration.DEFAULT)
            }
        }
     }, context)
