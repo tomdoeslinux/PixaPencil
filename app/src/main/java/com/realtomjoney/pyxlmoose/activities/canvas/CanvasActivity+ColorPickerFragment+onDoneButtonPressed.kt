@@ -18,10 +18,15 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         newData.add(Color.TRANSPARENT)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListOfIntToJsonString(newData.toList()), fromDB!!.objId)
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this, {
-            binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(fromDB!!, this)
-            binding.activityCanvasColorPickerRecyclerView.scrollToPosition(JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).size)
-        })
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+            binding.activityCanvasColorPickerRecyclerView.adapter =
+                ColorPickerAdapter(fromDB!!, this)
+            binding.activityCanvasColorPickerRecyclerView.scrollToPosition(
+                JsonConverter.convertJsonStringToListOfInt(
+                    fromDB!!.colorPaletteColorData
+                ).size
+            )
+        }
     }
 
     currentFragmentInstance = null

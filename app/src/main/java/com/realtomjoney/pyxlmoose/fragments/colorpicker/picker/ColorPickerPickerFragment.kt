@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.fragments.colorpicker.picker
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.R
@@ -23,7 +21,6 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.picker.canvas.ColorPickerPickerCanvasFragment
 import com.realtomjoney.pyxlmoose.utility.LongConstants
-import java.util.*
 
 
 class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {

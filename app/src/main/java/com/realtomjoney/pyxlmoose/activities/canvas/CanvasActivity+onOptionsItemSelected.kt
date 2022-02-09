@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Bitmap
-import android.util.Log
 import android.view.MenuItem
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo

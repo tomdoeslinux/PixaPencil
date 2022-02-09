@@ -2,9 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.realtomjoney.pyxlmoose.database.ColorDatabase
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
-import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 
 fun CanvasActivity.setUpRecyclerView() {

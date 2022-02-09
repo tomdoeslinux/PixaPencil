@@ -3,8 +3,6 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.PixelPerfectAlgorithm
 import com.realtomjoney.pyxlmoose.database.BrushesDatabase
-import com.realtomjoney.pyxlmoose.models.BitmapAction
-import com.realtomjoney.pyxlmoose.models.BitmapActionData
 
 fun CanvasActivity.extendedOnActionUp() {
     if (currentTool == Tools.LINE_TOOL) {

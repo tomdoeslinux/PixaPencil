@@ -8,10 +8,22 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction != null) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinatesTapped, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x, coordinatesTapped.y),))
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
+            coordinatesTapped,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.getPixel(
+                coordinatesTapped.x,
+                coordinatesTapped.y,
+            ),
+        ))
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinatesTapped,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped.x, coordinatesTapped.y),))
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
+            coordinatesTapped,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.getPixel(
+                coordinatesTapped.x,
+                coordinatesTapped.y,
+            ),
+        ))
     }
 
     if ( outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null &&  outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {

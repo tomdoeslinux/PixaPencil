@@ -2,13 +2,12 @@ package com.realtomjoney.pyxlmoose.fragments.tools
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.FragmentToolsBinding
 import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
-import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 class ToolsFragment : Fragment() {
     private fun setDefaultSelectedFAB() {

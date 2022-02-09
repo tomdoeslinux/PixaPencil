@@ -7,7 +7,6 @@ import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
-import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment

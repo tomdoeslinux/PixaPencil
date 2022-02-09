@@ -12,7 +12,7 @@ fun MainActivity.extendedOnResume() {
         activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(context, 2)
     }
 
-    AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this, {
+    AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
         binding.activityMainRecentCreationsRecyclerView.adapter = RecentCreationsAdapter(it, this)
-    })
+    }
 }

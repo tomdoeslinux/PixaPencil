@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
-import android.util.Log
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
