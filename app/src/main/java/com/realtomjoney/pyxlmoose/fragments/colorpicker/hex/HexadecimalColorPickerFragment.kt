@@ -16,6 +16,7 @@ import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
+import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 class HexadecimalColorPickerFragment : Fragment() {
     private val oldColorAsHex = Integer.toHexString(oldColor_)
@@ -48,7 +49,7 @@ class HexadecimalColorPickerFragment : Fragment() {
                 } finally {
                     showMenuItems()
                 }
-            }, 40)
+            }, LongConstants.DEF_HANDLER_DELAY)
         }
     }
 

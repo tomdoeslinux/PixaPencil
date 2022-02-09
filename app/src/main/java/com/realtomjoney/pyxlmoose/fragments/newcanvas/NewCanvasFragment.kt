@@ -15,6 +15,10 @@ import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 class NewCanvasFragment : Fragment() {
     var root: View? = null
 
+    private fun instantiateRoot() {
+        root = binding.fragmentNewCanvasRootLayout
+    }
+
     companion object {
         fun newInstance() = NewCanvasFragment()
     }
@@ -27,7 +31,7 @@ class NewCanvasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentNewCanvasBinding.inflate(inflater, container, false)
 
-        root = binding.fragmentNewCanvasRootLayout
+        instantiateRoot()
         setOnClickListeners()
 
         return binding.root

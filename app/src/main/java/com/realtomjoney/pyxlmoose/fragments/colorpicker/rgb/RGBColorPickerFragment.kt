@@ -15,35 +15,43 @@ import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
+import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 class RGBColorPickerFragment : Fragment() {
     private fun setup() {
         binding.apply {
             fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
-            fragmentRGBColorPickerRedProgressBar.value = Color.red(oldColor_).toFloat()
-            fragmentRGBColorPickerBlueProgressBar.value = Color.blue(oldColor_).toFloat()
-            fragmentRGBColorPickerGreenProgressBar.value = Color.green(oldColor_).toFloat()
+
+            val red = Color.red(oldColor_).toFloat()
+            val green = Color.green(oldColor_).toFloat()
+            val blue = Color.blue(oldColor_).toFloat()
+
+            fragmentRGBColorPickerRedProgressBar.value = red
+            fragmentRGBColorPickerGreenProgressBar.value = green
+            fragmentRGBColorPickerBlueProgressBar.value = blue
         }
     }
 
-    private fun updateColorSelectedPreview() {
+    private fun updateColorPickerColorPreview() {
         binding.fragmentRGBColorPickerColorPreview.setBackgroundColor(Color.argb(255, valueR.toInt(), valueG.toInt(), valueB.toInt()))
     }
 
     private fun setOnChangeListeners() {
-        binding.fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
-            valueR = value
-            updateColorSelectedPreview()
-        }
+        binding.apply {
+            fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
+                valueR = value
+                updateColorPickerColorPreview()
+            }
 
-        binding.fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
-            valueG = value
-            updateColorSelectedPreview()
-        }
+            fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
+                valueG = value
+                updateColorPickerColorPreview()
+            }
 
-        binding.fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
-            valueB = value
-            updateColorSelectedPreview()
+            fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
+                valueB = value
+                updateColorPickerColorPreview()
+            }
         }
     }
 
@@ -58,7 +66,7 @@ class RGBColorPickerFragment : Fragment() {
                 } finally {
                     showMenuItems()
                 }
-            }, 40)
+            }, LongConstants.DEF_HANDLER_DELAY)
         }
     }
 

@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.fragments.filters
 
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun FiltersFragment.setOnClickListeners() {
+fun setOnClickListeners() {
     binding.apply {
         fragmentFiltersColorFilterButton.setOnClickListener {
             caller.onFilterTapped(StringConstants.COLOR_FILTER_IDENTIFIER)

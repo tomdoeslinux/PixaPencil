@@ -20,7 +20,7 @@ lateinit var file: File
 fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
     val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
 
-    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstanceWithContext(this.context)
+    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context)
 
     fileHelperUtilitiesInstance.saveBitmapAsImage(90, format) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.SUCCESS) {

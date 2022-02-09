@@ -22,6 +22,7 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.picker.canvas.ColorPickerPickerCanvasFragment
+import com.realtomjoney.pyxlmoose.utility.LongConstants
 import java.util.*
 
 
@@ -45,7 +46,7 @@ class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {
                 } finally {
                     showMenuItems()
                 }
-            }, 40)
+            },  LongConstants.DEF_HANDLER_DELAY)
         }
     }
 

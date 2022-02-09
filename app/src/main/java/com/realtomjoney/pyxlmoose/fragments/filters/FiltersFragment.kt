@@ -10,7 +10,6 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentFiltersBinding
 import com.realtomjoney.pyxlmoose.listeners.FiltersFragmentListener
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-
 class FiltersFragment : Fragment() {
     companion object {
         fun newInstance() = FiltersFragment()

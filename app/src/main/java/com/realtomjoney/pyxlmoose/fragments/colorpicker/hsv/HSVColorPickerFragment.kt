@@ -19,6 +19,7 @@ import android.os.Handler
 import android.os.Looper
 import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
+import com.realtomjoney.pyxlmoose.utility.LongConstants
 import java.util.*
 
 
@@ -87,7 +88,7 @@ class HSVColorPickerFragment : Fragment() {
                 } finally {
                     showMenuItems()
                 }
-            }, 40)
+            }, LongConstants.DEF_HANDLER_DELAY)
         }
     }
 

@@ -17,7 +17,7 @@ import java.io.FileOutputStream
 
 class FileHelperUtilities(private val context: Context) {
     companion object {
-        fun createInstanceWithContext(context: Context) = FileHelperUtilities(context)
+        fun createInstance(context: Context) = FileHelperUtilities(context)
     }
 
     fun saveBitmapAsImage(compressionOutputQuality: Int,
@@ -59,9 +59,10 @@ class FileHelperUtilities(private val context: Context) {
         val intentAction = Intent.ACTION_VIEW
         val type = "image/*"
 
-        val intent = Intent()
-        intent.action = intentAction
-        intent.setDataAndType(uri, type)
+        val intent = Intent().apply {
+            action = intentAction
+            setDataAndType(uri, type)
+        }
 
         try {
             context.startActivity(intent)
