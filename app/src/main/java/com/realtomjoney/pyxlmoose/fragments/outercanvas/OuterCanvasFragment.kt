@@ -14,6 +14,16 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     lateinit var cardViewParent: View
     lateinit var fragmentHost: View
 
+    private fun instantiateVariables() {
+        cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
+        fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
+        canvasFragment = CanvasFragment.newInstance(spanCount, isEmpty)
+    }
+
+    private fun showCanvas() {
+        requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
+    }
+
     companion object {
         fun newInstance(spanCount: Int, isEmpty: Boolean = false) = OuterCanvasFragment(spanCount, isEmpty)
     }
@@ -21,10 +31,8 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentOuterCanvasBinding.inflate(inflater, container, false)
 
-        cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
-        fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance(spanCount, isEmpty)
-        requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
+        instantiateVariables()
+        showCanvas()
 
         return binding.root
     }

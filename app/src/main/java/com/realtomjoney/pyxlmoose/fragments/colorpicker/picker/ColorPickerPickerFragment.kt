@@ -17,6 +17,7 @@ import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.activities.canvas.showMenuItems
 import com.realtomjoney.pyxlmoose.customviews.colorpickerview.colorPickerColorSelected
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerPickerBinding
+import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
@@ -31,20 +32,6 @@ class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {
 
     private fun updatePreview() {
         binding.fragmentColorPickerPickerColorPreview.setBackgroundColor(colorPickerColorSelected)
-    }
-
-    private fun hideKeyboard() {
-        try {
-            val inputMethodManager =
-                (Objects.requireNonNull(requireActivity()).getSystemService(
-                    Context.INPUT_METHOD_SERVICE
-                ) as InputMethodManager)
-            inputMethodManager.hideSoftInputFromWindow(
-                this.requireActivity().currentFocus!!.windowToken, 0
-            )
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-        }
     }
 
     private fun setOnClickListeners() {

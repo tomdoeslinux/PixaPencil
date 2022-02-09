@@ -17,14 +17,14 @@ import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
 class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
-    private fun setUpCanvasColorsRecyclerView() {
+    private fun setupCanvasColorsRecyclerView() {
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
             orientation = LinearLayoutManager.HORIZONTAL
         }
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(ColorPalette(null, JsonConverter.convertListOfIntToJsonString(canvasColors)), FragmentFindAndReplaceCanvasColorsCaller(binding), false)
     }
 
-    private fun setUpAvailableColorsRecyclerView() {
+    private fun setupAvailableColorsRecyclerView() {
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager = LinearLayoutManager(this.activity).apply {
             orientation = LinearLayoutManager.HORIZONTAL
         }
@@ -59,8 +59,8 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
 
-        setUpCanvasColorsRecyclerView()
-        setUpAvailableColorsRecyclerView()
+        setupCanvasColorsRecyclerView()
+        setupAvailableColorsRecyclerView()
         setOnClickListeners()
 
         return binding.root

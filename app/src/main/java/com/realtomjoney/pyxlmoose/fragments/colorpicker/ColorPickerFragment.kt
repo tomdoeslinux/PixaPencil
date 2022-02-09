@@ -10,6 +10,11 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
 
 class ColorPickerFragment(private var oldColor: Int, private val colorPaletteMode: Boolean = false) : Fragment() {
+    private fun instantiateVariables() {
+        oldColor_ = oldColor
+        colorPaletteMode_ = colorPaletteMode
+    }
+
     companion object {
         fun newInstance(oldColor: Int, colorPaletteMode: Boolean = false) = ColorPickerFragment(oldColor, colorPaletteMode)
     }
@@ -22,8 +27,7 @@ class ColorPickerFragment(private var oldColor: Int, private val colorPaletteMod
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
 
-        oldColor_ = oldColor
-        colorPaletteMode_ = colorPaletteMode
+        instantiateVariables()
         setOnClickListeners()
 
         return binding.root

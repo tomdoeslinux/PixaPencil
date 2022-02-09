@@ -15,11 +15,14 @@ import com.realtomjoney.pyxlmoose.enums.OutputCode
 import java.io.File
 import java.io.FileOutputStream
 
-object FileHelperUtilities {
+class FileHelperUtilities(private val context: Context) {
+    companion object {
+        fun createInstanceWithContext(context: Context) = FileHelperUtilities(context)
+    }
+
     fun saveBitmapAsImage(compressionOutputQuality: Int,
                           compressionFormat: Bitmap.CompressFormat,
-                          onTaskFinished: (OutputCode, File, String?) -> Unit,
-                          context: Context) {
+                          onTaskFinished: (OutputCode, File, String?) -> Unit) {
         // Thanks to https://stackoverflow.com/users/3571603/javatar on StackOverflow - quite a bit of the code is based off of their solution
 
         var exceptionMessage: String? = null
@@ -49,8 +52,8 @@ object FileHelperUtilities {
         MediaScannerConnection.scanFile(context, arrayOf(file.path), arrayOf(pathData), null)
     }
 
-    fun openImageFromUri(uri: Uri, onTaskFinished: (OutputCode, String?) -> Unit,
-                         context: Context) {
+    fun openImageFromUri(uri: Uri,
+                         onTaskFinished: (OutputCode, String?) -> Unit) {
         var exceptionMessage: String? = null
         var outputCode = OutputCode.SUCCESS
         val intentAction = Intent.ACTION_VIEW

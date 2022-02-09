@@ -7,16 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.realtomjoney.pyxlmoose.adapters.ColorPalettesAdapter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPalettesBinding
+import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), ColorPalettesListener {
     val context = this
+
+    private fun deleteColorPaletteAndNotifyItemRemoved(colorPalette: ColorPalette) {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+            val colorPaletteId = colorPalette.objId
+
+            AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(colorPaletteId)
+            binding.fragmentColorPalettesRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(colorPalette))
+        }
+    }
 
     companion object {
         fun newInstance(lifecycleOwner: LifecycleOwner) = ColorPalettesFragment(lifecycleOwner)
@@ -46,10 +56,9 @@ class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), Co
 
     override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
         if (!selectedColorPalette.isPrimaryColorPalette) {
-            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this, {
-                AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
-                binding.fragmentColorPalettesRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(selectedColorPalette))
-            })
+            deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
+        } else {
+            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SNACKBAR_CANNOT_DELETE_PRIMARY_COLOR_PALETTE_TEXT, SnackbarDuration.DEFAULT)
         }
     }
 }

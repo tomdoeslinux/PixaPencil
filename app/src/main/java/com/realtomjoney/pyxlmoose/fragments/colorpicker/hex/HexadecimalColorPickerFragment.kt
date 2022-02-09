@@ -18,9 +18,13 @@ import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
 
 class HexadecimalColorPickerFragment : Fragment() {
+    private val oldColorAsHex = Integer.toHexString(oldColor_)
+
     private fun setup() {
-        binding.fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)
-        binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.setText(Integer.toHexString(oldColor_))
+        binding.apply {
+            fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)
+            fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.setText(oldColorAsHex)
+        }
     }
 
     private fun setDoAfterTextChangedListeners() {
