@@ -54,4 +54,16 @@
         android:iconTint="@color/white"
         android:checkable="true"
         android:title="Pixel Perfect" />
+
+    <item android:id="@+id/rotate_90_degrees"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="Rotate by 90°" />
+
+    <item android:id="@+id/rotate_180_degrees"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="Rotate by 180°" />
 </menu>

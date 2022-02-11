@@ -63,16 +63,22 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/xml/provider_paths.xml" value="0.11875" />
         <entry key="app/src/main/res/drawable/border_drawable_frame.xml" value="0.298" />
-        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/brushes_layout.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/color_palettes_layout.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/layout/color_picker_layout.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_brushes.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_canvas.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/layout/fragment_color_palettes.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/fragment_color_picker.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_color_picker_picker.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/fragment_color_picker_picker_canvas.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/fragment_find_and_replace.xml" value="0.2671875" />
-        <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.2791666666666667" />
+        <entry key="app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_new_canvas.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.2833333333333333" />

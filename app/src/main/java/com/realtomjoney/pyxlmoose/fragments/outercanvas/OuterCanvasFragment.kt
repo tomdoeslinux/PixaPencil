@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
+import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
     lateinit var canvasFragment: CanvasFragment
@@ -22,6 +23,12 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
 
     private fun showCanvas() {
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
+    }
+
+    fun rotate(by: Int = IntConstants.DEGREES_NINETY) {
+        binding_!!.fragmentOuterCanvasCanvasFragmentHostCardViewParent
+            .animate()
+            .rotation(binding_!!.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation + by)
     }
 
     companion object {

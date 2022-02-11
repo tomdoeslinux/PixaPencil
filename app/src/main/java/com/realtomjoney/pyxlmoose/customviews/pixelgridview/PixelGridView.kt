@@ -2,11 +2,14 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.view.MotionEvent
 import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
-import com.realtomjoney.pyxlmoose.models.*
+import com.realtomjoney.pyxlmoose.models.BitmapAction
+import com.realtomjoney.pyxlmoose.models.Brush
+
 
 @SuppressLint("ViewConstructor")
 class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
@@ -53,7 +56,8 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     fun getNumberOfUniqueColors() = extendedGetNumberOfUniqueColors()
 
-    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) = extendedReplacePixelsByColor(colorToFind, colorToReplace)
+    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) =
+        extendedReplacePixelsByColor(colorToFind, colorToReplace)
 
     fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
@@ -66,11 +70,10 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
 
     fun saveAsImage(format: Bitmap.CompressFormat) = extendedSaveAsImage(format)
-    
+
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
             canvas.drawBitmap(pixelGridViewBitmap, calculateMatrix(pixelGridViewBitmap, this.width, this.width), null)
         }
     }
-
 }

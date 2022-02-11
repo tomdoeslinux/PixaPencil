@@ -5,6 +5,7 @@ import android.view.MenuItem
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
+import com.realtomjoney.pyxlmoose.utility.IntConstants
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,6 +56,14 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.export_to_jpg -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
+        }
+
+        R.id.rotate_90_degrees -> {
+            outerCanvasInstance.rotate()
+        }
+
+        R.id.rotate_180_degrees -> {
+            outerCanvasInstance.rotate(IntConstants.DEGREES_ONE_EIGHTY)
         }
     }
     return true

@@ -2,17 +2,14 @@ package com.realtomjoney.pyxlmoose.fragments.canvas
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
 class CanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
-    private var _binding: FragmentCanvasBinding? = null
-
-    private val binding get() = _binding!!
 
     lateinit var myCanvasViewInstance: PixelGridView
 
@@ -28,7 +25,7 @@ class CanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) :
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentCanvasBinding.inflate(inflater, container, false)
+        binding_ = FragmentCanvasBinding.inflate(inflater, container, false)
 
         setupCanvas()
 
@@ -38,6 +35,6 @@ class CanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) :
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding_ = null
     }
 }
