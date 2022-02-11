@@ -66,4 +66,10 @@
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
         android:title="Rotate by 180°" />
+
+    <item android:id="@+id/reset_zoom"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="Reset Zoom" />
 </menu>
