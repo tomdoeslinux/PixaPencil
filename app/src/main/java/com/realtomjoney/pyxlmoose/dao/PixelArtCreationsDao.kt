@@ -1,8 +1,10 @@
 package com.realtomjoney.pyxlmoose.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
-import com.realtomjoney.pyxlmoose.models.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import com.realtomjoney.pyxlmoose.models.PixelArt
 
 @Dao
 interface PixelArtCreationsDao {
@@ -23,4 +25,7 @@ interface PixelArtCreationsDao {
 
     @Query("UPDATE PixelArt SET item_starred=:starred WHERE objId=:id_t")
     fun updatePixelArtCreationStarred(starred: Boolean, id_t: Int): Int
+
+    @Query("UPDATE PixelArt SET item_rotation=:rotation WHERE objId=:id_t")
+    fun updatePixelArtCreationRotation(rotation: Float, id_t: Int): Int
 }

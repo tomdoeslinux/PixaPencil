@@ -25,10 +25,18 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 
-    fun rotate(by: Int = IntConstants.DEGREES_NINETY) {
-        binding_!!.fragmentOuterCanvasCanvasFragmentHostCardViewParent
-            .animate()
-            .rotation(binding_!!.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation + by)
+    fun getCurrentRotation(): Float {
+        return binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation
+    }
+
+    fun rotate(by: Int = IntConstants.DEGREES_NINETY, animate: Boolean = true) {
+        if (animate) {
+            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
+                .animate()
+                .rotation((getCurrentRotation() + by))
+        } else {
+            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation = (getCurrentRotation() + by)
+        }
     }
 
     companion object {

@@ -8,6 +8,7 @@ fun CanvasActivity.replaceBitmapIfApplicable() {
         AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(context) {
             currentPixelArtObj = it[index!!]
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!)
+            outerCanvasInstance.rotate(it[index!!].rotation.toInt(), false)
         }
     }
 }
