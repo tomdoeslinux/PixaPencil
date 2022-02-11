@@ -29,6 +29,10 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerRedProgressBar.value = red
             fragmentRGBColorPickerGreenProgressBar.value = green
             fragmentRGBColorPickerBlueProgressBar.value = blue
+
+            fragmentRGBColorPickerValueR.text = red.toInt().toString()
+            fragmentRGBColorPickerValueG.text = green.toInt().toString()
+            fragmentRGBColorPickerValueB.text = blue.toInt().toString()
         }
     }
 
@@ -41,16 +45,19 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
                 valueR = value
                 updateColorPickerColorPreview()
+                fragmentRGBColorPickerValueR.text = valueR.toInt().toString()
             }
 
             fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
                 valueG = value
                 updateColorPickerColorPreview()
+                fragmentRGBColorPickerValueG.text = valueG.toInt().toString()
             }
 
             fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
                 valueB = value
                 updateColorPickerColorPreview()
+                fragmentRGBColorPickerValueB.text = valueB.toInt().toString()
             }
         }
     }
