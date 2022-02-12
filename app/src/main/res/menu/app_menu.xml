@@ -55,17 +55,27 @@
         android:checkable="true"
         android:title="Pixel Perfect" />
 
-    <item android:id="@+id/rotate_90_degrees"
-        android:icon="@drawable/ic_baseline_color_lens_24"
-        app:showAsAction="ifRoom"
+    <item app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="Rotate by 90°" />
+        android:title="Rotate" >
+        <menu>
+            <item android:id="@+id/rotate_90_degrees_clockwise"
+                app:showAsAction="ifRoom"
+                android:title="Rotate by 90° (clockwise)" />
 
-    <item android:id="@+id/rotate_180_degrees"
-        android:icon="@drawable/ic_baseline_color_lens_24"
-        app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
-        android:title="Rotate by 180°" />
+            <item android:id="@+id/rotate_180_degrees_clockwise"
+                app:showAsAction="ifRoom"
+                android:title="Rotate by 180 (clockwise)°" />
+
+            <item android:id="@+id/rotate_90_degrees_anti_clockwise"
+                app:showAsAction="ifRoom"
+                android:title="Rotate by 90° (anti-clockwise)" />
+
+            <item android:id="@+id/rotate_180_degrees_anti_clockwise"
+                app:showAsAction="ifRoom"
+                android:title="Rotate by 180 (anti-clockwise)°" />
+        </menu>
+    </item>
 
     <item android:id="@+id/reset_zoom"
         android:icon="@drawable/ic_baseline_color_lens_24"

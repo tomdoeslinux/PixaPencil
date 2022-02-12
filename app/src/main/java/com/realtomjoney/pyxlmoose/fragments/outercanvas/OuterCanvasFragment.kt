@@ -29,13 +29,19 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
         return binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation
     }
 
-    fun rotate(by: Int = IntConstants.DEGREES_NINETY, animate: Boolean = true) {
+    fun rotate(by: Int = IntConstants.DEGREES_NINETY, animate: Boolean = true, clockwise: Boolean = true) {
+        val rotationAmount = if (clockwise) {
+                (getCurrentRotation() + by)
+        } else {
+                (getCurrentRotation() - by)
+        }
+
         if (animate) {
             binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
                 .animate()
-                .rotation((getCurrentRotation() + by))
+                .rotation(rotationAmount)
         } else {
-            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation = (getCurrentRotation() + by)
+            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation = rotationAmount
         }
     }
 
