@@ -3,7 +3,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import com.google.android.material.tabs.TabLayout
-import com.realtomjoney.pyxlmoose.*
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
@@ -72,6 +72,8 @@ fun CanvasActivity.setOnClickListeners() {
 
     binding.activityCanvasColorSecondaryView.setOnClickListener {
         isPrimaryColorSelected = false
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
         setPixelColor((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     }
 
@@ -85,6 +87,8 @@ fun CanvasActivity.setOnClickListeners() {
 
     binding.activityCanvasColorPrimaryView.setOnClickListener {
         isPrimaryColorSelected = true
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
         setPixelColor((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
