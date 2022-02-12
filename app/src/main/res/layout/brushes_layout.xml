@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/brushesLayout_imageView"
                 style="@style/recentCreationsLayout_imageView_style"
-                android:contentDescription="@string/content_description_pixel_art_preview"
+                android:contentDescription="@string/recentCreationsLayout_imageView_content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

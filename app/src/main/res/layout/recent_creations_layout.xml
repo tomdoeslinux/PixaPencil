@@ -23,7 +23,7 @@
             <ImageView
                 android:id="@+id/recentCreationsLayout_imageView"
                 tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/content_description_pixel_art_preview"
+                android:contentDescription="@string/recentCreationsLayout_imageView_content_description"
                 style="@style/recentCreationsLayout_imageView_style" />
 
             <TextView
@@ -49,7 +49,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 style="@style/recent_creations_image_button_style"
-                android:contentDescription="@string/content_description_favorite" />
+                android:contentDescription="@string/fragmentRecentCreations_favorite_content_description" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
