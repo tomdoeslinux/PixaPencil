@@ -63,17 +63,13 @@
                 app:showAsAction="ifRoom"
                 android:title="Rotate by 90° (clockwise)" />
 
-            <item android:id="@+id/rotate_180_degrees_clockwise"
-                app:showAsAction="ifRoom"
-                android:title="Rotate by 180 (clockwise)°" />
-
             <item android:id="@+id/rotate_90_degrees_anti_clockwise"
                 app:showAsAction="ifRoom"
                 android:title="Rotate by 90° (anti-clockwise)" />
 
-            <item android:id="@+id/rotate_180_degrees_anti_clockwise"
+            <item android:id="@+id/rotate_180_degrees_clockwise"
                 app:showAsAction="ifRoom"
-                android:title="Rotate by 180 (anti-clockwise)°" />
+                android:title="Rotate by 180°" />
         </menu>
     </item>
 

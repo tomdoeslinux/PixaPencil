@@ -70,10 +70,6 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             outerCanvasInstance.rotate(IntConstants.DEGREES_NINETY, animate = true, clockwise = false)
         }
 
-        R.id.rotate_180_degrees_anti_clockwise -> {
-            outerCanvasInstance.rotate(IntConstants.DEGREES_ONE_EIGHTY, animate = true, clockwise = false)
-        }
-
 
         R.id.reset_zoom -> {
             resetZoom()
