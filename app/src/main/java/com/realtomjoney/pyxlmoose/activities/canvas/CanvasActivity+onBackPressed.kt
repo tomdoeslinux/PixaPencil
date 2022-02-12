@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.content.Intent
+import android.view.View
 import com.realtomjoney.pyxlmoose.activities.main.MainActivity
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.extensions.showDialog
@@ -19,6 +20,14 @@ fun CanvasActivity.extendedOnBackPressed() {
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
         currentFragmentInstance = null
         showMenuItems()
+
+        if (isPrimaryColorSelected) {
+            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
+            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+        } else {
+            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
+        }
     } else {
         startActivity(Intent(context, MainActivity::class.java))
     }
