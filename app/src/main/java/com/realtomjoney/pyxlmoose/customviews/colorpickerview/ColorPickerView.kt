@@ -2,18 +2,20 @@ package com.realtomjoney.pyxlmoose.customviews.colorpickerview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.view.View
 
 class ColorPickerView (context: Context) : View(context) {
-    lateinit var colorPickerViewCanvas: Canvas
+    private lateinit var colorPickerViewCanvas: Canvas
     private lateinit var colorPickerViewBitmap: Bitmap
 
     private val arr = FloatArray(3)
 
-    var hue = 0f
-    var saturation = 0f
-    var value = 1f
+    private var hue = 0f
+    private var saturation = 0f
+    private var value = 1f
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
