@@ -5,71 +5,71 @@
         android:icon="@drawable/ic_baseline_undo_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="Undo" />
+        android:title="@string/appMenu_undo_str" />
 
     <item android:id="@+id/redo"
         android:icon="@drawable/ic_baseline_redo_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="Redo" />
+        android:title="@string/appMenu_redo_str" />
 
     <item android:id="@+id/zoom_in"
         android:icon="@drawable/ic_baseline_zoom_in_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/zoom_in" />
+        android:title="@string/appMenu_zoom_in_str" />
     <item android:id="@+id/zoom_out"
         android:icon="@drawable/ic_baseline_zoom_out_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/zoom_out" />
+        android:title="@string/appMenu_zoom_out_str" />
 
     <item android:id="@+id/save_project"
         android:icon="@drawable/ic_baseline_check_24"
         app:showAsAction="always"
         android:iconTint="@color/white"
-        android:title="@string/save_text" />
+        android:title="@string/appMenu_save_text_str" />
 
     <item android:id="@+id/export_to_png"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="Save as PNG" />
+        android:title="@string/appMenu_save_as_png_str" />
 
     <item android:id="@+id/export_to_jpg"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="Save as JPG" />
+        android:title="@string/appMenu_save_as_jpg_str" />
 
     <item android:id="@+id/new_color_palette"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="New Color Palette" />
+        android:title="@string/appMenu_new_color_palette_str" />
 
     <item android:id="@+id/pixel_perfect"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
         android:checkable="true"
-        android:title="Pixel Perfect" />
+        android:title="@string/appMenu_pixel_perfect_str" />
 
     <item app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="Rotate" >
+        android:title="@string/appMenu_rotate_str" >
         <menu>
             <item android:id="@+id/rotate_90_degrees_clockwise"
                 app:showAsAction="ifRoom"
-                android:title="Rotate 90° (clockwise)" />
+                android:title="@string/appMenu_rotate_90_clockwise_str" />
 
             <item android:id="@+id/rotate_90_degrees_anti_clockwise"
                 app:showAsAction="ifRoom"
-                android:title="Rotate 90° (anti-clockwise)" />
+                android:title="@string/appMenu_rotate_90_anti_clockwise_str" />
 
             <item android:id="@+id/rotate_180_degrees_clockwise"
                 app:showAsAction="ifRoom"
-                android:title="Rotate 180°" />
+                android:title="@string/appMenu_rotate_180_str" />
         </menu>
     </item>
 
@@ -77,5 +77,5 @@
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="Reset Zoom" />
+        android:title="@string/appMenu_reset_zoom_str" />
 </menu>

@@ -73,7 +73,7 @@
         <entry key="app/src/main/res/layout/fragment_brushes.xml" value="0.275" />
         <entry key="app/src/main/res/layout/fragment_canvas.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/fragment_color_palettes.xml" value="0.2515625" />
-        <entry key="app/src/main/res/layout/fragment_color_picker.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/fragment_color_picker.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/layout/fragment_color_picker_picker.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/fragment_color_picker_picker_canvas.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.2515625" />
@@ -85,6 +85,7 @@
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.34517766497461927" />
         <entry key="app/src/main/res/menu/app_menu.xml" value="0.18" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.288" />
       </map>
     </option>

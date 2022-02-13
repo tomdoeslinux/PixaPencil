@@ -40,7 +40,7 @@
         android:id="@+id/activityMain_newProjectButton"
         style="@style/default_large_fab_style_activity_main"
         android:backgroundTint="@color/activityMainFAB_backgroundColor"
-        android:contentDescription="@string/content_description_activity_main_fab"
+        android:contentDescription="@string/activityMain_newProjectButton_contentDescription"
         app:layout_constraintBottom_toTopOf="@id/activityMain_bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent" />
 

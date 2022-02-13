@@ -1,38 +1,40 @@
 <resources>
     <string name="app_name">PyxlMoose</string>
-    <string name="zoom_in">Zoom in</string>
-    <string name="zoom_out">Zoom out</string>
-    <string name="home_str">Home</string>
-    <string name="fragmentNewColorPalette_done_str">Done</string>
 
-    <string name="content_description_activity_main_fab">New Project</string>
+    <string name="activityMain_newProjectButton_contentDescription">New Project</string>
+
     <string name="fragmentTools_darken_tool_content_description">Darken Tool</string>
     <string name="fragmentTools_lighten_tool_content_description">Lighten Tool</string>
     <string name="fragmentTools_clear_canvas_tool_content_description_">Clear Canvas Tool</string>
     <string name="fragmentTools_find_and_replace_tool_content_description">Find and Replace Tool</string>
     <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>
     <string name="fragmentTools_eraser_tool_content_description">Eraser Tool</string>
-    <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
 
+    <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
+
     <string name="fragmentNewCanvas_span_count_str">Span count</string>
     <string name="fragmentNewCanvas_project_name_str">Project name</string>
     <string name="fragmentTools_vertical_mirror_tool_content_description">Vertical Mirror Tool</string>
     <string name="fragmentTools_horizontal_mirror_tool_content_description">Horizontal Mirror Tool</string>
     <string name="fragmentTools_pencil_tool_content_description">Pencil Tool</string>
-    <string name="save_text">Save</string>
+
+    <string name="activityCanvas_tab_brushes_str">Brushes</string>
     <string name="activityCanvas_tab_filters_str">Filters</string>
     <string name="activityCanvas_tab_tools_str">Tools</string>
     <string name="activityCanvas_tab_color_palettes_str">Color Palettes</string>
+    <string name="activityCanvas_checkerboardTransparentBackground_content_description">Transparent Checkerboard</string>
+
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
-    <string name="fragmentNewColorPalette_color_palette_name_str">Color Palette Name</string>
+
     <string name="fragmentTools_fill_tool_content_description">Fill Tool</string>
-    <string name="activityCanvas_tab_brushes_str">Brushes</string>
     <string name="fragmentTools_line_tool_content_description">Line Tool</string>
     <string name="fragmentTools_rectangle_tool_content_description">Rectangle Tool</string>
     <string name="fragmentTools_outlined_rectangle_tool_content_description">Outlined Rectangle Tool</string>
     <string name="fragmentTools_grid_tool_content_description">Grid Tool</string>
-    <string name="starred_str">Starred</string>
+
+    <string name="bottomNavigationMenu_starred_str">Starred</string>
+    <string name="bottomNavigationMenu_home_str">Home</string>
 
     <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
     <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
@@ -54,8 +56,9 @@
     <string name="fragmentFilters_invert_blue_str">Invert Blue</string>
     <string name="fragmentFilters_grayscale_str">Grayscale</string>
 
+    <string name="fragmentNewColorPalette_done_str">Done</string>
     <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
-    <string name="activityCanvas_checkerboardTransparentBackground_content_description">Transparent Checkerboard</string>
+    <string name="fragmentNewColorPalette_color_palette_name_str">Color Palette Name</string>
 
     <string name="fragmentFindAndReplace_color_to_find_str">Color to Find</string>
     <string name="fragmentFindAndReplace_color_to_replace_str">Color to Replace</string>
@@ -65,4 +68,19 @@
     <string name="fragmentRGBColorPicker_valueR_str">0</string>
     <string name="fragmentRGBColorPicker_valueG_str">0</string>
     <string name="fragmentRGBColorPicker_valueB_str">0</string>
+
+    <string name="appMenu_undo_str">Undo</string>
+    <string name="appMenu_redo_str">Redo</string>
+    <string name="appMenu_save_as_png_str">Save as PNG</string>
+    <string name="appMenu_save_as_jpg_str">Save as JPG</string>
+    <string name="appMenu_new_color_palette_str">New Color Palette</string>
+    <string name="appMenu_pixel_perfect_str">Pixel Perfect</string>
+    <string name="appMenu_rotate_str">Rotate</string>
+    <string name="appMenu_rotate_90_clockwise_str">Rotate 90° (clockwise)</string>
+    <string name="appMenu_rotate_90_anti_clockwise_str">Rotate 90° (anti-clockwise)</string>
+    <string name="appMenu_rotate_180_str">Rotate 180°</string>
+    <string name="appMenu_reset_zoom_str">Reset Zoom</string>
+    <string name="appMenu_zoom_in_str">Zoom in</string>
+    <string name="appMenu_zoom_out_str">Zoom out</string>
+    <string name="appMenu_save_text_str">Save</string>
 </resources>
