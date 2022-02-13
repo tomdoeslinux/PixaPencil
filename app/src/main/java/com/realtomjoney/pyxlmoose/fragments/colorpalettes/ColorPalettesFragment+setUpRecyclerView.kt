@@ -9,11 +9,8 @@ fun ColorPalettesFragment.setUpRecyclerView() {
         fragmentColorPalettesRecyclerView.layoutManager = LinearLayoutManager(activity).apply {
             orientation = LinearLayoutManager.HORIZONTAL
         }
-        if (AppData.isColorPalettesDBInitialized) {
-            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes()
-                .observe(lifecycleOwner) {
-                    fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(it, context)
-                }
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(lifecycleOwner) {
+            fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(it, context)
         }
     }
 }

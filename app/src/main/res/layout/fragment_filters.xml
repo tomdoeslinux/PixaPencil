@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/frameLayout"
+<FrameLayout android:id="@+id/fragmentFilters_rootLayout"
 android:layout_width="wrap_content"
 android:layout_height="105dp"
 app:layout_constraintBottom_toBottomOf="parent"
