@@ -49,7 +49,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 style="@style/recent_creations_image_button_style"
-                android:contentDescription="@string/fragmentRecentCreations_favorite_content_description" />
+                android:contentDescription="@string/recentCreationsLayout_favoriteButton_content_description" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>

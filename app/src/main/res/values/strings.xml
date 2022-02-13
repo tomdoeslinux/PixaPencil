@@ -12,7 +12,7 @@
     <string name="fragmentTools_find_and_replace_tool_content_description">Find and Replace Tool</string>
     <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>
     <string name="fragmentTools_eraser_tool_content_description">Eraser Tool</string>
-    <string name="fragmentRecentCreations_favorite_content_description">Favorite</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
 
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
     <string name="fragmentNewCanvas_span_count_str">Span count</string>
