@@ -62,4 +62,7 @@
     <string name="fragmentFindAndReplace_find_str">Find</string>
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
+    <string name="fragmentRGBColorPicker_valueR_str">0</string>
+    <string name="fragmentRGBColorPicker_valueG_str">0</string>
+    <string name="fragmentRGBColorPicker_valueB_str">0</string>
 </resources>

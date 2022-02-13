@@ -74,21 +74,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!--textview3-->
-
     <TextView
         android:id="@+id/fragmentRGBColorPicker_valueB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="0"
+        android:text="@string/fragmentRGBColorPicker_valueB_str"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_blueProgressBar"
         app:layout_constraintEnd_toStartOf="@+id/fragmentRGBColorPicker_blueProgressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_blueProgressBar" />
-
-    <!--textview4-->
 
     <TextView
         android:id="@+id/fragmentRGBColorPicker_valueG"
@@ -96,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="0"
+        android:text="@string/fragmentRGBColorPicker_valueG_str"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_greenProgressBar"
         app:layout_constraintEnd_toStartOf="@+id/fragmentRGBColorPicker_greenProgressBar"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +102,7 @@
         android:id="@+id/fragmentRGBColorPicker_valueR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="@string/fragmentRGBColorPicker_valueR_str"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_redProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/fragmentRGBColorPicker_valueG"
         app:layout_constraintStart_toStartOf="@+id/fragmentRGBColorPicker_valueG"
