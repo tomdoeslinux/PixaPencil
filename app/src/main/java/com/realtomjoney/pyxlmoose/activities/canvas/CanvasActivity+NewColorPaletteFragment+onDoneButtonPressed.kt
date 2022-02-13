@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
+import android.view.View
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
@@ -39,5 +40,13 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
         binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(it.last(), this)
+    }
+
+    if (isPrimaryColorSelected) {
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+    } else {
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
     }
 }
