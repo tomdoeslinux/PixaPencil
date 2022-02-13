@@ -64,6 +64,6 @@ var brushesFragmentInstance: BrushesFragment? = null
 var lineMode_hasLetGo = false
 var rectangleMode_hasLetGo = false
 
-var projectTitle: String? = ""
+var projectTitle: String? = null
 
 lateinit var sharedPreferenceObject: SharedPreferences
