@@ -3,7 +3,7 @@
     <string name="zoom_in">Zoom in</string>
     <string name="zoom_out">Zoom out</string>
     <string name="home_str">Home</string>
-    <string name="fragmentHSVColorPicker_done_str">Done</string>
+    <string name="fragmentNewColorPalette_done_str">Done</string>
 
     <string name="content_description_activity_main_fab">New Project</string>
     <string name="fragmentTools_darken_tool_content_description">Darken Tool</string>
@@ -55,7 +55,7 @@
     <string name="fragmentFilters_grayscale_str">Grayscale</string>
 
     <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
-    <string name="content_description_transparent_checkerboard">Transparent Checkerboard</string>
+    <string name="activityCanvas_checkerboardTransparentBackground_content_description">Transparent Checkerboard</string>
 
     <string name="fragmentFindAndReplace_color_to_find_str">Color to Find</string>
     <string name="fragmentFindAndReplace_color_to_replace_str">Color to Replace</string>
