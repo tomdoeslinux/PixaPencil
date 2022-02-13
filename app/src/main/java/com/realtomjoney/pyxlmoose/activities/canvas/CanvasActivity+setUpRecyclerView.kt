@@ -10,11 +10,13 @@ fun CanvasActivity.setUpRecyclerView() {
     layoutManager.orientation = LinearLayoutManager.HORIZONTAL
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        val toShow = if (fromDB != null) fromDB else it.firstOrNull()
-        binding.activityCanvasColorPickerRecyclerView.adapter =
-            toShow?.let { obj ->
-                ColorPickerAdapter(obj, this)
-            }
+    if (AppData.isColorPalettesDBInitialized) {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+            val toShow = if (fromDB != null) fromDB else it.firstOrNull()
+            binding.activityCanvasColorPickerRecyclerView.adapter =
+                toShow?.let { obj ->
+                    ColorPickerAdapter(obj, this)
+                }
+        }
     }
 }
