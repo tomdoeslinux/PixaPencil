@@ -15,6 +15,6 @@ object EspressoUtilities {
     fun getActivityCanvasRootLayoutChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.activities.canvas.binding.activityCanvasRootLayout)
     fun getActivityMainRootLayoutChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.activities.main.binding.mainRoot)
     fun getNewCanvasFragmentChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.fragments.newcanvas.binding_!!.fragmentNewCanvasRootLayout)
-    fun getColorPickerFragmentChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.fragments.colorpicker.binding_!!.colorPickerRootLayout)
+    fun getColorPickerFragmentChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.fragments.colorpicker.binding_!!.fragmentColorPickerRootLayout)
     fun getFindAndReplaceFragmentChildElementIds() = getViewGroupsChildElementIds(com.realtomjoney.pyxlmoose.fragments.findandreplace.binding_!!.findAndReplaceFragmentRootLayout)
 }

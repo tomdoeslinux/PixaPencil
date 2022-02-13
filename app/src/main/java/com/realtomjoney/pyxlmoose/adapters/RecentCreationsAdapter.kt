@@ -1,12 +1,12 @@
 package com.realtomjoney.pyxlmoose.adapters
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import android.text.TextUtils
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageButton
-import com.realtomjoney.pyxlmoose.*
+import androidx.recyclerview.widget.RecyclerView
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
@@ -23,7 +23,7 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCreationsViewHolder {
         binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return RecentCreationsViewHolder(binding.rootFrameLayout)
+        return RecentCreationsViewHolder(binding.recentCreationsLayoutRootLayout)
     }
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
