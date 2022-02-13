@@ -20,7 +20,7 @@ object StringConstants {
     const val DIALOG_UNSAVED_CHANGES_MESSAGE = "You have unsaved changes, are you sure you want to exit?"
 
     const val SNACKBAR_VIEW_EX_INFO_BUTTON_TEXT = "View"
-    const val SNACKBAR_CANNOT_DELETE_PRIMARY_COLOR_PALETTE_TEXT = "Cannot delete primary color palette"
+    const val SNACKBAR_CANNOT_DELETE_PRIMARY_COLOR_PALETTE_TEXT = "Cannot delete default color palette"
 
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
