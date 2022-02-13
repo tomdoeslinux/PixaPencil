@@ -66,6 +66,7 @@
         <entry key="app/src/main/res/drawable/border_drawable_frame_2.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_mirror.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_vector_line.xml" value="0.244" />
+        <entry key="app/src/main/res/drawable/lighten_icon.xml" value="0.2975" />
         <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/brushes_layout.xml" value="0.3541666666666667" />

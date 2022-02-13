@@ -22,7 +22,7 @@
     <string name="activityCanvas_tab_brushes_str">Brushes</string>
     <string name="activityCanvas_tab_filters_str">Filters</string>
     <string name="activityCanvas_tab_tools_str">Tools</string>
-    <string name="activityCanvas_tab_color_palettes_str">Color Palettes</string>
+    <string name="activityCanvas_tab_color_palettes_str">Palettes</string>
     <string name="activityCanvas_checkerboardTransparentBackground_content_description">Transparent Checkerboard</string>
 
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
