@@ -13,7 +13,7 @@
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
 
-    <string name="fragmentNewCanvas_span_count_str">Span count</string>
+    <string name="fragmentNewCanvas_span_count_str">Canvas size</string>
     <string name="fragmentNewCanvas_project_name_str">Project name</string>
     <string name="fragmentTools_vertical_mirror_tool_content_description">Vertical Mirror Tool</string>
     <string name="fragmentTools_horizontal_mirror_tool_content_description">Horizontal Mirror Tool</string>
