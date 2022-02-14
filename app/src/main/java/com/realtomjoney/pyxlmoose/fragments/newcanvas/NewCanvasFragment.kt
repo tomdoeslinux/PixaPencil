@@ -17,6 +17,10 @@ class NewCanvasFragment : Fragment() {
         root = binding.fragmentNewCanvasRootLayout
     }
 
+    private fun setDefaultCanvasSizeValue() {
+        binding.fragmentNewCanvasSpanCountTextInputEditText.setText(IntConstants.DEF_CANVAS_SIZE.toString())
+    }
+
     companion object {
         fun newInstance() = NewCanvasFragment()
     }
@@ -29,7 +33,7 @@ class NewCanvasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentNewCanvasBinding.inflate(inflater, container, false)
 
-        binding.fragmentNewCanvasSpanCountTextInputEditText.setText(IntConstants.DEF_CANVAS_SIZE.toString())
+        setDefaultCanvasSizeValue()
         instantiateRoot()
         setOnClickListeners()
 
