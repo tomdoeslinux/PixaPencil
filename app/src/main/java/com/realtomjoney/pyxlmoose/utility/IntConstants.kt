@@ -6,4 +6,6 @@ object IntConstants {
 
     const val DEGREES_NINETY = 90
     const val DEGREES_ONE_EIGHTY = 180
+
+    const val DEF_CANVAS_SIZE = 50
 }
