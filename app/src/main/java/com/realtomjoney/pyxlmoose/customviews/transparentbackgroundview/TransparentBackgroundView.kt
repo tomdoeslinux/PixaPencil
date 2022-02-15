@@ -7,13 +7,13 @@ import android.graphics.Color
 import android.view.View
 
 class TransparentBackgroundView(context: Context, private val canvasSize: Int) : View(context) {
-    lateinit var transparentBackgroundViewCanvas: Canvas
+    private lateinit var transparentBackgroundViewCanvas: Canvas
     private lateinit var transparentBackgroundViewBitmap: Bitmap
 
     var scaleWidth = 0f
     var scaleHeight = 0f
 
-    var isEvenCanvasSize = canvasSize % 2 == 0
+    private var isEvenCanvasSize = canvasSize % 2 == 0
 
     var color = if (!isEvenCanvasSize) Color.WHITE else Color.LTGRAY
 

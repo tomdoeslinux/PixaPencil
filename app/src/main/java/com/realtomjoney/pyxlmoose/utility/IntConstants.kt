@@ -14,4 +14,6 @@ object IntConstants {
 
     var RADIUS = 10
     var STRENGTH = 10
+
+    var SPAN_COUNT = 5
 }

@@ -23,7 +23,7 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     }
 
     private fun showCanvas() {
-        val transparent = TransparentBackgroundView(requireContext(), spanCount)
+        val transparent = TransparentBackgroundView(requireContext(), IntConstants.SPAN_COUNT)
         binding.defsq2.addView(transparent)
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }

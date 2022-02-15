@@ -56,8 +56,7 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     fun getNumberOfUniqueColors() = extendedGetNumberOfUniqueColors()
 
-    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) =
-        extendedReplacePixelsByColor(colorToFind, colorToReplace)
+    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) = extendedReplacePixelsByColor(colorToFind, colorToReplace)
 
     fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
