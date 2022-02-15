@@ -15,8 +15,8 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
         val radius = binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString()
         val strength = binding.fragmentSprayToolSettingsStrengthTextInputEditText.text.toString()
 
-        if (Integer.parseInt(radius) !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX ||
-            Integer.parseInt(strength) !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX) {
+        if (Integer.parseInt(radius) !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX ||
+            Integer.parseInt(strength) !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX) {
             HapticFeedbackWrapper.performHapticFeedbackOn(binding.fragmentSprayToolSettingsDoneButton)
             binding.root.showSnackbar(
                 StringConstants.EX_INVALID_R_S,
