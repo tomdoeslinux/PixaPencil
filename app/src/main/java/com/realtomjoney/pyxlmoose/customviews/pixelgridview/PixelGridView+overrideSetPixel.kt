@@ -8,9 +8,19 @@ fun PixelGridView.extendedOverrideSetPixel(x: Int, y: Int, color: Int) {
     val xyPosition = Coordinates(x, y)
 
     if (currentBrush == null) {
-        pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+        if (xyPosition.x in 0 until spanCount && xyPosition.y in 0 until spanCount) {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(
+                BitmapActionData(
+                    xyPosition,
+                    pixelGridViewBitmap.getPixel(xyPosition.x, xyPosition.y)
+                )
+            )
+            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+        }
     } else {
-        pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+        if (xyPosition.x in 0 until spanCount && xyPosition.y in 0 until spanCount) {
+            pixelGridViewBitmap.setPixel(xyPosition.x, xyPosition.y, color)
+        }
         for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(xyPosition)) {
             if (xyPosition_2.x in 0 until spanCount && xyPosition_2.y in 0 until spanCount) {
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(

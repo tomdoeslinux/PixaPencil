@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
+import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
@@ -24,6 +25,27 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.RECTANGLE_TOOL
 
         StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
+
+        StringConstants.SPRAY_TOOL_IDENTIFIER -> {
+            if (currentTool == Tools.SPRAY_TOOL) {
+                sprayToolSettingsFragmentInstance =
+                    SprayToolSettingsFragment.newInstance()
+                currentFragmentInstance = sprayToolSettingsFragmentInstance
+
+                navigateTo(
+                    supportFragmentManager,
+                    sprayToolSettingsFragmentInstance,
+                    R.id.activityCanvas_primaryFragmentHost,
+                    StringConstants.FRAGMENT_SPRAY_TOOL_SETTINGS_TITLE,
+                    binding.activityCanvasPrimaryFragmentHost,
+                    binding.activityCanvasRootLayout
+                )
+
+                hideMenuItems()
+            }
+
+            currentTool = Tools.SPRAY_TOOL
+        }
 
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
             filterSelectedColor(Color.BLACK, 0.2f)

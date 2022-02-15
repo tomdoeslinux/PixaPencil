@@ -65,6 +65,11 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsSprayButton.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.SPRAY_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsDarkenButton.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)

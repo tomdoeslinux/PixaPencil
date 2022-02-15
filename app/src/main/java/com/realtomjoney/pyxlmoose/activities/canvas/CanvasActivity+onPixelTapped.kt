@@ -1,5 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
+import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 var lineOrigin: Coordinates? = null
@@ -16,6 +18,14 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         Tools.LINE_TOOL -> lineToolOnPixelTapped(coordinatesTapped)
         Tools.RECTANGLE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, false)
         Tools.OUTLINED_RECTANGLE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, true)
+        Tools.SPRAY_TOOL -> {
+            if (!sprayAlgorithmInstanceInitialized) {
+                val s1 = SprayAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, extendedGetSelectedColor()))
+                sprayAlgorithmInstance = s1
+            }
+
+            sprayAlgorithmInstance.compute(coordinatesTapped)
+        }
         Tools.ERASE_TOOL -> eraseToolOnPixelTapped(coordinatesTapped)
         Tools.COLOR_PICKER_TOOL -> colorPickerToolOnPixelTapped(coordinatesTapped)
         else -> pencilToolOnPixelTapped(coordinatesTapped)

@@ -8,4 +8,7 @@ object IntConstants {
     const val DEGREES_ONE_EIGHTY = 180
 
     const val DEF_CANVAS_SIZE = 50
+
+    var DEF_RADIUS_SIZE = 10
+    var DEF_STRENGTH_SIZE = 10
 }

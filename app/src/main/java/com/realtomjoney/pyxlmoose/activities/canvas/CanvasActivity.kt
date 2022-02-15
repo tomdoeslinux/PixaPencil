@@ -5,13 +5,26 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.models.Coordinates
+import com.realtomjoney.pyxlmoose.utility.IntConstants
 
-class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerListener, ColorPickerFragmentListener, FindAndReplaceFragmentListener, ToolsFragmentListener, FiltersFragmentListener, ColorPalettesFragmentListener, NewColorPaletteFragmentListener, BrushesFragmentListener {
+class CanvasActivity :
+    AppCompatActivity(),
+    CanvasFragmentListener,
+    ColorPickerListener,
+    ColorPickerFragmentListener,
+    FindAndReplaceFragmentListener,
+    ToolsFragmentListener,
+    FiltersFragmentListener,
+    ColorPalettesFragmentListener,
+    NewColorPaletteFragmentListener,
+    BrushesFragmentListener,
+    SprayToolSettingsFragmentListener{
     var previousView: View? = null
 
     val context = this
@@ -27,7 +40,7 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
 
     override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
-    fun getSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
+    fun getSelectedColor() = extendedGetSelectedColor()
 
     fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
 
@@ -59,4 +72,20 @@ class CanvasActivity : AppCompatActivity(), CanvasFragmentListener, ColorPickerL
     override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) = extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
 
     override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
+    override fun onDoneButtonPressed(radius: String, strength: String) {
+        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+        currentFragmentInstance = null
+        showMenuItems()
+
+        if (isPrimaryColorSelected) {
+            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
+            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+        } else {
+            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
+        }
+
+        IntConstants.DEF_RADIUS_SIZE = radius.toInt()
+        IntConstants.DEF_STRENGTH_SIZE = strength.toInt()
+    }
 }

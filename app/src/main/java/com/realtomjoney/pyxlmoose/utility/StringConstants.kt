@@ -25,6 +25,7 @@ object StringConstants {
     const val FRAGMENT_FIND_AND_REPLACE_TITLE = "Find and Replace"
     const val FRAGMENT_COLOR_PICKER_TITLE = "Select Color"
     const val FRAGMENT_NEW_COLOR_PALETTE_TITLE = "New Color Palette"
+    const val FRAGMENT_SPRAY_TOOL_SETTINGS_TITLE = "Spray Tool Settings"
 
     const val COLOR_FILTER_IDENTIFIER = "COLOR_FILTER"
     const val DARKEN_FILTER_IDENTIFIER = "DARKEN_FILTER"
@@ -42,6 +43,7 @@ object StringConstants {
     const val LINE_TOOL_IDENTIFIER = "LINE"
     const val RECTANGLE_TOOL_IDENTIFIER = "RECTANGLE"
     const val OUTLINED_RECTANGLE_TOOL_IDENTIFIER = "OUTLINED_RECTANGLE"
+    const val SPRAY_TOOL_IDENTIFIER = "SPRAY"
     const val DARKEN_TOOL_IDENTIFIER = "DARKEN"
     const val LIGHTEN_TOOL_IDENTIFIER = "LIGHTEN"
     const val CLEAR_CANVAS_TOOL_IDENTIFIER = "CLEAR_CANVAS"

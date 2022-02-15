@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
 import androidx.fragment.app.Fragment
+import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
@@ -13,6 +14,7 @@ import com.realtomjoney.pyxlmoose.fragments.filters.FiltersFragment
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
 import com.realtomjoney.pyxlmoose.fragments.outercanvas.OuterCanvasFragment
+import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
@@ -39,6 +41,7 @@ enum class Tools {
     LINE_TOOL,
     RECTANGLE_TOOL,
     OUTLINED_RECTANGLE_TOOL,
+    SPRAY_TOOL,
     DARKEN_TOOL,
     LIGHTEN_TOOL,
     COLOR_PICKER_TOOL,
@@ -53,6 +56,7 @@ lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var outerCanvasInstance: OuterCanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
+lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment
 
 lateinit var menu: Menu
 
@@ -67,3 +71,7 @@ var rectangleMode_hasLetGo = false
 var projectTitle: String? = null
 
 lateinit var sharedPreferenceObject: SharedPreferences
+
+lateinit var sprayAlgorithmInstance: SprayAlgorithm
+var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
+
