@@ -3,7 +3,7 @@
 ## About
 **A pixel art creator for Android using Bitmap, written 100% in Kotlin.**
 
-Join our Discord: https://discord.gg/DypHJzfa
+Join the official Matrix server for general discussion regarding the app: https://matrix.to/#/#pyxlmoose:matrix.org
 
 ## Video
 https://youtu.be/qNQQLG1N_uE
@@ -57,6 +57,7 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Line tool
 - Rectangle tool
 - Outlined rectangle tool
+- Spray tool
 - Darkening tool
 - Lightening tool
 - Clear canvas tool
@@ -74,7 +75,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Ability to select from 5 different brushes
 - Ability to select custom colors from HEX code or RGB sliders
 - Ability to unfavorite/favorite projects
-- Ability to export projects to a PNG file
+- Ability to export projects to a PNG/JPG file
+- Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 
 Go to https://github.com/realtomjoney/PyxlMoose/projects/1 to have a look at features we want to add to PyxlMoose.
 
