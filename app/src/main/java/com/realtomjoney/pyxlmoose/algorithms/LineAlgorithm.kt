@@ -1,13 +1,11 @@
-package com.realtomjoney.pyxlmoose.algorithms.shapes
+package com.realtomjoney.pyxlmoose.algorithms
 
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
-class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter)
-    : ShapeAlgorithm {
+class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
     private fun drawLineY(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y
@@ -78,7 +76,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter)
         }
     }
 
-    override fun compute(p1: Coordinates, p2: Coordinates) {
+    fun compute(p1: Coordinates, p2: Coordinates) {
         val x = p1.x
         val y = p1.y
 

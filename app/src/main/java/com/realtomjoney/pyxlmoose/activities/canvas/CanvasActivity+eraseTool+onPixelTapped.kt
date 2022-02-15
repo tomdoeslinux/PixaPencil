@@ -1,7 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.algorithms.shapes.LineAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData

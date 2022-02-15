@@ -1,11 +1,9 @@
-package com.realtomjoney.pyxlmoose.algorithms.shapes
+package com.realtomjoney.pyxlmoose.algorithms
 
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val borderColor: Int? = null)
-    : ShapeAlgorithm {
+class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val borderColor: Int? = null) {
     private fun drawBorder(from: Coordinates, to: Coordinates) {
         val modifiedShapeAlgorithmInfo = algorithmInfo
         modifiedShapeAlgorithmInfo.color = borderColor!!
@@ -20,7 +18,7 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
         }
     }
 
-    override fun compute(p1: Coordinates, p2: Coordinates) {
+    fun compute(p1: Coordinates, p2: Coordinates) {
         var x = p1.x
         val y = p1.y
 
