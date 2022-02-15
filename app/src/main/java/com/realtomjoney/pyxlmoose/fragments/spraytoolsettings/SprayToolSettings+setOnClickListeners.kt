@@ -2,18 +2,32 @@ package com.realtomjoney.pyxlmoose.fragments.spraytoolsettings
 
 import android.os.Handler
 import android.os.Looper
+import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
+import com.realtomjoney.pyxlmoose.extensions.showSnackbar
+import com.realtomjoney.pyxlmoose.utility.HapticFeedbackWrapper
+import com.realtomjoney.pyxlmoose.utility.IntConstants
 import com.realtomjoney.pyxlmoose.utility.LongConstants
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun SprayToolSettingsFragment.setOnClickListeners() {
     binding.fragmentSprayToolSettingsDoneButton.setOnClickListener {
         val radius = binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString()
         val strength = binding.fragmentSprayToolSettingsStrengthTextInputEditText.text.toString()
 
-        hideKeyboard()
+        if (Integer.parseInt(radius) !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX ||
+            Integer.parseInt(strength) !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX) {
+            HapticFeedbackWrapper.performHapticFeedbackOn(binding.fragmentSprayToolSettingsDoneButton)
+            binding.root.showSnackbar(
+                StringConstants.EX_INVALID_R_S,
+                SnackbarDuration.DEFAULT
+            )
+        } else {
+            hideKeyboard()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            caller.onDoneButtonPressed(radius, strength)
-        }, LongConstants.DEF_HANDLER_DELAY)
+            Handler(Looper.getMainLooper()).postDelayed({
+                caller.onDoneButtonPressed(radius, strength)
+            }, LongConstants.DEF_HANDLER_DELAY)
+        }
     }
 }

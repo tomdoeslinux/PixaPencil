@@ -57,4 +57,5 @@ object StringConstants {
     const val DEF_TOOLBAR_ITEM_COLOR = "#0099cc"
 
     const val EX_INVALID_SPAN_COUNT = "Invalid span count value"
+    const val EX_INVALID_R_S = "Invalid radius/strength"
 }
