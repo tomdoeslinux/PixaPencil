@@ -38,14 +38,14 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
                 for (i_2 in 0 until canvasSize) {
                     transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
 
-                    if (!isEvenCanvasSize) {
-                        color = if (color == Color.WHITE) {
+                    color = if (!isEvenCanvasSize) {
+                        if (color == Color.WHITE) {
                             Color.LTGRAY
                         } else {
                             Color.WHITE
                         }
                     } else {
-                        color = if (color == Color.LTGRAY) {
+                        if (color == Color.LTGRAY) {
                             Color.WHITE
                         } else {
                             Color.LTGRAY
@@ -53,14 +53,14 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
                     }
                 }
 
-                if (!isEvenCanvasSize) {
-                    color = if (color != Color.WHITE) {
+                color = if (!isEvenCanvasSize) {
+                    if (color != Color.WHITE) {
                         Color.LTGRAY
                     } else {
                         Color.WHITE
                     }
                 } else {
-                    color = if (color != Color.LTGRAY) {
+                    if (color != Color.LTGRAY) {
                         Color.LTGRAY
                     } else {
                         Color.WHITE
