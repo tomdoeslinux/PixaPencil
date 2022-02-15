@@ -85,7 +85,6 @@
     <string name="appMenu_save_text_str">Save</string>
     <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragmentSprayToolSettings_strength_str">Strength</string>
     <string name="fragmentSprayToolSettings_radius_str">Radius</string>
     <string name="fragmentSprayToolSettings_done_str">Done</string>

@@ -22,7 +22,8 @@ class CanvasActivity :
     ColorPalettesFragmentListener,
     NewColorPaletteFragmentListener,
     BrushesFragmentListener,
-    SprayToolSettingsFragmentListener{
+    SprayToolSettingsFragmentListener {
+
     var previousView: View? = null
 
     val context = this

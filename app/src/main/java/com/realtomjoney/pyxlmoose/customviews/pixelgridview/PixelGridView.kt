@@ -65,11 +65,11 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
+    fun saveAsImage(format: Bitmap.CompressFormat) = extendedSaveAsImage(format)
+
     private fun applyPixelPerfectValueFromPreference() = extendedApplyPixelPerfectValueFromPreference()
 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
-
-    fun saveAsImage(format: Bitmap.CompressFormat) = extendedSaveAsImage(format)
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
