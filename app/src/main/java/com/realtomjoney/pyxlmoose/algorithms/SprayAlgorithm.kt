@@ -6,7 +6,7 @@ import com.realtomjoney.pyxlmoose.utility.IntConstants
 import kotlin.math.floor
 import kotlin.random.Random
 
-class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, var radius: Int = IntConstants.DEF_RADIUS_SIZE, var strength: Int = IntConstants.DEF_STRENGTH_SIZE) {
+class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var radius: Int = IntConstants.RADIUS, private var strength: Int = IntConstants.STRENGTH) {
     fun compute(seed: Coordinates) {
         val ct = floor((radius / 2).toDouble()).toInt()
 
@@ -19,17 +19,12 @@ class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, var radi
             val rn3 = Random.nextInt(-ct, ct)
             val rn4 = Random.nextInt(-ct, ct)
 
-            val randCoordinates = Coordinates(
-                Random.nextInt(
-                    p2.x + rn1,
-                    p1.x + rn2
-                ), Random.nextInt(
-                    p2.y + rn3,
-                    p1.y + rn4))
+            val randX = Random.nextInt(p2.x + rn1, p1.x + rn2)
+            val randY = Random.nextInt(p2.y + rn3, p1.y + rn4)
 
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
-                randCoordinates.x, randCoordinates.y, algorithmInfo.color
-            )
+            val randCoordinates = Coordinates(randX, randY)
+
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(randCoordinates.x, randCoordinates.y, algorithmInfo.color)
         }
     }
 }

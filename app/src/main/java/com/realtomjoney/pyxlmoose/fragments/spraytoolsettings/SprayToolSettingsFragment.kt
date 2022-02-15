@@ -27,8 +27,8 @@ class SprayToolSettingsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
 
-        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.DEF_RADIUS_SIZE.toString())
-        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.DEF_STRENGTH_SIZE.toString())
+        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.RADIUS.toString())
+        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.STRENGTH.toString())
 
         binding.fragmentSprayToolSettingsDoneButton.setOnClickListener {
             val radius = binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString()

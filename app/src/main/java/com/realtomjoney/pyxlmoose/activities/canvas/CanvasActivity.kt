@@ -5,13 +5,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.models.Coordinates
-import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class CanvasActivity :
     AppCompatActivity(),
@@ -72,20 +70,6 @@ class CanvasActivity :
     override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) = extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
 
     override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
-    override fun onDoneButtonPressed(radius: String, strength: String) {
-        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
-        currentFragmentInstance = null
-        showMenuItems()
 
-        if (isPrimaryColorSelected) {
-            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
-            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
-        } else {
-            binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
-            binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
-        }
-
-        IntConstants.DEF_RADIUS_SIZE = radius.toInt()
-        IntConstants.DEF_STRENGTH_SIZE = strength.toInt()
-    }
+    override fun onDoneButtonPressed(radius: String, strength: String) = extendedOnDoneButtonPressed(radius, strength)
 }
