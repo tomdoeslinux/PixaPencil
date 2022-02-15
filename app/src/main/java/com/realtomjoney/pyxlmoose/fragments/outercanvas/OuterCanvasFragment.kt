@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.utility.IntConstants
@@ -22,6 +23,8 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     }
 
     private fun showCanvas() {
+        val transparent = TransparentBackgroundView(requireContext(), spanCount)
+        binding.defsq2.addView(transparent)
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 

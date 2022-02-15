@@ -1,4 +1,4 @@
-package com.realtomjoney.pyxlmoose.customviews
+package com.realtomjoney.pyxlmoose.customviews.squareframelayoutview
 
 import android.content.Context
 import android.util.AttributeSet

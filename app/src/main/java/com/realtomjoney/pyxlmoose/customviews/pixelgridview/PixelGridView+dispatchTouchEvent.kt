@@ -14,7 +14,7 @@ fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
 
     when (event.actionMasked) {
         MotionEvent.ACTION_MOVE -> {
-            if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
+            if (coordinateX in 0 until canvasSize && coordinateY in 0 until canvasSize) {
                 caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
             } else {
                 prevX = null
@@ -22,7 +22,7 @@ fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
             }
         }
         MotionEvent.ACTION_DOWN -> {
-            if (coordinateX in 0 until spanCount && coordinateY in 0 until spanCount) {
+            if (coordinateX in 0 until canvasSize && coordinateY in 0 until canvasSize) {
                 caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
             } else {
                 prevX = null

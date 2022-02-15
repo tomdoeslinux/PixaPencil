@@ -12,7 +12,7 @@ import com.realtomjoney.pyxlmoose.models.Brush
 
 
 @SuppressLint("ViewConstructor")
-class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: Boolean) : View(context) {
+class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty: Boolean) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -41,7 +41,7 @@ class PixelGridView (context: Context, var spanCount: Int, private var isEmpty: 
         }
 
         if (!isEmpty) {
-            pixelGridViewBitmap = Bitmap.createBitmap(spanCount, spanCount, Bitmap.Config.ARGB_8888)
+            pixelGridViewBitmap = Bitmap.createBitmap(canvasSize, canvasSize, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
         }
 

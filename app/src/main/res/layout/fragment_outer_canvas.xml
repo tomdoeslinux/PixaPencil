@@ -14,18 +14,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView
+        <com.realtomjoney.pyxlmoose.customviews.squareframelayoutview.SquareFrameLayoutView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/activityCanvas_checkerboardTransparentBackground"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="matrix"
-                android:contentDescription="@string/activityCanvas_checkerboardTransparentBackground_content_description"
-                app:srcCompat="@drawable/checkerboard_pattern" />
-        </com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView>
-        <com.realtomjoney.pyxlmoose.customviews.SquareFrameLayoutView
+            android:layout_height="wrap_content"
+            android:id="@+id/defsq2">
+
+        </com.realtomjoney.pyxlmoose.customviews.squareframelayoutview.SquareFrameLayoutView>
+        <com.realtomjoney.pyxlmoose.customviews.squareframelayoutview.SquareFrameLayoutView
             android:id="@+id/fragmentOuterCanvas_canvasFragmentHost"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
