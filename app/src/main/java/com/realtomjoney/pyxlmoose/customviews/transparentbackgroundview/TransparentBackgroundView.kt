@@ -13,7 +13,9 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
     var scaleWidth = 0f
     var scaleHeight = 0f
 
-    var color = Color.GRAY
+    var isEvenCanvasSize = canvasSize % 2 == 0
+
+    var color = if (!isEvenCanvasSize) Color.WHITE else Color.LTGRAY
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
@@ -36,17 +38,33 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
                 for (i_2 in 0 until canvasSize) {
                     transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
 
-                    color = if (color == Color.LTGRAY) {
-                        Color.WHITE
+                    if (!isEvenCanvasSize) {
+                        color = if (color == Color.WHITE) {
+                            Color.LTGRAY
+                        } else {
+                            Color.WHITE
+                        }
                     } else {
-                        Color.LTGRAY
+                        color = if (color == Color.LTGRAY) {
+                            Color.WHITE
+                        } else {
+                            Color.LTGRAY
+                        }
                     }
                 }
 
-                color = if (color == Color.LTGRAY) {
-                    Color.WHITE
+                if (!isEvenCanvasSize) {
+                    color = if (color != Color.WHITE) {
+                        Color.LTGRAY
+                    } else {
+                        Color.WHITE
+                    }
                 } else {
-                    Color.LTGRAY
+                    color = if (color != Color.LTGRAY) {
+                        Color.LTGRAY
+                    } else {
+                        Color.WHITE
+                    }
                 }
             }
         }
