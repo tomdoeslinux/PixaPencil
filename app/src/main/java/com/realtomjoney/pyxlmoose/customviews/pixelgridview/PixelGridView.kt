@@ -9,6 +9,7 @@ import android.view.View
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
+import com.realtomjoney.pyxlmoose.models.Coordinates
 
 
 @SuppressLint("ViewConstructor")
@@ -69,6 +70,8 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
     private fun applyPixelPerfectValueFromPreference() = extendedApplyPixelPerfectValueFromPreference()
 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
+
+    fun coordinatesInCanvasBounds(coordinates: Coordinates) = (coordinates.x in 0 until canvasSize && coordinates.y in 0 until canvasSize)
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
