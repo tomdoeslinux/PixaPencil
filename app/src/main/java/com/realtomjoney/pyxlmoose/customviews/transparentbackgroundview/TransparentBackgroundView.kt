@@ -15,7 +15,7 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
 
     private var isEvenCanvasSize = canvasSize % 2 == 0
 
-    var color = if (!isEvenCanvasSize) Color.WHITE else Color.LTGRAY
+    var color = Color.LTGRAY
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
