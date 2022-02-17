@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
-import com.realtomjoney.pyxlmoose.models.BitmapActionData
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val borderColor: Int? = null) {
@@ -25,56 +25,40 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
         if (p1.x >= p2.x && p1.y <= p2.y) {
             while (x >= p2.x) {
                 for (i in y..p2.y) {
-                    algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                        Coordinates(x, i),
-                        algorithmInfo.bitmap.getPixel(x, i),
-                    ))
-                    algorithmInfo.bitmap.setPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
                 }
 
-                algorithmInfo.bitmap.setPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
 
                 x--
             }
         } else if (p1.x <= p2.x && p1.y <= p2.y) {
             while (x <= p2.x) {
                 for (i in y..p2.y) {
-                    algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                        Coordinates(x, i),
-                        algorithmInfo.bitmap.getPixel(x, i),
-                    ))
-                    algorithmInfo.bitmap.setPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
                 }
 
-                algorithmInfo.bitmap.setPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
 
                 x++
             }
         } else if (p1.x <= p2.x && p1.y >= p2.y) {
             while (x <= p2.x) {
                 for (i in p2.y..y) {
-                    algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                        Coordinates(x, i),
-                        algorithmInfo.bitmap.getPixel(x, i),
-                    ))
-                    algorithmInfo.bitmap.setPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
                 }
 
-                algorithmInfo.bitmap.setPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
 
                 x++
             }
         } else if (p1.x >= p2.x && p1.y >= p2.y) {
             while (x >= p2.x) {
                 for (i in p2.y..y) {
-                    algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                        Coordinates(x, i),
-                        algorithmInfo.bitmap.getPixel(x, i),
-                    ))
-                    algorithmInfo.bitmap.setPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
                 }
 
-                algorithmInfo.bitmap.setPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
 
                 x--
             }

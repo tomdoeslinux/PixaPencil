@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
-import com.realtomjoney.pyxlmoose.models.BitmapActionData
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
@@ -24,10 +23,6 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                Coordinates(x, y),
-                algorithmInfo.bitmap.getPixel(x, y),
-            ))
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             x++
 
@@ -60,10 +55,6 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            algorithmInfo.currentBitmapAction.actionData.add(BitmapActionData(
-                Coordinates(x, y),
-                algorithmInfo.bitmap.getPixel(x, y),
-            ))
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
             y++
 

@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
 import com.realtomjoney.pyxlmoose.activities.canvas.extendedUndo
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 
@@ -33,11 +34,7 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
         }
 
         for (value in data) {
-            algorithmInfoParameter.bitmap.setPixel(
-                value.xyPosition.x,
-                value.xyPosition.y,
-                algorithmInfoParameter.color
-            )
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(value.xyPosition.x, value.xyPosition.y, algorithmInfoParameter.color)
         }
 
         algorithmInfoParameter.currentBitmapActionData!!.toMutableList().add(BitmapAction(data))
