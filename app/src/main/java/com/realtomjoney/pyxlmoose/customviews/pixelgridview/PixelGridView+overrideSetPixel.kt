@@ -7,12 +7,10 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 fun PixelGridView.extendedOverrideSetPixel(x: Int, y: Int, color: Int) {
     val coordinates = Coordinates(x, y)
     if (coordinatesInCanvasBounds(coordinates)) {
-        currentBitmapAction!!.actionData.add(BitmapActionData(Coordinates(x, y), pixelGridViewBitmap.getPixel(x, y),))
+        currentBitmapAction!!.actionData.add(BitmapActionData(Coordinates(x, y), pixelGridViewBitmap.getPixel(x, y)))
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
 
-        if (currentBrush == null) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)))
-        } else {
+        if (currentBrush != null) {
             for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates)) {
                 if (coordinatesInCanvasBounds(xyPosition_2)) {
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(xyPosition_2, pixelGridViewBitmap.getPixel(xyPosition_2.x, xyPosition_2.y)))
