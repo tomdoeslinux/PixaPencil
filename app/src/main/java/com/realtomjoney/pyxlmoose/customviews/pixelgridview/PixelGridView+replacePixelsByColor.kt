@@ -8,7 +8,7 @@ fun PixelGridView.extendedReplacePixelsByColor(colorToFind: Int, colorToReplace:
     for (i_1 in 0 until pixelGridViewBitmap.width) {
         for (i_2 in 0 until pixelGridViewBitmap.height) {
             if (pixelGridViewBitmap.getPixel(i_1, i_2) == colorToFind) {
-                overrideSetPixel(i_1, i_2, colorToReplace)
+                overrideSetPixel(i_1, i_2, colorToReplace, true)
             }
         }
     }

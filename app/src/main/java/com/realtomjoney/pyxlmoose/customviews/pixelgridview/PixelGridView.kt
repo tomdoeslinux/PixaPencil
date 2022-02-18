@@ -61,7 +61,7 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int) = extendedOverrideSetPixel(x, y, color)
+    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) = extendedOverrideSetPixel(x, y, color, ignoreBrush)
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
