@@ -13,8 +13,6 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
     var scaleWidth = 0f
     var scaleHeight = 0f
 
-    private var isEvenCanvasSize = canvasSize % 2 == 0
-
     var color = Color.LTGRAY
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -34,36 +32,21 @@ class TransparentBackgroundView(context: Context, private val canvasSize: Int) :
         if (::transparentBackgroundViewBitmap.isInitialized) {
             canvas.drawBitmap(transparentBackgroundViewBitmap, calculateMatrix(transparentBackgroundViewBitmap, this.width, this.width), null)
 
+
             for (i_1 in 0 until canvasSize) {
                 for (i_2 in 0 until canvasSize) {
-                    transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
-
-                    color = if (!isEvenCanvasSize) {
-                        if (color == Color.WHITE) {
-                            Color.LTGRAY
+                    if (i_1 % 2 == 0) {
+                        if (i_1 % 2 == 0 && i_2 % 2 == 0) {
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.LTGRAY)
                         } else {
-                            Color.WHITE
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
                         }
                     } else {
-                        if (color == Color.LTGRAY) {
-                            Color.WHITE
+                        if (i_1 % 2 != 0 && i_2 % 2 != 0) {
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.LTGRAY)
                         } else {
-                            Color.LTGRAY
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
                         }
-                    }
-                }
-
-                color = if (!isEvenCanvasSize) {
-                    if (color != Color.WHITE) {
-                        Color.LTGRAY
-                    } else {
-                        Color.WHITE
-                    }
-                } else {
-                    if (color != Color.LTGRAY) {
-                        Color.LTGRAY
-                    } else {
-                        Color.WHITE
                     }
                 }
             }
