@@ -8,7 +8,7 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
         val modifiedShapeAlgorithmInfo = algorithmInfo
         modifiedShapeAlgorithmInfo.color = borderColor!!
 
-        val lineAlgorithmInstance = LineAlgorithm(modifiedShapeAlgorithmInfo)
+        val lineAlgorithmInstance = LineAlgorithm(modifiedShapeAlgorithmInfo, true)
 
         lineAlgorithmInstance.apply {
             compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
@@ -25,40 +25,40 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
         if (p1.x >= p2.x && p1.y <= p2.y) {
             while (x >= p2.x) {
                 for (i in y..p2.y) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color, true)
                 }
 
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, true)
 
                 x--
             }
         } else if (p1.x <= p2.x && p1.y <= p2.y) {
             while (x <= p2.x) {
                 for (i in y..p2.y) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color, true)
                 }
 
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, true)
 
                 x++
             }
         } else if (p1.x <= p2.x && p1.y >= p2.y) {
             while (x <= p2.x) {
                 for (i in p2.y..y) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color, true)
                 }
 
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, true)
 
                 x++
             }
         } else if (p1.x >= p2.x && p1.y >= p2.y) {
             while (x >= p2.x) {
                 for (i in p2.y..y) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color)
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, i, algorithmInfo.color, true)
                 }
 
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, true)
 
                 x--
             }

@@ -4,7 +4,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
-class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
+class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, val ignoreBrush: Boolean = false) {
     private fun drawLineY(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y
@@ -23,7 +23,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, ignoreBrush)
             x++
 
             if (p < 0) {
@@ -55,7 +55,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(x, y, algorithmInfo.color, ignoreBrush)
             y++
 
             if (p < 0) {
