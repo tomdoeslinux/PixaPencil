@@ -19,7 +19,7 @@ class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
                 continue
             }
 
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(current.x, current.y, algorithmInfo.color)
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(current.x, current.y, algorithmInfo.color, true)
 
             val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
             for (index in expandToNeighborsAlgorithmInstance.compute(current)) {
