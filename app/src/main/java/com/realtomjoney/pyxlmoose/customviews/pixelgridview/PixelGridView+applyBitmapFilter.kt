@@ -1,10 +1,7 @@
 package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.BitmapAction
-import com.realtomjoney.pyxlmoose.models.BitmapActionData
-import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
     currentBitmapAction = BitmapAction(mutableListOf(), true)
@@ -14,20 +11,12 @@ fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
             if (pixelGridViewBitmap.getPixel(i_1, i_2) != Color.TRANSPARENT) {
                 val color = lambda(pixelGridViewBitmap.getPixel(i_1, i_2))
 
-                currentBitmapAction!!.actionData.add(
-                    BitmapActionData(
-                    Coordinates(i_1, i_2),
-                    pixelGridViewBitmap.getPixel(i_1, i_2),
-                )
-                )
-
-                pixelGridViewBitmap.setPixel(i_1, i_2, color)
+                overrideSetPixel(i_1, i_2, color)
             }
         }
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+    bitmapActionData.add(currentBitmapAction!!)
 
     invalidate()
 }
