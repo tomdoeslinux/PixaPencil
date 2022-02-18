@@ -4,7 +4,7 @@ import android.graphics.Color
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 
 fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
-    currentBitmapAction = BitmapAction(mutableListOf(), true)
+    currentBitmapAction = BitmapAction(mutableListOf())
 
     for (i_1 in 0 until pixelGridViewBitmap.width) {
         for (i_2 in 0 until pixelGridViewBitmap.height) {
