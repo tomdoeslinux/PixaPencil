@@ -15,7 +15,6 @@ Things to take in note:
 
 - Redo tool is not functioning.
 - Grid tool is not functioning.
-- Undo tool doesn't work for 'Find and Replace'.
 
 All these issues will be fixed soon!
 
