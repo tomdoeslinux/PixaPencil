@@ -138,6 +138,19 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_polygon_tool_content_description"/>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_polygonButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_polygon_tool_content_description"
+                    app:srcCompat="@drawable/ic_vector_polygon" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
                     android:contentDescription="@string/fragmentTools_darken_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_darkenButton"

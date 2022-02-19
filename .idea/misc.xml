@@ -64,11 +64,12 @@
         <entry key="..\:/Users/TO/AndroidStudioProjects/PyxlMoose/app/src/main/res/xml/provider_paths.xml" value="0.11875" />
         <entry key="app/src/main/res/drawable/border_drawable_frame.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/border_drawable_frame_2.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/ic_baseline_undo_24.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/ic_mirror.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/ic_rectangle_outline__1_.xml" value="0.2825" />
         <entry key="app/src/main/res/drawable/ic_vector_line.xml" value="0.244" />
         <entry key="app/src/main/res/drawable/lighten_icon.xml" value="0.2975" />
-        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/brushes_layout.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/color_palettes_layout.xml" value="0.2833333333333333" />

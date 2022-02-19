@@ -10,9 +10,9 @@ import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
 class CanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
-
     lateinit var myCanvasViewInstance: PixelGridView
 
+    var mcntx = this.context
     var bitmap: Bitmap? = null
 
     private fun setupCanvas() {

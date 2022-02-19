@@ -4,7 +4,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import kotlin.math.abs
 
-class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, val ignoreBrush: Boolean = false) {
+class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val ignoreBrush: Boolean = false) {
     private fun drawLineY(from: Coordinates, to: Coordinates) {
         var x = from.x
         var y = from.y

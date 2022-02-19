@@ -12,6 +12,9 @@ fun CanvasActivity.extendedOnActionUp() {
     } else if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
         rectangleOrigin = null
         rectangleMode_hasLetGo = true
+    }
+    else if(currentTool == Tools.POLYGON_TOOL) {
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
 

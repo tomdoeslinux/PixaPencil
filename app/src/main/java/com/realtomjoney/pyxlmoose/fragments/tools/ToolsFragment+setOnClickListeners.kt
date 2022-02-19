@@ -70,6 +70,11 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.SPRAY_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsPolygonButton.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.POLYGON_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsDarkenButton.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)

@@ -8,9 +8,16 @@ import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
+import com.realtomjoney.pyxlmoose.utility.Flags
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
+    if (currentTool == Tools.POLYGON_TOOL && toolName != StringConstants.POLYGON_TOOL_IDENTIFIER) {
+        Flags.DISABLE_ACTION_MOVE = false
+        polygonCoordinates.clear()
+        cindx = 0
+    }
+
     when (toolName) {
         StringConstants.PENCIL_TOOL_IDENTIFIER -> currentTool = Tools.PENCIL_TOOL
 
@@ -45,6 +52,16 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             }
 
             currentTool = Tools.SPRAY_TOOL
+        }
+
+        StringConstants.POLYGON_TOOL_IDENTIFIER -> {
+            if (currentTool == Tools.POLYGON_TOOL) {
+                outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+
+                polygonCoordinates.clear()
+                cindx = 0
+            }
+            currentTool = Tools.POLYGON_TOOL
         }
 
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {

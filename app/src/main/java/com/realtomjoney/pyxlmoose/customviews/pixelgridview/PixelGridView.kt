@@ -11,9 +11,8 @@ import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-
 @SuppressLint("ViewConstructor")
-class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty: Boolean) : View(context) {
+class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty: Boolean) : View(context){
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -61,7 +60,8 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) = extendedOverrideSetPixel(x, y, color, ignoreBrush)
+    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) =
+        extendedOverrideSetPixel(x, y, color, ignoreBrush)
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
