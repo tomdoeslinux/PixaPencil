@@ -14,7 +14,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
         R.id.zoom_out -> {
             outerCanvasInstance.cardViewParent.apply {
-                if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > 0.2f) {
+                if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement) {
                     scaleX -= zoomIncrement
                     scaleY -= zoomIncrement
                 }
