@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.customviews.squareframelayoutview.SquareFrameLayoutView
 import com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
@@ -13,8 +15,8 @@ import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
     lateinit var canvasFragment: CanvasFragment
-    lateinit var cardViewParent: View
-    lateinit var fragmentHost: View
+    lateinit var cardViewParent: CardView
+    lateinit var fragmentHost: SquareFrameLayoutView
     lateinit var transparentBackgroundView: TransparentBackgroundView
 
     private fun instantiateVariables() {
