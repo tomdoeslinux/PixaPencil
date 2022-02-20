@@ -57,6 +57,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Rectangle tool
 - Outlined rectangle tool
 - Spray tool
+- Polygon tool
+- Dither tool
 - Darkening tool
 - Lightening tool
 - Clear canvas tool
