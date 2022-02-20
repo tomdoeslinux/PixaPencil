@@ -1,16 +1,18 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
-import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
+import com.realtomjoney.pyxlmoose.algorithms.RectanglePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
+
+var coordinates: Coordinates? = null
 
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
-    val rectangleAlgorithmInstance: RectangleAlgorithm = if (!hasBorder) {
-        RectangleAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
+    val rectangleAlgorithmInstance: RectanglePreviewAlgorithm = if (!hasBorder) {
+        RectanglePreviewAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
     } else {
-        RectangleAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color), (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
+        RectanglePreviewAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color))
     }
 
     if (!rectangleMode_hasLetGo) {
@@ -27,5 +29,6 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         rectangleOrigin = coordinatesTapped
     } else {
         rectangleAlgorithmInstance.compute(rectangleOrigin!!, coordinatesTapped)
+        coordinates = coordinatesTapped
     }
 }

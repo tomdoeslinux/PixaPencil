@@ -1,7 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.PixelPerfectAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 import com.realtomjoney.pyxlmoose.database.BrushesDatabase
 
 fun CanvasActivity.extendedOnActionUp() {
@@ -10,6 +12,29 @@ fun CanvasActivity.extendedOnActionUp() {
         lineMode_hasLetGo = true
         rectangleMode_hasLetGo = true
     } else if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
+        if (coordinates != null && rectangleOrigin != null) {
+            val rectAlg: RectangleAlgorithm =
+                if (currentTool == Tools.OUTLINED_RECTANGLE_TOOL)
+                    RectangleAlgorithm(
+                        AlgorithmInfoParameter(
+                            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                            (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
+                        ),
+                        (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
+                    )
+                else
+                    RectangleAlgorithm(
+                        AlgorithmInfoParameter(
+                            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                            getSelectedColor()
+                        )
+                    )
+
+            rectAlg.compute(rectangleOrigin!!, coordinates!!)
+        }
+        coordinates = null
         rectangleOrigin = null
         rectangleMode_hasLetGo = true
     }
