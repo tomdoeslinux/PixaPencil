@@ -1,11 +1,13 @@
 package com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
 
+@SuppressLint("ViewConstructor")
 class TransparentBackgroundView(context: Context, private val canvasSize: Int) : View(context) {
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
