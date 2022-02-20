@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun CanvasActivity.findAndReplaceToolOnPixelTapped() {
+fun CanvasActivity.findAndReplaceToolOnToolTapped() {
     val uniqueColors = outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors()
 
     if (uniqueColors.isNotEmpty()) {

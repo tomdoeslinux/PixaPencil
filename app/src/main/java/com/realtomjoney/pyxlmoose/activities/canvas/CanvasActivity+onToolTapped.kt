@@ -1,10 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.utility.Flags
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
@@ -30,26 +27,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
 
-        StringConstants.SPRAY_TOOL_IDENTIFIER -> {
-            if (currentTool == Tools.SPRAY_TOOL) {
-                sprayToolSettingsFragmentInstance =
-                    SprayToolSettingsFragment.newInstance()
-                currentFragmentInstance = sprayToolSettingsFragmentInstance
-
-                navigateTo(
-                    supportFragmentManager,
-                    sprayToolSettingsFragmentInstance,
-                    R.id.activityCanvas_primaryFragmentHost,
-                    StringConstants.FRAGMENT_SPRAY_TOOL_SETTINGS_TITLE,
-                    binding.activityCanvasPrimaryFragmentHost,
-                    binding.activityCanvasRootLayout
-                )
-
-                hideMenuItems()
-            }
-
-            currentTool = Tools.SPRAY_TOOL
-        }
+        StringConstants.SPRAY_TOOL_IDENTIFIER -> sprayToolOnToolTapped()
 
         StringConstants.POLYGON_TOOL_IDENTIFIER -> {
             if (currentTool == Tools.POLYGON_TOOL) {
@@ -85,7 +63,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
 
-        StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> findAndReplaceToolOnPixelTapped()
+        StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> findAndReplaceToolOnToolTapped()
 
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
     }
