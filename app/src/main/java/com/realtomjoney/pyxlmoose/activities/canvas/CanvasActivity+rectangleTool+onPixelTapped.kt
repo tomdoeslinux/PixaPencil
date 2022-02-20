@@ -19,7 +19,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         RectanglePreviewAlgorithm(AlgorithmInfoParameter(
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-            (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
+            (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
         ))
     }
 
