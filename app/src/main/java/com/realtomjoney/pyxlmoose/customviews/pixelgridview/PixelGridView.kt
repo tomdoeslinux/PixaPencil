@@ -4,8 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.view.MotionEvent
 import android.view.View
+import com.realtomjoney.pyxlmoose.activities.canvas.Tools
+import com.realtomjoney.pyxlmoose.activities.canvas.currentTool
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -71,7 +75,11 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     private fun calculateMatrix(bm: Bitmap, newHeight: Int, newWidth: Int) = extendedCalculateMatrix(bm, newHeight, newWidth)
 
-    fun coordinatesInCanvasBounds(coordinates: Coordinates) = (coordinates.x in 0 until canvasSize && coordinates.y in 0 until canvasSize)
+    fun coordinatesInCanvasBounds(coordinates: Coordinates) =
+        if (currentTool != Tools.DITHER_TOOL)
+                (coordinates.x in 0 until canvasSize && coordinates.y in 0 until canvasSize)
+        else
+                (coordinates.x in 0 until canvasSize && coordinates.y in 0 until canvasSize && outerCanvasInstance.transparentBackgroundView.transparentBackgroundViewBitmap.getPixel(coordinates.x, coordinates.y) == Color.LTGRAY)
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
