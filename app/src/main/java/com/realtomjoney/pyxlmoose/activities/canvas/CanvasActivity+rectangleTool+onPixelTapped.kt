@@ -10,9 +10,17 @@ var coordinates: Coordinates? = null
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
     val rectangleAlgorithmInstance: RectanglePreviewAlgorithm = if (!hasBorder) {
-        RectanglePreviewAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
+        RectanglePreviewAlgorithm(AlgorithmInfoParameter(
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+            getSelectedColor()
+        ))
     } else {
-        RectanglePreviewAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color))
+        RectanglePreviewAlgorithm(AlgorithmInfoParameter(
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+            (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
+        ))
     }
 
     if (!rectangleMode_hasLetGo) {

@@ -23,8 +23,8 @@ fun CanvasActivity.extendedOnActionUp() {
             val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(AlgorithmInfoParameter(
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                getSelectedColor(),
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData))
+                getSelectedColor()
+            ))
             pixelPerfectAlgorithmInstance.compute()
         }
 

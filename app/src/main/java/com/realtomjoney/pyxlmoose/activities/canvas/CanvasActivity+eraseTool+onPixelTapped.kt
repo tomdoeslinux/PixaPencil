@@ -16,7 +16,11 @@ fun eraseToolOnPixelTapped(coordinatesTapped: Coordinates) {
     }
 
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null && outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {
-        val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap, outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, Color.TRANSPARENT))
+        val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+            Color.TRANSPARENT
+        ))
 
         lineAlgorithmInstance.compute(Coordinates(outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX!!, outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY!!), coordinatesTapped)
     }

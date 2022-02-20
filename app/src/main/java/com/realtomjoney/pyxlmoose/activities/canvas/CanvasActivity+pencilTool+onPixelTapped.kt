@@ -27,7 +27,11 @@ fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
     }
 
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null && outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {
-        val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter( outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap, outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!, getSelectedColor()))
+        val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+            getSelectedColor()
+        ))
 
         lineAlgorithmInstance.compute(Coordinates(outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX!!,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY!!), coordinatesTapped)
     }
