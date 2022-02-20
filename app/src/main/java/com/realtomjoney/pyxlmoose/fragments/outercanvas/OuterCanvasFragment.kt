@@ -15,6 +15,7 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     lateinit var canvasFragment: CanvasFragment
     lateinit var cardViewParent: View
     lateinit var fragmentHost: View
+    lateinit var transparentBackgroundView: TransparentBackgroundView
 
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
@@ -23,8 +24,8 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     }
 
     private fun showCanvas() {
-        val transparent = TransparentBackgroundView(requireContext(), spanCount)
-        binding.defsq2.addView(transparent)
+        transparentBackgroundView = TransparentBackgroundView(requireContext(), spanCount)
+        binding.defsq2.addView(transparentBackgroundView)
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 

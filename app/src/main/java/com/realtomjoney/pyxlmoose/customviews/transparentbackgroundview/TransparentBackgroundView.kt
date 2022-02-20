@@ -8,7 +8,7 @@ import android.view.View
 
 class TransparentBackgroundView(context: Context, private val canvasSize: Int) : View(context) {
     private lateinit var transparentBackgroundViewCanvas: Canvas
-    private lateinit var transparentBackgroundViewBitmap: Bitmap
+    lateinit var transparentBackgroundViewBitmap: Bitmap
 
     var scaleWidth = 0f
     var scaleHeight = 0f

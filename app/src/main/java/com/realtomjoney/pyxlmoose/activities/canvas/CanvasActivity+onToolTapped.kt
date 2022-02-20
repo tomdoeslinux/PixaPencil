@@ -64,6 +64,10 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.POLYGON_TOOL
         }
 
+        StringConstants.DITHER_TOOL_IDENTIFIER -> {
+            currentTool = Tools.DITHER_TOOL
+        }
+
         StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
             filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DARKEN_TOOL

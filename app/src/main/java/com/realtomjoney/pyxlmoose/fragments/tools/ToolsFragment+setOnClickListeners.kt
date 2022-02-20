@@ -75,6 +75,11 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.POLYGON_TOOL_IDENTIFIER)
         }
 
+        fragmentToolsDitherButton.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.DITHER_TOOL_IDENTIFIER)
+        }
+
         fragmentToolsDarkenButton.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
