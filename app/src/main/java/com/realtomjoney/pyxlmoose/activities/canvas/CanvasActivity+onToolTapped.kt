@@ -2,11 +2,8 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
 import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.extensions.showDialog
-import com.realtomjoney.pyxlmoose.extensions.showSnackbar
-import com.realtomjoney.pyxlmoose.fragments.findandreplace.FindAndReplaceFragment
 import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.utility.Flags
 import com.realtomjoney.pyxlmoose.utility.StringConstants
@@ -88,26 +85,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
 
-        StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> {
-            val uniqueColors = outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors()
+        StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> findAndReplaceToolOnPixelTapped()
 
-            if (uniqueColors.isNotEmpty()) {
-                findAndReplaceFragmentInstance =
-                    FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors())
-                currentFragmentInstance = findAndReplaceFragmentInstance
-                navigateTo(
-                    supportFragmentManager,
-                    findAndReplaceFragmentInstance,
-                    R.id.activityCanvas_primaryFragmentHost,
-                    StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE,
-                    binding.activityCanvasPrimaryFragmentHost,
-                    binding.activityCanvasRootLayout
-                )
-                hideMenuItems()
-            } else {
-                binding.activityCanvasRootLayout.showSnackbar("You must have at least one color on your canvas to use this tool", SnackbarDuration.DEFAULT)
-            }
-        }
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
     }
 }
