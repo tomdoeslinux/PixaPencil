@@ -27,6 +27,10 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
 
+        StringConstants.SQUARE_TOOL_IDENTIFIER -> currentTool = Tools.SQUARE_TOOL
+
+        StringConstants.OUTLINED_SQUARE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_SQUARE_TOOL
+
         StringConstants.SPRAY_TOOL_IDENTIFIER -> sprayToolOnToolTapped()
 
         StringConstants.POLYGON_TOOL_IDENTIFIER -> {

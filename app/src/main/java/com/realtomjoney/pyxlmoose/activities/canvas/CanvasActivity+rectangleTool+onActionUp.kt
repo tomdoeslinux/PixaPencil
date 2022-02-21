@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 fun CanvasActivity.rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
         val rectAlg: RectangleAlgorithm =
-            if (currentTool == Tools.OUTLINED_RECTANGLE_TOOL)
+            if (currentTool == Tools.OUTLINED_RECTANGLE_TOOL || currentTool == Tools.OUTLINED_SQUARE_TOOL)
                 RectangleAlgorithm(
                     AlgorithmInfoParameter(
                         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
@@ -30,4 +30,6 @@ fun CanvasActivity.rectangleToolOnActionUp() {
     coordinates = null
     rectangleOrigin = null
     rectangleMode_hasLetGo = true
+    rectangleAlgorithmInstance = null
+    squareAlgorithmInstance = null
 }

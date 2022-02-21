@@ -90,4 +90,6 @@
     <string name="fragmentSprayToolSettings_done_str">Done</string>
     <string name="fragmentTools_polygon_tool_content_description">Polygon Tool</string>
     <string name="fragmentTools_dither_tool_content_description">Dither Tool</string>
+    <string name="fragmentTools_square_tool_content_description">Square Tool</string>
+    <string name="fragmentTools_outlined_square_button_content_description">Outlined Square Button</string>
 </resources>

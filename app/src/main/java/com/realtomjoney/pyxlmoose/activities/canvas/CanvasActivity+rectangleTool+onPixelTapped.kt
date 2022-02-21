@@ -3,24 +3,51 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.RectanglePreviewAlgorithm
+import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 var coordinates: Coordinates? = null
+var rectangleAlgorithmInstance: RectanglePreviewAlgorithm? = null
+var squareAlgorithmInstance: SquarePreviewAlgorithm? = null
 
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
-    val rectangleAlgorithmInstance: RectanglePreviewAlgorithm = if (!hasBorder) {
-        RectanglePreviewAlgorithm(AlgorithmInfoParameter(
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-            getSelectedColor()
-        ))
+    if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
+        rectangleAlgorithmInstance = if (!hasBorder) {
+            RectanglePreviewAlgorithm(
+                AlgorithmInfoParameter(
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                    getSelectedColor()
+                )
+            )
+        } else {
+            RectanglePreviewAlgorithm(
+                AlgorithmInfoParameter(
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                    (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
+                )
+            )
+        }
     } else {
-        RectanglePreviewAlgorithm(AlgorithmInfoParameter(
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-            (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
-        ))
+        squareAlgorithmInstance = if (!hasBorder) {
+            SquarePreviewAlgorithm(
+                AlgorithmInfoParameter(
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                    getSelectedColor()
+                )
+            )
+        } else {
+            SquarePreviewAlgorithm(
+                AlgorithmInfoParameter(
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
+                    (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
+                )
+            )
+        }
     }
 
     if (!rectangleMode_hasLetGo) {
@@ -36,7 +63,11 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
     if (rectangleOrigin == null) {
         rectangleOrigin = coordinatesTapped
     } else {
-        rectangleAlgorithmInstance.compute(rectangleOrigin!!, coordinatesTapped)
-        coordinates = coordinatesTapped
+        if (rectangleAlgorithmInstance != null) {
+            rectangleAlgorithmInstance!!.compute(rectangleOrigin!!, coordinatesTapped)
+            coordinates = coordinatesTapped
+        } else {
+            squareAlgorithmInstance!!.compute(rectangleOrigin!!, coordinatesTapped)
+        }
     }
 }

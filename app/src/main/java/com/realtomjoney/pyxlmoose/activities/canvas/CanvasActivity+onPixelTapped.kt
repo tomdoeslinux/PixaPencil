@@ -18,6 +18,8 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         Tools.LINE_TOOL -> lineToolOnPixelTapped(coordinatesTapped)
         Tools.RECTANGLE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, false)
         Tools.OUTLINED_RECTANGLE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, true)
+        Tools.SQUARE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, false)
+        Tools.OUTLINED_SQUARE_TOOL -> rectangleToolOnPixelTapped(coordinatesTapped, true)
         Tools.SPRAY_TOOL -> sprayToolOnPixelTapped(coordinatesTapped)
         Tools.POLYGON_TOOL -> polygonToolOnPixelTapped(coordinatesTapped)
         Tools.DITHER_TOOL -> pencilToolOnPixelTapped(coordinatesTapped)
