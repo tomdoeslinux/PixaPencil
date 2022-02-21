@@ -8,23 +8,16 @@ import com.realtomjoney.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragm
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
+const val zoomIncrement = 0.2f
+
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
-    val zoomIncrement = 0.2f
 
     when (item.itemId) {
         R.id.zoom_out -> {
-            outerCanvasInstance.cardViewParent.apply {
-                if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement) {
-                    scaleX -= zoomIncrement
-                    scaleY -= zoomIncrement
-                }
-            }
+            zoomOut()
         }
         R.id.zoom_in -> {
-            outerCanvasInstance.cardViewParent.apply {
-                scaleX += zoomIncrement
-                scaleY += zoomIncrement
-            }
+            zoomIn()
         }
         R.id.save_project -> extendedSaveProject()
 
@@ -69,7 +62,6 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.rotate_90_degrees_anti_clockwise -> {
             outerCanvasInstance.rotate(IntConstants.DEGREES_NINETY, animate = true, clockwise = false)
         }
-
 
         R.id.reset_zoom -> {
             resetZoom()
