@@ -27,6 +27,13 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
         holder.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
 
+        holder.colorView.setOnLongClickListener {
+            if (colorData[position] != Color.TRANSPARENT) {
+                caller!!.onColorLongTapped(data, position)
+            }
+            true
+        }
+
         if (isPaletteMode && !isPreviewMode) {
             if (colorData[position] == Color.TRANSPARENT) {
                 holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)

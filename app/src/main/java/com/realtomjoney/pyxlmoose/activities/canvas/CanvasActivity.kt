@@ -5,6 +5,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.realtomjoney.pyxlmoose.converters.JsonConverter
+import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -53,6 +55,15 @@ class CanvasActivity :
     override fun onActionUp() = extendedOnActionUp()
 
     override fun onColorTapped(colorTapped: Int, view: View) = extendedOnColorTapped(colorTapped, view)
+
+    override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
+        val extractedJson =
+            JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+        extractedJson.removeAt(colorIndex)
+
+        AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
+            JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
+    }
 
     override fun onColorAdded(colorPalette: ColorPalette) = extendedOnAddColorTapped(colorPalette)
 

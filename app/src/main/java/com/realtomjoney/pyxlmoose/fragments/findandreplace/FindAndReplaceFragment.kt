@@ -3,10 +3,10 @@ package com.realtomjoney.pyxlmoose.fragments.findandreplace
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
@@ -39,11 +39,19 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>) : Fragment() {
 
     internal class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToFind.setBackgroundColor(colorTapped)
+        override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
+            TODO("Not yet implemented")
+        }
+
         override fun onColorAdded(colorPalette: ColorPalette) {}
     }
 
     internal class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) = binding.fragmentFindAndReplaceColorToReplace.setBackgroundColor(colorTapped)
+        override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
+            TODO("Not yet implemented")
+        }
+
         override fun onColorAdded(colorPalette: ColorPalette) {}
     }
 
