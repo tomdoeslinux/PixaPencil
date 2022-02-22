@@ -2,14 +2,15 @@ package com.realtomjoney.pyxlmoose.fragments.colorpalettes
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPalettesBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
@@ -55,8 +56,16 @@ class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), Co
     }
 
     override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
+        val name = selectedColorPalette.colorPaletteName
+
         if (!selectedColorPalette.isPrimaryColorPalette) {
-            deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
+            requireActivity().showDialog(
+                "Delete '$name'?",
+                "Are you sure you want to delete '$name'? - this cannot be undone.",
+                StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _ ->
+                    deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
+                }, "Cancel", null, null
+            )
         } else {
             binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SNACKBAR_CANNOT_DELETE_PRIMARY_COLOR_PALETTE_TEXT, SnackbarDuration.DEFAULT)
         }
