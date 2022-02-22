@@ -7,6 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -59,10 +61,20 @@ class CanvasActivity :
     override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
         val extractedJson =
             JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+        val color = extractedJson[colorIndex]
         extractedJson.removeAt(colorIndex)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
             JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
+
+        val colorPaletteName = colorPalette.colorPaletteName
+
+        binding.activityCanvasRootLayout.showSnackbarWithAction("Removed color from '$colorPaletteName'", SnackbarDuration.DEFAULT, "Undo") {
+            extractedJson.add(colorIndex, color)
+
+            AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
+                JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
+        }
     }
 
     override fun onColorAdded(colorPalette: ColorPalette) = extendedOnAddColorTapped(colorPalette)
