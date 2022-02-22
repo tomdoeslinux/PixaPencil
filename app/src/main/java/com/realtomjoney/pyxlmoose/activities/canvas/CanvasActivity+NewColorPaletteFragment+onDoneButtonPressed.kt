@@ -12,10 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
-    showMenuItems()
-    currentFragmentInstance = null
-    navigateHome(supportFragmentManager, newColorPaletteFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, StringConstants.PROJECT_TITLE_EXTRA)
-
     CoroutineScope(Dispatchers.IO).launch {
         if (!extractColorPaletteFromCanvas) {
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
@@ -41,5 +37,8 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(it.last(), this)
     }
 
+    currentFragmentInstance = null
+    navigateHome(supportFragmentManager, newColorPaletteFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA)!!)
     switchSelectedColorIndicator()
+    showMenuItems()
 }

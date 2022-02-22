@@ -66,7 +66,7 @@ class CanvasActivity :
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
             JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
-
+        
         val colorPaletteName = colorPalette.colorPaletteName
 
         binding.activityCanvasRootLayout.showSnackbarWithAction("Removed color from '$colorPaletteName'", SnackbarDuration.DEFAULT, "Undo") {

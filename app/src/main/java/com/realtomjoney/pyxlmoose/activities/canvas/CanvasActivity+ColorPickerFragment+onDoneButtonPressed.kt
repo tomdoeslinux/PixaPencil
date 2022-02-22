@@ -8,13 +8,12 @@ import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
-    showMenuItems()
     if (!colorPaletteMode) {
         setPixelColor(selectedColor)
     } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
-        newData.removeIf { it == Color.TRANSPARENT }
+        newData.remove(Color.TRANSPARENT)
         newData.add(Color.TRANSPARENT)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListOfIntToJsonString(newData.toList()), fromDB!!.objId)
@@ -30,8 +29,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
     }
 
     currentFragmentInstance = null
-    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(
-        StringConstants.PROJECT_TITLE_EXTRA)!!)
-
+    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA)!!)
     switchSelectedColorIndicator()
+    showMenuItems()
 }
