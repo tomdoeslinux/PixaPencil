@@ -7,11 +7,13 @@ import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
 fun extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
+    val copy2 = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+
     val extractedJson =
         JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
     extractedJson.removeAt(colorIndex)
 
-    val color = extractedJson[colorIndex]
+    val color = copy2[colorIndex]
 
     AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
         JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
