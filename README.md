@@ -48,7 +48,7 @@ PyxlMoose is a project I am submitting for NCEA Level 3 Digital Technologies.
 
 It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
 
-## Features (as of February 20, 2022)
+## Features (as of February 22, 2022)
 - Pencil tool
 - Fill tool
 - Horizontal mirror tool
@@ -56,6 +56,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Line tool
 - Rectangle tool
 - Outlined rectangle tool
+- Square tool
+- Outlined square tool
 - Spray tool
 - Polygon tool
 - Dither tool
