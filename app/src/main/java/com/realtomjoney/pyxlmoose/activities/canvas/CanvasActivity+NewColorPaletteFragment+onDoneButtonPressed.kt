@@ -7,6 +7,7 @@ import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.models.ColorPalette
+import com.realtomjoney.pyxlmoose.utility.LongConstants
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,6 +45,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         val h = Handler(Looper.getMainLooper())
         h.postDelayed( {
             extendedOnColorPaletteTapped(it.last())
-        }, 20)
+        }, LongConstants.DEF_HANDLER_DELAY)
     }
 }
