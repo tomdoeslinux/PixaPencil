@@ -17,7 +17,7 @@ import java.io.FileOutputStream
 
 class FileHelperUtilities(private val context: Context) {
     companion object {
-        fun createInstance(context: Context) = FileHelperUtilities(context)
+        fun createInstanceFromContext(context: Context) = FileHelperUtilities(context)
     }
 
     fun saveBitmapAsImage(compressionOutputQuality: Int,

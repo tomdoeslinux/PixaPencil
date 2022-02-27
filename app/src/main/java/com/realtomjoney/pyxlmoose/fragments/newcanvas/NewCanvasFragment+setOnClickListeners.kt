@@ -13,7 +13,7 @@ fun setOnClickListeners() {
                 Integer.parseInt(fragmentNewCanvasSpanCountTextInputEditText.text.toString())
 
             if (parsedSpanCountValue !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX) {
-                HapticFeedbackWrapper.performHapticFeedbackOn(binding.fragmentNewCanvasDoneButton)
+                HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
                     StringConstants.EX_INVALID_SPAN_COUNT,
                     SnackbarDuration.DEFAULT
@@ -26,7 +26,7 @@ fun setOnClickListeners() {
                         fragmentNewCanvasProjectTitleTextInputEditText
                     )
                 } catch (ex: Exception) {
-                    HapticFeedbackWrapper.performHapticFeedbackOn(binding.fragmentNewCanvasDoneButton)
+                    HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                     root.showSnackbar(
                         StringConstants.EX_INVALID_SPAN_COUNT,
                         SnackbarDuration.DEFAULT

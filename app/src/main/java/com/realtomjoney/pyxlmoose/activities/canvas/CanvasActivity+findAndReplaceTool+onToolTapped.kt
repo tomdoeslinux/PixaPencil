@@ -12,7 +12,7 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
 
     if (uniqueColors.isNotEmpty()) {
         findAndReplaceFragmentInstance =
-            FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors())
+            FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
         currentFragmentInstance = findAndReplaceFragmentInstance
         navigateTo(
             supportFragmentManager,

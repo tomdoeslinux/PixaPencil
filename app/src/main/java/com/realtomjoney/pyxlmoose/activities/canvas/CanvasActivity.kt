@@ -1,10 +1,12 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.realtomjoney.pyxlmoose.extensions.replacePixelsByColor
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -27,6 +29,9 @@ class CanvasActivity :
     var previousView: View? = null
 
     val context = this
+
+    private var previewColorToFind: Int? = null
+    private var previewColorToReplace: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +64,30 @@ class CanvasActivity :
     override fun onColorAdded(colorPalette: ColorPalette) = extendedOnAddColorTapped(colorPalette)
 
     override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) = extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
+
+    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap {
+        previewColorToFind = colorToFind
+
+        val toReturn: Bitmap = if (previewColorToReplace != null) {
+            val bmp = getCoverImageBitmap()
+            bmp.replacePixelsByColor(previewColorToFind!!, previewColorToReplace!!)
+
+            bmp
+        } else {
+            getCoverImageBitmap()
+        }
+
+        return toReturn
+    }
+
+    override fun onColorToReplaceTapped(bitmap: Bitmap, colorToReplace: Int): Bitmap {
+        previewColorToReplace = colorToReplace
+
+        val bmp = getCoverImageBitmap()
+        bmp.replacePixelsByColor(previewColorToFind!!, previewColorToReplace!!)
+
+        return bmp
+    }
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
 
