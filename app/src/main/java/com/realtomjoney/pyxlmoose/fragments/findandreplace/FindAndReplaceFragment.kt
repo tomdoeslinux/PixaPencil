@@ -64,6 +64,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
     private fun setOnClickListeners() {
         binding.fragmentFindAndReplaceDoneButton.setOnClickListener {
             caller.onDoneButtonPressed(colorToFind, colorToReplace)
+            lock = true
         }
     }
 
