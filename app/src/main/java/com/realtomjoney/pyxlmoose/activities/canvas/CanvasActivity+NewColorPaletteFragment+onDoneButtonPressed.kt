@@ -1,7 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
+import android.os.Handler
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
@@ -33,12 +33,16 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         }
     }
 
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(it.last(), this)
-    }
-
     currentFragmentInstance = null
     navigateHome(supportFragmentManager, newColorPaletteFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.PROJECT_TITLE_EXTRA)!!)
     switchSelectedColorIndicator()
     showMenuItems()
+
+
+    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+        val h = Handler()
+        h.postDelayed( {
+            extendedOnColorPaletteTapped(it.last())
+        }, 20)
+    }
 }
