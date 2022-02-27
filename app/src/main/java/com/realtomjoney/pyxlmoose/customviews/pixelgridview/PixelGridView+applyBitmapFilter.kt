@@ -11,7 +11,7 @@ fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
             if (pixelGridViewBitmap.getPixel(i_1, i_2) != Color.TRANSPARENT) {
                 val color = lambda(pixelGridViewBitmap.getPixel(i_1, i_2))
 
-                overrideSetPixel(i_1, i_2, color)
+                overrideSetPixel(i_1, i_2, color, true)
             }
         }
     }
