@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -111,7 +112,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
         setOnClickListeners()
         setupPreview()
 
-        val h = Handler()
+        val h = Handler(Looper.getMainLooper())
         h.postDelayed( {
             lock = false
         }, 20)

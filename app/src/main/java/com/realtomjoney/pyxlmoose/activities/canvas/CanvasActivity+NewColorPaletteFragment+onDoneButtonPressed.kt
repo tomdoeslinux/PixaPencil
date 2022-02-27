@@ -2,6 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
 import android.os.Handler
+import android.os.Looper
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.extensions.navigateHome
@@ -40,7 +41,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
 
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        val h = Handler()
+        val h = Handler(Looper.getMainLooper())
         h.postDelayed( {
             extendedOnColorPaletteTapped(it.last())
         }, 20)
