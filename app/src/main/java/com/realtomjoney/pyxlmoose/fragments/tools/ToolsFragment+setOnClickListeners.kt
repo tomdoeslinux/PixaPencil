@@ -5,10 +5,18 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun ToolsFragment.getSelectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_blue_dark), ContextCompat.getColorStateList(requireContext(), R.color.white))
 fun ToolsFragment.getUnselectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.transparent), ContextCompat.getColorStateList(requireContext(), android.R.color.holo_blue_dark))
+
+fun ToolsFragment.getToggleSelectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_orange_light), ContextCompat.getColorStateList(requireContext(), R.color.white))
+
+fun ToolsFragment.toggleSetColorFor(it: View) {
+    it.backgroundTintList = getToggleSelectedStateListPairData().first
+    (it as FloatingActionButton).supportImageTintList = getSelectedStateListPairData().second
+}
 
 fun ToolsFragment.setColorFor(it: View) {
     it.backgroundTintList = getSelectedStateListPairData().first
@@ -24,6 +32,14 @@ fun ToolsFragment.onOptionTapped(it: View) {
     currentlySelectedFAB?.let { it1 -> unsetColorFor(it1) }
     setColorFor(it)
     currentlySelectedFAB = it as FloatingActionButton
+}
+
+fun ToolsFragment.onToggleOptionTapped(it: View) {
+    toggleSetColorFor(it)
+}
+
+fun ToolsFragment.onToggleOptionTappedUnset(it: View) {
+    unsetColorFor(it)
 }
 
 var currentlySelectedFAB: FloatingActionButton? = null
@@ -121,7 +137,11 @@ fun ToolsFragment.setOnClickListeners() {
         }
 
         fragmentToolsGridButton.setOnClickListener {
-            onOptionTapped(it)
+            if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
+                onToggleOptionTapped(it)
+            } else {
+                onToggleOptionTappedUnset(it)
+            }
             caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
         }
     }
