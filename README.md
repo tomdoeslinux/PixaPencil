@@ -14,7 +14,6 @@ PyxlMoose now uses Bitmap to handle the creaton of pixel art.
 Things to take in note:
 
 - Redo tool is not functioning.
-- Grid tool is not functioning.
 
 All these issues will be fixed soon!
 
