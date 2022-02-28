@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 fun CanvasActivity.extendedSaveProject() {
     saved = true
 
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.hideGrid()
+
     val bmp = getCoverImageBitmap()
 
     if (index == -1) {

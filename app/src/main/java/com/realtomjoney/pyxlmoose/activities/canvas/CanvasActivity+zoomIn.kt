@@ -5,4 +5,6 @@ fun zoomIn() {
         scaleX += zoomIncrement
         scaleY += zoomIncrement
     }
+
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
 }

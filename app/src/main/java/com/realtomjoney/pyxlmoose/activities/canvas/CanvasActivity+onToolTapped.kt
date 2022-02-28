@@ -1,7 +1,9 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Color
+import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showDialog
+import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.utility.Flags
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
@@ -70,5 +72,17 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> findAndReplaceToolOnToolTapped()
 
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
+
+        StringConstants.GRID_TOOL_IDENTIFIER -> {
+            if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.canvasSize <= 150) {
+                if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()
+                } else {
+                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.hideGrid()
+                }
+            } else {
+                binding.activityCanvasRootLayout.showSnackbar("PyxlMoose currently does not support showing a grid for canvas sizes of over 150", SnackbarDuration.DEFAULT)
+            }
+        }
     }
 }

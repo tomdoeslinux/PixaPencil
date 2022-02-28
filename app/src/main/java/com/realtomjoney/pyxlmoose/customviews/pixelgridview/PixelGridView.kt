@@ -2,10 +2,10 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
+import android.graphics.*
 import android.view.MotionEvent
 import android.view.View
+import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -29,6 +29,8 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     var pixelPerfectMode: Boolean = false
 
+    var gridEnabled = false
+
     lateinit var caller: CanvasFragmentListener
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -46,9 +48,22 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
         }
 
         applyPixelPerfectValueFromPreference()
+
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent) = extendedDispatchTouchEvent(event)
+
+    fun showGrid() {
+        gridEnabled = true
+
+        invalidate()
+    }
+
+    fun hideGrid() {
+        gridEnabled = false
+        invalidate()
+    }
 
     fun undo() = extendedUndo()
 
@@ -73,9 +88,44 @@ class PixelGridView (context: Context, var canvasSize: Int, private var isEmpty:
 
     fun coordinatesInCanvasBounds(coordinates: Coordinates) = extendedCoordinatesInCanvasBounds(coordinates)
 
+    private val paint = Paint().apply {
+        strokeWidth = 1f
+        pathEffect = null
+        color = Color.LTGRAY
+        style = Paint.Style.STROKE
+        isDither = true
+        isAntiAlias = true
+    }
+
+    private var path1 = Path()
+    private var path2 = Path()
+
+    private var xm = 0f
+
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
             canvas.drawBitmap(pixelGridViewBitmap, calculateMatrix(pixelGridViewBitmap, this.width, this.width), null)
+
+            if (gridEnabled) {
+                paint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
+                paint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
+
+                xm = 0f
+                path1.reset()
+                path2.reset()
+                for (i in 0 until canvasSize) {
+                    path1.lineTo(xm, height.toFloat())
+                    path2.lineTo(height.toFloat(), xm)
+
+                    xm += scaleWidth
+                    path1.moveTo(xm, 0f)
+                    path2.moveTo(0f, xm)
+                }
+
+                canvas.drawPath(path1, paint)
+                canvas.drawPath(path2, paint)
+
+            }
         }
     }
 }

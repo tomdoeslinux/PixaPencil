@@ -5,4 +5,6 @@ fun resetZoom() {
         scaleX = 1f
         scaleY = 1f
     }
+
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
 }
