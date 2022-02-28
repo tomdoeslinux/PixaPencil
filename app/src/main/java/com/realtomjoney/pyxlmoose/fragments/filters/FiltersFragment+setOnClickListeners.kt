@@ -20,18 +20,6 @@ fun setOnClickListeners() {
             caller.onFilterTapped(StringConstants.INVERT_FILTER_IDENTIFIER)
         }
 
-        fragmentFiltersInvertRedButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.INVERT_RED_FILTER_IDENTIFIER)
-        }
-
-        fragmentFiltersInvertGreenButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.INVERT_GREEN_FILTER_IDENTIFIER)
-        }
-
-        fragmentFiltersInvertBlueButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.INVERT_BLUE_FILTER_IDENTIFIER)
-        }
-
         fragmentFiltersGrayScaleButton.setOnClickListener {
             caller.onFilterTapped(StringConstants.GRAYSCALE_FILTER_IDENTIFIER)
         }

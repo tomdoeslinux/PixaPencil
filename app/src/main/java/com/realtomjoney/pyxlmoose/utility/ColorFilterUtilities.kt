@@ -6,10 +6,6 @@ import androidx.core.graphics.ColorUtils
 object ColorFilterUtilities {
     fun inverseRGB(color: Int) = color xor 0x00ffffff
 
-    fun inverseRed(color: Int) = color xor 0x00ff0000
-    fun inverseGreen(color: Int) = color xor 0x0000ff00
-    fun inverseBlue(color: Int) = color xor 0x0000000ff
-
     fun grayScale(_color: Int, strength: Int = 10): Int {
         var color = _color
 

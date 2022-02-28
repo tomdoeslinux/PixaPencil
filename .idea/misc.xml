@@ -83,15 +83,15 @@
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/fragment_find_and_replace.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_h_s_v_color_picker.xml" value="0.17223910840932116" />
-        <entry key="app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_new_canvas.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_new_color_palette.xml" value="0.128419452887538" />
+        <entry key="app/src/main/res/layout/fragment_new_color_palette.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_spray_tool_settings.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_spray_tool_settings2.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.21575061525840852" />
-        <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.18" />
         <entry key="app/src/main/res/menu/app_menu.xml" value="0.22" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.288" />
