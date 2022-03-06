@@ -17,6 +17,7 @@ fun PixelGridView.extendedApplyBitmapFilter(lambda: (Int) -> Int) {
     }
 
     bitmapActionData.add(currentBitmapAction!!)
+    currentBitmapAction = null
 
     invalidate()
 }
