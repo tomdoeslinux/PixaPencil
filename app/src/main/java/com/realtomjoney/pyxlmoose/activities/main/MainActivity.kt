@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.activities.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.fragments.newcanvas.NewCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
@@ -40,6 +39,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
         if (currentFragmentInstance != null) extendedOnBackPressed() else super.onBackPressed()
     }
 
-    override fun onDoneButtonPressed(spanCount: Int, textField: TextInputEditText, textFieldTwo: TextInputEditText) = extendedOnDoneButtonPressed(spanCount, textFieldTwo)
+    override fun onDoneButtonPressed(projectName: String, width: Int, height: Int) = extendedOnDoneButtonPressed(projectName, width, height)
 }
 

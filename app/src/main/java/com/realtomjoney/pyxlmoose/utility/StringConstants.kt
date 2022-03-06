@@ -5,8 +5,9 @@ object StringConstants {
 
     const val TAB_STARRED_TITLE = "Starred"
 
-    const val SPAN_COUNT_EXTRA = "SPAN_COUNT"
     const val PROJECT_TITLE_EXTRA = "PROJECT_TITLE"
+    const val WIDTH_EXTRA = "WIDTH"
+    const val HEIGHT_EXTRA = "HEIGHT"
 
     const val INDEX_EXTRA = "INDEX"
 
@@ -57,6 +58,6 @@ object StringConstants {
 
     const val DEF_TOOLBAR_ITEM_COLOR = "#0099cc"
 
-    const val EX_INVALID_SPAN_COUNT = "Invalid span count value"
+    const val EX_INVALID_WIDTH_HEIGHT = "Invalid width/height value"
     const val EX_INVALID_R_S = "Invalid radius/strength"
 }

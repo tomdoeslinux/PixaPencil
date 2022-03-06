@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
+//import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
@@ -17,13 +18,15 @@ import com.realtomjoney.pyxlmoose.fragments.outercanvas.OuterCanvasFragment
 import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.fragments.tools.ToolsFragment
 import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 lateinit var binding: ActivityCanvasBinding
 var index: Int? = null
 
 var primaryColor: Int = Color.BLACK
 var secondaryColor: Int = Color.BLUE
-var spanCount = 5
+var width = IntConstants.DEF_CANVAS_SIZE
+var height = IntConstants.DEF_CANVAS_SIZE
 var isPrimaryColorSelected = true
 
 var isSelected = false
@@ -58,6 +61,7 @@ var saved = true
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var outerCanvasInstance: OuterCanvasFragment
+var itint = ::outerCanvasInstance.isInitialized
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment

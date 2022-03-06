@@ -18,7 +18,7 @@ fun getCoverImageBitmap(): Bitmap {
     val matrix = Matrix()
     matrix.setRotate(outerCanvasInstance.getCurrentRotation())
 
-    bmps = Bitmap.createBitmap(bmp, 0, 0, bmp.width, bmp.width, matrix, false)
+    bmps = Bitmap.createBitmap(bmp, 0, 0, bmp.width, bmp.height, matrix, false)
 
     if (gridWasEnabled) {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()

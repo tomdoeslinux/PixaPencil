@@ -24,7 +24,7 @@ class ExpandToNeighborsAlgorithm(private val bitmap: Bitmap) {
             toReturn.add(ex3)
         }
 
-        if (seed.y < bitmap.width - 1) {
+        if (seed.y < bitmap.height - 1) {
             toReturn.add(ex4)
         }
 

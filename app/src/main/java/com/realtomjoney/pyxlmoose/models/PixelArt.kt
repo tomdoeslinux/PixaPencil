@@ -12,6 +12,8 @@ data class PixelArt(
     @ColumnInfo(name = "item_bitmap") var bitmap: String,
     @ColumnInfo(name = "item_width") var width: Int,
     @ColumnInfo(name = "item_height") var height: Int,
+    @ColumnInfo(name = "item_dimen_cw") var dimenCW: Int,
+    @ColumnInfo(name = "item_dimen_ch") var dimenCH: Int,
     @ColumnInfo(name = "item_rotation") var rotation: Float,
     @ColumnInfo(name = "item_title") var title: String,
     @ColumnInfo(name = "item_starred") var starred: Boolean,

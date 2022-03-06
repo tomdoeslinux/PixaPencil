@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.utility.Flags
 
 fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
     val coordinateX = (event.x / scaleWidth).toInt()
-    val coordinateY = (event.y / scaleWidth).toInt()
+    val coordinateY = (event.y / scaleHeight).toInt()
 
     if (currentBitmapAction == null) {
         currentBitmapAction = BitmapAction(mutableListOf())
@@ -16,7 +16,7 @@ fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
     when (event.actionMasked) {
         MotionEvent.ACTION_MOVE -> {
             if (!Flags.DISABLE_ACTION_MOVE) {
-                if (coordinateX in 0 until canvasSize && coordinateY in 0 until canvasSize) {
+                if (coordinateX in 0 until canvasWidth && coordinateY in 0 until canvasHeight) {
                     caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
                 } else {
                     prevX = null
@@ -25,7 +25,7 @@ fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
             }
         }
         MotionEvent.ACTION_DOWN -> {
-            if (coordinateX in 0 until canvasSize && coordinateY in 0 until canvasSize) {
+            if (coordinateX in 0 until canvasWidth && coordinateY in 0 until canvasHeight) {
                 caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
             } else {
                 prevX = null

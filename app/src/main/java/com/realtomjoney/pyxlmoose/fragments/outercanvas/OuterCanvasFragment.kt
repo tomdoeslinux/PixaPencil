@@ -4,30 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.customviews.squareframelayoutview.SquareFrameLayoutView
 import com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 
-class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = false) : Fragment() {
+class OuterCanvasFragment(val width: Int, val height: Int, private val isEmpty: Boolean = false) : Fragment() {
     lateinit var canvasFragment: CanvasFragment
     lateinit var cardViewParent: CardView
-    lateinit var fragmentHost: SquareFrameLayoutView
+    lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
 
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance(spanCount, isEmpty)
+        canvasFragment = CanvasFragment.newInstance(width, height, isEmpty)
     }
 
     private fun showCanvas() {
-        transparentBackgroundView = TransparentBackgroundView(requireContext(), spanCount)
+        transparentBackgroundView = TransparentBackgroundView(requireContext(), width, height)
         binding.defsq2.addView(transparentBackgroundView)
+
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 
@@ -52,7 +53,7 @@ class OuterCanvasFragment(val spanCount: Int, private val isEmpty: Boolean = fal
     }
 
     companion object {
-        fun newInstance(spanCount: Int, isEmpty: Boolean = false) = OuterCanvasFragment(spanCount, isEmpty)
+        fun newInstance(width: Int, height: Int, isEmpty: Boolean = false) = OuterCanvasFragment(width, height, isEmpty)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

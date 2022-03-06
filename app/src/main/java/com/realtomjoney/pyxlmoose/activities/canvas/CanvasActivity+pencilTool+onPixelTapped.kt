@@ -8,13 +8,15 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction != null) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(
+            BitmapActionData(
             coordinatesTapped,
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap.getPixel(
                 coordinatesTapped.x,
                 coordinatesTapped.y,
             ),
-        ))
+        )
+        )
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(
@@ -31,7 +33,8 @@ fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
             getSelectedColor()
-        ))
+        )
+        )
 
         lineAlgorithmInstance.compute(Coordinates(outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX!!,  outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY!!), coordinatesTapped)
     }

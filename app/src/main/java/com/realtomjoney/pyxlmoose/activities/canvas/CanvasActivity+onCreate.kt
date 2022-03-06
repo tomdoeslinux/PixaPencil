@@ -8,5 +8,5 @@ fun CanvasActivity.onCreate() {
     setOnClickListeners()
     setColors()
     initSharedPreferenceObject()
-    replaceBitmapIfApplicable()
+//    replaceBitmapIfApplicable()
 }

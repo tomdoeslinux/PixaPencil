@@ -69,7 +69,7 @@ class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {
         super.onDestroyView()
         binding_ = null
     }
-
+    
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View?, event: MotionEvent): Boolean {
         val coordinateX = event.x.toInt()

@@ -2,18 +2,13 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
-import com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview.TransparentBackgroundView
-import com.realtomjoney.pyxlmoose.fragments.outercanvas.binding
 
 fun PixelGridView.extendedReplaceBitmap(newBitmap: Bitmap) {
     pixelGridViewBitmap = Bitmap.createBitmap(newBitmap.width, newBitmap.height, Bitmap.Config.ARGB_8888)
     pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
-    canvasSize = newBitmap.width
+    canvasWidth = newBitmap.width
+    canvasHeight = newBitmap.height
     pixelGridViewCanvas.drawBitmap(newBitmap, 0f, 0f, null)
-
-    outerCanvasInstance.transparentBackgroundView = TransparentBackgroundView(this.context, canvasSize)
-    binding.defsq2.addView(outerCanvasInstance.transparentBackgroundView )
 
     invalidate()
 }

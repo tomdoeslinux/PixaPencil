@@ -1,15 +1,15 @@
 package com.realtomjoney.pyxlmoose.activities.main
 
 import android.content.Intent
-import com.google.android.material.textfield.TextInputEditText
 import com.realtomjoney.pyxlmoose.activities.canvas.CanvasActivity
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun MainActivity.extendedOnDoneButtonPressed(spanCount: Int, titleEditText: TextInputEditText) {
+fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, height: Int) {
     startActivity(
         Intent(this, CanvasActivity::class.java)
-            .putExtra(StringConstants.SPAN_COUNT_EXTRA, Integer.parseInt(spanCount.toString()))
-            .putExtra(StringConstants.PROJECT_TITLE_EXTRA, titleEditText.text.toString())
+            .putExtra(StringConstants.PROJECT_TITLE_EXTRA, projectTitle)
+            .putExtra(StringConstants.WIDTH_EXTRA, width)
+            .putExtra(StringConstants.HEIGHT_EXTRA, height)
     )
 
     title = StringConstants.APP_NAME

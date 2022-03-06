@@ -52,7 +52,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
 
     if (!rectangleMode_hasLetGo) {
         if (!first)  outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add( outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
         first = false
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null

@@ -5,10 +5,12 @@ import com.realtomjoney.pyxlmoose.algorithms.FloodFillAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun CanvasActivity.fillToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    val floodFillAlgorithmInstance = FloodFillAlgorithm(AlgorithmInfoParameter(
+    val floodFillAlgorithmInstance = FloodFillAlgorithm(
+        AlgorithmInfoParameter(
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
         getSelectedColor()
-    ))
+    )
+    )
     floodFillAlgorithmInstance.compute(Coordinates(coordinatesTapped.x, coordinatesTapped.y))
 }

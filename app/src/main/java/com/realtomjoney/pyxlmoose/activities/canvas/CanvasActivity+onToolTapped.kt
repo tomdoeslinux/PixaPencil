@@ -74,7 +74,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
 
         StringConstants.GRID_TOOL_IDENTIFIER -> {
-            if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.canvasSize <= 150) {
+            if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.canvasHeight <= 150) {
                 if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()
                 } else {

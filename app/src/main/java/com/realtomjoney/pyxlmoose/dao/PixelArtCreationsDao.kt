@@ -14,6 +14,9 @@ interface PixelArtCreationsDao {
     @Query("SELECT * FROM PixelArt ")
     fun getAllPixelArtCreations(): LiveData<List<PixelArt>>
 
+    @Query("SELECT * FROM PixelArt ")
+    fun getAllPixelArtCreationsNoLiveData(): List<PixelArt>
+
     @Query("DELETE FROM PixelArt WHERE objId=:pixelArtId")
     fun deletePixelArtCreation(pixelArtId: Int)
 

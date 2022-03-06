@@ -64,7 +64,7 @@ class CanvasActivity :
 
     override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) = extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
 
-    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int) = extendedOnColorToFindTapped(bitmap, colorToFind)
+    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap = extendedOnColorToFindTapped(bitmap, colorToFind)
 
     override fun onColorToReplaceTapped(bitmap: Bitmap, colorToReplace: Int) = extendedOnColorToReplaceTapped(bitmap, colorToReplace)
 

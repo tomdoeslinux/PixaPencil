@@ -27,22 +27,42 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fragmentNewCanvas_spanCountTextInputLayout"
+        android:id="@+id/fragmentNewCanvas_widthTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:hint="@string/fragmentNewCanvas_span_count_str"
+        android:hint="Width"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentNewCanvas_projectTitleTextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fragmentNewCanvas_spanCountTextInputEditText"
+            android:id="@+id/fragmentNewCanvas_widthTextInputEditText"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragmentNewCanvas_heightTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:hint="Height"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentNewCanvas_widthTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragmentNewCanvas_heightTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

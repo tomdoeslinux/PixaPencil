@@ -5,6 +5,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.BitmapActionData
 
+
 class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoParameter) {
     fun compute() {
         var distinct = algorithmInfoParameter.currentBitmapAction.actionData.distinctBy { it.xyPosition }

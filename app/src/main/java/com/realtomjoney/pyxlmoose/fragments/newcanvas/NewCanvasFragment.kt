@@ -8,17 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
 import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
-import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class NewCanvasFragment : Fragment() {
     var root: View? = null
 
     private fun instantiateRoot() {
         root = binding.fragmentNewCanvasRootLayout
-    }
-
-    private fun setDefaultCanvasSizeValue() {
-        binding.fragmentNewCanvasSpanCountTextInputEditText.setText(IntConstants.DEF_CANVAS_SIZE.toString())
     }
 
     companion object {
@@ -33,7 +28,6 @@ class NewCanvasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentNewCanvasBinding.inflate(inflater, container, false)
 
-        setDefaultCanvasSizeValue()
         instantiateRoot()
         setOnClickListeners()
 
