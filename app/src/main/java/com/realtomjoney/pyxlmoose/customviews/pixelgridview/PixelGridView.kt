@@ -73,11 +73,15 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     currentPixelArtObj.dimenCW,
                     currentPixelArtObj.dimenCH
                 )
+
+                postInvalidate()
             } else {
                 setMeasuredDimension(
                     widthMeasureSpec,
                     heightMeasureSpec
                 )
+
+                postInvalidate()
             }
         }
     }
@@ -95,6 +99,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         if (currentIndex == -1) {
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
+
+            postInvalidate()
         } else {
             val currentBitmap = getCurrentBitmap()
 
