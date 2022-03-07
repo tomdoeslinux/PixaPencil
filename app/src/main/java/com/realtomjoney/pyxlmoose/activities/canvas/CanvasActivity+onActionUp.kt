@@ -9,6 +9,7 @@ fun CanvasActivity.extendedOnActionUp() {
         lineOrigin = null
         lineMode_hasLetGo = true
         rectangleMode_hasLetGo = true
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
     } else if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL ||
         currentTool == Tools.SQUARE_TOOL || currentTool == Tools.OUTLINED_SQUARE_TOOL)  {
         rectangleToolOnActionUp()
