@@ -19,6 +19,11 @@ class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
 
+    private fun setup() {
+        instantiateVariables()
+        showCanvas()
+    }
+
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
@@ -59,8 +64,7 @@ class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentOuterCanvasBinding.inflate(inflater, container, false)
 
-        instantiateVariables()
-        showCanvas()
+        setup()
 
         return binding.root
     }

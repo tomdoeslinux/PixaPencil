@@ -11,6 +11,13 @@ import com.realtomjoney.pyxlmoose.listeners.SprayToolSettingsFragmentListener
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class SprayToolSettingsFragment : Fragment() {
+    private fun setup() {
+        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.RADIUS.toString())
+        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.STRENGTH.toString())
+
+        setOnClickListeners()
+    }
+
     companion object {
         fun newInstance() = SprayToolSettingsFragment()
     }
@@ -23,10 +30,7 @@ class SprayToolSettingsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
 
-        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.RADIUS.toString())
-        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.STRENGTH.toString())
-
-        setOnClickListeners()
+        setup()
 
         return binding.root
     }

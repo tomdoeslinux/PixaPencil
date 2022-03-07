@@ -27,6 +27,18 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
 
     private var lock = true
 
+    private fun setup() {
+        setupCanvasColorsRecyclerView()
+        setupAvailableColorsRecyclerView()
+        setOnClickListeners()
+        setupPreview()
+
+        val h = Handler(Looper.getMainLooper())
+        h.postDelayed( {
+            lock = false
+        }, 20)
+    }
+
     private fun setupPreview() {
         binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmapSource)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmapSource)
@@ -107,16 +119,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
 
-        setupCanvasColorsRecyclerView()
-        setupAvailableColorsRecyclerView()
-        setOnClickListeners()
-        setupPreview()
-
-        val h = Handler(Looper.getMainLooper())
-        h.postDelayed( {
-            lock = false
-        }, 20)
-
+        setup()
 
         return binding.root
     }
