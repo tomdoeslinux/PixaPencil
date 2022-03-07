@@ -27,6 +27,8 @@ fun CanvasActivity.rectangleToolOnActionUp() {
 
         rectAlg.compute(rectangleOrigin!!, coordinates!!)
     }
+
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
     coordinates = null
     rectangleOrigin = null
     rectangleMode_hasLetGo = true
