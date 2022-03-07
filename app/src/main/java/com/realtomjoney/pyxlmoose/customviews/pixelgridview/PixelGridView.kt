@@ -98,7 +98,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
             outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
 
-            invalidate()
             postInvalidate()
         }
 

@@ -76,7 +76,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
             transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, null)
 
-            invalidate()
             postInvalidate()
         }
 
