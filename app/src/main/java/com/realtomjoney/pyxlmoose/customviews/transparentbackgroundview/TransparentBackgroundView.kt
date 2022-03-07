@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
-import android.util.Log
 import android.view.View
 import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
 import com.realtomjoney.pyxlmoose.activities.canvas.index
@@ -36,8 +35,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
         } else {
             if (index != -1) {
                 val currentPixelArtObj = getCurrentPixelArtObj()
-
-                Log.d("VAL", "${currentPixelArtObj.dimenCW} ${currentPixelArtObj.dimenCH}")
 
                 setMeasuredDimension(
                     currentPixelArtObj.dimenCW,
