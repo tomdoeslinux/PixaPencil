@@ -92,7 +92,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             pixelGridViewBitmap.recycle()
         }
 
-        if (index == -1) {
+        if (currentIndex == -1) {
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
         } else {
