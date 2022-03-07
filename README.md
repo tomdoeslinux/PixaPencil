@@ -1,9 +1,9 @@
 ![PyxlMooseLogo](https://user-images.githubusercontent.com/50536495/139613827-1d5ea69b-5ffc-4413-86ae-cba9c4e8160d.png)
 
 ## About
-**A pixel art creator for Android using Bitmap, written 100% in Kotlin.**
+*A capable pixel art editor for Android.*
 
-Join the official Matrix server for general discussion regarding the app: https://matrix.to/#/#pyxlmoose:matrix.org
+Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
 ## Video
 https://youtu.be/qNQQLG1N_uE
