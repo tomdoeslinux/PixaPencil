@@ -17,7 +17,7 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.models.PixelArt
 
 @SuppressLint("ViewConstructor")
-class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int, private var isEmpty: Boolean) : View(context) {
+class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -36,7 +36,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     var gridEnabled = false
 
-    var currentIndex = index!!
+    private var currentIndex = index!!
 
     lateinit var caller: CanvasFragmentListener
 
@@ -48,6 +48,16 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     var dimenCW = 0
     var dimenCH = 0
+
+    private val gridPaint = Paint().apply {
+        strokeWidth = 1f
+        pathEffect = null
+        color = Color.LTGRAY
+        style = Paint.Style.STROKE
+        isDither = true
+        isAntiAlias = true
+    }
+
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -173,15 +183,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         return matrix
     }
 
-    private val paint = Paint().apply {
-        strokeWidth = 1f
-        pathEffect = null
-        color = Color.LTGRAY
-        style = Paint.Style.STROKE
-        isDither = true
-        isAntiAlias = true
-    }
-
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
             val widthFloat = width.toFloat()
@@ -226,8 +227,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             // TODO - Fix Grid tool bugs
 
             if (gridEnabled) {
-                paint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
-                paint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
+                gridPaint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
+                gridPaint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
 
                 xm = 0f
                 path1.reset()
@@ -243,8 +244,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     path2.moveTo(0f, ym)
                 }
 
-                canvas.drawPath(path1, paint)
-                canvas.drawPath(path2, paint)
+                canvas.drawPath(path1, gridPaint)
+                canvas.drawPath(path2, gridPaint)
             }
         }
     }

@@ -13,7 +13,7 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 
-class OuterCanvasFragment(val width: Int, val height: Int, private val isEmpty: Boolean = false) : Fragment() {
+class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
     lateinit var canvasFragment: CanvasFragment
     lateinit var cardViewParent: CardView
     lateinit var fragmentHost: FrameLayout
@@ -22,7 +22,7 @@ class OuterCanvasFragment(val width: Int, val height: Int, private val isEmpty: 
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance(width, height, isEmpty)
+        canvasFragment = CanvasFragment.newInstance(width, height)
     }
 
     private fun showCanvas() {
@@ -53,7 +53,7 @@ class OuterCanvasFragment(val width: Int, val height: Int, private val isEmpty: 
     }
 
     companion object {
-        fun newInstance(width: Int, height: Int, isEmpty: Boolean = false) = OuterCanvasFragment(width, height, isEmpty)
+        fun newInstance(width: Int, height: Int) = OuterCanvasFragment(width, height)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
