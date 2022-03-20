@@ -2,7 +2,9 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 fun zoomOut() {
     outerCanvasInstance.cardViewParent.apply {
-        if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement) {
+        val canZoomOut = outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement
+
+        if (canZoomOut) {
             scaleX -= zoomIncrement
             scaleY -= zoomIncrement
         }
