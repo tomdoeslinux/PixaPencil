@@ -20,7 +20,10 @@ fun Activity.navigateHome(fragmentManager: FragmentManager, fragmentInstance: Fr
 
 var pastReqOrientation: Int = 0
 
-// Suppressed because it's a pain in the ass to support orientation changes for Fragments lmao
+/**
+ * I have suppressed this because it's a pain in the ass to support orientation changes for Fragments.
+ */
+
 @SuppressLint("SourceLockedOrientationActivity")
 
 fun Activity.navigateTo(fragmentManager: FragmentManager, fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View, lockScreenOrientationToPrev: Boolean = true) {

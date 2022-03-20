@@ -145,8 +145,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) =
-        extendedOverrideSetPixel(x, y, color, ignoreBrush)
+    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) = extendedOverrideSetPixel(x, y, color, ignoreBrush)
 
     fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
 
@@ -156,7 +155,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     private fun applyPixelPerfectValueFromPreference() = extendedApplyPixelPerfectValueFromPreference()
 
-    // only use in onMeasure if needed
+    /** Use this code only in onMeasure **/
+
     private fun getCurrentPixelArtObj(): PixelArt {
         val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
 
@@ -196,8 +196,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         if (::pixelGridViewBitmap.isInitialized) {
             var scaleFactorW = 0
             var scaleFactorH = 0
-
-            // Warning: slight modifications may have a flow-on effect throughout the rest of the code, I recommend you keep this part how it is
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 if (canvasWidth == canvasHeight) {

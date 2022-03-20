@@ -82,7 +82,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
     }
 
-    // only use in onMeasure if needed
     private fun getCurrentPixelArtObj(): PixelArt {
         val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
 
@@ -125,8 +124,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
         if (::transparentBackgroundViewBitmap.isInitialized) {
             var scaleFactorW = 0
             var scaleFactorH = 0
-
-            // Warning: slight modifications may have a flow-on effect throughout the rest of the code, I recommend you keep this part how it is
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 if (canvasWidth == canvasHeight) {

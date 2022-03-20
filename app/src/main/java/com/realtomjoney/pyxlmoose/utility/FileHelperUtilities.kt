@@ -23,7 +23,11 @@ class FileHelperUtilities(private val context: Context) {
     fun saveBitmapAsImage(compressionOutputQuality: Int,
                           compressionFormat: Bitmap.CompressFormat,
                           onTaskFinished: (OutputCode, File, String?) -> Unit) {
-        // Thanks to https://stackoverflow.com/users/3571603/javatar on StackOverflow - quite a bit of the code is based off of their solution
+        /** Thank you to to javatar on StackOverflow - quite a bit of the code here is based off of their solution.
+         *
+         * - [Link to javatar's profile](https://stackoverflow.com/users/2033223/javatar)
+         * - [Original StackOverFlow post](https://stackoverflow.com/users/3571603/)
+         * **/
 
         var exceptionMessage: String? = null
         var outputCode = OutputCode.SUCCESS
