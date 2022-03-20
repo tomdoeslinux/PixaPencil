@@ -8,10 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
-import com.realtomjoney.pyxlmoose.fragments.outercanvas.OuterCanvasFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
@@ -60,19 +58,6 @@ class CanvasActivity :
 
     fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
 
-    private fun onCustomOrientationChanged() {
-        for (fragment in supportFragmentManager.fragments) {
-            if (fragment is OuterCanvasFragment) {
-                supportFragmentManager.beginTransaction()
-                    .remove(fragment).commit()
-            }
-        }
-
-        outerCanvasInstance = OuterCanvasFragment.newInstance(width, height)
-        supportFragmentManager.beginTransaction()
-            .add(R.id.activityCanvas_outerCanvasFragmentHost, outerCanvasInstance).commit()
-    }
-
     override fun onPause() {
         extendedOnPause()
         super.onPause()
@@ -92,7 +77,7 @@ class CanvasActivity :
 
         if (prevOrientation != 0) {
             if (prevOrientation != resources.configuration.orientation) {
-                onCustomOrientationChanged()
+                onOrientationChanged()
                 prevOrientation = resources.configuration.orientation
             }
         }
