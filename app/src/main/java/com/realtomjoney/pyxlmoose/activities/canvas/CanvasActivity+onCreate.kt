@@ -8,5 +8,6 @@ fun CanvasActivity.onCreate() {
     setOnClickListeners()
     setColors()
     initSharedPreferenceObject()
+    setObjectGlobalScopeLifecycleOwner()
 //    replaceBitmapIfApplicable()
 }

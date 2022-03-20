@@ -9,23 +9,22 @@
     android:id="@+id/fragmentColorPickerPicker_rootLayout">
 
     <LinearLayout
-        android:id="@+id/defContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="700dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/defContainer"
         app:layout_constraintTop_toTopOf="parent">
 
         <View
             android:id="@+id/fragmentColorPickerPicker_colorPreview"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:background="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
-
 
     <Button
         android:id="@+id/fragmentColorPickerPicker_doneButton"

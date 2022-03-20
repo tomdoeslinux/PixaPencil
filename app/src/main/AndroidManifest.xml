@@ -14,6 +14,7 @@
         android:theme="@style/Theme.PyxlMoose">
         <activity
             android:name=".activities.canvas.CanvasActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity

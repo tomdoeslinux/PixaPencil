@@ -2,16 +2,19 @@ package com.realtomjoney.pyxlmoose.customviews.transparentbackgroundview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
 import android.view.View
+import com.realtomjoney.pyxlmoose.activities.canvas.binding
 import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
 import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
 class TransparentBackgroundView(context: Context, private var canvasWidth: Int, private var canvasHeight: Int) : View(context) {
@@ -21,10 +24,11 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
     var scaleWidth = 0f
     var scaleHeight = 0f
 
-    var color = Color.LTGRAY
+    var color = Color.parseColor(StringConstants.TBV_C1)
 
     var currentIndex = index!!
 
+    var st = false
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -119,41 +123,101 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
-            val widthFloat = width.toFloat()
-            val heightFloat = height.toFloat()
+            var scaleFactorW = 0
+            var scaleFactorH = 0
+
+            // Warning: slight modifications may have a flow-on effect throughout the rest of the code, I recommend you keep this part how it is
+
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                if (canvasWidth == canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                } else if (canvasWidth > canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+
+                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+
+                    scaleFactorH = (scaleFactorW * ratio).toInt()
+                } else {
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+
+                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+
+                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                }
+            } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                if (canvasWidth == canvasHeight) {
+                    scaleFactorW = resources.displayMetrics.widthPixels
+                    scaleFactorH = resources.displayMetrics.widthPixels
+                } else if (canvasWidth > canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
+
+                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+
+                    scaleFactorH = (scaleFactorW * ratio).toInt()
+                } else {
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
+
+                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+
+                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                }
+            }
 
             when {
                 canvasWidth == canvasHeight -> {
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculateMatrix(transparentBackgroundViewBitmap,
-                            widthFloat,
-                            widthFloat),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (transparentBackgroundViewBitmap.width * scaleWidth).toInt()
-                    dimenCH = (transparentBackgroundViewBitmap.height * scaleHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
                 canvasWidth > canvasHeight -> {
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculateMatrix(transparentBackgroundViewBitmap,
-                            widthFloat,
-                            scaleWidth * canvasHeight),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (transparentBackgroundViewBitmap.width * scaleWidth).toInt()
-                    dimenCH = (scaleWidth * canvasHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
                 else -> {
-                    canvas.drawBitmap(transparentBackgroundViewBitmap,
+                    canvas.drawBitmap(
+                        transparentBackgroundViewBitmap,
                         calculateMatrix(transparentBackgroundViewBitmap,
-                            scaleHeight * canvasWidth,
-                            heightFloat),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (scaleHeight * canvasWidth).toInt()
-                    dimenCH = (transparentBackgroundViewBitmap.height * scaleHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
             }
 
@@ -163,7 +227,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                         if (i_1 % 2 == 0
                             &&
                             i_2 % 2 == 0) {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.LTGRAY)
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
                         } else {
                             transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
                         }
@@ -171,7 +235,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                         if (i_1 % 2 != 0
                             &&
                             i_2 % 2 != 0) {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.LTGRAY)
+                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
                         } else {
                             transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
                         }

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activityCanvas_rootLayout"
+    tools:context=".activities.canvas.CanvasActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/activityCanvas_primaryFragmentHost"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/activityCanvas_colorSecondaryView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/activityCanvas_colorPrimaryView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_blue_bright"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorSecondaryView" />
+
+    <View
+        android:id="@+id/activityCanvas_colorSecondaryViewIndicator"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        android:background="@drawable/border_drawable_frame_2"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorSecondaryView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activityCanvas_colorPickerRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorPrimaryView"
+        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorPrimaryView"
+        tools:listitem="@layout/color_picker_layout" />
+    <View
+        android:id="@+id/activityCanvas_colorPrimaryViewIndicator"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="invisible"
+        android:background="@drawable/border_drawable_frame_2"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
+        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorSecondaryView" />
+
+    <FrameLayout
+        android:id="@+id/activityCanvas_outerCanvasFragmentHost"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_tabLayoutFragmentHost"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_primaryFragmentHost"
+        app:layout_constraintStart_toEndOf="@+id/activityCanvas_outerCanvasFragmentHost"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/activityCanvas_tabLayoutFragmentHost"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_primaryFragmentHost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_tabLayout"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_primaryFragmentHost" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/activityCanvas_tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="41dp"
+        android:rotation="270"
+        android:tabStripEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activityCanvas_toolsTabItem"
+            android:icon="@drawable/ic_tools" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activityCanvas_filtersTabItem"
+            android:icon="@drawable/ic_gradient" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activityCanvas_palettesTabItem"
+            android:icon="@drawable/ic_palette" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/activityCanvas_brushesTabItem"
+            android:icon="@drawable/ic_brush" />
+    </com.google.android.material.tabs.TabLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

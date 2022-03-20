@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPalettesBinding
 import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
@@ -17,7 +16,7 @@ import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), ColorPalettesListener {
+class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     val context = this
 
     private fun deleteColorPaletteAndNotifyItemRemoved(colorPalette: ColorPalette) {
@@ -30,7 +29,7 @@ class ColorPalettesFragment(val lifecycleOwner: LifecycleOwner) : Fragment(), Co
     }
 
     companion object {
-        fun newInstance(lifecycleOwner: LifecycleOwner) = ColorPalettesFragment(lifecycleOwner)
+        fun newInstance() = ColorPalettesFragment()
     }
 
     override fun onAttach(context: Context) {

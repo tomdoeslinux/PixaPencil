@@ -2,9 +2,11 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.*
 import android.view.MotionEvent
 import android.view.View
+import com.realtomjoney.pyxlmoose.activities.canvas.binding
 import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
 import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
@@ -58,6 +60,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         isAntiAlias = true
     }
 
+    var st = false
+
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -85,7 +89,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             }
         }
     }
-
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
@@ -191,45 +194,103 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            val widthFloat = width.toFloat()
-            val heightFloat = height.toFloat()
+            var scaleFactorW = 0
+            var scaleFactorH = 0
+
+            // Warning: slight modifications may have a flow-on effect throughout the rest of the code, I recommend you keep this part how it is
+
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                if (canvasWidth == canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                } else if (canvasWidth > canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+
+                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+
+                    scaleFactorH = (scaleFactorW * ratio).toInt()
+                } else {
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+
+                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+
+                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                }
+            } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                if (canvasWidth == canvasHeight) {
+                    scaleFactorW = resources.displayMetrics.widthPixels
+                    scaleFactorH = resources.displayMetrics.widthPixels
+                } else if (canvasWidth > canvasHeight) {
+                    scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
+
+                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+
+                    scaleFactorH = (scaleFactorW * ratio).toInt()
+                } else {
+                    scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
+
+                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+
+                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                }
+            }
 
             when {
                 canvasWidth == canvasHeight -> {
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculateMatrix(pixelGridViewBitmap,
-                            widthFloat,
-                            widthFloat),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (pixelGridViewBitmap.width * scaleWidth).toInt()
-                    dimenCH = (pixelGridViewBitmap.height * scaleHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
                 canvasWidth > canvasHeight -> {
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculateMatrix(pixelGridViewBitmap,
-                            widthFloat,
-                            scaleWidth * canvasHeight),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (pixelGridViewBitmap.width * scaleWidth).toInt()
-                    dimenCH = (scaleWidth * canvasHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
                 else -> {
-                    canvas.drawBitmap(pixelGridViewBitmap,
+                    canvas.drawBitmap(
+                        pixelGridViewBitmap,
                         calculateMatrix(pixelGridViewBitmap,
-                            scaleHeight * canvasWidth,
-                            heightFloat),
+                            scaleFactorW.toFloat(),
+                            scaleFactorH.toFloat()),
                         null)
 
-                    dimenCW = (scaleHeight * canvasWidth).toInt()
-                    dimenCH = (pixelGridViewBitmap.height * scaleHeight).toInt()
+                    dimenCW = scaleFactorW
+                    dimenCH = scaleFactorH
+
+                    if (!st) {
+                        requestLayout()
+                        postInvalidate()
+                        invalidate()
+                        st = true
+                    }
                 }
             }
-
-
             // TODO - Fix Grid tool bugs
 
             if (gridEnabled) {
@@ -255,5 +316,4 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             }
         }
     }
-
 }

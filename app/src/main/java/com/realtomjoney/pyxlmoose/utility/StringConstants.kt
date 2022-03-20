@@ -60,4 +60,6 @@ object StringConstants {
 
     const val EX_INVALID_WIDTH_HEIGHT = "Invalid width/height value"
     const val EX_INVALID_R_S = "Invalid radius/strength"
+
+    const val TBV_C1 = "#d9d9d9"
 }

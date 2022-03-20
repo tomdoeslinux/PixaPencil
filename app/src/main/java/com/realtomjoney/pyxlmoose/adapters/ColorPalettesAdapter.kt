@@ -1,16 +1,23 @@
 package com.realtomjoney.pyxlmoose.adapters
 
+import android.app.Activity
+import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.realtomjoney.pyxlmoose.databinding.ColorPalettesLayoutBinding
+import com.realtomjoney.pyxlmoose.extensions.getScreenOrientation
 import com.realtomjoney.pyxlmoose.listeners.ColorPalettesListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.viewholders.ColorPalettesViewHolder
 
-class ColorPalettesAdapter(private val data: List<ColorPalette>, private val caller: ColorPalettesListener) : RecyclerView.Adapter<ColorPalettesViewHolder>()  {
+class ColorPalettesAdapter(
+    private val callerActivity: Activity,
+    private val data: List<ColorPalette>,
+    private val caller: ColorPalettesListener
+    ) : RecyclerView.Adapter<ColorPalettesViewHolder>()  {
+
     private lateinit var binding: ColorPalettesLayoutBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPalettesViewHolder {
@@ -23,10 +30,18 @@ class ColorPalettesAdapter(private val data: List<ColorPalette>, private val cal
             val item = data[position]
 
             binding.apply {
-                colorPalettesLayoutColorPaletteTitle.text = item.colorPaletteName
-                val layoutManager = GridLayoutManager(context, 1).apply {
-                    orientation = LinearLayoutManager.HORIZONTAL
+                colorPalettesLayoutColorPaletteTitle?.text = item.colorPaletteName
+
+                val layoutManager = LinearLayoutManager(context)
+
+                val layoutManagerOrientation: Int = if (callerActivity.getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+                    LinearLayoutManager.HORIZONTAL
+                } else {
+                    LinearLayoutManager.VERTICAL
                 }
+
+                layoutManager.orientation = layoutManagerOrientation
+
                 colorPalettesLayoutColorPalettePreviewRecyclerView.layoutManager = layoutManager
                 colorPalettesLayoutColorPalettePreviewRecyclerView.adapter = ColorPickerAdapter(item, null, isPreviewMode = true)
             }

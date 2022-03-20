@@ -19,13 +19,21 @@ import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 
 
-class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bitmapSource: Bitmap) : Fragment() {
+class FindAndReplaceFragment : Fragment() {
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
 
     private val thisActivity = this.activity
 
     private var lock = true
+
+    private lateinit var paramCanvasColors: List<Int>
+    private lateinit var paramBitmapSource: Bitmap
+
+    fun setParams(paramCanvasColors: List<Int>, paramBitmapSource: Bitmap) {
+        this.paramCanvasColors = paramCanvasColors
+        this.paramBitmapSource = paramBitmapSource
+    }
 
     private fun setup() {
         setupCanvasColorsRecyclerView()
@@ -40,8 +48,8 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
     }
 
     private fun setupPreview() {
-        binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmapSource)
-        binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmapSource)
+        binding.fragmentFindAndReplaceOldPreview.setImageBitmap(paramBitmapSource)
+        binding.fragmentFindAndReplaceNewPreview.setImageBitmap(paramBitmapSource)
     }
 
     private fun setupCanvasColorsRecyclerView() {
@@ -53,7 +61,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
             fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
                 ColorPalette(
                     null,
-                    JsonConverter.convertListOfIntToJsonString(canvasColors)
+                    JsonConverter.convertListOfIntToJsonString(paramCanvasColors)
                 ), FragmentFindAndReplaceCanvasColorsCaller(binding), false
             )
         }
@@ -86,7 +94,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
             if (!lock) {
                 colorToFind = colorTapped
 
-                val bmp = caller.onColorToFindTapped(bitmapSource, colorTapped)
+                val bmp = caller.onColorToFindTapped(paramBitmapSource, colorTapped)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bmp)
             }
         }
@@ -99,7 +107,7 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
             if (!lock) {
                 colorToReplace = colorTapped
 
-                val bmp = caller.onColorToReplaceTapped(bitmapSource, colorTapped)
+                val bmp = caller.onColorToReplaceTapped(paramBitmapSource, colorTapped)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bmp)
             }
         }
@@ -108,7 +116,12 @@ class FindAndReplaceFragment(private val canvasColors: List<Int>, private val bi
     }
 
     companion object {
-        fun newInstance(canvasColors: List<Int>, bitmapSource: Bitmap) = FindAndReplaceFragment(canvasColors, bitmapSource)
+        fun newInstance(paramCanvasColors: List<Int>, paramBitmapSource: Bitmap): FindAndReplaceFragment {
+            val fragment = FindAndReplaceFragment()
+            fragment.setParams(paramCanvasColors, paramBitmapSource)
+
+            return fragment
+        }
     }
 
     override fun onAttach(context: Context) {

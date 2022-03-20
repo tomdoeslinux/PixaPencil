@@ -11,15 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.activities.canvas.showMenuItems
+import com.realtomjoney.pyxlmoose.customviews.colorpickerview.ColorPickerView
 import com.realtomjoney.pyxlmoose.customviews.colorpickerview.colorPickerColorSelected
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerPickerBinding
 import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
-import com.realtomjoney.pyxlmoose.fragments.colorpicker.picker.canvas.ColorPickerPickerCanvasFragment
 import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 
@@ -52,15 +51,17 @@ class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {
         fun newInstance() = ColorPickerPickerFragment()
     }
 
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerPickerBinding.inflate(inflater, container, false)
 
         setup()
         setOnClickListeners()
-        requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentColorPickerPicker_canvasFragmentHost, ColorPickerPickerCanvasFragment.newInstance()).commit()
 
-        binding.fragmentColorPickerPickerCanvasFragmentHost.setOnTouchListener(this)
+        val colorPickerViewInstance = ColorPickerView(requireContext())
+        binding.defContainer.addView(colorPickerViewInstance)
+        colorPickerViewInstance.setOnTouchListener(this)
 
         return binding.root
     }

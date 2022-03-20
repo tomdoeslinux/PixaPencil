@@ -13,11 +13,21 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.realtomjoney.pyxlmoose.fragments.canvas.CanvasFragment
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 
-class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
+class OuterCanvasFragment : Fragment() {
     lateinit var canvasFragment: CanvasFragment
     lateinit var cardViewParent: CardView
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
+
+    var paramWidth: Int = 5
+    var paramHeight: Int = 5
+
+    val itInit = ::canvasFragment.isInitialized
+
+    private fun setParams(paramWidth: Int, paramHeight: Int) {
+        this.paramWidth = paramWidth
+        this.paramHeight = paramHeight
+    }
 
     private fun setup() {
         instantiateVariables()
@@ -27,11 +37,11 @@ class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance(width, height)
+        canvasFragment = CanvasFragment.newInstance(paramWidth, paramHeight)
     }
 
     private fun showCanvas() {
-        transparentBackgroundView = TransparentBackgroundView(requireContext(), width, height)
+        transparentBackgroundView = TransparentBackgroundView(requireContext(), paramWidth, paramHeight)
         binding.defsq2.addView(transparentBackgroundView)
 
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
@@ -58,7 +68,12 @@ class OuterCanvasFragment(val width: Int, val height: Int) : Fragment() {
     }
 
     companion object {
-        fun newInstance(width: Int, height: Int) = OuterCanvasFragment(width, height)
+        fun newInstance(paramWidth: Int, paramHeight: Int): OuterCanvasFragment {
+            val fragment = OuterCanvasFragment()
+            fragment.setParams(paramWidth, paramHeight)
+
+            return fragment
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -1,6 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.content.SharedPreferences
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
@@ -81,4 +82,6 @@ lateinit var sharedPreferenceObject: SharedPreferences
 
 lateinit var sprayAlgorithmInstance: SprayAlgorithm
 var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
+
+lateinit var prevBitmap: Bitmap
 

@@ -145,4 +145,105 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
         }
     }
+
+    binding.apply {
+        fragmentToolsPencilButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.PENCIL_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsFillButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.FILL_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsVerticalMirrorButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsHorizontalMirrorButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsLineButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.LINE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsRectangleButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.RECTANGLE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsOutlinedRectangleButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsSquareButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.SQUARE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsOutlinedSquareButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.OUTLINED_SQUARE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsSprayButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.SPRAY_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsPolygonButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.POLYGON_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsDitherButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.DITHER_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsDarkenButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsLightenButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.LIGHTEN_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsResetCanvasButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsColorPickerButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.COLOR_PICKER_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsFindAndReplaceButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsEraseButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.ERASE_TOOL_IDENTIFIER)
+        }
+
+        fragmentToolsGridButtonH.setOnClickListener {
+            if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
+                onToggleOptionTapped(it)
+            } else {
+                onToggleOptionTappedUnset(it)
+            }
+            caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
+        }
+    }
 }

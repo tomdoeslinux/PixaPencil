@@ -26,37 +26,37 @@ fun CanvasActivity.setOnClickListeners() {
     brushesFragmentInstance = BrushesFragment.newInstance()
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, brushesFragmentInstance!!).commit()
 
-    colorPalettesFragmentInstance = ColorPalettesFragment.newInstance(this)
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
-
     filtersFragmentInstance = FiltersFragment.newInstance()
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, filtersFragmentInstance!!).commit()
+
+    colorPalettesFragmentInstance = ColorPalettesFragment.newInstance()
+    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
 
     toolsFragmentInstance = ToolsFragment.newInstance()
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, toolsFragmentInstance!!).commit()
 
     binding.activityCanvasTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab) {
-            when (tab.text) {
-                getString(R.string.activityCanvas_tab_tools_str) -> {
+            when (tab.position) {
+                0 -> {
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     toolsFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.activityCanvas_tab_filters_str) -> {
+                1 -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.activityCanvas_tab_color_palettes_str) -> {
+                2 -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
-                getString(R.string.activityCanvas_tab_brushes_str) -> {
+                3 -> {
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     toolsFragmentInstance!!.requireView().visibility = View.GONE

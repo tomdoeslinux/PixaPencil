@@ -2,21 +2,41 @@ package com.realtomjoney.pyxlmoose.fragments.colorpicker
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
+import com.realtomjoney.pyxlmoose.listeners.ColorPickerFragmentListener
 
-class ColorPickerFragment(private var oldColor: Int, private val colorPaletteMode: Boolean = false) : Fragment() {
+class ColorPickerFragment : Fragment() {
+    private var paramOldColor: Int? = null
+    private var paramColorPaletteMode: Boolean = false
+
+    fun setParams(paramOldColor: Int, paramColorPaletteMode: Boolean) {
+        this.paramOldColor = paramOldColor
+        this.paramColorPaletteMode = paramColorPaletteMode
+    }
+
+    private fun setup() {
+        instantiateVariables()
+        setOnClickListeners()
+    }
+
     private fun instantiateVariables() {
-        oldColor_ = oldColor
-        colorPaletteMode_ = colorPaletteMode
+        if (paramOldColor != null) {
+            oldColor_ = paramOldColor!!
+        }
+        colorPaletteMode_ = paramColorPaletteMode
     }
 
     companion object {
-        fun newInstance(oldColor: Int, colorPaletteMode: Boolean = false) = ColorPickerFragment(oldColor, colorPaletteMode)
+        fun newInstance(paramOldColor: Int, paramColorPaletteMode: Boolean = false): ColorPickerFragment {
+            val fragment = ColorPickerFragment()
+            fragment.setParams(paramOldColor, paramColorPaletteMode)
+
+            return fragment
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -27,8 +47,7 @@ class ColorPickerFragment(private var oldColor: Int, private val colorPaletteMod
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
 
-        instantiateVariables()
-        setOnClickListeners()
+        setup()
 
         return binding.root
     }

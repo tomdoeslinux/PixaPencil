@@ -1,28 +1,25 @@
-<FrameLayout android:id="@+id/fragmentColorPalettes_rootLayout"
-    android:layout_width="match_parent"
-    android:layout_height="105dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:background="@color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="105dp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    android:id="@+id/fragmentBrushes_rootLayout"
+    tools:context=".fragments.brushes.BrushesFragment"
+    android:background="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragmentColorPalettes_recyclerView"
+            android:id="@+id/fragmentBrushes_recyclerView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/color_palettes_layout" />
+            tools:listitem="@layout/brushes_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

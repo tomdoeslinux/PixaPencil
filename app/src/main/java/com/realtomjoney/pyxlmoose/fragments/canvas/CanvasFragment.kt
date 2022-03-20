@@ -9,18 +9,31 @@ import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.customviews.pixelgridview.PixelGridView
 import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 
-class CanvasFragment(var width: Int, var height: Int) : Fragment() {
+class CanvasFragment : Fragment() {
     lateinit var myCanvasViewInstance: PixelGridView
 
     var bitmap: Bitmap? = null
 
+    var paramWidth: Int = 5
+    var paramHeight: Int = 5
+
+    fun setParams(paramWidth: Int, paramHeight: Int) {
+        this.paramWidth = paramWidth
+        this.paramHeight = paramHeight
+    }
+
     private fun setupCanvas() {
-        myCanvasViewInstance = PixelGridView(requireContext(), width, height)
+        myCanvasViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight)
         binding.fragmentCanvasRootLayout.addView(myCanvasViewInstance)
     }
 
     companion object {
-        fun newInstance(width: Int, height: Int) = CanvasFragment(width, height)
+        fun newInstance(paramWidth: Int, paramHeight: Int): CanvasFragment {
+            val fragment = CanvasFragment()
+            fragment.setParams(paramWidth, paramHeight)
+
+            return fragment
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
