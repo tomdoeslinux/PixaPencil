@@ -8,6 +8,11 @@ Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 ## Video
 https://youtu.be/qNQQLG1N_uE
 
+## Landscape Orientation Update
+PyxlMoose now has landscape orientation support, but this is very buggy and unstable. 
+
+Please use commit 937 or below if you want a good experience while using the app, but remember to stay in portrait mode if possible.
+
 ## Bitmap Update
 PyxlMoose now uses Bitmap to handle the creaton of pixel art.
 
