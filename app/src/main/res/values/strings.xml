@@ -13,7 +13,6 @@
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
 
-    <string name="fragmentNewCanvas_span_count_str">Canvas size</string>
     <string name="fragmentNewCanvas_project_name_str">Project name</string>
     <string name="fragmentTools_vertical_mirror_tool_content_description">Vertical Mirror Tool</string>
     <string name="fragmentTools_horizontal_mirror_tool_content_description">Horizontal Mirror Tool</string>
@@ -50,17 +49,12 @@
     <string name="fragmentFilters_lighten_str">Lighten</string>
     <string name="fragmentFilters_darken_str">Darken</string>
     <string name="fragmentFilters_invert_str">Invert</string>
-    <string name="fragmentFilters_invert_red_str">Invert Red</string>
-    <string name="fragmentFilters_invert_green_str">Invert Green</string>
-    <string name="fragmentFilters_invert_blue_str">Invert Blue</string>
     <string name="fragmentFilters_grayscale_str">Grayscale</string>
 
     <string name="fragmentNewColorPalette_done_str">Done</string>
     <string name="fragmentNewColorPalette_extract_from_canvas_str">Extract From Canvas</string>
     <string name="fragmentNewColorPalette_color_palette_name_str">Color Palette Name</string>
 
-    <string name="fragmentFindAndReplace_color_to_find_str">Color to Find</string>
-    <string name="fragmentFindAndReplace_color_to_replace_str">Color to Replace</string>
     <string name="fragmentFindAndReplace_find_str">Find</string>
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
