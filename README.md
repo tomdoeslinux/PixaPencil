@@ -5,7 +5,7 @@
 
 Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
-## Video
+## Video (note: it is outdated)
 https://youtu.be/qNQQLG1N_uE
 
 ## Landscape Orientation Update
