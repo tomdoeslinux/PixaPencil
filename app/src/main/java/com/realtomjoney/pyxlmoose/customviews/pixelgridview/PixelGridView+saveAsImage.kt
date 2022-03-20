@@ -1,5 +1,3 @@
-@file:Suppress("DEPRECATION")
-
 package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 
 import android.app.Activity
