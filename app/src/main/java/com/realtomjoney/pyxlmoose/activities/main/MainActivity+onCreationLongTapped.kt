@@ -16,7 +16,7 @@ fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
         showDialog(
             "Delete '$paramTitle'?",
             "Are you sure you want to delete '$paramTitle'? - this cannot be undone.",
-            StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _ ->
+            StringConstants.DialogPositiveButtonText, { _, _ ->
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
 
                     AppData.pixelArtDB.pixelArtCreationsDao()

@@ -5,23 +5,23 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun setOnClickListeners() {
     binding.apply {
         fragmentFiltersColorFilterButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.COLOR_FILTER_IDENTIFIER)
+            caller.onFilterTapped(StringConstants.ColorFilterIdentifier)
         }
 
         fragmentFiltersLightenButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.LIGHTEN_FILTER_IDENTIFIER)
+            caller.onFilterTapped(StringConstants.LightenFilterIdentifier)
         }
 
         fragmentFiltersDarkenButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.DARKEN_FILTER_IDENTIFIER)
+            caller.onFilterTapped(StringConstants.DarkenFilterIdentifier)
         }
 
         fragmentFiltersInvertButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.INVERT_FILTER_IDENTIFIER)
+            caller.onFilterTapped(StringConstants.InvertFilterIdentifier)
         }
 
         fragmentFiltersGrayScaleButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.GRAYSCALE_FILTER_IDENTIFIER)
+            caller.onFilterTapped(StringConstants.GrayscaleFilterIdentifier)
         }
     }
 }

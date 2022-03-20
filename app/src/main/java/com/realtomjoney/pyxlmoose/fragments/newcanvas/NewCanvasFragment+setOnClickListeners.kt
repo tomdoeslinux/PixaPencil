@@ -20,7 +20,7 @@ fun setOnClickListeners() {
                 heightValue !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX ) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
-                    StringConstants.EX_INVALID_WIDTH_HEIGHT,
+                    StringConstants.ExceptionInvalidWidthHeightMessage,
                     SnackbarDuration.DEFAULT
                 )
             } else {
@@ -33,7 +33,7 @@ fun setOnClickListeners() {
                 } catch (ex: Exception) {
                     HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                     root.showSnackbar(
-                        StringConstants.EX_INVALID_WIDTH_HEIGHT,
+                        StringConstants.ExceptionInvalidWidthHeightMessage,
                         SnackbarDuration.DEFAULT
                     )
                 }

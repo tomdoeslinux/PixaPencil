@@ -15,7 +15,7 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
     colorPickerFragmentInstance = initColorPickerFragmentInstance(colorPaletteMode)
     currentFragmentInstance = colorPickerFragmentInstance
-    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FRAGMENT_COLOR_PICKER_TITLE, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
+    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FragmentColorPickerTitle, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
 }
 
 fun clearCanvas() {

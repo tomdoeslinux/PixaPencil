@@ -7,11 +7,11 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, height: Int) {
     startActivity(
         Intent(this, CanvasActivity::class.java)
-            .putExtra(StringConstants.PROJECT_TITLE_EXTRA, projectTitle)
-            .putExtra(StringConstants.WIDTH_EXTRA, width)
-            .putExtra(StringConstants.HEIGHT_EXTRA, height)
+            .putExtra(StringConstants.ProjectTitleExtra, projectTitle)
+            .putExtra(StringConstants.WidthExtra, width)
+            .putExtra(StringConstants.HeightExtra, height)
     )
 
-    title = StringConstants.APP_NAME
+    title = StringConstants.AppName
     currentFragmentInstance = null
 }

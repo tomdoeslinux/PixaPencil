@@ -15,7 +15,7 @@ fun CanvasActivity.sprayToolOnToolTapped() {
             supportFragmentManager,
             sprayToolSettingsFragmentInstance,
             R.id.activityCanvas_primaryFragmentHost,
-            StringConstants.FRAGMENT_SPRAY_TOOL_SETTINGS_TITLE,
+            StringConstants.FragmentSprayToolSettingsTitle,
             binding.activityCanvasPrimaryFragmentHost,
             binding.activityCanvasRootLayout
         )

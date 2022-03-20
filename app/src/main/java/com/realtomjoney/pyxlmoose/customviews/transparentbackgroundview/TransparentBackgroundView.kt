@@ -24,7 +24,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
     private var scaleWidth = 0f
     private var scaleHeight = 0f
 
-    var color = Color.parseColor(StringConstants.TBV_C1)
+    var color = Color.parseColor(StringConstants.PixelGridViewCheckerboardColor)
 
     private var currentIndex = index!!
 

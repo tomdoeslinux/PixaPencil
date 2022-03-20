@@ -18,7 +18,7 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
             supportFragmentManager,
             findAndReplaceFragmentInstance,
             R.id.activityCanvas_primaryFragmentHost,
-            StringConstants.FRAGMENT_FIND_AND_REPLACE_TITLE,
+            StringConstants.FragmentFindAndReplaceTitle,
             binding.activityCanvasPrimaryFragmentHost,
             binding.activityCanvasRootLayout
         )

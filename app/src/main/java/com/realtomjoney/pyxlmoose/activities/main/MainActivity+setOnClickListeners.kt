@@ -17,14 +17,14 @@ fun MainActivity.setOnClickListeners() {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(it, this)
                 }
-                title = StringConstants.APP_NAME
+                title = StringConstants.AppName
             }
             R.id.page_starred -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(it.filter { item -> item.starred }, this)
                 }
-                title = StringConstants.TAB_STARRED_TITLE
+                title = StringConstants.TabStarredTitle
             }
         }
         true

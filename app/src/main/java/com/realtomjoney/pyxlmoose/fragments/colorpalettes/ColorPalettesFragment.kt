@@ -61,12 +61,12 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
             requireActivity().showDialog(
                 "Delete '$name'?",
                 "Are you sure you want to delete '$name'? - this cannot be undone.",
-                StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _ ->
+                StringConstants.DialogPositiveButtonText, { _, _ ->
                     deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
                 }, "Cancel", null, null
             )
         } else {
-            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SNACKBAR_CANNOT_DELETE_PRIMARY_COLOR_PALETTE_TEXT, SnackbarDuration.DEFAULT)
+            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SnackbarCannotDeletePrimaryColorPaletteText, SnackbarDuration.DEFAULT)
         }
     }
 }

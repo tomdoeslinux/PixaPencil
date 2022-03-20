@@ -48,92 +48,92 @@ fun ToolsFragment.setOnClickListeners() {
     binding.apply {
         fragmentToolsPencilButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.PENCIL_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.PencilToolIdentifier)
         }
 
         fragmentToolsFillButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FILL_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.FillToolIdentifier)
         }
 
         fragmentToolsVerticalMirrorButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.VerticalMirrorToolIdentifier)
         }
 
         fragmentToolsHorizontalMirrorButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.HorizontalMirrorToolIdentifier)
         }
 
         fragmentToolsLineButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.LINE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.LineToolIdentifier)
         }
 
         fragmentToolsRectangleButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.RECTANGLE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.RectangleToolIdentifier)
         }
 
         fragmentToolsOutlinedRectangleButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.OutlinedRectangleToolIdentifier)
         }
 
         fragmentToolsSquareButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.SQUARE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.SquareToolIdentifier)
         }
 
         fragmentToolsOutlinedSquareButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.OUTLINED_SQUARE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.OutlinedSquareToolIdentifier)
         }
 
         fragmentToolsSprayButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.SPRAY_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.SprayToolIdentifier)
         }
 
         fragmentToolsPolygonButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.POLYGON_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.PolygonToolIdentifier)
         }
 
         fragmentToolsDitherButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.DITHER_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.DitherToolIdentifier)
         }
 
         fragmentToolsDarkenButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.DarkenToolIdentifier)
         }
 
         fragmentToolsLightenButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.LIGHTEN_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.LightenToolIdentifier)
         }
 
         fragmentToolsResetCanvasButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.ClearCanvasToolIdentifier)
         }
 
         fragmentToolsColorPickerButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.COLOR_PICKER_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.ColorPickerToolIdentifier)
         }
 
         fragmentToolsFindAndReplaceButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.FindAndReplaceToolIdentifier)
         }
 
         fragmentToolsEraseButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.ERASE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.EraseToolIdentifier)
         }
 
         fragmentToolsGridButton.setOnClickListener {
@@ -142,99 +142,99 @@ fun ToolsFragment.setOnClickListeners() {
             } else {
                 onToggleOptionTappedUnset(it)
             }
-            caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.GridToolIdentifier)
         }
     }
 
     binding.apply {
         fragmentToolsPencilButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.PENCIL_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.PencilToolIdentifier)
         }
 
         fragmentToolsFillButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FILL_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.FillToolIdentifier)
         }
 
         fragmentToolsVerticalMirrorButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.VerticalMirrorToolIdentifier)
         }
 
         fragmentToolsHorizontalMirrorButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.HorizontalMirrorToolIdentifier)
         }
 
         fragmentToolsLineButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.LINE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.LineToolIdentifier)
         }
 
         fragmentToolsRectangleButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.RECTANGLE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.RectangleToolIdentifier)
         }
 
         fragmentToolsOutlinedRectangleButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.OutlinedRectangleToolIdentifier)
         }
 
         fragmentToolsSquareButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.SQUARE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.SquareToolIdentifier)
         }
 
         fragmentToolsOutlinedSquareButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.OUTLINED_SQUARE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.OutlinedSquareToolIdentifier)
         }
 
         fragmentToolsSprayButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.SPRAY_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.SprayToolIdentifier)
         }
 
         fragmentToolsPolygonButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.POLYGON_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.PolygonToolIdentifier)
         }
 
         fragmentToolsDitherButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.DITHER_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.DitherToolIdentifier)
         }
 
         fragmentToolsDarkenButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.DARKEN_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.DarkenToolIdentifier)
         }
 
         fragmentToolsLightenButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.LIGHTEN_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.LightenToolIdentifier)
         }
 
         fragmentToolsResetCanvasButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.ClearCanvasToolIdentifier)
         }
 
         fragmentToolsColorPickerButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.COLOR_PICKER_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.ColorPickerToolIdentifier)
         }
 
         fragmentToolsFindAndReplaceButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.FindAndReplaceToolIdentifier)
         }
 
         fragmentToolsEraseButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.ERASE_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.EraseToolIdentifier)
         }
 
         fragmentToolsGridButtonH.setOnClickListener {
@@ -243,7 +243,7 @@ fun ToolsFragment.setOnClickListeners() {
             } else {
                 onToggleOptionTappedUnset(it)
             }
-            caller.onToolTapped(StringConstants.GRID_TOOL_IDENTIFIER)
+            caller.onToolTapped(StringConstants.GridToolIdentifier)
         }
     }
 }

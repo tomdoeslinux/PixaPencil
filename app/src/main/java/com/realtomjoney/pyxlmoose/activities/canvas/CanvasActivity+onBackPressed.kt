@@ -9,12 +9,12 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 fun CanvasActivity.extendedOnBackPressed() {
     if (!saved && currentFragmentInstance == null) {
         showDialog(
-            StringConstants.DIALOG_UNSAVED_CHANGES_TITLE,
-            StringConstants.DIALOG_UNSAVED_CHANGES_MESSAGE,
-            StringConstants.DIALOG_POSITIVE_BUTTON_TEXT,
+            StringConstants.DialogUnsavedChangesTitle,
+            StringConstants.DialogUnsavedChangesMessage,
+            StringConstants.DialogPositiveButtonText,
             { _, _ ->
                 startActivity(Intent(context, MainActivity::class.java))
-            }, StringConstants.DIALOG_NEGATIVE_BUTTON_TEXT, { _, _ -> }, null)
+            }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
     } else if (currentFragmentInstance != null) {
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
         currentFragmentInstance = null

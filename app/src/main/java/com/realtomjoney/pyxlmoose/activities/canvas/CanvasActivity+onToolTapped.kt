@@ -8,34 +8,34 @@ import com.realtomjoney.pyxlmoose.utility.Flags
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    if (currentTool == Tools.POLYGON_TOOL && toolName != StringConstants.POLYGON_TOOL_IDENTIFIER) {
+    if (currentTool == Tools.POLYGON_TOOL && toolName != StringConstants.PolygonToolIdentifier) {
         Flags.DISABLE_ACTION_MOVE = false
         polygonCoordinates.clear()
         cindx = 0
     }
 
     when (toolName) {
-        StringConstants.PENCIL_TOOL_IDENTIFIER -> currentTool = Tools.PENCIL_TOOL
+        StringConstants.PencilToolIdentifier -> currentTool = Tools.PENCIL_TOOL
 
-        StringConstants.FILL_TOOL_IDENTIFIER  -> currentTool = Tools.FILL_TOOL
+        StringConstants.FillToolIdentifier  -> currentTool = Tools.FILL_TOOL
 
-        StringConstants.VERTICAL_MIRROR_TOOL_IDENTIFIER  -> currentTool = Tools.VERTICAL_MIRROR_TOOL
+        StringConstants.VerticalMirrorToolIdentifier  -> currentTool = Tools.VERTICAL_MIRROR_TOOL
 
-        StringConstants.HORIZONTAL_MIRROR_TOOL_IDENTIFIER -> currentTool = Tools.HORIZONTAL_MIRROR_TOOL
+        StringConstants.HorizontalMirrorToolIdentifier -> currentTool = Tools.HORIZONTAL_MIRROR_TOOL
 
-        StringConstants.LINE_TOOL_IDENTIFIER -> currentTool = Tools.LINE_TOOL
+        StringConstants.LineToolIdentifier -> currentTool = Tools.LINE_TOOL
 
-        StringConstants.RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.RECTANGLE_TOOL
+        StringConstants.RectangleToolIdentifier -> currentTool = Tools.RECTANGLE_TOOL
 
-        StringConstants.OUTLINED_RECTANGLE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
+        StringConstants.OutlinedRectangleToolIdentifier -> currentTool = Tools.OUTLINED_RECTANGLE_TOOL
 
-        StringConstants.SQUARE_TOOL_IDENTIFIER -> currentTool = Tools.SQUARE_TOOL
+        StringConstants.SquareToolIdentifier -> currentTool = Tools.SQUARE_TOOL
 
-        StringConstants.OUTLINED_SQUARE_TOOL_IDENTIFIER -> currentTool = Tools.OUTLINED_SQUARE_TOOL
+        StringConstants.OutlinedSquareToolIdentifier -> currentTool = Tools.OUTLINED_SQUARE_TOOL
 
-        StringConstants.SPRAY_TOOL_IDENTIFIER -> sprayToolOnToolTapped()
+        StringConstants.SprayToolIdentifier -> sprayToolOnToolTapped()
 
-        StringConstants.POLYGON_TOOL_IDENTIFIER -> {
+        StringConstants.PolygonToolIdentifier -> {
             if (currentTool == Tools.POLYGON_TOOL) {
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
 
@@ -45,35 +45,35 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.POLYGON_TOOL
         }
 
-        StringConstants.DITHER_TOOL_IDENTIFIER -> {
+        StringConstants.DitherToolIdentifier -> {
             currentTool = Tools.DITHER_TOOL
         }
 
-        StringConstants.DARKEN_TOOL_IDENTIFIER  -> {
+        StringConstants.DarkenToolIdentifier  -> {
             filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DARKEN_TOOL
         }
-        StringConstants.LIGHTEN_TOOL_IDENTIFIER  -> {
+        StringConstants.LightenToolIdentifier  -> {
             filterSelectedColor(Color.WHITE, 0.2f)
             currentTool = Tools.LIGHTEN_TOOL
         }
-        StringConstants.CLEAR_CANVAS_TOOL_IDENTIFIER  -> {
+        StringConstants.ClearCanvasToolIdentifier  -> {
             showDialog(
-                StringConstants.DIALOG_CLEAR_CANVAS_TITLE,
-                StringConstants.DIALOG_CLEAR_CANVAS_MESSAGE,
-                StringConstants.DIALOG_POSITIVE_BUTTON_TEXT,
+                StringConstants.DialogClearCanvasTitle,
+                StringConstants.DialogClearCanvasMessage,
+                StringConstants.DialogPositiveButtonText,
                 { _, _ ->
                     clearCanvas()
-                }, StringConstants.DIALOG_NEGATIVE_BUTTON_TEXT, { _, _ -> }, null)
+                }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
         }
 
-        StringConstants.COLOR_PICKER_TOOL_IDENTIFIER -> currentTool = Tools.COLOR_PICKER_TOOL
+        StringConstants.ColorPickerToolIdentifier -> currentTool = Tools.COLOR_PICKER_TOOL
 
-        StringConstants.FIND_AND_REPLACE_TOOL_IDENTIFIER  -> findAndReplaceToolOnToolTapped()
+        StringConstants.FindAndReplaceToolIdentifier  -> findAndReplaceToolOnToolTapped()
 
-        StringConstants.ERASE_TOOL_IDENTIFIER -> currentTool = Tools.ERASE_TOOL
+        StringConstants.EraseToolIdentifier -> currentTool = Tools.ERASE_TOOL
 
-        StringConstants.GRID_TOOL_IDENTIFIER -> {
+        StringConstants.GridToolIdentifier -> {
             if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.canvasHeight <= 150) {
                 if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()

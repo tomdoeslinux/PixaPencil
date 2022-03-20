@@ -24,25 +24,25 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
         if (outputCode == OutputCode.SUCCESS) {
             file = _file
 
-            showSnackbarWithAction("Successfully saved $projectTitle as $formatName", SnackbarDuration.MEDIUM, StringConstants.SNACKBAR_VIEW_EX_INFO_BUTTON_TEXT) {
+            showSnackbarWithAction("Successfully saved $projectTitle as $formatName", SnackbarDuration.MEDIUM, StringConstants.SnackbarViewExceptionInfoButtonText) {
                 fileHelperUtilitiesInstance.openImageFromUri(Uri.fromFile(file)) { outputCode, exceptionMessage_2 ->
                     if (outputCode == OutputCode.FAILURE) {
                         if (exceptionMessage_2 != null) {
-                            showSnackbarWithAction(StringConstants.DIALOG_VIEW_FILE_ERROR_TITLE, SnackbarDuration.DEFAULT, StringConstants.DIALOG_EXCEPTION_INFO_TITLE) {
+                            showSnackbarWithAction(StringConstants.DialogViewFileErrorTitle, SnackbarDuration.DEFAULT, StringConstants.DialogExceptionInfoTitle) {
                                 (context as Activity)
-                                    .showDialog(StringConstants.DIALOG_EXCEPTION_INFO_TITLE, exceptionMessage_2, StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _ -> }, null, null, null)
+                                    .showDialog(StringConstants.DialogExceptionInfoTitle, exceptionMessage_2, StringConstants.DialogPositiveButtonText, { _, _ -> }, null, null, null)
                             }
                         } else {
-                            showSnackbar(StringConstants.DIALOG_VIEW_FILE_ERROR_TITLE, SnackbarDuration.DEFAULT)
+                            showSnackbar(StringConstants.DialogViewFileErrorTitle, SnackbarDuration.DEFAULT)
                         }
                     }
                 }
             }
         } else {
             if (exceptionMessage_1 != null) {
-                showSnackbarWithAction("Error saving $projectTitle as $formatName", SnackbarDuration.DEFAULT, StringConstants.DIALOG_EXCEPTION_INFO_TITLE) {
+                showSnackbarWithAction("Error saving $projectTitle as $formatName", SnackbarDuration.DEFAULT, StringConstants.DialogExceptionInfoTitle) {
                     (context as Activity)
-                        .showDialog(StringConstants.DIALOG_EXCEPTION_INFO_TITLE, exceptionMessage_1, StringConstants.DIALOG_POSITIVE_BUTTON_TEXT, { _, _ -> }, null, null, null)
+                        .showDialog(StringConstants.DialogExceptionInfoTitle, exceptionMessage_1, StringConstants.DialogPositiveButtonText, { _, _ -> }, null, null, null)
                 }
             } else {
                 showSnackbar("Error saving $projectTitle as $formatName", SnackbarDuration.DEFAULT)

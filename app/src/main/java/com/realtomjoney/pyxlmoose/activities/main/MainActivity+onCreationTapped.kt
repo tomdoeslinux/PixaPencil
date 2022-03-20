@@ -10,8 +10,8 @@ fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
         startActivity(
             Intent(context, CanvasActivity::class.java)
-                .putExtra(StringConstants.INDEX_EXTRA, it.indexOf(param))
-                .putExtra(StringConstants.PROJECT_TITLE_EXTRA, param.title)
+                .putExtra(StringConstants.IndexExtra, it.indexOf(param))
+                .putExtra(StringConstants.ProjectTitleExtra, param.title)
         )
     }
 }

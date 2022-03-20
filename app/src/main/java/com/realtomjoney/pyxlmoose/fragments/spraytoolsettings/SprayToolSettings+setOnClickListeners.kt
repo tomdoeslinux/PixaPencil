@@ -19,7 +19,7 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             Integer.parseInt(strength) !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX) {
             HapticFeedbackWrapper.performHapticFeedback(binding.fragmentSprayToolSettingsDoneButton)
             binding.root.showSnackbar(
-                StringConstants.EX_INVALID_R_S,
+                StringConstants.ExceptionInvalidRadiusStrengthMessage,
                 SnackbarDuration.DEFAULT
             )
         } else {
