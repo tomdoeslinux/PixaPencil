@@ -60,7 +60,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         isAntiAlias = true
     }
 
-    var st = false
+    private var st = false
 
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -198,38 +198,46 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             var scaleFactorH = 0
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                if (canvasWidth == canvasHeight) {
-                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-                } else if (canvasWidth > canvasHeight) {
-                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                when {
+                    canvasWidth == canvasHeight -> {
+                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                    }
+                    canvasWidth > canvasHeight -> {
+                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
 
-                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
 
-                    scaleFactorH = (scaleFactorW * ratio).toInt()
-                } else {
-                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                        scaleFactorH = (scaleFactorW * ratio).toInt()
+                    }
+                    else -> {
+                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
 
-                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
 
-                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                        scaleFactorW = (scaleFactorH * ratio).toInt()
+                    }
                 }
             } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                if (canvasWidth == canvasHeight) {
-                    scaleFactorW = resources.displayMetrics.widthPixels
-                    scaleFactorH = resources.displayMetrics.widthPixels
-                } else if (canvasWidth > canvasHeight) {
-                    scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
+                when {
+                    canvasWidth == canvasHeight -> {
+                        scaleFactorW = resources.displayMetrics.widthPixels
+                        scaleFactorH = resources.displayMetrics.widthPixels
+                    }
+                    canvasWidth > canvasHeight -> {
+                        scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
 
-                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
 
-                    scaleFactorH = (scaleFactorW * ratio).toInt()
-                } else {
-                    scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
+                        scaleFactorH = (scaleFactorW * ratio).toInt()
+                    }
+                    else -> {
+                        scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
 
-                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
 
-                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                        scaleFactorW = (scaleFactorH * ratio).toInt()
+                    }
                 }
             }
 

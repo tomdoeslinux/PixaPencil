@@ -10,7 +10,7 @@ var coordinates: Coordinates? = null
 var rectangleAlgorithmInstance: RectanglePreviewAlgorithm? = null
 var squareAlgorithmInstance: SquarePreviewAlgorithm? = null
 
-fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
+fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
     if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
         rectangleAlgorithmInstance = if (!hasBorder) {

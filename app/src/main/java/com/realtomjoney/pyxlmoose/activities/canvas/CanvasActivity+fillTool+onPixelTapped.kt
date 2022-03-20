@@ -4,7 +4,7 @@ import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.FloodFillAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-fun CanvasActivity.fillToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun fillToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val floodFillAlgorithmInstance = FloodFillAlgorithm(
         AlgorithmInfoParameter(
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,

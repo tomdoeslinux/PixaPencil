@@ -83,5 +83,3 @@ lateinit var sharedPreferenceObject: SharedPreferences
 lateinit var sprayAlgorithmInstance: SprayAlgorithm
 var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
 
-lateinit var prevBitmap: Bitmap
-

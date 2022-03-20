@@ -4,7 +4,7 @@ import android.graphics.Color
 import com.realtomjoney.pyxlmoose.utility.ColorFilterUtilities
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun CanvasActivity.extendedOnFilterSelected(filterType: String) {
+fun extendedOnFilterSelected(filterType: String) {
     when (filterType) {
         StringConstants.COLOR_FILTER_IDENTIFIER -> outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }
         StringConstants.DARKEN_FILTER_IDENTIFIER -> outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.BLACK) }

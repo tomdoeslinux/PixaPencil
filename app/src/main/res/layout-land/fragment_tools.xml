@@ -3,7 +3,8 @@
     Ugly solution, but ¯\_(ツ)_/¯
 <!-->
 
-<FrameLayout android:id="@+id/fragmentTools_rootLayout"
+<FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentTools_rootLayout"
     android:layout_width="105dp"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -391,7 +392,8 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_rectangle_tool_content_description" />
+                    android:contentDescription="@string/fragmentTools_rectangle_tool_content_description"
+                    tools:ignore="TooManyViews" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_rectangleButton_h"
                     style="@style/canvas_activity_button_tool_style"

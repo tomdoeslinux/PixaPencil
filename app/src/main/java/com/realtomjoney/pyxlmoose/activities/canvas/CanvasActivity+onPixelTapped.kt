@@ -8,7 +8,7 @@ var polygonCoordinates = mutableListOf<Coordinates>()
 var cindx = 0
 var first = true
 
-fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
+fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     saved = false
     when (currentTool) {
         Tools.PENCIL_TOOL -> pencilToolOnPixelTapped(coordinatesTapped)

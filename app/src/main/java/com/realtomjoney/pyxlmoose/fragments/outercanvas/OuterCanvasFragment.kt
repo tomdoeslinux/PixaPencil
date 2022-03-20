@@ -19,8 +19,8 @@ class OuterCanvasFragment : Fragment() {
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
 
-    var paramWidth: Int = 5
-    var paramHeight: Int = 5
+    private var paramWidth: Int = 5
+    private var paramHeight: Int = 5
 
     val itInit = ::canvasFragment.isInitialized
 

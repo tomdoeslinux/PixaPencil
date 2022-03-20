@@ -21,14 +21,14 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
 
-    var scaleWidth = 0f
-    var scaleHeight = 0f
+    private var scaleWidth = 0f
+    private var scaleHeight = 0f
 
     var color = Color.parseColor(StringConstants.TBV_C1)
 
-    var currentIndex = index!!
+    private var currentIndex = index!!
 
-    var st = false
+    private var st = false
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -117,8 +117,8 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
         return matrix
     }
 
-    var dimenCW = 0
-    var dimenCH = 0
+    private var dimenCW = 0
+    private var dimenCH = 0
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
@@ -126,21 +126,25 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
             var scaleFactorH = 0
 
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                if (canvasWidth == canvasHeight) {
-                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-                } else if (canvasWidth > canvasHeight) {
-                    scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                when {
+                    canvasWidth == canvasHeight -> {
+                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                    }
+                    canvasWidth > canvasHeight -> {
+                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
 
-                    val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
+                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
 
-                    scaleFactorH = (scaleFactorW * ratio).toInt()
-                } else {
-                    scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                        scaleFactorH = (scaleFactorW * ratio).toInt()
+                    }
+                    else -> {
+                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
 
-                    val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
+                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
 
-                    scaleFactorW = (scaleFactorH * ratio).toInt()
+                        scaleFactorW = (scaleFactorH * ratio).toInt()
+                    }
                 }
             } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                 if (canvasWidth == canvasHeight) {

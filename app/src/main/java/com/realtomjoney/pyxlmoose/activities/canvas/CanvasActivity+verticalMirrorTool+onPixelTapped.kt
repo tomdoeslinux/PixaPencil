@@ -4,7 +4,7 @@ import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-fun CanvasActivity.verticalMirrorToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun verticalMirrorToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if ( outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null &&  outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(AlgorithmInfoParameter(
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,

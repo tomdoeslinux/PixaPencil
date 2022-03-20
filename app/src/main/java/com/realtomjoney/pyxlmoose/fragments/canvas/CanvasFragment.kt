@@ -14,8 +14,8 @@ class CanvasFragment : Fragment() {
 
     var bitmap: Bitmap? = null
 
-    var paramWidth: Int = 5
-    var paramHeight: Int = 5
+    private var paramWidth: Int = 5
+    private var paramHeight: Int = 5
 
     fun setParams(paramWidth: Int, paramHeight: Int) {
         this.paramWidth = paramWidth

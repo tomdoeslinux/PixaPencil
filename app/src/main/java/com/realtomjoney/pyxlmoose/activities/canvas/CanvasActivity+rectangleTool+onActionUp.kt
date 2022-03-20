@@ -4,7 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 
-fun CanvasActivity.rectangleToolOnActionUp() {
+fun rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
         val rectAlg: RectangleAlgorithm =
             if (currentTool == Tools.OUTLINED_RECTANGLE_TOOL || currentTool == Tools.OUTLINED_SQUARE_TOOL)
