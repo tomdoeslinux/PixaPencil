@@ -2,8 +2,6 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,7 +12,6 @@ import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.models.Coordinates
-import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 class CanvasActivity :
     AppCompatActivity(),
@@ -64,23 +61,8 @@ class CanvasActivity :
     }
 
     override fun onResume() {
+        extendedOnResume()
         super.onResume()
-
-        if (prevBitmapStr != "") {
-            Handler(Looper.getMainLooper()).postDelayed({
-                val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr)
-                if (convertedBMP != null) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(convertedBMP)
-                }
-            }, LongConstants.DEF_HANDLER_DELAY)
-        }
-
-        if (prevOrientation != 0) {
-            if (prevOrientation != resources.configuration.orientation) {
-                onOrientationChanged()
-                prevOrientation = resources.configuration.orientation
-            }
-        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
