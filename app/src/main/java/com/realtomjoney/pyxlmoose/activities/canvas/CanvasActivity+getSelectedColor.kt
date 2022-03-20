@@ -1,3 +1,7 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-fun extendedGetSelectedColor() = if (isPrimaryColorSelected) primaryColor else secondaryColor
+fun getSelectedColor(): Int {
+    return if (isPrimaryColorSelected) {
+        primaryColor
+    } else secondaryColor
+}

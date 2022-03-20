@@ -10,7 +10,7 @@ fun sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
             AlgorithmInfoParameter(
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-            extendedGetSelectedColor())
+            getSelectedColor())
         )
         sprayAlgorithmInstance = s1
     }

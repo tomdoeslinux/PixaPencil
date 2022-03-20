@@ -50,10 +50,6 @@ class CanvasActivity :
 
     override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
 
-    fun getSelectedColor() = extendedGetSelectedColor()
-
-    fun setPixelColor(color: Int) = if (isPrimaryColorSelected) setPrimaryPixelColor(color) else setSecondaryPixelColor(color)
-
     override fun onPause() {
         extendedOnPause()
         super.onPause()
