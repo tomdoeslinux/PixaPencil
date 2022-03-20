@@ -38,8 +38,8 @@ class CanvasActivity :
     var previewColorToFind: Int? = null
     var previewColorToReplace: Int? = null
 
-    private var prevOrientation: Int = 0
-    private var prevBitmapStr: String = ""
+    var prevOrientation: Int = 0
+    var prevBitmapStr: String = ""
 
     var prevOrientationStr = "PrevOrientation"
     var prevBitmapStrStr = "PrevBitmapStr"
@@ -47,11 +47,7 @@ class CanvasActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
-
-        if (savedInstanceState != null) {
-            prevOrientation = savedInstanceState.getInt(prevOrientationStr)
-            prevBitmapStr = savedInstanceState.getString(prevBitmapStrStr)!!
-        }
+        configureSavedInstanceState(savedInstanceState)
     }
 
     fun initColorPickerFragmentInstance(colorPaletteMode: Boolean) = ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
