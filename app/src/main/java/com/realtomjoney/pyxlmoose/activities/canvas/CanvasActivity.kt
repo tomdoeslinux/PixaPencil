@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -66,8 +65,7 @@ class CanvasActivity :
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(prevOrientationStr, resources.configuration.orientation)
-        outState.putString(prevBitmapStrStr, BitmapConverter.convertBitmapToString(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap))
+        extendedOnSaveInstanceState(outState)
         super.onSaveInstanceState(outState)
     }
 
