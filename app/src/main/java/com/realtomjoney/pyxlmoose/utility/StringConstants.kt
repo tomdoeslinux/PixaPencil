@@ -72,4 +72,5 @@ object StringConstants {
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"
+    const val SnackbarBackgroundColor: String = "#eaddff"
 }
