@@ -18,12 +18,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewCanvasFrag
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setVmPolicy()
-        setBindings()
-        setOnClickListeners()
-        setTitle()
-        initializeRoomDatabases()
-        requestPermissions()
+        extendedOnCreate()
     }
 
     override fun onResume() {
