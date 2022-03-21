@@ -18,16 +18,16 @@ class ColorPickerFragment : Fragment() {
         this.paramColorPaletteMode = paramColorPaletteMode
     }
 
-    private fun setup() {
-        instantiateVariables()
-        setOnClickListeners()
-    }
-
     private fun instantiateVariables() {
         if (paramOldColor != null) {
             oldColor_ = paramOldColor!!
         }
         colorPaletteMode_ = paramColorPaletteMode
+    }
+
+    private fun setup() {
+        instantiateVariables()
+        setOnClickListeners()
     }
 
     companion object {

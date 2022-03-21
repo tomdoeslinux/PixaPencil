@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.utility.Flags
 
 fun polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    Flags.DISABLE_ACTION_MOVE = true
+    Flags.DisableActionMove = true
 
     val lineAlgorithmInstance = LineAlgorithm(
         AlgorithmInfoParameter(

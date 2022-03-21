@@ -10,6 +10,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(radius: String, strength: String)
 
     switchSelectedColorIndicator()
 
-    IntConstants.RADIUS = radius.toInt()
-    IntConstants.STRENGTH = strength.toInt()
+    IntConstants.SprayRadius = radius.toInt()
+    IntConstants.SprayStrength = strength.toInt()
 }

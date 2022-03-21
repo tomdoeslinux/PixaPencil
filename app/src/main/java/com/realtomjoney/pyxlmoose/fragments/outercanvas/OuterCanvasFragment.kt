@@ -22,16 +22,9 @@ class OuterCanvasFragment : Fragment() {
     private var paramWidth: Int = 5
     private var paramHeight: Int = 5
 
-    val itInit = ::canvasFragment.isInitialized
-
     private fun setParams(paramWidth: Int, paramHeight: Int) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
-    }
-
-    private fun setup() {
-        instantiateVariables()
-        showCanvas()
     }
 
     private fun instantiateVariables() {
@@ -40,18 +33,26 @@ class OuterCanvasFragment : Fragment() {
         canvasFragment = CanvasFragment.newInstance(paramWidth, paramHeight)
     }
 
-    private fun showCanvas() {
+    private fun addTransparentBackgroundView() {
         transparentBackgroundView = TransparentBackgroundView(requireContext(), paramWidth, paramHeight)
         binding.defsq2.addView(transparentBackgroundView)
+    }
 
+    private fun beginCanvasFragmentTransaction() {
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
+    }
+
+    private fun setup() {
+        instantiateVariables()
+        addTransparentBackgroundView()
+        beginCanvasFragmentTransaction()
     }
 
     fun getCurrentRotation(): Float {
         return binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation
     }
 
-    fun rotate(by: Int = IntConstants.DEGREES_NINETY, animate: Boolean = true, clockwise: Boolean = true) {
+    fun rotate(by: Int = IntConstants.DegreesNinety, animate: Boolean = true, clockwise: Boolean = true) {
         val rotationAmount = if (clockwise) {
                 (getCurrentRotation() + by)
         } else {

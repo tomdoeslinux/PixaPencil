@@ -40,5 +40,5 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
     val h = Handler(Looper.getMainLooper())
     h.postDelayed( {
         binding.activityCanvasColorPickerRecyclerView.scrollToPosition(size - 1)
-    }, LongConstants.DEF_HANDLER_DELAY)
+    }, LongConstants.DefaultHandlerDelay)
 }

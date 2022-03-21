@@ -45,6 +45,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         val h = Handler(Looper.getMainLooper())
         h.postDelayed( {
             extendedOnColorPaletteTapped(it.last())
-        }, LongConstants.DEF_HANDLER_DELAY)
+        }, LongConstants.DefaultHandlerDelay)
     }
 }

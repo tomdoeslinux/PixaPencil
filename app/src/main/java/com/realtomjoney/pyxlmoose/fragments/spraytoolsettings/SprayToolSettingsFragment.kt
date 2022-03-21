@@ -11,10 +11,13 @@ import com.realtomjoney.pyxlmoose.listeners.SprayToolSettingsFragmentListener
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 
 class SprayToolSettingsFragment : Fragment() {
-    private fun setup() {
-        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.RADIUS.toString())
-        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.STRENGTH.toString())
+    private fun setDefaultValues() {
+        binding.fragmentSprayToolSettingsRadiusTextInputEditText.setText(IntConstants.SprayRadius.toString())
+        binding.fragmentSprayToolSettingsStrengthTextInputEditText.setText(IntConstants.SprayStrength.toString())
+    }
 
+    private fun setup() {
+        setDefaultValues()
         setOnClickListeners()
     }
 

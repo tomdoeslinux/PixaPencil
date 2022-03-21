@@ -1,22 +1,14 @@
 package com.realtomjoney.pyxlmoose.fragments.colorpicker.hsv
 
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.activities.canvas.showMenuItems
 import com.realtomjoney.pyxlmoose.databinding.FragmentHSVColorPickerBinding
-import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
-import com.realtomjoney.pyxlmoose.fragments.colorpicker.caller
-import com.realtomjoney.pyxlmoose.fragments.colorpicker.colorPaletteMode_
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.oldColor_
-import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 
 class HSVColorPickerFragment : Fragment() {
@@ -70,21 +62,6 @@ class HSVColorPickerFragment : Fragment() {
                 hsvValue = Integer.parseInt(binding.fragmentHSVColorPickerValueValueTextInputEditText.text.toString()).toFloat()
                 updateColorPickerColorView()
             } catch (ex: Exception) { }
-        }
-    }
-
-    private fun setOnClickListeners() {
-        binding.fragmentHSVColorPickerDoneButton.setOnClickListener {
-            hideKeyboard()
-            Handler(Looper.getMainLooper()).postDelayed({
-                try {
-                    caller.onDoneButtonPressed((binding.fragmentHSVColorPickerColorPreview.background as ColorDrawable).color, colorPaletteMode_)
-                } catch (exception: Exception) {
-
-                } finally {
-                    showMenuItems()
-                }
-            }, LongConstants.DEF_HANDLER_DELAY)
         }
     }
 

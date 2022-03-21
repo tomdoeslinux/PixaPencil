@@ -15,9 +15,9 @@ fun setOnClickListeners() {
                 Integer.parseInt(fragmentNewCanvasWidthTextInputEditText.text.toString())
             val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
-            if (widthValue !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX
+            if (widthValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax
                 &&
-                heightValue !in IntConstants.SPAN_COUNT_MIN..IntConstants.SPAN_COUNT_MAX ) {
+                heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax ) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
                     StringConstants.ExceptionInvalidWidthHeightMessage,

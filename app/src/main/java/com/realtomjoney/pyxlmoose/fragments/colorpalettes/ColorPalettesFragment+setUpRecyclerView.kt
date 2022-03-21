@@ -22,7 +22,7 @@ fun ColorPalettesFragment.setUpRecyclerView() {
 
         layoutManager.orientation = layoutManagerOrientation
 
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.OBJECT_GLOBAL_SCOPE_LIFECYCLE_OWNER) {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.ObjectGlobalScopeLifecycleOwner) {
             fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(activity as Activity, it, context)
         }
     }

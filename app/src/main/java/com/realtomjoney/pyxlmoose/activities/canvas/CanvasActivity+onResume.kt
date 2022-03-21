@@ -12,7 +12,7 @@ fun CanvasActivity.extendedOnResume() {
             if (convertedBMP != null) {
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(convertedBMP)
             }
-        }, LongConstants.DEF_HANDLER_DELAY)
+        }, LongConstants.DefaultHandlerDelay)
     }
 
     if (prevOrientation != 0) {

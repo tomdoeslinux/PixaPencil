@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.content.SharedPreferences
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
@@ -26,8 +25,8 @@ var index: Int? = null
 
 var primaryColor: Int = Color.BLACK
 var secondaryColor: Int = Color.BLUE
-var width = IntConstants.DEF_CANVAS_SIZE
-var height = IntConstants.DEF_CANVAS_SIZE
+var width = IntConstants.DefaultCanvasWidthHeight
+var height = IntConstants.DefaultCanvasWidthHeight
 var isPrimaryColorSelected = true
 
 var isSelected = false

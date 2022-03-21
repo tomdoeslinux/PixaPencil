@@ -9,7 +9,7 @@ import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     if (currentTool == Tools.POLYGON_TOOL && toolName != StringConstants.PolygonToolIdentifier) {
-        Flags.DISABLE_ACTION_MOVE = false
+        Flags.DisableActionMove = false
         polygonCoordinates.clear()
         cindx = 0
     }
