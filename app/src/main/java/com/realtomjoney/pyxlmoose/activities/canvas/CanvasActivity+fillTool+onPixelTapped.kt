@@ -9,8 +9,8 @@ fun fillToolOnPixelTapped(coordinatesTapped: Coordinates) {
         AlgorithmInfoParameter(
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-        getSelectedColor()
+        getSelectedColor())
     )
-    )
+
     floodFillAlgorithmInstance.compute(Coordinates(coordinatesTapped.x, coordinatesTapped.y))
 }

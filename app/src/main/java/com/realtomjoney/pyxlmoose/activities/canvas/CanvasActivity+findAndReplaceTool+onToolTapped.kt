@@ -24,6 +24,6 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
         )
         hideMenuItems()
     } else {
-        binding.activityCanvasRootLayout.showSnackbar("You must have at least one color on your canvas to use this tool", SnackbarDuration.DEFAULT)
+        binding.activityCanvasRootLayout.showSnackbar(StringConstants.SnackbarFindAndReplaceWarning, SnackbarDuration.DEFAULT)
     }
 }
