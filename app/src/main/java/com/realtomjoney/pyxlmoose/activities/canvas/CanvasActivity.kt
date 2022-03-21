@@ -35,9 +35,6 @@ class CanvasActivity :
     var prevOrientation: Int = 0
     var prevBitmapStr: String = ""
 
-    var prevOrientationStr = "PrevOrientation"
-    var prevBitmapStrStr = "PrevBitmapStr"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
