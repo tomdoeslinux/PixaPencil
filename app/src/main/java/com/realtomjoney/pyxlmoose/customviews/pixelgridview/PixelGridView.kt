@@ -17,6 +17,7 @@ import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.models.PixelArt
+import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
 class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
@@ -173,7 +174,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
-        throw IllegalArgumentException("Cannot access pixel art object with a negative index in list!")
+        throw IllegalArgumentException(StringConstants.ExceptionAccessingNegativeIndex)
     }
 
     private fun calculateMatrix(bm: Bitmap, newWidth: Float, newHeight: Float): Matrix {

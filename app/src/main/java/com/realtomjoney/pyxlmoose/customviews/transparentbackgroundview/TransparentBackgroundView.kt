@@ -30,6 +30,9 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
     private var st = false
 
+    private var dimenCW = 0
+    private var dimenCH = 0
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
             setMeasuredDimension(
@@ -98,7 +101,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
-        throw IllegalArgumentException("Cannot access pixel art object with a negative index in list!")
+        throw IllegalArgumentException(StringConstants.ExceptionAccessingNegativeIndex)
     }
 
     private fun calculateMatrix(bm: Bitmap, newWidth: Float, newHeight: Float): Matrix {
@@ -116,9 +119,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
         return matrix
     }
-
-    private var dimenCW = 0
-    private var dimenCH = 0
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {

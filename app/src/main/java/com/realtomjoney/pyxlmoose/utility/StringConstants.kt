@@ -65,6 +65,7 @@ object StringConstants {
 
     const val ExceptionInvalidWidthHeightMessage = "Invalid width/height value"
     const val ExceptionInvalidRadiusStrengthMessage = "Invalid radius/strength"
+    const val ExceptionAccessingNegativeIndex = "Cannot access pixel art object with a negative index in list!"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"
