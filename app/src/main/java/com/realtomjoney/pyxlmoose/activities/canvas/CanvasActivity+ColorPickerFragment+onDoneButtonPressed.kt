@@ -6,9 +6,7 @@ import android.os.Looper
 import com.realtomjoney.pyxlmoose.adapters.ColorPickerAdapter
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.utility.LongConstants
-import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
 
@@ -32,10 +30,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         }
     }
 
-    currentFragmentInstance = null
-    navigateHome(supportFragmentManager, colorPickerFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
-    switchSelectedColorIndicator()
-    showMenuItems()
+    navigateBack(colorPickerFragmentInstance)
 
     val h = Handler(Looper.getMainLooper())
     h.postDelayed( {

@@ -5,10 +5,8 @@ import android.os.Handler
 import android.os.Looper
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.extensions.navigateHome
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.utility.LongConstants
-import com.realtomjoney.pyxlmoose.utility.StringConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,10 +33,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
         }
     }
 
-    currentFragmentInstance = null
-    navigateHome(supportFragmentManager, newColorPaletteFragmentInstance, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
-    switchSelectedColorIndicator()
-    showMenuItems()
+    navigateBack(colorPickerFragmentInstance)
 
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
