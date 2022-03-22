@@ -68,7 +68,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
                 }, "Cancel", null, null
             )
         } else {
-            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SnackbarCannotDeletePrimaryColorPaletteText, SnackbarDuration.DEFAULT)
+            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SnackbarCannotDeletePrimaryColorPaletteText, SnackbarDuration.Default)
         }
     }
 }

@@ -30,7 +30,7 @@ class FileHelperUtilities(private val context: Context) {
          * **/
 
         var exceptionMessage: String? = null
-        var outputCode = OutputCode.SUCCESS
+        var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
         val outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$projectTitle.png" else "$projectTitle.jpg"
 
@@ -48,7 +48,7 @@ class FileHelperUtilities(private val context: Context) {
             outputStream.close()
         } catch (exception: Exception) {
             exceptionMessage = exception.message
-            outputCode = OutputCode.FAILURE
+            outputCode = OutputCode.Failure
         } finally {
             onTaskFinished(outputCode, file, exceptionMessage)
         }
@@ -59,7 +59,7 @@ class FileHelperUtilities(private val context: Context) {
     fun openImageFromUri(uri: Uri,
                          onTaskFinished: (OutputCode, String?) -> Unit) {
         var exceptionMessage: String? = null
-        var outputCode = OutputCode.SUCCESS
+        var outputCode = OutputCode.Success
         val intentAction = Intent.ACTION_VIEW
         val type = "image/*"
 
@@ -72,7 +72,7 @@ class FileHelperUtilities(private val context: Context) {
             context.startActivity(intent)
         } catch (exception: Exception) {
             exceptionMessage = exception.message
-            outputCode = OutputCode.FAILURE
+            outputCode = OutputCode.Failure
         } finally {
             onTaskFinished(outputCode, exceptionMessage)
         }

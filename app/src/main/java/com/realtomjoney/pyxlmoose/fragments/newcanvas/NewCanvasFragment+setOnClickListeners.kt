@@ -21,7 +21,7 @@ fun setOnClickListeners() {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
                     StringConstants.ExceptionInvalidWidthHeightMessage,
-                    SnackbarDuration.DEFAULT
+                    SnackbarDuration.Default
                 )
             } else {
                 try {
@@ -34,7 +34,7 @@ fun setOnClickListeners() {
                     HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                     root.showSnackbar(
                         StringConstants.ExceptionInvalidWidthHeightMessage,
-                        SnackbarDuration.DEFAULT
+                        SnackbarDuration.Default
                     )
                 }
             }

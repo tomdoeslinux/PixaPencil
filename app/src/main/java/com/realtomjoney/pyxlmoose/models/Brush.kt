@@ -8,28 +8,28 @@ data class Brush(val brushName: String, val brushInstructionData: List<BrushInst
 
         for (brushInstruction in this.brushInstructionData) {
             when (brushInstruction.brushInstruction) {
-                BrushInstruction.EXPAND_TOP -> {
+                BrushInstruction.ExpandTop -> {
                     instructions.add(Coordinates(from.x, from.y + brushInstruction.by))
                 }
-                BrushInstruction.EXPAND_BOTTOM -> {
+                BrushInstruction.ExpandBottom -> {
                     instructions.add(Coordinates(from.x, from.y - brushInstruction.by))
                 }
-                BrushInstruction.EXPAND_LEFT -> {
+                BrushInstruction.ExpandLeft -> {
                     instructions.add(Coordinates(from.x - brushInstruction.by, from.y))
                 }
-                BrushInstruction.EXPAND_RIGHT -> {
+                BrushInstruction.ExpandRight -> {
                     instructions.add(Coordinates(from.x + brushInstruction.by, from.y))
                 }
-                BrushInstruction.EXPAND_TOP_RIGHT -> {
+                BrushInstruction.ExpandTopRight -> {
                     instructions.add(Coordinates(from.x + brushInstruction.by, from.y + brushInstruction.by))
                 }
-                BrushInstruction.EXPAND_TOP_LEFT -> {
+                BrushInstruction.ExpandTopLeft -> {
                     instructions.add(Coordinates(from.x - brushInstruction.by, from.y + brushInstruction.by))
                 }
-                BrushInstruction.EXPAND_BOTTOM_RIGHT -> {
+                BrushInstruction.ExpandBottomRight -> {
                     instructions.add(Coordinates(from.x - brushInstruction.by, from.y - brushInstruction.by))
                 }
-                BrushInstruction.EXPAND_BOTTOM_LEFT -> {
+                BrushInstruction.ExpandBottomLeft -> {
                     instructions.add(Coordinates(from.x + brushInstruction.by, from.y - brushInstruction.by))
                 }
             }

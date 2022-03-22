@@ -77,12 +77,12 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
         }
     }
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
-        contextView.showSnackbar("Saved ${pixelArt.title} to starred items.", SnackbarDuration.DEFAULT)
+        contextView.showSnackbar("Saved ${pixelArt.title} to starred items.", SnackbarDuration.Default)
         pixelArt.starred = true
     }
 
     private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
-        contextView.showSnackbar("You have removed ${pixelArt.title} from your starred items.", SnackbarDuration.DEFAULT)
+        contextView.showSnackbar("You have removed ${pixelArt.title} from your starred items.", SnackbarDuration.Default)
         pixelArt.starred = false
     }
 

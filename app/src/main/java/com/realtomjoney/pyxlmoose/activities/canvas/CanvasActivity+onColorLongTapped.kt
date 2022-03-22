@@ -20,7 +20,7 @@ fun extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
 
     val colorPaletteName = colorPalette.colorPaletteName
 
-    binding.activityCanvasRootLayout.showSnackbarWithAction("Removed color from '$colorPaletteName'", SnackbarDuration.DEFAULT, "Undo") {
+    binding.activityCanvasRootLayout.showSnackbarWithAction("Removed color from '$colorPaletteName'", SnackbarDuration.Default, "Undo") {
         extractedJson.add(colorIndex, color)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(

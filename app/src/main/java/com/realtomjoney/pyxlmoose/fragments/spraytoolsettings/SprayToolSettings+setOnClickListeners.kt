@@ -20,7 +20,7 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             HapticFeedbackWrapper.performHapticFeedback(binding.fragmentSprayToolSettingsDoneButton)
             binding.root.showSnackbar(
                 StringConstants.ExceptionInvalidRadiusStrengthMessage,
-                SnackbarDuration.DEFAULT
+                SnackbarDuration.Default
             )
         } else {
             hideKeyboard()

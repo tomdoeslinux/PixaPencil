@@ -118,7 +118,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.hideGrid()
                 }
             } else {
-                binding.activityCanvasRootLayout.showSnackbar("PyxlMoose currently does not support showing a grid for canvas sizes of over 150", SnackbarDuration.DEFAULT)
+                binding.activityCanvasRootLayout.showSnackbar("PyxlMoose currently does not support showing a grid for canvas sizes of over 150", SnackbarDuration.Default)
             }
         }
     }
