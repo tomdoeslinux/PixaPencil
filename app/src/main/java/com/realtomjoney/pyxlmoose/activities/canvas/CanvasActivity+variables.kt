@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 //import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
+import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
@@ -36,28 +37,7 @@ var currentFragmentInstance: Fragment? = null
 
 lateinit var currentPixelArtObj: PixelArt
 
-enum class Tools {
-    PENCIL_TOOL,
-    FILL_TOOL,
-    HORIZONTAL_MIRROR_TOOL,
-    VERTICAL_MIRROR_TOOL,
-    LINE_TOOL,
-    RECTANGLE_TOOL,
-    OUTLINED_RECTANGLE_TOOL,
-    SQUARE_TOOL,
-    OUTLINED_SQUARE_TOOL,
-    CIRCLE_TOOL,
-    OUTLINED_CIRCLE_TOOL,
-    SPRAY_TOOL,
-    POLYGON_TOOL,
-    DITHER_TOOL,
-    DARKEN_TOOL,
-    LIGHTEN_TOOL,
-    COLOR_PICKER_TOOL,
-    ERASE_TOOL
-}
-
-var currentTool: Tools = Tools.PENCIL_TOOL
+var currentTool: Tools = Tools.PencilTool
 
 var saved = true
 

@@ -2,9 +2,10 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.CircleAlgorithm
+import com.realtomjoney.pyxlmoose.enums.Tools
 
 fun circleToolOnActionUp() {
-    if (currentTool == Tools.CIRCLE_TOOL) {
+    if (currentTool == Tools.CircleTool) {
         val circleAlgorithmInstance = CircleAlgorithm(
             AlgorithmInfoParameter.pass(
                 outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,

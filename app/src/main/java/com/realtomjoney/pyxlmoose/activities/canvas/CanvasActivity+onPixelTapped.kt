@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 var lineOrigin: Coordinates? = null
@@ -12,67 +13,67 @@ var first = true
 fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     saved = false
     when (currentTool) {
-        Tools.PENCIL_TOOL -> {
+        Tools.PencilTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.VERTICAL_MIRROR_TOOL -> {
+        Tools.VerticalMirrorTool -> {
             verticalMirrorToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.HORIZONTAL_MIRROR_TOOL -> {
+        Tools.HorizontalMirrorTool -> {
             horizontalMirrorToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.FILL_TOOL -> {
+        Tools.FillTool -> {
             fillToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.LINE_TOOL -> {
+        Tools.LineTool -> {
             lineToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.RECTANGLE_TOOL -> {
+        Tools.RectangleTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, false)
         }
 
-        Tools.OUTLINED_RECTANGLE_TOOL -> {
+        Tools.OutlinedRectangleTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, true)
         }
 
-        Tools.SQUARE_TOOL -> {
+        Tools.SquareTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, false)
         }
 
-        Tools.OUTLINED_SQUARE_TOOL -> {
+        Tools.OutlinedSquareTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, true)
         }
 
-        Tools.CIRCLE_TOOL -> {
+        Tools.CircleTool -> {
             circleToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.OUTLINED_CIRCLE_TOOL -> {
+        Tools.OutlinedCircleTool -> {
             circleToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.SPRAY_TOOL -> {
+        Tools.SprayTool -> {
             sprayToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.POLYGON_TOOL -> {
+        Tools.PolygonTool -> {
             polygonToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.DITHER_TOOL -> {
+        Tools.DitherTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.ERASE_TOOL -> {
+        Tools.EraseTool -> {
             eraseToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.COLOR_PICKER_TOOL -> {
+        Tools.ColorPickerTool -> {
             colorPickerToolOnPixelTapped(coordinatesTapped)
         }
 

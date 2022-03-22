@@ -4,6 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.RectanglePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
+import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 var coordinates: Coordinates? = null
@@ -12,7 +13,7 @@ var squareAlgorithmInstance: SquarePreviewAlgorithm? = null
 
 fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
-    if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
+    if (currentTool == Tools.RectangleTool || currentTool == Tools.OutlinedRectangleTool) {
         rectangleAlgorithmInstance = if (!hasBorder) {
             RectanglePreviewAlgorithm(
                 AlgorithmInfoParameter.pass(

@@ -1,12 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import com.realtomjoney.pyxlmoose.R
+import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.extensions.navigateTo
 import com.realtomjoney.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
 fun CanvasActivity.sprayToolOnToolTapped() {
-    if (currentTool == Tools.SPRAY_TOOL) {
+    if (currentTool == Tools.SprayTool) {
         sprayToolSettingsFragmentInstance =
             SprayToolSettingsFragment.newInstance()
         currentFragmentInstance = sprayToolSettingsFragmentInstance
@@ -23,5 +24,5 @@ fun CanvasActivity.sprayToolOnToolTapped() {
         hideMenuItems()
     }
 
-    currentTool = Tools.SPRAY_TOOL
+    currentTool = Tools.SprayTool
 }
