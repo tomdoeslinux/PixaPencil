@@ -62,6 +62,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Outlined rectangle tool
 - Square tool
 - Outlined square tool
+- Circle Tool
+- Outlined Circle Tool
 - Spray tool
 - Polygon tool
 - Dither tool
@@ -70,17 +72,17 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Clear canvas tool
 - Color picker tool
 - Find and replace by color tool
-- Pixel grid (can be disabled or enabled) 
 - Eraser tool
+- Pixel grid (can be disabled or enabled) 
 - Pixel perfect mode (not 100% stable)
 - Undo
 - Redo
 - Zoom in
 - Zoom out
-- 10 awesome filters
+- 5 awesome filters
 - Custom color palettes
 - Ability to select from 5 different brushes
-- Ability to select custom colors from HEX code or RGB sliders
+- Ability to select custom colors from hex, rgb, hsv, or a color picker
 - Ability to unfavorite/favorite projects
 - Ability to export projects to a PNG/JPG file
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
