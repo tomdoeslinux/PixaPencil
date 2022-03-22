@@ -25,6 +25,10 @@ fun extendedOnActionUp() {
             circleToolOnActionUp()
         }
 
+        currentTool == Tools.EraseTool -> {
+            primaryAlgorithmInfoParameter.color = getSelectedColor()
+        }
+
         else -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
 

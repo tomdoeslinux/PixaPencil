@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun eraseToolOnPixelTapped(coordinatesTapped: Coordinates) {
+    primaryAlgorithmInfoParameter.color = Color.TRANSPARENT
+
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null && outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
