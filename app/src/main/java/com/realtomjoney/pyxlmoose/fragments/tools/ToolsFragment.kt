@@ -6,11 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.realtomjoney.pyxlmoose.activities.canvas.currentTool
 import com.realtomjoney.pyxlmoose.databinding.FragmentToolsBinding
+import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
 
 class ToolsFragment : Fragment() {
     private fun setup() {
+        currentTool = Tools.PencilTool
+        currentlySelectedFAB = binding.fragmentToolsPencilButton
+        currentlySelectedFAB = binding.fragmentToolsPencilButtonH
+
         setColorFor(binding.fragmentToolsPencilButton)
         setColorFor(binding.fragmentToolsPencilButtonH)
         setOnClickListeners()
