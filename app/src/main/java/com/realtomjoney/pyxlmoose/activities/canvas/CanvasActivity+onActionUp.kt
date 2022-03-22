@@ -39,10 +39,10 @@ fun extendedOnActionUp() {
                 pixelPerfectAlgorithmInstance.compute()
             }
 
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
-
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX = null
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY = null
         }
     }
+
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
 }
