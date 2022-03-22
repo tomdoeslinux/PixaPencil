@@ -1,23 +1,12 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.CircleAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    val algP =  AlgorithmInfoParameter.pass(
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-        getSelectedColor()
-    )
-    val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(
-        algP, null, true
-    )
-
-    val circleAlgorithmInstance = CircleAlgorithm(
-        algP
-    )
+    val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(primaryAlgorithmInfoParameter, null, true)
+    val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter)
 
     if (!circleMode_hasLetGo) {
         if (!first) outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()

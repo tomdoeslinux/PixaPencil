@@ -11,6 +11,10 @@ var cindx = 0
 var first = true
 
 fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
+    if (!primaryAlgorithmInfoParameterInitialized) {
+        initPrimaryAlgorithmInfoParameter()
+    }
+
     saved = false
     when (currentTool) {
         Tools.PencilTool -> {

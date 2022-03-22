@@ -1,7 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.drawable.ColorDrawable
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.RectanglePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.enums.Tools
@@ -15,39 +13,15 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
 
     if (currentTool == Tools.RectangleTool || currentTool == Tools.OutlinedRectangleTool) {
         rectangleAlgorithmInstance = if (!hasBorder) {
-            RectanglePreviewAlgorithm(
-                AlgorithmInfoParameter.pass(
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                    getSelectedColor()
-                )
-            )
+            RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
         } else {
-            RectanglePreviewAlgorithm(
-                AlgorithmInfoParameter.pass(
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                    (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
-                )
-            )
+            RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
         }
     } else {
         squareAlgorithmInstance = if (!hasBorder) {
-            SquarePreviewAlgorithm(
-                AlgorithmInfoParameter.pass(
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                    getSelectedColor()
-                )
-            )
+            SquarePreviewAlgorithm(primaryAlgorithmInfoParameter)
         } else {
-            SquarePreviewAlgorithm(
-                AlgorithmInfoParameter.pass(
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                    (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
-                )
-            )
+            SquarePreviewAlgorithm(primaryAlgorithmInfoParameter)
         }
     }
 

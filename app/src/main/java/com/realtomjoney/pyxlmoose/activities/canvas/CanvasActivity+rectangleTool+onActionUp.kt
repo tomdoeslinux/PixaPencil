@@ -1,7 +1,6 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
 import com.realtomjoney.pyxlmoose.enums.Tools
 
@@ -10,21 +9,11 @@ fun rectangleToolOnActionUp() {
         val rectAlg: RectangleAlgorithm =
             if (currentTool == Tools.OutlinedRectangleTool || currentTool == Tools.OutlinedSquareTool)
                 RectangleAlgorithm(
-                    AlgorithmInfoParameter.pass(
-                        outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                        (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
-                    ),
+                    primaryAlgorithmInfoParameter,
                     (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
                 )
             else
-                RectangleAlgorithm(
-                    AlgorithmInfoParameter.pass(
-                        outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                        getSelectedColor()
-                    )
-                )
+                RectangleAlgorithm(primaryAlgorithmInfoParameter)
 
         rectAlg.compute(rectangleOrigin!!, coordinates!!)
     }

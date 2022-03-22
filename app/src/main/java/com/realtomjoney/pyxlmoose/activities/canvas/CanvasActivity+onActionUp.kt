@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.PixelPerfectAlgorithm
 import com.realtomjoney.pyxlmoose.database.BrushesDatabase
 import com.realtomjoney.pyxlmoose.enums.ToolFamily
@@ -32,11 +31,7 @@ fun extendedOnActionUp() {
             if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
                 && (currentTool == Tools.PencilTool)
                 && (outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBrush == null || outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBrush == BrushesDatabase.toList().first())) {
-                val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(AlgorithmInfoParameter.pass(
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
-                    getSelectedColor()
-                ))
+                val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(primaryAlgorithmInfoParameter)
                 pixelPerfectAlgorithmInstance.compute()
             }
 

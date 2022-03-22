@@ -5,8 +5,8 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
 import androidx.fragment.app.Fragment
+import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
-//import com.realtomjoney.pyxlmoose.algorithms.SprayAlgorithm
 import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.fragments.brushes.BrushesFragment
@@ -43,6 +43,7 @@ var saved = true
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var outerCanvasInstance: OuterCanvasFragment
+var outerCanvasInstanceInitialized = ::outerCanvasInstance.isInitialized
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment
@@ -64,4 +65,14 @@ lateinit var sharedPreferenceObject: SharedPreferences
 
 lateinit var sprayAlgorithmInstance: SprayAlgorithm
 var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
+
+var previewColorToFind: Int? = null
+var previewColorToReplace: Int? = null
+
+var prevOrientation: Int = 0
+var prevBitmapStr: String = ""
+
+lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
+val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
+
 

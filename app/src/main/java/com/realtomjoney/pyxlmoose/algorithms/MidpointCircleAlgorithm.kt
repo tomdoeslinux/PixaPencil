@@ -11,6 +11,8 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
  */
 
 class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val evenDiameterMode: Boolean = false, private val filledMode: Boolean = false) {
+    private val shouldLineIgnoreBrush = true
+
     private fun putPixel(p1: Coordinates, p2: Coordinates) {
         val xc = p1.x
         val yc = p1.y
@@ -19,49 +21,49 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
         val y = p2.y
 
         if (!evenDiameterMode) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc + x,
                 yc - y,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc + y,
                 yc - x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc + x,
                 yc + y,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc + y,
                 yc + x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - x,
                 yc - y,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - y,
                 yc - x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - y,
                 yc + x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - x,
                 yc + y,
                 algorithmInfo.color
             )
 
             if (filledMode) {
-                LineAlgorithm(algorithmInfo, true).apply {
+                LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush).apply {
                     compute(
                         Coordinates(xc + x, yc - y),
                         Coordinates(xc - x, yc - y)
@@ -127,7 +129,7 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             )
 
             if (filledMode) {
-                LineAlgorithm(algorithmInfo, true).apply {
+                LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush).apply {
                     compute(
                         Coordinates((xc + x) + 1, yc - y),
                         Coordinates(xc - x, yc - y)

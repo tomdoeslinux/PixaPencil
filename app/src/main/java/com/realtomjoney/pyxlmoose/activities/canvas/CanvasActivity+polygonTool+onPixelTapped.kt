@@ -1,21 +1,13 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.realtomjoney.pyxlmoose.algorithms.LineAlgorithm
-import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.utility.Flags
 
 fun polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
     Flags.DisableActionMove = true
 
-    val lineAlgorithmInstance = LineAlgorithm(
-        AlgorithmInfoParameter.pass(
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
-            BitmapAction(mutableListOf()),
-            getSelectedColor()
-        )
-    )
+    val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
     polygonCoordinates.add(coordinatesTapped)
 

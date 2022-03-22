@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.utility.IntConstants
 import kotlin.math.floor
@@ -24,7 +23,7 @@ class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private 
 
             val randCoordinates = Coordinates(randX, randY)
 
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(randCoordinates.x, randCoordinates.y, algorithmInfo.color)
+            algorithmInfo.canvas.overrideSetPixel(randCoordinates.x, randCoordinates.y, algorithmInfo.color)
         }
     }
 }

@@ -29,12 +29,6 @@ class CanvasActivity :
 
     val context = this
 
-    var previewColorToFind: Int? = null
-    var previewColorToReplace: Int? = null
-
-    var prevOrientation: Int = 0
-    var prevBitmapStr: String = ""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
@@ -43,9 +37,13 @@ class CanvasActivity :
 
     fun initColorPickerFragmentInstance(colorPaletteMode: Boolean) = ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
 
-    override fun onCreateOptionsMenu(menu: Menu?) = extendedOnCreateOptionsMenu(menu)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return extendedOnCreateOptionsMenu(menu)
+    }
 
-    override fun onOptionsItemSelected(item: MenuItem) = extendedOnOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return extendedOnOptionsItemSelected(item)
+    }
 
     override fun onPause() {
         extendedOnPause()
@@ -64,33 +62,63 @@ class CanvasActivity :
 
     override fun onPixelTapped(coordinatesTapped: Coordinates) = extendedOnPixelTapped(coordinatesTapped)
 
-    override fun onActionUp() = extendedOnActionUp()
+    override fun onActionUp() {
+        extendedOnActionUp()
+    }
 
-    override fun onColorTapped(colorTapped: Int, view: View) = extendedOnColorTapped(colorTapped, view)
+    override fun onColorTapped(colorTapped: Int, view: View) {
+        extendedOnColorTapped(colorTapped, view)
+    }
 
-    override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) = extendedOnColorLongTapped(colorPalette, colorIndex)
+    override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
+        extendedOnColorLongTapped(colorPalette, colorIndex)
+    }
 
-    override fun onColorAdded(colorPalette: ColorPalette) = extendedOnAddColorTapped(colorPalette)
+    override fun onColorAdded(colorPalette: ColorPalette) {
+        extendedOnAddColorTapped(colorPalette)
+    }
 
-    override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) = extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
+    override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) {
+        extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
+    }
 
-    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap = extendedOnColorToFindTapped(bitmap, colorToFind)
+    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap {
+        return extendedOnColorToFindTapped(bitmap, colorToFind)
+    }
 
-    override fun onColorToReplaceTapped(bitmap: Bitmap, colorToReplace: Int) = extendedOnColorToReplaceTapped(bitmap, colorToReplace)
+    override fun onColorToReplaceTapped(bitmap: Bitmap, colorToReplace: Int): Bitmap {
+        return extendedOnColorToReplaceTapped(bitmap, colorToReplace)
+    }
 
-    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) = extendedOnDoneButtonPressed(colorToFind, colorToReplace)
+    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
+        extendedOnDoneButtonPressed(colorToFind, colorToReplace)
+    }
 
-    override fun onBackPressed() = extendedOnBackPressed()
+    override fun onBackPressed() {
+        extendedOnBackPressed()
+    }
 
-    override fun onToolTapped(toolName: String) = extendedOnToolTapped(toolName)
+    override fun onToolTapped(toolName: String) {
+        extendedOnToolTapped(toolName)
+    }
 
-    override fun onFilterTapped(filterName: String) = extendedOnFilterSelected(filterName)
+    override fun onFilterTapped(filterName: String) {
+        extendedOnFilterSelected(filterName)
+    }
 
-    override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) = extendedOnColorPaletteTapped(selectedColorPalette)
+    override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {
+        extendedOnColorPaletteTapped(selectedColorPalette)
+    }
 
-    override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) = extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
+    override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
+        extendedOnDoneButtonPressed(colorPaletteTitle, extractColorPaletteFromCanvas)
+    }
 
-    override fun onBrushTapped(selectedBrush: Brush) = extendedOnBrushTapped(selectedBrush)
+    override fun onBrushTapped(selectedBrush: Brush) {
+        extendedOnBrushTapped(selectedBrush)
+    }
 
-    override fun onDoneButtonPressed(radius: String, strength: String) = extendedOnDoneButtonPressed(radius, strength)
+    override fun onDoneButtonPressed(radius: String, strength: String) {
+        extendedOnDoneButtonPressed(radius, strength)
+    }
 }
