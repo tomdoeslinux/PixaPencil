@@ -10,7 +10,9 @@ object BrushesDatabase {
 
     private fun addBrush(brush: Brush) = database.add(brush)
 
-    fun toList() = database.toList()
+    fun toList(): List<Brush> {
+        return database.toList()
+    }
 
     init {
         val brushesData = listOf(

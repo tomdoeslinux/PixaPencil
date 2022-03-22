@@ -2,16 +2,18 @@ package com.realtomjoney.pyxlmoose.fragments.newcolorpalette
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.FragmentNewColorPaletteBinding
 import com.realtomjoney.pyxlmoose.listeners.NewColorPaletteFragmentListener
 
 class NewColorPaletteFragment : Fragment() {
     companion object {
-        fun newInstance() = NewColorPaletteFragment()
+        fun newInstance(): NewColorPaletteFragment {
+            return NewColorPaletteFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

@@ -136,25 +136,45 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         invalidate()
     }
 
-    fun undo() = extendedUndo()
+    fun undo() {
+        extendedUndo()
+    }
 
-    fun clearCanvas() = extendedClearCanvas()
+    fun clearCanvas() {
+        extendedClearCanvas()
+    }
 
-    fun getNumberOfUniqueColors() = extendedGetNumberOfUniqueColors()
+    fun getNumberOfUniqueColors(): List<Int> {
+        return extendedGetNumberOfUniqueColors()
+    }
 
-    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) = extendedReplacePixelsByColor(colorToFind, colorToReplace)
+    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
+        extendedReplacePixelsByColor(colorToFind, colorToReplace)
+    }
 
-    fun applyBitmapFilter(lambda: (Int) -> Int) = extendedApplyBitmapFilter(lambda)
+    fun applyBitmapFilter(lambda: (Int) -> Int) {
+        extendedApplyBitmapFilter(lambda)
+    }
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) = extendedOverrideSetPixel(x, y, color, ignoreBrush)
+    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false) {
+        extendedOverrideSetPixel(x, y, color, ignoreBrush)
+    }
 
-    fun replaceBitmap(newBitmap: Bitmap) = extendedReplaceBitmap(newBitmap)
+    fun replaceBitmap(newBitmap: Bitmap) {
+        extendedReplaceBitmap(newBitmap)
+    }
 
-    fun saveAsImage(format: Bitmap.CompressFormat) = extendedSaveAsImage(format)
+    fun saveAsImage(format: Bitmap.CompressFormat) {
+        extendedSaveAsImage(format)
+    }
 
-    fun coordinatesInCanvasBounds(coordinates: Coordinates) = extendedCoordinatesInCanvasBounds(coordinates)
+    fun coordinatesInCanvasBounds(coordinates: Coordinates): Boolean {
+        return extendedCoordinatesInCanvasBounds(coordinates)
+    }
 
-    private fun applyPixelPerfectValueFromPreference() = extendedApplyPixelPerfectValueFromPreference()
+    private fun applyPixelPerfectValueFromPreference() {
+        extendedApplyPixelPerfectValueFromPreference()
+    }
 
     /** Use this code only in onMeasure **/
 

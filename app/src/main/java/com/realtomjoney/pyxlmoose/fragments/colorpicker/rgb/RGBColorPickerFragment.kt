@@ -55,7 +55,9 @@ class RGBColorPickerFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = RGBColorPickerFragment()
+        fun newInstance(): RGBColorPickerFragment {
+            return RGBColorPickerFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

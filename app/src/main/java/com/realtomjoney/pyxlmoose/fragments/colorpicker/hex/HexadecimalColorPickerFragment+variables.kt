@@ -4,4 +4,6 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentHexadecimalColorPickerBind
 
 var binding_: FragmentHexadecimalColorPickerBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentHexadecimalColorPickerBinding {
+    return binding_!!
+}

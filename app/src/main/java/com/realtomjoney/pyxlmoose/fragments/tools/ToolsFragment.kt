@@ -23,7 +23,9 @@ class ToolsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = ToolsFragment()
+        fun newInstance(): ToolsFragment {
+            return ToolsFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

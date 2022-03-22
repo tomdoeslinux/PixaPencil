@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
 
 var binding_: FragmentToolsBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentToolsBinding {
+    return binding_!!
+}
 
 lateinit var caller: ToolsFragmentListener

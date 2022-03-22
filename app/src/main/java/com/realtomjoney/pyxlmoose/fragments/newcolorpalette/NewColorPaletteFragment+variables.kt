@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.NewColorPaletteFragmentListener
 
 var binding_: FragmentNewColorPaletteBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentNewColorPaletteBinding {
+    return binding_!!
+}
 
 lateinit var caller: NewColorPaletteFragmentListener

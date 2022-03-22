@@ -22,7 +22,9 @@ class SprayToolSettingsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = SprayToolSettingsFragment()
+        fun newInstance(): SprayToolSettingsFragment {
+            return SprayToolSettingsFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

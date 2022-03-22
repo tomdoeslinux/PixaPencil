@@ -4,4 +4,6 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
 
 var binding_: FragmentOuterCanvasBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentOuterCanvasBinding {
+    return binding_!!
+}

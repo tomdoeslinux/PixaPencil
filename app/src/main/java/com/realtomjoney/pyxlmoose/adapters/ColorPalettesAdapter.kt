@@ -66,5 +66,7 @@ class ColorPalettesAdapter(
         }
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int {
+        return data.size
+    }
 }

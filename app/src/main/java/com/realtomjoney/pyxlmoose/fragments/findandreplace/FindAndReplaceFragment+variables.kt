@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.FindAndReplaceFragmentListener
 
 var binding_: FragmentFindAndReplaceBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentFindAndReplaceBinding {
+    return binding_!!
+}
 
 lateinit var caller: FindAndReplaceFragmentListener

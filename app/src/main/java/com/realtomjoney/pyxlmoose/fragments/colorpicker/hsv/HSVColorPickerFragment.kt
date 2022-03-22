@@ -66,7 +66,9 @@ class HSVColorPickerFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = HSVColorPickerFragment()
+        fun newInstance(): HSVColorPickerFragment {
+            return HSVColorPickerFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

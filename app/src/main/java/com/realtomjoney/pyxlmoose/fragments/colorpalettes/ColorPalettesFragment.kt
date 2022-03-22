@@ -29,7 +29,9 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     }
 
     companion object {
-        fun newInstance() = ColorPalettesFragment()
+        fun newInstance(): ColorPalettesFragment {
+            return ColorPalettesFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

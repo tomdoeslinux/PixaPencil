@@ -32,5 +32,7 @@ class BrushesAdapter(private val data: List<Brush>, private val caller: BrushesL
         }
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int {
+        return data.size
+    }
 }

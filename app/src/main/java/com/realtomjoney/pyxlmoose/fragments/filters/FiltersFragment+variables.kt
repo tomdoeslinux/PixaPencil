@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.FiltersFragmentListener
 
 var binding_: FragmentFiltersBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentFiltersBinding {
+    return binding_!!
+}
 
 lateinit var caller: FiltersFragmentListener

@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.SprayToolSettingsFragmentListener
 
 var binding_: FragmentSprayToolSettingsBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentSprayToolSettingsBinding {
+    return binding_!!
+}
 
 lateinit var caller: SprayToolSettingsFragmentListener

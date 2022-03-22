@@ -1,5 +1,6 @@
 package com.realtomjoney.pyxlmoose.fragments.tools
 
+import android.content.res.ColorStateList
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -8,10 +9,17 @@ import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
-fun ToolsFragment.getSelectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_blue_dark), ContextCompat.getColorStateList(requireContext(), R.color.white))
-fun ToolsFragment.getUnselectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.transparent), ContextCompat.getColorStateList(requireContext(), android.R.color.holo_blue_dark))
+fun ToolsFragment.getSelectedStateListPairData(): Pair<ColorStateList, ColorStateList?> {
+    return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_blue_dark), ContextCompat.getColorStateList(requireContext(), R.color.white))
+}
 
-fun ToolsFragment.getToggleSelectedStateListPairData() = Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_orange_light), ContextCompat.getColorStateList(requireContext(), R.color.white))
+fun ToolsFragment.getUnselectedStateListPairData(): Pair<ColorStateList, ColorStateList?> {
+    return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.transparent), ContextCompat.getColorStateList(requireContext(), android.R.color.holo_blue_dark))
+}
+
+fun ToolsFragment.getToggleSelectedStateListPairData(): Pair<ColorStateList, ColorStateList?> {
+    return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_orange_light), ContextCompat.getColorStateList(requireContext(), R.color.white))
+}
 
 fun ToolsFragment.toggleSetColorFor(it: View) {
     it.backgroundTintList = getToggleSelectedStateListPairData().first

@@ -13,7 +13,9 @@ var binding_: FragmentColorPickerBinding? = null
 var oldColor_ = Color.BLACK
 var colorPaletteMode_: Boolean = false
 
-val binding get() = binding_!!
+val binding get(): FragmentColorPickerBinding {
+    return binding_!!
+}
 
 lateinit var caller: ColorPickerFragmentListener
 

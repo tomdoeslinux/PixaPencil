@@ -7,7 +7,9 @@ object ColorDatabase {
 
     private fun addColor(color: Int) = database.add(color)
 
-    fun toList() = database.toList()
+    fun toList(): List<Int> {
+        return database.toList()
+    }
 
     init {
         val colorData = listOf(

@@ -57,5 +57,7 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
         }
     }
 
-    override fun getItemCount() = colorData.size
+    override fun getItemCount(): Int {
+        return colorData.size
+    }
 }

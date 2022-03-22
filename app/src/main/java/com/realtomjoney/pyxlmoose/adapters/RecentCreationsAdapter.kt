@@ -86,5 +86,7 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
         pixelArt.starred = false
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int {
+        return data.size
+    }
 }

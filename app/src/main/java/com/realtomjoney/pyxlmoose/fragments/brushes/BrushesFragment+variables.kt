@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.BrushesFragmentListener
 
 var binding_: FragmentBrushesBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentBrushesBinding {
+    return binding_!!
+}
 
 lateinit var caller: BrushesFragmentListener

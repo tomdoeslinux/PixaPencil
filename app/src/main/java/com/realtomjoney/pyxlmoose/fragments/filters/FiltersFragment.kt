@@ -11,7 +11,9 @@ import com.realtomjoney.pyxlmoose.listeners.FiltersFragmentListener
 
 class FiltersFragment : Fragment() {
     companion object {
-        fun newInstance() = FiltersFragment()
+        fun newInstance(): FiltersFragment {
+            return FiltersFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

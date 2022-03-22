@@ -31,7 +31,9 @@ class HexadecimalColorPickerFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = HexadecimalColorPickerFragment()
+        fun newInstance(): HexadecimalColorPickerFragment {
+            return HexadecimalColorPickerFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

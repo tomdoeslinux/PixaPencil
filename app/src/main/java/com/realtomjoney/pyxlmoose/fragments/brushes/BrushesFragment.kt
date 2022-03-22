@@ -2,10 +2,10 @@ package com.realtomjoney.pyxlmoose.fragments.brushes
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.realtomjoney.pyxlmoose.databinding.FragmentBrushesBinding
 import com.realtomjoney.pyxlmoose.listeners.BrushesFragmentListener
 import com.realtomjoney.pyxlmoose.listeners.BrushesListener
@@ -13,7 +13,9 @@ import com.realtomjoney.pyxlmoose.models.Brush
 
 class BrushesFragment : Fragment(), BrushesListener {
     companion object {
-        fun newInstance() = BrushesFragment()
+        fun newInstance(): BrushesFragment {
+            return BrushesFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

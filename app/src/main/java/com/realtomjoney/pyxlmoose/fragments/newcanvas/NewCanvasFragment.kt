@@ -22,7 +22,9 @@ class NewCanvasFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = NewCanvasFragment()
+        fun newInstance(): NewCanvasFragment {
+            return NewCanvasFragment()
+        }
     }
 
     override fun onAttach(context: Context) {

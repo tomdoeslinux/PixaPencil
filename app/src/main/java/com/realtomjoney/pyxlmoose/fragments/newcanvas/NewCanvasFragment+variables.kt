@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.listeners.NewCanvasFragmentListener
 
 var binding_: FragmentNewCanvasBinding? = null
 
-val binding get() = binding_!!
+val binding get(): FragmentNewCanvasBinding {
+    return binding_!!
+}
 
 lateinit var caller: NewCanvasFragmentListener

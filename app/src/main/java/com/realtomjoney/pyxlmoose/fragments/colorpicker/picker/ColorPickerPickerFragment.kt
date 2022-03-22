@@ -39,7 +39,9 @@ class ColorPickerPickerFragment : Fragment(), View.OnTouchListener {
     }
 
     companion object {
-        fun newInstance() = ColorPickerPickerFragment()
+        fun newInstance(): ColorPickerPickerFragment {
+            return ColorPickerPickerFragment()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
