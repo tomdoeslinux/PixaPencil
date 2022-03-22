@@ -14,7 +14,6 @@ object StringConstants {
     const val ProjectTitleExtra = "ProjectTitleExtra"
     const val WidthExtra = "WidthExtra"
     const val HeightExtra = "HeightExtra"
-
     const val IndexExtra = "IndexExtra"
 
     const val DialogPositiveButtonText = "OK"
@@ -69,10 +68,10 @@ object StringConstants {
     const val ExceptionInvalidRadiusStrengthMessage = "Invalid radius/strength"
     const val ExceptionAccessingNegativeIndex = "Cannot access pixel art object with a negative index in list!"
 
-    var prevOrientationBundleIdentifier = "PrevOrientation"
-    var prevBitmapStrBundleIdentifier = "PrevBitmapStr"
+    const val prevOrientationBundleIdentifier = "PrevOrientation"
+    const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"
-    const val SnackbarBackgroundColor: String = "#eaddff"
+    const val SnackbarBackgroundColor = "#eaddff"
 }

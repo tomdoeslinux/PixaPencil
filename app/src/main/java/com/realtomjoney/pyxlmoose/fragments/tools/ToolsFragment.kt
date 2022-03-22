@@ -10,13 +10,9 @@ import com.realtomjoney.pyxlmoose.databinding.FragmentToolsBinding
 import com.realtomjoney.pyxlmoose.listeners.ToolsFragmentListener
 
 class ToolsFragment : Fragment() {
-    private fun setDefaultSelectedFAB() {
-        currentlySelectedFAB = binding.fragmentToolsPencilButton
-    }
-
     private fun setup() {
         setColorFor(binding.fragmentToolsPencilButton)
-        setDefaultSelectedFAB()
+        setColorFor(binding.fragmentToolsPencilButtonH)
         setOnClickListeners()
     }
 
