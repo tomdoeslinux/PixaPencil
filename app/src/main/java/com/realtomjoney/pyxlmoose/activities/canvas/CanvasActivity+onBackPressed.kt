@@ -16,7 +16,7 @@ fun CanvasActivity.extendedOnBackPressed() {
                 startActivity(Intent(context, MainActivity::class.java))
             }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
     } else if (currentFragmentInstance != null) {
-        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra("PROJECT_TITLE")!!)
+        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
         currentFragmentInstance = null
         showMenuItems()
         switchSelectedColorIndicator()
