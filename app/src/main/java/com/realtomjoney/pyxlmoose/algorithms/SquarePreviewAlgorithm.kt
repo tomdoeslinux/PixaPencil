@@ -3,7 +3,7 @@ package com.realtomjoney.pyxlmoose.algorithms
 import com.realtomjoney.pyxlmoose.activities.canvas.coordinates
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, val invisibleMode: Boolean = false) {
+class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, private val invisibleMode: Boolean = false) {
     private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
