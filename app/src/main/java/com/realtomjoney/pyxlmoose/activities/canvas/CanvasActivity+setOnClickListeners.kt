@@ -44,18 +44,21 @@ fun CanvasActivity.setOnClickListeners() {
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     toolsFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
+
                 1 -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
+
                 2 -> {
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.VISIBLE
                 }
+
                 3 -> {
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE

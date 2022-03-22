@@ -6,12 +6,13 @@ import android.content.pm.ActivityInfo
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
 fun Activity.navigateHome(fragmentManager: FragmentManager, fragmentInstance: Fragment, rootLayout: View, fragmentHost: FrameLayout, newTitle: String) {
-    (rootLayout as ViewGroup).doSomethingWithChildElements { view -> view.visibility = View.VISIBLE }
+    (rootLayout as ViewGroup).forEach { view -> view.visibility = View.VISIBLE }
 
     fragmentHost.visibility = View.VISIBLE
 
@@ -27,7 +28,7 @@ var pastReqOrientation: Int = 0
 @SuppressLint("SourceLockedOrientationActivity")
 
 fun Activity.navigateTo(fragmentManager: FragmentManager, fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View, lockScreenOrientationToPrev: Boolean = true) {
-    (rootLayout as ViewGroup).doSomethingWithChildElements { view -> view.visibility = View.GONE }
+    (rootLayout as ViewGroup).forEach { view -> view.visibility = View.GONE }
 
     if (lockScreenOrientationToPrev) {
         val act = hostView.context.activity()

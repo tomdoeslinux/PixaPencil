@@ -1,12 +1,12 @@
 package com.realtomjoney.pyxlmoose.utility
 
 import android.view.ViewGroup
-import com.realtomjoney.pyxlmoose.extensions.doSomethingWithChildElements
+import androidx.core.view.forEach
 
 object EspressoUtilities {
     private fun getViewGroupsChildElementIds(viewGroup: ViewGroup): List<Int> {
         val list = mutableListOf<Int>()
-        viewGroup.doSomethingWithChildElements {
+        viewGroup.forEach {
             list.add(it.id)
         }
         return list
