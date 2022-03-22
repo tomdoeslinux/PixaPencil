@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.fragments.newcanvas
 
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.enums.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.utility.HapticFeedbackWrapper
 import com.realtomjoney.pyxlmoose.utility.IntConstants

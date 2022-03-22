@@ -9,7 +9,7 @@ fun rectangleToolOnActionUp() {
         val rectAlg: RectangleAlgorithm =
             if (currentTool == Tools.OUTLINED_RECTANGLE_TOOL || currentTool == Tools.OUTLINED_SQUARE_TOOL)
                 RectangleAlgorithm(
-                    AlgorithmInfoParameter(
+                    AlgorithmInfoParameter.pass(
                         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                         (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
@@ -18,7 +18,7 @@ fun rectangleToolOnActionUp() {
                 )
             else
                 RectangleAlgorithm(
-                    AlgorithmInfoParameter(
+                    AlgorithmInfoParameter.pass(
                         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                         getSelectedColor()

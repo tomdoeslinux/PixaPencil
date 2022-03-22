@@ -7,7 +7,7 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 fun sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!sprayAlgorithmInstanceInitialized) {
         val s1 = SprayAlgorithm(
-            AlgorithmInfoParameter(
+            AlgorithmInfoParameter.pass(
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
             getSelectedColor())

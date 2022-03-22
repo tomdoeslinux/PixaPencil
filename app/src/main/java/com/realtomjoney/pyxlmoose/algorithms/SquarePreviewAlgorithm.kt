@@ -3,49 +3,80 @@ package com.realtomjoney.pyxlmoose.algorithms
 import com.realtomjoney.pyxlmoose.activities.canvas.coordinates
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
-class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null) {
+class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, val invisibleMode: Boolean = false) {
     private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
-            compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
-            compute(Coordinates(from.x, from.y + size), Coordinates(from.x + size, from.y + size))
-            compute(Coordinates(from.x + size, from.y + size), Coordinates(from.x + size, from.y))
+        if (!invisibleMode) {
+            lineAlgorithmInstance.apply {
+                compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
+                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+                compute(
+                    Coordinates(from.x, from.y + size),
+                    Coordinates(from.x + size, from.y + size)
+                )
+                compute(
+                    Coordinates(from.x + size, from.y + size),
+                    Coordinates(from.x + size, from.y)
+                )
+            }
         }
 
         endCoordinates = Coordinates(from.x + size, from.y + size)
     }
 
     private fun setsqc2(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
-            compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
-            compute(Coordinates(from.x + size, from.y), Coordinates(from.x + size, from.y + size))
-            compute(Coordinates(from.x + size, from.y + size), Coordinates(from.x, from.y + size))
+        if (!invisibleMode) {
+            lineAlgorithmInstance.apply {
+                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+                compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
+                compute(
+                    Coordinates(from.x + size, from.y),
+                    Coordinates(from.x + size, from.y + size)
+                )
+                compute(
+                    Coordinates(from.x + size, from.y + size),
+                    Coordinates(from.x, from.y + size)
+                )
+            }
         }
 
         endCoordinates = Coordinates(from.x + size, from.y + size)
     }
 
     private fun setsqc3(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(from.x - size, from.y))
-            compute(Coordinates(from.x - size, from.y), Coordinates(from.x - size, from.y + size))
-            compute(Coordinates(from.x - size, from.y + size), Coordinates(from.x, from.y + size))
-            compute(Coordinates(from.x, from.y + size), Coordinates(from.x, from.y))
+        if (!invisibleMode) {
+            lineAlgorithmInstance.apply {
+                compute(Coordinates(from.x, from.y), Coordinates(from.x - size, from.y))
+                compute(
+                    Coordinates(from.x - size, from.y),
+                    Coordinates(from.x - size, from.y + size)
+                )
+                compute(
+                    Coordinates(from.x - size, from.y + size),
+                    Coordinates(from.x, from.y + size)
+                )
+                compute(Coordinates(from.x, from.y + size), Coordinates(from.x, from.y))
+            }
         }
 
         endCoordinates = Coordinates(from.x - size, from.y + size)
     }
 
     private fun setsqc4(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, to: Coordinates) {
-
         val size = (from.x - to.x)
 
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
-            compute(Coordinates(from.x, from.y + size), Coordinates(from.x - size, from.y + size))
-            compute(Coordinates(from.x - size, from.y + size), Coordinates(from.x - size, from.y))
-            compute(Coordinates(from.x - size, from.y), Coordinates(from.x, from.y))
+        if (!invisibleMode) {
+            lineAlgorithmInstance.apply {
+                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+                compute(
+                    Coordinates(from.x, from.y + size),
+                    Coordinates(from.x - size, from.y + size)
+                )
+                compute(
+                    Coordinates(from.x - size, from.y + size),
+                    Coordinates(from.x - size, from.y)
+                )
+                compute(Coordinates(from.x - size, from.y), Coordinates(from.x, from.y))
+            }
         }
 
         endCoordinates = Coordinates(from.x - size, from.y + size)

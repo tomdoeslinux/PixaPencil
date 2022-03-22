@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.activities.canvas
 
 import com.realtomjoney.pyxlmoose.converters.JsonConverter
 import com.realtomjoney.pyxlmoose.database.AppData
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.enums.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 

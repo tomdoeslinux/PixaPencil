@@ -10,7 +10,7 @@ import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.enums.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.listeners.RecentCreationsListener
 import com.realtomjoney.pyxlmoose.models.PixelArt

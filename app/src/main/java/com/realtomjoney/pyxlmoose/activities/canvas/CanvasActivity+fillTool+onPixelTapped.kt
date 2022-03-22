@@ -6,7 +6,7 @@ import com.realtomjoney.pyxlmoose.models.Coordinates
 
 fun fillToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val floodFillAlgorithmInstance = FloodFillAlgorithm(
-        AlgorithmInfoParameter(
+        AlgorithmInfoParameter.pass(
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
         getSelectedColor())

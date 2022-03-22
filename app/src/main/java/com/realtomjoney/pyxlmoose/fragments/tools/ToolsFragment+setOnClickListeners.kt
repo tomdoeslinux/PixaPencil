@@ -91,6 +91,16 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.OutlinedSquareToolIdentifier)
         }
 
+        fragmentToolsCircleButton.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.CircleToolIdentifier)
+        }
+
+        fragmentToolsOutlinedCircleButton.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.OutlinedCircleToolIdentifier)
+        }
+
         fragmentToolsSprayButton.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.SprayToolIdentifier)
@@ -190,6 +200,16 @@ fun ToolsFragment.setOnClickListeners() {
         fragmentToolsOutlinedSquareButtonH.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.OutlinedSquareToolIdentifier)
+        }
+
+        fragmentToolsCircleButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.CircleToolIdentifier)
+        }
+
+        fragmentToolsOutlinedCircleButtonH.setOnClickListener {
+            onOptionTapped(it)
+            caller.onToolTapped(StringConstants.OutlinedCircleToolIdentifier)
         }
 
         fragmentToolsSprayButtonH.setOnClickListener {

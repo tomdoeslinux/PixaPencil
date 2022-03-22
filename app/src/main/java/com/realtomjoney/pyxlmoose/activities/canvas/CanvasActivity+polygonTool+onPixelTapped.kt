@@ -10,7 +10,7 @@ fun polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
     Flags.DisableActionMove = true
 
     val lineAlgorithmInstance = LineAlgorithm(
-        AlgorithmInfoParameter(
+        AlgorithmInfoParameter.pass(
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
             BitmapAction(mutableListOf()),
             getSelectedColor()

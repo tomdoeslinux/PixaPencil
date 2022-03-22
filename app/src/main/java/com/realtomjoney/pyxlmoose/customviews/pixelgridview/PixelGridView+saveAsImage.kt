@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import com.realtomjoney.pyxlmoose.activities.canvas.projectTitle
 import com.realtomjoney.pyxlmoose.enums.OutputCode
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.enums.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.showDialog
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.extensions.showSnackbarWithAction

@@ -2,7 +2,7 @@ package com.realtomjoney.pyxlmoose.fragments.spraytoolsettings
 
 import android.os.Handler
 import android.os.Looper
-import com.realtomjoney.pyxlmoose.extensions.SnackbarDuration
+import com.realtomjoney.pyxlmoose.enums.SnackbarDuration
 import com.realtomjoney.pyxlmoose.extensions.hideKeyboard
 import com.realtomjoney.pyxlmoose.extensions.showSnackbar
 import com.realtomjoney.pyxlmoose.utility.HapticFeedbackWrapper

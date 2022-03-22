@@ -163,6 +163,32 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_circleButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedCircleButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
                     android:contentDescription="@string/fragmentTools_spray_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_sprayButton"
@@ -450,6 +476,32 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_circleButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedCircleButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
                     android:contentDescription="@string/fragmentTools_spray_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_sprayButton_h"
@@ -524,7 +576,6 @@
                     android:contentDescription="@string/fragmentTools_clear_canvas_tool_content_description_"
                     app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
             </FrameLayout>
-
 
             <FrameLayout
                 android:layout_width="wrap_content"

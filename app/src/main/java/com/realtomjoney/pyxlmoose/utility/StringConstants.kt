@@ -50,6 +50,8 @@ object StringConstants {
     const val OutlinedRectangleToolIdentifier = "OUTLINED_RECTANGLE"
     const val SquareToolIdentifier = "SQUARE"
     const val OutlinedSquareToolIdentifier = "OUTLINED_SQUARE"
+    const val CircleToolIdentifier = "CIRCLE_TOOL"
+    const val OutlinedCircleToolIdentifier = "OUTLINED_CIRCLE"
     const val SprayToolIdentifier = "SPRAY"
     const val PolygonToolIdentifier = "POLYGON"
     const val DitherToolIdentifier = "DITHER"

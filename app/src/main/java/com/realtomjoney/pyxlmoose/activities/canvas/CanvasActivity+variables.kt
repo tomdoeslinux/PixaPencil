@@ -46,6 +46,8 @@ enum class Tools {
     OUTLINED_RECTANGLE_TOOL,
     SQUARE_TOOL,
     OUTLINED_SQUARE_TOOL,
+    CIRCLE_TOOL,
+    OUTLINED_CIRCLE_TOOL,
     SPRAY_TOOL,
     POLYGON_TOOL,
     DITHER_TOOL,
@@ -74,6 +76,7 @@ var brushesFragmentInstance: BrushesFragment? = null
 
 var lineMode_hasLetGo = false
 var rectangleMode_hasLetGo = false
+var circleMode_hasLetGo = false
 
 var projectTitle: String? = null
 

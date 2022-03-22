@@ -15,7 +15,7 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
     if (currentTool == Tools.RECTANGLE_TOOL || currentTool == Tools.OUTLINED_RECTANGLE_TOOL) {
         rectangleAlgorithmInstance = if (!hasBorder) {
             RectanglePreviewAlgorithm(
-                AlgorithmInfoParameter(
+                AlgorithmInfoParameter.pass(
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                     getSelectedColor()
@@ -23,7 +23,7 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
             )
         } else {
             RectanglePreviewAlgorithm(
-                AlgorithmInfoParameter(
+                AlgorithmInfoParameter.pass(
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                     (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
@@ -33,7 +33,7 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
     } else {
         squareAlgorithmInstance = if (!hasBorder) {
             SquarePreviewAlgorithm(
-                AlgorithmInfoParameter(
+                AlgorithmInfoParameter.pass(
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                     getSelectedColor()
@@ -41,7 +41,7 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
             )
         } else {
             SquarePreviewAlgorithm(
-                AlgorithmInfoParameter(
+                AlgorithmInfoParameter.pass(
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap,
                     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!,
                     (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color

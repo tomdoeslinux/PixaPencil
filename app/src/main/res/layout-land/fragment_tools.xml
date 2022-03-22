@@ -160,6 +160,33 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back_land"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_circleButton"
+                    style="@style/canvas_activity_button_tool_style_land"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle" />
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back_land"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedCircleButton"
+                    style="@style/canvas_activity_button_tool_style_land"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back_land"
                     android:contentDescription="@string/fragmentTools_spray_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_sprayButton"
@@ -442,6 +469,32 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_outlined_square_button_content_description"
                     app:srcCompat="@drawable/ic_square_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_circleButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedCircleButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description"
+                    app:srcCompat="@drawable/ic_circle_outline" />
             </FrameLayout>
 
             <FrameLayout
