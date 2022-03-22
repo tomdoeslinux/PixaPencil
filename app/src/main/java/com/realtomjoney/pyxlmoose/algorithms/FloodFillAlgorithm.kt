@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import java.util.*
 
@@ -19,7 +18,7 @@ class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
                 continue
             }
 
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(current.x, current.y, algorithmInfo.color, true)
+            algorithmInfo.canvas.overrideSetPixel(current.x, current.y, algorithmInfo.color, true)
 
             val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
             for (index in expandToNeighborsAlgorithmInstance.compute(current)) {
