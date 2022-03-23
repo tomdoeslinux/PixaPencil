@@ -1,75 +1,93 @@
 package com.realtomjoney.pyxlmoose.enums
 
-enum class Tools(val toolFamily: ToolFamily) {
+enum class Tools(val toolFamily: ToolFamily, val draws: Boolean = false) {
     PencilTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     FillTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     HorizontalMirrorTool(
-        ToolFamily.Mirror
+        ToolFamily.Mirror,
+        true,
     ),
 
     VerticalMirrorTool(
-        ToolFamily.Mirror
+        ToolFamily.Mirror,
+        true,
     ),
 
     LineTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     RectangleTool(
-        ToolFamily.Rectangle
+        ToolFamily.Rectangle,
+        true,
     ),
 
     OutlinedRectangleTool(
-        ToolFamily.Rectangle
+        ToolFamily.Rectangle,
+        true,
     ),
 
     SquareTool(
-        ToolFamily.Rectangle
+        ToolFamily.Rectangle,
+        true,
     ),
 
     OutlinedSquareTool(
-        ToolFamily.Rectangle
+        ToolFamily.Rectangle,
+        true,
     ),
 
     CircleTool(
-        ToolFamily.Circle
+        ToolFamily.Circle,
+        true,
     ),
 
     OutlinedCircleTool(
-        ToolFamily.Circle
+        ToolFamily.Circle,
+        true,
     ),
 
     SprayTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     PolygonTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     DitherTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 
     DarkenTool(
-        ToolFamily.Shader
+        ToolFamily.Shader,
+        false,
     ),
 
     LightenTool(
-        ToolFamily.Shader
+        ToolFamily.Shader,
+        false,
     ),
 
     ColorPickerTool(
-        ToolFamily.None
+        ToolFamily.None,
+        false,
     ),
 
     EraseTool(
-        ToolFamily.None
+        ToolFamily.None,
+        true,
     ),
 }

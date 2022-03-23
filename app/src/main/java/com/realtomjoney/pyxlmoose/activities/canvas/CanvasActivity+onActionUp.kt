@@ -1,9 +1,11 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
+import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.algorithms.PixelPerfectAlgorithm
 import com.realtomjoney.pyxlmoose.database.BrushesDatabase
 import com.realtomjoney.pyxlmoose.enums.ToolFamily
 import com.realtomjoney.pyxlmoose.enums.Tools
+import com.realtomjoney.pyxlmoose.extensions.enable
 
 fun extendedOnActionUp() {
     when {
@@ -42,6 +44,10 @@ fun extendedOnActionUp() {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX = null
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY = null
         }
+    }
+
+    if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
+        menu.findItem(R.id.undo).enable()
     }
 
     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
