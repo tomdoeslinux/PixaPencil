@@ -43,6 +43,7 @@ var saved = true
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
 lateinit var outerCanvasInstance: OuterCanvasFragment
+var outerCanvasInstanceInitialized = ::outerCanvasInstance.isInitialized
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment

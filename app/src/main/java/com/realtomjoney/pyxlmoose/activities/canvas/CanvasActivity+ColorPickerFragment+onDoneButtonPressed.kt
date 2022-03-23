@@ -9,15 +9,15 @@ import com.realtomjoney.pyxlmoose.database.AppData
 import com.realtomjoney.pyxlmoose.utility.LongConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
-
     var size = 0
     if (!colorPaletteMode) {
         setPixelColor(selectedColor)
     } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
-        newData.remove(Color.TRANSPARENT)
-        newData.add(Color.TRANSPARENT)
+
+        newData.distinctBy { it == Color.TRANSPARENT }
+        newData.sortBy { it == Color.TRANSPARENT }
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListOfIntToJsonString(newData.toList()), fromDB!!.objId)
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
@@ -32,8 +32,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
 
     navigateBack(colorPickerFragmentInstance)
 
-    val h = Handler(Looper.getMainLooper())
-    h.postDelayed( {
-        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(size - 1)
+    Handler(Looper.getMainLooper()).postDelayed( {
+        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(size)
     }, LongConstants.DefaultHandlerDelay)
 }
