@@ -1,6 +1,5 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
-import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 /**
@@ -87,42 +86,42 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
                 }
             }
         } else {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 (xc + x) + 1,
                 yc - y,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 (xc + y) + 1,
                 yc - x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 (xc + x) + 1,
                 (yc + y) + 1,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 (xc + y) + 1,
                 (yc + x) + 1,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - x,
                 yc - y,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - y,
                 yc - x,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - y,
                 (yc + x) + 1,
                 algorithmInfo.color
             )
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(
+            algorithmInfo.canvas.overrideSetPixel(
                 xc - x,
                 (yc + y) + 1,
                 algorithmInfo.color
