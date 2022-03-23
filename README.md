@@ -62,8 +62,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Outlined rectangle tool
 - Square tool
 - Outlined square tool
-- Circle Tool
-- Outlined Circle Tool
+- Circle Tool **[NEW]**
+- Outlined Circle Tool **[NEW]**
 - Spray tool
 - Polygon tool
 - Dither tool
