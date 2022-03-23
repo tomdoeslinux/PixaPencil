@@ -5,8 +5,8 @@
 
 Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
-## Video (note: it is outdated)
-https://youtu.be/qNQQLG1N_uE
+## ~~Video (note: it is outdated)~~
+~~https://youtu.be/qNQQLG1N_uE~~
 
 ## Landscape Orientation Update
 PyxlMoose now has landscape orientation support, but this is very buggy and unstable. 
