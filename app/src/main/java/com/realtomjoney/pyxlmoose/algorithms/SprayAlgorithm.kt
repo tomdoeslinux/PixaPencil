@@ -1,11 +1,10 @@
 package com.realtomjoney.pyxlmoose.algorithms
 
 import com.realtomjoney.pyxlmoose.models.Coordinates
-import com.realtomjoney.pyxlmoose.utility.IntConstants
 import kotlin.math.floor
 import kotlin.random.Random
 
-class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var radius: Int = IntConstants.SprayRadius, private var strength: Int = IntConstants.SprayStrength) {
+class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var radius: Int, private var strength: Int) {
     fun compute(seed: Coordinates) {
         val ct = floor((radius / 2).toDouble()).toInt()
 

@@ -63,6 +63,8 @@ object StringConstants {
     const val GridToolIdentifier = "GridTool"
 
     const val SharedPreferencePixelPerfectIdentifier = "PixelPerfectSharedPreference"
+    const val SharedPreferencesSprayRadiusIdentifier = "SprayRadiusSharedPreference"
+    const val SharedPreferencesSprayStrengthIdentifier = "SprayStrengthSharedPreference"
 
     const val ExceptionInvalidWidthHeightMessage = "Invalid width/height value"
     const val ExceptionInvalidRadiusStrengthMessage = "Invalid radius/strength"
