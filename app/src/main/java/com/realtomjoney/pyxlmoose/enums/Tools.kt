@@ -1,6 +1,6 @@
 package com.realtomjoney.pyxlmoose.enums
 
-enum class Tools(val toolFamily: ToolFamily, val draws: Boolean = false) {
+enum class Tools(val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
     PencilTool(
         ToolFamily.None,
         true,
@@ -29,30 +29,36 @@ enum class Tools(val toolFamily: ToolFamily, val draws: Boolean = false) {
     RectangleTool(
         ToolFamily.Rectangle,
         true,
+        false,
     ),
 
     OutlinedRectangleTool(
         ToolFamily.Rectangle,
+        true,
         true,
     ),
 
     SquareTool(
         ToolFamily.Rectangle,
         true,
+        false,
     ),
 
     OutlinedSquareTool(
         ToolFamily.Rectangle,
+        true,
         true,
     ),
 
     CircleTool(
         ToolFamily.Circle,
         true,
+        false,
     ),
 
     OutlinedCircleTool(
         ToolFamily.Circle,
+        true,
         true,
     ),
 

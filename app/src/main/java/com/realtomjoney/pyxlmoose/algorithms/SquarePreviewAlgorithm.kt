@@ -4,6 +4,8 @@ import com.realtomjoney.pyxlmoose.activities.canvas.coordinates
 import com.realtomjoney.pyxlmoose.models.Coordinates
 
 class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, private val invisibleMode: Boolean = false) {
+    private val shouldSquareIgnoreBrush = false
+
     private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
@@ -83,7 +85,7 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
     }
 
     fun compute(from: Coordinates, to: Coordinates) {
-        val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, true)
+        val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldSquareIgnoreBrush)
 
         val fromDouble = from.convertToCoordinatesDouble()
         val toDouble = to.convertToCoordinatesDouble()

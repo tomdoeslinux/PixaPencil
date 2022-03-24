@@ -1,24 +1,20 @@
 package com.realtomjoney.pyxlmoose.activities.canvas
 
-import android.graphics.drawable.ColorDrawable
 import com.realtomjoney.pyxlmoose.algorithms.RectangleAlgorithm
-import com.realtomjoney.pyxlmoose.enums.Tools
+import com.realtomjoney.pyxlmoose.enums.ToolFamily
 
 fun rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
-        val rectAlg: RectangleAlgorithm =
-            if (currentTool == Tools.OutlinedRectangleTool || currentTool == Tools.OutlinedSquareTool)
-                RectangleAlgorithm(
-                    primaryAlgorithmInfoParameter,
-                    (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
-                )
-            else
+        val rectAlg: RectangleAlgorithm? =
+            if (currentTool.toolFamily == ToolFamily.Rectangle && currentTool.outlined == false) {
                 RectangleAlgorithm(primaryAlgorithmInfoParameter)
+            } else {
+                null
+            }
 
-        rectAlg.compute(rectangleOrigin!!, coordinates!!)
+        rectAlg?.compute(rectangleOrigin!!, coordinates!!)
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
     coordinates = null
     rectangleOrigin = null
     rectangleMode_hasLetGo = true
