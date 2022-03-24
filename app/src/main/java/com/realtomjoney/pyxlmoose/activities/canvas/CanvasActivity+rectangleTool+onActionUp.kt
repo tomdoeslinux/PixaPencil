@@ -15,6 +15,10 @@ fun rectangleToolOnActionUp() {
         rectAlg?.compute(rectangleOrigin!!, coordinates!!)
     }
 
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!
+    )
+
     coordinates = null
     rectangleOrigin = null
     rectangleMode_hasLetGo = true

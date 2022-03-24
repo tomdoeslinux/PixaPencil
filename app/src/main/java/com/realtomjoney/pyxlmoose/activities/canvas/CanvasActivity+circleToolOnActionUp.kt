@@ -14,6 +14,10 @@ fun circleToolOnActionUp() {
         }
     }
 
+    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(
+        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!
+    )
+
     coordinates = null
     circleOrigin = null
     squareAlgorithmInstance = null
