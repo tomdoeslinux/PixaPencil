@@ -4,6 +4,7 @@ import com.realtomjoney.pyxlmoose.algorithms.RectanglePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.enums.Tools
 import com.realtomjoney.pyxlmoose.models.Coordinates
+import com.realtomjoney.pyxlmoose.utility.BinaryPreviewStateSwitcher
 
 var coordinates: Coordinates? = null
 var rectangleAlgorithmInstance: RectanglePreviewAlgorithm? = null
@@ -26,8 +27,11 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
     }
 
     if (!rectangleMode_hasLetGo) {
-        if (!first)  outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+        if (!first) {
+            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.switch()
+        }
+        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
         first = false
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
