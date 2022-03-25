@@ -101,6 +101,7 @@
         <entry key="app/src/main/res/layout/fragment_find_and_replace.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_h_s_v_color_picker.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.17223910840932116" />
+        <entry key="app/src/main/res/layout/fragment_new_canvas.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_new_color_palette.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.33" />

@@ -87,4 +87,6 @@
     <string name="fragmentTools_outlined_square_button_content_description">Outlined Square Tool</string>
     <string name="fragmentTools_circle_tool_content_description">Circle Tool</string>
     <string name="fragmentTools_outlined_circle_tool_content_description">Outlined Circle Tool</string>
+    <string name="fragmentNewColorPalette_width_str">Width</string>
+    <string name="fragmentNewColorPalette_height_str">Height</string>
 </resources>
