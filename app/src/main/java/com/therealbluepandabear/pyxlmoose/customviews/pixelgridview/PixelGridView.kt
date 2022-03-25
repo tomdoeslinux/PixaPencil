@@ -313,6 +313,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     }
                 }
             }
+
             // TODO - Fix Grid tool bugs
 
             if (gridEnabled) {
