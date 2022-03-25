@@ -69,7 +69,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                 android:paddingBottom="30dp"
                 android:paddingLeft="1dp"
                 android:paddingRight="1dp"
-                android:text="Grayscale"
+                android:text="@string/fragmentFilters_grayscale_str"
                 style="@style/fragmentFilters_button_style"/>
         </LinearLayout>
     </ScrollView>
