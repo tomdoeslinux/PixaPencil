@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.realtomjoney.pyxlmoose.fragments.colorpicker.ColorPickerFragment
 import com.realtomjoney.pyxlmoose.listeners.*
+import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
 import com.realtomjoney.pyxlmoose.models.ColorPalette
 import com.realtomjoney.pyxlmoose.models.Coordinates
@@ -64,6 +65,10 @@ class CanvasActivity :
 
     override fun onActionUp() {
         extendedOnActionUp()
+    }
+
+    override fun onRedoActionCompleted(undoStack: List<BitmapAction>) {
+        extendedOnRedoActionCompleted(undoStack)
     }
 
     override fun onColorTapped(colorTapped: Int, view: View) {

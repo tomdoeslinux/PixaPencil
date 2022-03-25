@@ -3,7 +3,6 @@ package com.realtomjoney.pyxlmoose.customviews.pixelgridview
 import com.realtomjoney.pyxlmoose.R
 import com.realtomjoney.pyxlmoose.activities.canvas.menu
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
-import com.realtomjoney.pyxlmoose.extensions.disable
 import com.realtomjoney.pyxlmoose.extensions.enable
 
 fun PixelGridView.extendedRedo() {
@@ -23,8 +22,6 @@ fun PixelGridView.extendedRedo() {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(undoStack.last())
         undoStack.removeLast()
 
-        if (undoStack.isEmpty()) {
-            menu.findItem(R.id.redo).disable()
-        }
+        caller.onRedoActionCompleted(undoStack)
     }
 }
