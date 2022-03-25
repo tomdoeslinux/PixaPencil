@@ -105,22 +105,6 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
         throw IllegalArgumentException(StringConstants.ExceptionAccessingNegativeIndex)
     }
 
-    private fun calculateMatrix(bm: Bitmap, newWidth: Float, newHeight: Float): Matrix {
-        val width = bm.width
-        val height = bm.height
-
-        val scaleWidth = newWidth / width
-        val scaleHeight = newHeight / height
-
-        this.scaleWidth = scaleWidth
-        this.scaleHeight = scaleHeight
-
-        val matrix = Matrix()
-        matrix.postScale(scaleWidth, scaleHeight)
-
-        return matrix
-    }
-
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
             var scaleFactorW = 0
