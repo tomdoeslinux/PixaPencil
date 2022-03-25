@@ -13,15 +13,6 @@ PyxlMoose now has landscape orientation support, but this is very buggy and unst
 
 Please use commit 937 or below if you want a good experience while using the app, but remember to stay in portrait mode if possible.
 
-## Bitmap Update
-PyxlMoose now uses Bitmap to handle the creaton of pixel art.
-
-Things to take in note:
-
-- Redo tool is not functioning.
-
-All these issues will be fixed soon!
-
 ## Images
 
 ![image](https://user-images.githubusercontent.com/50536495/152713363-a873fdd3-ecc6-4939-a495-28c4a35abbdb.png)
