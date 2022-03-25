@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pyxlmoose.activities.canvas
 
 import android.view.Menu
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.extensions.disable
 
 fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {

@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.colorpicker.rgb
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentRGBColorPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentRGBColorPickerBinding
 
 var binding_: FragmentRGBColorPickerBinding? = null
 

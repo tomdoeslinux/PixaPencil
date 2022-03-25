@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentHexadecimalColorPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentHexadecimalColorPickerBinding
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.oldColor_
 
 class HexadecimalColorPickerFragment : Fragment() {

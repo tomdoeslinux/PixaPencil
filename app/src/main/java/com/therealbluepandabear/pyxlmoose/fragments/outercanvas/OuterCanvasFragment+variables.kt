@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.outercanvas
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentOuterCanvasBinding
 
 
 var binding_: FragmentOuterCanvasBinding? = null

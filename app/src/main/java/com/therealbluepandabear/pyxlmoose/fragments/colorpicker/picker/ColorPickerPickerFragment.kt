@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerPickerBinding
 import com.therealbluepandabear.pyxlmoose.customviews.colorpickerview.ColorPickerView
 import com.therealbluepandabear.pyxlmoose.customviews.colorpickerview.colorPickerColorSelected
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPickerPickerBinding
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.oldColor_
 
 

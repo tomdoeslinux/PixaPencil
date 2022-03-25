@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.databinding.ColorPalettesLayoutBinding
+import com.therealbluepandabear.pyxlmoose.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pyxlmoose.extensions.getScreenOrientation
 import com.therealbluepandabear.pyxlmoose.listeners.ColorPalettesListener
 import com.therealbluepandabear.pyxlmoose.models.ColorPalette

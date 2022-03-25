@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.customviews.pixelgridview
 
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.activities.canvas.menu
 import com.therealbluepandabear.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pyxlmoose.extensions.enable

@@ -3,7 +3,7 @@ package com.therealbluepandabear.pyxlmoose.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.databinding.BrushesLayoutBinding
+import com.therealbluepandabear.pyxlmoose.databinding.BrushesLayoutBinding
 import com.therealbluepandabear.pyxlmoose.listeners.BrushesListener
 import com.therealbluepandabear.pyxlmoose.models.Brush
 import com.therealbluepandabear.pyxlmoose.viewholders.BrushesViewHolder

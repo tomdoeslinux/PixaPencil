@@ -2,7 +2,7 @@ package com.therealbluepandabear.pyxlmoose.fragments.colorpicker
 
 import android.view.View
 import com.google.android.material.tabs.TabLayout
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.hex.HexadecimalColorPickerFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.hsv.HSVColorPickerFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.picker.ColorPickerPickerFragment

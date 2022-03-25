@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.databinding.RecentCreationsLayoutBinding
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.converters.BitmapConverter
 import com.therealbluepandabear.pyxlmoose.database.AppData
+import com.therealbluepandabear.pyxlmoose.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pyxlmoose.enums.SnackbarDuration
 import com.therealbluepandabear.pyxlmoose.extensions.showSnackbar
 import com.therealbluepandabear.pyxlmoose.listeners.RecentCreationsListener

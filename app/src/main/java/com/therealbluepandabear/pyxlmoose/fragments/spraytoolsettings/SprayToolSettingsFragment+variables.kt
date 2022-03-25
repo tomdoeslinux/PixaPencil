@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.spraytoolsettings
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentSprayToolSettingsBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentSprayToolSettingsBinding
 import com.therealbluepandabear.pyxlmoose.listeners.SprayToolSettingsFragmentListener
 
 var binding_: FragmentSprayToolSettingsBinding? = null

@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pyxlmoose.activities.main
 
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.adapters.RecentCreationsAdapter
 import com.therealbluepandabear.pyxlmoose.database.AppData
 import com.therealbluepandabear.pyxlmoose.extensions.navigateTo

@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.brushes
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentBrushesBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentBrushesBinding
 import com.therealbluepandabear.pyxlmoose.listeners.BrushesFragmentListener
 
 var binding_: FragmentBrushesBinding? = null

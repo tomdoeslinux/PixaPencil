@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.converters.JsonConverter
 import com.therealbluepandabear.pyxlmoose.listeners.ColorPickerListener
 import com.therealbluepandabear.pyxlmoose.models.ColorPalette

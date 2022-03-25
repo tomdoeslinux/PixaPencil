@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pyxlmoose.listeners.ColorPickerFragmentListener
 
 class ColorPickerFragment : Fragment() {

@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.algorithms.PixelPerfectAlgorithm
 import com.therealbluepandabear.pyxlmoose.database.BrushesDatabase
 import com.therealbluepandabear.pyxlmoose.enums.ToolFamily

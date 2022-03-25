@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.enums.Tools
 import com.therealbluepandabear.pyxlmoose.extensions.navigateTo
 import com.therealbluepandabear.pyxlmoose.fragments.spraytoolsettings.SprayToolSettingsFragment

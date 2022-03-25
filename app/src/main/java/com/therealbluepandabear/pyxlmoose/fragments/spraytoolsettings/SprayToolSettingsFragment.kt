@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentSprayToolSettingsBinding
 import com.therealbluepandabear.pyxlmoose.activities.canvas.sharedPreferenceObject
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentSprayToolSettingsBinding
 import com.therealbluepandabear.pyxlmoose.listeners.SprayToolSettingsFragmentListener
 import com.therealbluepandabear.pyxlmoose.utility.IntConstants
 import com.therealbluepandabear.pyxlmoose.utility.StringConstants

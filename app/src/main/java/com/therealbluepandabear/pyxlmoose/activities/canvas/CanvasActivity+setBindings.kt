@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
+import com.therealbluepandabear.pyxlmoose.databinding.ActivityCanvasBinding
 
 
 fun CanvasActivity.setBindings() {

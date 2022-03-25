@@ -2,7 +2,7 @@ package com.therealbluepandabear.pyxlmoose.activities.canvas
 
 import android.graphics.Bitmap
 import android.view.MenuItem
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.extensions.navigateTo
 import com.therealbluepandabear.pyxlmoose.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pyxlmoose.utility.IntConstants

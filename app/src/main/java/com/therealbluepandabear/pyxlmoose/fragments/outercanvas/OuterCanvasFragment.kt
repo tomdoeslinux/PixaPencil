@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.R
-import com.realtomjoney.pyxlmoose.databinding.FragmentOuterCanvasBinding
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.customviews.transparentbackgroundview.TransparentBackgroundView
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentOuterCanvasBinding
 import com.therealbluepandabear.pyxlmoose.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pyxlmoose.utility.IntConstants
 

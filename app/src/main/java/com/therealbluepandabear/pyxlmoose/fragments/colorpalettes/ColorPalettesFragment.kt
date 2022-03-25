@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPalettesBinding
 import com.therealbluepandabear.pyxlmoose.database.AppData
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPalettesBinding
 import com.therealbluepandabear.pyxlmoose.enums.SnackbarDuration
 import com.therealbluepandabear.pyxlmoose.extensions.showDialog
 import com.therealbluepandabear.pyxlmoose.extensions.showSnackbar

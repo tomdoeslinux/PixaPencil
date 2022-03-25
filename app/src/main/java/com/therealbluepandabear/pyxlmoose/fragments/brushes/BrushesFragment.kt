@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentBrushesBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentBrushesBinding
 import com.therealbluepandabear.pyxlmoose.listeners.BrushesFragmentListener
 import com.therealbluepandabear.pyxlmoose.listeners.BrushesListener
 import com.therealbluepandabear.pyxlmoose.models.Brush

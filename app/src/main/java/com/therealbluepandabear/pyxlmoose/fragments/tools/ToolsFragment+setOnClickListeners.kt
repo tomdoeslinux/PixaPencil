@@ -5,7 +5,7 @@ import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pyxlmoose.utility.StringConstants
 

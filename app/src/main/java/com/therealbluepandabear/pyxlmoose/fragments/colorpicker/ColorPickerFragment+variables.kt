@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pyxlmoose.fragments.colorpicker
 
 import android.graphics.Color
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.hex.HexadecimalColorPickerFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.hsv.HSVColorPickerFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpicker.picker.ColorPickerPickerFragment

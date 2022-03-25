@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.colorpicker.picker
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPickerPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPickerPickerBinding
 
 var binding_: FragmentColorPickerPickerBinding? = null
 

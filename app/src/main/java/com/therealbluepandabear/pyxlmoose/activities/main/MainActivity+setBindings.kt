@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.activities.main
 
-import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
+import com.therealbluepandabear.pyxlmoose.databinding.ActivityMainBinding
 
 fun MainActivity.setBindings() {
     binding = ActivityMainBinding.inflate(layoutInflater)

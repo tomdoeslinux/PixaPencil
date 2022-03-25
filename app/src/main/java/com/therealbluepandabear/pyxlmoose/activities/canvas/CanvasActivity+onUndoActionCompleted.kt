@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.activities.canvas
 
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.extensions.disable
 import com.therealbluepandabear.pyxlmoose.extensions.enable
 import com.therealbluepandabear.pyxlmoose.models.BitmapAction

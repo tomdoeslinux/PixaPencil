@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.colorpalettes
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentColorPalettesBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentColorPalettesBinding
 import com.therealbluepandabear.pyxlmoose.listeners.ColorPalettesFragmentListener
 
 var binding_: FragmentColorPalettesBinding? = null

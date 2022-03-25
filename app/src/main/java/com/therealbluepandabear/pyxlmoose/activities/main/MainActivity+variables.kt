@@ -1,5 +1,5 @@
 package com.therealbluepandabear.pyxlmoose.activities.main
 
-import com.realtomjoney.pyxlmoose.databinding.ActivityMainBinding
+import com.therealbluepandabear.pyxlmoose.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding

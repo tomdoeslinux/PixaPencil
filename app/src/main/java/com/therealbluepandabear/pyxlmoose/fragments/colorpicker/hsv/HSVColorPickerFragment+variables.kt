@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.fragments.colorpicker.hsv
 
-import com.realtomjoney.pyxlmoose.databinding.FragmentHSVColorPickerBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentHSVColorPickerBinding
 
 var binding_: FragmentHSVColorPickerBinding? = null
 

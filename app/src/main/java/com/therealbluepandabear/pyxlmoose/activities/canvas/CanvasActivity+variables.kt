@@ -5,9 +5,9 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pyxlmoose.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pyxlmoose.algorithms.SprayAlgorithm
+import com.therealbluepandabear.pyxlmoose.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pyxlmoose.enums.Tools
 import com.therealbluepandabear.pyxlmoose.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment

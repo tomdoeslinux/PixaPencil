@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentToolsBinding
 import com.therealbluepandabear.pyxlmoose.activities.canvas.currentTool
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentToolsBinding
 import com.therealbluepandabear.pyxlmoose.enums.Tools
 import com.therealbluepandabear.pyxlmoose.listeners.ToolsFragmentListener
 

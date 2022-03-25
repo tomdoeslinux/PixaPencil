@@ -3,7 +3,7 @@ package com.therealbluepandabear.pyxlmoose.activities.canvas
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import com.google.android.material.tabs.TabLayout
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.extensions.navigateTo
 import com.therealbluepandabear.pyxlmoose.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pyxlmoose.fragments.colorpalettes.ColorPalettesFragment

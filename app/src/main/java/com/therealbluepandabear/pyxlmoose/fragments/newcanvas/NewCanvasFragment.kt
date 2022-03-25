@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentNewCanvasBinding
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentNewCanvasBinding
 import com.therealbluepandabear.pyxlmoose.listeners.NewCanvasFragmentListener
 
 class NewCanvasFragment : Fragment() {

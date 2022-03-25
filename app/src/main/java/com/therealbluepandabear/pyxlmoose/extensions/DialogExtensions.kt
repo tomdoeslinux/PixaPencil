@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.DialogInterface
 import android.view.View
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 
 fun Activity.showDialog(
     dialogTitle: String,

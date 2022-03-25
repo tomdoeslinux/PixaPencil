@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pyxlmoose.database
 
-import com.realtomjoney.pyxlmoose.R
+import com.therealbluepandabear.pyxlmoose.R
 import com.therealbluepandabear.pyxlmoose.enums.BrushInstruction
 import com.therealbluepandabear.pyxlmoose.models.Brush
 import com.therealbluepandabear.pyxlmoose.models.BrushInstructionCommand

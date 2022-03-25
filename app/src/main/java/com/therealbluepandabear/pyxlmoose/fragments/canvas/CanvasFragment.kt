@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.realtomjoney.pyxlmoose.databinding.FragmentCanvasBinding
 import com.therealbluepandabear.pyxlmoose.customviews.pixelgridview.PixelGridView
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentCanvasBinding
 
 class CanvasFragment : Fragment() {
     lateinit var myCanvasViewInstance: PixelGridView

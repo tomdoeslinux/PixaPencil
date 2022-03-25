@@ -10,10 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.realtomjoney.pyxlmoose.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pyxlmoose.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pyxlmoose.converters.JsonConverter
 import com.therealbluepandabear.pyxlmoose.database.ColorDatabase
+import com.therealbluepandabear.pyxlmoose.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pyxlmoose.listeners.ColorPickerListener
 import com.therealbluepandabear.pyxlmoose.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pyxlmoose.models.ColorPalette
