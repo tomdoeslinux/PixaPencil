@@ -39,7 +39,7 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
                         ellipsize = TextUtils.TruncateAt.MARQUEE
                         isSelected = true
                         isSingleLine = true
-                        text = (item.title + " ".repeat(10)).repeat(200)
+                        (item.title + " ".repeat(10)).repeat(200).also { text = it }
                     } else {
                         text = item.title
                     }
