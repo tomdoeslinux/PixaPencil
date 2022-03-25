@@ -18,5 +18,7 @@ fun PixelGridView.extendedUndo() {
         }
 
         undoActionCompleted = true
+
+        caller.onUndoActionCompleted(undoStack, bitmapActionData)
     }
 }
