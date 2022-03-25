@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.realtomjoney.pyxlmoose">
+    package="com.therealbluepandabear.pyxlmoose">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PyxlMoose">
         <activity
-            android:name=".activities.canvas.CanvasActivity"
+            android:name="com.therealbluepandabear.pyxlmoose.activities.canvas.CanvasActivity"
             android:configChanges="orientation|keyboardHidden"
             android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
-            android:name=".activities.main.MainActivity"
+            android:name="com.therealbluepandabear.pyxlmoose.activities.main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
