@@ -5,7 +5,10 @@ import com.realtomjoney.pyxlmoose.extensions.disable
 import com.realtomjoney.pyxlmoose.extensions.enable
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 
-fun CanvasActivity.extendedOnUndoActionCompleted(undoStack: List<BitmapAction>, bitmapActionData: List<BitmapAction>) {
+fun extendedOnUndoActionCompleted(
+    undoStack: List<BitmapAction>,
+    bitmapActionData: List<BitmapAction>
+) {
     if (bitmapActionData.isEmpty()) {
         menu.findItem(R.id.undo).disable()
     }

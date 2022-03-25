@@ -75,7 +75,7 @@ class CanvasActivity :
         undoStack: List<BitmapAction>,
         bitmapActionData: List<BitmapAction>
     ) {
-       extendedOnUndoActionCompleted(undoStack, bitmapActionData)
+        extendedOnUndoActionCompleted(undoStack, bitmapActionData)
     }
 
     override fun onColorTapped(colorTapped: Int, view: View) {
