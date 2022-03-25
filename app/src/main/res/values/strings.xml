@@ -89,4 +89,6 @@
     <string name="fragmentTools_outlined_circle_tool_content_description">Outlined Circle Tool</string>
     <string name="fragmentNewColorPalette_width_str">Width</string>
     <string name="fragmentNewColorPalette_height_str">Height</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
 </resources>

@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Matrix
 import android.view.View
 import com.realtomjoney.pyxlmoose.activities.canvas.binding
 import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
