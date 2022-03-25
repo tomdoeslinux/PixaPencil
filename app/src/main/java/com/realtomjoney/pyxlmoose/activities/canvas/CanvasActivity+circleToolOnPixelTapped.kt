@@ -5,6 +5,8 @@ import com.realtomjoney.pyxlmoose.algorithms.SquarePreviewAlgorithm
 import com.realtomjoney.pyxlmoose.models.Coordinates
 import com.realtomjoney.pyxlmoose.utility.BinaryPreviewStateSwitcher
 
+var firstCircleDrawn = false
+
 fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(primaryAlgorithmInfoParameter, null, true)
     val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter)
@@ -16,6 +18,10 @@ fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
         }
         BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
         first = false
+
+        if (firstCircleDrawn) {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.clear()
+        }
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
         circleMode_hasLetGo = false
@@ -34,5 +40,7 @@ fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
         } else {
             circleAlgorithmInstance.compute(circleOrigin!!, coordinates!!)
         }
+
+        firstCircleDrawn = true
     }
 }

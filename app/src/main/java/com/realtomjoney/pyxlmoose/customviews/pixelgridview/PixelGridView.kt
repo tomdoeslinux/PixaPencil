@@ -31,6 +31,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
     var prevY: Int? = null
 
     val bitmapActionData: MutableList<BitmapAction> = mutableListOf()
+    val undoStack: MutableList<BitmapAction> = mutableListOf()
+
     var currentBitmapAction: BitmapAction? = null
 
     var currentBrush: Brush? = null
@@ -138,6 +140,10 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     fun undo() {
         extendedUndo()
+    }
+
+    fun redo() {
+        extendedRedo()
     }
 
     fun clearCanvas() {

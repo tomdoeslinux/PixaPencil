@@ -7,7 +7,7 @@ object BinaryPreviewStateSwitcher {
     private var binaryPairStateData: Pair<BitmapAction?, BitmapAction?> = Pair(null, null)
 
 
-    private fun clear() {
+    fun clear() {
         binaryPairStateData = binaryPairStateData.copy(null, null)
     }
 

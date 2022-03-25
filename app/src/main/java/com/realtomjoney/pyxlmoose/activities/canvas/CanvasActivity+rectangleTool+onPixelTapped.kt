@@ -10,6 +10,8 @@ var coordinates: Coordinates? = null
 var rectangleAlgorithmInstance: RectanglePreviewAlgorithm? = null
 var squareAlgorithmInstance: SquarePreviewAlgorithm? = null
 
+var firstRectangleDrawn = false
+
 fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
     if (currentTool == Tools.RectangleTool || currentTool == Tools.OutlinedRectangleTool) {
@@ -33,6 +35,10 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
         }
         BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
         first = false
+
+        if (firstRectangleDrawn) {
+            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.clear()
+        }
     } else {
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
         rectangleMode_hasLetGo = false
@@ -48,5 +54,6 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
         } else {
             squareAlgorithmInstance!!.compute(rectangleOrigin!!, coordinatesTapped)
         }
+        firstRectangleDrawn = true
     }
 }

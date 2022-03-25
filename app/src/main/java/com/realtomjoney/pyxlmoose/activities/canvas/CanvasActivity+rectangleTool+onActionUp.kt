@@ -21,7 +21,8 @@ fun rectangleToolOnActionUp() {
 
     coordinates = null
     rectangleOrigin = null
-    rectangleMode_hasLetGo = true
+    rectangleMode_hasLetGo = false
     rectangleAlgorithmInstance = null
     squareAlgorithmInstance = null
+    first = true
 }

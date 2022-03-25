@@ -11,6 +11,8 @@ fun PixelGridView.extendedUndo() {
                 pixelGridViewBitmap.setPixel(key.x, key.y, value)
             }
 
+            undoStack.add(bitmapActionData.last())
+
             invalidate()
             bitmapActionData.removeLast()
         }

@@ -21,5 +21,6 @@ fun circleToolOnActionUp() {
     coordinates = null
     circleOrigin = null
     squareAlgorithmInstance = null
-    circleMode_hasLetGo = true
+    circleMode_hasLetGo = false
+    first = true
 }

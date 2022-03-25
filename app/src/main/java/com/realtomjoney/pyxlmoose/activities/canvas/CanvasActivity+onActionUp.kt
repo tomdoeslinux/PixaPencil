@@ -5,6 +5,7 @@ import com.realtomjoney.pyxlmoose.algorithms.PixelPerfectAlgorithm
 import com.realtomjoney.pyxlmoose.database.BrushesDatabase
 import com.realtomjoney.pyxlmoose.enums.ToolFamily
 import com.realtomjoney.pyxlmoose.enums.Tools
+import com.realtomjoney.pyxlmoose.extensions.disable
 import com.realtomjoney.pyxlmoose.extensions.enable
 
 fun extendedOnActionUp() {
@@ -48,6 +49,10 @@ fun extendedOnActionUp() {
 
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
         menu.findItem(R.id.undo).enable()
+    }
+
+    if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.undoStack.isEmpty()) {
+        menu.findItem(R.id.redo).disable()
     }
 
     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null

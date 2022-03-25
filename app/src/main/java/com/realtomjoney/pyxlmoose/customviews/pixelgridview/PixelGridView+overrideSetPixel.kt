@@ -10,10 +10,12 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
     savedToActionData = false
 
     if (saveToBitmapAction) {
+        undoStack.clear()
         outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.add(
             BitmapActionData(
                 coordinates,
-                pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
+                pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y),
+                color
             )
         )
     }
