@@ -12,6 +12,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.activities.canvas.outerCanvasInstance
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.extensions.calculateMatrix
 import com.realtomjoney.pyxlmoose.listeners.CanvasFragmentListener
 import com.realtomjoney.pyxlmoose.models.BitmapAction
 import com.realtomjoney.pyxlmoose.models.Brush
@@ -268,13 +269,21 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                 }
             }
 
+            val calculatedMatrixInfo = pixelGridViewBitmap.calculateMatrix(
+                scaleFactorW.toFloat(),
+                scaleFactorH.toFloat()
+            )
+
+            val calculatedMatrix = calculatedMatrixInfo.matrix
+
+            this.scaleWidth = calculatedMatrixInfo.scaleWidth
+            this.scaleHeight = calculatedMatrixInfo.scaleHeight
+
             when {
                 canvasWidth == canvasHeight -> {
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
-                        calculateMatrix(pixelGridViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW
@@ -290,9 +299,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                 canvasWidth > canvasHeight -> {
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
-                        calculateMatrix(pixelGridViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW
@@ -308,9 +315,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                 else -> {
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
-                        calculateMatrix(pixelGridViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW

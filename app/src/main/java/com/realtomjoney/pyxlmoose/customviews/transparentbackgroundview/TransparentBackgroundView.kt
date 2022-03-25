@@ -13,6 +13,7 @@ import com.realtomjoney.pyxlmoose.activities.canvas.currentPixelArtObj
 import com.realtomjoney.pyxlmoose.activities.canvas.index
 import com.realtomjoney.pyxlmoose.converters.BitmapConverter
 import com.realtomjoney.pyxlmoose.database.AppData
+import com.realtomjoney.pyxlmoose.extensions.calculateMatrix
 import com.realtomjoney.pyxlmoose.models.PixelArt
 import com.realtomjoney.pyxlmoose.utility.StringConstants
 
@@ -169,13 +170,21 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                 }
             }
 
+            val calculatedMatrixInfo = transparentBackgroundViewBitmap.calculateMatrix(
+                scaleFactorW.toFloat(),
+                scaleFactorH.toFloat()
+            )
+
+            val calculatedMatrix = calculatedMatrixInfo.matrix
+
+            this.scaleWidth = calculatedMatrixInfo.scaleWidth
+            this.scaleHeight = calculatedMatrixInfo.scaleHeight
+
             when {
                 canvasWidth == canvasHeight -> {
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
-                        calculateMatrix(transparentBackgroundViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW
@@ -191,9 +200,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                 canvasWidth > canvasHeight -> {
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
-                        calculateMatrix(transparentBackgroundViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW
@@ -209,9 +216,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                 else -> {
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
-                        calculateMatrix(transparentBackgroundViewBitmap,
-                            scaleFactorW.toFloat(),
-                            scaleFactorH.toFloat()),
+                        calculatedMatrix,
                         null)
 
                     dimenCW = scaleFactorW
