@@ -5,6 +5,9 @@
 
 Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
+## Android market
+PyxlMoose will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
+
 ## ~~Video (note: it is outdated)~~
 ~~https://youtu.be/qNQQLG1N_uE~~
 
@@ -53,8 +56,8 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Outlined rectangle tool
 - Square tool
 - Outlined square tool
-- Circle Tool **[NEW]**
-- Outlined Circle Tool **[NEW]**
+- Circle Tool
+- Outlined Circle Tool
 - Spray tool
 - Polygon tool
 - Dither tool
