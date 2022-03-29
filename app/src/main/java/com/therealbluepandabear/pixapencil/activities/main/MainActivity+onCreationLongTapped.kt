@@ -27,7 +27,7 @@ fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
                         )
                     )
                 }
-            }, "Cancel", null, null
+            }, StringConstants.DialogNegativeButtonText, null, null
         )
     }
 }

@@ -65,7 +65,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
                 "Are you sure you want to delete '$name'? - this cannot be undone.",
                 StringConstants.DialogPositiveButtonText, { _, _ ->
                     deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
-                }, "Cancel", null, null
+                }, StringConstants.DialogNegativeButtonText, null, null
             )
         } else {
             binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SnackbarCannotDeletePrimaryColorPaletteText, SnackbarDuration.Default)
