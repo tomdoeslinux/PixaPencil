@@ -14,10 +14,6 @@ Anyone who wishes to use my old name - PyxlMoose - is free to do so.
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
-## Landscape Orientation Update
-**PixaPencil** _(f. PyxlMoose)_ now has landscape orientation support, but this is very buggy and unstable. 
-
-Please use commit 937 or below if you want a good experience while using the app, but remember to stay in portrait mode if possible.
 
 ## Images
 
@@ -43,11 +39,6 @@ Limitations
 If you are wanting to make an app similar to PyxlMoose (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
 
 _Do not use the name '**PixaPencil**' in your app._
-
-## Goal
-**PixaPencil** _(f. PyxlMoose)_ is a project I am submitting for NCEA Level 3 Digital Technologies.
-
-It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
 
 ## Features (as of March 29, 2022)
 - Pencil tool
