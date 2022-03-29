@@ -13,35 +13,35 @@ const val zoomIncrement = 0.2f
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
-        R.id.appMenu_zoom_out_item -> {
+        R.id.activityCanvasTopAppMenu_zoom_out_item -> {
             zoomOut()
         }
-        R.id.appMenu_zoom_in_item -> {
+        R.id.activityCanvasTopAppMenu_zoom_in_item -> {
             zoomIn()
         }
-        R.id.appMenu_save_project_item -> {
+        R.id.activityCanvasTopAppMenu_save_project_item -> {
             extendedSaveProject()
         }
 
-        R.id.appMenu_undo -> {
+        R.id.activityCanvasTopAppMenu_undo -> {
             extendedUndo()
         }
 
-        R.id.appMenu_redo_item -> {
+        R.id.activityCanvasTopAppMenu_redo_item -> {
             extendedRedo()
         }
 
-        R.id.appMenu_new_color_palette_item -> {
+        R.id.activityCanvasTopAppMenu_new_color_palette_item -> {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance
             navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FragmentNewColorPaletteTitle, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
             hideMenuItems()
         }
 
-        R.id.appMenu_pixel_perfect_item -> {
+        R.id.activityCanvasTopAppMenu_pixel_perfect_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.appMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+            menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
                 putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
@@ -49,11 +49,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             }
         }
 
-        R.id.appMenu_export_to_png_item -> {
+        R.id.activityCanvasTopAppMenu_export_to_png_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
         }
 
-        R.id.appMenu_export_to_jpg_item -> {
+        R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
 
@@ -69,7 +69,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             outerCanvasInstance.rotate(IntConstants.DegreesNinety, animate = true, clockwise = false)
         }
 
-        R.id.appMenu_reset_zoom_subItem -> {
+        R.id.activityCanvasTopAppMenu_reset_zoom_subItem -> {
             resetZoom()
         }
     }

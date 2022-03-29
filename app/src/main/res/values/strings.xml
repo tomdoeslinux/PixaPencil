@@ -62,20 +62,20 @@
     <string name="fragmentRGBColorPicker_valueG_str">0</string>
     <string name="fragmentRGBColorPicker_valueB_str">0</string>
 
-    <string name="appMenu_undo_str">Undo</string>
-    <string name="appMenu_redo_str">Redo</string>
-    <string name="appMenu_save_as_png_str">Save as PNG</string>
-    <string name="appMenu_save_as_jpg_str">Save as JPG</string>
-    <string name="appMenu_new_color_palette_str">New Color Palette</string>
-    <string name="appMenu_pixel_perfect_str">Pixel Perfect</string>
-    <string name="appMenu_rotate_str">Rotate</string>
-    <string name="appMenu_rotate_90_clockwise_str">Rotate 90° (clockwise)</string>
-    <string name="appMenu_rotate_90_anti_clockwise_str">Rotate 90° (anti-clockwise)</string>
-    <string name="appMenu_rotate_180_str">Rotate 180°</string>
-    <string name="appMenu_reset_zoom_str">Reset Zoom</string>
-    <string name="appMenu_zoom_in_str">Zoom in</string>
-    <string name="appMenu_zoom_out_str">Zoom out</string>
-    <string name="appMenu_save_text_str">Save</string>
+    <string name="activityCanvasTopAppMenu_undo_str">Undo</string>
+    <string name="activityCanvasTopAppMenu_redo_str">Redo</string>
+    <string name="activityCanvasTopAppMenu_save_as_png_str">Save as PNG</string>
+    <string name="activityCanvasTopAppMenu_save_as_jpg_str">Save as JPG</string>
+    <string name="activityCanvasTopAppMenu_new_color_palette_str">New Color Palette</string>
+    <string name="activityCanvasTopAppMenu_pixel_perfect_str">Pixel Perfect</string>
+    <string name="activityCanvasTopAppMenu_rotate_str">Rotate</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise_str">Rotate 90° (clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise_str">Rotate 90° (anti-clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180_str">Rotate 180°</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_str">Reset Zoom</string>
+    <string name="activityCanvasTopAppMenu_zoom_in_str">Zoom in</string>
+    <string name="activityCanvasTopAppMenu_zoom_out_str">Zoom out</string>
+    <string name="activityCanvasTopAppMenu_save_text_str">Save</string>
     <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>
 
     <string name="fragmentSprayToolSettings_strength_str">Strength</string>

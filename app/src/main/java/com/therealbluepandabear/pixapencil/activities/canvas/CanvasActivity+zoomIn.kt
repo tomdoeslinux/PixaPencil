@@ -9,7 +9,7 @@ fun zoomIn() {
         scaleY += zoomIncrement
     }
 
-    menu.findItem(R.id.appMenu_zoom_out_item).enable()
+    menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).enable()
 
     outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
 }

@@ -11,7 +11,7 @@ fun PixelGridView.extendedRedo() {
      */
 
     if (undoStack.size > 0) {
-        menu.findItem(R.id.appMenu_undo).enable()
+        menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
 
         for (obj in undoStack.last().actionData.distinctBy { it.coordinates }) {
             pixelGridViewBitmap.setPixel(obj.coordinates.x, obj.coordinates.y, obj.colorSet)

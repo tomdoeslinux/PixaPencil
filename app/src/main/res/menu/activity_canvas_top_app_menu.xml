@@ -1,84 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Menu is ordered alphabetically by default-->
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/appMenu_new_color_palette_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_new_color_palette_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_new_color_palette_str" />
+        android:title="@string/activityCanvasTopAppMenu_new_color_palette_str" />
 
-    <item android:id="@+id/appMenu_pixel_perfect_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_pixel_perfect_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
         android:checkable="true"
-        android:title="@string/appMenu_pixel_perfect_str" />
+        android:title="@string/activityCanvasTopAppMenu_pixel_perfect_str" />
 
-    <item android:id="@+id/appMenu_reset_zoom_subItem"
+    <item android:id="@+id/activityCanvasTopAppMenu_reset_zoom_subItem"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_reset_zoom_str" />
-
+        android:title="@string/activityCanvasTopAppMenu_reset_zoom_str" />
 
     <item app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_rotate_str" >
+        android:title="@string/activityCanvasTopAppMenu_rotate_str" >
         <menu>
             <item android:id="@+id/appMenu_rotate_90_degrees_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/appMenu_rotate_90_clockwise_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_90_clockwise_str" />
 
             <item android:id="@+id/appMenu_rotate_90_degrees_anti_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/appMenu_rotate_90_anti_clockwise_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_90_anti_clockwise_str" />
 
             <item android:id="@+id/appMenu_rotate_180_degrees_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/appMenu_rotate_180_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_180_str" />
         </menu>
     </item>
 
-    <item android:id="@+id/appMenu_undo"
+    <item android:id="@+id/activityCanvasTopAppMenu_undo"
         android:icon="@drawable/ic_baseline_undo_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/appMenu_undo_str"
+        android:title="@string/activityCanvasTopAppMenu_undo_str"
         tools:ignore="AlwaysShowAction" />
 
-    <item android:id="@+id/appMenu_redo_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_redo_item"
         android:icon="@drawable/ic_baseline_redo_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/appMenu_redo_str" />
+        android:title="@string/activityCanvasTopAppMenu_redo_str" />
 
-    <item android:id="@+id/appMenu_zoom_in_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_zoom_in_item"
         android:icon="@drawable/ic_baseline_zoom_in_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/appMenu_zoom_in_str" />
-    <item android:id="@+id/appMenu_zoom_out_item"
+        android:title="@string/activityCanvasTopAppMenu_zoom_in_str" />
+
+    <item android:id="@+id/activityCanvasTopAppMenu_zoom_out_item"
         android:icon="@drawable/ic_baseline_zoom_out_24"
         android:iconTint="@color/white"
         app:showAsAction="always"
-        android:title="@string/appMenu_zoom_out_str" />
+        android:title="@string/activityCanvasTopAppMenu_zoom_out_str" />
 
-    <item android:id="@+id/appMenu_save_project_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_save_project_item"
         android:icon="@drawable/ic_baseline_check_24"
         app:showAsAction="always"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_save_text_str" />
+        android:title="@string/activityCanvasTopAppMenu_save_text_str" />
 
-    <item android:id="@+id/appMenu_export_to_png_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_export_to_png_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_save_as_png_str" />
+        android:title="@string/activityCanvasTopAppMenu_save_as_png_str" />
 
-    <item android:id="@+id/appMenu_export_to_jpg_item"
+    <item android:id="@+id/activityCanvasTopAppMenu_export_to_jpg_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
         android:iconTint="@color/white"
-        android:title="@string/appMenu_save_as_jpg_str" />
+        android:title="@string/activityCanvasTopAppMenu_save_as_jpg_str" />
 </menu>

@@ -104,7 +104,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="itemIconTint">@android:color/black</item>
-        <item name="menu">@menu/bottom_navigation_menu</item>
+        <item name="menu">@menu/activity_main_bottom_navigation_menu</item>
     </style>
 
     <style name="recentCreationsLayout_imageView_style_constraints">
