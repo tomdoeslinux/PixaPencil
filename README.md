@@ -49,7 +49,7 @@ _Do not use the name '**PixaPencil**' in your app._
 
 It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
 
-## Features (as of February 22, 2022)
+## Features (as of March 29, 2022)
 - Pencil tool
 - Fill tool
 - Horizontal mirror tool
