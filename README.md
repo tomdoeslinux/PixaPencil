@@ -27,16 +27,7 @@ https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
 To disclaim, this repository is licensed under the MIT license.
 
-Permissions:
-- Commercial use
-- Modification
-- Distribution
-- Private use
-Limitations
-- Liability
-- Warranty
-
-If you are wanting to make an app similar to **PixaPencil** (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
+For more info go to: https://choosealicense.com/licenses/mit/.
 
 _Do not use the name '**PixaPencil**' in your app._
 
