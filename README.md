@@ -11,13 +11,13 @@ PixaPencil used to be called 'PyxlMoose'. I decided to call it 'PixaPencil' as I
 Anyone who wishes to use my old name - PyxlMoose - is free to do so.
 
 ## Android market
-PixaPencil (f. PyxlMoose) will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
+PixaPencil _(f. PyxlMoose)_ will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
 
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
 ## Landscape Orientation Update
-PixaPencil (f. PyxlMoose) now has landscape orientation support, but this is very buggy and unstable. 
+PixaPencil _(f. PyxlMoose)_ now has landscape orientation support, but this is very buggy and unstable. 
 
 Please use commit 937 or below if you want a good experience while using the app, but remember to stay in portrait mode if possible.
 
@@ -47,7 +47,7 @@ If you are wanting to make an app similar to PyxlMoose (a pixel art editor for A
 _Do not use the name 'PixaPencil' or the logo in your app._
 
 ## Goal
-PixaPencil (f. PyxlMoose) is a project I am submitting for NCEA Level 3 Digital Technologies.
+PixaPencil _(f. PyxlMoose)_ is a project I am submitting for NCEA Level 3 Digital Technologies.
 
 It was intended as being a small pixel art editor app for Android, but over time the codebase has grown bigger and hopefully this project can actually turn into something more serious than a school project.
 
