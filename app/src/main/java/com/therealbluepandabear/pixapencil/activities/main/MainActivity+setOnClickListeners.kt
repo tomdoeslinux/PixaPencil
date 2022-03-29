@@ -5,7 +5,8 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.adapters.RecentCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
-import com.therealbluepandabear.pixapencil.fragments.newcanvas.NewCanvasFragment
+import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 
 fun MainActivity.setOnClickListeners() {
@@ -39,8 +40,8 @@ fun MainActivity.setOnClickListeners() {
     })
 
     binding.activityMainNewProjectButton.setOnClickListener {
-        newCanvasFragmentInstance = NewCanvasFragment.newInstance()
+        newCanvasFragmentInstance = NewProjectFragment.newInstance()
         currentFragmentInstance = newCanvasFragmentInstance
-        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, "New Canvas", binding.activityMainPrimaryFragmentHost, binding.mainRoot)
+        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, StringConstants.FragmentNewProjectTitle, binding.activityMainPrimaryFragmentHost, binding.mainRoot)
     }
 }

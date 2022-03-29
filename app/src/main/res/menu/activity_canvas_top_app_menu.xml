@@ -66,7 +66,7 @@
         android:title="@string/activityCanvasTopAppMenu_zoom_out_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_save_project_item"
-        android:icon="@drawable/ic_baseline_check_24"
+        android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always"
         android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_save_text_str" />

@@ -27,6 +27,7 @@ object StringConstants {
     const val SnackbarCannotDeletePrimaryColorPaletteText = "Cannot delete default color palette"
     const val SnackbarFindAndReplaceWarning = "You must have at least one color on your canvas to use this tool"
 
+    const val FragmentNewProjectTitle = "New Project"
     const val FragmentFindAndReplaceTitle = "Find and Replace"
     const val FragmentColorPickerTitle = "Select Color"
     const val FragmentNewColorPaletteTitle = "New Color Palette"

@@ -15,9 +15,5 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     }
 
-    if (index != -1) {
-        setMenuItemIcon(_menu!!.getItem(4), R.drawable.ic_baseline_save_24, "Save")
-    }
-
     return true
 }

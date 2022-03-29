@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.fragments.newcanvas
+package com.therealbluepandabear.pixapencil.fragments.newproject
 
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar

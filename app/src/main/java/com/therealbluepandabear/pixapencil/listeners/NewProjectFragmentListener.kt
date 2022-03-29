@@ -1,5 +1,5 @@
 package com.therealbluepandabear.pixapencil.listeners
 
-interface NewCanvasFragmentListener {
+interface NewProjectFragmentListener {
     fun onDoneButtonPressed(projectName: String, width: Int, height: Int)
 }

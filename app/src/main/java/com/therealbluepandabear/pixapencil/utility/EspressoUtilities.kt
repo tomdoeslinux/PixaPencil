@@ -20,7 +20,7 @@ object EspressoUtilities {
         getViewGroupsChildElementIds(com.therealbluepandabear.pixapencil.activities.main.binding.mainRoot)
     }
     fun getNewCanvasFragmentChildElementIds() {
-        getViewGroupsChildElementIds(com.therealbluepandabear.pixapencil.fragments.newcanvas.binding_!!.fragmentNewCanvasRootLayout)
+        getViewGroupsChildElementIds(com.therealbluepandabear.pixapencil.fragments.newproject.binding_!!.fragmentNewCanvasRootLayout)
     }
     fun getColorPickerFragmentChildElementIds() {
         getViewGroupsChildElementIds(com.therealbluepandabear.pixapencil.fragments.colorpicker.binding_!!.fragmentColorPickerRootLayout)
