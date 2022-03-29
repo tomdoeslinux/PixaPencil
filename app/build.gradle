@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.realtomjoney.pyxlmoose"
+        applicationId "com.therealbluepandabear.pixapencil"
         minSdk 27
         targetSdk 31
         versionCode 1

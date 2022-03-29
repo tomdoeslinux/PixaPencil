@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PyxlMoose</string>
+    <string name="app_name">PixaPencil</string>
 
     <string name="activityMain_newProjectButton_contentDescription">New Project</string>
 

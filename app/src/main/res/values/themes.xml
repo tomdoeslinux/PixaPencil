@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PyxlMoose" parent="Theme.Material3.DayNight">
+    <style name="Theme.PixaPencil" parent="Theme.Material3.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@android:color/holo_blue_dark</item>
 

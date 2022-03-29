@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.therealbluepandabear.pyxlmoose">
+    package="com.therealbluepandabear.pixapencil">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
@@ -12,14 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:largeHeap="true"
-        android:theme="@style/Theme.PyxlMoose">
+        android:theme="@style/Theme.PixaPencil">
         <activity
-            android:name="com.therealbluepandabear.pyxlmoose.activities.canvas.CanvasActivity"
+            android:name="com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity"
             android:configChanges="orientation|keyboardHidden"
             android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
-            android:name="com.therealbluepandabear.pyxlmoose.activities.main.MainActivity"
+            android:name="com.therealbluepandabear.pixapencil.activities.main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
