@@ -29,7 +29,7 @@ To disclaim, this repository is licensed under the MIT license.
 
 For more info go to: https://choosealicense.com/licenses/mit/.
 
-_Do not use the name '**PixaPencil**' in your app._
+_Do not use the name '**PixaPencil**' in your app/other product._
 
 ## Features (as of March 29, 2022)
 - Pencil tool
