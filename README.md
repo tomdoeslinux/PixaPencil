@@ -84,7 +84,7 @@ It was intended as being a small pixel art editor app for Android, but over time
 - Ability to export projects to a PNG/JPG file
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 
-Go to https://github.com/realtomjoney/PyxlMoose/projects/1 to have a look at features we want to add to **PixaPencil** (f. PyxlMoose).
+Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil** (f. PyxlMoose).
 
 ## Shoutout
 Thank you to:
