@@ -108,6 +108,8 @@
         <entry key="app/src/main/res/layout/fragment_spray_tool_settings.xml" value="0.1405775075987842" />
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.14" />
         <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/menu/app_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.19495510902094912" />
       </map>
     </option>
   </component>

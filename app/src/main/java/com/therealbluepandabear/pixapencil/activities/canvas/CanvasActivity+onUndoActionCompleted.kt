@@ -10,10 +10,10 @@ fun extendedOnUndoActionCompleted(
     bitmapActionData: List<BitmapAction>
 ) {
     if (bitmapActionData.isEmpty()) {
-        menu.findItem(R.id.undo).disable()
+        menu.findItem(R.id.appMenu_undo).disable()
     }
 
     if (undoStack.isNotEmpty()) {
-        menu.findItem(R.id.redo).enable()
+        menu.findItem(R.id.appMenu_redo_item).enable()
     }
 }

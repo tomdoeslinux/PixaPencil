@@ -11,13 +11,13 @@ import com.therealbluepandabear.pixapencil.fragments.newcanvas.NewCanvasFragment
 fun MainActivity.setOnClickListeners() {
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
-            R.id.page_home -> {
+            R.id.bottomNavigationMenu_home_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(it, this)
                 }
             }
-            R.id.page_starred -> {
+            R.id.bottomNavigationMenu_starred_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
                         RecentCreationsAdapter(it.filter { item -> item.starred }, this)

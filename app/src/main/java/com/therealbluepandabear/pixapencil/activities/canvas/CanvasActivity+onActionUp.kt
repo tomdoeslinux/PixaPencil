@@ -48,11 +48,11 @@ fun extendedOnActionUp() {
     }
 
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
-        menu.findItem(R.id.undo).enable()
+        menu.findItem(R.id.appMenu_undo).enable()
     }
 
     if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.undoStack.isEmpty()) {
-        menu.findItem(R.id.redo).disable()
+        menu.findItem(R.id.appMenu_redo_item).disable()
     }
 
     outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null

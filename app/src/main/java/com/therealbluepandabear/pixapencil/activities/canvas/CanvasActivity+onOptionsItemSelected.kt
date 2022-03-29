@@ -13,35 +13,35 @@ const val zoomIncrement = 0.2f
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
-        R.id.zoom_out -> {
+        R.id.appMenu_zoom_out_item -> {
             zoomOut()
         }
-        R.id.zoom_in -> {
+        R.id.appMenu_zoom_in_item -> {
             zoomIn()
         }
-        R.id.save_project -> {
+        R.id.appMenu_save_project_item -> {
             extendedSaveProject()
         }
 
-        R.id.undo -> {
+        R.id.appMenu_undo -> {
             extendedUndo()
         }
 
-        R.id.redo -> {
+        R.id.appMenu_redo_item -> {
             extendedRedo()
         }
 
-        R.id.new_color_palette -> {
+        R.id.appMenu_new_color_palette_item -> {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance
             navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FragmentNewColorPaletteTitle, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
             hideMenuItems()
         }
 
-        R.id.pixel_perfect -> {
+        R.id.appMenu_pixel_perfect_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.pixel_perfect).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+            menu.findItem(R.id.appMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
                 putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
@@ -49,27 +49,27 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             }
         }
 
-        R.id.export_to_png -> {
+        R.id.appMenu_export_to_png_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
         }
 
-        R.id.export_to_jpg -> {
+        R.id.appMenu_export_to_jpg_item -> {
             outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
 
-        R.id.rotate_90_degrees_clockwise -> {
+        R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
             outerCanvasInstance.rotate()
         }
 
-        R.id.rotate_180_degrees_clockwise -> {
+        R.id.appMenu_rotate_180_degrees_clockwise_subItem -> {
             outerCanvasInstance.rotate(IntConstants.DegreesOneEighty)
         }
 
-        R.id.rotate_90_degrees_anti_clockwise -> {
+        R.id.appMenu_rotate_90_degrees_anti_clockwise_subItem -> {
             outerCanvasInstance.rotate(IntConstants.DegreesNinety, animate = true, clockwise = false)
         }
 
-        R.id.reset_zoom -> {
+        R.id.appMenu_reset_zoom_subItem -> {
             resetZoom()
         }
     }

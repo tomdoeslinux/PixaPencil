@@ -14,7 +14,7 @@ fun zoomOut() {
         }
 
         if (scaleX - zoomIncrement < zoomIncrement.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()) {
-            menu.findItem(R.id.zoom_out).disable()
+            menu.findItem(R.id.appMenu_zoom_out_item).disable()
         }
     }
 

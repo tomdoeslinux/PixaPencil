@@ -6,6 +6,6 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun extendedOnRedoActionCompleted(undoStack: List<BitmapAction>) {
     if (undoStack.isEmpty()) {
-        menu.findItem(R.id.redo).disable()
+        menu.findItem(R.id.appMenu_redo_item).disable()
     }
 }

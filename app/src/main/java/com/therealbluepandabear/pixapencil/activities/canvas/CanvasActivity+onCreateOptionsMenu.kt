@@ -10,9 +10,9 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
 
     if (_menu != null) {
         menu = _menu
-        menu.findItem(R.id.pixel_perfect).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
-        menu.findItem(R.id.undo).disable()
-        menu.findItem(R.id.redo).disable()
+        menu.findItem(R.id.appMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+        menu.findItem(R.id.appMenu_undo).disable()
+        menu.findItem(R.id.appMenu_redo_item).disable()
     }
 
     if (index != -1) {
