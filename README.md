@@ -5,6 +5,11 @@
 
 Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
+## Name change
+PixaPencil used to be called 'PyxlMoose'. I decided to call it 'PixaPencil' as I feel as though it's better than PyxlMoose.
+
+Anyone who wishes to use my old name - PyxlMoose - is free to do so.
+
 ## Android market
 PixaPencil (f. PyxlMoose) will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
 
