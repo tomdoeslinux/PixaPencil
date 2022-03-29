@@ -4,12 +4,12 @@
 Join the official Matrix server: https://matrix.to/#/#pyxlmoose:matrix.org
 
 ## Name change
-**PixaPencil** used to be called 'PyxlMoose'. I decided to call it 'PixaPencil' as I feel as though it's better than PyxlMoose.
+**PixaPencil** used to be called 'PyxlMoose'. I decided to call it 'PixaPencil' as I feel as though the name is better than PyxlMoose.
 
 Anyone who wishes to use my old name - PyxlMoose - is free to do so.
 
 ## Android market
-**PixaPencil** _(f. PyxlMoose)_ will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
+**PixaPencil** will be available soon on the Google Play Store - and for those for don't feel comfortable purchasing apps from the Play Store - it will also be available on F-Droid. It will also be available as a standalone apk file on GitHub. 
 
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
@@ -36,7 +36,7 @@ Limitations
 - Liability
 - Warranty
 
-If you are wanting to make an app similar to PyxlMoose (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
+If you are wanting to make an app similar to **PixaPencil** (a pixel art editor for Android), you can use, modify, and distribute any code which is part of this codebase privately or commercially. I encourage anyone wanting to make a similar or even better version of this app to go ahead!
 
 _Do not use the name '**PixaPencil**' in your app._
 
@@ -75,7 +75,7 @@ _Do not use the name '**PixaPencil**' in your app._
 - Ability to export projects to a PNG/JPG file
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 
-Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil** (f. PyxlMoose).
+Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
 
 ## Shoutout
 Thank you to:
