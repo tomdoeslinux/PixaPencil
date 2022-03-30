@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
         R.id.activityMainTopAppMenu_community_item -> {
-            MaterialAlertDialogBuilder(context)
+            MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_App_MaterialAlertDialog)
                 .setTitle("Community")
                 .setMessage(R.string.foo)
                 .setPositiveButton(StringConstants.DialogPositiveButtonText) { _, _ -> }
