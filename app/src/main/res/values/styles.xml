@@ -8,6 +8,7 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@android:color/holo_blue_dark</item>
+        <item name="android:fontFamily">@font/manrope_medium</item>
     </style>
 
     <style name="canvas_activity_button_tool_style_back">
