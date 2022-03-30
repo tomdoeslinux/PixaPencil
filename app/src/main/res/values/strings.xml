@@ -91,4 +91,9 @@
     <string name="fragmentNewColorPalette_height_str">Height</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
+    <string name="activityMainTopAppMenu_community_str">Community</string>
+
+    <string name="foo">We would love to have you on our
+         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
+    </string>
 </resources>

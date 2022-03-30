@@ -65,7 +65,7 @@
         app:showAsAction="always"
         android:title="@string/activityCanvasTopAppMenu_zoom_out_str" />
 
-    <item android:id="@+id/activityCanvasTopAppMenu_save_project_item"
+    <item android:id="@+id/activityMainTopAppMenu_community_item"
         android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always"
         android:iconTint="@color/white"

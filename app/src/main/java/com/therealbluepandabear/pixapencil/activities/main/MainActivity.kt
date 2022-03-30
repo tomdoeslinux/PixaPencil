@@ -1,6 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
@@ -29,6 +31,14 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     override fun onCreationTapped(creationTapped: PixelArt) = extendedOnCreationTapped(creationTapped)
 
     override fun onCreationLongTapped(creationTapped: PixelArt) = extendedOnCreationLongTapped(creationTapped)
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        return extendedOnCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return extendedOnOptionsItemSelected(item)
+    }
 
     override fun onBackPressed() {
         if (currentFragmentInstance != null) extendedOnBackPressed() else super.onBackPressed()
