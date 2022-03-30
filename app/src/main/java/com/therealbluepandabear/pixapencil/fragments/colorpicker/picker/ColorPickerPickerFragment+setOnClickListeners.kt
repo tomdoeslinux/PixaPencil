@@ -3,8 +3,9 @@ package com.therealbluepandabear.pixapencil.fragments.colorpicker.picker
 import android.graphics.drawable.ColorDrawable
 import android.os.Handler
 import android.os.Looper
-import com.therealbluepandabear.pixapencil.activities.canvas.showMenuItems
+import com.therealbluepandabear.pixapencil.activities.canvas.menu
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
+import com.therealbluepandabear.pixapencil.extensions.showItems
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
 import com.therealbluepandabear.pixapencil.utility.LongConstants
@@ -18,7 +19,7 @@ fun ColorPickerPickerFragment.setOnClickListeners() {
             } catch (exception: Exception) {
 
             } finally {
-                showMenuItems()
+                menu.showItems()
             }
         },  LongConstants.DefaultHandlerDelay)
     }

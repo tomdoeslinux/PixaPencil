@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -21,7 +22,7 @@ fun CanvasActivity.sprayToolOnToolTapped() {
             binding.activityCanvasRootLayout
         )
 
-        hideMenuItems()
+        menu.hideItems()
     }
 
     currentTool = Tools.SprayTool

@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
+import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
@@ -22,7 +23,7 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
             binding.activityCanvasPrimaryFragmentHost,
             binding.activityCanvasRootLayout
         )
-        hideMenuItems()
+        menu.hideItems()
     } else {
         binding.activityCanvasRootLayout.showSnackbar(StringConstants.SnackbarFindAndReplaceWarning, SnackbarDuration.Default)
     }

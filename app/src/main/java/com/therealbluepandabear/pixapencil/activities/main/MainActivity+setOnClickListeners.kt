@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.adapters.RecentCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -43,5 +44,6 @@ fun MainActivity.setOnClickListeners() {
         newCanvasFragmentInstance = NewProjectFragment.newInstance()
         currentFragmentInstance = newCanvasFragmentInstance
         navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, StringConstants.FragmentNewProjectTitle, binding.activityMainPrimaryFragmentHost, binding.mainRoot)
+        menu.hideItems()
     }
 }

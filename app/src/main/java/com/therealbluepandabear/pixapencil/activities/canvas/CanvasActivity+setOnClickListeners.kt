@@ -4,6 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
@@ -83,7 +84,7 @@ fun CanvasActivity.setOnClickListeners() {
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
         isPrimaryColorSelected = true
         openColorPickerDialog()
-        hideMenuItems()
+        menu.hideItems()
         true
     }
 
@@ -98,7 +99,7 @@ fun CanvasActivity.setOnClickListeners() {
     binding.activityCanvasColorSecondaryView.setOnLongClickListener {
         isPrimaryColorSelected = false
         openColorPickerDialog()
-        hideMenuItems()
+        menu.hideItems()
         true
     }
 }

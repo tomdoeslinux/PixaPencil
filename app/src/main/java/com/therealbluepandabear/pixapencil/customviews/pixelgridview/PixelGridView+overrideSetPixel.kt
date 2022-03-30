@@ -36,6 +36,7 @@ fun PixelGridView.extendedOverrideSetPixel(
 
     if (coordinatesInCanvasBounds(coordinates)) {
         setPixelAndSaveToBitmapAction(coordinates, color)
+
         if (currentBrush != null && !ignoreBrush) {
             for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates)) {
                 if (coordinatesInCanvasBounds(xyPosition_2)) {

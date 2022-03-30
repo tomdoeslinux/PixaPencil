@@ -127,7 +127,9 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         applyPixelPerfectValueFromPreference()
     }
 
-    override fun dispatchTouchEvent(event: MotionEvent) = extendedDispatchTouchEvent(event)
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+        return extendedDispatchTouchEvent(event)
+    }
 
     fun showGrid() {
         gridEnabled = true

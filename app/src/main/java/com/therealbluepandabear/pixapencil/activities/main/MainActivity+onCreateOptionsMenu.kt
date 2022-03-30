@@ -8,8 +8,11 @@ import com.therealbluepandabear.pixapencil.extensions.changeColor
 fun MainActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater
     inflater.inflate(R.menu.activity_main_top_app_menu, _menu)
-
-   _menu!!.findItem(R.id.activityMainTopAppMenu_community_item).icon.changeColor(Color.parseColor("#0099cc"))
+    
+    if (_menu != null) {
+        menu = _menu
+        menu.findItem(R.id.activityMainTopAppMenu_community_item).icon.changeColor(Color.parseColor("#0099cc"))
+    }
 
     return true
 }

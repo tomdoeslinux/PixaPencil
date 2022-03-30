@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Bitmap
 import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pixapencil.utility.IntConstants
@@ -35,7 +36,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
             currentFragmentInstance = newColorPaletteFragmentInstance
             navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FragmentNewColorPaletteTitle, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
-            hideMenuItems()
+            menu.hideItems()
         }
 
         R.id.activityCanvasTopAppMenu_pixel_perfect_item -> {
