@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.*
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
@@ -208,6 +209,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
+            Log.d("PDATAA", "${canvas.width} ${canvas.height}")
+            Log.d("PDATAA", "${pixelGridViewBitmap.width} ${pixelGridViewBitmap.height}")
             var scaleFactorW = 0
             var scaleFactorH = 0
 
