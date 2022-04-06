@@ -12,7 +12,7 @@ fun CanvasActivity.extendedOnResume() {
         }
     }
 
-    if (prevBitmapStr != "") {
+    if (prevBitmapStr != "" && prevOrientation != 0) {
         Handler(Looper.getMainLooper()).postDelayed({
             val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr)
             if (convertedBMP != null) {
