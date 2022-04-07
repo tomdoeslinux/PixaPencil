@@ -68,3 +68,8 @@ Thank you to:
 - _JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 - _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._ **(For all commits prior to 733.)**
 - And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
+
+## Other libraries used
+- Dhaval2404 (https://github.com/Dhaval2404) - Color Picker Library for Android (https://github.com/Dhaval2404/ColorPicker)
+
+
