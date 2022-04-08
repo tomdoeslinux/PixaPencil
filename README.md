@@ -27,39 +27,38 @@ For more info go to: https://choosealicense.com/licenses/mit/.
 _Do not use the name '**PixaPencil**' in your app/other product._
 
 ## Features (as of March 29, 2022)
-- Pencil tool
-- Fill tool
-- Horizontal mirror tool
-- Vertical mirror tool
-- Line tool
-- Rectangle tool
-- Outlined rectangle tool
-- Square tool
-- Outlined square tool
-- Circle Tool
-- Outlined Circle Tool
-- Spray tool
-- Polygon tool
-- Dither tool
-- Darkening tool
-- Lightening tool
-- Clear canvas tool
-- Color picker tool
-- Find and replace by color tool
-- Eraser tool
-- Pixel grid (can be disabled or enabled) 
-- Pixel perfect mode (not 100% stable)
-- Undo
-- Redo
-- Zoom in
-- Zoom out
-- 5 awesome filters
-- Custom color palettes
-- Ability to select from 5 different brushes
-- Ability to select custom colors from hex, rgb, hsv, or a color picker
-- Ability to unfavorite/favorite projects
-- Ability to export projects to a PNG/JPG file
-- Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
+- Pencil tool (https://youtu.be/Y77EkLLC8Lo?t=20)
+- Fill tool (https://youtu.be/Y77EkLLC8Lo?t=39)
+- Vertical mirror tool (https://youtu.be/Y77EkLLC8Lo?t=57)
+- Horizontal mirror tool (https://youtu.be/Y77EkLLC8Lo?t=82)
+- Line tool (https://youtu.be/Y77EkLLC8Lo?t=94)
+- Rectangle tool (https://youtu.be/Y77EkLLC8Lo?t=121)
+- Outlined rectangle tool (n/a)
+- Square tool (https://youtu.be/Y77EkLLC8Lo?t=149)
+- Outlined square tool (n/a)
+- Circle Tool (https://youtu.be/Y77EkLLC8Lo?t=164)
+- Outlined Circle Tool (n/a)
+- Spray tool (https://youtu.be/Y77EkLLC8Lo?t=197)
+- Polygon tool (https://youtu.be/Y77EkLLC8Lo?t=247)
+- Dither tool (https://youtu.be/Y77EkLLC8Lo?t=269)
+- Darkening tool (https://youtu.be/Y77EkLLC8Lo?t=286)
+- Lightening tool (https://youtu.be/Y77EkLLC8Lo?t=314)
+- Clear canvas tool (https://youtu.be/Y77EkLLC8Lo?t=344)
+- Color picker tool (https://youtu.be/Y77EkLLC8Lo?t=350) **[Outdated]**
+- Find and replace by color tool (https://youtu.be/Y77EkLLC8Lo?t=361) **[Partially Outdated]**
+- Eraser tool (n/a)
+- Pixel grid (can be disabled or enabled) (n/a)
+- Pixel perfect mode (not 100% stable) (https://youtu.be/Y77EkLLC8Lo?t=623)
+- Undo (https://youtu.be/Y77EkLLC8Lo?t=570)
+- Redo (https://youtu.be/Y77EkLLC8Lo?t=571)
+- Zoom in (https://youtu.be/Y77EkLLC8Lo?t=559)
+- Zoom out (https://youtu.be/Y77EkLLC8Lo?t=562)
+- Canvas filters (https://youtu.be/Y77EkLLC8Lo?t=403)
+- Custom color palettes (https://youtu.be/Y77EkLLC8Lo?t=457)
+- Brushes (https://youtu.be/Y77EkLLC8Lo?t=496)
+- Ability to unfavorite/favorite projects (https://youtu.be/Y77EkLLC8Lo?t=659)
+- Ability to export projects to a PNG/JPG file (https://youtu.be/Y77EkLLC8Lo?t=601)
+- Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees (https://youtu.be/Y77EkLLC8Lo?t=538)
 
 Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
 
