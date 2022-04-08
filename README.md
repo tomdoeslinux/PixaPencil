@@ -1,7 +1,8 @@
 ## About
 *A capable pixel art editor for Android.*
 
-Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
+Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org 
+... or the official Discord server: https://discord.gg/Ytm7WBMNz9
 
 ## Android market
 **PixaPencil** will be available soon on the Google Play Store and F-Droid, as well as a .apk file.
