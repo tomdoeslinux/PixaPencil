@@ -8,3 +8,4 @@ val binding get(): FragmentColorPickerPickerBinding {
     return binding_!!
 }
 
+var selectedColor: Int = 0

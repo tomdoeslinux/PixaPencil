@@ -2,16 +2,18 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Color
 import android.os.Handler
-import android.os.Looper
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
-    var size = 0
+    navigateBack(colorPickerFragmentInstance)
+
     if (!colorPaletteMode) {
-        setPixelColor(selectedColor)
+        Handler().postDelayed({
+            setPixelColor(selectedColor)
+        }, LongConstants.DefaultHandlerDelay)
     } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
@@ -23,16 +25,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
             binding.activityCanvasColorPickerRecyclerView.adapter =
                 ColorPickerAdapter(fromDB!!, this)
-            size =
-                JsonConverter.convertJsonStringToListOfInt(
-                    fromDB!!.colorPaletteColorData
-                ).size
         }
     }
-
-    navigateBack(colorPickerFragmentInstance)
-
-    Handler(Looper.getMainLooper()).postDelayed( {
-        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(size)
-    }, LongConstants.DefaultHandlerDelay)
 }

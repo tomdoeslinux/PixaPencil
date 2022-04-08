@@ -77,7 +77,7 @@
         <entry key="app/src/main/res/layout-land/fragment_brushes.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/fragment_color_palettes.xml" value="0.33" />
         <entry key="app/src/main/res/layout-land/fragment_color_picker.xml" value="0.2865961199294533" />
-        <entry key="app/src/main/res/layout-land/fragment_color_picker_picker.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/fragment_color_picker_picker.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/fragment_color_picker_picker_canvas.xml" value="0.2865961199294533" />
         <entry key="app/src/main/res/layout-land/fragment_filters.xml" value="0.16" />
         <entry key="app/src/main/res/layout-land/fragment_find_and_replace.xml" value="0.18209876543209877" />
@@ -86,7 +86,7 @@
         <entry key="app/src/main/res/layout-land/fragment_outer_canvas.xml" value="0.12" />
         <entry key="app/src/main/res/layout-land/fragment_r_g_b_color_picker.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/fragment_tools.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.3564102564102564" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/brushes_layout.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/color_palettes_layout.xml" value="0.2833333333333333" />
@@ -95,7 +95,7 @@
         <entry key="app/src/main/res/layout/fragment_canvas.xml" value="0.11068895643363728" />
         <entry key="app/src/main/res/layout/fragment_color_palettes.xml" value="0.1405775075987842" />
         <entry key="app/src/main/res/layout/fragment_color_picker.xml" value="0.17223910840932116" />
-        <entry key="app/src/main/res/layout/fragment_color_picker_picker.xml" value="0.17223910840932116" />
+        <entry key="app/src/main/res/layout/fragment_color_picker_picker.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_color_picker_picker_canvas.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_filters.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_find_and_replace.xml" value="0.17223910840932116" />

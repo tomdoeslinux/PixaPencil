@@ -72,4 +72,6 @@ dependencies {
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
+
+    implementation 'com.github.Dhaval2404:ColorPicker:2.3'
 }
