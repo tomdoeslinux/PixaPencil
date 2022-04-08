@@ -12,6 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
+    navigateBack(newColorPaletteFragmentInstance)
+
     CoroutineScope(Dispatchers.IO).launch {
         if (!extractColorPaletteFromCanvas) {
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
@@ -32,9 +34,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             )
         }
     }
-
-    navigateBack(colorPickerFragmentInstance)
-
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
         val h = Handler(Looper.getMainLooper())
