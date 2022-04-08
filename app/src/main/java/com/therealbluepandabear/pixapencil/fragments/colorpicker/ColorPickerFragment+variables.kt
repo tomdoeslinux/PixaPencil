@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.fragments.colorpicker
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.hex.HexadecimalColorPickerFragment
-import com.therealbluepandabear.pixapencil.fragments.colorpicker.hsv.HSVColorPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.picker.ColorPickerPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgb.RGBColorPickerFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
@@ -20,6 +19,5 @@ val binding get(): FragmentColorPickerBinding {
 lateinit var caller: ColorPickerFragmentListener
 
 var hexFragmentInstance: HexadecimalColorPickerFragment? = null
-var hsvFragmentInstance: HSVColorPickerFragment? = null
 var rgbFragmentInstance: RGBColorPickerFragment? = null
 var pickerFragmentInstance: ColorPickerPickerFragment? = null
