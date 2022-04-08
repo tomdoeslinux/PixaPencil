@@ -6,5 +6,5 @@ fun resetZoom() {
         scaleY = 1f
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
 }

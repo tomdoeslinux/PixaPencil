@@ -7,23 +7,23 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun extendedOnFilterSelected(filterType: String) {
     when (filterType) {
         StringConstants.ColorFilterIdentifier -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }
         }
 
         StringConstants.DarkenFilterIdentifier -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.BLACK) }
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.BLACK) }
         }
 
         StringConstants.LightenFilterIdentifier -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.WHITE) }
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.WHITE) }
         }
 
         StringConstants.InvertFilterIdentifier -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.inverseRGB(it) }
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.inverseRGB(it) }
         }
 
         StringConstants.GrayscaleFilterIdentifier -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.applyBitmapFilter { ColorFilterUtilities.grayScale(it) }
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.grayScale(it) }
         }
     }
 }

@@ -20,7 +20,7 @@ fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
 }
 
 fun clearCanvas() {
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.clearCanvas()
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.clearCanvas()
 }
 
 fun CanvasActivity.setOnClickListeners() {

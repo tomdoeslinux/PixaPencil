@@ -40,22 +40,22 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_pixel_perfect_item -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode
+            menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode)
+                putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode)
                 apply()
             }
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {

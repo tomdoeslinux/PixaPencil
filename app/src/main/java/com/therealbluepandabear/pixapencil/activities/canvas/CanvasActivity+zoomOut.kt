@@ -13,10 +13,12 @@ fun zoomOut() {
             scaleY -= zoomIncrement
         }
 
-        if (scaleX - zoomIncrement < zoomIncrement.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()) {
+        val roundedZoom = zoomIncrement.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
+
+        if (scaleX - zoomIncrement < roundedZoom) {
             menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).disable()
         }
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
 }

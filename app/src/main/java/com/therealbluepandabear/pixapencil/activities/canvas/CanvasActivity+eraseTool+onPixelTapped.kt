@@ -7,14 +7,14 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 fun eraseToolOnPixelTapped(coordinatesTapped: Coordinates) {
     primaryAlgorithmInfoParameter.color = Color.TRANSPARENT
 
-    if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX != null && outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY != null) {
+    if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevX != null && outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-        lineAlgorithmInstance.compute(Coordinates(outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX!!, outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY!!), coordinatesTapped)
+        lineAlgorithmInstance.compute(Coordinates(outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevX!!, outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevY!!), coordinatesTapped)
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(coordinatesTapped.x, coordinatesTapped.y, Color.TRANSPARENT)
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.overrideSetPixel(coordinatesTapped.x, coordinatesTapped.y, Color.TRANSPARENT)
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevX = coordinatesTapped.x
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.prevY = coordinatesTapped.y
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevX = coordinatesTapped.x
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevY = coordinatesTapped.y
 }

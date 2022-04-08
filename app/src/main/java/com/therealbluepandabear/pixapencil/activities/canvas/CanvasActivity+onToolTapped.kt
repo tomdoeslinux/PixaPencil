@@ -66,7 +66,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.PolygonToolIdentifier -> {
             if (currentTool == Tools.PolygonTool) {
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+                outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
 
                 polygonCoordinates.clear()
                 cindx = 0
@@ -111,11 +111,11 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
 
         StringConstants.GridToolIdentifier -> {
-            if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.canvasHeight <= 150) {
-                if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()
+            if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.canvasHeight <= 150) {
+                if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
+                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.showGrid()
                 } else {
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.hideGrid()
+                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.hideGrid()
                 }
             } else {
                 binding.activityCanvasRootLayout.showSnackbar("PixaPencil currently does not support showing a grid for canvas sizes of over 150", SnackbarDuration.Default)

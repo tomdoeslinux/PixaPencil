@@ -1,9 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 fun extendedUndo() {
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.undo()
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
     polygonCoordinates.clear()
     cindx = 0
 }

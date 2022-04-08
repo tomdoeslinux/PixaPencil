@@ -11,17 +11,17 @@ fun lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
 
     if (!lineMode_hasLetGo) {
         if (!first) {
-            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
         }
-        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
         first = false
 
         if (firstLineDrawn) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.clear()
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
         }
     } else {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
         lineMode_hasLetGo = false
         first = true
     }

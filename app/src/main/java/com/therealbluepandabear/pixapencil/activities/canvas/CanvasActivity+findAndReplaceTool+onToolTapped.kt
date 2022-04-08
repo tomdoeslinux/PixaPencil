@@ -9,11 +9,11 @@ import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndRepla
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.findAndReplaceToolOnToolTapped() {
-    val uniqueColors = outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors()
+    val uniqueColors = outerCanvasInstance.canvasFragment.pixelGridViewInstance.getNumberOfUniqueColors()
 
     if (uniqueColors.isNotEmpty()) {
         findAndReplaceFragmentInstance =
-            FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.myCanvasViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
+            FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.pixelGridViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
         currentFragmentInstance = findAndReplaceFragmentInstance
         navigateTo(
             supportFragmentManager,

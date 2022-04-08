@@ -26,8 +26,10 @@ var index: Int? = null
 
 var primaryColor: Int = Color.BLACK
 var secondaryColor: Int = Color.BLUE
+
 var width = IntConstants.DefaultCanvasWidthHeight
 var height = IntConstants.DefaultCanvasWidthHeight
+
 var isPrimaryColorSelected = true
 
 var isSelected = false
@@ -73,5 +75,4 @@ var prevBitmapStr: String = ""
 
 lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
-
 

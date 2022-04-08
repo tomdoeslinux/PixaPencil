@@ -30,17 +30,17 @@ fun rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolea
 
     if (!rectangleMode_hasLetGo) {
         if (!first) {
-            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
         }
-        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
         first = false
 
         if (firstRectangleDrawn) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!.actionData.clear()
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
         }
     } else {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = null
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
         rectangleMode_hasLetGo = false
         first = true
     }

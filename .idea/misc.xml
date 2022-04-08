@@ -104,7 +104,7 @@
         <entry key="app/src/main/res/layout/fragment_new_canvas.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_new_color_palette.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.17" />
-        <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_spray_tool_settings.xml" value="0.1405775075987842" />
         <entry key="app/src/main/res/layout/fragment_tools.xml" value="0.14" />
         <entry key="app/src/main/res/layout/recent_creations_layout.xml" value="0.2833333333333333" />

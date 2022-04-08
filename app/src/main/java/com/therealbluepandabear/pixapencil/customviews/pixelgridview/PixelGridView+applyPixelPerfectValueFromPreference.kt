@@ -6,7 +6,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun extendedApplyPixelPerfectValueFromPreference() {
     if (sharedPreferenceObject.contains(StringConstants.SharedPreferencePixelPerfectIdentifier)) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode = sharedPreferenceObject.getBoolean(
             StringConstants.SharedPreferencePixelPerfectIdentifier, false)
     }
 }

@@ -34,12 +34,12 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
             distinct = distinct.filter { it == value }
         }
 
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
         for (value in data) {
-            outerCanvasInstance.canvasFragment.myCanvasViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
+            outerCanvasInstance.canvasFragment.pixelGridViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
         }
 
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add( outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!)
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add( outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
     }
 }

@@ -7,8 +7,8 @@ import androidx.core.view.drawToBitmap
 var gridWasEnabled = false
 
 fun getCoverImageBitmap(): Bitmap {
-    if (outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.hideGrid()
+    if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.hideGrid()
         gridWasEnabled = true
     }
 
@@ -21,7 +21,7 @@ fun getCoverImageBitmap(): Bitmap {
     bmps = Bitmap.createBitmap(bmp, 0, 0, bmp.width, bmp.height, matrix, false)
 
     if (gridWasEnabled) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.showGrid()
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.showGrid()
     }
 
     return bmps

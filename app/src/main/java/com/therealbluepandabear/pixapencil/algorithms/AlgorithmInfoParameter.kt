@@ -12,7 +12,7 @@ class AlgorithmInfoParameter {
     var color: Int = Color.BLACK
 
     companion object {
-        fun pass(_canvas: PixelGridView, _bitmap: Bitmap, _currentBitmapAction: BitmapAction, _color: Int): AlgorithmInfoParameter {
+        fun create(_canvas: PixelGridView, _bitmap: Bitmap, _currentBitmapAction: BitmapAction, _color: Int): AlgorithmInfoParameter {
             val toReturn = AlgorithmInfoParameter().apply {
                 canvas = _canvas
                 bitmap = _bitmap

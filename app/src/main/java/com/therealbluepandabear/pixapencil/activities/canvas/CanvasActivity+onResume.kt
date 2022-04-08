@@ -16,7 +16,7 @@ fun CanvasActivity.extendedOnResume() {
         Handler(Looper.getMainLooper()).postDelayed({
             val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr)
             if (convertedBMP != null) {
-                outerCanvasInstance.canvasFragment.myCanvasViewInstance.replaceBitmap(convertedBMP)
+                outerCanvasInstance.canvasFragment.pixelGridViewInstance.replaceBitmap(convertedBMP)
             }
         }, 1000)
     }

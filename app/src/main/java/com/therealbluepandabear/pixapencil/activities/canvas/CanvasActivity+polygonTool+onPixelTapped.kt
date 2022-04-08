@@ -12,7 +12,7 @@ fun polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
     polygonCoordinates.add(coordinatesTapped)
 
     if (polygonCoordinates.size > 1) {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.undo()
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.undo()
 
         for (i in 0 until polygonCoordinates.size - 2) {
             lineAlgorithmInstance.compute(

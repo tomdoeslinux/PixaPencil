@@ -19,7 +19,7 @@ fun PixelGridView.extendedRedo() {
 
         invalidate()
 
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(undoStack.last())
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(undoStack.last())
         undoStack.removeLast()
 
         caller.onRedoActionCompleted(undoStack)

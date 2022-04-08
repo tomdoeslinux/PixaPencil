@@ -11,5 +11,5 @@ fun zoomIn() {
 
     menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).enable()
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
 }

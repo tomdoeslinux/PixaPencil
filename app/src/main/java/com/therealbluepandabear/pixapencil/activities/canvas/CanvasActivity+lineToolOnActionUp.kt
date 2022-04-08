@@ -7,8 +7,8 @@ fun lineToolOnActionUp() {
     lineMode_hasLetGo = false
     first = true
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
     )
 
     BinaryPreviewStateSwitcher.clear()

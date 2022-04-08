@@ -10,7 +10,7 @@ import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridVi
 import com.therealbluepandabear.pixapencil.databinding.FragmentCanvasBinding
 
 class CanvasFragment : Fragment() {
-    lateinit var myCanvasViewInstance: PixelGridView
+    lateinit var pixelGridViewInstance: PixelGridView
 
     var bitmap: Bitmap? = null
 
@@ -23,8 +23,8 @@ class CanvasFragment : Fragment() {
     }
 
     private fun setupCanvas() {
-        myCanvasViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight)
-        binding.fragmentCanvasRootLayout.addView(myCanvasViewInstance)
+        pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight)
+        binding.fragmentCanvasRootLayout.addView(pixelGridViewInstance)
     }
 
     companion object {

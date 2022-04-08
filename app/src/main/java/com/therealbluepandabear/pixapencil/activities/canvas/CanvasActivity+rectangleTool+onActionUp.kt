@@ -15,8 +15,8 @@ fun rectangleToolOnActionUp() {
         rectAlg?.compute(rectangleOrigin!!, coordinates!!)
     }
 
-    outerCanvasInstance.canvasFragment.myCanvasViewInstance.bitmapActionData.add(
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.currentBitmapAction!!
+    outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
     )
 
     coordinates = null

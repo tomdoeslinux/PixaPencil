@@ -19,12 +19,12 @@ fun CanvasActivity.extendedSaveProject() {
                 PixelArt(
                     BitmapConverter.convertBitmapToString(bmp),
                     BitmapConverter.convertBitmapToString(
-                        outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap
+                        outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelGridViewBitmap
                     ),
                     width,
                     height,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.dimenCW,
-                    outerCanvasInstance.canvasFragment.myCanvasViewInstance.dimenCH,
+                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.dimenCW,
+                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.dimenCH,
                     outerCanvasInstance.getCurrentRotation(),
                     title.toString(),
                     false
@@ -33,11 +33,11 @@ fun CanvasActivity.extendedSaveProject() {
         }
         (this as Activity).onBackPressed()
     } else {
-        outerCanvasInstance.canvasFragment.myCanvasViewInstance.invalidate()
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
 
         AppData.pixelArtDB.pixelArtCreationsDao().apply {
             updatePixelArtCreationCoverBitmap(BitmapConverter.convertBitmapToString(bmp), currentPixelArtObj.objId)
-            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(outerCanvasInstance.canvasFragment.myCanvasViewInstance.pixelGridViewBitmap), currentPixelArtObj.objId)
+            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelGridViewBitmap), currentPixelArtObj.objId)
             updatePixelArtCreationRotation(outerCanvasInstance.getCurrentRotation(), currentPixelArtObj.objId)
         }
         outerCanvasInstance.rotate(0)

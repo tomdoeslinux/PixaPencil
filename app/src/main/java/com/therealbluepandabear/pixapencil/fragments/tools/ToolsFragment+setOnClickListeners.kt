@@ -155,7 +155,7 @@ fun ToolsFragment.setOnClickListeners() {
         }
 
         fragmentToolsGridButton.setOnClickListener {
-            if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
+            if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
                 onToggleOptionTapped(it)
             } else {
                 onToggleOptionTappedUnset(it)
@@ -266,7 +266,7 @@ fun ToolsFragment.setOnClickListeners() {
         }
 
         fragmentToolsGridButtonH.setOnClickListener {
-            if (!outerCanvasInstance.canvasFragment.myCanvasViewInstance.gridEnabled) {
+            if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
                 onToggleOptionTapped(it)
             } else {
                 onToggleOptionTappedUnset(it)

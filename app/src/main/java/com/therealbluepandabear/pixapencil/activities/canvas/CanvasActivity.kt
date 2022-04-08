@@ -36,7 +36,9 @@ class CanvasActivity :
         configureSavedInstanceState(savedInstanceState)
     }
 
-    fun initColorPickerFragmentInstance(colorPaletteMode: Boolean) = ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
+    fun initColorPickerFragmentInstance(colorPaletteMode: Boolean): ColorPickerFragment {
+        return ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return extendedOnCreateOptionsMenu(menu)
@@ -61,7 +63,9 @@ class CanvasActivity :
         super.onSaveInstanceState(outState)
     }
 
-    override fun onPixelTapped(coordinatesTapped: Coordinates) = extendedOnPixelTapped(coordinatesTapped)
+    override fun onPixelTapped(coordinatesTapped: Coordinates) {
+        extendedOnPixelTapped(coordinatesTapped)
+    }
 
     override fun onActionUp() {
         extendedOnActionUp()
