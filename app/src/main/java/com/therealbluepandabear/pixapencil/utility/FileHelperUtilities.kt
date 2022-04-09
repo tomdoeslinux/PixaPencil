@@ -34,7 +34,7 @@ class FileHelperUtilities(private val context: Context) {
         val pathData = "image/jpeg"
         val outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$projectTitle.png" else "$projectTitle.jpg"
 
-        val environmentRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()
+        val environmentRoot = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
         val directory = File(environmentRoot)
 
         directory.mkdirs()
