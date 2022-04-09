@@ -40,6 +40,6 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
             outerCanvasInstance.canvasFragment.pixelGridViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
         }
 
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add( outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
+        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
     }
 }

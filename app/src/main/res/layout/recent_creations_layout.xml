@@ -44,12 +44,12 @@
 
             <ImageButton
                 android:id="@+id/recentCreationsLayout_favoriteButton"
+                style="@style/recent_creations_image_button_style"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/recentCreationsLayout_favoriteButton_content_description"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                style="@style/recent_creations_image_button_style"
-                android:contentDescription="@string/recentCreationsLayout_favoriteButton_content_description" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>

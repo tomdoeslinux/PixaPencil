@@ -3,6 +3,8 @@ package com.therealbluepandabear.pixapencil.extensions
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
+import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -10,9 +12,14 @@ import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.therealbluepandabear.pixapencil.utility.LongConstants
 
 fun Activity.navigateHome(fragmentManager: FragmentManager, fragmentInstance: Fragment, rootLayout: View, fragmentHost: FrameLayout, newTitle: String) {
     (rootLayout as ViewGroup).forEach { view -> view.visibility = View.VISIBLE }
+
+    Handler().postDelayed({
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+    }, LongConstants.DefaultHandlerDelay)
 
     fragmentHost.visibility = View.VISIBLE
 
@@ -29,6 +36,14 @@ var pastReqOrientation: Int = 0
 
 fun Activity.navigateTo(fragmentManager: FragmentManager, fragmentInstance: Fragment, fragmentInstanceId: Int, newTitle: String, hostView: FrameLayout, rootLayout: View, lockScreenOrientationToPrev: Boolean = true) {
     (rootLayout as ViewGroup).forEach { view -> view.visibility = View.GONE }
+
+    Handler().postDelayed({
+        requestedOrientation = if (getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        }
+    }, LongConstants.DefaultHandlerDelay)
 
     if (lockScreenOrientationToPrev) {
         val act = hostView.context.activity()
