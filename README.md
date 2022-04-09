@@ -72,6 +72,9 @@ Thank you to:
 - And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
 
 ## Other libraries used
+Without these libraries, this app would not have been possible, so please check them out:
+
 - Dhaval2404 (https://github.com/Dhaval2404) - Color Picker Library for Android (https://github.com/Dhaval2404/ColorPicker)
+- yshrsmz (https://github.com/yshrsmz) - KeyboardVisibilityEvent (https://github.com/yshrsmz/KeyboardVisibilityEvent) 
 
 
