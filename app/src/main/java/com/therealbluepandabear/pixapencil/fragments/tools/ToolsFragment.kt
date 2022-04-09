@@ -6,20 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
 import com.therealbluepandabear.pixapencil.databinding.FragmentToolsBinding
-import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.listeners.ToolsFragmentListener
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class ToolsFragment : Fragment() {
     private fun setup() {
-        currentTool = Tools.PencilTool
-        currentlySelectedFAB = binding.fragmentToolsPencilButton
-        currentlySelectedFAB = binding.fragmentToolsPencilButtonH
-
-        setColorFor(binding.fragmentToolsPencilButton)
-        setColorFor(binding.fragmentToolsPencilButtonH)
         setOnClickListeners()
+
+        onOptionTapped(binding.fragmentToolsPencilButton)
+        caller.onToolTapped(StringConstants.PencilToolIdentifier)
     }
 
     companion object {
