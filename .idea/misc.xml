@@ -72,7 +72,7 @@
         <entry key="app/src/main/res/drawable/ic_palette.xml" value="0.1265" />
         <entry key="app/src/main/res/drawable/ic_rectangle___copy.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/ic_tools.xml" value="0.263" />
-        <entry key="app/src/main/res/layout-land/activity_canvas.xml" value="0.12" />
+        <entry key="app/src/main/res/layout-land/activity_canvas.xml" value="0.33" />
         <entry key="app/src/main/res/layout-land/color_palettes_layout.xml" value="0.5" />
         <entry key="app/src/main/res/layout-land/fragment_brushes.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/fragment_color_palettes.xml" value="0.33" />
@@ -84,7 +84,7 @@
         <entry key="app/src/main/res/layout-land/fragment_h_s_v_color_picker.xml" value="0.15" />
         <entry key="app/src/main/res/layout-land/fragment_hexadecimal_color_picker.xml" value="0.16" />
         <entry key="app/src/main/res/layout-land/fragment_outer_canvas.xml" value="0.12" />
-        <entry key="app/src/main/res/layout-land/fragment_r_g_b_color_picker.xml" value="0.25" />
+        <entry key="app/src/main/res/layout-land/fragment_r_g_b_color_picker.xml" value="0.67" />
         <entry key="app/src/main/res/layout-land/fragment_tools.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_canvas.xml" value="0.3564102564102564" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17223910840932116" />
@@ -103,6 +103,7 @@
         <entry key="app/src/main/res/layout/fragment_hexadecimal_color_picker.xml" value="0.17223910840932116" />
         <entry key="app/src/main/res/layout/fragment_new_canvas.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_new_color_palette.xml" value="0.17223910840932116" />
+        <entry key="app/src/main/res/layout/fragment_new_project.xml" value="0.12511332728921123" />
         <entry key="app/src/main/res/layout/fragment_outer_canvas.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_r_g_b_color_picker.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_spray_tool_settings.xml" value="0.1405775075987842" />

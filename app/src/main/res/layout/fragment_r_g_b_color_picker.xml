@@ -20,14 +20,14 @@
         android:id="@+id/fragmentRGBColorPicker_redProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:valueFrom="0"
         android:valueTo="255"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout1"
         app:layout_constraintTop_toBottomOf="@+id/fragmentRGBColorPicker_colorPreview"
         app:thumbColor="#ff0000"
         app:trackColor="#ff0000" />
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/fragmentRGBColorPicker_redProgressBar"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentRGBColorPicker_redProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout1"
         app:thumbColor="#00ff00"
         app:trackColor="#00ff00" />
 
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/fragmentRGBColorPicker_greenProgressBar"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentRGBColorPicker_greenProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:thumbColor="#0000ff"
         app:trackColor="#0000ff" />
 
@@ -75,37 +75,58 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/fragmentRGBColorPicker_valueB"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout1"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/fragmentRGBColorPicker_valueB_str"
-        app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_blueProgressBar"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentRGBColorPicker_blueProgressBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_blueProgressBar" />
-
-    <TextView
-        android:id="@+id/fragmentRGBColorPicker_valueG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/fragmentRGBColorPicker_valueG_str"
-        app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_greenProgressBar"
-        app:layout_constraintEnd_toStartOf="@+id/fragmentRGBColorPicker_greenProgressBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_greenProgressBar" />
-
-    <TextView
-        android:id="@+id/fragmentRGBColorPicker_valueR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fragmentRGBColorPicker_valueR_str"
         app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_redProgressBar"
-        app:layout_constraintEnd_toEndOf="@+id/fragmentRGBColorPicker_valueG"
-        app:layout_constraintStart_toStartOf="@+id/fragmentRGBColorPicker_valueG"
-        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_redProgressBar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_redProgressBar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragmentRGBColorPicker_valueR"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_greenProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1"
+        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_greenProgressBar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragmentRGBColorPicker_valueG"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout3"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentRGBColorPicker_blueProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout1"
+        app:layout_constraintTop_toTopOf="@+id/fragmentRGBColorPicker_blueProgressBar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragmentRGBColorPicker_valueB"
+            android:inputType="number"
+            android:maxLength="3"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

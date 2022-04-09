@@ -5,9 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentRGBColorPickerBinding
+import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
+
 
 class RGBColorPickerFragment : Fragment() {
     private fun setup() {
@@ -22,9 +26,9 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerGreenProgressBar.value = green
             fragmentRGBColorPickerBlueProgressBar.value = blue
 
-            fragmentRGBColorPickerValueR.text = red.toInt().toString()
-            fragmentRGBColorPickerValueG.text = green.toInt().toString()
-            fragmentRGBColorPickerValueB.text = blue.toInt().toString()
+            fragmentRGBColorPickerValueR.setText(red.toInt().toString())
+            fragmentRGBColorPickerValueG.setText(green.toInt().toString())
+            fragmentRGBColorPickerValueB.setText(blue.toInt().toString())
         }
     }
 
@@ -37,19 +41,123 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
                 valueR = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueR.text = valueR.toInt().toString()
+                fragmentRGBColorPickerValueR.setText(valueR.toInt().toString())
             }
 
             fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
                 valueG = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueG.text = valueG.toInt().toString()
+                fragmentRGBColorPickerValueG.setText(valueG.toInt().toString())
             }
 
             fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
                 valueB = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueB.text = valueB.toInt().toString()
+                fragmentRGBColorPickerValueB.setText(valueB.toInt().toString())
+            }
+        }
+
+        binding.apply {
+            fragmentRGBColorPickerValueR.doAfterTextChanged {
+                try {
+                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
+                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
+                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+
+                    updateColorPickerColorPreview()
+                } catch (exception: Exception) { }
+            }
+
+            fragmentRGBColorPickerValueR.setOnFocusChangeListener{ _, hasFocus ->
+                if (!hasFocus) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+                }
+            }
+
+            fragmentRGBColorPickerValueR.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+
+                    this@RGBColorPickerFragment.hideKeyboard()
+                    return@setOnEditorActionListener true
+                }
+                false
+            }
+
+            fragmentRGBColorPickerValueG.doAfterTextChanged {
+                try {
+                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
+                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
+                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+
+                    updateColorPickerColorPreview()
+                } catch (exception: Exception) { }
+            }
+
+            fragmentRGBColorPickerValueG.setOnFocusChangeListener{ _, hasFocus ->
+                if (!hasFocus) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+                }
+            }
+
+            fragmentRGBColorPickerValueG.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+
+                    this@RGBColorPickerFragment.hideKeyboard()
+                    return@setOnEditorActionListener true
+                }
+                false
+            }
+
+            fragmentRGBColorPickerValueB.doAfterTextChanged {
+                try {
+                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
+                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
+                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+
+                    updateColorPickerColorPreview()
+                } catch (exception: Exception) { }
+            }
+
+            fragmentRGBColorPickerValueB.setOnFocusChangeListener{ _, hasFocus ->
+                if (!hasFocus) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+                }
+            }
+
+            fragmentRGBColorPickerValueB.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    try {
+                        fragmentRGBColorPickerRedProgressBar.value = valueR
+                        fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                    } catch (exception: Exception) { }
+
+                    this@RGBColorPickerFragment.hideKeyboard()
+                    return@setOnEditorActionListener true
+                }
+                false
             }
         }
     }
