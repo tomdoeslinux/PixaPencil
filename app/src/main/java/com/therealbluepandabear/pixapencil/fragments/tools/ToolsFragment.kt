@@ -15,6 +15,8 @@ class ToolsFragment : Fragment() {
         setOnClickListeners()
 
         onOptionTapped(binding.fragmentToolsPencilButton)
+        onOptionTapped(binding.fragmentToolsPencilButtonH)
+
         caller.onToolTapped(StringConstants.PencilToolIdentifier)
     }
 
