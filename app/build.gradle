@@ -74,4 +74,6 @@ dependencies {
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 
     implementation 'com.github.Dhaval2404:ColorPicker:2.3'
+
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC1'
 }
