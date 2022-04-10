@@ -160,6 +160,10 @@ class RGBColorPickerFragment : Fragment() {
                 false
             }
         }
+
+        binding.apply {
+
+        }
     }
 
     companion object {

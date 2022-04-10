@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.slider.Slider
+        app:labelBehavior="gone"
         android:id="@+id/fragmentRGBColorPicker_redProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
@@ -33,6 +34,7 @@
         app:trackColor="#ff0000" />
 
     <com.google.android.material.slider.Slider
+        app:labelBehavior="gone"
         android:id="@+id/fragmentRGBColorPicker_greenProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
@@ -49,6 +51,7 @@
         app:trackColor="#00ff00" />
 
     <com.google.android.material.slider.Slider
+        app:labelBehavior="gone"
         android:id="@+id/fragmentRGBColorPicker_blueProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
