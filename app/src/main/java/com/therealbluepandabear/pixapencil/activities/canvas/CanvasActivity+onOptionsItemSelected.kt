@@ -5,6 +5,7 @@ import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
+import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -17,9 +18,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.activityCanvasTopAppMenu_zoom_out_item -> {
             zoomOut()
         }
+
         R.id.activityCanvasTopAppMenu_zoom_in_item -> {
             zoomIn()
         }
+
         R.id.activityMainTopAppMenu_community_item -> {
             extendedSaveProject()
         }
@@ -72,6 +75,20 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_reset_zoom_subItem -> {
             resetZoom()
+        }
+
+        R.id.activityCanvasTopAppMenu_clear_canvas_item -> {
+            showDialog(
+                StringConstants.DialogClearCanvasTitle,
+                StringConstants.DialogClearCanvasMessage,
+                StringConstants.DialogPositiveButtonText,
+                { _, _ ->
+                    clearCanvas()
+                }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
+        }
+
+        R.id.activityCanvasTopAppMenu_find_and_replace_item -> {
+            findAndReplaceToolOnToolTapped()
         }
     }
     return true

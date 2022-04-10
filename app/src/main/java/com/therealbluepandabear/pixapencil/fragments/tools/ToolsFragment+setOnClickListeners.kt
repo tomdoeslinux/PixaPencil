@@ -134,19 +134,9 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.LightenToolIdentifier)
         }
 
-        fragmentToolsResetCanvasButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.ClearCanvasToolIdentifier)
-        }
-
         fragmentToolsColorPickerButton.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.ColorPickerToolIdentifier)
-        }
-
-        fragmentToolsFindAndReplaceButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FindAndReplaceToolIdentifier)
         }
 
         fragmentToolsEraseButton.setOnClickListener {
@@ -245,19 +235,9 @@ fun ToolsFragment.setOnClickListeners() {
             caller.onToolTapped(StringConstants.LightenToolIdentifier)
         }
 
-        fragmentToolsResetCanvasButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.ClearCanvasToolIdentifier)
-        }
-
         fragmentToolsColorPickerButtonH.setOnClickListener {
             onOptionTapped(it)
             caller.onToolTapped(StringConstants.ColorPickerToolIdentifier)
-        }
-
-        fragmentToolsFindAndReplaceButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.FindAndReplaceToolIdentifier)
         }
 
         fragmentToolsEraseButtonH.setOnClickListener {

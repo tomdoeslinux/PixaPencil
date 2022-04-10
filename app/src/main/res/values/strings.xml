@@ -96,4 +96,6 @@
     <string name="foo">We would love to have you on our
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
+    <string name="activityCanvasTopAppMenu_find_and_replace_str">Find and Replace</string>
+    <string name="activityCanvasTopAppMenu_clear_canvas_str">Clear Canvas</string>
 </resources>

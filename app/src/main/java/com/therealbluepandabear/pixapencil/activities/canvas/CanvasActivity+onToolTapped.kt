@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -88,22 +87,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.LightenTool
         }
 
-        StringConstants.ClearCanvasToolIdentifier  -> {
-            showDialog(
-                StringConstants.DialogClearCanvasTitle,
-                StringConstants.DialogClearCanvasMessage,
-                StringConstants.DialogPositiveButtonText,
-                { _, _ ->
-                    clearCanvas()
-                }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
-        }
-
         StringConstants.ColorPickerToolIdentifier -> {
             currentTool = Tools.ColorPickerTool
-        }
-
-        StringConstants.FindAndReplaceToolIdentifier -> {
-            findAndReplaceToolOnToolTapped()
         }
 
         StringConstants.EraseToolIdentifier -> {

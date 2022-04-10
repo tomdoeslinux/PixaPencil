@@ -3,6 +3,18 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/activityCanvasTopAppMenu_clear_canvas_item"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="@string/activityCanvasTopAppMenu_clear_canvas_str" />
+
+    <item android:id="@+id/activityCanvasTopAppMenu_find_and_replace_item"
+        android:icon="@drawable/ic_baseline_color_lens_24"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="@string/activityCanvasTopAppMenu_find_and_replace_str" />
+
     <item android:id="@+id/activityCanvasTopAppMenu_new_color_palette_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"

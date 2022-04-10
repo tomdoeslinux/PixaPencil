@@ -55,9 +55,7 @@ object StringConstants {
     const val DitherToolIdentifier = "DitherTool"
     const val DarkenToolIdentifier = "DarkenTool"
     const val LightenToolIdentifier = "LightenTool"
-    const val ClearCanvasToolIdentifier = "ClearCanvasTool"
     const val ColorPickerToolIdentifier = "ColorPickerTool"
-    const val FindAndReplaceToolIdentifier = "FindAndReplaceTool"
     const val EraseToolIdentifier = "EraseTool"
     const val GridToolIdentifier = "GridTool"
 
