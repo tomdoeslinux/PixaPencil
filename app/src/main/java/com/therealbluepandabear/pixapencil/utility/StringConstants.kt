@@ -14,12 +14,6 @@ object StringConstants {
     const val HeightExtra = "HeightExtra"
     const val IndexExtra = "IndexExtra"
 
-    const val FragmentNewProjectTitle = "New Project"
-    const val FragmentFindAndReplaceTitle = "Find and Replace"
-    const val FragmentColorPickerTitle = "Select Color"
-    const val FragmentNewColorPaletteTitle = "New Color Palette"
-    const val FragmentSprayToolSettingsTitle = "Spray Tool Settings"
-
     const val ColorFilterIdentifier = "ColorFilter"
     const val DarkenFilterIdentifier = "DarkenFilter"
     const val LightenFilterIdentifier = "LightenFilter"

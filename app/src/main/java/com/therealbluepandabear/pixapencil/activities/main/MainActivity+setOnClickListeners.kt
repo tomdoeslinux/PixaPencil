@@ -7,7 +7,6 @@ import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 
 fun MainActivity.setOnClickListeners() {
@@ -43,7 +42,7 @@ fun MainActivity.setOnClickListeners() {
     binding.activityMainNewProjectButton.setOnClickListener {
         newCanvasFragmentInstance = NewProjectFragment.newInstance()
         currentFragmentInstance = newCanvasFragmentInstance
-        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, StringConstants.FragmentNewProjectTitle, binding.activityMainPrimaryFragmentHost, binding.mainRoot)
+        navigateTo(supportFragmentManager, newCanvasFragmentInstance, R.id.activityMain_primaryFragmentHost, getString(R.string.fragment_new_project_title_in_code_str), binding.activityMainPrimaryFragmentHost, binding.mainRoot)
         menu.hideItems()
     }
 }

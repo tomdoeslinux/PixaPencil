@@ -11,13 +11,12 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 
 fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
     colorPickerFragmentInstance = initColorPickerFragmentInstance(colorPaletteMode)
     currentFragmentInstance = colorPickerFragmentInstance
-    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, StringConstants.FragmentColorPickerTitle, binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
+    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, getString(R.string.fragment_color_picker_title_in_code_str), binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
 }
 
 fun clearCanvas() {

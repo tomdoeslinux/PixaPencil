@@ -7,7 +7,6 @@ import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.findAndReplaceToolOnToolTapped() {
     val uniqueColors = pixelGridViewInstance.getNumberOfUniqueColors()
@@ -20,7 +19,7 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
             supportFragmentManager,
             findAndReplaceFragmentInstance,
             R.id.activityCanvas_primaryFragmentHost,
-            StringConstants.FragmentFindAndReplaceTitle,
+            getString(R.string.fragment_find_and_replace_title_in_code_str),
             binding.activityCanvasPrimaryFragmentHost,
             binding.activityCanvasRootLayout
         )

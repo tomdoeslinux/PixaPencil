@@ -5,7 +5,6 @@ import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.sprayToolOnToolTapped() {
     if (currentTool == Tools.SprayTool) {
@@ -17,7 +16,7 @@ fun CanvasActivity.sprayToolOnToolTapped() {
             supportFragmentManager,
             sprayToolSettingsFragmentInstance,
             R.id.activityCanvas_primaryFragmentHost,
-            StringConstants.FragmentSprayToolSettingsTitle,
+            getString(R.string.fragment_spray_tool_settings_title_in_code_str),
             binding.activityCanvasPrimaryFragmentHost,
             binding.activityCanvasRootLayout
         )
