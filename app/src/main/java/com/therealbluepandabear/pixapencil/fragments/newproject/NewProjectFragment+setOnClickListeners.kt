@@ -16,7 +16,7 @@ fun NewProjectFragment.setOnClickListeners() {
             val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
             if (widthValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax
-                &&
+                ||
                 heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax ) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
