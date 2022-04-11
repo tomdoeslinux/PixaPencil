@@ -11,7 +11,7 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
-## Open issues
+## 👨‍💻 Open issues
 Anyone can contribute to this app by opening a pull request, but I prefer if it is only to address any sort of bug or the two issues I will state below.
 
 Here are two important issues that I have not been able to fix on my own:
