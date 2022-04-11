@@ -5,7 +5,6 @@ import android.view.MenuItem
 import android.widget.TextView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 
 fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
@@ -14,7 +13,7 @@ fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             MaterialAlertDialogBuilder(context, R.style.ThemeOverlay_App_MaterialAlertDialog)
                 .setTitle("Community")
                 .setMessage(R.string.foo)
-                .setPositiveButton(StringConstants.DialogPositiveButtonText) { _, _ -> }
+                .setPositiveButton(getString(R.string.dialog_positive_button_text_in_code_str)) { _, _ -> }
                 .show()
                 .apply {
                     findViewById<TextView>(android.R.id.message)

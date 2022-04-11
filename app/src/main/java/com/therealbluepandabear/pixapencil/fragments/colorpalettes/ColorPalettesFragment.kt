@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPalettesBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -14,7 +15,6 @@ import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     val context = this
@@ -63,12 +63,12 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
             requireActivity().showDialog(
                 "Delete '$name'?",
                 "Are you sure you want to delete '$name'? - this cannot be undone.",
-                StringConstants.DialogPositiveButtonText, { _, _ ->
+                getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
                     deleteColorPaletteAndNotifyItemRemoved(selectedColorPalette)
-                }, StringConstants.DialogNegativeButtonText, null, null
+                }, getString(R.string.dialog_negative_button_text_in_code_str), null, null
             )
         } else {
-            binding.fragmentColorPalettesRootLayout.showSnackbar(StringConstants.SnackbarCannotDeletePrimaryColorPaletteText, SnackbarDuration.Default)
+            binding.fragmentColorPalettesRootLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
         }
     }
 }

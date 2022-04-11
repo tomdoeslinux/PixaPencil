@@ -80,12 +80,12 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_clear_canvas_item -> {
             showDialog(
-                StringConstants.DialogClearCanvasTitle,
-                StringConstants.DialogClearCanvasMessage,
-                StringConstants.DialogPositiveButtonText,
+                getString(R.string.dialog_clear_canvas_title_in_code_str),
+                getString(R.string.dialog_clear_canvas_message_in_code_str),
+                getString(R.string.dialog_positive_button_text_in_code_str),
                 { _, _ ->
                     clearCanvas()
-                }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
+                }, getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> }, null)
         }
 
         R.id.activityCanvasTopAppMenu_find_and_replace_item -> {

@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.content.Intent
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.navigateHome
 import com.therealbluepandabear.pixapencil.extensions.showDialog
@@ -10,12 +11,12 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun CanvasActivity.extendedOnBackPressed() {
     if (!saved && currentFragmentInstance == null) {
         showDialog(
-            StringConstants.DialogUnsavedChangesTitle,
-            StringConstants.DialogUnsavedChangesMessage,
-            StringConstants.DialogPositiveButtonText,
+            getString(R.string.dialog_unsaved_changes_title_in_code_str),
+            getString(R.string.dialog_unsaved_changes_message_in_code_str),
+            getString(R.string.dialog_positive_button_text_in_code_str),
             { _, _ ->
                 startActivity(Intent(context, MainActivity::class.java))
-            }, StringConstants.DialogNegativeButtonText, { _, _ -> }, null)
+            },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> }, null)
     } else if (currentFragmentInstance != null) {
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
         currentFragmentInstance = null

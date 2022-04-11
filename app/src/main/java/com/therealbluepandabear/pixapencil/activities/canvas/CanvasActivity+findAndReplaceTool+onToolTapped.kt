@@ -26,6 +26,6 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
         )
         menu.hideItems()
     } else {
-        binding.activityCanvasRootLayout.showSnackbar(StringConstants.SnackbarFindAndReplaceWarning, SnackbarDuration.Default)
+        binding.activityCanvasRootLayout.showSnackbar(getString(R.string.snackbar_find_and_replace_warning_in_code_str), SnackbarDuration.Default)
     }
 }

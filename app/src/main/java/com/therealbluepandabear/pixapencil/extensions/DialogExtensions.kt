@@ -5,7 +5,6 @@ import android.content.DialogInterface
 import android.view.View
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 
 fun Activity.showDialog(
@@ -31,6 +30,6 @@ fun Activity.showSimpleInfoDialog(
     MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
-        .setPositiveButton(StringConstants.DialogPositiveButtonText, null)
+        .setPositiveButton(getString(R.string.dialog_positive_button_text_in_code_str), null)
         .show()
 }
