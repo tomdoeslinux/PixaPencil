@@ -17,7 +17,7 @@ fun NewProjectFragment.setOnClickListeners() {
 
             if (widthValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax
                 ||
-                heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax ) {
+                heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
                     getString(R.string.exception_invalid_width_height_message_in_code_str),
