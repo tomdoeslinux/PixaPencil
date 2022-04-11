@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
 fun lineToolOnActionUp() {
@@ -7,8 +8,8 @@ fun lineToolOnActionUp() {
     lineMode_hasLetGo = false
     first = true
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
+    pixelGridViewInstance.bitmapActionData.add(
+        pixelGridViewInstance.currentBitmapAction!!
     )
 
     BinaryPreviewStateSwitcher.clear()

@@ -3,13 +3,14 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import androidx.core.view.drawToBitmap
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 
 var gridWasEnabled = false
 
 fun getCoverImageBitmap(): Bitmap {
-    if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.hideGrid()
+    if (pixelGridViewInstance.gridEnabled) {
+        pixelGridViewInstance.hideGrid()
         gridWasEnabled = true
     }
 
@@ -26,7 +27,7 @@ fun getCoverImageBitmap(): Bitmap {
     bmps = Bitmap.createBitmap(combinedBmp, 0, 0, combinedBmp.width, combinedBmp.height, matrix, false)
 
     if (gridWasEnabled) {
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.showGrid()
+        pixelGridViewInstance.showGrid()
     }
 
     return bmps

@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.algorithms.RectangleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
@@ -15,8 +16,8 @@ fun rectangleToolOnActionUp() {
         rectAlg?.compute(rectangleOrigin!!, coordinates!!)
     }
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
+    pixelGridViewInstance.bitmapActionData.add(
+        pixelGridViewInstance.currentBitmapAction!!
     )
 
     coordinates = null

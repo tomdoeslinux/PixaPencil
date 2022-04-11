@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.app.Activity
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,12 +20,12 @@ fun CanvasActivity.extendedSaveProject() {
                 PixelArt(
                     BitmapConverter.convertBitmapToString(bmp),
                     BitmapConverter.convertBitmapToString(
-                        outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelGridViewBitmap
+                        pixelGridViewInstance.pixelGridViewBitmap
                     ),
                     width,
                     height,
-                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.dimenCW,
-                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.dimenCH,
+                    pixelGridViewInstance.dimenCW,
+                    pixelGridViewInstance.dimenCH,
                     outerCanvasInstance.getCurrentRotation(),
                     title.toString(),
                     false
@@ -33,11 +34,11 @@ fun CanvasActivity.extendedSaveProject() {
         }
         (this as Activity).onBackPressed()
     } else {
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
+        pixelGridViewInstance.invalidate()
 
         AppData.pixelArtDB.pixelArtCreationsDao().apply {
             updatePixelArtCreationCoverBitmap(BitmapConverter.convertBitmapToString(bmp), currentPixelArtObj.objId)
-            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelGridViewBitmap), currentPixelArtObj.objId)
+            updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap), currentPixelArtObj.objId)
             updatePixelArtCreationRotation(outerCanvasInstance.getCurrentRotation(), currentPixelArtObj.objId)
         }
         outerCanvasInstance.rotate(0)

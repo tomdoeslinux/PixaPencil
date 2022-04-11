@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -11,7 +11,7 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
 
     if (saveToBitmapAction) {
         undoStack.clear()
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!.actionData.add(
+        pixelGridViewInstance.currentBitmapAction!!.actionData.add(
             BitmapActionData(
                 coordinates,
                 pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y),

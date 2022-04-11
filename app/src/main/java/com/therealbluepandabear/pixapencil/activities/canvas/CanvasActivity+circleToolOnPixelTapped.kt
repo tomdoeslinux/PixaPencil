@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
@@ -13,17 +14,17 @@ fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
 
     if (!circleMode_hasLetGo) {
         if (!first) {
-            BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
         }
-        BinaryPreviewStateSwitcher.feedState(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
+        BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
         first = false
 
         if (firstCircleDrawn) {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
+            pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
         }
     } else {
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
+        pixelGridViewInstance.currentBitmapAction = null
         circleMode_hasLetGo = false
         first = true
     }

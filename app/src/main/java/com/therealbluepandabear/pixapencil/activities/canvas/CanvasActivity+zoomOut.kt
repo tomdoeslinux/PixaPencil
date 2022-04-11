@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.disable
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import java.math.RoundingMode
 
 fun zoomOut() {
@@ -20,5 +21,5 @@ fun zoomOut() {
         }
     }
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
+    pixelGridViewInstance.invalidate()
 }

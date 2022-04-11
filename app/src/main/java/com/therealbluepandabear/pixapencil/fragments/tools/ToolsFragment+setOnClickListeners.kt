@@ -6,7 +6,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -603,7 +603,7 @@ fun ToolsFragment.setOnClickListeners() {
         // *************** // Grid Tool
 
         fragmentToolsGridButton.setOnClickListener {
-            if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
+            if (!pixelGridViewInstance.gridEnabled) {
                 onToggleOptionTapped(it)
             } else {
                 onToggleOptionTappedUnset(it)
@@ -612,7 +612,7 @@ fun ToolsFragment.setOnClickListeners() {
         }
 
         fragmentToolsGridButtonH.setOnClickListener {
-            if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
+            if (!pixelGridViewInstance.gridEnabled) {
                 onToggleOptionTapped(it)
             } else {
                 onToggleOptionTappedUnset(it)

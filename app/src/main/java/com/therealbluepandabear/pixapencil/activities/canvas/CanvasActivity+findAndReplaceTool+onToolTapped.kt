@@ -5,15 +5,16 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.findAndReplaceToolOnToolTapped() {
-    val uniqueColors = outerCanvasInstance.canvasFragment.pixelGridViewInstance.getNumberOfUniqueColors()
+    val uniqueColors = pixelGridViewInstance.getNumberOfUniqueColors()
 
     if (uniqueColors.isNotEmpty()) {
         findAndReplaceFragmentInstance =
-            FindAndReplaceFragment.newInstance(outerCanvasInstance.canvasFragment.pixelGridViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
+            FindAndReplaceFragment.newInstance(pixelGridViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
         currentFragmentInstance = findAndReplaceFragmentInstance
         navigateTo(
             supportFragmentManager,

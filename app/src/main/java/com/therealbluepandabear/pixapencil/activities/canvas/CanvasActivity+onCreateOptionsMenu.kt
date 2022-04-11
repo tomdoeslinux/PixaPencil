@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.disable
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater
@@ -10,7 +11,7 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
 
     if (_menu != null) {
         menu = _menu
-        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
+        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).disable()
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     }

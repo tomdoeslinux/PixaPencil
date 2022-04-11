@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun zoomIn() {
     outerCanvasInstance.cardViewParent.apply {
@@ -11,5 +12,5 @@ fun zoomIn() {
 
     menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).enable()
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.invalidate()
+    pixelGridViewInstance.invalidate()
 }

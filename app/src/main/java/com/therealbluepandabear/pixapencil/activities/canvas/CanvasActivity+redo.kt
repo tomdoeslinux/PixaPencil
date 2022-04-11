@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+
 fun extendedRedo() {
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.redo()
+   pixelGridViewInstance.redo()
 }

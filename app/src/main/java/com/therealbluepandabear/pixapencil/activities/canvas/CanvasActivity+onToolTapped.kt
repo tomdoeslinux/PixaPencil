@@ -4,6 +4,7 @@ import android.graphics.Color
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -65,7 +66,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
         StringConstants.PolygonToolIdentifier -> {
             if (currentTool == Tools.PolygonTool) {
-                outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
+                pixelGridViewInstance.currentBitmapAction = null
 
                 polygonCoordinates.clear()
                 cindx = 0
@@ -96,11 +97,11 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
 
         StringConstants.GridToolIdentifier -> {
-            if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.canvasHeight <= 150) {
-                if (!outerCanvasInstance.canvasFragment.pixelGridViewInstance.gridEnabled) {
-                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.showGrid()
+            if (pixelGridViewInstance.canvasHeight <= 150) {
+                if (!pixelGridViewInstance.gridEnabled) {
+                    pixelGridViewInstance.showGrid()
                 } else {
-                    outerCanvasInstance.canvasFragment.pixelGridViewInstance.hideGrid()
+                    pixelGridViewInstance.hideGrid()
                 }
             } else {
                 binding.activityCanvasRootLayout.showSnackbar("PixaPencil currently does not support showing a grid for canvas sizes of over 150", SnackbarDuration.Default)

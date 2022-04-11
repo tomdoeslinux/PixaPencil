@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.Flags
 
@@ -12,7 +13,7 @@ fun polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
     polygonCoordinates.add(coordinatesTapped)
 
     if (polygonCoordinates.size > 1) {
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.undo()
+        pixelGridViewInstance.undo()
 
         for (i in 0 until polygonCoordinates.size - 2) {
             lineAlgorithmInstance.compute(

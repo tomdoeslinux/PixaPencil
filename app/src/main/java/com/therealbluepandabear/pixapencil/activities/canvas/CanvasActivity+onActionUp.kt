@@ -7,6 +7,7 @@ import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun extendedOnActionUp() {
     when {
@@ -19,8 +20,8 @@ fun extendedOnActionUp() {
         }
 
         currentTool == Tools.PolygonTool -> {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
-                outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
+            pixelGridViewInstance.bitmapActionData.add(
+               pixelGridViewInstance.currentBitmapAction!!
             )
         }
 
@@ -33,27 +34,27 @@ fun extendedOnActionUp() {
         }
 
         else -> {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
+            pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
 
-            if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
+            if (pixelGridViewInstance.pixelPerfectMode
                 && (currentTool == Tools.PencilTool)
-                && (outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBrush == null || outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first())) {
+                && (pixelGridViewInstance.currentBrush == null || pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first())) {
                 val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(primaryAlgorithmInfoParameter)
                 pixelPerfectAlgorithmInstance.compute()
             }
 
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevX = null
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.prevY = null
+            pixelGridViewInstance.prevX = null
+            pixelGridViewInstance.prevY = null
         }
     }
 
-    if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
+    if (pixelGridViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
     }
 
-    if (outerCanvasInstance.canvasFragment.pixelGridViewInstance.undoStack.isEmpty()) {
+    if (pixelGridViewInstance.undoStack.isEmpty()) {
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     }
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = null
+    pixelGridViewInstance.currentBitmapAction = null
 }

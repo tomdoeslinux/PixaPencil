@@ -7,6 +7,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
@@ -20,7 +21,7 @@ fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
 }
 
 fun clearCanvas() {
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.clearCanvas()
+    pixelGridViewInstance.clearCanvas()
 }
 
 fun CanvasActivity.setOnClickListeners() {

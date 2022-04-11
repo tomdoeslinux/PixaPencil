@@ -1,7 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Brush
 
 fun extendedOnBrushTapped(selectedBrush: Brush) {
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBrush = selectedBrush
+    pixelGridViewInstance.currentBrush = selectedBrush
 }

@@ -5,6 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +24,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
                 )
             )
         } else {
-            val data = outerCanvasInstance.canvasFragment.pixelGridViewInstance.getNumberOfUniqueColors().toMutableList()
+            val data = pixelGridViewInstance.getNumberOfUniqueColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(

@@ -2,8 +2,8 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.menu
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun PixelGridView.extendedRedo() {
     /**
@@ -19,7 +19,7 @@ fun PixelGridView.extendedRedo() {
 
         invalidate()
 
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(undoStack.last())
+        pixelGridViewInstance.bitmapActionData.add(undoStack.last())
         undoStack.removeLast()
 
         caller.onRedoActionCompleted(undoStack)

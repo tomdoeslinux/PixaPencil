@@ -13,8 +13,9 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBindin
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
+lateinit var canvasFragment: CanvasFragment
+
 class OuterCanvasFragment : Fragment() {
-    lateinit var canvasFragment: CanvasFragment
     lateinit var cardViewParent: CardView
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView

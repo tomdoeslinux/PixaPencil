@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
 import com.therealbluepandabear.pixapencil.activities.canvas.extendedUndo
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 
@@ -34,12 +34,12 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
             distinct = distinct.filter { it == value }
         }
 
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
+        pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
         for (value in data) {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
+            pixelGridViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
         }
 
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!)
+        pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
     }
 }

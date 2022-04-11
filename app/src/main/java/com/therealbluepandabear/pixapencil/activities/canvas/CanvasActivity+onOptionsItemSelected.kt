@@ -6,6 +6,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -43,22 +44,22 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_pixel_perfect_item -> {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode = !outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
+            pixelGridViewInstance.pixelPerfectMode = !pixelGridViewInstance.pixelPerfectMode
 
-            menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode
+            menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, outerCanvasInstance.canvasFragment.pixelGridViewInstance.pixelPerfectMode)
+                putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, pixelGridViewInstance.pixelPerfectMode)
                 apply()
             }
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
+            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            outerCanvasInstance.canvasFragment.pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
+            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {

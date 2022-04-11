@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun circleToolOnActionUp() {
     if (currentTool.toolFamily == ToolFamily.Circle && currentTool.outlined == false) {
@@ -14,8 +15,8 @@ fun circleToolOnActionUp() {
         }
     }
 
-    outerCanvasInstance.canvasFragment.pixelGridViewInstance.bitmapActionData.add(
-        outerCanvasInstance.canvasFragment.pixelGridViewInstance.currentBitmapAction!!
+    pixelGridViewInstance.bitmapActionData.add(
+        pixelGridViewInstance.currentBitmapAction!!
     )
 
     coordinates = null
