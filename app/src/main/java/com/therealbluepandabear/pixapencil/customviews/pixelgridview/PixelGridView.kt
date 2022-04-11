@@ -7,6 +7,7 @@ import android.graphics.*
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
@@ -19,7 +20,6 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
 class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
@@ -204,7 +204,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
-        throw IllegalArgumentException(StringConstants.ExceptionAccessingNegativeIndex)
+        throw IllegalArgumentException(this.context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
     }
 
     override fun onDraw(canvas: Canvas) {

@@ -1,12 +1,12 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-fun setOnClickListeners() {
+fun NewProjectFragment.setOnClickListeners() {
     binding.apply {
         fragmentNewCanvasDoneButton.setOnClickListener {
             val heightValue =
@@ -20,7 +20,7 @@ fun setOnClickListeners() {
                 heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax ) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
-                    StringConstants.ExceptionInvalidWidthHeightMessage,
+                    getString(R.string.exception_invalid_width_height_message_in_code_str),
                     SnackbarDuration.Default
                 )
             } else {
@@ -33,7 +33,7 @@ fun setOnClickListeners() {
                 } catch (ex: Exception) {
                     HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                     root.showSnackbar(
-                        StringConstants.ExceptionInvalidWidthHeightMessage,
+                        getString(R.string.exception_invalid_width_height_message_in_code_str),
                         SnackbarDuration.Default
                     )
                 }

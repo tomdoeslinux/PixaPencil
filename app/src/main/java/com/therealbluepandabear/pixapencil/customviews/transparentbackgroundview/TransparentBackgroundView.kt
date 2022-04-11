@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
@@ -101,7 +102,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
-        throw IllegalArgumentException(StringConstants.ExceptionAccessingNegativeIndex)
+        throw IllegalArgumentException(this.context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
     }
 
     override fun onDraw(canvas: Canvas) {

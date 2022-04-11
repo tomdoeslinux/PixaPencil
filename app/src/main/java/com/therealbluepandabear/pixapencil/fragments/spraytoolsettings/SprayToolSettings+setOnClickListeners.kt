@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
 import android.os.Handler
 import android.os.Looper
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
@@ -11,10 +12,10 @@ import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-fun warnOfIncorrectValues() {
+fun SprayToolSettingsFragment.warnOfIncorrectValues() {
     HapticFeedbackWrapper.performHapticFeedback(binding.fragmentSprayToolSettingsDoneButton)
     binding.root.showSnackbar(
-        StringConstants.ExceptionInvalidRadiusStrengthMessage,
+        getString(R.string.exception_invalid_radius_strength_message_in_code_str),
         SnackbarDuration.Default
     )
 }

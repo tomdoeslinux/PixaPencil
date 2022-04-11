@@ -135,6 +135,10 @@
     <string name="color_picker_tool_info_text_in_code_str">Get the color at the specified pixel.</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
 
+    <string name="exception_invalid_width_height_message_in_code_str">Invalid width/height value</string>
+    <string name="exception_invalid_radius_strength_message_in_code_str">Invalid radius/strength</string>
+    <string name="exception_accessing_negative_index_message_in_code_str">Cannot access pixel art object with a negative index in list!</string>
+
     <string name="foo">We would love to have you on our
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
