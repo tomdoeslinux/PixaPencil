@@ -30,7 +30,12 @@ fun extendedOnActionUp() {
         }
 
         currentTool == Tools.EraseTool -> {
+            pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
+
             primaryAlgorithmInfoParameter.color = getSelectedColor()
+
+            pixelGridViewInstance.prevX = null
+            pixelGridViewInstance.prevY = null
         }
 
         else -> {

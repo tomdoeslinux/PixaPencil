@@ -30,10 +30,6 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
 
         extendedUndo()
 
-        for (value in data) {
-            distinct = distinct.filter { it == value }
-        }
-
         pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
         for (value in data) {

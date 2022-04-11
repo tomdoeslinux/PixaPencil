@@ -37,13 +37,8 @@
     <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
     <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
     <string name="fragmentColorPicker_tab_hex_str">Hex</string>
-    <string name="fragmentColorPicker_tab_hsv_str">HSV</string>
 
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
-
-    <string name="fragmentHSVColorPicker_hue_str">Hue</string>
-    <string name="fragmentHSVColorPicker_saturation_str">Saturation</string>
-    <string name="fragmentHSVColorPicker_value_str">Value</string>
 
     <string name="fragmentFilters_color_filter_str">Color Filter</string>
     <string name="fragmentFilters_lighten_str">Lighten</string>
@@ -59,8 +54,6 @@
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
     <string name="fragmentRGBColorPicker_valueR_str">0</string>
-    <string name="fragmentRGBColorPicker_valueG_str">0</string>
-    <string name="fragmentRGBColorPicker_valueB_str">0</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">Undo</string>
     <string name="activityCanvasTopAppMenu_redo_str">Redo</string>
