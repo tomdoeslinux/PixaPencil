@@ -11,6 +11,14 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
+## Open issues
+Anyone can contribute to this app by opening a pull request, but I prefer if it is only to address any sort of bug or the two issues I will state below.
+
+Here are two important issues that I have not been able to fix on my own:
+
+- _Translation:_ the app is only available in English. If you can translate the app into other languages please send me an email at **therealbluepandabear@gmail.com**.
+
+- _Large canvas grid problem:_ the grid tool works OK for smaller canvas sizes but struggles when the canvas size gets large as the lines become too thick. If anyone has any ideas how to fix this feel free to open a pull request or send me an email at **therealbluepandabear@gmail.com**. Note that this is a minor issue, as most people aren't going to be using the app for large canvas sizes, but it would be nice to fix.
 
 ## Images
 
