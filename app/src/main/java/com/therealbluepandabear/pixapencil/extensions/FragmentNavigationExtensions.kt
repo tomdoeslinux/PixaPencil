@@ -18,7 +18,7 @@ fun Activity.navigateHome(fragmentManager: FragmentManager, fragmentInstance: Fr
     (rootLayout as ViewGroup).forEach { view -> view.visibility = View.VISIBLE }
 
     Handler().postDelayed({
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
     }, LongConstants.DefaultHandlerDelay)
 
     fragmentHost.visibility = View.VISIBLE

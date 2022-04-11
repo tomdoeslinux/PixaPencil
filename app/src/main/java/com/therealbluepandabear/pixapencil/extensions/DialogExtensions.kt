@@ -2,10 +2,7 @@ package com.therealbluepandabear.pixapencil.extensions
 
 import android.app.Activity
 import android.content.DialogInterface
-import android.graphics.Color
 import android.view.View
-import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.utility.StringConstants

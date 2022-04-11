@@ -12,4 +12,3 @@ val binding get(): FragmentCanvasBinding {
 
 lateinit var caller: CanvasFragmentListener
 
-lateinit var myCanvasViewInstance: PixelGridView
