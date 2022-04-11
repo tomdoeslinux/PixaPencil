@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -9,144 +10,144 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
         StringConstants.PencilToolIdentifier -> {
             if (currentTool == Tools.PencilTool) {
                 showSimpleInfoDialog(
-                    StringConstants.PencilToolInfoTitle,
-                    StringConstants.PencilToolInfoText)
+                    getString(R.string.pencil_tool_info_title_in_code_str),
+                    getString(R.string.pencil_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.FillToolIdentifier  -> {
             if (currentTool == Tools.FillTool) {
                 showSimpleInfoDialog(
-                    StringConstants.FillToolInfoTitle,
-                    StringConstants.FillToolInfoText)
+                    getString(R.string.fill_tool_info_title_in_code_str),
+                    getString(R.string.fill_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.VerticalMirrorToolIdentifier -> {
             if (currentTool == Tools.VerticalMirrorTool) {
                 showSimpleInfoDialog(
-                    StringConstants.VerticalMirrorToolInfoTitle,
-                    StringConstants.VerticalMirrorToolInfoText)
+                    getString(R.string.vertical_mirror_tool_info_title_in_code_str),
+                    getString(R.string.vertical_mirror_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.HorizontalMirrorToolIdentifier -> {
             if (currentTool == Tools.HorizontalMirrorTool) {
                 showSimpleInfoDialog(
-                    StringConstants.HorizontalMirrorToolInfoTitle,
-                    StringConstants.HorizontalMirrorToolInfoText)
+                    getString(R.string.horizontal_mirror_tool_info_title_in_code_str),
+                    getString(R.string.horizontal_mirror_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.LineToolIdentifier -> {
             if (currentTool == Tools.LineTool) {
                 showSimpleInfoDialog(
-                    StringConstants.LineToolInfoTitle,
-                    StringConstants.LineToolInfoText)
+                    getString(R.string.line_tool_info_title_in_code_str),
+                    getString(R.string.line_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.RectangleToolIdentifier -> {
             if (currentTool == Tools.RectangleTool) {
                 showSimpleInfoDialog(
-                    StringConstants.RectangleToolInfoTitle,
-                    StringConstants.RectangleToolInfoText)
+                    getString(R.string.rectangle_tool_info_title_in_code_str),
+                    getString(R.string.rectangle_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.OutlinedRectangleToolIdentifier -> {
             if (currentTool == Tools.OutlinedRectangleTool) {
                 showSimpleInfoDialog(
-                    StringConstants.OutlinedRectangleToolInfoTitle,
-                    StringConstants.OutlinedRectangleToolInfoText)
+                    getString(R.string.outlined_rectangle_tool_info_title_in_code_str),
+                    getString(R.string.outlined_rectangle_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.SquareToolIdentifier -> {
             if (currentTool == Tools.SquareTool) {
                 showSimpleInfoDialog(
-                    StringConstants.SquareToolInfoTitle,
-                    StringConstants.SquareToolInfoText)
+                    getString(R.string.square_tool_info_title_in_code_str),
+                    getString(R.string.square_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.OutlinedSquareToolIdentifier -> {
             if (currentTool == Tools.OutlinedSquareTool) {
                 showSimpleInfoDialog(
-                    StringConstants.OutlinedSquareToolInfoTitle,
-                    StringConstants.OutlinedSquareToolInfoText)
+                    getString(R.string.outlined_square_tool_info_title_in_code_str),
+                    getString(R.string.outlined_square_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.CircleToolIdentifier -> {
             if (currentTool == Tools.CircleTool) {
                 showSimpleInfoDialog(
-                    StringConstants.CircleToolInfoTitle,
-                    StringConstants.CircleToolInfoText)
+                    getString(R.string.circle_tool_info_title_in_code_str),
+                    getString(R.string.circle_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.OutlinedCircleToolIdentifier -> {
             if (currentTool == Tools.OutlinedCircleTool) {
                 showSimpleInfoDialog(
-                    StringConstants.OutlinedCircleToolInfoTitle,
-                    StringConstants.OutlinedCircleToolInfoText)
+                    getString(R.string.outlined_circle_tool_info_title_in_code_str),
+                    getString(R.string.outlined_circle_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.SprayToolIdentifier -> {
             if (currentTool == Tools.SprayTool) {
                 showSimpleInfoDialog(
-                    StringConstants.SprayToolInfoTitle,
-                    StringConstants.SprayToolInfoText)
+                    getString(R.string.spray_tool_info_title_in_code_str),
+                    getString(R.string.spray_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.PolygonToolIdentifier -> {
             if (currentTool == Tools.PolygonTool) {
                 showSimpleInfoDialog(
-                    StringConstants.PolygonToolInfoTitle,
-                    StringConstants.PolygonToolInfoText)
+                    getString(R.string.polygon_tool_info_title_in_code_str),
+                    getString(R.string.polygon_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.DitherToolIdentifier -> {
             if (currentTool == Tools.DitherTool) {
                 showSimpleInfoDialog(
-                    StringConstants.DitherToolInfoTitle,
-                    StringConstants.DitherToolInfoText)
+                    getString(R.string.dither_tool_info_title_in_code_str),
+                    getString(R.string.dither_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.DarkenToolIdentifier  -> {
             if (currentTool == Tools.DarkenTool) {
                 showSimpleInfoDialog(
-                    StringConstants.DarkenToolInfoTitle,
-                    StringConstants.DarkenToolInfoText)
+                    getString(R.string.darken_tool_info_title_in_code_str),
+                    getString(R.string.darken_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.LightenToolIdentifier  -> {
             if (currentTool == Tools.LightenTool) {
                 showSimpleInfoDialog(
-                    StringConstants.LightenToolInfoTitle,
-                    StringConstants.LightenToolInfoText)
+                    getString(R.string.lighten_tool_info_title_in_code_str),
+                    getString(R.string.lighten_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.ColorPickerToolIdentifier -> {
             if (currentTool == Tools.ColorPickerTool) {
                 showSimpleInfoDialog(
-                    StringConstants.ColorPickerToolInfoTitle,
-                    StringConstants.ColorPickerToolInfoText)
+                    getString(R.string.color_picker_tool_info_title_in_code_str),
+                    getString(R.string.color_picker_tool_info_text_in_code_str))
             }
         }
 
         StringConstants.EraseToolIdentifier -> {
             if (currentTool == Tools.EraseTool) {
                 showSimpleInfoDialog(
-                    StringConstants.EraseToolInfoTitle,
-                    StringConstants.EraseToolInfoText)
+                    getString(R.string.erase_tool_info_title_in_code_str),
+                    getString(R.string.erase_tool_info_text_in_code_str))
             }
         }
     }
