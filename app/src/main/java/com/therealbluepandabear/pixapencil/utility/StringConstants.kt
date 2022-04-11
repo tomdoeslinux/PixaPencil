@@ -1,11 +1,5 @@
 package com.therealbluepandabear.pixapencil.utility
 
-/**
- * In the future, I will remove this to support different languages inside the app.
- *
- * Though for now, I will leave this file until I decide on adding support for more languages.
- */
-
 object StringConstants {
     const val AppName = "PixaPencil"
 
