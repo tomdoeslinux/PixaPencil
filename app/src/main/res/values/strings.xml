@@ -29,7 +29,6 @@
     <string name="fragmentTools_line_tool_content_description">Line Tool</string>
     <string name="fragmentTools_rectangle_tool_content_description">Rectangle Tool</string>
     <string name="fragmentTools_outlined_rectangle_tool_content_description">Outlined Rectangle Tool</string>
-    <string name="fragmentTools_grid_tool_content_description">Grid Tool</string>
 
     <string name="bottomNavigationMenu_starred_str">Starred</string>
     <string name="bottomNavigationMenu_home_str">Home</string>
