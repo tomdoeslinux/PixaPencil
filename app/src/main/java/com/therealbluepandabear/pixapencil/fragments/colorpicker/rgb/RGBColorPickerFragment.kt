@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentRGBColorPickerBinding
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.setEventListener
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.registerEventListener
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
 
 
@@ -163,7 +163,7 @@ class RGBColorPickerFragment : Fragment() {
             }
         }
 
-        setEventListener(requireActivity(),
+        val r = registerEventListener(requireActivity(),
             object : KeyboardVisibilityEventListener {
                 override fun onVisibilityChanged(isOpen: Boolean) {
                     if (!isOpen) {
@@ -177,6 +177,8 @@ class RGBColorPickerFragment : Fragment() {
                     }
                 }
             })
+        r.unregister()
+
     }
 
     companion object {
