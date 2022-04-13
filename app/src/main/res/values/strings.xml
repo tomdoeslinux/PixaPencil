@@ -69,6 +69,8 @@
     <string name="activityCanvasTopAppMenu_zoom_in_str">Zoom in</string>
     <string name="activityCanvasTopAppMenu_zoom_out_str">Zoom out</string>
     <string name="activityCanvasTopAppMenu_save_text_str">Save</string>
+    <string name="activityCanvasTopAppMenu_grid_str">Grid</string>
+
     <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>
 
     <string name="fragmentSprayToolSettings_strength_str">Strength</string>

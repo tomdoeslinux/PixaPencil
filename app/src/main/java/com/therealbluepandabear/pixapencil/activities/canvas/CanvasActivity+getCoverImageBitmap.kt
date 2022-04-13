@@ -10,7 +10,8 @@ var gridWasEnabled = false
 
 fun getCoverImageBitmap(): Bitmap {
     if (pixelGridViewInstance.gridEnabled) {
-        pixelGridViewInstance.hideGrid()
+        pixelGridViewInstance.gridEnabled = false
+        pixelGridViewInstance.invalidate()
         gridWasEnabled = true
     }
 
@@ -27,7 +28,8 @@ fun getCoverImageBitmap(): Bitmap {
     bmps = Bitmap.createBitmap(combinedBmp, 0, 0, combinedBmp.width, combinedBmp.height, matrix, false)
 
     if (gridWasEnabled) {
-        pixelGridViewInstance.showGrid()
+        pixelGridViewInstance.gridEnabled = false
+        pixelGridViewInstance.invalidate()
     }
 
     return bmps

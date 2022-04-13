@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.*
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
@@ -51,7 +50,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
     private var path2 = Path()
 
     private var xm = 0f
-    private var ym = 0f
 
     var dimenCW = 0
     var dimenCH = 0
@@ -126,20 +124,11 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         }
 
         applyPixelPerfectValueFromPreference()
+        applyGridEnabledValueFromPreference()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         return extendedDispatchTouchEvent(event)
-    }
-
-    fun showGrid() {
-        gridEnabled = true
-        invalidate()
-    }
-
-    fun hideGrid() {
-        gridEnabled = false
-        invalidate()
     }
 
     fun undo() {
@@ -182,10 +171,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         return extendedCoordinatesInCanvasBounds(coordinates)
     }
 
-    private fun applyPixelPerfectValueFromPreference() {
-        extendedApplyPixelPerfectValueFromPreference()
-    }
-
     /** Use this code only in onMeasure **/
 
     private fun getCurrentPixelArtObj(): PixelArt {
@@ -209,8 +194,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            Log.d("PDATAA", "${canvas.width} ${canvas.height}")
-            Log.d("PDATAA", "${pixelGridViewBitmap.width} ${pixelGridViewBitmap.height}")
             var scaleFactorW = 0
             var scaleFactorH = 0
 
@@ -319,8 +302,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                 }
             }
 
-            // TODO - Fix Grid tool bugs
-
             if (gridEnabled) {
                 gridPaint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
                 gridPaint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
@@ -328,15 +309,21 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                 xm = 0f
                 path1.reset()
                 path2.reset()
-                for (i in 0 until canvasWidth) {
-                    path1.lineTo(xm, height.toFloat())
-                    path2.lineTo(height.toFloat(), ym)
+
+                val dvr = if (canvasWidth >= canvasHeight) canvasWidth else canvasHeight
+
+                for (i in 0 until dvr) {
+                    if (canvasWidth >= canvasHeight) {
+                        path1.lineTo(xm, width.toFloat())
+                        path2.lineTo(width.toFloat(), xm)
+                    } else {
+                        path1.lineTo(xm, height.toFloat())
+                        path2.lineTo(width.toFloat(), xm)
+                    }
 
                     xm += scaleWidth
-                    ym += scaleHeight
-
                     path1.moveTo(xm, 0f)
-                    path2.moveTo(0f, ym)
+                    path2.moveTo(0f, xm)
                 }
 
                 canvas.drawPath(path1, gridPaint)

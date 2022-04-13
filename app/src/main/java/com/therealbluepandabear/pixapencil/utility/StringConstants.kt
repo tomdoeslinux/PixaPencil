@@ -32,12 +32,12 @@ object StringConstants {
     const val LightenToolIdentifier = "LightenTool"
     const val ColorPickerToolIdentifier = "ColorPickerTool"
     const val EraseToolIdentifier = "EraseTool"
-    const val GridToolIdentifier = "GridTool"
 
     const val SharedPreferenceFirstLaunchIdentifier = "FirstLaunchIdentifier"
     const val SharedPreferencePixelPerfectIdentifier = "PixelPerfectSharedPreference"
     const val SharedPreferencesSprayRadiusIdentifier = "SprayRadiusSharedPreference"
     const val SharedPreferencesSprayStrengthIdentifier = "SprayStrengthSharedPreference"
+    const val SharedPreferenceGridIdentifier = "GridSharedPreference"
 
     const val prevOrientationBundleIdentifier = "PrevOrientation"
     const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"

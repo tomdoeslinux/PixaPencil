@@ -6,7 +6,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -594,30 +593,6 @@ fun ToolsFragment.setOnClickListeners() {
             HapticFeedbackWrapper.performHapticFeedback(it)
             caller.onToolLongTapped(StringConstants.EraseToolIdentifier)
             true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Grid Tool
-
-        fragmentToolsGridButton.setOnClickListener {
-            if (!pixelGridViewInstance.gridEnabled) {
-                onToggleOptionTapped(it)
-            } else {
-                onToggleOptionTappedUnset(it)
-            }
-            caller.onToolTapped(StringConstants.GridToolIdentifier)
-        }
-
-        fragmentToolsGridButtonH.setOnClickListener {
-            if (!pixelGridViewInstance.gridEnabled) {
-                onToggleOptionTapped(it)
-            } else {
-                onToggleOptionTappedUnset(it)
-            }
-            caller.onToolTapped(StringConstants.GridToolIdentifier)
         }
         // 1 //
         // 2 //

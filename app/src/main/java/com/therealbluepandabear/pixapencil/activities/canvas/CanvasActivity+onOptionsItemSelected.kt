@@ -91,6 +91,19 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         R.id.activityCanvasTopAppMenu_find_and_replace_item -> {
             findAndReplaceToolOnToolTapped()
         }
+
+        R.id.activityCanvasTopAppMenu_grid_item -> {
+            pixelGridViewInstance.gridEnabled = !pixelGridViewInstance.gridEnabled
+
+            menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
+
+            with (sharedPreferenceObject.edit()) {
+                putBoolean(StringConstants.SharedPreferenceGridIdentifier, pixelGridViewInstance.gridEnabled)
+                apply()
+            }
+
+            pixelGridViewInstance.invalidate()
+        }
     }
     return true
 }

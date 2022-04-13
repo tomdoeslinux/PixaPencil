@@ -4,6 +4,7 @@ import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.utility.Flags
 
 fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater
@@ -12,6 +13,18 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     if (_menu != null) {
         menu = _menu
         menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
+        menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
+
+        if (pixelGridViewInstance.canvasWidth > 500 || pixelGridViewInstance.canvasWidth > 500) {
+            menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isEnabled = false
+            menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
+
+            pixelGridViewInstance.gridEnabled = false
+            pixelGridViewInstance.invalidate()
+
+            Flags.DisableGridSharedPreferenceChanges = true
+        }
+
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).disable()
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     }

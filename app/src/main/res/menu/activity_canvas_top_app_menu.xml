@@ -21,6 +21,12 @@
         android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_new_color_palette_str" />
 
+    <item android:id="@+id/activityCanvasTopAppMenu_grid_item"
+        app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:checkable="true"
+        android:title="@string/activityCanvasTopAppMenu_grid_str" />
+
     <item android:id="@+id/activityCanvasTopAppMenu_pixel_perfect_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
