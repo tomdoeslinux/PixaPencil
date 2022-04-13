@@ -1,9 +1,11 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.graphics.Color
+import com.therealbluepandabear.pixapencil.activities.canvas.saved
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun PixelGridView.extendedApplyBitmapFilter(filterLambda: (Int) -> Int) {
+    saved = false
     currentBitmapAction = BitmapAction(mutableListOf())
 
     for (i_1 in 0 until pixelGridViewBitmap.width) {
