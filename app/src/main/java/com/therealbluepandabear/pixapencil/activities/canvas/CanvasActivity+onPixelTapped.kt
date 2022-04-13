@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.graphics.Color
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -81,8 +82,12 @@ fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
             colorPickerToolOnPixelTapped(coordinatesTapped)
         }
 
-        else -> {
-            pencilToolOnPixelTapped(coordinatesTapped)
+        Tools.LightenTool -> {
+            filterSelectedColor(Color.WHITE, 0.2f)
+        }
+
+        Tools.DarkenTool -> {
+            filterSelectedColor(Color.BLACK, 0.2f)
         }
     }
 }
