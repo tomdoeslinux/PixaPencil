@@ -82,7 +82,7 @@ Thank you to:
 ## Other libraries used
 Without these libraries, this app would not have been possible, so please check them out:
 
-- Dhaval2404 (https://github.com/Dhaval2404) - Color Picker Library for Android (https://github.com/Dhaval2404/ColorPicker)
+- duanhong169 (https://github.com/duanhong169) - ColorPicker (https://github.com/duanhong169/ColorPicker)
 - yshrsmz (https://github.com/yshrsmz) - KeyboardVisibilityEvent (https://github.com/yshrsmz/KeyboardVisibilityEvent) 
 
 
