@@ -25,7 +25,7 @@ class ColorPickerPickerFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerPickerBinding.inflate(inflater, container, false)
 
-        binding.fragmentColorPickerPickerColorPickerView.setColor(oldColor_)
+        binding.fragmentColorPickerPickerColorPickerView.setInitialColor(oldColor_)
         binding.fragmentColorPickerPickerColorPreview.setBackgroundColor(oldColor_)
         selectedColor = oldColor_
         setOnClickListeners()

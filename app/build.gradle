@@ -73,7 +73,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 
-    implementation 'com.github.Dhaval2404:ColorPicker:2.3'
+    implementation 'com.github.duanhong169:colorpicker:1.1.6'
+    implementation 'com.github.duanhong169:checkerboarddrawable:1.0.2'
 
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:3.0.0-RC1'
 }
