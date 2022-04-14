@@ -24,6 +24,154 @@ class ToolsFragment : Fragment() {
         caller.onToolTapped(StringConstants.PencilToolIdentifier)
     }
 
+    fun tapOnToolByName(toolName: String) {
+        when (toolName) {
+            StringConstants.PencilToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsPencilButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsPencilButtonH)
+                }
+            }
+
+            StringConstants.FillToolIdentifier  -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsFillButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsFillButtonH)
+                }
+            }
+
+            StringConstants.VerticalMirrorToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsVerticalMirrorButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsVerticalMirrorButtonH)
+                }
+            }
+
+            StringConstants.HorizontalMirrorToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsHorizontalMirrorButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsHorizontalMirrorButtonH)
+                }
+            }
+
+            StringConstants.LineToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsLineButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsLineButtonH)
+                }
+            }
+
+            StringConstants.RectangleToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsRectangleButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsRectangleButtonH)
+                }
+            }
+
+            StringConstants.OutlinedRectangleToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsOutlinedRectangleButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsOutlinedRectangleButtonH)
+                }
+            }
+
+            StringConstants.SquareToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsSquareButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsSquareButtonH)
+                }
+            }
+
+            StringConstants.OutlinedSquareToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsOutlinedSquareButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsOutlinedSquareButtonH)
+                }
+            }
+
+            StringConstants.CircleToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsCircleButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsCircleButtonH)
+                }
+            }
+
+            StringConstants.OutlinedCircleToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsOutlinedCircleButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsOutlinedCircleButtonH)
+                }
+            }
+
+            StringConstants.SprayToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsSprayButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsSprayButtonH)
+                }
+            }
+
+            StringConstants.PolygonToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsPolygonButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsPolygonButtonH)
+                }
+            }
+
+            StringConstants.DitherToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsDitherButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsDitherButtonH)
+                }
+            }
+
+            StringConstants.DarkenToolIdentifier  -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsDarkenButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsDarkenButtonH)
+                }
+            }
+
+            StringConstants.LightenToolIdentifier  -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsLightenButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsLightenButtonH)
+                }
+            }
+
+            StringConstants.ColorPickerToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsColorPickerButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsColorPickerButtonH)
+                }
+            }
+
+            StringConstants.EraseToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsEraseButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsEraseButtonH)
+                }
+            }
+        }
+    }
+
     companion object {
         fun newInstance(): ToolsFragment {
             return ToolsFragment()
