@@ -28,8 +28,6 @@ class CanvasActivity :
 
     var previousView: View? = null
 
-    val context = this
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()

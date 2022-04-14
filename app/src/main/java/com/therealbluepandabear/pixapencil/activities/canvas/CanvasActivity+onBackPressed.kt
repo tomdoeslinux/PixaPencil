@@ -15,7 +15,7 @@ fun CanvasActivity.extendedOnBackPressed() {
             getString(R.string.dialog_unsaved_changes_message_in_code_str),
             getString(R.string.dialog_positive_button_text_in_code_str),
             { _, _ ->
-                startActivity(Intent(context, MainActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> }, null)
     } else if (currentFragmentInstance != null) {
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
@@ -23,6 +23,6 @@ fun CanvasActivity.extendedOnBackPressed() {
         menu.showItems()
         switchSelectedColorIndicator()
     } else {
-        startActivity(Intent(context, MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 }
