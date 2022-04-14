@@ -13,9 +13,9 @@ fun CanvasActivity.extendedOnResume() {
         }
     }
 
-    if (prevBitmapStr != "" && prevOrientation != 0) {
+    if (prevBitmapStr != null && prevOrientation != 0) {
         Handler(Looper.getMainLooper()).postDelayed({
-            val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr)
+            val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
             if (convertedBMP != null) {
                 pixelGridViewInstance.replaceBitmap(convertedBMP)
             }

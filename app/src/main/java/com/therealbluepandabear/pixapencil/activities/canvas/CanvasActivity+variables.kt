@@ -71,7 +71,7 @@ var previewColorToFind: Int? = null
 var previewColorToReplace: Int? = null
 
 var prevOrientation: Int = 0
-var prevBitmapStr: String = ""
+var prevBitmapStr: String? = null
 
 lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
