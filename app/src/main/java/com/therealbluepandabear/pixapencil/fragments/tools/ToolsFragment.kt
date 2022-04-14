@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.fragments.tools
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,8 +15,11 @@ class ToolsFragment : Fragment() {
     private fun setup() {
         setOnClickListeners()
 
-        onOptionTapped(binding.fragmentToolsPencilButton)
-        onOptionTapped(binding.fragmentToolsPencilButtonH)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            onOptionTapped(binding.fragmentToolsPencilButton)
+        } else {
+            onOptionTapped(binding.fragmentToolsPencilButtonH)
+        }
 
         caller.onToolTapped(StringConstants.PencilToolIdentifier)
     }
