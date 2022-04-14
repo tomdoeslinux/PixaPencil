@@ -43,7 +43,8 @@ object StringConstants {
     const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"
     const val prevPrimaryColorBundleIdentifier = "PrevPrimaryColor"
     const val prevSecondaryColorBundleIdentifier = "PrevSecondaryColor"
-    const val prevSelectedToolBundleIdentifier = "PrevSelectedTool"
+    const val prevToolBundleIdentifier = "PrevTool"
+    const val prevBrushBundleIdentifier = "PrevBrush"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"

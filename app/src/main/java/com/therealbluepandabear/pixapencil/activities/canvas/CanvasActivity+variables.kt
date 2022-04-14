@@ -74,7 +74,8 @@ var prevOrientation: Int = 0
 var prevBitmapStr: String? = null
 var prevPrimaryColor: Int? = null
 var prevSecondaryColor: Int? = null
-var prevSelectedTool: String? = null
+var prevTool: String? = null
+var prevBrush: String? = null
 
 lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized

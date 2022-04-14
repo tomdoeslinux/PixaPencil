@@ -9,6 +9,7 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevBitmapStr = savedInstanceState.getString(StringConstants.prevBitmapStrBundleIdentifier)
         prevPrimaryColor = savedInstanceState.getInt(StringConstants.prevPrimaryColorBundleIdentifier)
         prevSecondaryColor = savedInstanceState.getInt(StringConstants.prevSecondaryColorBundleIdentifier)
-        prevSelectedTool = savedInstanceState.getString(StringConstants.prevSelectedToolBundleIdentifier)
+        prevTool = savedInstanceState.getString(StringConstants.prevToolBundleIdentifier)
+        prevBrush = savedInstanceState.getString(StringConstants.prevBrushBundleIdentifier)
     }
 }

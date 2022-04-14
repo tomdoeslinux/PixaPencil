@@ -11,5 +11,6 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     outState.putString(StringConstants.prevBitmapStrBundleIdentifier, BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap))
     outState.putInt(StringConstants.prevPrimaryColorBundleIdentifier, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     outState.putInt(StringConstants.prevSecondaryColorBundleIdentifier, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
-    outState.putString(StringConstants.prevSelectedToolBundleIdentifier, currentTool.toolName)
+    outState.putString(StringConstants.prevToolBundleIdentifier, currentTool.toolName)
+    outState.putString(StringConstants.prevBrushBundleIdentifier, pixelGridViewInstance.currentBrush?.brushName)
 }

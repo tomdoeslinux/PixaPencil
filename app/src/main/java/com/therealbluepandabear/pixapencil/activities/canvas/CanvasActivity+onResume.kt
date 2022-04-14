@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.os.Handler
 import android.os.Looper
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
@@ -30,15 +31,21 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
-    if (prevSelectedTool != null) {
+    if (prevTool != null) {
         Handler().postDelayed({
-            currentTool = if (Tools.findToolByName(prevSelectedTool!!) != null) {
-                Tools.findToolByName(prevSelectedTool!!)!!
+            currentTool = if (Tools.findToolByName(prevTool!!) != null) {
+                Tools.findToolByName(prevTool!!)!!
             } else {
                 Tools.PencilTool
             }
 
-            toolsFragmentInstance?.tapOnToolByName(prevSelectedTool!!)
+            toolsFragmentInstance?.tapOnToolByName(prevTool!!)
+        }, 1000)
+    }
+
+    if (prevBrush != null) {
+        Handler().postDelayed({
+            pixelGridViewInstance.currentBrush = BrushesDatabase.toList().find { it.brushName == prevBrush }
         }, 1000)
     }
 }
