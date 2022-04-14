@@ -22,4 +22,10 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
+    if (prevPrimaryColor != null && prevSecondaryColor != null) {
+        Handler().postDelayed({
+            setPrimaryPixelColor(prevPrimaryColor!!)
+            setSecondaryPixelColor(prevSecondaryColor!!)
+        }, 1000)
+    }
 }

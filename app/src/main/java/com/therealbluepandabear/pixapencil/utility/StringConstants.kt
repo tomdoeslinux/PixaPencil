@@ -41,6 +41,8 @@ object StringConstants {
 
     const val prevOrientationBundleIdentifier = "PrevOrientation"
     const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"
+    const val prevPrimaryColorBundleIdentifier = "PrevPrimaryColor"
+    const val prevSecondaryColorBundleIdentifier = "PrevSecondaryColor"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"
