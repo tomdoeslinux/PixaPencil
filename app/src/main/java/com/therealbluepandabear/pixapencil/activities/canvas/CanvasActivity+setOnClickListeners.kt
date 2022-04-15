@@ -56,6 +56,7 @@ fun CanvasActivity.setOnClickListeners() {
                 }
 
                 2 -> {
+                    currentTab = 2
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
