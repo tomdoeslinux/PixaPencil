@@ -284,19 +284,6 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_find_and_replace_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_findAndReplaceButton"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_find_and_replace_tool_content_description"
-                    app:srcCompat="@drawable/ic_baseline_find_replace_24" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
                     android:contentDescription="@string/fragmentTools_eraser_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_eraseButton"
