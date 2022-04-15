@@ -40,6 +40,7 @@ fun CanvasActivity.setOnClickListeners() {
         override fun onTabSelected(tab: TabLayout.Tab) {
             when (tab.position) {
                 0 -> {
+                    currentTab = 0
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
@@ -47,6 +48,7 @@ fun CanvasActivity.setOnClickListeners() {
                 }
 
                 1 -> {
+                    currentTab = 1
                     toolsFragmentInstance!!.requireView().visibility = View.GONE
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     brushesFragmentInstance!!.requireView().visibility = View.GONE
@@ -61,6 +63,7 @@ fun CanvasActivity.setOnClickListeners() {
                 }
 
                 3 -> {
+                    currentTab = 3
                     colorPalettesFragmentInstance!!.requireView().visibility = View.GONE
                     filtersFragmentInstance!!.requireView().visibility = View.GONE
                     toolsFragmentInstance!!.requireView().visibility = View.GONE

@@ -11,5 +11,6 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevSecondaryColor = savedInstanceState.getInt(StringConstants.prevSecondaryColorBundleIdentifier)
         prevTool = savedInstanceState.getString(StringConstants.prevToolBundleIdentifier)
         prevBrush = savedInstanceState.getString(StringConstants.prevBrushBundleIdentifier)
+        prevTab = savedInstanceState.getInt(StringConstants.prevTabBundleIdentifier)
     }
 }

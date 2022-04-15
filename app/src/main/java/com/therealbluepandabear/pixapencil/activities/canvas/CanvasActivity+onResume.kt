@@ -48,4 +48,10 @@ fun CanvasActivity.extendedOnResume() {
             pixelGridViewInstance.currentBrush = BrushesDatabase.toList().find { it.brushName == prevBrush }
         }, 1000)
     }
+
+    if (prevTab != 0) {
+        Handler().postDelayed({
+            binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
+        }, 1000)
+    }
 }

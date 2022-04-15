@@ -76,6 +76,9 @@ var prevPrimaryColor: Int? = null
 var prevSecondaryColor: Int? = null
 var prevTool: String? = null
 var prevBrush: String? = null
+var prevTab: Int = 0
+
+var currentTab = 0
 
 lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
