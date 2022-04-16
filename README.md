@@ -1,4 +1,4 @@
-## About
+## ❓ About
 *A capable pixel art editor for Android.*
 
 Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org 
@@ -10,7 +10,7 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 
 **⚠️ Important:** PixaPencil will only run on version 9.0 (Pie) or above!
 
-## Video
+## ▶️ Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
 ## 👨‍💻 Open issues
