@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Color
-import android.util.Log
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -16,8 +15,6 @@ fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!primaryAlgorithmInfoParameterInitialized) {
         initPrimaryAlgorithmInfoParameter()
     }
-
-    Log.d("BEPPER", currentTool.toolName)
 
     saved = false
     when (currentTool) {
