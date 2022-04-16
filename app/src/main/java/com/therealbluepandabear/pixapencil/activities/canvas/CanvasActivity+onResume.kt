@@ -27,14 +27,14 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
-    if (prevPrimaryColor != null && prevSecondaryColor != null) {
+    if (prevPrimaryColor != null && prevSecondaryColor != null && prevOrientation != 0) {
         Handler().postDelayed({
             setPrimaryPixelColor(prevPrimaryColor!!)
             setSecondaryPixelColor(prevSecondaryColor!!)
         }, 1000)
     }
 
-    if (prevTool != null) {
+    if (prevTool != null && prevOrientation != 0) {
         Handler().postDelayed({
             currentTool = if (Tools.findToolByName(prevTool!!) != null) {
                 Tools.findToolByName(prevTool!!)!!
@@ -46,31 +46,31 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
-    if (prevBrush != null) {
+    if (prevBrush != null && prevOrientation != 0) {
         Handler().postDelayed({
             pixelGridViewInstance.currentBrush = BrushesDatabase.toList().find { it.brushName == prevBrush }
         }, 1000)
     }
 
-    if (prevTab != 0) {
+    if (prevTab != 0 && prevOrientation != 0) {
         Handler().postDelayed({
             binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
         }, 1000)
     }
 
-    if (prevUndoToolbarButtonDisabledEnabledState) {
+    if (prevUndoToolbarButtonDisabledEnabledState && prevOrientation != 0) {
         Handler().postDelayed({
             menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
         }, 1000)
     }
 
-    if (prevRedoToolbarButtonDisabledEnabledState) {
+    if (prevRedoToolbarButtonDisabledEnabledState && prevOrientation != 0) {
         Handler().postDelayed({
             menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()
         }, 1000)
     }
 
-    if (prevUndoStackJsonStr != null) {
+    if (prevUndoStackJsonStr != null && prevOrientation != 0) {
         Handler().postDelayed({
             pixelGridViewInstance.bitmapActionData = JsonConverter.convertJsonStringToListOfBitmapAction(
                 prevUndoStackJsonStr!!
@@ -78,7 +78,7 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
-    if (prevRedoStackJsonStr != null) {
+    if (prevRedoStackJsonStr != null && prevOrientation != 0) {
         Handler().postDelayed({
             pixelGridViewInstance.undoStack = JsonConverter.convertJsonStringToListOfBitmapAction(
                 prevRedoStackJsonStr!!
