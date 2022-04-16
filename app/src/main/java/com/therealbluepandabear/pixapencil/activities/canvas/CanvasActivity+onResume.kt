@@ -2,9 +2,12 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.os.Handler
 import android.os.Looper
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.extendedOnResume() {
@@ -52,6 +55,34 @@ fun CanvasActivity.extendedOnResume() {
     if (prevTab != 0) {
         Handler().postDelayed({
             binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
+        }, 1000)
+    }
+
+    if (prevUndoToolbarButtonDisabledEnabledState) {
+        Handler().postDelayed({
+            menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
+        }, 1000)
+    }
+
+    if (prevRedoToolbarButtonDisabledEnabledState) {
+        Handler().postDelayed({
+            menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()
+        }, 1000)
+    }
+
+    if (prevUndoStackJsonStr != null) {
+        Handler().postDelayed({
+            pixelGridViewInstance.bitmapActionData = JsonConverter.convertJsonStringToListOfBitmapAction(
+                prevUndoStackJsonStr!!
+            ).toMutableList()
+        }, 1000)
+    }
+
+    if (prevRedoStackJsonStr != null) {
+        Handler().postDelayed({
+            pixelGridViewInstance.undoStack = JsonConverter.convertJsonStringToListOfBitmapAction(
+                prevRedoStackJsonStr!!
+            ).toMutableList()
         }, 1000)
     }
 }

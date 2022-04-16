@@ -77,6 +77,10 @@ var prevSecondaryColor: Int? = null
 var prevTool: String? = null
 var prevBrush: String? = null
 var prevTab: Int = 0
+var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
+var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
+var prevUndoStackJsonStr: String? = null
+var prevRedoStackJsonStr: String? = null
 
 var currentTab = 0
 

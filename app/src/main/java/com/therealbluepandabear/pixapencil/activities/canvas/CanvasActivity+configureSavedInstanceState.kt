@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.os.Bundle
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun configureSavedInstanceState(savedInstanceState: Bundle?) {
@@ -12,5 +13,17 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevTool = savedInstanceState.getString(StringConstants.prevToolBundleIdentifier)
         prevBrush = savedInstanceState.getString(StringConstants.prevBrushBundleIdentifier)
         prevTab = savedInstanceState.getInt(StringConstants.prevTabBundleIdentifier)
+        prevUndoStackJsonStr = savedInstanceState.getString(StringConstants.prevUndoStackJsonStrIdentifier)
+        prevRedoStackJsonStr = savedInstanceState.getString(StringConstants.prevRedoStackJsonStrIdentifier)
+        prevUndoToolbarButtonDisabledEnabledState = prevUndoStackJsonStr?.let {
+            JsonConverter.convertJsonStringToListOfBitmapAction(
+                it
+            ).isNotEmpty()
+        } == true
+        prevRedoToolbarButtonDisabledEnabledState = prevUndoStackJsonStr?.let {
+            JsonConverter.convertJsonStringToListOfBitmapAction(
+                it
+            ).isNotEmpty()
+        } == true
     }
 }

@@ -61,7 +61,7 @@ class FindAndReplaceFragment : Fragment() {
             fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
                 ColorPalette(
                     null,
-                    JsonConverter.convertListOfIntToJsonString(paramCanvasColors)
+                    JsonConverter.convertListToJsonString(paramCanvasColors)
                 ), FragmentFindAndReplaceCanvasColorsCaller(binding), false
             )
         }
@@ -76,7 +76,7 @@ class FindAndReplaceFragment : Fragment() {
             fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
                 ColorPalette(
                     null,
-                    JsonConverter.convertListOfIntToJsonString(ColorDatabase.toList())
+                    JsonConverter.convertListToJsonString(ColorDatabase.toList())
                 ), FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
             )
         }

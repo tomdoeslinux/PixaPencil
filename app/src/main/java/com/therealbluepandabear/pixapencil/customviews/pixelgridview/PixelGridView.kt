@@ -31,8 +31,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
     var prevX: Int? = null
     var prevY: Int? = null
 
-    val bitmapActionData: MutableList<BitmapAction> = mutableListOf()
-    val undoStack: MutableList<BitmapAction> = mutableListOf()
+    var bitmapActionData: MutableList<BitmapAction> = mutableListOf()
+    var undoStack: MutableList<BitmapAction> = mutableListOf()
 
     var currentBitmapAction: BitmapAction? = null
 

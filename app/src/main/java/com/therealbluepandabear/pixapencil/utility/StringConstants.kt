@@ -46,6 +46,10 @@ object StringConstants {
     const val prevToolBundleIdentifier = "PrevTool"
     const val prevBrushBundleIdentifier = "PrevBrush"
     const val prevTabBundleIdentifier = "PrevTab"
+    const val prevUndoToolbarButtonDisabledEnabledStateIdentifier = "prevUndoToolbarButtonDisabledEnabledState"
+    const val prevRedoToolbarButtonDisabledEnabledStateIdentifier = "prevRedoToolbarButtonDisabledEnabledState"
+    const val prevUndoStackJsonStrIdentifier = "prevUndoStackJsonStr"
+    const val prevRedoStackJsonStrIdentifier = "prevRedoStackJsonStr"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"

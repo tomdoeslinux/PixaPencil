@@ -16,7 +16,7 @@ fun extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
     val color = copy2[colorIndex]
 
     AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
-        JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
+        JsonConverter.convertListToJsonString(extractedJson), colorPalette.objId)
 
     val colorPaletteName = colorPalette.colorPaletteName
 
@@ -24,6 +24,6 @@ fun extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
         extractedJson.add(colorIndex, color)
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
-            JsonConverter.convertListOfIntToJsonString(extractedJson), colorPalette.objId)
+            JsonConverter.convertListToJsonString(extractedJson), colorPalette.objId)
     }
 }

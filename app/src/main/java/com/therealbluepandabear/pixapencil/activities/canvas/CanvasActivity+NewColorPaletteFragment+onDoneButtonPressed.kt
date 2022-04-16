@@ -20,7 +20,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
                 ColorPalette(
                     colorPaletteTitle,
-                    JsonConverter.convertListOfIntToJsonString(listOf(Color.TRANSPARENT))
+                    JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT))
                 )
             )
         } else {
@@ -30,7 +30,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
                 ColorPalette(
                     colorPaletteTitle,
-                    JsonConverter.convertListOfIntToJsonString(data)
+                    JsonConverter.convertListToJsonString(data)
                 )
             )
         }
