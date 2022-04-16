@@ -5,8 +5,10 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 
 ... or the official Discord server: https://discord.gg/Ytm7WBMNz9
 
-## Android market
+## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store and F-Droid, as well as a .apk file.
+
+**⚠️ Important:** PixaPencil will only run on version 9.0 (Pie) or above!
 
 ## Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
@@ -20,7 +22,7 @@ Here are two important issues that I have not been able to fix on my own:
 
 - _Large canvas grid problem:_ the grid tool works OK for smaller canvas sizes but struggles when the canvas size gets large as the lines become too thick. If anyone has any ideas how to fix this feel free to open a pull request or send me an email at **therealbluepandabear@gmail.com**. Note that this is a minor issue, as most people aren't going to be using the app for large canvas sizes, but it would be nice to fix.
 
-## Images
+## 🖼️ Images
 
 ![image](https://user-images.githubusercontent.com/50536495/152713363-a873fdd3-ecc6-4939-a495-28c4a35abbdb.png)
 ![image](https://user-images.githubusercontent.com/50536495/152713464-9049586a-2332-4625-b31d-99d822625879.png)
@@ -28,7 +30,7 @@ Here are two important issues that I have not been able to fix on my own:
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
 
-## License
+## 📜 License
 
 To disclaim, this repository is licensed under the MIT license.
 
@@ -36,7 +38,7 @@ For more info go to: https://choosealicense.com/licenses/mit/.
 
 _Do not use the name '**PixaPencil**' in your app/other product._
 
-## Features (as of March 29, 2022)
+## 📝 Features (as of March 29, 2022)
 - Pencil tool (https://youtu.be/Y77EkLLC8Lo?t=20)
 - Fill tool (https://youtu.be/Y77EkLLC8Lo?t=39)
 - Vertical mirror tool (https://youtu.be/Y77EkLLC8Lo?t=57)
@@ -73,13 +75,13 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 
 Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
 
-## Shoutout
+## 📣 Shoutout
 Thank you to:
 - _JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 - _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._ **(For all commits prior to 733.)**
 - And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app.
 
-## Other libraries used
+## 📚 Other libraries used
 Without these libraries, this app would not have been possible, so please check them out:
 
 - duanhong169 (https://github.com/duanhong169) - ColorPicker (https://github.com/duanhong169/ColorPicker)
