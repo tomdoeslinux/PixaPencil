@@ -68,7 +68,7 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Canvas filters (https://youtu.be/Y77EkLLC8Lo?t=403)
 - Custom color palettes (https://youtu.be/Y77EkLLC8Lo?t=457)
 - Brushes (https://youtu.be/Y77EkLLC8Lo?t=496)
-- Ability to select custom colors (https://youtu.be/Y77EkLLC8Lo?t=458)
+- Ability to select custom colors (https://youtu.be/Y77EkLLC8Lo?t=458) **[Outdated]**
 - Ability to unfavorite/favorite projects (https://youtu.be/Y77EkLLC8Lo?t=659)
 - Ability to export projects to a PNG/JPG file (https://youtu.be/Y77EkLLC8Lo?t=601)
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees (https://youtu.be/Y77EkLLC8Lo?t=538)
