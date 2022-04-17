@@ -7,6 +7,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Build
@@ -81,10 +83,26 @@ class FileHelperUtilities(private val context: Context) {
                 as TextInputLayout
 
         // Nested function? Is it a good practice? I don't think so, but it works.
-        fun createNewFile(file_: File, bmp: Bitmap =  outerCanvasInstance.fragmentHost.drawToBitmap()) {
+        fun createNewFile(file_: File, bmp: Bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()) {
             try {
+                var bmp_ = bmp
+
                 val outputStream = FileOutputStream(file_)
-                bmp.compress(compressionFormat, compressionOutputQuality, outputStream)
+
+                if (compressionFormat == Bitmap.CompressFormat.JPEG) {
+                    val newBitmap = Bitmap.createBitmap(
+                        bmp_.width,
+                        bmp_.height,
+                        bmp_.config
+                    )
+                    val canvas = Canvas(newBitmap)
+                    canvas.drawColor(Color.WHITE)
+                    canvas.drawBitmap(bmp_, 0f, 0f, null)
+
+                    bmp_ = newBitmap
+                }
+
+                bmp_.compress(compressionFormat, compressionOutputQuality, outputStream)
                 outputStream.close()
             } catch (exception: Exception) {
                 exceptionMessage = exception.message
