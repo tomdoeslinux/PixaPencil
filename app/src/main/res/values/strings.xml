@@ -86,6 +86,8 @@
     <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
 
+    <string name="saveFileUnderNewNameAlert_new_name_str">New name</string>
+
     <string name="activityMainTopAppMenu_community_str">Community</string>
 
     <string name="activityCanvasTopAppMenu_find_and_replace_str">Find and Replace</string>
@@ -129,6 +131,7 @@
     <string name="color_picker_tool_info_text_in_code_str">Get the color at the specified pixel.</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
 
+    <string name="exception_invalid_title_str">Title must contain text</string>
     <string name="exception_invalid_width_height_message_in_code_str">Invalid width/height value</string>
     <string name="exception_invalid_radius_strength_message_in_code_str">Invalid radius/strength</string>
     <string name="exception_accessing_negative_index_message_in_code_str">Cannot access pixel art object with a negative index in list!</string>
@@ -141,6 +144,12 @@
     <string name="dialog_clear_canvas_message_in_code_str">Are you sure you want to clear the canvas?</string>
     <string name="dialog_unsaved_changes_title_in_code_str">Unsaved changes</string>
     <string name="dialog_unsaved_changes_message_in_code_str">You have unsaved changes, are you sure you want to exit?</string>
+    <string name="dialog_file_exists_title_in_code_str">File already exists</string>
+    <string name="dialog_file_exists_message_in_code_str">%1$s already exists, replace it or save under a new name?</string>
+    <string name="dialog_file_exists_positive_button_text_in_code_str">Replace</string>
+    <string name="dialog_file_exists_negative_button_text_in_code_str">Save under new name</string>
+    <string name="dialog_save_under_new_name_title_in_code_str">Save under a new name</string>
+    <string name="dialog_save_under_new_name_text_in_code_str">Make sure your new name is unique!</string>
 
     <string name="snackbar_view_exception_info_button_text_in_code_str">View</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Cannot delete default color palette</string>

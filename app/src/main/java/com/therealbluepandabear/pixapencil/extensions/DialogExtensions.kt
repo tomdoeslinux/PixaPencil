@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.R
 
 fun Activity.showDialog(
     dialogTitle: String,
-    dialogMessage: String,
+    dialogMessage: String?,
     dialogPositiveButtonText: String,
     dialogPositiveButtonAction: DialogInterface.OnClickListener,
     dialogNegativeButtonText: String?,
