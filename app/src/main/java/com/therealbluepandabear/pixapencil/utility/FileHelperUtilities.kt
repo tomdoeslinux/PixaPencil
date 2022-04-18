@@ -85,24 +85,24 @@ class FileHelperUtilities(private val context: Context) {
         // Nested function? Is it a good practice? I don't think so, but it works.
         fun createNewFile(file_: File, bmp: Bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()) {
             try {
-                var bmp_ = bmp
+                var bmp2 = bmp
 
                 val outputStream = FileOutputStream(file_)
 
                 if (compressionFormat == Bitmap.CompressFormat.JPEG) {
                     val newBitmap = Bitmap.createBitmap(
-                        bmp_.width,
-                        bmp_.height,
-                        bmp_.config
+                        bmp2.width,
+                        bmp2.height,
+                        bmp2.config
                     )
                     val canvas = Canvas(newBitmap)
                     canvas.drawColor(Color.WHITE)
-                    canvas.drawBitmap(bmp_, 0f, 0f, null)
+                    canvas.drawBitmap(bmp2, 0f, 0f, null)
 
-                    bmp_ = newBitmap
+                    bmp2 = newBitmap
                 }
 
-                bmp_.compress(compressionFormat, compressionOutputQuality, outputStream)
+                bmp2.compress(compressionFormat, compressionOutputQuality, outputStream)
                 outputStream.close()
             } catch (exception: Exception) {
                 exceptionMessage = exception.message
