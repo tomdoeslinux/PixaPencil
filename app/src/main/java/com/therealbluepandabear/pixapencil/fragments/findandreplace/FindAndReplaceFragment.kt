@@ -10,13 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
-import com.therealbluepandabear.pixapencil.database.ColorDatabase
+import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.utility.ObjectConstants
 
 
 class FindAndReplaceFragment : Fragment() {
@@ -73,12 +75,11 @@ class FindAndReplaceFragment : Fragment() {
                 LinearLayoutManager(currentActivityInstance).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
-            fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                ColorPalette(
-                    null,
-                    JsonConverter.convertListToJsonString(ColorDatabase.toList())
-                ), FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
-            )
+            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.ObjectGlobalScopeLifecycleOwner) {
+                fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
+                    it[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
+                )
+            }
         }
     }
 

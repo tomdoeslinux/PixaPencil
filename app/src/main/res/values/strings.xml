@@ -165,4 +165,5 @@
     <string name="foo">We would love to have you on our
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
+    <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
 </resources>

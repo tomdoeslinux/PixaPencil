@@ -87,3 +87,4 @@ var currentTab = 0
 lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
 
+var selectedColorPaletteIndex: Int = 0
