@@ -58,6 +58,26 @@
         </menu>
     </item>
 
+    <item app:showAsAction="ifRoom"
+        android:iconTint="@color/white"
+        android:title="@string/activityCanvasTopAppMenu_symmetry_str" >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/appMenu_symmetry_none_subItem"
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_none_str"/>
+
+                <item android:id="@+id/appMenu_symmetry_horizontal_subItem"
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_horizontal_str"/>
+
+                <item android:id="@+id/appMenu_symmetry_vertical_subItem"
+                      android:title="@string/activityCanvasTopAppMenu_symmetry_vertical_str"/>
+
+                <item android:id="@+id/appMenu_symmetry_quad_subItem"
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_quad_str"/>
+            </group>
+        </menu>
+    </item>
+
     <item android:id="@+id/activityCanvasTopAppMenu_undo"
         android:icon="@drawable/ic_baseline_undo_24"
         android:iconTint="@color/white"

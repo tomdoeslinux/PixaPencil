@@ -42,22 +42,6 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.VerticalMirrorToolIdentifier -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsVerticalMirrorButton)
-                } else {
-                    onOptionTapped(binding.fragmentToolsVerticalMirrorButtonH)
-                }
-            }
-
-            StringConstants.HorizontalMirrorToolIdentifier -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsHorizontalMirrorButton)
-                } else {
-                    onOptionTapped(binding.fragmentToolsHorizontalMirrorButtonH)
-                }
-            }
-
             StringConstants.LineToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsLineButton)

@@ -62,35 +62,6 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back_land"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_verticalMirrorButton"
-                    style="@style/canvas_activity_button_tool_style_land"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description"
-                    app:srcCompat="@drawable/ic_mirror" />
-            </FrameLayout>
-
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back_land"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_horizontalMirrorButton"
-                    style="@style/canvas_activity_button_tool_style_land"
-                    android:contentDescription="@string/fragmentTools_horizontal_mirror_tool_content_description"
-                    android:rotation="90"
-                    app:srcCompat="@drawable/ic_mirror" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back_land"
                     android:contentDescription="@string/fragmentTools_line_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_lineButton"
@@ -334,35 +305,6 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_fill_tool_content_description"
                     app:srcCompat="@drawable/ic_format_color_fill" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_verticalMirrorButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description"
-                    app:srcCompat="@drawable/ic_mirror" />
-            </FrameLayout>
-
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_vertical_mirror_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_horizontalMirrorButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_horizontal_mirror_tool_content_description"
-                    android:rotation="90"
-                    app:srcCompat="@drawable/ic_mirror" />
-
             </FrameLayout>
 
             <FrameLayout

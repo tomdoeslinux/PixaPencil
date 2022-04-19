@@ -166,4 +166,9 @@
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
     <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quad</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">Symmetry</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none_str">None</string>
 </resources>

@@ -6,6 +6,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -83,6 +84,28 @@ fun CanvasActivity.extendedOnResume() {
             pixelGridViewInstance.undoStack = JsonConverter.convertJsonStringToListOfBitmapAction(
                 prevRedoStackJsonStr!!
             ).toMutableList()
+        }, 1000)
+    }
+
+    if (prevSymmetryModeStr != null && prevOrientation != 0) {
+        Handler().postDelayed({
+            pixelGridViewInstance.symmetryMode = SymmetryMode.values().first { it.symmetryName == prevSymmetryModeStr }
+
+            when (pixelGridViewInstance.symmetryMode) {
+                SymmetryMode.Horizontal -> {
+                    menu.findItem(R.id.appMenu_symmetry_horizontal_subItem).isChecked = true
+                }
+
+                SymmetryMode.Vertical -> {
+                    menu.findItem(R.id.appMenu_symmetry_vertical_subItem).isChecked = true
+                }
+
+                SymmetryMode.Quad -> {
+                    menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
+                }
+
+                else -> { }
+            }
         }, 1000)
     }
 }

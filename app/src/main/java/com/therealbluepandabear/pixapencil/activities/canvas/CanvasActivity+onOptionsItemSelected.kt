@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Bitmap
 import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showDialog
@@ -103,6 +104,26 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             }
 
             pixelGridViewInstance.invalidate()
+        }
+
+        R.id.appMenu_symmetry_none_subItem -> {
+            menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
+            pixelGridViewInstance.symmetryMode = null
+        }
+
+        R.id.appMenu_symmetry_horizontal_subItem -> {
+            menu.findItem(R.id.appMenu_symmetry_horizontal_subItem).isChecked = true
+            pixelGridViewInstance.symmetryMode = SymmetryMode.Horizontal
+        }
+
+        R.id.appMenu_symmetry_vertical_subItem -> {
+            menu.findItem(R.id.appMenu_symmetry_vertical_subItem).isChecked = true
+            pixelGridViewInstance.symmetryMode = SymmetryMode.Vertical
+        }
+
+        R.id.appMenu_symmetry_quad_subItem -> {
+            menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
+            pixelGridViewInstance.symmetryMode = SymmetryMode.Quad
         }
     }
     return true

@@ -15,18 +15,6 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
         true,
     ),
 
-    HorizontalMirrorTool(
-        StringConstants.HorizontalMirrorToolIdentifier,
-        ToolFamily.Mirror,
-        true,
-    ),
-
-    VerticalMirrorTool(
-        StringConstants.VerticalMirrorToolIdentifier,
-        ToolFamily.Mirror,
-        true,
-    ),
-
     LineTool(
         StringConstants.LineToolIdentifier,
         ToolFamily.None,

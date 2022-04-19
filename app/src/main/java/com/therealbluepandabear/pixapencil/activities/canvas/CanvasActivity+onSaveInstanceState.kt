@@ -39,5 +39,9 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
             StringConstants.prevRedoStackJsonStrIdentifier,
             JsonConverter.convertListToJsonString(pixelGridViewInstance.undoStack)
         )
+        outState.putString(
+            StringConstants.prevSymmetryModeStrIdentifier,
+            pixelGridViewInstance.symmetryMode?.symmetryName,
+        )
     }
 }

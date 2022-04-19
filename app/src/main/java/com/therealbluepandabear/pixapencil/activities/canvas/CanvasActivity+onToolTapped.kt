@@ -22,14 +22,6 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.FillTool
         }
 
-        StringConstants.VerticalMirrorToolIdentifier -> {
-            currentTool = Tools.VerticalMirrorTool
-        }
-
-        StringConstants.HorizontalMirrorToolIdentifier -> {
-            currentTool = Tools.HorizontalMirrorTool
-        }
-
         StringConstants.LineToolIdentifier -> {
             currentTool = Tools.LineTool
         }

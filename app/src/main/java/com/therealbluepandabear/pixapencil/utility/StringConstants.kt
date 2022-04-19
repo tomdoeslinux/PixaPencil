@@ -16,8 +16,6 @@ object StringConstants {
 
     const val PencilToolIdentifier = "PencilTool"
     const val FillToolIdentifier = "FillTool"
-    const val VerticalMirrorToolIdentifier = "VerticalMirrorTool"
-    const val HorizontalMirrorToolIdentifier = "HorizontalMirrorTool"
     const val LineToolIdentifier = "LineTool"
     const val RectangleToolIdentifier = "RectangleTool"
     const val OutlinedRectangleToolIdentifier = "OutlinedRectangleTool"
@@ -46,10 +44,9 @@ object StringConstants {
     const val prevToolBundleIdentifier = "PrevTool"
     const val prevBrushBundleIdentifier = "PrevBrush"
     const val prevTabBundleIdentifier = "PrevTab"
-    const val prevUndoToolbarButtonDisabledEnabledStateIdentifier = "prevUndoToolbarButtonDisabledEnabledState"
-    const val prevRedoToolbarButtonDisabledEnabledStateIdentifier = "prevRedoToolbarButtonDisabledEnabledState"
     const val prevUndoStackJsonStrIdentifier = "prevUndoStackJsonStr"
     const val prevRedoStackJsonStrIdentifier = "prevRedoStackJsonStr"
+    const val prevSymmetryModeStrIdentifier = "prevSymmetryModeStr"
 
     const val DefaultToolbarItemColor = "#0099cc"
     const val PixelGridViewCheckerboardColor = "#d9d9d9"

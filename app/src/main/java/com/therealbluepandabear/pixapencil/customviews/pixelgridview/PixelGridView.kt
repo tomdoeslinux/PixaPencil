@@ -13,6 +13,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.BitmapAction
@@ -65,6 +66,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     private var st = false
 
+    var symmetryMode: SymmetryMode? = null
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -155,8 +157,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         extendedApplyBitmapFilter(lambda)
     }
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false, saveToBitmapAction: Boolean = true) {
-        extendedOverrideSetPixel(x, y, color, ignoreBrush, saveToBitmapAction)
+    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false, saveToBitmapAction: Boolean = true, ignoreSymmetry: Boolean = false) {
+        extendedOverrideSetPixel(x, y, color, ignoreBrush, saveToBitmapAction, ignoreSymmetry)
     }
 
     fun replaceBitmap(newBitmap: Bitmap) {

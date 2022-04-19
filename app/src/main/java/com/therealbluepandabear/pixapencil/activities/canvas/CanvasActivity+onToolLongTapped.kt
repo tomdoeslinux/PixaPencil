@@ -23,22 +23,6 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.VerticalMirrorToolIdentifier -> {
-            if (currentTool == Tools.VerticalMirrorTool) {
-                showSimpleInfoDialog(
-                    getString(R.string.vertical_mirror_tool_info_title_in_code_str),
-                    getString(R.string.vertical_mirror_tool_info_text_in_code_str))
-            }
-        }
-
-        StringConstants.HorizontalMirrorToolIdentifier -> {
-            if (currentTool == Tools.HorizontalMirrorTool) {
-                showSimpleInfoDialog(
-                    getString(R.string.horizontal_mirror_tool_info_title_in_code_str),
-                    getString(R.string.horizontal_mirror_tool_info_text_in_code_str))
-            }
-        }
-
         StringConstants.LineToolIdentifier -> {
             if (currentTool == Tools.LineTool) {
                 showSimpleInfoDialog(

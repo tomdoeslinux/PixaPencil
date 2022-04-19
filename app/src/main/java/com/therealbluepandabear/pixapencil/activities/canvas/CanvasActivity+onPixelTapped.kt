@@ -22,14 +22,6 @@ fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.VerticalMirrorTool -> {
-            verticalMirrorToolOnPixelTapped(coordinatesTapped)
-        }
-
-        Tools.HorizontalMirrorTool -> {
-            horizontalMirrorToolOnPixelTapped(coordinatesTapped)
-        }
-
         Tools.FillTool -> {
             fillToolOnPixelTapped(coordinatesTapped)
         }

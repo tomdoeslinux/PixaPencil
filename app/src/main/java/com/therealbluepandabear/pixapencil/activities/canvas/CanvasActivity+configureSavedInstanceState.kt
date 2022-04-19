@@ -25,5 +25,6 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
                 it
             ).isNotEmpty()
         } == true
+        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.prevSymmetryModeStrIdentifier)
     }
 }

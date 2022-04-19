@@ -81,6 +81,7 @@ var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it
 var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
 var prevUndoStackJsonStr: String? = null
 var prevRedoStackJsonStr: String? = null
+var prevSymmetryModeStr: String? = null
 
 var currentTab = 0
 

@@ -119,66 +119,6 @@ fun ToolsFragment.setOnClickListeners() {
         // 3 //
         // 4 //
         // 5 //
-        // *************** // VMirror Tool
-
-        fragmentToolsVerticalMirrorButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.VerticalMirrorToolIdentifier)
-        }
-
-        fragmentToolsVerticalMirrorButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.VerticalMirrorToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsVerticalMirrorButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.VerticalMirrorToolIdentifier)
-            true
-        }
-
-        fragmentToolsVerticalMirrorButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.VerticalMirrorToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // HMirror Tool
-
-        fragmentToolsHorizontalMirrorButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.HorizontalMirrorToolIdentifier)
-        }
-
-        fragmentToolsHorizontalMirrorButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.HorizontalMirrorToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsHorizontalMirrorButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.HorizontalMirrorToolIdentifier)
-            true
-        }
-
-        fragmentToolsHorizontalMirrorButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.HorizontalMirrorToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
         // *************** // Line Tool
 
         fragmentToolsLineButton.setOnClickListener {
