@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import com.therealbluepandabear.pixapencil.activities.canvas.saved
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun PixelGridView.extendedReplacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
@@ -17,6 +18,8 @@ fun PixelGridView.extendedReplacePixelsByColor(colorToFind: Int, colorToReplace:
     }
 
     bitmapActionData.add(currentBitmapAction!!)
+    pixelGridViewInstance.currentBitmapAction = null
 
     invalidate()
+
 }
