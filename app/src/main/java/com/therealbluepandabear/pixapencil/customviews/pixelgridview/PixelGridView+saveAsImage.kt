@@ -25,7 +25,7 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
         if (outputCode == OutputCode.Success) {
             file = _file
 
-            showSnackbarWithAction("Successfully saved $projectTitle as $formatName", SnackbarDuration.Medium, context.getString(R.string.snackbar_view_exception_info_button_text_in_code_str)) {
+            showSnackbarWithAction(context.getString(R.string.snackbar_image_successfully_saved_in_code_str, projectTitle, formatName), SnackbarDuration.Medium, context.getString(R.string.snackbar_view_exception_info_button_text_in_code_str)) {
                 fileHelperUtilitiesInstance.openImageFromUri(Uri.fromFile(file)) { outputCode, exceptionMessage_2 ->
                     if (outputCode == OutputCode.Failure) {
                         if (exceptionMessage_2 != null) {
@@ -43,12 +43,12 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
             }
         } else {
             if (exceptionMessage_1 != null) {
-                showSnackbarWithAction("Error saving $projectTitle as $formatName", SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
+                showSnackbarWithAction(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
                     (context as Activity)
                         .showDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_1, context.getString(R.string.dialog_positive_button_text_in_code_str), { _, _ -> }, null, null, null)
                 }
             } else {
-                showSnackbar("Error saving $projectTitle as $formatName", SnackbarDuration.Default)
+                showSnackbar(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default)
             }
         }
     }
