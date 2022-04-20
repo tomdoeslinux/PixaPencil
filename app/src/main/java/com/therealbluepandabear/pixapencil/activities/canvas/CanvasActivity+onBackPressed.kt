@@ -6,9 +6,12 @@ import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.navigateHome
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showItems
+import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnBackPressed() {
+    Flags.PressedBackToExit = true
+
     if (!saved && currentFragmentInstance == null) {
         showDialog(
             getString(R.string.dialog_unsaved_changes_title_in_code_str),

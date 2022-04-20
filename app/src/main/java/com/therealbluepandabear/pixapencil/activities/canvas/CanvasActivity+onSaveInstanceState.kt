@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
-    if (!Flags.PressedBackFromImg) {
+    if (!Flags.PressedBackFromImg && !Flags.PressedBackToExit) {
         outState.putInt(
             StringConstants.prevOrientationBundleIdentifier,
             resources.configuration.orientation
