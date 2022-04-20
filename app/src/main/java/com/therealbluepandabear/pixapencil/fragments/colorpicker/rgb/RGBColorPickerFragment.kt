@@ -15,9 +15,18 @@ import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.registerEventListener
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
+import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
 
 
 class RGBColorPickerFragment : Fragment() {
+    lateinit var keyboardVisibilityEventListenerRegistrar: Unregistrar
+
+    fun unregisterKeyboardVisiblityEventListenerRegistrar() {
+        if (::keyboardVisibilityEventListenerRegistrar.isInitialized) {
+            keyboardVisibilityEventListenerRegistrar.unregister()
+        }
+    }
+
     private fun setup() {
         binding.apply {
             fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
@@ -169,7 +178,7 @@ class RGBColorPickerFragment : Fragment() {
             }
         }
 
-        val r = registerEventListener(requireActivity(),
+        keyboardVisibilityEventListenerRegistrar = registerEventListener(requireActivity(),
             object : KeyboardVisibilityEventListener {
                 override fun onVisibilityChanged(isOpen: Boolean) {
                     if (!isOpen) {
@@ -183,8 +192,6 @@ class RGBColorPickerFragment : Fragment() {
                     }
                 }
             })
-        r.unregister()
-
     }
 
     companion object {
