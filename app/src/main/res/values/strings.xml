@@ -13,7 +13,7 @@
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
 
-    <string name="fragmentNewCanvas_project_name_str">Project name</string>
+    <string name="fragmentNewCanvas_project_name_str">Name</string>
     <string name="fragmentTools_pencil_tool_content_description">Pencil Tool</string>
 
     <string name="activityCanvas_tab_brushes_str">Brushes</string>
