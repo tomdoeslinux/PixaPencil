@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentRGBColorPickerBinding
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
+import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
+import com.therealbluepandabear.pixapencil.utility.IntConstants
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.registerEventListener
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
 
@@ -32,6 +34,10 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerValueG.setText(green.toInt().toString())
             fragmentRGBColorPickerValueB.setText(blue.toInt().toString())
         }
+
+        binding.textInputLayout1.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
+        binding.textInputLayout2.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
+        binding.textInputLayout3.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
     }
 
     private fun updateColorPickerColorPreview() {

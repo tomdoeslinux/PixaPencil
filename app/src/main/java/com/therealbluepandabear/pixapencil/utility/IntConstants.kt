@@ -14,4 +14,7 @@ object IntConstants {
 
     var SprayRadius = 10
     var SprayStrength = 10
+
+    const val RGBMin = 0
+    const val RGBMax = 255
 }
