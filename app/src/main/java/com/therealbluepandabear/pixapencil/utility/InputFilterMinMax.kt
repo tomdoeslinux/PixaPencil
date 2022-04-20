@@ -8,7 +8,7 @@ import android.text.Spanned
  * I cannot specifically give credit to any user for this solution.
  */
 
-class InputFilterMinMax(private val min: Float, private val max: Float) : InputFilter {
+class InputFilterMinMax(private val min: Int, private val max: Int) : InputFilter {
     override fun filter(
         charSequenceSource: CharSequence?,
         start: Int,
@@ -17,7 +17,7 @@ class InputFilterMinMax(private val min: Float, private val max: Float) : InputF
         destStart: Int,
         destEnd: Int
     ): CharSequence? {
-        val numberInput: Float = Integer.parseInt(dest.toString() + charSequenceSource.toString()).toFloat()
+        val numberInput: Int = Integer.parseInt(dest.toString() + charSequenceSource.toString())
 
         return try {
             if (numberInput !in min..max) {

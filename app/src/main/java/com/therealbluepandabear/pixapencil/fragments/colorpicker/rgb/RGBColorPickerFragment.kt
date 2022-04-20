@@ -35,9 +35,9 @@ class RGBColorPickerFragment : Fragment() {
             fragmentRGBColorPickerValueB.setText(blue.toInt().toString())
         }
 
-        binding.textInputLayout1.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
-        binding.textInputLayout2.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
-        binding.textInputLayout3.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin.toFloat(), IntConstants.RGBMax.toFloat()))
+        binding.textInputLayout1.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin, IntConstants.RGBMax))
+        binding.textInputLayout2.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin, IntConstants.RGBMax))
+        binding.textInputLayout3.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin, IntConstants.RGBMax))
     }
 
     private fun updateColorPickerColorPreview() {
