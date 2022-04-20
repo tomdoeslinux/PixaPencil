@@ -5,10 +5,11 @@ import android.os.Bundle
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
-    if (resources.configuration.orientation != 0) {
+    if (!Flags.PressedBackFromImg) {
         outState.putInt(
             StringConstants.prevOrientationBundleIdentifier,
             resources.configuration.orientation
@@ -43,5 +44,7 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
             StringConstants.prevSymmetryModeStrIdentifier,
             pixelGridViewInstance.symmetryMode?.symmetryName,
         )
+    } else {
+        Flags.PressedBackFromImg = false
     }
 }

@@ -11,6 +11,7 @@ import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
+import com.therealbluepandabear.pixapencil.utility.Flags
 import java.io.File
 
 lateinit var file: File
@@ -35,6 +36,8 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
                         } else {
                             showSnackbar(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default)
                         }
+                    } else {
+                        Flags.PressedBackFromImg = true
                     }
                 }
             }
