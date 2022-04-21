@@ -10,20 +10,29 @@ fun NewProjectFragment.setOnClickListeners() {
     binding.apply {
         fragmentNewCanvasDoneButton.setOnClickListener {
             val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
-            val widthValue =
-                Integer.parseInt(fragmentNewCanvasWidthTextInputEditText.text.toString())
-            val heightValue =
-                Integer.parseInt(fragmentNewCanvasHeightTextInputEditText.text.toString())
+
+            val widthValue: Int = binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull() ?: 0
+            val heightValue: Int = binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull() ?: 0
+
 
             if (widthValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax
                 ||
-                heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax) {
+                heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax
+            ) {
                 HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 root.showSnackbar(
                     getString(R.string.exception_invalid_width_height_message_in_code_str),
                     SnackbarDuration.Default
                 )
             } else if (title.isBlank()) {
+                root.showSnackbar(
+                    getString(R.string.exception_invalid_title_str),
+                    SnackbarDuration.Default
+                )
+            } else if (
+                binding.fragmentNewCanvasWidthTextInputEditText.text.toString().isBlank()
+                ||
+                binding.fragmentNewCanvasHeightTextInputEditText.text.toString().isBlank()) {
                 root.showSnackbar(
                     getString(R.string.exception_invalid_title_str),
                     SnackbarDuration.Default
