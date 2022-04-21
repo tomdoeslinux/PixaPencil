@@ -35,21 +35,21 @@ fun CanvasActivity.extendedOnResume() {
         }, 1000)
     }
 
-    if (prevTool != null && prevOrientation != 0) {
+    if (prevToolStr != null && prevOrientation != 0) {
         Handler().postDelayed({
-            currentTool = if (Tools.findToolByName(prevTool!!) != null) {
-                Tools.findToolByName(prevTool!!)!!
+            currentTool = if (Tools.findToolByName(prevToolStr!!) != null) {
+                Tools.findToolByName(prevToolStr!!)!!
             } else {
                 Tools.PencilTool
             }
 
-            toolsFragmentInstance?.tapOnToolByName(prevTool!!)
+            toolsFragmentInstance?.tapOnToolByName(prevToolStr!!)
         }, 1000)
     }
 
-    if (prevBrush != null && prevOrientation != 0) {
+    if (prevBrushStr != null && prevOrientation != 0) {
         Handler().postDelayed({
-            pixelGridViewInstance.currentBrush = BrushesDatabase.toList().find { it.brushName == prevBrush }
+            pixelGridViewInstance.currentBrush = BrushesDatabase.toList().find { it.brushName == prevBrushStr }
         }, 1000)
     }
 
