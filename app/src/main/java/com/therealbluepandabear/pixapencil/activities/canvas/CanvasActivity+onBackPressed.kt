@@ -26,7 +26,7 @@ fun CanvasActivity.extendedOnBackPressed() {
             (currentFragmentInstance as RGBColorPickerFragment).unregisterKeyboardVisiblityEventListenerRegistrar()
         }
 
-        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
+        navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.Extras.ProjectTitleExtra)!!)
         currentFragmentInstance = null
         menu.showItems()
         switchSelectedColorIndicator()

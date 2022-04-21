@@ -50,7 +50,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
 
             with (sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, pixelGridViewInstance.pixelPerfectMode)
+                putBoolean(StringConstants.Identifiers.SharedPreferencePixelPerfectIdentifier, pixelGridViewInstance.pixelPerfectMode)
                 apply()
             }
         }
@@ -99,7 +99,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
 
             with (sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.SharedPreferenceGridIdentifier, pixelGridViewInstance.gridEnabled)
+                putBoolean(StringConstants.Identifiers.SharedPreferenceGridIdentifier, pixelGridViewInstance.gridEnabled)
                 apply()
             }
 

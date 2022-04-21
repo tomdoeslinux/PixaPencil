@@ -21,12 +21,12 @@ class ToolsFragment : Fragment() {
             onOptionTapped(binding.fragmentToolsPencilButtonH)
         }
 
-        caller.onToolTapped(StringConstants.PencilToolIdentifier)
+        caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
     }
 
     fun tapOnToolByName(toolName: String) {
         when (toolName) {
-            StringConstants.PencilToolIdentifier -> {
+            StringConstants.Identifiers.PencilToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsPencilButton)
                 } else {
@@ -34,7 +34,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.FillToolIdentifier  -> {
+            StringConstants.Identifiers.FillToolIdentifier  -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsFillButton)
                 } else {
@@ -42,7 +42,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.LineToolIdentifier -> {
+            StringConstants.Identifiers.LineToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsLineButton)
                 } else {
@@ -50,7 +50,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.RectangleToolIdentifier -> {
+            StringConstants.Identifiers.RectangleToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsRectangleButton)
                 } else {
@@ -58,7 +58,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.OutlinedRectangleToolIdentifier -> {
+            StringConstants.Identifiers.OutlinedRectangleToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsOutlinedRectangleButton)
                 } else {
@@ -66,7 +66,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.SquareToolIdentifier -> {
+            StringConstants.Identifiers.SquareToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsSquareButton)
                 } else {
@@ -74,7 +74,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.OutlinedSquareToolIdentifier -> {
+            StringConstants.Identifiers.OutlinedSquareToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsOutlinedSquareButton)
                 } else {
@@ -82,7 +82,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.CircleToolIdentifier -> {
+            StringConstants.Identifiers.CircleToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsCircleButton)
                 } else {
@@ -90,7 +90,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.OutlinedCircleToolIdentifier -> {
+            StringConstants.Identifiers.OutlinedCircleToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsOutlinedCircleButton)
                 } else {
@@ -98,7 +98,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.SprayToolIdentifier -> {
+            StringConstants.Identifiers.SprayToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsSprayButton)
                 } else {
@@ -106,7 +106,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.PolygonToolIdentifier -> {
+            StringConstants.Identifiers.PolygonToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsPolygonButton)
                 } else {
@@ -114,7 +114,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.DitherToolIdentifier -> {
+            StringConstants.Identifiers.DitherToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsDitherButton)
                 } else {
@@ -122,7 +122,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.DarkenToolIdentifier  -> {
+            StringConstants.Identifiers.DarkenToolIdentifier  -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsDarkenButton)
                 } else {
@@ -130,7 +130,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.LightenToolIdentifier  -> {
+            StringConstants.Identifiers.LightenToolIdentifier  -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsLightenButton)
                 } else {
@@ -138,7 +138,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.ColorPickerToolIdentifier -> {
+            StringConstants.Identifiers.ColorPickerToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsColorPickerButton)
                 } else {
@@ -146,7 +146,7 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.EraseToolIdentifier -> {
+            StringConstants.Identifiers.EraseToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsEraseButton)
                 } else {

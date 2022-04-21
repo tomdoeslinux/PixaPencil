@@ -11,37 +11,37 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     if (!Flags.PressedBackFromImg && !Flags.PressedBackToExit) {
         outState.putInt(
-            StringConstants.prevOrientationBundleIdentifier,
+            StringConstants.Identifiers.prevOrientationBundleIdentifier,
             resources.configuration.orientation
         )
         outState.putString(
-            StringConstants.prevBitmapStrBundleIdentifier,
+            StringConstants.Identifiers.prevBitmapStrBundleIdentifier,
             BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
         )
         outState.putInt(
-            StringConstants.prevPrimaryColorBundleIdentifier,
+            StringConstants.Identifiers.prevPrimaryColorBundleIdentifier,
             (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color
         )
         outState.putInt(
-            StringConstants.prevSecondaryColorBundleIdentifier,
+            StringConstants.Identifiers.prevSecondaryColorBundleIdentifier,
             (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color
         )
-        outState.putString(StringConstants.prevToolBundleIdentifier, currentTool.toolName)
+        outState.putString(StringConstants.Identifiers.prevToolBundleIdentifier, currentTool.toolName)
         outState.putString(
-            StringConstants.prevBrushBundleIdentifier,
+            StringConstants.Identifiers.prevBrushBundleIdentifier,
             pixelGridViewInstance.currentBrush?.brushName
         )
-        outState.putInt(StringConstants.prevTabBundleIdentifier, currentTab)
+        outState.putInt(StringConstants.Identifiers.prevTabBundleIdentifier, currentTab)
         outState.putString(
-            StringConstants.prevUndoStackJsonStrIdentifier,
+            StringConstants.Identifiers.prevUndoStackJsonStrIdentifier,
             JsonConverter.convertListToJsonString(pixelGridViewInstance.bitmapActionData)
         )
         outState.putString(
-            StringConstants.prevRedoStackJsonStrIdentifier,
+            StringConstants.Identifiers.prevRedoStackJsonStrIdentifier,
             JsonConverter.convertListToJsonString(pixelGridViewInstance.undoStack)
         )
         outState.putString(
-            StringConstants.prevSymmetryModeStrIdentifier,
+            StringConstants.Identifiers.prevSymmetryModeStrIdentifier,
             pixelGridViewInstance.symmetryMode?.symmetryName,
         )
     } else {

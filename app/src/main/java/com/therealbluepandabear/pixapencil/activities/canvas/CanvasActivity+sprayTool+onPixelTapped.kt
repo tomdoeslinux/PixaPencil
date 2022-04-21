@@ -7,8 +7,8 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!sprayAlgorithmInstanceInitialized) {
-        val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
-        val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
+        val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
+        val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
 
         val s1 = SprayAlgorithm(primaryAlgorithmInfoParameter, sprayRadiusSharedPreference, sprayStrengthSharedPreference)
         sprayAlgorithmInstance = s1

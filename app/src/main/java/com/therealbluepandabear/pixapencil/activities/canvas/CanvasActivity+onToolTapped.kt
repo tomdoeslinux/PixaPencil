@@ -7,54 +7,54 @@ import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    if (currentTool == Tools.PolygonTool && toolName != StringConstants.PolygonToolIdentifier) {
+    if (currentTool == Tools.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
         Flags.DisableActionMove = false
         polygonCoordinates.clear()
         cindx = 0
     }
 
     when (toolName) {
-        StringConstants.PencilToolIdentifier -> {
+        StringConstants.Identifiers.PencilToolIdentifier -> {
             currentTool = Tools.PencilTool
         }
 
-        StringConstants.FillToolIdentifier  -> {
+        StringConstants.Identifiers.FillToolIdentifier  -> {
             currentTool = Tools.FillTool
         }
 
-        StringConstants.LineToolIdentifier -> {
+        StringConstants.Identifiers.LineToolIdentifier -> {
             currentTool = Tools.LineTool
         }
 
-        StringConstants.RectangleToolIdentifier -> {
+        StringConstants.Identifiers.RectangleToolIdentifier -> {
             currentTool = Tools.RectangleTool
         }
 
-        StringConstants.OutlinedRectangleToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedRectangleToolIdentifier -> {
             currentTool = Tools.OutlinedRectangleTool
         }
 
-        StringConstants.SquareToolIdentifier -> {
+        StringConstants.Identifiers.SquareToolIdentifier -> {
             currentTool = Tools.SquareTool
         }
 
-        StringConstants.OutlinedSquareToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedSquareToolIdentifier -> {
             currentTool = Tools.OutlinedSquareTool
         }
 
-        StringConstants.CircleToolIdentifier -> {
+        StringConstants.Identifiers.CircleToolIdentifier -> {
             currentTool = Tools.CircleTool
         }
 
-        StringConstants.OutlinedCircleToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedCircleToolIdentifier -> {
             currentTool = Tools.OutlinedCircleTool
         }
 
-        StringConstants.SprayToolIdentifier -> {
+        StringConstants.Identifiers.SprayToolIdentifier -> {
             sprayToolOnToolTapped()
         }
 
-        StringConstants.PolygonToolIdentifier -> {
+        StringConstants.Identifiers.PolygonToolIdentifier -> {
             if (currentTool == Tools.PolygonTool) {
                 pixelGridViewInstance.currentBitmapAction = null
 
@@ -64,25 +64,25 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.PolygonTool
         }
 
-        StringConstants.DitherToolIdentifier -> {
+        StringConstants.Identifiers.DitherToolIdentifier -> {
             currentTool = Tools.DitherTool
         }
 
-        StringConstants.DarkenToolIdentifier  -> {
+        StringConstants.Identifiers.DarkenToolIdentifier  -> {
             filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.DarkenTool
         }
 
-        StringConstants.LightenToolIdentifier  -> {
+        StringConstants.Identifiers.LightenToolIdentifier  -> {
             filterSelectedColor(Color.WHITE, 0.2f)
             currentTool = Tools.LightenTool
         }
 
-        StringConstants.ColorPickerToolIdentifier -> {
+        StringConstants.Identifiers.ColorPickerToolIdentifier -> {
             currentTool = Tools.ColorPickerTool
         }
 
-        StringConstants.EraseToolIdentifier -> {
+        StringConstants.Identifiers.EraseToolIdentifier -> {
             currentTool = Tools.EraseTool
         }
     }

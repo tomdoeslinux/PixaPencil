@@ -6,15 +6,15 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {
-        prevOrientation = savedInstanceState.getInt(StringConstants.prevOrientationBundleIdentifier)
-        prevBitmapStr = savedInstanceState.getString(StringConstants.prevBitmapStrBundleIdentifier)
-        prevPrimaryColor = savedInstanceState.getInt(StringConstants.prevPrimaryColorBundleIdentifier)
-        prevSecondaryColor = savedInstanceState.getInt(StringConstants.prevSecondaryColorBundleIdentifier)
-        prevToolStr = savedInstanceState.getString(StringConstants.prevToolBundleIdentifier)
-        prevBrushStr = savedInstanceState.getString(StringConstants.prevBrushBundleIdentifier)
-        prevTab = savedInstanceState.getInt(StringConstants.prevTabBundleIdentifier)
-        prevUndoStackJsonStr = savedInstanceState.getString(StringConstants.prevUndoStackJsonStrIdentifier)
-        prevRedoStackJsonStr = savedInstanceState.getString(StringConstants.prevRedoStackJsonStrIdentifier)
+        prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.prevOrientationBundleIdentifier)
+        prevBitmapStr = savedInstanceState.getString(StringConstants.Identifiers.prevBitmapStrBundleIdentifier)
+        prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevPrimaryColorBundleIdentifier)
+        prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevSecondaryColorBundleIdentifier)
+        prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.prevToolBundleIdentifier)
+        prevBrushStr = savedInstanceState.getString(StringConstants.Identifiers.prevBrushBundleIdentifier)
+        prevTab = savedInstanceState.getInt(StringConstants.Identifiers.prevTabBundleIdentifier)
+        prevUndoStackJsonStr = savedInstanceState.getString(StringConstants.Identifiers.prevUndoStackJsonStrIdentifier)
+        prevRedoStackJsonStr = savedInstanceState.getString(StringConstants.Identifiers.prevRedoStackJsonStrIdentifier)
         prevUndoToolbarButtonDisabledEnabledState = prevUndoStackJsonStr?.let {
             JsonConverter.convertJsonStringToListOfBitmapAction(
                 it
@@ -25,6 +25,6 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
                 it
             ).isNotEmpty()
         } == true
-        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.prevSymmetryModeStrIdentifier)
+        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier)
     }
 }

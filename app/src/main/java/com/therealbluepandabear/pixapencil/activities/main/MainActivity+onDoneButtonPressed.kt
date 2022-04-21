@@ -7,9 +7,9 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, height: Int) {
     startActivity(
         Intent(this, CanvasActivity::class.java)
-            .putExtra(StringConstants.ProjectTitleExtra, projectTitle)
-            .putExtra(StringConstants.WidthExtra, width)
-            .putExtra(StringConstants.HeightExtra, height)
+            .putExtra(StringConstants.Extras.ProjectTitleExtra, projectTitle)
+            .putExtra(StringConstants.Extras.WidthExtra, width)
+            .putExtra(StringConstants.Extras.HeightExtra, height)
     )
 
     title = StringConstants.AppName

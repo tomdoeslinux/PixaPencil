@@ -7,23 +7,23 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun extendedOnFilterSelected(filterType: String) {
     when (filterType) {
-        StringConstants.ColorFilterIdentifier -> {
+        StringConstants.Identifiers.ColorFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }
         }
 
-        StringConstants.DarkenFilterIdentifier -> {
+        StringConstants.Identifiers.DarkenFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.BLACK) }
         }
 
-        StringConstants.LightenFilterIdentifier -> {
+        StringConstants.Identifiers.LightenFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.WHITE) }
         }
 
-        StringConstants.InvertFilterIdentifier -> {
+        StringConstants.Identifiers.InvertFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.inverseRGB(it) }
         }
 
-        StringConstants.GrayscaleFilterIdentifier -> {
+        StringConstants.Identifiers.GrayscaleFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.grayScale(it) }
         }
     }

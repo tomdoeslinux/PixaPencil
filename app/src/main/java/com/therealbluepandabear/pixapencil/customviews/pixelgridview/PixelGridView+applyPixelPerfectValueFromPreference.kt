@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObj
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun PixelGridView.applyPixelPerfectValueFromPreference() {
-    if (sharedPreferenceObject.contains(StringConstants.SharedPreferencePixelPerfectIdentifier)) {
-        pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.SharedPreferencePixelPerfectIdentifier, false)
+    if (sharedPreferenceObject.contains(StringConstants.Identifiers.SharedPreferencePixelPerfectIdentifier)) {
+        pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferencePixelPerfectIdentifier, false)
     }
 }

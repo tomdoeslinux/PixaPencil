@@ -33,8 +33,8 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             warnOfIncorrectValues()
         } else {
             with (sharedPreferenceObject.edit()) {
-                putInt(StringConstants.SharedPreferencesSprayRadiusIdentifier, parsedRadius)
-                putInt(StringConstants.SharedPreferencesSprayStrengthIdentifier, parsedStrength)
+                putInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, parsedRadius)
+                putInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, parsedStrength)
                 apply()
             }
 

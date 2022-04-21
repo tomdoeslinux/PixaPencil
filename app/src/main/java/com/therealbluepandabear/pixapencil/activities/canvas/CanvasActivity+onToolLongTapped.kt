@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
     when (toolName) {
-        StringConstants.PencilToolIdentifier -> {
+        StringConstants.Identifiers.PencilToolIdentifier -> {
             if (currentTool == Tools.PencilTool) {
                 showSimpleInfoDialog(
                     getString(R.string.pencil_tool_info_title_in_code_str),
@@ -15,7 +15,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.FillToolIdentifier  -> {
+        StringConstants.Identifiers.FillToolIdentifier  -> {
             if (currentTool == Tools.FillTool) {
                 showSimpleInfoDialog(
                     getString(R.string.fill_tool_info_title_in_code_str),
@@ -23,7 +23,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.LineToolIdentifier -> {
+        StringConstants.Identifiers.LineToolIdentifier -> {
             if (currentTool == Tools.LineTool) {
                 showSimpleInfoDialog(
                     getString(R.string.line_tool_info_title_in_code_str),
@@ -31,7 +31,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.RectangleToolIdentifier -> {
+        StringConstants.Identifiers.RectangleToolIdentifier -> {
             if (currentTool == Tools.RectangleTool) {
                 showSimpleInfoDialog(
                     getString(R.string.rectangle_tool_info_title_in_code_str),
@@ -39,7 +39,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.OutlinedRectangleToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedRectangleToolIdentifier -> {
             if (currentTool == Tools.OutlinedRectangleTool) {
                 showSimpleInfoDialog(
                     getString(R.string.outlined_rectangle_tool_info_title_in_code_str),
@@ -47,7 +47,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.SquareToolIdentifier -> {
+        StringConstants.Identifiers.SquareToolIdentifier -> {
             if (currentTool == Tools.SquareTool) {
                 showSimpleInfoDialog(
                     getString(R.string.square_tool_info_title_in_code_str),
@@ -55,7 +55,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.OutlinedSquareToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedSquareToolIdentifier -> {
             if (currentTool == Tools.OutlinedSquareTool) {
                 showSimpleInfoDialog(
                     getString(R.string.outlined_square_tool_info_title_in_code_str),
@@ -63,7 +63,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.CircleToolIdentifier -> {
+        StringConstants.Identifiers.CircleToolIdentifier -> {
             if (currentTool == Tools.CircleTool) {
                 showSimpleInfoDialog(
                     getString(R.string.circle_tool_info_title_in_code_str),
@@ -71,7 +71,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.OutlinedCircleToolIdentifier -> {
+        StringConstants.Identifiers.OutlinedCircleToolIdentifier -> {
             if (currentTool == Tools.OutlinedCircleTool) {
                 showSimpleInfoDialog(
                     getString(R.string.outlined_circle_tool_info_title_in_code_str),
@@ -79,7 +79,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.SprayToolIdentifier -> {
+        StringConstants.Identifiers.SprayToolIdentifier -> {
             if (currentTool == Tools.SprayTool) {
                 showSimpleInfoDialog(
                     getString(R.string.spray_tool_info_title_in_code_str),
@@ -87,7 +87,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.PolygonToolIdentifier -> {
+        StringConstants.Identifiers.PolygonToolIdentifier -> {
             if (currentTool == Tools.PolygonTool) {
                 showSimpleInfoDialog(
                     getString(R.string.polygon_tool_info_title_in_code_str),
@@ -95,7 +95,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.DitherToolIdentifier -> {
+        StringConstants.Identifiers.DitherToolIdentifier -> {
             if (currentTool == Tools.DitherTool) {
                 showSimpleInfoDialog(
                     getString(R.string.dither_tool_info_title_in_code_str),
@@ -103,7 +103,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.DarkenToolIdentifier  -> {
+        StringConstants.Identifiers.DarkenToolIdentifier  -> {
             if (currentTool == Tools.DarkenTool) {
                 showSimpleInfoDialog(
                     getString(R.string.darken_tool_info_title_in_code_str),
@@ -111,7 +111,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.LightenToolIdentifier  -> {
+        StringConstants.Identifiers.LightenToolIdentifier  -> {
             if (currentTool == Tools.LightenTool) {
                 showSimpleInfoDialog(
                     getString(R.string.lighten_tool_info_title_in_code_str),
@@ -119,7 +119,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.ColorPickerToolIdentifier -> {
+        StringConstants.Identifiers.ColorPickerToolIdentifier -> {
             if (currentTool == Tools.ColorPickerTool) {
                 showSimpleInfoDialog(
                     getString(R.string.color_picker_tool_info_title_in_code_str),
@@ -127,7 +127,7 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.EraseToolIdentifier -> {
+        StringConstants.Identifiers.EraseToolIdentifier -> {
             if (currentTool == Tools.EraseTool) {
                 showSimpleInfoDialog(
                     getString(R.string.erase_tool_info_title_in_code_str),

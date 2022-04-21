@@ -14,8 +14,8 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class SprayToolSettingsFragment : Fragment() {
     private fun setDefaultValues() {
-        val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
-        val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
+        val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
+        val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
 
         val sprayRadiusSharedPreferenceStr = sprayRadiusSharedPreference.toString()
         val sprayStrengthSharedPreferenceStr = sprayStrengthSharedPreference.toString()

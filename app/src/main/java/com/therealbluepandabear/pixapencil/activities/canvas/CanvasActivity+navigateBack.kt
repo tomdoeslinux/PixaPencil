@@ -13,7 +13,7 @@ fun CanvasActivity.navigateBack(fragmentInstance: Fragment) {
         fragmentInstance,
         binding.activityCanvasRootLayout,
         binding.activityCanvasPrimaryFragmentHost,
-        intent.getStringExtra(StringConstants.ProjectTitleExtra)!!)
+        intent.getStringExtra(StringConstants.Extras.ProjectTitleExtra)!!)
     setUpRecyclerView()
     switchSelectedColorIndicator()
 }

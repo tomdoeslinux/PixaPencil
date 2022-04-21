@@ -4,110 +4,112 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
     PencilTool(
-        StringConstants.PencilToolIdentifier,
+        StringConstants.Identifiers.PencilToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     FillTool(
-        StringConstants.FillToolIdentifier,
+        StringConstants.Identifiers.FillToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     LineTool(
-        StringConstants.LineToolIdentifier,
+        StringConstants.Identifiers.LineToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     RectangleTool(
-        StringConstants.RectangleToolIdentifier,
+        StringConstants.Identifiers.RectangleToolIdentifier,
         ToolFamily.Rectangle,
         true,
         false,
     ),
 
     OutlinedRectangleTool(
-        StringConstants.OutlinedRectangleToolIdentifier,
+        StringConstants.Identifiers.OutlinedRectangleToolIdentifier,
         ToolFamily.Rectangle,
         true,
         true,
     ),
 
     SquareTool(
-        StringConstants.SquareToolIdentifier,
+        StringConstants.Identifiers.SquareToolIdentifier,
         ToolFamily.Rectangle,
         true,
         false,
     ),
 
     OutlinedSquareTool(
-        StringConstants.OutlinedSquareToolIdentifier,
+        StringConstants.Identifiers.OutlinedSquareToolIdentifier,
         ToolFamily.Rectangle,
         true,
         true,
     ),
 
     CircleTool(
-        StringConstants.CircleToolIdentifier,
+        StringConstants.Identifiers.CircleToolIdentifier,
         ToolFamily.Circle,
         true,
         false,
     ),
 
     OutlinedCircleTool(
-        StringConstants.OutlinedCircleToolIdentifier,
+        StringConstants.Identifiers.OutlinedCircleToolIdentifier,
         ToolFamily.Circle,
         true,
         true,
     ),
 
     SprayTool(
-        StringConstants.SprayToolIdentifier,
+        StringConstants.Identifiers.SprayToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     PolygonTool(
-        StringConstants.PolygonToolIdentifier,
+        StringConstants.Identifiers.PolygonToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     DitherTool(
-        StringConstants.DitherToolIdentifier,
+        StringConstants.Identifiers.DitherToolIdentifier,
         ToolFamily.None,
         true,
     ),
 
     DarkenTool(
-        StringConstants.DarkenToolIdentifier,
+        StringConstants.Identifiers.DarkenToolIdentifier,
         ToolFamily.Shader,
         false,
     ),
 
     LightenTool(
-        StringConstants.LightenToolIdentifier,
+        StringConstants.Identifiers.LightenToolIdentifier,
         ToolFamily.Shader,
         false,
     ),
 
     ColorPickerTool(
-        StringConstants.ColorPickerToolIdentifier,
+        StringConstants.Identifiers.ColorPickerToolIdentifier,
         ToolFamily.None,
         false,
     ),
 
     EraseTool(
-        StringConstants.EraseToolIdentifier,
+        StringConstants.Identifiers.EraseToolIdentifier,
         ToolFamily.None,
         true,
     );
 
     companion object {
         fun findToolByName(name: String): Tools? {
-            return values().find { it.toolName == name }
+            return values().find {
+                it.toolName == name
+            }
         }
     }
 }

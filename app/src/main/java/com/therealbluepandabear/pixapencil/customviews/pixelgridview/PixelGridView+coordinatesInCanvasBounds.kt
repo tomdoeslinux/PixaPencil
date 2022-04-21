@@ -12,6 +12,6 @@ fun PixelGridView.extendedCoordinatesInCanvasBounds(coordinates: Coordinates): B
             (coordinates.x in 0 until canvasWidth && coordinates.y in 0 until canvasHeight)
     } else {
             (coordinates.x in 0 until canvasWidth && coordinates.y in 0 until canvasHeight &&
-                    outerCanvasInstance.transparentBackgroundView.transparentBackgroundViewBitmap.getPixel(coordinates.x, coordinates.y) == Color.parseColor(StringConstants.PixelGridViewCheckerboardColor))
+                    outerCanvasInstance.transparentBackgroundView.transparentBackgroundViewBitmap.getPixel(coordinates.x, coordinates.y) == Color.parseColor(StringConstants.Colors.PixelGridViewCheckerboardColor))
     }
 }

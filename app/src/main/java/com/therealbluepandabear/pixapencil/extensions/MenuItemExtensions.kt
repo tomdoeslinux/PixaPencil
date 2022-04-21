@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun MenuItem.enable() {
     isEnabled = true
     icon.alpha = 255
-    icon.changeColor(Color.parseColor(StringConstants.DefaultToolbarItemColor))
+    icon.changeColor(Color.parseColor(StringConstants.Colors.DefaultToolbarItemColor))
 }
 
 fun MenuItem.disable() {
