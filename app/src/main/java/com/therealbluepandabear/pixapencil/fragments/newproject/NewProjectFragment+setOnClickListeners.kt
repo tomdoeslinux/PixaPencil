@@ -22,26 +22,36 @@ private fun NewProjectFragment.checkForTitleError() {
 }
 
 private fun NewProjectFragment.checkForWidthError() {
-    val widthValue: Int = binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull() ?: 0
-
-    if (widthValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
-        binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
-        invalidWidth = true
-    } else {
-        binding.fragmentNewCanvasWidthTextInputLayout.error = null
-        invalidWidth = false
+    when (binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull()) {
+        null -> {
+            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width_in_code_str)
+            invalidWidth = true
+        }
+        !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
+            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
+            invalidWidth = true
+        }
+        else -> {
+            binding.fragmentNewCanvasWidthTextInputLayout.error = null
+            invalidWidth = false
+        }
     }
 }
 
 private fun NewProjectFragment.checkForHeightError() {
-    val heightValue: Int = binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull() ?: 0
-
-    if (heightValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
-        binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
-        invalidHeight = true
-    } else {
-        binding.fragmentNewCanvasHeightTextInputLayout.error = null
-        invalidHeight = false
+    when (binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull()) {
+        null -> {
+            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height_in_code_str)
+            invalidHeight = true
+        }
+        !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
+            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
+            invalidHeight = true
+        }
+        else -> {
+            binding.fragmentNewCanvasHeightTextInputLayout.error = null
+            invalidHeight = false
+        }
     }
 }
 
