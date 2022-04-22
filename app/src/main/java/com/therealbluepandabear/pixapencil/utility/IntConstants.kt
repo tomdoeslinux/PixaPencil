@@ -1,8 +1,8 @@
 package com.therealbluepandabear.pixapencil.utility
 
 object IntConstants {
-    const val SpanCountMin = 1
-    const val SpanCountMax = 10000
+    const val WidthHeightMin = 1
+    const val WidthHeightMax = 10000
 
     const val SprayOptionsMin = 2
     const val SprayOptionsMax = 20000

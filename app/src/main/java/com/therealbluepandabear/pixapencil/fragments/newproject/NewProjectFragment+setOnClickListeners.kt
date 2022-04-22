@@ -22,7 +22,7 @@ private fun NewProjectFragment.checkForTitleError() {
 private fun NewProjectFragment.checkForWidthError() {
     val widthValue: Int = binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull() ?: 0
 
-    if (widthValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax) {
+    if (widthValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
         binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
         invalidValues = true
     } else {
@@ -34,7 +34,7 @@ private fun NewProjectFragment.checkForWidthError() {
 private fun NewProjectFragment.checkForHeightError() {
     val heightValue: Int = binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull() ?: 0
 
-    if (heightValue !in IntConstants.SpanCountMin..IntConstants.SpanCountMax) {
+    if (heightValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
         binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
         invalidValues = true
     } else {
