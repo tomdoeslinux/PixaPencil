@@ -96,10 +96,13 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
     ShadingTool(
         StringConstants.Identifiers.ShadingToolIdentifier,
         ToolFamily.Shader,
+
         false,
     );
 
     companion object {
+        val defaultTool: Tools = PencilTool
+
         fun findToolByName(name: String): Tools? {
             return values().find {
                 it.toolName == name

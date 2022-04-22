@@ -39,7 +39,7 @@ var currentFragmentInstance: Fragment? = null
 
 lateinit var currentPixelArtObj: PixelArt
 
-var currentTool: Tools = Tools.PencilTool
+var currentTool: Tools = Tools.defaultTool
 
 var saved = true
 
