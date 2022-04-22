@@ -53,8 +53,8 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Spray tool (https://youtu.be/Y77EkLLC8Lo?t=197)
 - Polygon tool (https://youtu.be/Y77EkLLC8Lo?t=247)
 - Dither tool (https://youtu.be/Y77EkLLC8Lo?t=269)
-- Darkening tool (https://youtu.be/Y77EkLLC8Lo?t=286)
-- Lightening tool (https://youtu.be/Y77EkLLC8Lo?t=314)
+- Darkening tool (https://youtu.be/Y77EkLLC8Lo?t=286) **[Outdated - Merged into one tool]**
+- Lightening tool (https://youtu.be/Y77EkLLC8Lo?t=314) **[Outdated - Merged into one tool]**
 - Clear canvas tool (https://youtu.be/Y77EkLLC8Lo?t=344)
 - Picker tool (https://youtu.be/Y77EkLLC8Lo?t=350) 
 - Find and replace by color tool (https://youtu.be/Y77EkLLC8Lo?t=361) **[Partially Outdated]**
