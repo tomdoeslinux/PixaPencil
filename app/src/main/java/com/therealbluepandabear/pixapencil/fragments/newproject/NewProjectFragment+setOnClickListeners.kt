@@ -5,17 +5,19 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
-var invalidValues = false
+var invalidTitle = false
+var invalidWidth = false
+var invalidHeight = false
 
 private fun NewProjectFragment.checkForTitleError() {
     val title = binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
     if (title.isBlank()) {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_title_in_code_str)
-        invalidValues = true
+        invalidTitle = true
     } else {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = null
-        invalidValues = false
+        invalidTitle = false
     }
 }
 
@@ -24,10 +26,10 @@ private fun NewProjectFragment.checkForWidthError() {
 
     if (widthValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
         binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
-        invalidValues = true
+        invalidWidth = true
     } else {
         binding.fragmentNewCanvasWidthTextInputLayout.error = null
-        invalidValues = false
+        invalidWidth = false
     }
 }
 
@@ -36,10 +38,10 @@ private fun NewProjectFragment.checkForHeightError() {
 
     if (heightValue !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax) {
         binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
-        invalidValues = true
+        invalidHeight = true
     } else {
         binding.fragmentNewCanvasHeightTextInputLayout.error = null
-        invalidValues = false
+        invalidHeight = false
     }
 }
 
@@ -62,7 +64,7 @@ fun NewProjectFragment.setOnClickListeners() {
             checkForWidthError()
             checkForHeightError()
 
-            if (!invalidValues) {
+            if (!invalidTitle && !invalidWidth && !invalidHeight) {
                 try {
                     val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
@@ -77,6 +79,8 @@ fun NewProjectFragment.setOnClickListeners() {
                 } catch (exception: Exception) {
                     HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
                 }
+            } else {
+                HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
             }
         }
     }
