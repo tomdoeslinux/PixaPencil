@@ -125,9 +125,9 @@
     <string name="color_picker_tool_info_text_in_code_str">Get the color at the specified pixel.</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
 
-    <string name="exception_invalid_title_in_code_str">Title must contain text</string>
-    <string name="exception_invalid_width_in_code_str">Invalid width value</string>
-    <string name="exception_invalid_height_in_code_str">Invalid height value</string>
+    <string name="exception_invalid_title_in_code_str">Title cannot be empty</string>
+    <string name="exception_invalid_width_in_code_str">Value must be between 1 and 10,000</string>
+    <string name="exception_invalid_height_in_code_str">Value must be between 1 and 10,000</string>
     <string name="exception_invalid_radius_strength_message_in_code_str">Invalid radius/strength</string>
     <string name="exception_accessing_negative_index_message_in_code_str">Cannot access pixel art object with a negative index in list!</string>
 
