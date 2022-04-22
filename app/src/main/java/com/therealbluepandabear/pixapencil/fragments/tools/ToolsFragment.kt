@@ -34,6 +34,22 @@ class ToolsFragment : Fragment() {
                 }
             }
 
+            StringConstants.Identifiers.EraseToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsEraseButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsEraseButtonH)
+                }
+            }
+
+            StringConstants.Identifiers.ColorPickerToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsColorPickerButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsColorPickerButtonH)
+                }
+            }
+
             StringConstants.Identifiers.FillToolIdentifier  -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsFillButton)
@@ -122,35 +138,11 @@ class ToolsFragment : Fragment() {
                 }
             }
 
-            StringConstants.Identifiers.DarkenToolIdentifier  -> {
+            StringConstants.Identifiers.ShadingToolIdentifier  -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsDarkenButton)
+                    onOptionTapped(binding.fragmentToolsShadingButton)
                 } else {
-                    onOptionTapped(binding.fragmentToolsDarkenButtonH)
-                }
-            }
-
-            StringConstants.Identifiers.LightenToolIdentifier  -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsLightenButton)
-                } else {
-                    onOptionTapped(binding.fragmentToolsLightenButtonH)
-                }
-            }
-
-            StringConstants.Identifiers.ColorPickerToolIdentifier -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsColorPickerButton)
-                } else {
-                    onOptionTapped(binding.fragmentToolsColorPickerButtonH)
-                }
-            }
-
-            StringConstants.Identifiers.EraseToolIdentifier -> {
-                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    onOptionTapped(binding.fragmentToolsEraseButton)
-                } else {
-                    onOptionTapped(binding.fragmentToolsEraseButtonH)
+                    onOptionTapped(binding.fragmentToolsShadingButtonH)
                 }
             }
         }

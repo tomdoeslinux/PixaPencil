@@ -4,7 +4,7 @@
     <string name="activityMain_newProjectButton_contentDescription">New Project</string>
 
     <string name="fragmentTools_darken_tool_content_description">Darken Tool</string>
-    <string name="fragmentTools_lighten_tool_content_description">Lighten Tool</string>
+    <string name="fragmentTools_shading_tool_content_description">Shading Tool</string>
     <string name="fragmentTools_clear_canvas_tool_content_description_">Clear Canvas Tool</string>
     <string name="fragmentTools_find_and_replace_tool_content_description">Find and Replace Tool</string>
     <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>

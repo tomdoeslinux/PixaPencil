@@ -18,6 +18,8 @@ object StringConstants {
         const val GrayscaleFilterIdentifier = "GrayscaleFilter"
 
         const val PencilToolIdentifier = "PencilTool"
+        const val EraseToolIdentifier = "EraseTool"
+        const val ColorPickerToolIdentifier = "ColorPickerTool"
         const val FillToolIdentifier = "FillTool"
         const val LineToolIdentifier = "LineTool"
         const val RectangleToolIdentifier = "RectangleTool"
@@ -29,10 +31,7 @@ object StringConstants {
         const val SprayToolIdentifier = "SprayTool"
         const val PolygonToolIdentifier = "PolygonTool"
         const val DitherToolIdentifier = "DitherTool"
-        const val DarkenToolIdentifier = "DarkenTool"
-        const val LightenToolIdentifier = "LightenTool"
-        const val ColorPickerToolIdentifier = "ColorPickerTool"
-        const val EraseToolIdentifier = "EraseTool"
+        const val ShadingToolIdentifier = "ShadingTool"
 
         const val SharedPreferenceFirstLaunchIdentifier = "FirstLaunchIdentifier"
         const val SharedPreferencePixelPerfectIdentifier = "PixelPerfectSharedPreference"

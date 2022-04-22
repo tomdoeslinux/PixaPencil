@@ -1,7 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Color
+import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -16,6 +18,14 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     when (toolName) {
         StringConstants.Identifiers.PencilToolIdentifier -> {
             currentTool = Tools.PencilTool
+        }
+
+        StringConstants.Identifiers.EraseToolIdentifier -> {
+            currentTool = Tools.EraseTool
+        }
+
+        StringConstants.Identifiers.ColorPickerToolIdentifier -> {
+            currentTool = Tools.ColorPickerTool
         }
 
         StringConstants.Identifiers.FillToolIdentifier  -> {
@@ -68,22 +78,19 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             currentTool = Tools.DitherTool
         }
 
-        StringConstants.Identifiers.DarkenToolIdentifier  -> {
+        StringConstants.Identifiers.ShadingToolIdentifier  -> {
+            if (currentTool == Tools.ShadingTool) {
+                val snackbarText: String = if (shadingToolMode == "Lighten") {
+                   "Darken mode".also { shadingToolMode = "Darken" }
+                } else {
+                    "Lighten mode".also { shadingToolMode = "Lighten" }
+                }
+
+                binding.activityCanvasRootLayout.showSnackbar(snackbarText, SnackbarDuration.Short)
+            }
+
             filterSelectedColor(Color.BLACK, 0.2f)
-            currentTool = Tools.DarkenTool
-        }
-
-        StringConstants.Identifiers.LightenToolIdentifier  -> {
-            filterSelectedColor(Color.WHITE, 0.2f)
-            currentTool = Tools.LightenTool
-        }
-
-        StringConstants.Identifiers.ColorPickerToolIdentifier -> {
-            currentTool = Tools.ColorPickerTool
-        }
-
-        StringConstants.Identifiers.EraseToolIdentifier -> {
-            currentTool = Tools.EraseTool
+            currentTool = Tools.ShadingTool
         }
     }
 }

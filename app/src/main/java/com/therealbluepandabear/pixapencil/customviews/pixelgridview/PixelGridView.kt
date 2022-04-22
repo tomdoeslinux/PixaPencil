@@ -68,6 +68,10 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     var symmetryMode: SymmetryMode? = null
 
+    var shadingMode: Boolean = false
+
+    val shadingMap = mutableListOf<Coordinates>()
+
     private fun drawGrid(canvas: Canvas) {
         gridPaint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
         gridPaint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100

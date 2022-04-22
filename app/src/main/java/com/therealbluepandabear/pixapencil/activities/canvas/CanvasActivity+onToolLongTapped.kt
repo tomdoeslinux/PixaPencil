@@ -103,19 +103,11 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
-        StringConstants.Identifiers.DarkenToolIdentifier  -> {
-            if (currentTool == Tools.DarkenTool) {
+        StringConstants.Identifiers.ShadingToolIdentifier  -> {
+            if (currentTool == Tools.ShadingTool) {
                 showSimpleInfoDialog(
                     getString(R.string.darken_tool_info_title_in_code_str),
                     getString(R.string.darken_tool_info_text_in_code_str))
-            }
-        }
-
-        StringConstants.Identifiers.LightenToolIdentifier  -> {
-            if (currentTool == Tools.LightenTool) {
-                showSimpleInfoDialog(
-                    getString(R.string.lighten_tool_info_title_in_code_str),
-                    getString(R.string.lighten_tool_info_text_in_code_str))
             }
         }
 

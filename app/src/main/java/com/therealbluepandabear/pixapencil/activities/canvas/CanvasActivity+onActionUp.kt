@@ -10,6 +10,10 @@ import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun extendedOnActionUp() {
+    if (currentTool == Tools.ShadingTool) {
+        pixelGridViewInstance.shadingMap.clear()
+    }
+
     when {
         currentTool == Tools.LineTool -> {
             lineToolOnActionUp()

@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.graphics.Color
 import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 var lineOrigin: Coordinates? = null
@@ -20,6 +20,14 @@ fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     when (currentTool) {
         Tools.PencilTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
+        }
+
+        Tools.EraseTool -> {
+            eraseToolOnPixelTapped(coordinatesTapped)
+        }
+
+        Tools.ColorPickerTool -> {
+            colorPickerToolOnPixelTapped(coordinatesTapped)
         }
 
         Tools.FillTool -> {
@@ -66,20 +74,9 @@ fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.EraseTool -> {
-            eraseToolOnPixelTapped(coordinatesTapped)
-        }
-
-        Tools.ColorPickerTool -> {
-            colorPickerToolOnPixelTapped(coordinatesTapped)
-        }
-
-        Tools.LightenTool -> {
-            filterSelectedColor(Color.WHITE, 0.2f)
-        }
-
-        Tools.DarkenTool -> {
-            filterSelectedColor(Color.BLACK, 0.2f)
+        Tools.ShadingTool -> {
+            pixelGridViewInstance.shadingMode = true
+            pencilToolOnPixelTapped(coordinatesTapped)
         }
     }
 }

@@ -9,6 +9,18 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
         true,
     ),
 
+    EraseTool(
+        StringConstants.Identifiers.EraseToolIdentifier,
+        ToolFamily.None,
+        true,
+    ),
+
+    ColorPickerTool(
+        StringConstants.Identifiers.ColorPickerToolIdentifier,
+        ToolFamily.None,
+        false,
+    ),
+
     FillTool(
         StringConstants.Identifiers.FillToolIdentifier,
         ToolFamily.None,
@@ -81,28 +93,10 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
         true,
     ),
 
-    DarkenTool(
-        StringConstants.Identifiers.DarkenToolIdentifier,
+    ShadingTool(
+        StringConstants.Identifiers.ShadingToolIdentifier,
         ToolFamily.Shader,
         false,
-    ),
-
-    LightenTool(
-        StringConstants.Identifiers.LightenToolIdentifier,
-        ToolFamily.Shader,
-        false,
-    ),
-
-    ColorPickerTool(
-        StringConstants.Identifiers.ColorPickerToolIdentifier,
-        ToolFamily.None,
-        false,
-    ),
-
-    EraseTool(
-        StringConstants.Identifiers.EraseToolIdentifier,
-        ToolFamily.None,
-        true,
     );
 
     companion object {

@@ -226,41 +226,12 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_darken_tool_content_description" />
+                    android:contentDescription="@string/fragmentTools_shading_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_darkenButton"
+                    android:id="@+id/fragmentTools_shadingButton"
                     style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_darken_tool_content_description"
-                    app:srcCompat="@drawable/darken_icon" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_lighten_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_lightenButton"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_lighten_tool_content_description"
+                    android:contentDescription="@string/fragmentTools_shading_tool_content_description"
                     app:srcCompat="@drawable/lighten_icon" />
-            </FrameLayout>
-
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_clear_canvas_tool_content_description_" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_resetCanvasButton"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_clear_canvas_tool_content_description_"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
-                    android:layout_marginEnd="16dp"/>
             </FrameLayout>
         </LinearLayout>
     </ScrollView>
@@ -475,26 +446,12 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_darken_tool_content_description" />
+                    android:contentDescription="@string/fragmentTools_shading_tool_content_description" />
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_darkenButton_h"
+                    android:id="@+id/fragmentTools_shadingButton_h"
                     style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_darken_tool_content_description"
-                    app:srcCompat="@drawable/darken_icon" />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_lighten_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_lightenButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_lighten_tool_content_description"
-                    app:srcCompat="@drawable/lighten_icon"
+                    android:contentDescription="@string/fragmentTools_shading_tool_content_description"
+                    app:srcCompat="@drawable/ic_plus_minus_variant"
                     android:layout_marginEnd="16dp"/>
             </FrameLayout>
         </LinearLayout>

@@ -89,3 +89,5 @@ lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
 val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
 
 var selectedColorPaletteIndex: Int = 0
+
+var shadingToolMode = "Lighten"

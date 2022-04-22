@@ -406,59 +406,29 @@ fun ToolsFragment.setOnClickListeners() {
         // 3 //
         // 4 //
         // 5 //
-        // *************** // Darken Tool
+        // *************** // Shading Tool
 
-        fragmentToolsDarkenButton.setOnClickListener {
+        fragmentToolsShadingButton.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.DarkenToolIdentifier)
+            caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
         }
 
-        fragmentToolsDarkenButtonH.setOnClickListener {
+        fragmentToolsShadingButtonH.setOnClickListener {
             onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.DarkenToolIdentifier)
+            caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
         }
 
         // ** //
 
-        fragmentToolsDarkenButton.setOnLongClickListener {
+        fragmentToolsShadingButton.setOnLongClickListener {
             HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.DarkenToolIdentifier)
+            caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
             true
         }
 
-        fragmentToolsDarkenButtonH.setOnLongClickListener {
+        fragmentToolsShadingButtonH.setOnLongClickListener {
             HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.DarkenToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Lighten Tool
-
-        fragmentToolsLightenButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.LightenToolIdentifier)
-        }
-
-        fragmentToolsLightenButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.LightenToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsLightenButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.LightenToolIdentifier)
-            true
-        }
-
-        fragmentToolsLightenButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.LightenToolIdentifier)
+            caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
             true
         }
         // 1 //

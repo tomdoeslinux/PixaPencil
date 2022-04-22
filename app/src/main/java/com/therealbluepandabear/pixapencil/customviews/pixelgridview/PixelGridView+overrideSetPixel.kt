@@ -1,9 +1,12 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
+import android.graphics.Color
+import com.therealbluepandabear.pixapencil.activities.canvas.shadingToolMode
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 
 private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
     if (saveToBitmapAction) {
@@ -17,7 +20,26 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
         )
     }
 
-    pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
+    if (!shadingMode) {
+        pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
+    } else {
+        if (!shadingMap.contains(coordinates)) {
+            val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
+
+            val shadeColor = if (shadingToolMode == "Lighten") {
+                Color.WHITE
+            } else {
+                Color.BLACK
+            }
+
+            pixelGridViewBitmap.setPixel(
+                coordinates.x,
+                coordinates.y,
+                ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
+            )
+            shadingMap.add(coordinates)
+        }
+    }
 }
 
 fun PixelGridView.extendedOverrideSetPixel(
