@@ -48,6 +48,33 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back_land"
+                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_eraseButton"
+                    style="@style/canvas_activity_button_tool_style_land"
+                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description"
+                    app:srcCompat="@drawable/ic_eraser" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back_land"
+                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_colorPickerButton"
+                    style="@style/canvas_activity_button_tool_style_land"
+                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description"
+                    app:srcCompat="@drawable/ic_baseline_colorize_24" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back_land"
                     android:contentDescription="@string/fragmentTools_fill_tool_content_description" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -230,35 +257,7 @@
                     android:id="@+id/fragmentTools_resetCanvasButton"
                     style="@style/canvas_activity_button_tool_style_land"
                     android:contentDescription="@string/fragmentTools_clear_canvas_tool_content_description_"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
-            </FrameLayout>
-
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back_land"
-                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_colorPickerButton"
-                    style="@style/canvas_activity_button_tool_style_land"
-                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description"
-                    app:srcCompat="@drawable/ic_baseline_colorize_24" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back_land"
-                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_eraseButton"
-                    style="@style/canvas_activity_button_tool_style_land"
-                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description"
-                    app:srcCompat="@drawable/ic_eraser"
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
                     android:layout_marginBottom="16dp"/>
             </FrameLayout>
         </LinearLayout>
@@ -291,6 +290,34 @@
                     android:layout_marginStart="16dp"
                     android:contentDescription="@string/fragmentTools_pencil_tool_content_description"
                     app:srcCompat="@drawable/ic_baseline_pencil_24" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_eraseButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description"
+                    app:srcCompat="@drawable/ic_eraser"
+                    android:layout_marginBottom="16dp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description" />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_colorPickerButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description"
+                    app:srcCompat="@drawable/ic_baseline_colorize_24" />
             </FrameLayout>
 
             <FrameLayout
@@ -480,49 +507,8 @@
                     android:id="@+id/fragmentTools_resetCanvasButton_h"
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_clear_canvas_tool_content_description_"
-                    app:srcCompat="@drawable/ic_baseline_layers_clear_24" />
-            </FrameLayout>
-
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_colorPickerButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_color_picker_tool_content_description"
-                    app:srcCompat="@drawable/ic_baseline_colorize_24" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_find_and_replace_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_findAndReplaceButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_find_and_replace_tool_content_description"
-                    app:srcCompat="@drawable/ic_baseline_find_replace_24" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description" />
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fragmentTools_eraseButton_h"
-                    style="@style/canvas_activity_button_tool_style"
-                    android:contentDescription="@string/fragmentTools_eraser_tool_content_description"
-                    app:srcCompat="@drawable/ic_eraser"
-                    android:layout_marginBottom="16dp" />
+                    app:srcCompat="@drawable/ic_baseline_layers_clear_24"
+                    android:layout_marginBottom="16dp"/>
             </FrameLayout>
         </LinearLayout>
     </HorizontalScrollView>
