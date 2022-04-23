@@ -32,6 +32,7 @@ _Minecraft diamond sword:_
 _Symmetrical art (PixaPencil has powerful symmetry capabilities):_
 
 ![image](https://user-images.githubusercontent.com/50536495/164863846-a2616e20-e7d1-4cf8-a659-ce0ab43586a0.png)
+![image](https://user-images.githubusercontent.com/50536495/164864089-84f657b4-c08a-4dd2-bde5-560a4c78e3f1.png)
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
 
