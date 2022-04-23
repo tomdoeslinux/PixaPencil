@@ -11,18 +11,20 @@ import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
     undoStack.clear()
 
+    val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
+
     if (saveToBitmapAction && !shadingMode) {
-        pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), color))
+        pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
-    } else if (shadingMode && !shadingMap.contains(coordinates) && pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y) != Color.TRANSPARENT){
+    } else if (shadingMode && !shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT){
         val shadeColor = if (shadingToolMode == "Lighten") {
             Color.WHITE
         } else {
             Color.BLACK
         }
         
-        val newColor = ColorFilterUtilities.blendColor(pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), shadeColor, 0.2f)
-        pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), newColor))
+        val newColor = ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
+        pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, newColor))
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, newColor)
         shadingMap.add(coordinates)
     }
