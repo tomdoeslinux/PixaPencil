@@ -19,7 +19,7 @@ import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
 
 
 class RGBColorPickerFragment : Fragment() {
-    lateinit var keyboardVisibilityEventListenerRegistrar: Unregistrar
+    private lateinit var keyboardVisibilityEventListenerRegistrar: Unregistrar
 
     fun unregisterKeyboardVisiblityEventListenerRegistrar() {
         if (::keyboardVisibilityEventListenerRegistrar.isInitialized) {
