@@ -55,33 +55,6 @@ fun PixelGridView.extendedOverrideSetPixel(
 
         symmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
             quadMirroredCoordinates = coordinates.getQuadReflectedCoordinateSet(pixelGridViewBitmap.width, pixelGridViewBitmap.height)
-//            quadMirroredCoordinates.add(coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
-//            quadMirroredCoordinates.add(coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
-//            quadMirroredCoordinates.add(Coordinates(
-//                coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y,
-//                coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x))
-//
-//            val coords = Coordinates(coordinates.y, coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x)
-//            val coords2 = Coordinates(coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y, coordinates.x)
-//
-//            quadMirroredCoordinates.add(Coordinates(
-//                coords.y,
-//                coords.x))
-//            quadMirroredCoordinates.add(Coordinates(
-//                coords2.y,
-//                coords2.x))
-//
-//            val coords_ = coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
-//            val coords2_ = coords2.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
-//
-//            quadMirroredCoordinates.add(coords_)
-//            quadMirroredCoordinates.add(coords2_)
-//
-//            quadMirroredCoordinates.add(coords_.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
-//            quadMirroredCoordinates.add(coords2_.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
-//
-//            quadMirroredCoordinates.add(coords_.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
-//            quadMirroredCoordinates.add(coords2_.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
         }
 
         symmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
