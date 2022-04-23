@@ -29,6 +29,12 @@ _Symmetrical art (PixaPencil has powerful symmetry capabilities that haven't bee
 ![image](https://user-images.githubusercontent.com/50536495/164863846-a2616e20-e7d1-4cf8-a659-ce0ab43586a0.png)
 ![image](https://user-images.githubusercontent.com/50536495/164864089-84f657b4-c08a-4dd2-bde5-560a4c78e3f1.png)
 
+![image](https://user-images.githubusercontent.com/50536495/164866012-fa1ce32f-aa80-41cc-887c-94ddf09d33f3.png)
+![image](https://user-images.githubusercontent.com/50536495/164866021-b992b5e6-b1ff-49f8-a77b-91feab887b23.png)
+
+![image](https://user-images.githubusercontent.com/50536495/164867306-ed7262f8-e33b-45d3-8e04-8ff122d845ba.png)
+![image](https://user-images.githubusercontent.com/50536495/164867362-bda11589-5bae-4872-b927-397875b0d35a.png)
+
 _Minecraft diamond sword:_
 
 ![image](https://user-images.githubusercontent.com/50536495/152713363-a873fdd3-ecc6-4939-a495-28c4a35abbdb.png)
