@@ -22,7 +22,7 @@ Here are two important issues that I have not been able to fix on my own:
 
 - _Large canvas grid problem:_ the grid tool works OK for smaller canvas sizes but struggles when the canvas size gets large as the lines become too thick. If anyone has any ideas how to fix this feel free to open a pull request or send me an email at **therealbluepandabear@gmail.com**. Note that this is a minor issue, as most people aren't going to be using the app for large canvas sizes, but it would be nice to fix.
 
-## 🖼️ Images
+## 🖼️ Showcase
 
 _Symmetrical art (PixaPencil has powerful symmetry capabilities that haven't been seen in other mobile pixel art editors):_
 
