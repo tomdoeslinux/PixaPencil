@@ -24,15 +24,15 @@ Here are two important issues that I have not been able to fix on my own:
 
 ## 🖼️ Images
 
+_Symmetrical art (PixaPencil has powerful symmetry capabilities that haven't been seen in other mobile pixel art editors):_
+
+![image](https://user-images.githubusercontent.com/50536495/164863846-a2616e20-e7d1-4cf8-a659-ce0ab43586a0.png)
+![image](https://user-images.githubusercontent.com/50536495/164864089-84f657b4-c08a-4dd2-bde5-560a4c78e3f1.png)
+
 _Minecraft diamond sword:_
 
 ![image](https://user-images.githubusercontent.com/50536495/152713363-a873fdd3-ecc6-4939-a495-28c4a35abbdb.png)
 ![image](https://user-images.githubusercontent.com/50536495/152713464-9049586a-2332-4625-b31d-99d822625879.png)
-
-_Symmetrical art (PixaPencil has powerful symmetry capabilities):_
-
-![image](https://user-images.githubusercontent.com/50536495/164863846-a2616e20-e7d1-4cf8-a659-ce0ab43586a0.png)
-![image](https://user-images.githubusercontent.com/50536495/164864089-84f657b4-c08a-4dd2-bde5-560a4c78e3f1.png)
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
 
