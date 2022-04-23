@@ -166,4 +166,5 @@
     <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quad</string>
     <string name="activityCanvasTopAppMenu_symmetry_str">Symmetry</string>
     <string name="activityCanvasTopAppMenu_symmetry_none_str">None</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">Octal</string>
 </resources>

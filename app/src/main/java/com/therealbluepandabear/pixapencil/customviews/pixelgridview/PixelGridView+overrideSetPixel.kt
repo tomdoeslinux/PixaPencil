@@ -39,27 +39,53 @@ fun PixelGridView.extendedOverrideSetPixel(
     saveToBitmapAction: Boolean = true,
     ignoreSymmetry: Boolean = false,
 ) {
-    val (cx, cy) = coordinates
-
-    var horizontallyMirroredCoordinates: Coordinates? = null
-    var verticallyMirroredCoordinates: Coordinates? = null
-    var quadMirroredCoordinates: Coordinates? = null
+    var horizontallyReflectedCoordinates: Coordinates? = null
+    var verticallyReflectedCoordinates: Coordinates? = null
+    var quadMirroredCoordinates = listOf<Coordinates>()
+    var octalMirroredCoordinates = listOf<Coordinates>()
 
     when {
         symmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
-            horizontallyMirroredCoordinates = Coordinates(cx, (pixelGridViewBitmap.height - cy) - 1)
+            horizontallyReflectedCoordinates = coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height)
         }
 
         symmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
-            verticallyMirroredCoordinates = Coordinates((pixelGridViewBitmap.width - cx) - 1, cy)
+            verticallyReflectedCoordinates =  coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
         }
 
         symmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
-            horizontallyMirroredCoordinates = coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height)
-            verticallyMirroredCoordinates = coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
-            quadMirroredCoordinates = Coordinates(
-                coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x,
-                coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y)
+            quadMirroredCoordinates = coordinates.getQuadReflectedCoordinateSet(pixelGridViewBitmap.width, pixelGridViewBitmap.height)
+//            quadMirroredCoordinates.add(coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
+//            quadMirroredCoordinates.add(coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
+//            quadMirroredCoordinates.add(Coordinates(
+//                coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y,
+//                coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x))
+//
+//            val coords = Coordinates(coordinates.y, coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x)
+//            val coords2 = Coordinates(coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y, coordinates.x)
+//
+//            quadMirroredCoordinates.add(Coordinates(
+//                coords.y,
+//                coords.x))
+//            quadMirroredCoordinates.add(Coordinates(
+//                coords2.y,
+//                coords2.x))
+//
+//            val coords_ = coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
+//            val coords2_ = coords2.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
+//
+//            quadMirroredCoordinates.add(coords_)
+//            quadMirroredCoordinates.add(coords2_)
+//
+//            quadMirroredCoordinates.add(coords_.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
+//            quadMirroredCoordinates.add(coords2_.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height))
+//
+//            quadMirroredCoordinates.add(coords_.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
+//            quadMirroredCoordinates.add(coords2_.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width))
+        }
+
+        symmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
+            octalMirroredCoordinates = coordinates.getOctalReflectedCoordinateSet(pixelGridViewBitmap.width, pixelGridViewBitmap.height)
         }
 
         else -> { }
@@ -68,16 +94,24 @@ fun PixelGridView.extendedOverrideSetPixel(
     if (coordinatesInCanvasBounds(coordinates)) {
         setPixelAndSaveToBitmapAction(coordinates, color)
 
-        if (horizontallyMirroredCoordinates != null) {
-            setPixelAndSaveToBitmapAction(horizontallyMirroredCoordinates, color)
+        if (horizontallyReflectedCoordinates != null) {
+            setPixelAndSaveToBitmapAction(horizontallyReflectedCoordinates, color)
         }
 
-        if (verticallyMirroredCoordinates != null) {
-            setPixelAndSaveToBitmapAction(verticallyMirroredCoordinates, color)
+        if (verticallyReflectedCoordinates != null) {
+            setPixelAndSaveToBitmapAction(verticallyReflectedCoordinates, color)
         }
 
-        if (quadMirroredCoordinates != null) {
-            setPixelAndSaveToBitmapAction(quadMirroredCoordinates, color)
+        if (quadMirroredCoordinates.isNotEmpty()) {
+            for (coordinate in quadMirroredCoordinates) {
+                setPixelAndSaveToBitmapAction(coordinate, color)
+            }
+        }
+
+        if (octalMirroredCoordinates.isNotEmpty()) {
+            for (coordinate in octalMirroredCoordinates) {
+                setPixelAndSaveToBitmapAction(coordinate, color)
+            }
         }
 
         if (currentBrush != null && !ignoreBrush) {
@@ -87,26 +121,38 @@ fun PixelGridView.extendedOverrideSetPixel(
                 }
             }
 
-            if (horizontallyMirroredCoordinates != null) {
-                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(horizontallyMirroredCoordinates)) {
+            if (horizontallyReflectedCoordinates != null) {
+                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinates)) {
                     if (coordinatesInCanvasBounds(xyPosition_2)) {
                         setPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                     }
                 }
             }
 
-            if (verticallyMirroredCoordinates != null) {
-                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(verticallyMirroredCoordinates)) {
+            if (verticallyReflectedCoordinates != null) {
+                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinates)) {
                     if (coordinatesInCanvasBounds(xyPosition_2)) {
                         setPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                     }
                 }
             }
 
-            if (quadMirroredCoordinates != null) {
-                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(quadMirroredCoordinates)) {
-                    if (coordinatesInCanvasBounds(xyPosition_2)) {
-                        setPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
+            if (quadMirroredCoordinates.isNotEmpty()) {
+                for (coordinates_1 in quadMirroredCoordinates) {
+                    for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
+                        if (coordinatesInCanvasBounds(xyPosition_2)) {
+                            setPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
+                        }
+                    }
+                }
+            }
+
+            if (octalMirroredCoordinates.isNotEmpty()) {
+                for (coordinates_1 in octalMirroredCoordinates) {
+                    for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
+                        if (coordinatesInCanvasBounds(xyPosition_2)) {
+                            setPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
+                        }
                     }
                 }
             }

@@ -125,6 +125,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
             pixelGridViewInstance.symmetryMode = SymmetryMode.Quad
         }
+
+        R.id.appMenu_symmetry_octal_subItem -> {
+            menu.findItem(R.id.appMenu_symmetry_octal_subItem).isChecked = true
+            pixelGridViewInstance.symmetryMode = SymmetryMode.Octal
+        }
     }
     return true
 }

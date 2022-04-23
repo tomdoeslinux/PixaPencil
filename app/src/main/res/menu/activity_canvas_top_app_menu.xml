@@ -74,6 +74,10 @@
 
                 <item android:id="@+id/appMenu_symmetry_quad_subItem"
                     android:title="@string/activityCanvasTopAppMenu_symmetry_quad_str"/>
+
+
+                <item android:id="@+id/appMenu_symmetry_octal_subItem"
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_octal_str"/>
             </group>
         </menu>
     </item>
