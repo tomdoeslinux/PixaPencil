@@ -14,6 +14,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
+import com.therealbluepandabear.pixapencil.extensions.setPixel
+import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -217,21 +219,23 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
             for (i_1 in 0 until canvasWidth) {
                 for (i_2 in 0 until canvasHeight) {
+                    val coordinates = Coordinates.staticSet(i_1, i_2)
+
                     if (i_1 % 2 == 0) {
                         if (i_1 % 2 == 0
                             &&
                             i_2 % 2 == 0) {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
+                            transparentBackgroundViewBitmap.setPixel(coordinates, color)
                         } else {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
+                            transparentBackgroundViewBitmap.setPixel(coordinates, Color.WHITE)
                         }
                     } else {
                         if (i_1 % 2 != 0
                             &&
                             i_2 % 2 != 0) {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, color)
+                            transparentBackgroundViewBitmap.setPixel(coordinates, color)
                         } else {
-                            transparentBackgroundViewBitmap.setPixel(i_1, i_2, Color.WHITE)
+                            transparentBackgroundViewBitmap.setPixel(coordinates, Color.WHITE)
                         }
                     }
                 }

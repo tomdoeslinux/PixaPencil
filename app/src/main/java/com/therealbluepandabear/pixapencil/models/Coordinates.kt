@@ -12,4 +12,10 @@ data class Coordinates(val x: Int, val y: Int) {
     fun getVerticallyReflectedCoordinates(bitmapWidth: Int): Coordinates {
         return Coordinates((bitmapWidth - x) - 1, y)
     }
+
+    companion object {
+        fun staticSet(x: Int, y: Int): Coordinates {
+            return Coordinates(x, y)
+        }
+    }
 }

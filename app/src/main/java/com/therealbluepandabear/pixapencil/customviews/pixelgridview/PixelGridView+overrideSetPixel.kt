@@ -3,6 +3,8 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.shadingToolMode
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
+import com.therealbluepandabear.pixapencil.extensions.getPixel
+import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -11,11 +13,11 @@ import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
     undoStack.clear()
 
-    val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
+    val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates)
 
     if (saveToBitmapAction && !shadingMode) {
         pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
-        pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
+        pixelGridViewBitmap.setPixel(coordinates, color)
     } else if (shadingMode && !shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT){
         val shadeColor = if (shadingToolMode == "Lighten") {
             Color.WHITE
@@ -25,7 +27,7 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
         
         val newColor = ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
         pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, newColor))
-        pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, newColor)
+        pixelGridViewBitmap.setPixel(coordinates, newColor)
         shadingMap.add(coordinates)
     }
 }

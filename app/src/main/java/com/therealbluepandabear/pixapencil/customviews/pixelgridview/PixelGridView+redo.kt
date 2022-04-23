@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.menu
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun PixelGridView.extendedRedo() {
@@ -16,7 +17,7 @@ fun PixelGridView.extendedRedo() {
         for (obj in undoStack.last().actionData.distinctBy {
             it.coordinates
         }) {
-            pixelGridViewBitmap.setPixel(obj.coordinates.x, obj.coordinates.y, obj.colorSet)
+            pixelGridViewBitmap.setPixel(obj.coordinates, obj.colorSet)
         }
 
         invalidate()

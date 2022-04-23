@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.extensions
 
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
 
 fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
@@ -22,4 +23,12 @@ fun Bitmap.calculateMatrix(newWidth: Float, newHeight: Float): MatrixInfo {
     matrix.postScale(scaleWidth, scaleHeight)
 
     return MatrixInfo(matrix, scaleWidth, scaleHeight)
+}
+
+fun Bitmap.setPixel(coordinates: Coordinates, color: Int) {
+    return setPixel(coordinates.x, coordinates.y, color)
+}
+
+fun Bitmap.getPixel(coordinates: Coordinates): Int {
+    return getPixel(coordinates.x, coordinates.y)
 }
