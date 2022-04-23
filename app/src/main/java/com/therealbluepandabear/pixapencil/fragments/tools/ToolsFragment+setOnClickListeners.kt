@@ -17,10 +17,6 @@ fun ToolsFragment.getUnselectedStateListPairData(): Pair<ColorStateList, ColorSt
     return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.transparent), ContextCompat.getColorStateList(requireContext(), android.R.color.holo_blue_dark))
 }
 
-fun ToolsFragment.getToggleSelectedStateListPairData(): Pair<ColorStateList, ColorStateList?> {
-    return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_orange_light), ContextCompat.getColorStateList(requireContext(), R.color.white))
-}
-
 fun ToolsFragment.setColorFor(it: View) {
     it.backgroundTintList = getSelectedStateListPairData().first
     (it as FloatingActionButton).supportImageTintList = getSelectedStateListPairData().second
