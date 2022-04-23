@@ -108,7 +108,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.appMenu_symmetry_none_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = null
+            pixelGridViewInstance.symmetryMode = SymmetryMode.defaultSymmetryMode
         }
 
         R.id.appMenu_symmetry_horizontal_subItem -> {

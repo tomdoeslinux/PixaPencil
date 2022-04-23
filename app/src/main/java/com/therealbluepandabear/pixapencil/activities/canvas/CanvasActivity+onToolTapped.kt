@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.graphics.Color
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
@@ -9,6 +8,10 @@ import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
+    if (currentTool == Tools.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
+        pixelGridViewInstance.shadingMode = false
+    }
+
     if (currentTool == Tools.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
         Flags.DisableActionMove = false
         polygonCoordinates.clear()
@@ -81,15 +84,17 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         StringConstants.Identifiers.ShadingToolIdentifier  -> {
             if (currentTool == Tools.ShadingTool) {
                 val snackbarText: String = if (shadingToolMode == "Lighten") {
-                   "Darken mode".also { shadingToolMode = "Darken" }
+                   "Darken mode".also {
+                       shadingToolMode = "Darken"
+                   }
                 } else {
-                    "Lighten mode".also { shadingToolMode = "Lighten" }
+                    "Lighten mode".also {
+                        shadingToolMode = "Lighten"
+                    }
                 }
 
                 binding.activityCanvasRootLayout.showSnackbar(snackbarText, SnackbarDuration.Short)
             }
-
-            filterSelectedColor(Color.BLACK, 0.2f)
             currentTool = Tools.ShadingTool
         }
     }

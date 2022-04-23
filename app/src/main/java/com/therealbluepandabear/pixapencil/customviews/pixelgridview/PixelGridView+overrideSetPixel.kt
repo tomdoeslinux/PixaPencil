@@ -12,33 +12,22 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
     if (saveToBitmapAction) {
         undoStack.clear()
         pixelGridViewInstance.currentBitmapAction!!.actionData.add(
-            BitmapActionData(
-                coordinates,
-                pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y),
-                color
-            )
-        )
+            BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), color))
     }
+
+    val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
 
     if (!shadingMode) {
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
-    } else {
-        if (!shadingMap.contains(coordinates)) {
-            val colorAtCoordinates = pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y)
-
-            val shadeColor = if (shadingToolMode == "Lighten") {
-                Color.WHITE
-            } else {
-                Color.BLACK
-            }
-
-            pixelGridViewBitmap.setPixel(
-                coordinates.x,
-                coordinates.y,
-                ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
-            )
-            shadingMap.add(coordinates)
+    } else if (shadingMode && !shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT){
+        val shadeColor = if (shadingToolMode == "Lighten") {
+            Color.WHITE
+        } else {
+            Color.BLACK
         }
+
+        pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f))
+        shadingMap.add(coordinates)
     }
 }
 
@@ -66,9 +55,11 @@ fun PixelGridView.extendedOverrideSetPixel(
         }
 
         symmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
-            horizontallyMirroredCoordinates = Coordinates(x, (pixelGridViewBitmap.height - y) - 1)
-            verticallyMirroredCoordinates = Coordinates((pixelGridViewBitmap.width - x) - 1, y)
-            quadMirroredCoordinates = Coordinates((pixelGridViewBitmap.width - x) - 1, (pixelGridViewBitmap.height - y) - 1)
+            horizontallyMirroredCoordinates = coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height)
+            verticallyMirroredCoordinates = coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
+            quadMirroredCoordinates = Coordinates(
+                coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width).x,
+                coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height).y)
         }
 
         else -> { }

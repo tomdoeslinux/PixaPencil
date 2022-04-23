@@ -66,7 +66,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     private var st = false
 
-    var symmetryMode: SymmetryMode? = null
+    var symmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
 
     var shadingMode: Boolean = false
 
