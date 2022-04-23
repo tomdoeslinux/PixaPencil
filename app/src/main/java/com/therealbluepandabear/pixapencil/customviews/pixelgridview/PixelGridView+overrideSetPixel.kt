@@ -9,8 +9,9 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 
 private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
+    undoStack.clear()
+
     if (saveToBitmapAction && !shadingMode) {
-        undoStack.clear()
         pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), color))
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, color)
     } else if (shadingMode && !shadingMap.contains(coordinates) && pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y) != Color.TRANSPARENT){
@@ -21,8 +22,6 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
         }
         
         val newColor = ColorFilterUtilities.blendColor(pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), shadeColor, 0.2f)
-        
-        undoStack.clear()
         pixelGridViewInstance.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, pixelGridViewBitmap.getPixel(coordinates.x, coordinates.y), newColor))
         pixelGridViewBitmap.setPixel(coordinates.x, coordinates.y, newColor)
         shadingMap.add(coordinates)
