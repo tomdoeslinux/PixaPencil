@@ -3,10 +3,7 @@
 
     <string name="activityMain_newProjectButton_contentDescription">New Project</string>
 
-    <string name="fragmentTools_darken_tool_content_description">Darken Tool</string>
     <string name="fragmentTools_shading_tool_content_description">Shading Tool</string>
-    <string name="fragmentTools_clear_canvas_tool_content_description_">Clear Canvas Tool</string>
-    <string name="fragmentTools_find_and_replace_tool_content_description">Find and Replace Tool</string>
     <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>
     <string name="fragmentTools_eraser_tool_content_description">Eraser Tool</string>
 
@@ -104,7 +101,6 @@
     <string name="polygon_tool_info_title_in_code_str">Polygon Tool Info</string>
     <string name="dither_tool_info_title_in_code_str">Dither Tool Info</string>
     <string name="darken_tool_info_title_in_code_str">Darken Tool Info</string>
-    <string name="lighten_tool_info_title_in_code_str">Lighten Tool Info</string>
     <string name="color_picker_tool_info_title_in_code_str">Color Picker Tool Info</string>
     <string name="erase_tool_info_title_in_code_str">Erase Tool Info</string>
 
@@ -121,7 +117,6 @@
     <string name="polygon_tool_info_text_in_code_str">Draw polygonal paths.</string>
     <string name="dither_tool_info_text_in_code_str">Draw checkerboard patterns, good for shading.</string>
     <string name="darken_tool_info_text_in_code_str">Darken selected color.</string>
-    <string name="lighten_tool_info_text_in_code_str">Lighten selected color.</string>
     <string name="color_picker_tool_info_text_in_code_str">Get the color at the specified pixel.</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
 
