@@ -21,43 +21,35 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
 
         if (!evenDiameterMode) {
             algorithmInfo.canvas.overrideSetPixel(
-                xc + x,
-                yc - y,
+                Coordinates(xc + x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc + y,
-                yc - x,
+                Coordinates(xc + y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc + x,
-                yc + y,
+                Coordinates(xc + x, yc + y),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc + y,
-                yc + x,
+                Coordinates(xc + y, yc + x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - x,
-                yc - y,
+                Coordinates(xc - x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - y,
-                yc - x,
+                Coordinates(xc - y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - y,
-                yc + x,
+                Coordinates(xc - y, yc + x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - x,
-                yc + y,
+                Coordinates(xc - x, yc + y),
                 algorithmInfo.color
             )
 
@@ -87,43 +79,35 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             }
         } else {
             algorithmInfo.canvas.overrideSetPixel(
-                (xc + x) + 1,
-                yc - y,
+                Coordinates((xc + x) + 1, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                (xc + y) + 1,
-                yc - x,
+                Coordinates((xc + y) + 1, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                (xc + x) + 1,
-                (yc + y) + 1,
+                Coordinates((xc + x) + 1, (yc + y) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                (xc + y) + 1,
-                (yc + x) + 1,
+                Coordinates((xc + y) + 1, (yc + x) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - x,
-                yc - y,
+                Coordinates(xc - x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - y,
-                yc - x,
+                Coordinates(xc - y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - y,
-                (yc + x) + 1,
+                Coordinates(xc - y, (yc + x) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvas.overrideSetPixel(
-                xc - x,
-                (yc + y) + 1,
+                Coordinates(xc - x, (yc + y) + 1),
                 algorithmInfo.color
             )
 

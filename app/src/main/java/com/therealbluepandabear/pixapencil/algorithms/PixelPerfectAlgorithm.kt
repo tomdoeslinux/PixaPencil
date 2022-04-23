@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapActionData
 
 class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoParameter) {
     fun compute() {
-        var distinct = algorithmInfoParameter.currentBitmapAction.actionData.distinctBy { it.coordinates }
+        val distinct = algorithmInfoParameter.currentBitmapAction.actionData.distinctBy { it.coordinates }
         val data = mutableListOf<BitmapActionData>()
 
         var index = 0
@@ -33,7 +33,7 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
         pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
         for (value in data) {
-            pixelGridViewInstance.overrideSetPixel(value.coordinates.x, value.coordinates.y, algorithmInfoParameter.color)
+            pixelGridViewInstance.overrideSetPixel(value.coordinates, algorithmInfoParameter.color)
         }
 
         pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)

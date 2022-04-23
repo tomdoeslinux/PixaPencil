@@ -194,8 +194,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         extendedApplyBitmapFilter(lambda)
     }
 
-    fun overrideSetPixel(x: Int, y: Int, color: Int, ignoreBrush: Boolean = false, saveToBitmapAction: Boolean = true, ignoreSymmetry: Boolean = false) {
-        extendedOverrideSetPixel(x, y, color, ignoreBrush, saveToBitmapAction, ignoreSymmetry)
+    fun overrideSetPixel(coordinates: Coordinates, color: Int, ignoreBrush: Boolean = false, saveToBitmapAction: Boolean = true, ignoreSymmetry: Boolean = false) {
+        extendedOverrideSetPixel(coordinates, color, ignoreBrush, saveToBitmapAction, ignoreSymmetry)
     }
 
     fun replaceBitmap(newBitmap: Bitmap) {

@@ -16,7 +16,7 @@ fun PixelGridView.extendedReplacePixelsByColor(colorToFind: Int, colorToReplace:
             val coordinates = Coordinates(i_1, i_2)
 
             if (pixelGridViewBitmap.getPixel(coordinates) == colorToFind) {
-                overrideSetPixel(i_1, i_2, colorToReplace, true, ignoreSymmetry = true)
+                overrideSetPixel(coordinates, colorToReplace, true, ignoreSymmetry = true)
             }
         }
     }

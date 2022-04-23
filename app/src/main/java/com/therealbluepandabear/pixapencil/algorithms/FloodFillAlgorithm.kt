@@ -18,7 +18,7 @@ class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
                 continue
             }
 
-            algorithmInfo.canvas.overrideSetPixel(current.x, current.y, algorithmInfo.color, true)
+            algorithmInfo.canvas.overrideSetPixel(current, algorithmInfo.color, true)
 
             val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
             for (index in expandToNeighborsAlgorithmInstance.compute(current)) {

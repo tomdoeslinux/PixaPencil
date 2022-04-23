@@ -11,7 +11,7 @@ fun pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
         lineAlgorithmInstance.compute(Coordinates(pixelGridViewInstance.prevX!!, pixelGridViewInstance.prevY!!), coordinatesTapped)
     }
 
-    pixelGridViewInstance.overrideSetPixel(coordinatesTapped.x, coordinatesTapped.y, getSelectedColor())
+    pixelGridViewInstance.overrideSetPixel(coordinatesTapped, getSelectedColor())
 
     pixelGridViewInstance.prevX = coordinatesTapped.x
     pixelGridViewInstance.prevY = coordinatesTapped.y

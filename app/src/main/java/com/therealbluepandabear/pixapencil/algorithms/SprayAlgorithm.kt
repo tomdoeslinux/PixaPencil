@@ -22,7 +22,7 @@ class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private 
 
             val randCoordinates = Coordinates(randX, randY)
 
-            algorithmInfo.canvas.overrideSetPixel(randCoordinates.x, randCoordinates.y, algorithmInfo.color)
+            algorithmInfo.canvas.overrideSetPixel(randCoordinates, algorithmInfo.color)
         }
     }
 }

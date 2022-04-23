@@ -33,14 +33,13 @@ private fun PixelGridView.setPixelAndSaveToBitmapAction(coordinates: Coordinates
 }
 
 fun PixelGridView.extendedOverrideSetPixel(
-    x: Int,
-    y: Int,
+    coordinates: Coordinates,
     color: Int,
     ignoreBrush: Boolean = false,
     saveToBitmapAction: Boolean = true,
     ignoreSymmetry: Boolean = false,
 ) {
-    val coordinates = Coordinates(x, y)
+    val (cx, cy) = coordinates
 
     var horizontallyMirroredCoordinates: Coordinates? = null
     var verticallyMirroredCoordinates: Coordinates? = null
@@ -48,11 +47,11 @@ fun PixelGridView.extendedOverrideSetPixel(
 
     when {
         symmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
-            horizontallyMirroredCoordinates = Coordinates(x, (pixelGridViewBitmap.height - y) - 1)
+            horizontallyMirroredCoordinates = Coordinates(cx, (pixelGridViewBitmap.height - cy) - 1)
         }
 
         symmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
-            verticallyMirroredCoordinates = Coordinates((pixelGridViewBitmap.width - x) - 1, y)
+            verticallyMirroredCoordinates = Coordinates((pixelGridViewBitmap.width - cx) - 1, cy)
         }
 
         symmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {

@@ -22,7 +22,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            algorithmInfo.canvas.overrideSetPixel(x, y, algorithmInfo.color, ignoreBrush)
+            algorithmInfo.canvas.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
             x++
 
             if (p < 0) {
@@ -54,7 +54,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            algorithmInfo.canvas.overrideSetPixel(x, y, algorithmInfo.color, ignoreBrush)
+            algorithmInfo.canvas.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
             y++
 
             if (p < 0) {

@@ -14,7 +14,7 @@ fun eraseToolOnPixelTapped(coordinatesTapped: Coordinates) {
         lineAlgorithmInstance.compute(Coordinates(pixelGridViewInstance.prevX!!, pixelGridViewInstance.prevY!!), coordinatesTapped)
     }
 
-    pixelGridViewInstance.overrideSetPixel(coordinatesTapped.x, coordinatesTapped.y, Color.TRANSPARENT)
+    pixelGridViewInstance.overrideSetPixel(coordinatesTapped, Color.TRANSPARENT)
 
     pixelGridViewInstance.prevX = coordinatesTapped.x
     pixelGridViewInstance.prevY = coordinatesTapped.y
