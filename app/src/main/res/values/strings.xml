@@ -89,6 +89,8 @@
     <string name="activityCanvasTopAppMenu_clear_canvas_str">Clear Canvas</string>
 
     <string name="pencil_tool_info_title_in_code_str">Pencil Tool Info</string>
+    <string name="erase_tool_info_title_in_code_str">Erase Tool Info</string>
+    <string name="color_picker_tool_info_title_in_code_str">Color Picker Tool Info</string>
     <string name="fill_tool_info_title_in_code_str">Fill Tool Info</string>
     <string name="line_tool_info_title_in_code_str">Line Tool Info</string>
     <string name="rectangle_tool_info_title_in_code_str">Rectangle Tool Info</string>
@@ -100,9 +102,7 @@
     <string name="spray_tool_info_title_in_code_str">Spray Tool Info</string>
     <string name="polygon_tool_info_title_in_code_str">Polygon Tool Info</string>
     <string name="dither_tool_info_title_in_code_str">Dither Tool Info</string>
-    <string name="darken_tool_info_title_in_code_str">Darken Tool Info</string>
-    <string name="color_picker_tool_info_title_in_code_str">Color Picker Tool Info</string>
-    <string name="erase_tool_info_title_in_code_str">Erase Tool Info</string>
+    <string name="shading_tool_info_title_in_code_str">Shading Tool Info</string>
 
     <string name="pencil_tool_info_text_in_code_str">Draw freehand, pixelated paths.</string>
     <string name="fill_tool_info_text_in_code_str">Fill adjacent pixels which are similar in color value.</string>
@@ -116,7 +116,7 @@
     <string name="spray_tool_info_text_in_code_str">Simulate real-life spray paint.</string>
     <string name="polygon_tool_info_text_in_code_str">Draw polygonal paths.</string>
     <string name="dither_tool_info_text_in_code_str">Draw checkerboard patterns, good for shading.</string>
-    <string name="darken_tool_info_text_in_code_str">Darken selected color.</string>
+    <string name="shading_tool_info_text_in_code_str">Lighten/darken pixels on your canvas.</string>
     <string name="color_picker_tool_info_text_in_code_str">Get the color at the specified pixel.</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
 

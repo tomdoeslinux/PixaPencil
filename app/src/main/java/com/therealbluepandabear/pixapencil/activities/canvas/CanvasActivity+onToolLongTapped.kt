@@ -106,8 +106,8 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
         StringConstants.Identifiers.ShadingToolIdentifier  -> {
             if (currentTool == Tools.ShadingTool) {
                 showSimpleInfoDialog(
-                    getString(R.string.darken_tool_info_title_in_code_str),
-                    getString(R.string.darken_tool_info_text_in_code_str))
+                    getString(R.string.shading_tool_info_title_in_code_str),
+                    getString(R.string.shading_tool_info_text_in_code_str))
             }
         }
 
