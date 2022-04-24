@@ -1,18 +1,18 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.adapters.RecentCreationsAdapter
+import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.models.PixelArt
 
 fun MainActivity.extendedOnCreationLongTapped(param: PixelArt) {
-    (binding.activityMainRecentCreationsRecyclerView.adapter as RecentCreationsAdapter).userHasLongPressed =
+    (binding.activityMainRecentCreationsRecyclerView.adapter as PixelArtCreationsAdapter).userHasLongPressed =
         true
 
     val paramTitle = param.title
 
-    if ((binding.activityMainRecentCreationsRecyclerView.adapter as RecentCreationsAdapter).userHasLongPressed) {
+    if ((binding.activityMainRecentCreationsRecyclerView.adapter as PixelArtCreationsAdapter).userHasLongPressed) {
         showDialog(
             "Delete '$paramTitle'?",
             "Are you sure you want to delete '$paramTitle'? - this cannot be undone.",

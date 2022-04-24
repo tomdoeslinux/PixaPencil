@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.main
 
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.adapters.RecentCreationsAdapter
+import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
@@ -10,18 +10,20 @@ import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragme
 
 
 fun MainActivity.setOnClickListeners() {
+    binding.activityMainRecentCreationsRecyclerView.setHasFixedSize(true)
+
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when(item.itemId) {
             R.id.activityMainBottomNavigationMenu_home_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
-                        RecentCreationsAdapter(it, this)
+                        PixelArtCreationsAdapter(it, this)
                 }
             }
             R.id.activityMainBottomNavigationMenu_starred_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
-                        RecentCreationsAdapter(it.filter { item -> item.starred }, this)
+                        PixelArtCreationsAdapter(it.filter { item -> item.starred }, this)
                 }
             }
         }

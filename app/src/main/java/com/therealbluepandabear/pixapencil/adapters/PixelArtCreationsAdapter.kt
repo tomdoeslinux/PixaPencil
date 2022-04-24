@@ -16,7 +16,7 @@ import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.viewholders.RecentCreationsViewHolder
 
-class RecentCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
+class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
@@ -24,6 +24,10 @@ class RecentCreationsAdapter(private val data: List<PixelArt>, private val liste
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCreationsViewHolder {
         binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return RecentCreationsViewHolder(binding.recentCreationsLayoutRootLayout)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
     override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
