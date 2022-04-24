@@ -18,7 +18,7 @@ fun PixelGridView.extendedApplyBitmapFilter(filterLambda: (Int) -> Int) {
             if (colorAtCoordinates != Color.TRANSPARENT) {
                 val color = filterLambda(colorAtCoordinates)
 
-                overrideSetPixel(coordinates, color, true)
+                overrideSetPixel(coordinates, color, true, ignoreSymmetry = true)
             }
         }
     }
