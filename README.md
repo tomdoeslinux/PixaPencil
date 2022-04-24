@@ -91,7 +91,7 @@ Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look
 Thank you to:
 - _JohnWick_007#8119 on Discord for providing me some icons to use in my app._
 - _PapaBread#3820 on Discord for helping me out with the mathematics required to add a mirror tool into the app._ **(For all commits prior to 733.)**
-- And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app. **(For all commits prior to 2c5477e330501f90e86e368531b16eed7aa3d98d.)**
+- And, most importantly - those on StackOverflow who have assisted me with the many bugs I have encountered in my app. **(For all commits prior to https://github.com/therealbluepandabear/PixaPencil/commit/2c5477e330501f90e86e368531b16eed7aa3d98d.)**
 
 ## 📚 Other libraries used
 Without these libraries, this app would not have been possible, so please check them out:
