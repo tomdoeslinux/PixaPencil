@@ -13,7 +13,7 @@ private fun NewProjectFragment.checkForTitleError() {
     val title = binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
     if (title.isBlank()) {
-        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_title_in_code_str)
+        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_project_name_in_code_str)
         invalidTitle = true
     } else {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = null
