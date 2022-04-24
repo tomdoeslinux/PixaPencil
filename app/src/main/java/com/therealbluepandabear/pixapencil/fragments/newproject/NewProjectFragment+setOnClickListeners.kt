@@ -27,10 +27,12 @@ private fun NewProjectFragment.checkForWidthError() {
             binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width_in_code_str)
             invalidWidth = true
         }
+
         !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
             binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
             invalidWidth = true
         }
+
         else -> {
             binding.fragmentNewCanvasWidthTextInputLayout.error = null
             invalidWidth = false
@@ -44,10 +46,12 @@ private fun NewProjectFragment.checkForHeightError() {
             binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height_in_code_str)
             invalidHeight = true
         }
+
         !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
             binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
             invalidHeight = true
         }
+
         else -> {
             binding.fragmentNewCanvasHeightTextInputLayout.error = null
             invalidHeight = false
