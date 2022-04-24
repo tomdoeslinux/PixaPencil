@@ -5,7 +5,7 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-fun extendedOnFilterSelected(filterType: String) {
+fun extendedOnFilterTapped(filterType: String) {
     when (filterType) {
         StringConstants.Identifiers.ColorFilterIdentifier -> {
             pixelGridViewInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }

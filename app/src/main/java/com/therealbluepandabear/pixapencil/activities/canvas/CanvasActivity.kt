@@ -121,7 +121,7 @@ class CanvasActivity :
     }
 
     override fun onFilterTapped(filterName: String) {
-        extendedOnFilterSelected(filterName)
+        extendedOnFilterTapped(filterName)
     }
 
     override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {
