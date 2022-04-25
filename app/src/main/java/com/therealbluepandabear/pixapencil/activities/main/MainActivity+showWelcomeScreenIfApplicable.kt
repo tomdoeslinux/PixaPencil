@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.content.Context
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -17,8 +18,8 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
         }
 
         showSimpleInfoDialog(
-            "Welcome",
-            "Welcome to PixaPencil! Tap and hold on each tool's icon to get further information on how the specific tool works."
+            getString(R.string.dialog_welcome_title_in_code_str),
+            getString(R.string.dialog_welcome_text_in_code_str)
         )
     }
 }

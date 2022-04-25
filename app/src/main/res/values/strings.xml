@@ -183,6 +183,8 @@
     </string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">Delete %1$s?"</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">Are you sure you want to delete %1$s? - this cannot be undone."</string>
+    <string name="dialog_welcome_title_in_code_str">Welcome</string>
+    <string name="dialog_welcome_text_in_code_str">Welcome to PixaPencil! Tap and hold on each tool\'s icon to get further information on how the specific tool works.</string>
 
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text_in_code_str">View</string>
