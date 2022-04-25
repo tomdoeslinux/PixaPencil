@@ -87,6 +87,12 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 
 Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
 
+# 📓 Translations
+If you spot issues with the translation send me an email at therealbluepandabear@gmail.com or open an issue request.
+
+This app has been translated to:
+- Hebrew (by myself), the translation quality is OK.
+
 ## 📣 Shoutout
 Thank you to:
 - _JohnWick_007#8119 on Discord for providing me some icons to use in my app._ **(This user's contribution is no longer in the app.)**
