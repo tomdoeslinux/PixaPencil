@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:hint="@string/saveFileUnderNewNameAlert_new_name_str"
+    android:hint="@string/saveFileUnderNewNameAlertLayout_new_name_str"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toEndOf="@+id/fragmentHexadecimalColorPicker_colorPreview"
     app:layout_constraintTop_toTopOf="parent"

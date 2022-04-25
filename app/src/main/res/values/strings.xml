@@ -1,39 +1,15 @@
 <resources>
     <string name="app_name">PixaPencil</string>
 
-    <string name="activityMain_newProjectButton_contentDescription">New Project</string>
-
-    <string name="fragmentTools_shading_tool_content_description">Shading Tool</string>
-    <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>
-    <string name="fragmentTools_eraser_tool_content_description">Eraser Tool</string>
-
+    <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
 
-    <string name="fragmentNewCanvas_project_name_str">Name</string>
-    <string name="fragmentTools_pencil_tool_content_description">Pencil Tool</string>
-
-    <string name="activityCanvas_tab_brushes_str">Brushes</string>
-    <string name="activityCanvas_tab_filters_str">Filters</string>
-    <string name="activityCanvas_tab_tools_str">Tools</string>
-    <string name="activityCanvas_tab_color_palettes_str">Palettes</string>
-
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
 
-    <string name="fragmentTools_fill_tool_content_description">Fill Tool</string>
-    <string name="fragmentTools_line_tool_content_description">Line Tool</string>
-    <string name="fragmentTools_rectangle_tool_content_description">Rectangle Tool</string>
-    <string name="fragmentTools_outlined_rectangle_tool_content_description">Outlined Rectangle Tool</string>
+    <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
 
-    <string name="bottomNavigationMenu_starred_str">Starred</string>
-    <string name="bottomNavigationMenu_home_str">Home</string>
-
-    <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
-    <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
-    <string name="fragmentColorPicker_tab_hex_str">Hex</string>
-
-    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
-
+    <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">Color Filter</string>
     <string name="fragmentFilters_lighten_str">Lighten</string>
     <string name="fragmentFilters_darken_str">Darken</string>
@@ -47,7 +23,58 @@
     <string name="fragmentFindAndReplace_find_str">Find</string>
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
+    <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
+
     <string name="fragmentRGBColorPicker_valueR_str">0</string>
+
+    <string name="fragmentSprayToolSettings_strength_str">Strength</string>
+    <string name="fragmentSprayToolSettings_radius_str">Radius</string>
+    <string name="fragmentSprayToolSettings_done_str">Done</string>
+    <string name="fragmentNewColorPalette_width_str">Width</string>
+    <string name="fragmentNewColorPalette_height_str">Height</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
+
+    <string name="fragment_new_project_title_in_code_str">New Project</string>
+    <string name="fragment_find_and_replace_title_in_code_str">Find and Replace</string>
+    <string name="fragment_color_picker_title_in_code_str">Select Color</string>
+    <string name="fragment_new_color_palette_title_in_code_str">New Color Palette</string>
+    <string name="fragment_spray_tool_settings_title_in_code_str">Spray Tool Settings</string>
+
+    <string name="fragmentTools_pencil_tool_content_description">Pencil Tool</string>
+    <string name="fragmentTools_eraser_tool_content_description">Eraser Tool</string>
+    <string name="fragmentTools_color_picker_tool_content_description">Color Picker Tool</string>
+    <string name="fragmentTools_fill_tool_content_description">Fill Tool</string>
+    <string name="fragmentTools_line_tool_content_description">Line Tool</string>
+    <string name="fragmentTools_rectangle_tool_content_description">Rectangle Tool</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">Outlined Rectangle Tool</string>
+    <string name="fragmentTools_square_tool_content_description">Square Tool</string>
+    <string name="fragmentTools_outlined_square_button_content_description">Outlined Square Tool</string>
+    <string name="fragmentTools_circle_tool_content_description">Circle Tool</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">Outlined Circle Tool</string>
+    <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>
+    <string name="fragmentTools_polygon_tool_content_description">Polygon Tool</string>
+    <string name="fragmentTools_dither_tool_content_description">Dither Tool</string>
+    <string name="fragmentTools_shading_tool_content_description">Shading Tool</string>
+
+    <string name="fragmentNewCanvas_project_name_str">Name</string>
+
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
+
+    <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
+    <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
+    <string name="fragmentColorPicker_tab_hex_str">Hex</string>
+
+    <!--Activity strings-->
+    <string name="activityMain_newProjectButton_contentDescription">New Project</string>
+
+    <string name="activityCanvas_tab_brushes_str">Brushes</string>
+    <string name="activityCanvas_tab_filters_str">Filters</string>
+    <string name="activityCanvas_tab_tools_str">Tools</string>
+    <string name="activityCanvas_tab_color_palettes_str">Palettes</string>
+
+    <!--Menu strings-->
+    <string name="activityMainTopAppMenu_community_str">Community</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">Undo</string>
     <string name="activityCanvasTopAppMenu_redo_str">Redo</string>
@@ -64,29 +91,17 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">Zoom out</string>
     <string name="activityCanvasTopAppMenu_save_text_str">Save</string>
     <string name="activityCanvasTopAppMenu_grid_str">Grid</string>
-
-    <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>
-
-    <string name="fragmentSprayToolSettings_strength_str">Strength</string>
-    <string name="fragmentSprayToolSettings_radius_str">Radius</string>
-    <string name="fragmentSprayToolSettings_done_str">Done</string>
-    <string name="fragmentTools_polygon_tool_content_description">Polygon Tool</string>
-    <string name="fragmentTools_dither_tool_content_description">Dither Tool</string>
-    <string name="fragmentTools_square_tool_content_description">Square Tool</string>
-    <string name="fragmentTools_outlined_square_button_content_description">Outlined Square Tool</string>
-    <string name="fragmentTools_circle_tool_content_description">Circle Tool</string>
-    <string name="fragmentTools_outlined_circle_tool_content_description">Outlined Circle Tool</string>
-    <string name="fragmentNewColorPalette_width_str">Width</string>
-    <string name="fragmentNewColorPalette_height_str">Height</string>
-    <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
-    <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
-
-    <string name="saveFileUnderNewNameAlert_new_name_str">New name</string>
-
-    <string name="activityMainTopAppMenu_community_str">Community</string>
-
     <string name="activityCanvasTopAppMenu_find_and_replace_str">Find and Replace</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">Clear Canvas</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quad</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">Symmetry</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none_str">None</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">Octal</string>
+
+    <string name="bottomNavigationMenu_starred_str">Starred</string>
+    <string name="bottomNavigationMenu_home_str">Home</string>
 
     <!--Pencil tool information strings-->
     <string name="pencil_tool_info_title_in_code_str">Pencil Tool Info</string>
@@ -194,19 +209,4 @@
     <string name="snackbar_image_successfully_saved_in_code_str">Successfully saved %1$s as %2$s</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">Saved %1$s to starred items</string>
     <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Removed %1$s from starred items</string>
-
-    <!--Fragment title strings-->
-    <string name="fragment_new_project_title_in_code_str">New Project</string>
-    <string name="fragment_find_and_replace_title_in_code_str">Find and Replace</string>
-    <string name="fragment_color_picker_title_in_code_str">Select Color</string>
-    <string name="fragment_new_color_palette_title_in_code_str">New Color Palette</string>
-    <string name="fragment_spray_tool_settings_title_in_code_str">Spray Tool Settings</string>
-
-    <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
-    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
-    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>
-    <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quad</string>
-    <string name="activityCanvasTopAppMenu_symmetry_str">Symmetry</string>
-    <string name="activityCanvasTopAppMenu_symmetry_none_str">None</string>
-    <string name="activityCanvasTopAppMenu_symmetry_octal_str">Octal</string>
 </resources>
