@@ -6,8 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.therealbluepandabear.pixapencil.customviews.pixelgridview.applyGridEnabledValueFromPreference
-import com.therealbluepandabear.pixapencil.customviews.pixelgridview.applyPixelPerfectValueFromPreference
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.BitmapAction
