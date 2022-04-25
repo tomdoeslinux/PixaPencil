@@ -181,6 +181,8 @@
     <string name="dialog_community_text_in_code_str">We would love to have you on our
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
+    <string name="dialog_delete_pixel_art_project_title_in_code_str">Delete %1$s?"</string>
+    <string name="dialog_delete_pixel_art_project_text_in_code_str">Are you sure you want to delete %1$s? - this cannot be undone."</string>
 
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text_in_code_str">View</string>
@@ -190,7 +192,6 @@
     <string name="snackbar_image_successfully_saved_in_code_str">Successfully saved %1$s as %2$s</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">Saved %1$s to starred items</string>
     <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Removed %1$s from starred items</string>
-
 
     <!--Fragment title strings-->
     <string name="fragment_new_project_title_in_code_str">New Project</string>
