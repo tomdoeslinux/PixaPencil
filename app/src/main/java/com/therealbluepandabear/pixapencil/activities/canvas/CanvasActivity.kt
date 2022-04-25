@@ -62,8 +62,7 @@ class CanvasActivity :
     }
 
     override fun onViewLoaded() {
-        applyPixelPerfectValueFromPreference()
-        applyGridEnabledValueFromPreference()
+        extendedOnViewLoaded()
     }
 
     override fun onPixelTapped(coordinatesTapped: Coordinates) {
