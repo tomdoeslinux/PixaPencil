@@ -91,7 +91,7 @@ Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look
 If you spot issues with the translation send me an email at therealbluepandabear@gmail.com or open an issue request.
 
 This app has been translated to:
-- Hebrew (by myself), the translation quality is OK.
+- 🇮🇱 Hebrew (by myself), the translation quality is OK.
 
 ## 📣 Shoutout
 Thank you to:
