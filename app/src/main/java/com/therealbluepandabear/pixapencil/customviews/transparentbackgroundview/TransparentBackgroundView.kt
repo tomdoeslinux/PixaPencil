@@ -6,6 +6,8 @@ import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Paint
+import android.os.Build
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
@@ -35,6 +37,16 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
     private var dimenCW = 0
     private var dimenCH = 0
+
+    private val preSDK28Paint = Paint().apply {
+        isFilterBitmap = false
+    }
+
+    val compatibilityPaint: Paint? = if (Build.VERSION.SDK_INT < 28) {
+        preSDK28Paint
+    } else {
+        null
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
@@ -81,7 +93,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
             transparentBackgroundViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
 
-            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, null)
+            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, compatibilityPaint)
 
             postInvalidate()
         }
@@ -171,7 +183,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -187,7 +199,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -203,7 +215,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH

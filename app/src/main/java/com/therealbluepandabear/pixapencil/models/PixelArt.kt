@@ -1,11 +1,22 @@
 package com.therealbluepandabear.pixapencil.models
 
+import android.os.Build
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
+fun getCurrentDateTime(): String {
+    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:m a"))
+    } else {
+        val SDFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+        return SDFormat.format(Date())
+    }
+}
 @Entity
 data class PixelArt(
     @ColumnInfo(name = "item_cover_bitmap") var coverBitmap: String,
@@ -17,6 +28,6 @@ data class PixelArt(
     @ColumnInfo(name = "item_rotation") var rotation: Float,
     @ColumnInfo(name = "item_title") var title: String,
     @ColumnInfo(name = "item_starred") var starred: Boolean,
-    @ColumnInfo(name = "item_date_created") var dateCreated: String = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now())) {
+    @ColumnInfo(name = "item_date_created") var dateCreated: String = getCurrentDateTime()) {
     @PrimaryKey(autoGenerate = true) var objId = 0
 }

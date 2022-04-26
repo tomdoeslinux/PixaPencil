@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.*
+import android.os.Build
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
@@ -62,6 +63,17 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         style = Paint.Style.STROKE
         isDither = true
         isAntiAlias = true
+        isFilterBitmap = false
+    }
+
+    private val preSDK28Paint = Paint().apply {
+        isFilterBitmap = false
+    }
+
+    val compatibilityPaint: Paint? = if (Build.VERSION.SDK_INT < 28) {
+        preSDK28Paint
+    } else {
+        null
     }
 
     private var st = false
@@ -155,7 +167,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
-            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, null)
+            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, compatibilityPaint)
 
             outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
 
@@ -294,7 +306,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -310,7 +322,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -326,7 +338,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        null)
+                        compatibilityPaint)
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
