@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PixaPencil</string>
+
+    <!--Layout strings-->
+    <string name="recentCreationsLayout_favoriteButton_content_description">מועדף על הפרויקט הזה</string>
+    <string name="recentCreationsLayout_imageView_content_description">תצוגה מקדימה של אמנות פיקסלים</string>
+
+    <string name="colorPalettesLayout_color_palette_item_str">פריט פלטת צבעים</string>
+
+    <string name="saveFileUnderNewNameAlertLayout_new_name_str">שם חדש</string>
+
+    <!--Fragment strings-->
+    <string name="fragmentFilters_lighten_str">להבהיר</string>
+    <string name="fragmentFilters_darken_str">להכהות</string>
+    <string name="fragmentFilters_invert_str">הפוך צבעי קנבס</string>
+    <string name="fragmentFilters_grayscale_str">מסנן בגווני אפור</string>
+
+    <string name="fragmentNewColorPalette_done_str">אוקיי</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas_str">חלץ את הצבעים מהקנבס שלך</string>
+    <string name="fragmentNewColorPalette_color_palette_name_str">שם לוח הצבעים</string>
+
+    <string name="fragmentFindAndReplace_find_str">תמצא</string>
+    <string name="fragmentFindAndReplace_replace_with_str">צבע להחלפה</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas_str">צבעים בקנבס שלך:</string>
+    <string name="fragmentFindAndReplace_not_enough_colors_str">אין מספיק צבעים? שנה את לוח הצבעים שנבחר.</string>
+
+    <string name="fragmentRGBColorPicker_valueR_str">0</string>
+
+    <string name="fragmentSprayToolSettings_strength_str">כוח</string>
+    <string name="fragmentSprayToolSettings_radius_str">רַדִיוּס</string>
+    <string name="fragmentSprayToolSettings_done_str">אוקיי</string>
+    <string name="fragmentNewColorPalette_width_str">רוֹחַב</string>
+    <string name="fragmentNewColorPalette_height_str">גוֹבַה</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">לפני</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">אַחֲרֵי</string>
+
+    <string name="fragment_new_project_title_in_code_str">פרויקט חדש</string>
+    <string name="fragment_find_and_replace_title_in_code_str">תמצא ותחליף צבעים</string>
+    <string name="fragment_color_picker_title_in_code_str">בחר צבע</string>
+    <string name="fragment_new_color_palette_title_in_code_str">פלטת צבעים חדשה</string>
+    <string name="fragment_spray_tool_settings_title_in_code_str">הגדרות כלי ספריי צבע</string>
+
+    <string name="fragmentTools_pencil_tool_content_description">כלי עיפרון</string>
+    <string name="fragmentTools_eraser_tool_content_description">כלי מחק</string>
+    <string name="fragmentTools_color_picker_tool_content_description">כלי בוחר צבעים</string>
+    <string name="fragmentTools_fill_tool_content_description">כלי מילוי צבע</string>
+    <string name="fragmentTools_line_tool_content_description">כלי ליצירת קווים</string>
+    <string name="fragmentTools_rectangle_tool_content_description">כלי ליצירת מלבנים</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">כלי מלבן (עם קווי מתאר)</string>
+    <string name="fragmentTools_square_tool_content_description">כלי ליצירת ריבוע</string>
+    <string name="fragmentTools_outlined_square_button_content_description">כלי ליצירת ריבוע (עם קווי מתאר)</string>
+    <string name="fragmentTools_circle_tool_content_description">כלי ליצירת מעגלים</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">כלי ליצירת מעגלים (עם קווי מתאר)</string>
+    <string name="fragmentTools_spray_tool_content_description">כלי ספריי צבע</string>
+    <string name="fragmentTools_polygon_tool_content_description">כלי ליצירת צורות</string>
+    <string name="fragmentTools_dither_tool_content_description">כלי דיטר</string>
+    <string name="fragmentTools_shading_tool_content_description">כלי הצללה</string>
+
+    <string name="fragmentNewCanvas_project_name_str">שֵׁם</string>
+
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">ערך הקסדצימלי</string>
+
+    <string name="fragmentColorPicker_tab_color_picker_str">בוחר צבעים</string>
+
+    <!--Activity strings-->
+    <string name="activityMain_newProjectButton_contentDescription">פרוייקט חדש</string>
+
+    <string name="activityCanvas_tab_brushes_str">מברשות</string>
+    <string name="activityCanvas_tab_filters_str">שכבות צבע</string>
+    <string name="activityCanvas_tab_tools_str">כלים</string>
+    <string name="activityCanvas_tab_color_palettes_str">לוחות צבעים</string>
+
+    <!--Menu strings-->
+    <string name="activityMainTopAppMenu_community_str">קהילה</string>
+
+    <string name="activityCanvasTopAppMenu_undo_str">בטל פעולה</string>
+    <string name="activityCanvasTopAppMenu_redo_str">בצע מחדש את הפעולה</string>
+    <string name="activityCanvasTopAppMenu_save_as_png_str">שמור את הקובץ ל-PNG</string>
+    <string name="activityCanvasTopAppMenu_save_as_jpg_str">שמור את הקובץ ל-JPG</string>
+    <string name="activityCanvasTopAppMenu_new_color_palette_str">פלטת צבעים חדשה</string>
+    <string name="activityCanvasTopAppMenu_pixel_perfect_str">פיקסל פרפקט</string>
+    <string name="activityCanvasTopAppMenu_rotate_str">סובב את הקנבס</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise_str">סובב את הקנבס ב-90 מעלות (בכיוון השעון)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise_str">סובב את הקנבס ב-90 מעלות (נגד כיוון השעון)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180_str">סובב את הקנבס ב-180 מעלות</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_str">היפטר מהגדרות זום</string>
+    <string name="activityCanvasTopAppMenu_zoom_in_str">התקרב לקנבס</string>
+    <string name="activityCanvasTopAppMenu_zoom_out_str">התרחק מהקנבס</string>
+    <string name="activityCanvasTopAppMenu_save_text_str">תשמור</string>
+    <string name="activityCanvasTopAppMenu_grid_str">הצג רשת פיקסלים</string>
+    <string name="activityCanvasTopAppMenu_find_and_replace_str">תמצא ותחליף צבעים</string>
+    <string name="activityCanvasTopAppMenu_clear_canvas_str">הסר את תוכן הקנבס</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">אופקי</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">אֲנָכִי</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">מְרוּבָּע</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">הגדרות סימטריה</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none_str">בלי סימטריה</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">אוקטל</string>
+
+    <string name="bottomNavigationMenu_starred_str">פרויקטים מועדפים</string>
+    <string name="bottomNavigationMenu_home_str">כל הפרויקטים</string>
+
+    <!--Pencil tool information strings-->
+    <string name="pencil_tool_info_title_in_code_str">מידע על כלי עיפרון</string>
+    <string name="pencil_tool_info_text_in_code_str">כלי זה מצייר נתיבים מפוקסלים ביד חופשית.</string>
+
+    <!--Erase tool information strings-->
+    <string name="erase_tool_info_title_in_code_str">מידע על כלי המחיקה</string>
+    <string name="erase_tool_info_text_in_code_str">כלי זה מוחק פיקסלים.</string>
+
+    <!--Color picker tool information strings-->
+    <string name="color_picker_tool_info_title_in_code_str">מידע על כלי בוחר צבעים</string>
+    <string name="color_picker_tool_info_text_in_code_str">כלי זה מקבל את הצבע בפיקסל שצוין.</string>
+
+    <!--Fill tool information strings-->
+    <string name="fill_tool_info_title_in_code_str">מידע על כלי מילוי הצבע</string>
+    <string name="fill_tool_info_text_in_code_str">כלי זה ממלא את הפיקסלים סביבו הדומים בצבע.</string>
+
+    <!--Line tool information strings-->
+    <string name="line_tool_info_title_in_code_str">מידע על הכלי ליצירת קווים</string>
+    <string name="line_tool_info_text_in_code_str">כלי זה מצייר קווים מפוקסלים.</string>
+
+    <!--Rectangle tool information strings-->
+    <string name="rectangle_tool_info_title_in_code_str">מידע על הכלי ליצירת מלבנים</string>
+    <string name="rectangle_tool_info_text_in_code_str">כלי זה מצייר מלבנים מלאי צבע ומפוקסלים.</string>
+
+    <!--Outlined rectangle tool information strings-->
+    <string name="outlined_rectangle_tool_info_title_in_code_str">מידע על הכלי ליצירת מלבנים (עם קווי מתאר)</string>
+    <string name="outlined_rectangle_tool_info_text_in_code_str">כלי זה מצייר מלבנים עם קווי מתאר ומפוקסלים.</string>
+
+    <!--Square tool information strings-->
+    <string name="square_tool_info_title_in_code_str">מידע על הכלי ליצירת הריבועים</string>
+    <string name="square_tool_info_text_in_code_str">כלי זה מצייר ריבועים מלאי צבע ומפוקסלים.</string>
+
+    <!--Outlined square tool information strings-->
+    <string name="outlined_square_tool_info_title_in_code_str">מידע על הכלי ליצירת הריבועים (עם קווי מתאר)</string>
+    <string name="outlined_square_tool_info_text_in_code_str">כלי זה מצייר ריבועים עם קווי מתאר ומפוקסלים.</string>
+
+    <!--Circle tool information strings-->
+    <string name="circle_tool_info_title_in_code_str">מידע על כלי ליצירת המעגלים</string>
+    <string name="circle_tool_info_text_in_code_str">כלי זה מצייר עיגולים מלאים בצבע ומפוקסלים.</string>
+
+    <!--Outlined circle tool information strings-->
+    <string name="outlined_circle_tool_info_title_in_code_str">מידע על כלי ליצירת המעגלים (עם קווי מתאר)</string>
+    <string name="outlined_circle_tool_info_text_in_code_str">כלי זה מצייר עיגולים עם קווי מתאר ומפוקסלים.</string>
+
+    <!--Spray tool information strings-->
+    <string name="spray_tool_info_title_in_code_str">מידע על כלי הריסוס</string>
+    <string name="spray_tool_info_text_in_code_str">כלי זה מדמה ספריי צבע מהחיים האמיתיים.</string>
+
+    <!--Polygon tool information strings-->
+    <string name="polygon_tool_info_title_in_code_str">מידע על הכלי ליוצר צורות</string>
+    <string name="polygon_tool_info_text_in_code_str">כלי זה עוזר לצייר נתיבים מצולעים.</string>
+
+    <!--Dither tool information strings-->
+    <string name="dither_tool_info_title_in_code_str">מידע על כלי הדיטר</string>
+    <string name="dither_tool_info_text_in_code_str">כלי זה מצייר דפוסי לוח שחמט. טוב להצללה.</string>
+
+    <!--Shading tool information strings-->
+    <string name="shading_tool_info_title_in_code_str">מידע על כלי ההצללה</string>
+    <string name="shading_tool_info_text_in_code_str">כלי זה מבהיר או מחשיך את הפיקסלים על הקנבס שלך.</string>
+
+    <!--Exception strings-->
+    <string name="exception_invalid_project_name_in_code_str">השם לא יכול להיות ריק</string>
+    <string name="exception_invalid_width_in_code_str">ערך הרוחב חייב להיות בין 1 ל-10,000</string>
+    <string name="exception_invalid_height_in_code_str">ערך הגובה חייב להיות בין 1 ל-10,000</string>
+    <string name="exception_empty_width_in_code_str">רוחב לא יכול להיות ריק</string>
+    <string name="exception_empty_height_in_code_str">גובה לא יכול להיות ריק</string>
+    <string name="exception_invalid_radius_strength_message_in_code_str">רדיוס או חוזק לא חוקיים</string>
+    <string name="exception_accessing_negative_index_message_in_code_str">לא ניתן לגשת לאובייקט פיקסל עם אינדקס שלילי ברשימה!</string>
+    <string name="exception_invalid_spray_radius_in_code_str">ערך רדיוס הריסוס חייב להיות בין 1 ל-20,000</string>
+    <string name="exception_invalid_spray_strength_in_code_str">ערך חוזק הריסוס חייב להיות בין 1 ל-20,000</string>
+    <string name="exception_empty_spray_radius_in_code_str">רדיוס הריסוס לא יכול להיות ריק</string>
+    <string name="exception_empty_spray_strength_in_code_str">חוזק הריסוס לא יכול להיות ריק</string>
+
+    <!--Dialog strings-->
+    <string name="dialog_positive_button_text_in_code_str">אוקיי</string>
+    <string name="dialog_negative_button_text_in_code_str">לְבַטֵל</string>
+    <string name="dialog_exception_info_title_in_code_str">הייתה בעיה</string>
+    <string name="dialog_view_file_error_title_in_code_str">שגיאה בניסיון לפתוח את הקובץ</string>
+    <string name="dialog_clear_canvas_title_in_code_str">נקה תוכן קנבס</string>
+    <string name="dialog_clear_canvas_message_in_code_str">האם אתה בטוח שברצונך להסיר את תוכן הקנבס?</string>
+    <string name="dialog_unsaved_changes_title_in_code_str">בקובץ הזה יש שינויים שלא נשמרו</string>
+    <string name="dialog_unsaved_changes_message_in_code_str">יש לך שינויים שלא נשמרו, האם אתה בטוח שברצונך לצאת?</string>
+    <string name="dialog_file_exists_title_in_code_str">קובץ בשם זה כבר קיים</string>
+    <string name="dialog_file_exists_message_in_code_str">תמונה בשם זה כבר קיימת, להחליף אותה או לשמור בשם חדש?</string>
+    <string name="dialog_file_exists_positive_button_text_in_code_str">החלף את הקובץ</string>
+    <string name="dialog_file_exists_negative_button_text_in_code_str">תשמור תחת שם חדש</string>
+    <string name="dialog_save_under_new_name_title_in_code_str">תשמור תחת שם חדש</string>
+    <string name="dialog_save_under_new_name_text_in_code_str">ודא שהשם החדש הוא ייחודי!</string>
+    <string name="dialog_image_exception_when_saving_title_in_code_str">שגיאה בשמירת %1$s בתור %2$s</string>
+    <string name="dialog_community_title_in_code_str">קהילה</string>
+    <string name="dialog_community_text_in_code_str">הצטרף לקהילה שלנו ב:
+         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>.
+    </string>
+    <string name="dialog_delete_pixel_art_project_title_in_code_str">למחוק את הפריט הזה?</string>
+    <string name="dialog_delete_pixel_art_project_text_in_code_str">האם אתה בטוח שברצונך למחוק את הפריט? אי אפשר לבטל את זה."</string>
+    <string name="dialog_welcome_title_in_code_str">ברוך הבא</string>
+    <string name="dialog_welcome_text_in_code_str">ברוכים הבאים לאפליקציית PixaPencil! הקש והחזק על כל סמל כלי כדי לקבל מידע נוסף על אופן הפעולה של הכלי הספציפי.</string>
+
+    <!--Snackbar strings-->
+    <string name="snackbar_view_exception_info_button_text_in_code_str">פתח את הקובץ</string>
+    <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">אין אפשרות למחוק את לוח הצבעים המוגדר כברירת מחדל</string>
+    <string name="snackbar_find_and_replace_warning_in_code_str">אתה צריך צבע אחד על הקנבס שלך כדי להשתמש בכלי זה</string>
+    <string name="snackbar_on_color_long_tapped_in_code_str">הצבע הזה הוסר מ-%1$s</string>
+    <string name="snackbar_image_successfully_saved_in_code_str">את %1$s נשמר בהצלחה כקובץ %2$s</string>
+    <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">פרויקט זה נשמר בפריטים המועדפים</string>
+    <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">הפרויקט הזה לא הוסר מהפריטים המועדפים</string>
+</resources>

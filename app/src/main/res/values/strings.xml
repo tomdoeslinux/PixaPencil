@@ -62,8 +62,8 @@
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
 
     <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
-    <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
-    <string name="fragmentColorPicker_tab_hex_str">Hex</string>
+    <string name="fragmentColorPicker_tab_rgb_str" translatable="false">RGB</string>
+    <string name="fragmentColorPicker_tab_hex_str" translatable="false">Hex</string>
 
     <!--Activity strings-->
     <string name="activityMain_newProjectButton_contentDescription">New Project</string>
