@@ -10,11 +10,13 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 fun getCurrentDateTime(): String {
-    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("h:m a"))
+    val dateTimeFormatPattern = "yyyy/MM/dd HH:mm:ss"
+
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateTimeFormatPattern))
     } else {
-        val SDFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
-        return SDFormat.format(Date())
+        val SDFormat = SimpleDateFormat(dateTimeFormatPattern)
+        SDFormat.format(Date())
     }
 }
 @Entity
