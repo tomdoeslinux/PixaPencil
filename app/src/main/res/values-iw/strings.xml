@@ -11,6 +11,7 @@
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">שם חדש</string>
 
     <!--Fragment strings-->
+    <string name="fragmentFilters_color_filter_str">שכבת צבע</string>
     <string name="fragmentFilters_lighten_str">להבהיר</string>
     <string name="fragmentFilters_darken_str">להכהות</string>
     <string name="fragmentFilters_invert_str">הפוך צבעי קנבס</string>
@@ -24,8 +25,6 @@
     <string name="fragmentFindAndReplace_replace_with_str">צבע להחלפה</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">צבעים בקנבס שלך:</string>
     <string name="fragmentFindAndReplace_not_enough_colors_str">אין מספיק צבעים? שנה את לוח הצבעים שנבחר.</string>
-
-    <string name="fragmentRGBColorPicker_valueR_str">0</string>
 
     <string name="fragmentSprayToolSettings_strength_str">כוח</string>
     <string name="fragmentSprayToolSettings_radius_str">רַדִיוּס</string>

@@ -25,7 +25,7 @@
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
     <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
 
-    <string name="fragmentRGBColorPicker_valueR_str">0</string>
+    <string name="fragmentRGBColorPicker_valueR_str" translatable="false">0</string>
 
     <string name="fragmentSprayToolSettings_strength_str">Strength</string>
     <string name="fragmentSprayToolSettings_radius_str">Radius</string>
