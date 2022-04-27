@@ -82,6 +82,7 @@ var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
 var prevUndoStackJsonStr: String? = null
 var prevRedoStackJsonStr: String? = null
 var prevSymmetryModeStr: String? = null
+var prevRotation: Int = 0
 
 var currentTab = 0
 

@@ -108,4 +108,10 @@ fun CanvasActivity.extendedOnResume() {
             }
         }, 1000)
     }
+
+    if (prevRotation != 0 && prevOrientation != 0) {
+        Handler().postDelayed({
+           outerCanvasInstance.rotate(prevRotation, animate = false)
+        }, 1000)
+    }
 }

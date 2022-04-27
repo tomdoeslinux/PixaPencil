@@ -26,5 +26,6 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
             ).isNotEmpty()
         } == true
         prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier)
+        prevRotation = savedInstanceState.getInt(StringConstants.Identifiers.prevRotationStrIdentifier)
     }
 }

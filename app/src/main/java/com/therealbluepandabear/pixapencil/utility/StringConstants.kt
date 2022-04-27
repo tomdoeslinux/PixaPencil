@@ -49,6 +49,7 @@ object StringConstants {
         const val prevUndoStackJsonStrIdentifier = "prevUndoStackJsonStr"
         const val prevRedoStackJsonStrIdentifier = "prevRedoStackJsonStr"
         const val prevSymmetryModeStrIdentifier = "prevSymmetryModeStr"
+        const val prevRotationStrIdentifier = "prevRotationStr"
     }
 
     object Colors {

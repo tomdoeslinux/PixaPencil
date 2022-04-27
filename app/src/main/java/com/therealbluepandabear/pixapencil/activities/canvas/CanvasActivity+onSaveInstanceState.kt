@@ -44,6 +44,10 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
             StringConstants.Identifiers.prevSymmetryModeStrIdentifier,
             pixelGridViewInstance.symmetryMode.symmetryName,
         )
+        outState.putInt(
+            StringConstants.Identifiers.prevRotationStrIdentifier,
+            outerCanvasInstance.getCurrentRotation().toInt()
+        )
     } else {
         Flags.PressedBackFromImg = false
     }
