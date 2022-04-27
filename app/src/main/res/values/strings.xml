@@ -9,6 +9,8 @@
 
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
 
+    <string name="defaultColorPalette_str">Default color palette</string>
+
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">Color Filter</string>
     <string name="fragmentFilters_lighten_str">Lighten</string>

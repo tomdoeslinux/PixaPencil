@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.dao.ColorPalettesDao
 import com.therealbluepandabear.pixapencil.models.ColorPalette
@@ -26,7 +27,7 @@ abstract class ColorPalettesDatabase: RoomDatabase() {
                             super.onCreate(db)
                             Executors.newSingleThreadExecutor().execute {
                                 CoroutineScope(Dispatchers.IO).launch {
-                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette("Default color palette", JsonConverter.convertListToJsonString(ColorDatabase.toList()), true))
+                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette(context.getString(R.string.defaultColorPalette_str), JsonConverter.convertListToJsonString(ColorDatabase.toList()), true))
                                 }
                             }
                         }
