@@ -8,8 +8,6 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 ## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store and F-Droid, as well as a .apk file.
 
-**⚠️ Important:** PixaPencil will only run on version 9.0 (Pie) or above!
-
 ## ▶️ Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
