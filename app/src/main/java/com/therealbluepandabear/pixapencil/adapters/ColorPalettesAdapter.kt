@@ -4,28 +4,29 @@ import android.app.Activity
 import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pixapencil.extensions.getScreenOrientation
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.viewholders.ColorPalettesViewHolder
+import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
 class ColorPalettesAdapter(
     private val callerActivity: Activity,
     private val data: List<ColorPalette>,
     private val caller: ColorPalettesListener
-    ) : RecyclerView.Adapter<ColorPalettesViewHolder>()  {
+    ) : RecyclerView.Adapter<ViewHolder<FrameLayout>>()  {
 
     private lateinit var binding: ColorPalettesLayoutBinding
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorPalettesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<FrameLayout> {
         binding = ColorPalettesLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return ColorPalettesViewHolder(binding.colorPalettesLayoutRootLayout)
+        return ViewHolder(binding.colorPalettesLayoutRootLayout)
     }
 
-    override fun onBindViewHolder(holder: ColorPalettesViewHolder, position: Int) = data.forEach { _ ->
+    override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) = data.forEach { _ ->
         binding.colorPalettesLayoutMaterialCardView.apply parent@{
             val item = data[position]
 

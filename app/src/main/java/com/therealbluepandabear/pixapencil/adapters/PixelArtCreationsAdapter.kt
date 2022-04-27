@@ -1,9 +1,11 @@
 package com.therealbluepandabear.pixapencil.adapters
 
+import android.content.Context
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
@@ -14,23 +16,23 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.viewholders.RecentCreationsViewHolder
+import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
-class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<RecentCreationsViewHolder>() {
+class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentCreationsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<FrameLayout> {
         binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return RecentCreationsViewHolder(binding.recentCreationsLayoutRootLayout)
+        return ViewHolder(binding.recentCreationsLayoutRootLayout)
     }
 
     override fun getItemViewType(position: Int): Int {
         return position
     }
 
-    override fun onBindViewHolder(holder: RecentCreationsViewHolder, position: Int) = data.forEach { _ ->
+    override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) = data.forEach { _ ->
         binding.recentCreationsLayoutMaterialCardView.apply parent@{
             val item = data[position]
 
