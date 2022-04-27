@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
 import com.therealbluepandabear.pixapencil.databinding.FragmentCanvasBinding
+import com.therealbluepandabear.pixapencil.utility.IntConstants
 
 lateinit var pixelGridViewInstance: PixelGridView
 
 class CanvasFragment : Fragment() {
     var bitmap: Bitmap? = null
 
-    private var paramWidth: Int = 5
-    private var paramHeight: Int = 5
+    private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
+    private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
 
     fun setParams(paramWidth: Int, paramHeight: Int) {
         this.paramWidth = paramWidth
