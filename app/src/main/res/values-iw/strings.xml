@@ -201,7 +201,7 @@
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text_in_code_str">פתח את הקובץ</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">אין אפשרות למחוק את לוח הצבעים המוגדר כברירת מחדל</string>
-    <string name="snackbar_find_and_replace_warning_in_code_str">אתה צריך צבע אחד על הקנבס שלך כדי להשתמש בכלי זה</string>
+    <string name="snackbar_find_and_replace_warning_in_code_str">אתה צריך צבע אחד על הבד שלך כדי להשתמש בכלי הזה</string>
     <string name="snackbar_on_color_long_tapped_in_code_str">הצבע הזה הוסר מ-%1$s</string>
     <string name="snackbar_image_successfully_saved_in_code_str">את %1$s נשמר בהצלחה כקובץ %2$s</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">נשמר %1$s מהפריטים המועדפים שלך</string>
