@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.*
-import android.os.Build
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
@@ -21,6 +20,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.utility.PaintUtilities
 
 @SuppressLint("ViewConstructor")
 class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
@@ -64,16 +64,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         isDither = true
         isAntiAlias = true
         isFilterBitmap = false
-    }
-
-    private val preSDK28Paint = Paint().apply {
-        isFilterBitmap = false
-    }
-
-    val compatibilityPaint: Paint? = if (Build.VERSION.SDK_INT < 28) {
-        preSDK28Paint
-    } else {
-        null
     }
 
     private var st = false
@@ -167,7 +157,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
-            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, compatibilityPaint)
+            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintUtilities.getPreSDK28PaintOrNull())
 
             outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
 
@@ -306,7 +296,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        compatibilityPaint)
+                        PaintUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -322,7 +312,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        compatibilityPaint)
+                        PaintUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -338,7 +328,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
                     canvas.drawBitmap(
                         pixelGridViewBitmap,
                         calculatedMatrix,
-                        compatibilityPaint)
+                        PaintUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
