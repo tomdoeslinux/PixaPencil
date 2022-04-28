@@ -6,42 +6,35 @@
     <item android:id="@+id/activityCanvasTopAppMenu_clear_canvas_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_clear_canvas_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_find_and_replace_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_find_and_replace_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_new_color_palette_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_new_color_palette_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_grid_item"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:checkable="true"
         android:title="@string/activityCanvasTopAppMenu_grid_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_pixel_perfect_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:checkable="true"
         android:title="@string/activityCanvasTopAppMenu_pixel_perfect_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_reset_zoom_subItem"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_reset_zoom_str" />
 
     <item app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_rotate_str" >
         <menu>
             <item android:id="@+id/appMenu_rotate_90_degrees_clockwise_subItem"
@@ -59,7 +52,6 @@
     </item>
 
     <item app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_symmetry_str" >
         <menu>
             <group android:checkableBehavior="single">
@@ -84,44 +76,37 @@
 
     <item android:id="@+id/activityCanvasTopAppMenu_undo"
         android:icon="@drawable/ic_baseline_undo_24"
-        android:iconTint="@color/white"
         app:showAsAction="always"
         android:title="@string/activityCanvasTopAppMenu_undo_str"
         tools:ignore="AlwaysShowAction" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_redo_item"
         android:icon="@drawable/ic_baseline_redo_24"
-        android:iconTint="@color/white"
         app:showAsAction="always"
         android:title="@string/activityCanvasTopAppMenu_redo_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_zoom_in_item"
         android:icon="@drawable/ic_baseline_zoom_in_24"
-        android:iconTint="@color/white"
         app:showAsAction="always"
         android:title="@string/activityCanvasTopAppMenu_zoom_in_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_zoom_out_item"
         android:icon="@drawable/ic_baseline_zoom_out_24"
-        android:iconTint="@color/white"
         app:showAsAction="always"
         android:title="@string/activityCanvasTopAppMenu_zoom_out_str" />
 
     <item android:id="@+id/activityMainTopAppMenu_community_item"
         android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_save_text_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_export_to_png_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_save_as_png_str" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_export_to_jpg_item"
         android:icon="@drawable/ic_baseline_color_lens_24"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"
         android:title="@string/activityCanvasTopAppMenu_save_as_jpg_str" />
 </menu>
