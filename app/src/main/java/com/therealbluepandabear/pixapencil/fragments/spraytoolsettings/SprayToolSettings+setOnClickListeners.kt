@@ -54,14 +54,6 @@ private fun SprayToolSettingsFragment.checkForStrengthError() {
     }
 }
 
-fun SprayToolSettingsFragment.warnOfIncorrectValues() {
-    HapticFeedbackWrapper.performHapticFeedback(binding.fragmentSprayToolSettingsDoneButton)
-    binding.root.showSnackbar(
-        getString(R.string.exception_invalid_radius_strength_message_in_code_str),
-        SnackbarDuration.Default
-    )
-}
-
 fun SprayToolSettingsFragment.setOnClickListeners() {
     binding.fragmentSprayToolSettingsRadiusTextInputEditText.doAfterTextChanged {
         checkForRadiusError()

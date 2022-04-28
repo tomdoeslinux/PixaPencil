@@ -23,7 +23,7 @@ fun CanvasActivity.extendedOnBackPressed() {
             },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> }, null)
     } else if (currentFragmentInstance != null) {
         if (currentFragmentInstance is RGBColorPickerFragment) {
-            (currentFragmentInstance as RGBColorPickerFragment).unregisterKeyboardVisiblityEventListenerRegistrar()
+            (currentFragmentInstance as RGBColorPickerFragment).unregisterKeyboardVisibilityEventListenerRegistrar()
         }
 
         navigateHome(supportFragmentManager, currentFragmentInstance!!, binding.activityCanvasRootLayout, binding.activityCanvasPrimaryFragmentHost, intent.getStringExtra(StringConstants.Extras.ProjectTitleExtra)!!)

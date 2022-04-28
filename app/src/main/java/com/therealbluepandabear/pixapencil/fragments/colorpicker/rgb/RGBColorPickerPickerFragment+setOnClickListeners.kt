@@ -16,7 +16,7 @@ fun RGBColorPickerFragment.setOnClickListeners() {
         Handler(Looper.getMainLooper()).postDelayed({
             try {
                 caller.onDoneButtonPressed((binding.fragmentRGBColorPickerColorPreview.background as ColorDrawable).color, colorPaletteMode_)
-                unregisterKeyboardVisiblityEventListenerRegistrar()
+                unregisterKeyboardVisibilityEventListenerRegistrar()
             } catch (exception: Exception) {
 
             } finally {
