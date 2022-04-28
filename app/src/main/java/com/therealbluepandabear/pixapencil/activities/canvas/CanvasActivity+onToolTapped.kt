@@ -6,7 +6,6 @@ import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
-import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.Flags
@@ -30,20 +29,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     )
 
     if (showSprayToolTip) {
-        binding.activityCanvasRootLayout.showSnackbarWithAction(
-            getString(R.string.spray_tool_tool_tip_in_code_str),
-            SnackbarDuration.Medium,
-            getString(R.string.tool_tip_dont_show_again_in_code_str)
-        ) {
-            with(sharedPreferenceObject.edit()) {
-                putBoolean(
-                    StringConstants.Identifiers.SharedPreferenceShowSprayToolTipIdentifier,
-                    false
-                )
-                apply()
-            }
-            applyShowSprayToolTipValueFromPreference()
-        }
+        showSprayToolTip()
     }
 
     val showShadingToolTip = (
@@ -53,20 +39,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             )
 
     if (showShadingToolTip) {
-        binding.activityCanvasRootLayout.showSnackbarWithAction(
-            getString(R.string.shading_tool_tool_tip_in_code_str),
-            SnackbarDuration.Medium,
-            getString(R.string.tool_tip_dont_show_again_in_code_str)
-        ) {
-            with(sharedPreferenceObject.edit()) {
-                putBoolean(
-                    StringConstants.Identifiers.SharedPreferenceShowShadingToolTipIdentifier,
-                    false
-                )
-                apply()
-            }
-            applyShowShadingToolTipValueFromPreference()
-        }
+        showShadingToolTip()
     }
 
     if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tools.SprayTool) {
