@@ -5,10 +5,7 @@ import android.os.Looper
 import androidx.core.widget.doAfterTextChanged
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
-import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
-import com.therealbluepandabear.pixapencil.extensions.showSnackbar
-import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
