@@ -212,7 +212,7 @@
     <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Removed %1$s from starred items</string>
 
     <!--Tooltip strings-->
-    <string name="shading_tool_tool_tip_in_code_str">Tip: tap on icon to change shading mode</string>
-    <string name="spray_tool_tool_tip_in_code_str">Tip: tap on icon to change spray settings</string>
+    <string name="shading_tool_tip_in_code_str">Tip: tap on icon to change shading mode</string>
+    <string name="spray_tool_tip_in_code_str">Tip: tap on icon to change spray settings</string>
     <string name="tool_tip_dont_show_again_in_code_str">Don\'t show again</string>
 </resources>

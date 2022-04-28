@@ -28,7 +28,7 @@ fun CanvasActivity.sprayToolOnToolTapped() {
     }
 
     if (sharedPreferenceShowSprayToolTip && currentTool != Tools.SprayTool) {
-        binding.activityCanvasRootLayout.showSnackbarWithAction(getString(R.string.spray_tool_tool_tip_in_code_str), SnackbarDuration.Medium, getString(R.string.tool_tip_dont_show_again_in_code_str)) {
+        binding.activityCanvasRootLayout.showSnackbarWithAction(getString(R.string.spray_tool_tip_in_code_str), SnackbarDuration.Medium, getString(R.string.tool_tip_dont_show_again_in_code_str)) {
             with (sharedPreferenceObject.edit()) {
                 putBoolean(StringConstants.Identifiers.SharedPreferenceShowSprayToolTipIdentifier, false)
                 apply()
