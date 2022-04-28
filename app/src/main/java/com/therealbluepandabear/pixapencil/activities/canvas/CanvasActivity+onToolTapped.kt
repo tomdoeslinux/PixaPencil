@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
+import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -95,6 +96,17 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
                 binding.activityCanvasRootLayout.showSnackbar(snackbarText, SnackbarDuration.Short)
             }
+
+            if (sharedPreferenceShowShadingToolTip && currentTool != Tools.ShadingTool) {
+                binding.activityCanvasRootLayout.showSnackbarWithAction("Tip: tap on icon to change shading mode", SnackbarDuration.Medium, "Don't show again") {
+                    with (sharedPreferenceObject.edit()) {
+                        putBoolean(StringConstants.Identifiers.SharedPreferenceShowShadingToolTipIdentifier, false)
+                        apply()
+                    }
+                    applyShowShadingToolTipValueFromPreference()
+                }
+            }
+
             currentTool = Tools.ShadingTool
         }
     }

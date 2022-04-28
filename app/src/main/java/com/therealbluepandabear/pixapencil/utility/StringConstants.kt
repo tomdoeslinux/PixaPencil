@@ -38,6 +38,8 @@ object StringConstants {
         const val SharedPreferencesSprayRadiusIdentifier = "SprayRadiusSharedPreference"
         const val SharedPreferencesSprayStrengthIdentifier = "SprayStrengthSharedPreference"
         const val SharedPreferenceGridIdentifier = "GridSharedPreference"
+        const val SharedPreferenceShowSprayToolTipIdentifier = "SharedPreferenceShowSprayToolTip"
+        const val SharedPreferenceShowShadingToolTipIdentifier = "SharedPreferenceShowShadingToolTip"
 
         const val prevOrientationBundleIdentifier = "PrevOrientation"
         const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"

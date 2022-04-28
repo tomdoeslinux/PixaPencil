@@ -92,3 +92,6 @@ val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.i
 var selectedColorPaletteIndex: Int = 0
 
 var shadingToolMode = "Lighten"
+
+var sharedPreferenceShowSprayToolTip = true
+var sharedPreferenceShowShadingToolTip = true
