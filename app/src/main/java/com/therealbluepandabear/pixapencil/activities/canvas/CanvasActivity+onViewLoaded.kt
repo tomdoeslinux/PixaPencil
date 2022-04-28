@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-fun CanvasActivity.extendedOnViewLoaded() {
+fun extendedOnViewLoaded() {
     applyPixelPerfectValueFromPreference()
     applyGridEnabledValueFromPreference()
     applyShowShadingToolTipValueFromPreference()
