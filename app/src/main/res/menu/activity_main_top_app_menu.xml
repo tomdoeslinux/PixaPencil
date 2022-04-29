@@ -4,6 +4,5 @@
     <item android:id="@+id/activityMainTopAppMenu_community_item"
         android:icon="@drawable/ic_account_group"
         app:showAsAction="always"
-        android:iconTint="@color/white"
         android:title="@string/activityMainTopAppMenu_community_str" />
 </menu>
