@@ -93,4 +93,30 @@ class MainActivityEspressoTest {
             onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
         }
     }
+
+    @Test
+    fun clickOnNewProjectButton() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+    }
+
+    @Test
+    fun clickOnNewProjectButton25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButton50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButton100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        }
+    }
 }
