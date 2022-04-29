@@ -21,6 +21,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:adjustViewBounds="true"
                 android:id="@+id/recentCreationsLayout_imageView"
                 tools:srcCompat="@tools:sample/avatars"
                 android:contentDescription="@string/recentCreationsLayout_imageView_content_description"

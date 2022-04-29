@@ -22,4 +22,13 @@ object BitmapUtilities {
 
         return bimapOverlay
     }
+
+
+    fun resize(bmp: Bitmap, ratio: Double): Bitmap {
+        return Bitmap.createScaledBitmap(
+            bmp, (bmp.width * ratio).toInt(),
+            (bmp.height * ratio).toInt(),
+            false
+        )
+    }
 }

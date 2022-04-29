@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.adapters
 
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,13 @@ class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val lis
             val item = data[position]
 
             binding.apply {
-                recentCreationsLayoutImageView.setImageBitmap(BitmapConverter.convertStringToBitmap(item.coverBitmap))
+                val bitmap = BitmapConverter.convertStringToBitmap(item.coverBitmap)
+
+                Log.d("BEPPER", "${bitmap!!.width} ${bitmap.height}")
+
+                recentCreationsLayoutImageView.setImageBitmap(bitmap)
+                recentCreationsLayoutImageView.invalidate()
+
                 recentCreationsLayoutSubtitle.text = item.dateCreated
 
                 recentCreationsLayoutTitle.apply {
