@@ -14,7 +14,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class BottomTabTests {
+class MainActivityBottomTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 

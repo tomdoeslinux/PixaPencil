@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class ProjectCreationTests {
+class MainActivityProjectCreationTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 

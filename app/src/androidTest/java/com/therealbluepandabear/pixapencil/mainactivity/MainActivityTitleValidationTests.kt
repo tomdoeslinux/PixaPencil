@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class TitleValidationTests {
+class MainActivityTitleValidationTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
@@ -30,23 +30,21 @@ class TitleValidationTests {
 
     @Test
     fun checkTitleIsPixaPencil() {
-        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier))))
-            .check(matches(withText(appTitle)))
+        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(appTitle)))
     }
 
     @Test
     fun checkTitleIsNewProjectWhenClickingOnNewProjectButton() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
-
-        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier))))
-            .check(matches(withText(newProjectTitle)))
+        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(newProjectTitle)))
     }
 
     @Test
     fun checkTitleSwitchesBackToPixaPencilWhenPressingBackFromNewProjectFragment() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
         pressBack()
-        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier))))
-            .check(matches(withText(appTitle)))
+        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(appTitle)))
     }
+
+
 }

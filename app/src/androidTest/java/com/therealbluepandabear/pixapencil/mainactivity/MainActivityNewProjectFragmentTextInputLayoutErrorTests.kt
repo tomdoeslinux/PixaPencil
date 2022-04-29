@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class NewProjectFragmentTextInputLayoutErrorTests {
+class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
     private val defaultProjectName = "Project"
 
     @Test
