@@ -60,7 +60,7 @@ class BottomTabTests {
 
     @Test
     fun clickOnStarredTab100Times() {
-        for (i in 0..50) {
+        for (i in 0..100) {
             onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
         }
     }
