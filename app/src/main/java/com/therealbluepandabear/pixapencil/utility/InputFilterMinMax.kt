@@ -17,7 +17,7 @@ class InputFilterMinMax(private val min: Int, private val max: Int) : InputFilte
         destStart: Int,
         destEnd: Int
     ): CharSequence? {
-        val numberInput: Int = Integer.parseInt(dest.toString() + charSequenceSource.toString())
+        val numberInput: Int = (dest.toString() + charSequenceSource.toString()).toInt()
 
         return try {
             if (numberInput !in min..max) {

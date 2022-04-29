@@ -68,8 +68,8 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             val radius = binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString()
             val strength = binding.fragmentSprayToolSettingsStrengthTextInputEditText.text.toString()
 
-            val parsedRadius = Integer.parseInt(radius)
-            val parsedStrength = Integer.parseInt(strength)
+            val parsedRadius = radius.toInt()
+            val parsedStrength = strength.toInt()
 
             with (sharedPreferenceObject.edit()) {
                 putInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, parsedRadius)

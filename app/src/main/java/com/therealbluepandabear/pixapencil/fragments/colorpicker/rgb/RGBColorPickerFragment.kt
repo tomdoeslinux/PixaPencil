@@ -77,9 +77,9 @@ class RGBColorPickerFragment : Fragment() {
         binding.apply {
             fragmentRGBColorPickerValueR.doAfterTextChanged {
                 try {
-                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
-                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
-                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
@@ -111,9 +111,9 @@ class RGBColorPickerFragment : Fragment() {
 
             fragmentRGBColorPickerValueG.doAfterTextChanged {
                 try {
-                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
-                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
-                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
@@ -145,9 +145,9 @@ class RGBColorPickerFragment : Fragment() {
 
             fragmentRGBColorPickerValueB.doAfterTextChanged {
                 try {
-                    valueR = Integer.parseInt(fragmentRGBColorPickerValueR.text.toString()).toFloat()
-                    valueG = Integer.parseInt(fragmentRGBColorPickerValueG.text.toString()).toFloat()
-                    valueB = Integer.parseInt(fragmentRGBColorPickerValueB.text.toString()).toFloat()
+                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
