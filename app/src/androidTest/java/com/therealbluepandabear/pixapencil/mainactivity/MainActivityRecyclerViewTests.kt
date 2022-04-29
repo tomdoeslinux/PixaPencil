@@ -34,54 +34,54 @@ class MainActivityRecyclerViewTests {
     }
 
     @Test
-    fun canRecyclerViewHandle1Project() {
+    fun canHandle1Project() {
         createDummyProject()
     }
 
     @Test
-    fun canRecyclerViewHandle25Projects() {
+    fun canHandle25Projects() {
         for (i in 0..25) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle50Projects() {
+    fun canHandle50Projects() {
         for (i in 0..50) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle100Projects() {
+    fun canHandle100Projects() {
         for (i in 0..100) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle250Projects() {
+    fun canHandle250Projects() {
         for (i in 0..250) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle500Projects() {
+    fun canHandle500Projects() {
         for (i in 0..500) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle1000Projects() {
+    fun canHandle1000Projects() {
         for (i in 0..1000) {
             createDummyProject()
         }
     }
 
     @Test
-    fun canRecyclerViewHandle2000Projects() {
+    fun canHandle2000Projects() {
         for (i in 0..2000) {
             createDummyProject()
         }
