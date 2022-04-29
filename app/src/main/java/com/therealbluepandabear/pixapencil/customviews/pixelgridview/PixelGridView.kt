@@ -236,8 +236,8 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             val scaleFactorH = scaleFactorWHInfo.scaleFactorH
 
             val calculatedMatrixInfo = pixelGridViewBitmap.calculateMatrix(
-                scaleFactorW!!.toFloat(),
-                scaleFactorH!!.toFloat()
+                scaleFactorW.toFloat(),
+                scaleFactorH.toFloat()
             )
 
             val calculatedMatrix = calculatedMatrixInfo.matrix
