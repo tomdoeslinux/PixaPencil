@@ -17,7 +17,9 @@ import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.models.ScaleFactorWHInfo
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
+import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
@@ -110,52 +112,10 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
-            var scaleFactorW = 0
-            var scaleFactorH = 0
+            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources)
 
-            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                when {
-                    canvasWidth == canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-                    }
-                    canvasWidth > canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-
-                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
-
-                        scaleFactorH = (scaleFactorW * ratio).toInt()
-                    }
-                    else -> {
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-
-                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
-
-                        scaleFactorW = (scaleFactorH * ratio).toInt()
-                    }
-                }
-            } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                when {
-                    canvasWidth == canvasHeight -> {
-                        scaleFactorW = resources.displayMetrics.widthPixels
-                        scaleFactorH = resources.displayMetrics.widthPixels
-                    }
-                    canvasWidth > canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
-
-                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
-
-                        scaleFactorH = (scaleFactorW * ratio).toInt()
-                    }
-                    else -> {
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
-
-                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
-
-                        scaleFactorW = (scaleFactorH * ratio).toInt()
-                    }
-                }
-            }
+            val scaleFactorW = scaleFactorWHInfo.scaleFactorW
+            val scaleFactorH = scaleFactorWHInfo.scaleFactorH
 
             val calculatedMatrixInfo = transparentBackgroundViewBitmap.calculateMatrix(
                 scaleFactorW.toFloat(),

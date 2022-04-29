@@ -2,12 +2,10 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Configuration
 import android.graphics.*
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
@@ -16,11 +14,9 @@ import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
-import com.therealbluepandabear.pixapencil.models.BitmapAction
-import com.therealbluepandabear.pixapencil.models.Brush
-import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.models.*
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
+import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 @SuppressLint("ViewConstructor")
 class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
@@ -234,56 +230,14 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            var scaleFactorW = 0
-            var scaleFactorH = 0
+            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources)
 
-            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                when {
-                    canvasWidth == canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-                    }
-                    canvasWidth > canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
-
-                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
-
-                        scaleFactorH = (scaleFactorW * ratio).toInt()
-                    }
-                    else -> {
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
-
-                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
-
-                        scaleFactorW = (scaleFactorH * ratio).toInt()
-                    }
-                }
-            } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                when {
-                    canvasWidth == canvasHeight -> {
-                        scaleFactorW = resources.displayMetrics.widthPixels
-                        scaleFactorH = resources.displayMetrics.widthPixels
-                    }
-                    canvasWidth > canvasHeight -> {
-                        scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
-
-                        val ratio = canvasHeight.toDouble() / canvasWidth.toDouble()
-
-                        scaleFactorH = (scaleFactorW * ratio).toInt()
-                    }
-                    else -> {
-                        scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
-
-                        val ratio = canvasWidth.toDouble() / canvasHeight.toDouble()
-
-                        scaleFactorW = (scaleFactorH * ratio).toInt()
-                    }
-                }
-            }
+            val scaleFactorW = scaleFactorWHInfo.scaleFactorW
+            val scaleFactorH = scaleFactorWHInfo.scaleFactorH
 
             val calculatedMatrixInfo = pixelGridViewBitmap.calculateMatrix(
-                scaleFactorW.toFloat(),
-                scaleFactorH.toFloat()
+                scaleFactorW!!.toFloat(),
+                scaleFactorH!!.toFloat()
             )
 
             val calculatedMatrix = calculatedMatrixInfo.matrix
