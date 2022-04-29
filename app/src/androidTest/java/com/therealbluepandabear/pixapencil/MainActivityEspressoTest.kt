@@ -195,6 +195,14 @@ class MainActivityEspressoTest {
     }
 
     @Test
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBackTwice() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+        pressBack()
+        pressBack()
+    }
+
+    @Test
     fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBackTwice25Times() {
         for (i in 0..25) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -228,6 +236,14 @@ class MainActivityEspressoTest {
     fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBack() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBackTwice() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+        pressBack()
         pressBack()
     }
 
@@ -269,6 +285,14 @@ class MainActivityEspressoTest {
     }
 
     @Test
+    fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+        pressBack()
+        pressBack()
+    }
+
+    @Test
     fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice25Times() {
         for (i in 0..25) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -292,6 +316,61 @@ class MainActivityEspressoTest {
     fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice100Times() {
         for (i in 0..100) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnAllTextInputLayoutsThenGoBack() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnAllTextInputLayoutsThenGoBackTwice() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+        pressBack()
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnAllTextInputLayoutsThenGoBackTwice25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnAllTextInputLayoutsThenGoBackTwice50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnAllTextInputLayoutsThenGoBackTwice100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
             pressBack()
             pressBack()
