@@ -260,4 +260,41 @@ class MainActivityEspressoTest {
             pressBack()
         }
     }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBack() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectHeightTextInputLayoutThenGoBackTwice100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
 }
