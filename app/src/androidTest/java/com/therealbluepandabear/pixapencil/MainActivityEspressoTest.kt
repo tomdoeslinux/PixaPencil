@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -103,6 +104,7 @@ class MainActivityEspressoTest {
     fun clickOnNewProjectButton25Times() {
         for (i in 0..25) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
         }
     }
 
@@ -110,6 +112,7 @@ class MainActivityEspressoTest {
     fun clickOnNewProjectButton50Times() {
         for (i in 0..50) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
         }
     }
 
@@ -117,6 +120,7 @@ class MainActivityEspressoTest {
     fun clickOnNewProjectButton100Times() {
         for (i in 0..100) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
         }
     }
 }
