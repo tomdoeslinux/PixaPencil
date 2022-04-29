@@ -39,7 +39,7 @@ class BottomTabTests {
 
     @Test
     fun clickOnHomeTab100Times() {
-        for (i in 0..50) {
+        for (i in 0..100) {
             onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
         }
     }
