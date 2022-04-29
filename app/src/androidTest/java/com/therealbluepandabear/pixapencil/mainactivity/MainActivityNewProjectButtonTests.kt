@@ -20,12 +20,12 @@ class MainActivityNewProjectButtonTests {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun clickOnNewProjectButton() {
+    fun clickButton() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
     }
 
     @Test
-    fun clickOnNewProjectButton25Times() {
+    fun clickButton25Times() {
         for (i in 0..25) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             pressBack()
@@ -33,7 +33,7 @@ class MainActivityNewProjectButtonTests {
     }
 
     @Test
-    fun clickOnNewProjectButton50Times() {
+    fun clickButton50Times() {
         for (i in 0..50) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             pressBack()
@@ -41,12 +41,11 @@ class MainActivityNewProjectButtonTests {
     }
 
     @Test
-    fun clickOnNewProjectButton100Times() {
+    fun clickButton100Times() {
         for (i in 0..100) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             pressBack()
         }
     }
-
 }
 
