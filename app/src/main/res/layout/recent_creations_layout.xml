@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +7,6 @@
     android:layout_height="wrap_content"
     android:backgroundTint="@color/white"
     tools:ignore="MissingConstraints">
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/recentCreationsLayout_materialCardView"
         android:layout_height="wrap_content"
@@ -16,18 +14,34 @@
         style="@style/recent_creations_layout_card_view_style">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
             android:id="@+id/colorPalettesLayout_frameLayout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/recentCreationsLayout_favoriteButton"
+                style="@style/recent_creations_image_button_style"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/recentCreationsLayout_favoriteButton_content_description"
+                app:layout_constraintBottom_toBottomOf="@+id/recentCreationsLayout_subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/recentCreationsLayout_subtitle" />
             <ImageView
                 android:adjustViewBounds="true"
                 android:id="@+id/recentCreationsLayout_imageView"
                 tools:srcCompat="@tools:sample/avatars"
-                android:contentDescription="@string/recentCreationsLayout_imageView_content_description"
-                style="@style/recentCreationsLayout_imageView_style" />
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/recentCreationsLayout_imageView_content_description" />
 
             <TextView
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
                 android:id="@+id/recentCreationsLayout_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,20 +51,16 @@
 
             <TextView
                 android:id="@+id/recentCreationsLayout_subtitle"
+                style="@style/recent_creations_text_view_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/recentCreationsLayout_imageView"
-                app:layout_constraintTop_toBottomOf="@+id/recentCreationsLayout_title"
-                style="@style/recent_creations_text_view_style"/>
-
-            <ImageButton
-                android:id="@+id/recentCreationsLayout_favoriteButton"
-                style="@style/recent_creations_image_button_style"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/recentCreationsLayout_favoriteButton_content_description"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="16sp"
+                android:text="16x16"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/recentCreationsLayout_imageView"
+                app:layout_constraintTop_toBottomOf="@+id/recentCreationsLayout_title" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>

@@ -43,7 +43,7 @@ class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val lis
                 recentCreationsLayoutImageView.setImageBitmap(bitmap)
                 recentCreationsLayoutImageView.invalidate()
 
-                recentCreationsLayoutSubtitle.text = item.dateCreated
+                recentCreationsLayoutSubtitle.text = "${item.width}x${item.height}"
 
                 recentCreationsLayoutTitle.apply {
                     if (data[position].title.length > 6) {
@@ -84,7 +84,7 @@ class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val lis
     private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
         imageButton.apply {
             if (pixelArt.starred) setImageResource(R.drawable.ic_baseline_star_24)
-            else setImageResource(R.drawable.ic_baseline_star_border_24)
+//            else setImageResource(R.drawable.ic_baseline_star_border_24)
         }
     }
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
