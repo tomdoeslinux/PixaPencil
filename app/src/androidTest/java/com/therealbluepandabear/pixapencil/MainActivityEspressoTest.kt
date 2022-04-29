@@ -88,7 +88,7 @@ class MainActivityEspressoTest {
 
     @Test
     fun switchBetweenHomeAndStarredTab100Times() {
-        for (i in 0..50) {
+        for (i in 0..100) {
             onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
             onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
         }
