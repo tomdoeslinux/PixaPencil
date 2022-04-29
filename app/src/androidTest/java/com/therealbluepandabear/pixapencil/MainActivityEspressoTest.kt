@@ -569,4 +569,12 @@ class MainActivityEspressoTest {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
 
+    @Test
+    fun clickOnNewProjectButtonThenCheckForEmptyNameError() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("500"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_invalid_project_name_in_code_str))))
+    }
 }
