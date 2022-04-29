@@ -577,4 +577,22 @@ class MainActivityEspressoTest {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_invalid_project_name_in_code_str))))
     }
+
+    @Test
+    fun clickOnNewProjectButtonThenCheckForEmptyWidthError() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_empty_width_in_code_str))))
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenCheckForEmptyHeightError() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("500"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_empty_height_in_code_str))))
+    }
 }
