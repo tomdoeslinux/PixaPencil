@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.adapters
 
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +8,13 @@ import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
 class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
@@ -37,9 +36,9 @@ class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val lis
             val item = data[position]
 
             binding.apply {
-                val bitmap = BitmapConverter.convertStringToBitmap(item.coverBitmap)
+                val fileHelperUtilities = FileHelperUtilities.createInstanceFromContext(context)
 
-                Log.d("BEPPER", "${bitmap!!.width} ${bitmap.height}")
+                val bitmap = fileHelperUtilities.getBitmapFromInternalStorage(item.coverBitmapFilePath)
 
                 recentCreationsLayoutImageView.setImageBitmap(bitmap)
                 recentCreationsLayoutImageView.invalidate()

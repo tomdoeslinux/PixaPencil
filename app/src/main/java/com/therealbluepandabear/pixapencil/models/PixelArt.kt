@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.utility.DateTimeCompatibilityUtilitie
 
 @Entity
 data class PixelArt(
-    @ColumnInfo(name = "item_cover_bitmap") var coverBitmap: String,
+    @ColumnInfo(name = "item_cover_bitmap_file_path") var coverBitmapFilePath: String,
     @ColumnInfo(name = "item_bitmap") var bitmap: String,
     @ColumnInfo(name = "item_width") var width: Int,
     @ColumnInfo(name = "item_height") var height: Int,

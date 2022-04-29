@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaScannerConnection
@@ -162,5 +163,23 @@ class FileHelperUtilities(private val context: Context) {
         } finally {
             onTaskFinished(outputCode, exceptionMessage)
         }
+    }
+
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap) {
+        context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, it)
+            it.close()
+        }
+    }
+
+    fun getBitmapFromInternalStorage(fileName: String): Bitmap {
+        var bitmapToReturn: Bitmap?
+
+        context.openFileInput(fileName).use {
+            bitmapToReturn = BitmapFactory.decodeStream(it)
+            it.close()
+        }
+
+        return bitmapToReturn!!
     }
 }
