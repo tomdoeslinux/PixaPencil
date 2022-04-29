@@ -10,6 +10,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.customviews.interface_.CustomView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
@@ -21,21 +22,21 @@ import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
-class TransparentBackgroundView(context: Context, private var canvasWidth: Int, private var canvasHeight: Int) : View(context) {
+class TransparentBackgroundView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), CustomView {
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
 
-    private var scaleWidth = 0f
-    private var scaleHeight = 0f
+    override var scaleWidth = 0f
+    override var scaleHeight = 0f
 
     var color = Color.parseColor(StringConstants.Colors.PixelGridViewCheckerboardColor)
 
-    private var currentIndex = index!!
+    override var currentIndex = index!!
 
-    private var st = false
+    override var st = false
 
-    private var dimenCW = 0
-    private var dimenCH = 0
+    override var dimenCW = 0
+    override var dimenCH = 0
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {

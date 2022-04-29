@@ -10,6 +10,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.customviews.interface_.CustomView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
@@ -19,12 +20,12 @@ import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 @SuppressLint("ViewConstructor")
-class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: Int) : View(context) {
+class PixelGridView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), CustomView {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
-    var scaleWidth = 0f
-    var scaleHeight = 0f
+    override var scaleWidth = 0f
+    override var scaleHeight = 0f
 
     var prevX: Int? = null
     var prevY: Int? = null
@@ -40,7 +41,7 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     var gridEnabled = false
 
-    private var currentIndex = index!!
+    override var currentIndex = index!!
 
     lateinit var caller: CanvasFragmentListener
 
@@ -49,8 +50,10 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
 
     private var xm = 0f
 
-    var dimenCW = 0
-    var dimenCH = 0
+    override var dimenCW = 0
+    override var dimenCH = 0
+
+    override var st = false
 
     private val gridPaint = Paint().apply {
         strokeWidth = 1f
@@ -61,8 +64,6 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
         isAntiAlias = true
         isFilterBitmap = false
     }
-
-    private var st = false
 
     var symmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
 
