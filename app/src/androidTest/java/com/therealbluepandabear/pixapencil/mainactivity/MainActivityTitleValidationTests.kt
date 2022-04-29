@@ -47,4 +47,11 @@ class MainActivityTitleValidationTests {
     }
 
 
+    @Test
+    fun checkTitleSwitchesToNewProjectWhenPressingBackFromNewProjectFragmentAndThenClickingOnNewProjectButton() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        pressBack()
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(newProjectTitle)))
+    }
 }
