@@ -506,4 +506,67 @@ class MainActivityEspressoTest {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
 
+    @Test
+    fun create5x10() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("5"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("10"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create10x50() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("10"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("50"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create50x100() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("50"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("100"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create30x200() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("30"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("200"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create250x550() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("250"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("550"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create500x1500() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("500"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
+    @Test
+    fun create100x1000() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("100"))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1000"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+    }
+
 }
