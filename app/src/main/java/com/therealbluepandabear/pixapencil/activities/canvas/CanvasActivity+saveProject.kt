@@ -7,16 +7,16 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
+import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 fun CanvasActivity.extendedSaveProject() {
     saved = true
 
     val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.2)
-    val coverBMPFileName = "$projectTitle + ${UUID.randomUUID()}.bmp"
+    val coverBMPFileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
 
     val fileHelperInstance = FileHelperUtilities.createInstanceFromContext(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
