@@ -5,14 +5,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.extensions.getScreenOrientation
 
 const val DEF_SPAN_COUNT = 1
 
 fun CanvasActivity.setUpRecyclerView() {
     val layoutManager = GridLayoutManager(this, DEF_SPAN_COUNT)
 
-    val layoutManagerOrientation: Int = if (getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+    val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
         LinearLayoutManager.HORIZONTAL
     } else {
         LinearLayoutManager.VERTICAL

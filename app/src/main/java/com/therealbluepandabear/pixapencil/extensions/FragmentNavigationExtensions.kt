@@ -38,7 +38,7 @@ fun Activity.navigateTo(fragmentManager: FragmentManager, fragmentInstance: Frag
     (rootLayout as ViewGroup).forEach { view -> view.visibility = View.GONE }
 
     Handler().postDelayed({
-        requestedOrientation = if (getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+        requestedOrientation = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         } else {
             ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE

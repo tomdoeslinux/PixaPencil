@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.extensions.getScreenOrientation
 import com.therealbluepandabear.pixapencil.utility.ObjectConstants
 
 fun ColorPalettesFragment.setUpRecyclerView() {
@@ -14,7 +13,7 @@ fun ColorPalettesFragment.setUpRecyclerView() {
     binding.apply {
         val layoutManager = LinearLayoutManager(activity)
 
-        val layoutManagerOrientation: Int = if (activity?.getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+        val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             LinearLayoutManager.HORIZONTAL
         } else {
             LinearLayoutManager.VERTICAL

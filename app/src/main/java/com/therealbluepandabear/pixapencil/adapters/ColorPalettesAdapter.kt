@@ -8,7 +8,6 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
-import com.therealbluepandabear.pixapencil.extensions.getScreenOrientation
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
@@ -35,7 +34,7 @@ class ColorPalettesAdapter(
 
                 val layoutManager = LinearLayoutManager(context)
 
-                val layoutManagerOrientation: Int = if (callerActivity.getScreenOrientation() == Configuration.ORIENTATION_PORTRAIT) {
+                val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                     LinearLayoutManager.HORIZONTAL
                 } else {
                     LinearLayoutManager.VERTICAL
