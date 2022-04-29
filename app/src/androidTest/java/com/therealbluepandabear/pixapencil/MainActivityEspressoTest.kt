@@ -165,4 +165,38 @@ class MainActivityEspressoTest {
             withParent(withResourceName("action_bar")))
         ).check(matches(withText("PixaPencil")))
     }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            pressBack()
+        }
+    }
 }
