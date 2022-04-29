@@ -123,4 +123,33 @@ class MainActivityEspressoTest {
             pressBack()
         }
     }
+
+    @Test
+    fun clickOnCommunityItem() {
+        onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+    }
+
+    @Test
+    fun clickOnCommunityItem25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnCommunityItem50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnCommunityItem100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            pressBack()
+        }
+    }
 }
