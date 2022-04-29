@@ -2,13 +2,11 @@ package com.therealbluepandabear.pixapencil.customviews.transparentbackgroundvie
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
@@ -127,55 +125,19 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
             this.scaleWidth = calculatedMatrixInfo.scaleWidth
             this.scaleHeight = calculatedMatrixInfo.scaleHeight
 
-            when {
-                canvasWidth == canvasHeight -> {
-                    canvas.drawBitmap(
-                        transparentBackgroundViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
+            canvas.drawBitmap(
+                transparentBackgroundViewBitmap,
+                calculatedMatrix,
+                PaintCompatUtilities.getPreSDK28PaintOrNull())
 
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
+            dimenCW = scaleFactorW
+            dimenCH = scaleFactorH
 
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
-                canvasWidth > canvasHeight -> {
-                    canvas.drawBitmap(
-                        transparentBackgroundViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
-
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
-
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
-                else -> {
-                    canvas.drawBitmap(
-                        transparentBackgroundViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
-
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
-
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
+            if (!st) {
+                requestLayout()
+                postInvalidate()
+                invalidate()
+                st = true
             }
 
             for (i_1 in 0 until canvasWidth) {

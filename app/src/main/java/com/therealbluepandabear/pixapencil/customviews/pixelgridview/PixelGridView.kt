@@ -245,55 +245,19 @@ class PixelGridView(context: Context, var canvasWidth: Int, var canvasHeight: In
             this.scaleWidth = calculatedMatrixInfo.scaleWidth
             this.scaleHeight = calculatedMatrixInfo.scaleHeight
 
-            when {
-                canvasWidth == canvasHeight -> {
-                    canvas.drawBitmap(
-                        pixelGridViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
+            canvas.drawBitmap(
+                pixelGridViewBitmap,
+                calculatedMatrix,
+                PaintCompatUtilities.getPreSDK28PaintOrNull())
 
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
+            dimenCW = scaleFactorW
+            dimenCH = scaleFactorH
 
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
-                canvasWidth > canvasHeight -> {
-                    canvas.drawBitmap(
-                        pixelGridViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
-
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
-
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
-                else -> {
-                    canvas.drawBitmap(
-                        pixelGridViewBitmap,
-                        calculatedMatrix,
-                        PaintCompatUtilities.getPreSDK28PaintOrNull())
-
-                    dimenCW = scaleFactorW
-                    dimenCH = scaleFactorH
-
-                    if (!st) {
-                        requestLayout()
-                        postInvalidate()
-                        invalidate()
-                        st = true
-                    }
-                }
+            if (!st) {
+                requestLayout()
+                postInvalidate()
+                invalidate()
+                st = true
             }
 
             if (gridEnabled) {
