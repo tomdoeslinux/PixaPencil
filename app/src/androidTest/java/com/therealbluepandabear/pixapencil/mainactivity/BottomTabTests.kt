@@ -94,4 +94,34 @@ class BottomTabTests {
             onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
         }
     }
+
+    @Test
+    fun switchBetweenStarredAndHomeTab() {
+        onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
+        onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
+    }
+
+    @Test
+    fun switchBetweenStarredAndHomeTab25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
+            onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
+        }
+    }
+
+    @Test
+    fun switchBetweenStarredAndHomeTab50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
+            onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
+        }
+    }
+
+    @Test
+    fun switchBetweenStarredAndHomeTab100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
+            onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
+        }
+    }
 }
