@@ -167,6 +167,27 @@ class MainActivityEspressoTest {
     }
 
     @Test
+    fun checkTitleIsNewProjectWhenClickingOnNewProjectButton() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+
+        onView(allOf(instanceOf(
+            TextView::class.java),
+            withParent(withResourceName("action_bar")))
+        ).check(matches(withText("New Project")))
+    }
+
+    @Test
+    fun checkTitleSwitchesBackToPixaPencilWhenPressingBackFromNewProjectFragment() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        pressBack()
+
+        onView(allOf(instanceOf(
+            TextView::class.java),
+            withParent(withResourceName("action_bar")))
+        ).check(matches(withText("PixaPencil")))
+    }
+
+    @Test
     fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
@@ -174,7 +195,7 @@ class MainActivityEspressoTest {
     }
 
     @Test
-    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack25Times() {
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBackTwice25Times() {
         for (i in 0..25) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
@@ -184,7 +205,7 @@ class MainActivityEspressoTest {
     }
 
     @Test
-    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack50Times() {
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBackTwice50Times() {
         for (i in 0..50) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
@@ -194,10 +215,47 @@ class MainActivityEspressoTest {
     }
 
     @Test
-    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBack100Times() {
+    fun clickOnNewProjectButtonThenClickOnProjectNameTextInputLayoutThenGoBackTwice100Times() {
         for (i in 0..100) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBack() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+        pressBack()
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBackTwice25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBackTwice50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
+            pressBack()
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenClickOnProjectWidthTextInputLayoutThenGoBackTwice100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).perform(click())
             pressBack()
             pressBack()
         }
