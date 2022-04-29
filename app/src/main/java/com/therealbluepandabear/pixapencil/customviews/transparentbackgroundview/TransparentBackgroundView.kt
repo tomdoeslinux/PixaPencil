@@ -17,7 +17,7 @@ import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.PaintUtilities
+import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
@@ -82,7 +82,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
             transparentBackgroundViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
 
-            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintUtilities.getPreSDK28PaintOrNull())
+            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getPreSDK28PaintOrNull())
 
             postInvalidate()
         }
@@ -172,7 +172,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        PaintUtilities.getPreSDK28PaintOrNull())
+                        PaintCompatUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -188,7 +188,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        PaintUtilities.getPreSDK28PaintOrNull())
+                        PaintCompatUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH
@@ -204,7 +204,7 @@ class TransparentBackgroundView(context: Context, private var canvasWidth: Int, 
                     canvas.drawBitmap(
                         transparentBackgroundViewBitmap,
                         calculatedMatrix,
-                        PaintUtilities.getPreSDK28PaintOrNull())
+                        PaintCompatUtilities.getPreSDK28PaintOrNull())
 
                     dimenCW = scaleFactorW
                     dimenCH = scaleFactorH

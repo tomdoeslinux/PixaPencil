@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.utility
 import android.graphics.Paint
 import android.os.Build
 
-object PaintUtilities {
+object PaintCompatUtilities {
     fun getPreSDK28PaintOrNull(): Paint? {
         val preSDK28Paint = Paint()
         preSDK28Paint.isFilterBitmap = false

@@ -1,7 +1,5 @@
 package com.therealbluepandabear.pixapencil.utility
 
-import android.graphics.Color
-import android.os.Build
 import androidx.core.graphics.ColorUtils
 
 object ColorFilterUtilities {
@@ -13,29 +11,11 @@ object ColorFilterUtilities {
         var color = _color
 
         for (i in 0..strength) {
-            val r: Float = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Color.valueOf(color).red()
-            } else {
-                Color.red(color).toFloat()
-            }
+            val r: Float = ColorCompatUtilities.getCompatibleRed(color)
+            val g: Float = ColorCompatUtilities.getCompatibleGreen(color)
+            val b: Float = ColorCompatUtilities.getCompatibleBlue(color)
 
-            val g: Float = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Color.valueOf(color).green()
-            } else {
-                Color.green(color).toFloat()
-            }
-
-            val b: Float = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Color.valueOf(color).blue()
-            } else {
-                Color.blue(color).toFloat()
-            }
-
-            color = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                (Color.rgb((r + g + b) / 3.toFloat(), r, r))
-            } else {
-                (Color.rgb(((r + g + b) / 3.toFloat()).toInt(), r.toInt(), r.toInt()))
-            }
+            color = ColorCompatUtilities.getCompatibleRGB((r + g + b) / 3.toFloat(), r, r)
         }
 
         return color
