@@ -44,7 +44,7 @@ fun CanvasActivity.extendedSaveProject() {
         pixelGridViewInstance.invalidate()
 
         AppData.pixelArtDB.pixelArtCreationsDao().apply {
-            updatePixelArtCreationCoverBitmap(BitmapConverter.convertBitmapToString(bmp), currentPixelArtObj.objId)
+            updatePixelArtCreationCoverBitmap(coverBMPFileName, currentPixelArtObj.objId)
             updatePixelArtCreationBitmap(BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap), currentPixelArtObj.objId)
             updatePixelArtCreationRotation(outerCanvasInstance.getCurrentRotation(), currentPixelArtObj.objId)
         }
