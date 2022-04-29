@@ -595,4 +595,24 @@ class MainActivityEspressoTest {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_empty_height_in_code_str))))
     }
+
+    @Test
+    fun clickOnNewProjectButtonThenCheckForOutOfRangeWidthError() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("50000"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_invalid_width_in_code_str))))
+    }
+
+    @Test
+    fun clickOnNewProjectButtonThenCheckForOutOfRangeHeightError() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(typeText(defaultProjectName))
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("50000"))
+        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("1500"))
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
+        onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).check(matches(hasDescendant(withText(R.string.exception_invalid_height_in_code_str))))
+    }
 }
