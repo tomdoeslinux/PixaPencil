@@ -179,6 +179,7 @@ class MainActivityEspressoTest {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
             pressBack()
+            pressBack()
         }
     }
 
@@ -188,6 +189,7 @@ class MainActivityEspressoTest {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
             pressBack()
+            pressBack()
         }
     }
 
@@ -196,6 +198,7 @@ class MainActivityEspressoTest {
         for (i in 0..100) {
             onView(withId(R.id.activityMain_newProjectButton)).perform(click())
             onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).perform(click())
+            pressBack()
             pressBack()
         }
     }
