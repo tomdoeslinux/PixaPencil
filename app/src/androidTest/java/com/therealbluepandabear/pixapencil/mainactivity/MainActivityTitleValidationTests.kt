@@ -28,17 +28,23 @@ class MainActivityTitleValidationTests {
 
     private val actionBarIdentifier = "action_bar"
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun checkTitleIsPixaPencil() {
         onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(appTitle)))
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun checkTitleIsNewProjectWhenClickingOnNewProjectButton() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
         onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(newProjectTitle)))
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun checkTitleSwitchesBackToPixaPencilWhenPressingBackFromNewProjectFragment() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -46,7 +52,8 @@ class MainActivityTitleValidationTests {
         onView(allOf(instanceOf(TextView::class.java), withParent(withResourceName(actionBarIdentifier)))).check(matches(withText(appTitle)))
     }
 
-
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun checkTitleSwitchesToNewProjectWhenPressingBackFromNewProjectFragmentAndThenClickingOnNewProjectButton() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
