@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.adapters
 
+import android.content.Context
+import android.graphics.Bitmap
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
@@ -16,8 +24,10 @@ import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
+import java.io.File
 
-class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
+
+class PixelArtCreationsAdapter(context: Context, private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
@@ -31,17 +41,29 @@ class PixelArtCreationsAdapter(private val data: List<PixelArt>, private val lis
         return position
     }
 
+    private val fileHelperUtilities = FileHelperUtilities.createInstanceFromContext(context)
+
     override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) = data.forEach { _ ->
         binding.recentCreationsLayoutMaterialCardView.apply parent@{
             val item = data[position]
 
             binding.apply {
-                val fileHelperUtilities = FileHelperUtilities.createInstanceFromContext(context)
+                val requestOptions: RequestOptions = RequestOptions()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .centerCrop()
+                    .dontAnimate()
+                    .dontTransform()
+                    .priority(Priority.IMMEDIATE)
+                    .encodeFormat(Bitmap.CompressFormat.PNG)
+                    .override(750, 750)
+                    .format(DecodeFormat.DEFAULT)
 
-                val bitmap = fileHelperUtilities.getBitmapFromInternalStorage(item.coverBitmapFilePath)
-
-                recentCreationsLayoutImageView.setImageBitmap(bitmap)
-                recentCreationsLayoutImageView.invalidate()
+                Glide.with(context)
+                    .setDefaultRequestOptions(requestOptions)
+                    .load(File(context.getFileStreamPath(item.coverBitmapFilePath).absolutePath))
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(recentCreationsLayoutImageView)
 
                 recentCreationsLayoutSubtitle.text = "${item.width}x${item.height}"
 
