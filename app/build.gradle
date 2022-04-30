@@ -18,7 +18,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunnerArguments clearPackageData: 'true'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
