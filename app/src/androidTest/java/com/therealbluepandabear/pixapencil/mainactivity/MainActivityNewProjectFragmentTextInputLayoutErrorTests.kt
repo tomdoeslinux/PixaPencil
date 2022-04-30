@@ -5,9 +5,12 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -15,6 +18,9 @@ import org.junit.runner.RunWith
 @LargeTest
 class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
     private val defaultProjectName = "Project"
+
+    @get:Rule
+    val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun clickOnNewProjectButtonThenCheckForEmptyNameError() {
