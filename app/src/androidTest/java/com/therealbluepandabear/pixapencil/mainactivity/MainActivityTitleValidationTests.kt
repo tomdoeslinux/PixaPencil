@@ -17,6 +17,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+// Note:
+// All times in ESPRESSO TEST DOCUMENTATION are in NZST
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityTitleValidationTests {
