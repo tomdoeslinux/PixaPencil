@@ -29,66 +29,92 @@ class MainActivityProjectCreationTests {
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
     }
 
+    // Last successful test completion: 04-30 17:55 (API 32)
+    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun create10x10() {
         createDummyProject(10, 10)
     }
 
+    // Last successful test completion: 04-30 17:55 (API 32)
+    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun create25x25() {
         createDummyProject(25, 25)
     }
 
+    // Last successful test completion: 04-30 17:55 (API 32)
+    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun create50x50() {
         createDummyProject(50, 50)
     }
 
+    // Last successful test completion: 04-30 17:55 (API 32)
+    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun create100x100() {
         createDummyProject(100, 100)
     }
 
+    // Last successful test completion: 04-30 17:55 (API 32)
+    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun create250x250() {
         createDummyProject(250, 250)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create500x500() {
         createDummyProject(500, 500)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create1000x1000() {
         createDummyProject(1000, 1000)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create10x5() {
         createDummyProject(10, 5)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create100x50() {
         createDummyProject(50, 100)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create1000x500() {
         createDummyProject(500, 1000)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create5x10() {
         createDummyProject(5, 10)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create50x100() {
         createDummyProject(50, 100)
     }
 
+    // Last successful test completion: 04-30 17:56 (API 32)
+    // Last successful test completion on API 32: 04-30 17:56
     @Test
     fun create500x1000() {
         createDummyProject(500, 1000)
