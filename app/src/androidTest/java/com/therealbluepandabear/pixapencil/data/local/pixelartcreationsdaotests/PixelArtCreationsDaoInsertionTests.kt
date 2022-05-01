@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.data.local
+package com.therealbluepandabear.pixapencil.data.local.pixelartcreationsdaotests
 
 import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
@@ -48,17 +48,6 @@ class PixelArtCreationsDaoInsertionTests {
         database.close()
     }
 
-
-    @Test
-    fun insertPixelArtCreation_assertObjId() {
-        runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.objId } returns 1 }
-
-            dao.insertPixelArt(pixelArtCreation)
-
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().objId == pixelArtCreation.objId)
-        }
-    }
 
     @Test
     fun insertPixelArtCreation_assertTitle() {
