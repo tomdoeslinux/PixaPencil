@@ -55,7 +55,7 @@ class PixelArtCreationsDaoTest {
 
             val allPixelArtCreations = dao.getAllPixelArtCreations().getOrAwaitValue()
 
-            assert(allPixelArtCreations[0].objId == pixelArtCreation.objId)
+            assert(allPixelArtCreations.first().objId == pixelArtCreation.objId)
         }
     }
 }
