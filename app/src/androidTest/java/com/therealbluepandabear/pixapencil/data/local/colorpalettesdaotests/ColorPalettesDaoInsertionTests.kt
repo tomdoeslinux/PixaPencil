@@ -1,9 +1,11 @@
 package com.therealbluepandabear.pixapencil.data.local.colorpalettesdaotests
+import android.graphics.Color
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.dao.ColorPalettesDao
 import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
@@ -55,4 +57,21 @@ class ColorPalettesDaoInsertionTests {
         }
     }
 
+    @Test
+    fun insertColorPalette_assertColorPaletteColorData() {
+        runTest {
+            val colorPaletteData: List<Int> = listOf(
+                Color.BLACK,
+                Color.YELLOW,
+                Color.GREEN
+            )
+            val colorPaletteDataStr = JsonConverter.convertListToJsonString(colorPaletteData)
+
+            val colorPalette = mockk<ColorPalette>(relaxed = true).also { every { it.colorPaletteColorData } returns colorPaletteDataStr }
+
+            dao.insertColorPalette(colorPalette)
+
+            assert(dao.getAllColorPalettes().getOrAwaitValue().first().colorPaletteColorData == colorPaletteDataStr)
+        }
+    }
 }
