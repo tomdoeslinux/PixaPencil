@@ -249,4 +249,76 @@ class PixelArtCreationsDaoTest {
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 250)
         }
     }
+
+    @Test
+    fun insert500PixelArtCreations_assertSize500() {
+        runTest {
+            for (i in 1..500) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 500)
+        }
+    }
+
+    @Test
+    fun insert1_000PixelArtCreations_assertSize1_000() {
+        runTest {
+            for (i in 1..1_000) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1_000)
+        }
+    }
+
+    @Test
+    fun insert2_000PixelArtCreations_assertSize2_000() {
+        runTest {
+            for (i in 1..2_000) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 2_000)
+        }
+    }
+
+    @Test
+    fun insert4_000PixelArtCreations_assertSize4_000() {
+        runTest {
+            for (i in 1..4_000) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 4_000)
+        }
+    }
+
+    @Test
+    fun insert8_000PixelArtCreations_assertSize8_000() {
+        runTest {
+            for (i in 1..8_000) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 8_000)
+        }
+    }
+
+    @Test
+    fun insert16_000PixelArtCreations_assertSize16_000() {
+        runTest {
+            for (i in 1..16_000) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 16_000)
+        }
+    }
 }
