@@ -71,4 +71,21 @@ class PixelArtCreationsDaoReplacementTests {
             assert(bitmapObj3.config == bitmapObj2.config)
         }
     }
+
+    @Test
+    fun insertPixelArtCreation_assertRotationDoesReplace() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+                every { it.rotation } returns 180f
+                every { it.objId } returns 1
+            }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            val newRotation = 90f
+            dao.updatePixelArtCreationRotation(newRotation, 1)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().rotation == newRotation)
+        }
+    }
 }
