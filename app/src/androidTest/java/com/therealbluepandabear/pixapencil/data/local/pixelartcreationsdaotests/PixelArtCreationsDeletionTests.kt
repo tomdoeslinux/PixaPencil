@@ -139,7 +139,7 @@ class PixelArtCreationsDeletionTests {
                 dao.deletePixelArtCreation(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 128)
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 64)
         }
     }
 
