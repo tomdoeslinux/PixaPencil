@@ -25,7 +25,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @SmallTest
 
-class PixelArtCreationsDaoReplacementTests {
+class PixelArtCreationsReplacementTests {
     private lateinit var database: PixelArtDatabase
     private lateinit var dao: PixelArtCreationsDao
 
@@ -86,6 +86,23 @@ class PixelArtCreationsDaoReplacementTests {
             dao.updatePixelArtCreationRotation(newRotation, 1)
 
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().rotation == newRotation)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertStarredDoesReplace() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+                every { it.starred } returns false
+                every { it.objId } returns 1
+            }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            val newStarred = true
+            dao.updatePixelArtCreationStarred(newStarred, 1)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().starred == newStarred)
         }
     }
 }
