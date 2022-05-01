@@ -1,10 +1,12 @@
 package com.therealbluepandabear.pixapencil.data.local
 
+import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
+import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
@@ -141,6 +143,20 @@ class PixelArtCreationsDaoTest {
             dao.insertPixelArt(pixelArtCreation)
 
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertBitmap() {
+        runTest {
+            val bitmapObj = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888)
+            val bitmapString = BitmapConverter.convertBitmapToString(bitmapObj)
+
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.bitmap } returns bitmapString }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap == pixelArtCreation.bitmap)
         }
     }
 }
