@@ -179,17 +179,15 @@ class RGBColorPickerFragment : Fragment() {
         }
 
         keyboardVisibilityEventListenerRegistrar = registerEventListener(requireActivity(),
-            object : KeyboardVisibilityEventListener {
-                override fun onVisibilityChanged(isOpen: Boolean) {
-                    if (!isOpen) {
-                        try {
-                            binding.apply {
-                                fragmentRGBColorPickerRedProgressBar.value = valueR
-                                fragmentRGBColorPickerGreenProgressBar.value = valueG
-                                fragmentRGBColorPickerBlueProgressBar.value = valueB
-                            }
-                        } catch (exception: Exception) { }
-                    }
+            KeyboardVisibilityEventListener { isOpen ->
+                if (!isOpen) {
+                    try {
+                        binding.apply {
+                            fragmentRGBColorPickerRedProgressBar.value = valueR
+                            fragmentRGBColorPickerGreenProgressBar.value = valueG
+                            fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        }
+                    } catch (exception: Exception) { }
                 }
             })
     }

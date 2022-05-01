@@ -41,8 +41,6 @@ class PixelArtCreationsAdapter(context: Context, private val data: List<PixelArt
         return position
     }
 
-    private val fileHelperUtilities = FileHelperUtilities.createInstanceFromContext(context)
-
     override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) = data.forEach { _ ->
         binding.recentCreationsLayoutMaterialCardView.apply parent@{
             val item = data[position]

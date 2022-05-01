@@ -172,14 +172,4 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    fun getBitmapFromInternalStorage(fileName: String): Bitmap {
-        var bitmapToReturn: Bitmap?
-
-        context.openFileInput(fileName).use {
-            bitmapToReturn = BitmapFactory.decodeStream(it)
-            it.close()
-        }
-
-        return bitmapToReturn!!
-    }
 }

@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpalettes
 
-import android.app.Activity
 import android.content.res.Configuration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
@@ -22,7 +21,7 @@ fun ColorPalettesFragment.setUpRecyclerView() {
         layoutManager.orientation = layoutManagerOrientation
 
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.ObjectGlobalScopeLifecycleOwner) {
-            fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(activity as Activity, it, context)
+            fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(it, context)
         }
     }
 }

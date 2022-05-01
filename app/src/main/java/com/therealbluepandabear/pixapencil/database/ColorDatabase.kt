@@ -165,6 +165,8 @@ object ColorDatabase {
             Color.TRANSPARENT
         )
 
-        for (color in colorData) addColor(color)
+        for (color in colorData) {
+            addColor(color)
+        }
     }
 }

@@ -13,10 +13,9 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
 class ColorPalettesAdapter(
-    private val callerActivity: Activity,
     private val data: List<ColorPalette>,
     private val caller: ColorPalettesListener
-    ) : RecyclerView.Adapter<ViewHolder<FrameLayout>>()  {
+) : RecyclerView.Adapter<ViewHolder<FrameLayout>>()  {
 
     private lateinit var binding: ColorPalettesLayoutBinding
 
