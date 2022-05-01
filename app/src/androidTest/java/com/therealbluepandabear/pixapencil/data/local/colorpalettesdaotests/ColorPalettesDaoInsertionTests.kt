@@ -74,4 +74,15 @@ class ColorPalettesDaoInsertionTests {
             assert(dao.getAllColorPalettes().getOrAwaitValue().first().colorPaletteColorData == colorPaletteDataStr)
         }
     }
+
+    @Test
+    fun insertColorPalette_assertObjId() {
+        runTest {
+            val colorPalette = mockk<ColorPalette>(relaxed = true).also { every { it.objId } returns 1 }
+
+            dao.insertColorPalette(colorPalette)
+
+            assert(dao.getAllColorPalettes().getOrAwaitValue().first().objId == colorPalette.objId)
+        }
+    }
 }
