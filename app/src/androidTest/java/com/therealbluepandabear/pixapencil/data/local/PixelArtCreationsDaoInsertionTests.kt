@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.DateTimeCompatibilityUtilities
+import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -158,6 +159,20 @@ class PixelArtCreationsDaoInsertionTests {
             dao.insertPixelArt(pixelArtCreation)
 
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap == pixelArtCreation.bitmap)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertCoverBitmapFilePath() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+                every { it.title } returns "PixelArtCreation"
+                every { it.coverBitmapFilePath } returns InternalBitmapFileNameGenerator.generate(it.title)
+            }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().coverBitmapFilePath == pixelArtCreation.coverBitmapFilePath)
         }
     }
 
