@@ -9,6 +9,7 @@ import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.utility.DateTimeCompatibilityUtilities
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -74,6 +75,72 @@ class PixelArtCreationsDaoTest {
             dao.insertPixelArt(pixelArtCreation)
 
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().width == pixelArtCreation.width)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertHeight() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.height } returns 5 }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().height == pixelArtCreation.height)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertDimenCW() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dimenCW } returns 5 }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dimenCW == pixelArtCreation.dimenCW)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertDimenCH() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dimenCH } returns 5 }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dimenCH == pixelArtCreation.dimenCH)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertRotation() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.rotation } returns 90f }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().rotation == pixelArtCreation.rotation)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertStarred() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.starred } returns false }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().starred == pixelArtCreation.starred)
+        }
+    }
+
+    @Test
+    fun insertPixelArtCreation_assertDateCreated() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompatibilityUtilities.getCompatibleCurrentDateTime() }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
         }
     }
 }
