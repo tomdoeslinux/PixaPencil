@@ -93,6 +93,8 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "io.mockk:mockk-android:1.12.3"
     androidTestImplementation "io.mockk:mockk-agent-jvm:1.12.3"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.6.20"
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test:1.6.20"
 
     // Android test util
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
