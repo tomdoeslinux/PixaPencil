@@ -159,4 +159,23 @@ class PixelArtCreationsDaoTest {
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap == pixelArtCreation.bitmap)
         }
     }
+
+    @Test
+    fun insertPixelArtCreation_assertBitmapProperties() {
+        runTest {
+            val bitmapObj = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888)
+            val bitmapString = BitmapConverter.convertBitmapToString(bitmapObj)
+
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.bitmap } returns bitmapString }
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            val bitmapStringFromDB: String = dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap
+            val bitmapObjFromDB: Bitmap = BitmapConverter.convertStringToBitmap(bitmapStringFromDB)!!
+
+            assert(bitmapObjFromDB.width == bitmapObj.width)
+            assert(bitmapObjFromDB.height == bitmapObj.height)
+            assert(bitmapObjFromDB.config == bitmapObj.config)
+        }
+    }
 }
