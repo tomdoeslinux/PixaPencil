@@ -178,4 +178,75 @@ class PixelArtCreationsDaoTest {
             assert(bitmapObjFromDB.config == bitmapObj.config)
         }
     }
+
+    @Test
+    fun insertPixelArtCreation_assertSize1() {
+        runTest {
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+
+            dao.insertPixelArt(pixelArtCreation)
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1)
+        }
+    }
+
+    @Test
+    fun insert5PixelArtCreations_assertSize5() {
+        runTest {
+            for (i in 1..5) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 5)
+        }
+    }
+
+    @Test
+    fun insert25PixelArtCreations_assertSize25() {
+        runTest {
+            for (i in 1..25) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 25)
+        }
+    }
+
+    @Test
+    fun insert50PixelArtCreations_assertSize50() {
+        runTest {
+            for (i in 1..50) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 50)
+        }
+    }
+
+    @Test
+    fun insert100PixelArtCreations_assertSize100() {
+        runTest {
+            for (i in 1..100) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 100)
+        }
+    }
+
+    @Test
+    fun insert250PixelArtCreations_assertSize250() {
+        runTest {
+            for (i in 1..250) {
+                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+                dao.insertPixelArt(pixelArtCreation)
+            }
+
+            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 250)
+        }
+    }
 }
