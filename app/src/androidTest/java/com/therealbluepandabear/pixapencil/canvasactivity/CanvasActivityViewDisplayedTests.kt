@@ -9,9 +9,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -21,13 +18,6 @@ import org.junit.runner.RunWith
 class CanvasActivityViewDisplayedTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
-
-    @Before
-    fun setup() {
-        activityRule.scenario.onActivity {
-            AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(it)
-        }
-    }
 
     @Test
     fun checkCanvasToolsScrollView_hIsDisplayed() {
