@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.canvasactivity
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -70,5 +71,20 @@ class CanvasActivityTopAppMenuTests {
     @Test
     fun checkSaveToJPGItemIsDisplayed() {
         onView(withText(R.string.activityCanvasTopAppMenu_save_as_jpg_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRotate90DegreesClockwiseSubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkRotate90DegreesAntiClockwiseSubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkRotate180DegreesClockwiseSubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(doesNotExist())
     }
 }
