@@ -94,4 +94,33 @@ class CanvasActivityTabTests {
         onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
         onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
     }
+
+    @Test
+    fun checkToolsFragmentInstanceIsDisplayedByDefault() {
+        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFiltersFragmentInstanceIsDisplayedWhenFiltersTabClicked() {
+        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorPalettesFragmentInstanceIsDisplayedWhenColorPalettesTabClicked() {
+        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkBrushesFragmentInstanceIsDisplayedWhenBrushesTabClicked() {
+        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkToolsFragmentInstanceIsDisplayedWhenToolsTabClicked() {
+        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
 }
