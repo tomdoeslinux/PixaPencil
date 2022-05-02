@@ -3,8 +3,7 @@ package com.therealbluepandabear.pixapencil.canvasactivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -12,6 +11,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgbFragmentInstance
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -56,5 +56,19 @@ class CanvasActivityColorPickerFragmentTests {
     fun checkColorPickerPickerFragmentIsDisplayedInsideColorPickerFragment() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
         onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRGBFragmentIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(rgbFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRGBFragmentRootLayoutIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 }
