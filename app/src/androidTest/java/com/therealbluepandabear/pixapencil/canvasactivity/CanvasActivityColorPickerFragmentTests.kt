@@ -10,6 +10,7 @@ import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.hexFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgbFragmentInstance
 import org.junit.Rule
@@ -70,5 +71,20 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
         onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
         onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+
+    @Test
+    fun checkHexFragmentIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(hexFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkHexFragmentRootLayoutIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 }
