@@ -73,7 +73,6 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
-
     @Test
     fun checkHexFragmentIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
@@ -86,5 +85,19 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
         onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
         onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkPickerFragmentIsDisplayedWhenPickerTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
+        onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkPickerFragmentRootLayoutIsDisplayedWhenPickerTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
     }
 }
