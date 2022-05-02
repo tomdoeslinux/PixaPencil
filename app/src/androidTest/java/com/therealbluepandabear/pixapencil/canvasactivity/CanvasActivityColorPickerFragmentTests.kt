@@ -30,6 +30,18 @@ class CanvasActivityColorPickerFragmentTests {
     @Test
     fun checkColorPickerFragmentIsDisplayedWhenLongClickingOnPrimaryColor() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withId(colorPickerFragmentInstance.id)).check(matches(isDisplayed()))
+        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorPickerFragmentRootLayoutIsDisplayedWhenLongClickingOnSecondaryColor() {
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorPickerFragmentIsDisplayedWhenLongClickingOnSecondaryColor() {
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(longClick())
+        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
     }
 }
