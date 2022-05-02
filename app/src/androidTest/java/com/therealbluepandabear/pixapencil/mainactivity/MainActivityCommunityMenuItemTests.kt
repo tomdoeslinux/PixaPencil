@@ -26,7 +26,7 @@ class MainActivityCommunityMenuItemTests {
     // Last successful test completion on API 32: 04-30 17:36
     @Test
     fun clickOnCommunityItem() {
-        onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+        onView(withId(R.id.activityMainTopAppMenu_save_project_item)).perform(click())
     }
 
     // Last successful test completion: 04-30 17:35 (API 32)
@@ -34,7 +34,7 @@ class MainActivityCommunityMenuItemTests {
     @Test
     fun clickOnCommunityItem25Times() {
         for (i in 0..25) {
-            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            onView(withId(R.id.activityMainTopAppMenu_save_project_item)).perform(click())
             pressBack()
         }
     }
@@ -44,7 +44,7 @@ class MainActivityCommunityMenuItemTests {
     @Test
     fun clickOnCommunityItem50Times() {
         for (i in 0..50) {
-            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            onView(withId(R.id.activityMainTopAppMenu_save_project_item)).perform(click())
             pressBack()
         }
     }
@@ -54,7 +54,7 @@ class MainActivityCommunityMenuItemTests {
     @Test
     fun clickOnCommunityItem100Times() {
         for (i in 0..100) {
-            onView(withId(R.id.activityMainTopAppMenu_community_item)).perform(click())
+            onView(withId(R.id.activityMainTopAppMenu_save_project_item)).perform(click())
             pressBack()
         }
     }

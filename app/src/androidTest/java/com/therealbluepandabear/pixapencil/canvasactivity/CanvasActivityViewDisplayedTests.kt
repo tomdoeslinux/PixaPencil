@@ -85,7 +85,7 @@ class CanvasActivityViewDisplayedTests {
     }
 
     @Test
-    fun checkUndoItemIsDisplayed() {
-        onView(withId(R.id.activityCanvasTopAppMenu_undo)).check(matches(isDisplayed()))
+    fun checkSaveProjectItemIsDisplayed() {
+        onView(withId(R.id.activityMainTopAppMenu_save_project_item)).check(matches(isDisplayed()))
     }
 }

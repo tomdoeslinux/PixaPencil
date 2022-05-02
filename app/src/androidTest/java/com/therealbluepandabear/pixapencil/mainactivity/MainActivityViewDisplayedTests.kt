@@ -54,7 +54,7 @@ class MainActivityViewDisplayedTests {
     // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkTopAppMenuCommunityItemIsDisplayed() {
-        onView(withId(R.id.activityMainTopAppMenu_community_item)).check(matches(isDisplayed()))
+        onView(withId(R.id.activityMainTopAppMenu_save_project_item)).check(matches(isDisplayed()))
     }
 
     // Last successful test completion: 04-30 18:19 (API 32)
