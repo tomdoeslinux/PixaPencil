@@ -11,6 +11,7 @@ import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -43,5 +44,17 @@ class CanvasActivityColorPickerFragmentTests {
     fun checkColorPickerFragmentIsDisplayedWhenLongClickingOnSecondaryColor() {
         onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(longClick())
         onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorPickerPickerFragmentRootLayoutIsDisplayedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorPickerPickerFragmentIsDisplayedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 }
