@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.adapters
 
-import android.app.Activity
 import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.ViewGroup

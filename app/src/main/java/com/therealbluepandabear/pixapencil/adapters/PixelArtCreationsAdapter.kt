@@ -22,7 +22,6 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 import java.io.File
 
