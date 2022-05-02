@@ -3,9 +3,7 @@ package com.therealbluepandabear.pixapencil.canvasactivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -28,19 +26,25 @@ class CanvasActivityTabTests {
 
     @Test
     fun checkFragmentFiltersRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(ViewMatchers.withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
         onView(withId(R.id.fragmentFilters_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(ViewMatchers.withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
         onView(withId(R.id.fragmentColorPalettes_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkFragmentBrushesRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(ViewMatchers.withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
         onView(withId(R.id.fragmentBrushes_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentToolsRootLayoutIsDisplayedWhenToolsTabClicked() {
+        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
     }
 }
