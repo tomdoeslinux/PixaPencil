@@ -16,21 +16,28 @@ import org.junit.runner.RunWith
 // Note:
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
+/**
+ * Test completion summary for `MainActivityCommunityMenuItemTests`:
+ *
+ * **Last completion of tests in this package file:**
+ *
+ * - 2022-05-02 21:26 (4/4 passed) on API 32
+ *
+ * **Last completion of tests in this package file for API 32:**
+ * - 2022-05-02 21:26 (4/4 passed)
+ */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityCommunityMenuItemTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
-    // Last successful test completion: 04-30 17:36 (API 32)
-    // Last successful test completion on API 32: 04-30 17:36
     @Test
     fun clickOnCommunityItem() {
         onView(withId(R.id.activityMainTopAppMenu_save_project_item)).perform(click())
     }
 
-    // Last successful test completion: 04-30 17:35 (API 32)
-    // Last successful test completion on API 32: 04-30 17:35
     @Test
     fun clickOnCommunityItem25Times() {
         for (i in 0..25) {
@@ -39,8 +46,6 @@ class MainActivityCommunityMenuItemTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:35 (API 32)
-    // Last successful test completion on API 32: 04-30 17:35
     @Test
     fun clickOnCommunityItem50Times() {
         for (i in 0..50) {
@@ -49,8 +54,6 @@ class MainActivityCommunityMenuItemTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:36 (API 32)
-    // Last successful test completion on API 32: 04-30 17:36
     @Test
     fun clickOnCommunityItem100Times() {
         for (i in 0..100) {

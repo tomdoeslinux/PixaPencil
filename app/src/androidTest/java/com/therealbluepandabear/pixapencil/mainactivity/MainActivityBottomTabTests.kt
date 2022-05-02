@@ -15,21 +15,29 @@ import org.junit.runner.RunWith
 // Note:
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
+/**
+ * Test completion summary for `MainActivityBottomTabTests`:
+ *
+ * **Last completion of tests in this package file:**
+ *
+ * - 2022-05-02 21:24 (15/15 passed) on API 32
+ *
+ * **Last completion of tests in this package file for API 32:**
+ * - 2022-05-02 21:24 (15/15 passed)
+ */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityBottomTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
-    // Last successful test completion: 04-30 17:28 (API 32)
-    // Last successful test completion on API 32: 04-30 17:28
+
     @Test
     fun clickOnHomeTab() {
         onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
     }
 
-    // Last successful test completion: 04-30 17:27 (API 32)
-    // Last successful test completion on API 32: 04-30 17:27
     @Test
     fun clickOnHomeTab25Times() {
         for (i in 0..25) {
@@ -37,8 +45,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:31 (API 32)
-    // Last successful test completion on API 32: 04-30 17:31
     @Test
     fun clickOnHomeTab50Times() {
         for (i in 0..50) {
@@ -46,8 +52,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:29 (API 32)
-    // Last successful test completion on API 32: 04-30 17:29
     @Test
     fun clickOnHomeTab100Times() {
         for (i in 0..100) {
@@ -55,8 +59,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:27 (API 32)
-    // Last successful test completion on API 32: 04-30 17:27
     @Test
     fun clickOnStarredTab25Times() {
         for (i in 0..25) {
@@ -64,8 +66,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:32 (API 32)
-    // Last successful test completion on API 32: 04-30 17:32
     @Test
     fun clickOnStarredTab50Times() {
         for (i in 0..50) {
@@ -73,8 +73,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:28 (API 32)
-    // Last successful test completion on API 32: 04-30 17:28
     @Test
     fun clickOnStarredTab100Times() {
         for (i in 0..100) {
@@ -82,16 +80,12 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:27 (API 32)
-    // Last successful test completion on API 32: 04-30 17:27
     @Test
     fun switchBetweenHomeAndStarredTab() {
         onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
         onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
     }
 
-    // Last successful test completion: 04-30 17:27 (API 32)
-    // Last successful test completion on API 32: 04-30 17:27
     @Test
     fun switchBetweenHomeAndStarredTab25Times() {
         for (i in 0..25) {

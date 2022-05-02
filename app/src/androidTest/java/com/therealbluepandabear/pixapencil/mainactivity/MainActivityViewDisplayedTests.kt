@@ -16,56 +16,53 @@ import org.junit.runner.RunWith
 // Note:
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
+/**
+ * Test completion summary for `MainActivityTitleValidationTests`:
+ *
+ * **Last completion of tests in this package file:**
+ *
+ * - 2022-05-02 21:49 (7/7 passed) on API 32
+ *
+ * **Last completion of tests in this package file for API 32:**
+ * - 2022-05-02 21:49 (7/7 passed)
+ */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityViewDisplayedTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkRecyclerViewIsDisplayed() {
         onView(withId(R.id.activityMain_recentCreationsRecyclerView)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkNewProjectButtonIsDisplayed() {
         onView(withId(R.id.activityMain_newProjectButton)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkBottomNavigationMenuStarredTabIsDisplayed() {
         onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkBottomNavigationMenuHomeTabIsDisplayed() {
         onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkTopAppMenuCommunityItemIsDisplayed() {
         onView(withId(R.id.activityMainTopAppMenu_save_project_item)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkBottomNavigationViewIsDisplayed() {
         onView(withId(R.id.activityMain_bottomNavigationView)).check(matches(isDisplayed()))
     }
 
-    // Last successful test completion: 04-30 18:19 (API 32)
-    // Last successful test completion on API 32: 04-30 18:19
     @Test
     fun checkPrimaryFragmentHostIsDisplayed() {
         onView(withId(R.id.activityMain_primaryFragmentHost)).check(matches(isDisplayed()))

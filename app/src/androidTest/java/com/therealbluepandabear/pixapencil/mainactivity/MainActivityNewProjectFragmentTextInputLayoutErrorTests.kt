@@ -17,6 +17,17 @@ import org.junit.runner.RunWith
 // Note:
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
+/**
+ * Test completion summary for `MainActivityNewProjectFragmentTextInputLayoutErrorTests`:
+ *
+ * **Last completion of tests in this package file:**
+ *
+ * - 2022-05-02 21:46 (5/5 passed) on API 32
+ *
+ * **Last completion of tests in this package file for API 32:**
+ * - 2022-05-02 21:46 (5/5 passed)
+ */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
@@ -25,8 +36,6 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
 
     private val defaultProjectName = "Project"
 
-    // Last successful test completion: 04-30 18:13 (API 32)
-    // Last successful test completion on API 32: 04-30 18:13
     @Test
     fun clickOnNewProjectButtonThenCheckForEmptyNameError() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -38,8 +47,6 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         ))))
     }
 
-    // Last successful test completion: 04-30 18:14 (API 32)
-    // Last successful test completion on API 32: 04-30 18:14
     @Test
     fun clickOnNewProjectButtonThenCheckForEmptyWidthError() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -51,8 +58,6 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         ))))
     }
 
-    // Last successful test completion: 04-30 18:13 (API 32)
-    // Last successful test completion on API 32: 04-30 18:13
     @Test
     fun clickOnNewProjectButtonThenCheckForEmptyHeightError() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -64,8 +69,6 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         ))))
     }
 
-    // Last successful test completion: 04-30 18:13 (API 32)
-    // Last successful test completion on API 32: 04-30 18:13
     @Test
     fun clickOnNewProjectButtonThenCheckForOutOfRangeWidthError() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
@@ -78,8 +81,6 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         ))))
     }
 
-    // Last successful test completion: 04-30 18:13 (API 32)
-    // Last successful test completion on API 32: 04-30 18:13
     @Test
     fun clickOnNewProjectButtonThenCheckForOutOfRangeHeightError() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())

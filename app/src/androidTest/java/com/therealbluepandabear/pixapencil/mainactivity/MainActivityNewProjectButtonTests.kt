@@ -16,21 +16,28 @@ import org.junit.runner.RunWith
 // Note:
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
+/**
+ * Test completion summary for `MainActivityNewProjectButtonTests`:
+ *
+ * **Last completion of tests in this package file:**
+ *
+ * - 2022-05-02 21:46 (4/4 passed) on API 32
+ *
+ * **Last completion of tests in this package file for API 32:**
+ * - 2022-05-02 21:46 (4/4 passed)
+ */
+
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class MainActivityNewProjectButtonTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
-    // Last successful test completion: 04-30 17:54 (API 32)
-    // Last successful test completion on API 32: 04-30 17:54
     @Test
     fun clickButton() {
         onView(withId(R.id.activityMain_newProjectButton)).perform(click())
     }
 
-    // Last successful test completion: 04-30 17:53 (API 32)
-    // Last successful test completion on API 32: 04-30 17:53
     @Test
     fun clickButton25Times() {
         for (i in 0..25) {
@@ -39,8 +46,6 @@ class MainActivityNewProjectButtonTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:54 (API 32)
-    // Last successful test completion on API 32: 04-30 17:54
     @Test
     fun clickButton50Times() {
         for (i in 0..50) {
@@ -49,8 +54,6 @@ class MainActivityNewProjectButtonTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:55 (API 32)
-    // Last successful test completion on API 32: 04-30 17:55
     @Test
     fun clickButton100Times() {
         for (i in 0..100) {
