@@ -30,4 +30,25 @@ class CanvasActivityPrimarySecondaryColorIndicatorTests {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(click())
         onView(withId(R.id.activityCanvas_colorPrimaryViewIndicator)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkSecondaryViewIndicatorIsDisplayedWhenSecondaryColorClicked() {
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorSecondaryViewIndicator)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkPrimaryIndicatorIsDisplayedWhenSecondaryColorIsClickedAndThenPrimaryColorIsClicked() {
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorPrimaryViewIndicator)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkSecondaryIndicatorIsDisplayedWhenSecondaryColorIsClickedAndThenPrimaryColorIsClickedAndThenSecondaryColorIsClicked() {
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(click())
+        onView(withId(R.id.activityCanvas_colorSecondaryViewIndicator)).check(matches(isDisplayed()))
+    }
 }
