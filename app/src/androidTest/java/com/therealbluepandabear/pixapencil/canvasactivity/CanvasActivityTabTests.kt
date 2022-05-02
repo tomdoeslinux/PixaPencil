@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.canvasactivity
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -28,13 +28,19 @@ class CanvasActivityTabTests {
 
     @Test
     fun checkFragmentFiltersRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(ViewMatchers.withText(R.string.activityCanvas_tab_filters_str)).perform(ViewActions.click())
+        onView(ViewMatchers.withText(R.string.activityCanvas_tab_filters_str)).perform(click())
         onView(withId(R.id.fragmentFilters_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(ViewMatchers.withText(R.string.activityCanvas_tab_color_palettes_str)).perform(ViewActions.click())
+        onView(ViewMatchers.withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
         onView(withId(R.id.fragmentColorPalettes_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentBrushesRootLayoutIsDisplayedWhenFiltersTabClicked() {
+        onView(ViewMatchers.withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+        onView(withId(R.id.fragmentBrushes_rootLayout)).check(matches(isDisplayed()))
     }
 }
