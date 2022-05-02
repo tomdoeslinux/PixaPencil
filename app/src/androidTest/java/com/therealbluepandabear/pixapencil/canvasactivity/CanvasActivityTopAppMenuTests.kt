@@ -87,4 +87,24 @@ class CanvasActivityTopAppMenuTests {
     fun checkRotate180DegreesClockwiseSubItemDoesNotExist() {
         onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(doesNotExist())
     }
+
+    @Test
+    fun checkHorizontalSymmetrySubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkVerticalSymmetrySubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkQuadSymmetrySubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkOctalSymmetrySubItemDoesNotExist() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal_str)).check(doesNotExist())
+    }
 }
