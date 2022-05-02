@@ -8,7 +8,8 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.*
+import org.hamcrest.core.IsNot.not
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,6 +19,13 @@ import org.junit.runner.RunWith
 class CanvasActivityTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
+
+    private fun notDisplayedSetup() {
+        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+    }
 
     @Test
     fun checkFragmentToolsRootLayoutIsDisplayedByDefault() {
@@ -31,13 +39,13 @@ class CanvasActivityTabTests {
     }
 
     @Test
-    fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenFiltersTabClicked() {
+    fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenColorPalettesTabClicked() {
         onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
         onView(withId(R.id.fragmentColorPalettes_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkFragmentBrushesRootLayoutIsDisplayedWhenFiltersTabClicked() {
+    fun checkFragmentBrushesRootLayoutIsDisplayedWhenBrushesTabClicked() {
         onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
         onView(withId(R.id.fragmentBrushes_rootLayout)).check(matches(isDisplayed()))
     }
@@ -46,5 +54,44 @@ class CanvasActivityTabTests {
     fun checkFragmentToolsRootLayoutIsDisplayedWhenToolsTabClicked() {
         onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
         onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkOtherFragmentsAreNotDisplayedWhenToolsTabClicked() {
+        notDisplayedSetup()
+        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+
+        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+    }
+
+    @Test
+    fun checkOtherFragmentsAreNotDisplayedWhenFiltersTabClicked() {
+        notDisplayedSetup()
+        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+
+        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+    }
+
+    @Test
+    fun checkOtherFragmentsAreNotDisplayedWhenPalettesTabClicked() {
+        notDisplayedSetup()
+        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+
+        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+    }
+
+    @Test
+    fun checkOtherFragmentsAreNotDisplayedWhenBrushesTabClicked() {
+        notDisplayedSetup()
+
+        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
     }
 }
