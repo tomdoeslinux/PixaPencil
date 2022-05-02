@@ -68,4 +68,24 @@ class CanvasActivityViewDisplayedTests {
     fun checkTabLayoutFragmentHostIsDisplayed() {
         onView(withId(R.id.activityCanvas_tabLayoutFragmentHost)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkResetZoomInItemIsDisplayed() {
+        onView(withId(R.id.activityCanvasTopAppMenu_zoom_in_item)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkResetZoomOutItemIsDisplayed() {
+        onView(withId(R.id.activityCanvasTopAppMenu_zoom_in_item)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRedoItemIsDisplayed() {
+        onView(withId(R.id.activityCanvasTopAppMenu_redo_item)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkUndoItemIsDisplayed() {
+        onView(withId(R.id.activityCanvasTopAppMenu_undo)).check(matches(isDisplayed()))
+    }
 }
