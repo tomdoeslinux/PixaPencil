@@ -7,5 +7,10 @@ fun CanvasActivity.getExtras() {
     title = intent.getStringExtra(StringConstants.Extras.ProjectTitleExtra)
     width = intent.getIntExtra(StringConstants.Extras.WidthExtra, width)
     height = intent.getIntExtra(StringConstants.Extras.HeightExtra, width)
-    projectTitle = title.toString()
+
+    if (title != null) {
+        projectTitle = title.toString()
+    } else {
+        title = "Unnamed Project"
+    }
 }

@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.canvasactivity
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -9,7 +8,9 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -19,15 +20,13 @@ import org.junit.runner.RunWith
 @LargeTest
 class CanvasActivityViewDisplayedTests {
     @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+    val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
     @Before
     fun setup() {
-        onView(withId(R.id.activityMain_newProjectButton)).perform(ViewActions.click())
-        onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputEditText)).perform(ViewActions.typeText("Project"))
-        onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(ViewActions.typeText("5"))
-        onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(ViewActions.typeText("5"))
-        onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(ViewActions.click())
+        activityRule.scenario.onActivity {
+            AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(it)
+        }
     }
 
     @Test
