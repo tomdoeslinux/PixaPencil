@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.canvasactivity
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -84,7 +85,7 @@ class CanvasActivityTopAppMenuTests {
     }
 
     @Test
-    fun checkRotate180DegreesClockwiseSubItemDoesNotExist() {
+    fun checkRotate180DegreesSubItemDoesNotExist() {
         onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(doesNotExist())
     }
 
@@ -106,5 +107,47 @@ class CanvasActivityTopAppMenuTests {
     @Test
     fun checkOctalSymmetrySubItemDoesNotExist() {
         onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal_str)).check(doesNotExist())
+    }
+
+    @Test
+    fun checkRotate90DegreesClockwiseSubItemIsDisplayedWhenRotateItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRotate90DegreesAntiClockwiseSubItemIsDisplayedWhenRotateItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRotate180DegreesSubItemIsDisplayedWhenRotateItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkHorizontalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkVerticalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkQuadSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad_str)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkOctalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal_str)).check(matches(isDisplayed()))
     }
 }
