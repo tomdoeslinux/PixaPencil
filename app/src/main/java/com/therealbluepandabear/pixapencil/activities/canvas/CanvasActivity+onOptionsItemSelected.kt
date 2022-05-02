@@ -25,7 +25,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             zoomIn()
         }
 
-        R.id.activityMainTopAppMenu_community_item -> {
+        R.id.activityMainTopAppMenu_save_project_item -> {
             extendedSaveProject()
         }
 

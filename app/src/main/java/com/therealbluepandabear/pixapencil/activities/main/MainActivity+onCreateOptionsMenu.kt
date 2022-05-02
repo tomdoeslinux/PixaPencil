@@ -11,7 +11,7 @@ fun MainActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     
     if (_menu != null) {
         menu = _menu
-        menu.findItem(R.id.activityMainTopAppMenu_community_item).icon.changeColor(Color.parseColor("#0099cc"))
+        menu.findItem(R.id.activityMainTopAppMenu_save_project_item).icon.changeColor(Color.parseColor("#0099cc"))
     }
 
     return true
