@@ -31,7 +31,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/transparent"
+        app:srcCompat="@drawable/transparent"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/transparent"
+        app:srcCompat="@drawable/transparent"
         app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
         app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorPrimaryView"
         app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorPrimaryView"  />

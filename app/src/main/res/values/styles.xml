@@ -59,7 +59,7 @@
     </style>
 
     <style name="default_large_fab_style_activity_main" parent="default_large_fab_style">
-        <item name="android:src">@drawable/ic_baseline_add_24</item>
+        <item name="srcCompat">@drawable/ic_baseline_add_24</item>
     </style>
 
     <style name="recent_creations_layout_card_view_style">
@@ -73,7 +73,7 @@
 
     <style name="recent_creations_image_button_style">
         <item name="android:backgroundTint">@android:color/transparent</item>
-        <item name="android:src">@drawable/ic_baseline_star_border_24</item>
+        <item name="srcCompat">@drawable/ic_baseline_star_border_24</item>
         <item name="iconGravity">start</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
