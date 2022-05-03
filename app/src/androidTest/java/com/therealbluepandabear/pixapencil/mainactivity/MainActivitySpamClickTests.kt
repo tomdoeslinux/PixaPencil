@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.mainactivity
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -16,22 +17,50 @@ import org.junit.runner.RunWith
 // All times in ESPRESSO TEST DOCUMENTATION are in NZST
 
 /**
- * Test completion summary for `MainActivityBottomTabTests`:
+ * Test completion summary for `MainActivityNewProjectButtonTests`:
  *
  * **Last completion of tests in this package file:**
  *
- * - 2022-05-02 21:24 (15/15 passed) on API 32
+ * - 2022-05-02 21:46 (4/4 passed) on API 32
  *
  * **Last completion of tests in this package file for API 32:**
- * - 2022-05-02 21:24 (15/15 passed)
+ * - 2022-05-02 21:46 (4/4 passed)
  */
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class MainActivityBottomTabTests {
+class MainActivitySpamClickTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
+    @Test
+    fun clickButton() {
+        onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+    }
+
+    @Test
+    fun clickButton25Times() {
+        for (i in 0..25) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickButton50Times() {
+        for (i in 0..50) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
+        }
+    }
+
+    @Test
+    fun clickButton100Times() {
+        for (i in 0..100) {
+            onView(withId(R.id.activityMain_newProjectButton)).perform(click())
+            pressBack()
+        }
+    }
 
     @Test
     fun clickOnHomeTab() {
@@ -94,8 +123,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:32 (API 32)
-    // Last successful test completion on API 32: 04-30 17:32
     @Test
     fun switchBetweenHomeAndStarredTab50Times() {
         for (i in 0..50) {
@@ -104,8 +131,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:31 (API 32)
-    // Last successful test completion on API 32: 04-30 17:31
     @Test
     fun switchBetweenHomeAndStarredTab100Times() {
         for (i in 0..100) {
@@ -114,16 +139,12 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:29 (API 32)
-    // Last successful test completion on API 32: 04-30 17:29
     @Test
     fun switchBetweenStarredAndHomeTab() {
         onView(withId(R.id.activityMainBottomNavigationMenu_starred_tab)).perform(click())
         onView(withId(R.id.activityMainBottomNavigationMenu_home_tab)).perform(click())
     }
 
-    // Last successful test completion: 04-30 17:34 (API 32)
-    // Last successful test completion on API 32: 04-30 17:34
     @Test
     fun switchBetweenStarredAndHomeTab25Times() {
         for (i in 0..25) {
@@ -132,8 +153,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:29 (API 32)
-    // Last successful test completion on API 32: 04-30 17:29
     @Test
     fun switchBetweenStarredAndHomeTab50Times() {
         for (i in 0..50) {
@@ -142,8 +161,6 @@ class MainActivityBottomTabTests {
         }
     }
 
-    // Last successful test completion: 04-30 17:34 (API 32)
-    // Last successful test completion on API 32: 04-30 17:34
     @Test
     fun switchBetweenStarredAndHomeTab100Times() {
         for (i in 0..100) {
@@ -152,3 +169,4 @@ class MainActivityBottomTabTests {
         }
     }
 }
+
