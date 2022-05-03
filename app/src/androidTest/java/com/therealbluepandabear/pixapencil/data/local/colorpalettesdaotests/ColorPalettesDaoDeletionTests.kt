@@ -261,22 +261,4 @@ class ColorPalettesDaoDeletionTests {
             assert(dao.getAllColorPalettes().getOrAwaitValue().size == 4096)
         }
     }
-
-    @Test
-    fun insert16384ColorPalettes_deleteHalf_assertSize8192() {
-        runTest {
-            for (i in 1..16384) {
-                val colorPalette = mockk<ColorPalette>(relaxed = true)
-                every { colorPalette.objId } returns i
-
-                dao.insertColorPalette(colorPalette)
-            }
-
-            for (i in 1..8192) {
-                dao.deleteColorPalette(i)
-            }
-
-            assert(dao.getAllColorPalettes().getOrAwaitValue().size == 8192)
-        }
-    }
 }

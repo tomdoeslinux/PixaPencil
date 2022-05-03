@@ -325,16 +325,4 @@ class PixelArtCreationsDaoInsertionTests {
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 8_000)
         }
     }
-
-    @Test
-    fun insert16_000PixelArtCreations_assertSize16_000() {
-        runTest {
-            for (i in 1..16_000) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
-            }
-
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 16_000)
-        }
-    }
 }

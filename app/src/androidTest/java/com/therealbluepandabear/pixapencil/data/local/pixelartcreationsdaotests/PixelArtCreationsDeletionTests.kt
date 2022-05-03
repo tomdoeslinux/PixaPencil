@@ -261,23 +261,5 @@ class PixelArtCreationsDeletionTests {
             assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 4096)
         }
     }
-
-    @Test
-    fun insert16384PixelArtCreations_deleteHalf_assertSize8192() {
-        runTest {
-            for (i in 1..16384) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insertPixelArt(pixelArtCreation)
-            }
-
-            for (i in 1..8192) {
-                dao.deletePixelArtCreation(i)
-            }
-
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 8192)
-        }
-    }
 }
 
