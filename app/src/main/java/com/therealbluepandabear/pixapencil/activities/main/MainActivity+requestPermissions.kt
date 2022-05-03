@@ -5,7 +5,7 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-/** Thank you to to Muhammad on StackOverflow - the code here is based off of their solution. It may be modified a bit.
+/** Thank you to to Muhammad on StackOverflow - the code (only the method `askForPermissionOnSDK23`) here is based off of their solution. It may be modified a bit.
  *
  * - [Link to Muhammad's profile](https://stackoverflow.com/users/1966247/muhammad)
  * - [Original StackOverFlow post](https://stackoverflow.com/questions/33666071/android-marshmallow-request-permission?answertab=modifieddesc#tab-top)
