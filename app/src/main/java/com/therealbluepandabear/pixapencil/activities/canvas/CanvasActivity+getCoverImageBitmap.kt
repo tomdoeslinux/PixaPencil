@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 
 var gridWasEnabled = false
 
-fun getCoverImageBitmap(): Bitmap {
+fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     if (pixelGridViewInstance.gridEnabled) {
         pixelGridViewInstance.gridEnabled = false
         pixelGridViewInstance.invalidate()

@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.StringConstants

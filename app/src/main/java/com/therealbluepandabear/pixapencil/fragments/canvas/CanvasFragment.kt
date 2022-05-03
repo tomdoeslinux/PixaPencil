@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
 import com.therealbluepandabear.pixapencil.databinding.FragmentCanvasBinding
+import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
 lateinit var pixelGridViewInstance: PixelGridView
 
-class CanvasFragment : Fragment() {
+class CanvasFragment(private val outerCanvasInstance: OuterCanvasFragment) : Fragment() {
     var bitmap: Bitmap? = null
 
     private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
@@ -24,13 +25,13 @@ class CanvasFragment : Fragment() {
     }
 
     private fun setupCanvas() {
-        pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight)
+        pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, outerCanvasInstance)
         binding.fragmentCanvasRootLayout.addView(pixelGridViewInstance)
     }
 
     companion object {
-        fun newInstance(paramWidth: Int, paramHeight: Int): CanvasFragment {
-            val fragment = CanvasFragment()
+        fun newInstance(outerCanvasInstance: OuterCanvasFragment, paramWidth: Int, paramHeight: Int): CanvasFragment {
+            val fragment = CanvasFragment(outerCanvasInstance)
             fragment.setParams(paramWidth, paramHeight)
 
             return fragment

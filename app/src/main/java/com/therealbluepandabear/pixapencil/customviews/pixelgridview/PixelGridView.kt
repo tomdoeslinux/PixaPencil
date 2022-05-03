@@ -8,19 +8,24 @@ import android.view.View
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.customviews.interface_.CustomView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
+import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.*
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 @SuppressLint("ViewConstructor")
-class PixelGridView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), CustomView {
+class PixelGridView(
+    context: Context,
+    override var canvasWidth: Int,
+    override var canvasHeight: Int,
+    val outerCanvasInstance: OuterCanvasFragment) : View(context), CustomView {
+
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 

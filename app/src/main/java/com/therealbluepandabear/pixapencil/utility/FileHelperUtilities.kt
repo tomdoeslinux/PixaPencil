@@ -16,18 +16,18 @@ import android.os.Environment
 import androidx.core.view.drawToBitmap
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.outerCanvasInstance
 import com.therealbluepandabear.pixapencil.activities.canvas.projectTitle
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import java.io.File
 import java.io.FileOutputStream
 
 
-class FileHelperUtilities(private val context: Context) {
+class FileHelperUtilities(private val context: Context, private val outerCanvasFragment: OuterCanvasFragment) {
     companion object {
-        fun createInstanceFromContext(context: Context) = FileHelperUtilities(context)
+        fun createInstance(context: Context, outerCanvasFragment: OuterCanvasFragment) = FileHelperUtilities(context, outerCanvasFragment)
     }
 
     private fun commonDocumentDirPath(): File? {
@@ -83,7 +83,7 @@ class FileHelperUtilities(private val context: Context) {
                 as TextInputLayout
 
         // Nested function? Is it a good practice? I don't think so, but it works.
-        fun createNewFile(file_: File, bmp: Bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()) {
+        fun createNewFile(file_: File, bmp: Bitmap = outerCanvasFragment.fragmentHost.drawToBitmap()) {
             try {
                 var bmp2 = bmp
 
@@ -122,7 +122,7 @@ class FileHelperUtilities(private val context: Context) {
                     createNewFile(file)
                 },
                 this.context.getString(R.string.dialog_file_exists_negative_button_text_in_code_str), { _, _ ->
-                    val bmp = outerCanvasInstance.fragmentHost.drawToBitmap()
+                    val bmp = outerCanvasFragment.fragmentHost.drawToBitmap()
                 this.context.activity()?.showDialog(
                     this.context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
                     this.context.getString(R.string.dialog_save_under_new_name_text_in_code_str),

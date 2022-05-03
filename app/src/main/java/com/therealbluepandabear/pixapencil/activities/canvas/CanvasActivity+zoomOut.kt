@@ -5,7 +5,7 @@ import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import java.math.RoundingMode
 
-fun zoomOut() {
+fun CanvasActivity.zoomOut() {
     outerCanvasInstance.cardViewParent.apply {
         val canZoomOut = outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement
 

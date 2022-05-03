@@ -43,8 +43,11 @@ var currentTool: Tools = Tools.defaultTool
 
 var saved = true
 
+fun CanvasActivity.getOuterCanvasInstance(): OuterCanvasFragment {
+    return outerCanvasInstance
+}
+
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
-lateinit var outerCanvasInstance: OuterCanvasFragment
 lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
 lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
 lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment

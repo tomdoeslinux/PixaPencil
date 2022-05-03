@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
+import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
@@ -27,6 +28,8 @@ class CanvasActivity :
     SprayToolSettingsFragmentListener {
 
     var previousView: View? = null
+
+    lateinit var outerCanvasInstance: OuterCanvasFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun zoomIn() {
+fun CanvasActivity.zoomIn() {
     outerCanvasInstance.cardViewParent.apply {
         scaleX += zoomIncrement
         scaleY += zoomIncrement

@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 
 
-fun extendedOnColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap {
+fun CanvasActivity.extendedOnColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap {
     previewColorToFind = colorToFind
 
     val toReturn: Bitmap = if (previewColorToReplace != null) {
