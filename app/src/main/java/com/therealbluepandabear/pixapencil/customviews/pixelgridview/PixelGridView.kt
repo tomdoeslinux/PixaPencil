@@ -159,7 +159,7 @@ class PixelGridView(
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
-            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getPreSDK28PaintOrNull())
+            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getSDK28PaintOrNull())
 
             outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
 
@@ -254,7 +254,7 @@ class PixelGridView(
             canvas.drawBitmap(
                 pixelGridViewBitmap,
                 calculatedMatrix,
-                PaintCompatUtilities.getPreSDK28PaintOrNull())
+                PaintCompatUtilities.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH

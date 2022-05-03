@@ -83,7 +83,7 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
             transparentBackgroundViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
 
-            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getPreSDK28PaintOrNull())
+            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getSDK28PaintOrNull())
 
             postInvalidate()
         }
@@ -129,7 +129,7 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
             canvas.drawBitmap(
                 transparentBackgroundViewBitmap,
                 calculatedMatrix,
-                PaintCompatUtilities.getPreSDK28PaintOrNull())
+                PaintCompatUtilities.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH
