@@ -54,4 +54,14 @@ class MainActivityNewProjectFragmentViewDisplayedTests {
     fun checkHeightTextInputEditTextIsDisplayed() {
         onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkDoneButtonIsDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_doneButton)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkRootLayoutIsDisplayed() {
+        onView(withId(R.id.fragmentNewCanvas_rootLayout)).check(matches(isDisplayed()))
+    }
 }
