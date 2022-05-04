@@ -163,4 +163,32 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
         onView(withId(R.id.fragmentColorPickerPicker_doneButton)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkFragmentRGBColorPickerRootLayoutIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerRedProgressBarIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_redProgressBar)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerGreenProgressBarIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_greenProgressBar)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerBlueProgressBarIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_blueProgressBar)).check(matches(isDisplayed()))
+    }
 }
