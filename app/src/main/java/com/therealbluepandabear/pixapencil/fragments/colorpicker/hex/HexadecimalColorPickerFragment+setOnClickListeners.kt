@@ -10,7 +10,7 @@ import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMod
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 
 fun HexadecimalColorPickerFragment.setOnClickListeners() {
-    binding.fragmentRGBColorPickerDoneButton.setOnClickListener {
+    binding.fragmentHexadecimalColorPickerDoneButton.setOnClickListener {
         hideKeyboard()
         Handler(Looper.getMainLooper()).postDelayed({
             try {

@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.canvasactivity
+package com.therealbluepandabear.pixapencil.canvasactivity.fragmenttests.findandreplace
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
@@ -37,11 +37,11 @@ class CanvasActivityFindAndReplaceFragmentTests {
     fun setup() {
         onView(withId(R.id.activityCanvas_outerCanvasFragmentHost)).perform(click())
         openActionBarOverflowOrOptionsMenu(InstrumentationRegistry.getInstrumentation().context)
+        onView(withText(R.string.activityCanvasTopAppMenu_find_and_replace_str)).perform(click())
     }
 
     @Test
-    fun checkFindAndReplaceFragmentRootLayoutIsDisplayedWhenFindAndReplaceButtonMenuItemIsClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_find_and_replace_str)).perform(click())
+    fun checkRootLayout_IsDisplayed() {
         onView(withId(R.id.fragmentFindAndReplace_rootLayout)).check(matches(isDisplayed()))
     }
 }
