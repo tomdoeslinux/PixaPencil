@@ -55,4 +55,30 @@ class CanvasActivityFragmentColorPickerTabSpamClickTests {
             pressPickerTab()
         }
     }
+
+    @Test
+    fun click_HexTab() {
+        pressHexTab()
+    }
+
+    @Test
+    fun click_click_HexTab_25Times() {
+        for (i in 0..25) {
+            pressHexTab()
+        }
+    }
+
+    @Test
+    fun click_click_HexTab_50Times() {
+        for (i in 0..50) {
+            pressHexTab()
+        }
+    }
+
+    @Test
+    fun click_click_HexTab_100Times() {
+        for (i in 0..100) {
+            pressHexTab()
+        }
+    }
 }
