@@ -50,7 +50,6 @@ class PixelArtCreationsAdapter(
             binding.apply {
                 val requestOptions: RequestOptions = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .skipMemoryCache(true)
                     .centerCrop()
                     .dontAnimate()
                     .priority(Priority.IMMEDIATE)
