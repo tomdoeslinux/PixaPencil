@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.canvasactivity.fragmenttests.colorpicker
+package com.therealbluepandabear.pixapencil.canvasactivity.fragmenttests.colorpicker.colorpickerfragment
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.longClick
@@ -9,7 +9,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.hexFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgbFragmentInstance
@@ -17,66 +16,11 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Test completion summary for `CanvasActivityColorPickerFragmentTests`:
- *
- * **Last completion of tests in this package file:**
- *
- * - 2022-05-02 20:59 (12/12 passed) on API 32
- *
- * **Last completion of tests in this package file for API 32:**
- * - 2022-05-02 20:59 (12/12 passed)
- */
-
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class CanvasActivityFragmentColorPickerViewDisplayedTests {
+class CanvasActivityFragmentColorPickerTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
-
-    private fun longClickPrimaryColor() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-    }
-
-    private fun longClickSecondaryColor() {
-        onView(withId(R.id.activityCanvas_colorSecondaryView)).perform(longClick())
-    }
-
-    @Test
-    fun checkColorPickerFragmentRootLayoutIsDisplayedWhenLongClickingOnPrimaryColor() {
-        longClickPrimaryColor()
-        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerFragmentIsDisplayedWhenLongClickingOnPrimaryColor() {
-        longClickPrimaryColor()
-        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerFragmentRootLayoutIsDisplayedWhenLongClickingOnSecondaryColor() {
-        longClickSecondaryColor()
-        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerFragmentIsDisplayedWhenLongClickingOnSecondaryColor() {
-        longClickSecondaryColor()
-        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerPickerFragmentRootLayoutIsDisplayedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerPickerFragmentIsDisplayedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
 
     @Test
     fun checkRGBFragmentIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
