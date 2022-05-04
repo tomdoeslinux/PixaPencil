@@ -111,4 +111,29 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
         onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkFragmentColorPickerPickerRootLayoutIsDisplayedByDefaultInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentColorPickerPickerColorPickerViewIsDisplayedByDefaultInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_colorPickerView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentColorPickerPickerColorPreviewIsDisplayedByDefaultInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_colorPreview)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentColorPickerPickerDoneButtonIsDisplayedByDefaultInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withId(R.id.fragmentColorPickerPicker_doneButton)).check(matches(isDisplayed()))
+    }
+
 }
