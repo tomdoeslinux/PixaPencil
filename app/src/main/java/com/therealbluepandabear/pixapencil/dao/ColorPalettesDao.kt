@@ -14,6 +14,9 @@ interface ColorPalettesDao {
     @Query("SELECT * FROM ColorPalette")
     fun getAllColorPalettes(): LiveData<List<ColorPalette>>
 
+    @Query("SELECT * FROM ColorPalette")
+    fun getAllColorPalettesNoLiveData(): List<ColorPalette>
+
     @Query("DELETE FROM ColorPalette WHERE objId=:colorPaletteId")
     fun deleteColorPalette(colorPaletteId: Int)
 

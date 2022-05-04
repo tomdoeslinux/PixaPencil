@@ -74,12 +74,9 @@ class FindAndReplaceFragment : Fragment() {
 
     private fun setupAvailableColorsRecyclerView() {
         binding.apply {
-            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes()
-                .observe(this@FindAndReplaceFragment.viewLifecycleOwner) {
-                    fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                        it[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
-                    )
-                }
+            fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
+                AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
+            )
 
             fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
                 LinearLayoutManager(currentActivityInstance).apply {
