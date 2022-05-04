@@ -21,6 +21,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    testOptions {
+        execution 'ANDROID_TEST_ORCHESTRATOR'
+    }
+
     configurations {
         androidTestImplementation {
             exclude group: 'io.mockk', module: 'mockk-agent-jvm'

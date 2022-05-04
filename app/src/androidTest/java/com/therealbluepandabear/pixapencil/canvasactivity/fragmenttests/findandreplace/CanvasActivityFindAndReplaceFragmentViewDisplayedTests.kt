@@ -29,7 +29,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class CanvasActivityFindAndReplaceFragmentTests {
+class CanvasActivityFindAndReplaceFragmentViewDisplayedTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
@@ -43,5 +43,50 @@ class CanvasActivityFindAndReplaceFragmentTests {
     @Test
     fun checkRootLayout_IsDisplayed() {
         onView(withId(R.id.fragmentFindAndReplace_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkAvailableColorsRecyclerView_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_availableColorsRecyclerView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkCanvasColorsRecyclerView_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_canvasColorsRecyclerView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorsInCanvasTextView_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkColorsInCanvasTextView2_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView2)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkDoneButton_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_doneButton)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFindTextView_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_findTextView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkNewPreview_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_newPreview)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkOldPreview_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_oldPreview)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkReplaceWithTextView_IsDisplayed() {
+        onView(withId(R.id.fragmentFindAndReplace_replaceWithTextView)).check(matches(isDisplayed()))
     }
 }
