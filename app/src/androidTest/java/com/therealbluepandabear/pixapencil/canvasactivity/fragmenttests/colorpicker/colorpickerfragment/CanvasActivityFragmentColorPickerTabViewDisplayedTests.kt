@@ -20,7 +20,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
-class CanvasActivityFragmentColorPickerTabTests {
+class CanvasActivityFragmentColorPickerTabViewDisplayedTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
