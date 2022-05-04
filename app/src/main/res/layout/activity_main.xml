@@ -35,13 +35,21 @@
         android:id="@+id/activityMain_bottomNavigationView"
         style="@style/activityCanvas_bottomNavigationView_style"/>
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/activityMain_newProjectButton"
-        style="@style/default_large_fab_style_activity_main"
-        android:backgroundTint="@color/activityMainFAB_backgroundColor"
-        android:contentDescription="@string/activityMain_newProjectButton_contentDescription"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/clayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/activityMain_bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activityMain_primaryFragmentHost">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/activityMain_newProjectButton"
+            style="@style/default_large_fab_style_activity_main"
+            android:layout_gravity="bottom|end"
+            android:backgroundTint="@color/activityMainFAB_backgroundColor"
+            android:contentDescription="@string/activityMain_newProjectButton_contentDescription" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

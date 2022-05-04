@@ -13,6 +13,6 @@ fun MainActivity.extendedOnResume() {
     }
 
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
-        binding.activityMainRecentCreationsRecyclerView.adapter = PixelArtCreationsAdapter(this, it, this)
+        binding.activityMainRecentCreationsRecyclerView.adapter = PixelArtCreationsAdapter(binding.clayout, it, this)
     }
 }

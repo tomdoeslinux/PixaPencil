@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.adapters
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -26,7 +25,11 @@ import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 import java.io.File
 
 
-class PixelArtCreationsAdapter(context: Context, private val data: List<PixelArt>, private val listener: RecentCreationsListener) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
+class PixelArtCreationsAdapter(
+    private val snackbarView: View,
+    private val data: List<PixelArt>,
+    private val listener: RecentCreationsListener
+) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
     var userHasLongPressed = false
@@ -88,10 +91,10 @@ class PixelArtCreationsAdapter(context: Context, private val data: List<PixelArt
 
                 recentCreationsLayoutFavoriteButton.setOnClickListener {
                     if (item.starred) {
-                        unFavouriteRecentCreation(this@parent, item)
+                        unFavouriteRecentCreation(snackbarView, item)
                         AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(false, item.objId)
                     } else {
-                        favouriteRecentCreation(this@parent, item)
+                        favouriteRecentCreation(snackbarView, item)
                         AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(true, item.objId)
                     }
                     changeStarredIndicator((it as ImageButton), item)

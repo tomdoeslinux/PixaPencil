@@ -17,13 +17,13 @@ fun MainActivity.setOnClickListeners() {
             R.id.activityMainBottomNavigationMenu_home_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
-                        PixelArtCreationsAdapter(this, it, this)
+                        PixelArtCreationsAdapter(binding.clayout, it, this)
                 }
             }
             R.id.activityMainBottomNavigationMenu_starred_tab -> {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     binding.activityMainRecentCreationsRecyclerView.adapter =
-                        PixelArtCreationsAdapter(this, it.filter { item -> item.starred }, this)
+                        PixelArtCreationsAdapter(binding.clayout, it.filter { item -> item.starred }, this)
                 }
             }
         }
