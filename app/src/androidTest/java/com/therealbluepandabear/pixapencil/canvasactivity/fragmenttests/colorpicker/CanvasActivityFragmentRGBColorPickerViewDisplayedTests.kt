@@ -29,42 +29,42 @@ class CanvasActivityFragmentRGBColorPickerViewDisplayedTests {
     }
 
     @Test
-    fun checkColorPickerRootLayoutIsDisplayed() {
+    fun checkColorPickerRootLayout_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerRedProgressBarIsDisplayed() {
+    fun checkColorPickerRedProgressBar_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_redProgressBar)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerGreenProgressBarIsDisplayed() {
+    fun checkColorPickerGreenProgressBar_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_greenProgressBar)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerBlueProgressBarIsDisplayed() {
+    fun checkColorPickerBlueProgressBar_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_blueProgressBar)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerColorPreviewIsDisplayed() {
+    fun checkColorPickerColorPreview_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_colorPreview)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerValueRIsDisplayed() {
+    fun checkColorPickerValueR_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_valueR)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerValueGIsDisplayed() {
+    fun checkColorPickerValueG_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_valueG)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerValueBIsDisplayed() {
+    fun checkColorPickerValueB_IsDisplayed() {
         onView(withId(R.id.fragmentRGBColorPicker_valueB)).check(matches(isDisplayed()))
     }
 }

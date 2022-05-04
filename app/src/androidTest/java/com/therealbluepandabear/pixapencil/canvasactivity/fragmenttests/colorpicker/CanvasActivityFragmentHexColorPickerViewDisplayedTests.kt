@@ -27,27 +27,27 @@ class CanvasActivityFragmentHexColorPickerViewDisplayedTests {
     }
 
     @Test
-    fun checkRootLayoutIsDisplayed() {
+    fun checkRootLayout_IsDisplayed() {
         onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPreviewIsDisplayed() {
+    fun checkColorPreview_IsDisplayed() {
         onView(withId(R.id.fragmentHexadecimalColorPicker_colorPreview)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkHexadecimalValueTextInputEditTextIsDisplayed() {
+    fun checkHexadecimalValueTextInputEditText_IsDisplayed() {
         onView(withId(R.id.fragmentHexadecimalColorPicker_hexadecimalValueTextInputEditText)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkHexadecimalValueTextInputLayoutIsDisplayed() {
+    fun checkHexadecimalValueTextInputLayout_IsDisplayed() {
         onView(withId(R.id.fragmentHexadecimalColorPicker_hexadecimalValueTextInputLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerDoneButtonIsDisplayed() {
+    fun checkColorPickerDoneButton_IsDisplayed() {
         onView(withId(R.id.fragmentHexadecimalColorPicker_doneButton)).check(matches(isDisplayed()))
     }
 }
