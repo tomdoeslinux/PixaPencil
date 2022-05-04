@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.CoordinatesDouble
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -76,5 +77,27 @@ class CoordinatesModelTests {
 
         assert(coordinates[1].x == 3)
         assert(coordinates[1].y == 1)
+    }
+
+    @Test
+    fun createCoordinatesDoubleObj_assertX() {
+        val coordinate = CoordinatesDouble(20.0,30.0)
+
+        assert(coordinate.x == 20.0)
+    }
+
+    @Test
+    fun createCoordinatesDoubleObj_assertY() {
+        val coordinate = CoordinatesDouble(20.0,30.0)
+
+        assert(coordinate.y == 30.0)
+    }
+
+    @Test
+    fun createCoordinatesDoubleObj_assertXY() {
+        val coordinate = CoordinatesDouble(20.0,30.0)
+
+        assert(coordinate.x == 20.0)
+        assert(coordinate.y == 30.0)
     }
 }
