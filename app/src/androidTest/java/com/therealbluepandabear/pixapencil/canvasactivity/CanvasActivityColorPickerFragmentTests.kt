@@ -232,4 +232,32 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
         onView(withId(R.id.fragmentRGBColorPicker_valueB)).check(matches(isDisplayed()))
     }
+
+    @Test
+    fun checkFragmentHexadecimalColorPickerRootLayoutIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentHexadecimalColorPickerColorPreviewIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(R.id.fragmentHexadecimalColorPicker_colorPreview)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentHexadecimalColorPickerHexadecimalValueTextInputEditTextIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(R.id.fragmentHexadecimalColorPicker_hexadecimalValueTextInputEditText)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentHexadecimalColorPickerHexadecimalValueTextInputLayoutIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+        onView(withId(R.id.fragmentHexadecimalColorPicker_hexadecimalValueTextInputLayout)).check(matches(isDisplayed()))
+    }
 }
