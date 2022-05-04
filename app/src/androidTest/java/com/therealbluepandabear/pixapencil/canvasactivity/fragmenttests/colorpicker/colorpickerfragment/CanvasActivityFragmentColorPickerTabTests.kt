@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.hexFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgbFragmentInstance
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,45 +23,62 @@ class CanvasActivityFragmentColorPickerTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
-    @Test
-    fun checkRGBFragmentIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+    private fun pressRGBTab() {
         onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
-        onView(withId(rgbFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkRGBFragmentRootLayoutIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+    private fun pressHexTab() {
+        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+    }
+
+    private fun pressPickerTab() {
+        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
+    }
+
+    @Before
+    fun setup() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+    }
+
+    // RGB tab
+
+    @Test
+    fun checkRGBFragmentRootLayout_IsDisplayed_InRGBTab() {
+        pressRGBTab()
         onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkHexFragmentIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
-        onView(withId(hexFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    fun checkRGBFragment_IsDisplayed_InRGBTab() {
+        pressRGBTab()
+        onView(withId(rgbFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 
+    // Hexadecimal tab
+
     @Test
-    fun checkHexFragmentRootLayoutIsDisplayedWhenHexTabIsPressedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
+    fun checkHexFragmentRootLayout_IsDisplayed_InHexTab() {
+        pressHexTab()
         onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkPickerFragmentIsDisplayedWhenPickerTabIsPressedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
-        onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    fun checkHexFragment_IsDisplayed_InHexTab() {
+        pressHexTab()
+        onView(withId(hexFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    // Picker tab
+
+    @Test
+    fun checkPickerFragmentRootLayout_IsDisplayed_InPickerTab() {
+        pressPickerTab()
+        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkPickerFragmentRootLayoutIsDisplayedInsideColorPickerFragment() {
-        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
-        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
+    fun checkPickerFragment_IsDisplayed_InPickerTab() {
+        pressPickerTab()
+        onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 }
