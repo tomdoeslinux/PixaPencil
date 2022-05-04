@@ -13,15 +13,17 @@ import com.therealbluepandabear.pixapencil.utility.IntConstants
 
 lateinit var pixelGridViewInstance: PixelGridView
 
-class CanvasFragment(private val outerCanvasInstance: OuterCanvasFragment) : Fragment() {
+class CanvasFragment : Fragment() {
     var bitmap: Bitmap? = null
 
     private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
     private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    private lateinit var outerCanvasInstance: OuterCanvasFragment
 
-    fun setParams(paramWidth: Int, paramHeight: Int) {
+    fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
+        this.outerCanvasInstance = outerCanvasInstance
     }
 
     private fun setupCanvas() {
@@ -30,9 +32,9 @@ class CanvasFragment(private val outerCanvasInstance: OuterCanvasFragment) : Fra
     }
 
     companion object {
-        fun newInstance(outerCanvasInstance: OuterCanvasFragment, paramWidth: Int, paramHeight: Int): CanvasFragment {
-            val fragment = CanvasFragment(outerCanvasInstance)
-            fragment.setParams(paramWidth, paramHeight)
+        fun newInstance(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment): CanvasFragment {
+            val fragment = CanvasFragment()
+            fragment.setParams(paramWidth, paramHeight, outerCanvasInstance)
 
             return fragment
         }
