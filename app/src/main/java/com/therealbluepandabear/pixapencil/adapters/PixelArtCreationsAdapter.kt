@@ -53,7 +53,6 @@ class PixelArtCreationsAdapter(
                     .skipMemoryCache(true)
                     .centerCrop()
                     .dontAnimate()
-                    .dontTransform()
                     .priority(Priority.IMMEDIATE)
                     .encodeFormat(Bitmap.CompressFormat.PNG)
                     .override(750, 750)
@@ -63,6 +62,7 @@ class PixelArtCreationsAdapter(
                     .setDefaultRequestOptions(requestOptions)
                     .load(File(context.getFileStreamPath(item.coverBitmapFilePath).absolutePath))
                     .transition(DrawableTransitionOptions.withCrossFade())
+                    .placeholder(R.drawable.transparent_placeholder)
                     .into(recentCreationsLayoutImageView)
 
                 recentCreationsLayoutSubtitle.text = "${item.width}x${item.height}"
