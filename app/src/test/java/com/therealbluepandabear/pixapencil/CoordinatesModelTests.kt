@@ -50,4 +50,20 @@ class CoordinatesModelTests {
         assert(coordinate.x == 5.0)
         assert(coordinate.y == 10.0)
     }
+
+    @Test
+    fun createCoordinatesObj_assertHorizontalReflectionXY() {
+        val coordinate = Coordinates(1,1).getHorizontallyReflectedCoordinates(5)
+
+        assert(coordinate.x == 1)
+        assert(coordinate.y == 3)
+    }
+
+    @Test
+    fun createCoordinatesObj_assertVerticalReflectionXY() {
+        val coordinate = Coordinates(1,1).getVerticallyReflectedCoordinates(5)
+
+        assert(coordinate.x == 3)
+        assert(coordinate.y == 1)
+    }
 }
