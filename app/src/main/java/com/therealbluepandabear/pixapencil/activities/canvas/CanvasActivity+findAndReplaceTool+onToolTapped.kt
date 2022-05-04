@@ -13,7 +13,7 @@ fun CanvasActivity.findAndReplaceToolOnToolTapped() {
 
     if (uniqueColors.isNotEmpty()) {
         findAndReplaceFragmentInstance =
-            FindAndReplaceFragment.newInstance(pixelGridViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap())
+            FindAndReplaceFragment.newInstance(pixelGridViewInstance.getNumberOfUniqueColors(), getCoverImageBitmap(), selectedColorPaletteIndex)
         currentFragmentInstance = findAndReplaceFragmentInstance
         navigateTo(
             supportFragmentManager,

@@ -49,44 +49,39 @@ class CanvasActivityFindAndReplaceFragmentViewDisplayedTests {
     fun checkAvailableColorsRecyclerView_IsDisplayed() {
         onView(withId(R.id.fragmentFindAndReplace_availableColorsRecyclerView)).check(matches(isDisplayed()))
     }
-
-    @Test
-    fun checkCanvasColorsRecyclerView_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_canvasColorsRecyclerView)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorsInCanvasTextView_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorsInCanvasTextView2_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView2)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkDoneButton_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_doneButton)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFindTextView_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_findTextView)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkNewPreview_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_newPreview)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkOldPreview_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_oldPreview)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkReplaceWithTextView_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_replaceWithTextView)).check(matches(isDisplayed()))
-    }
+//
+//    @Test
+//    fun checkColorsInCanvasTextView_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkColorsInCanvasTextView2_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_colorsInCanvasTextView2)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkDoneButton_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_doneButton)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFindTextView_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_findTextView)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkNewPreview_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_newPreview)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkOldPreview_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_oldPreview)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkReplaceWithTextView_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_replaceWithTextView)).check(matches(isDisplayed()))
+//    }
 }

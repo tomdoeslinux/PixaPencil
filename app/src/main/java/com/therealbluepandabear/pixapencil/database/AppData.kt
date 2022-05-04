@@ -7,5 +7,6 @@ class AppData {
 
         var colorPalettesDBFileName = "color_palettes_db"
         lateinit var colorPalettesDB: ColorPalettesDatabase
+        val colorPalettesDBInitialized = ::colorPalettesDB.isInitialized
     }
 }

@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -18,7 +17,6 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.utility.ObjectConstants
 
 
 class FindAndReplaceFragment : Fragment() {
@@ -31,10 +29,15 @@ class FindAndReplaceFragment : Fragment() {
 
     private lateinit var paramCanvasColors: List<Int>
     private lateinit var paramBitmapSource: Bitmap
+    private var selectedColorPaletteIndex: Int = 0
 
-    fun setParams(paramCanvasColors: List<Int>, paramBitmapSource: Bitmap) {
+    fun setParams(
+        paramCanvasColors: List<Int>,
+        paramBitmapSource: Bitmap,
+        selectedColorPaletteIndex: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramBitmapSource = paramBitmapSource
+        this.selectedColorPaletteIndex = selectedColorPaletteIndex
     }
 
     private fun setup() {
@@ -71,15 +74,17 @@ class FindAndReplaceFragment : Fragment() {
 
     private fun setupAvailableColorsRecyclerView() {
         binding.apply {
+            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes()
+                .observe(this@FindAndReplaceFragment.viewLifecycleOwner) {
+                    fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
+                        it[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
+                    )
+                }
+
             fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
                 LinearLayoutManager(currentActivityInstance).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
-            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.ObjectGlobalScopeLifecycleOwner) {
-                fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                    it[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
-                )
-            }
         }
     }
 
@@ -117,9 +122,12 @@ class FindAndReplaceFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(paramCanvasColors: List<Int>, paramBitmapSource: Bitmap): FindAndReplaceFragment {
+        fun newInstance(
+            paramCanvasColors: List<Int>,
+            paramBitmapSource: Bitmap,
+            selectedColorPaletteIndex: Int): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramBitmapSource)
+            fragment.setParams(paramCanvasColors, paramBitmapSource, selectedColorPaletteIndex)
 
             return fragment
         }
