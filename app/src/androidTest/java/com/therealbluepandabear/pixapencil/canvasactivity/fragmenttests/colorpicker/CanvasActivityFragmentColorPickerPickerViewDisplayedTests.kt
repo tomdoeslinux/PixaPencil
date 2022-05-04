@@ -3,7 +3,8 @@ package com.therealbluepandabear.pixapencil.canvasactivity.fragmenttests.colorpi
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.longClick
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -26,46 +27,22 @@ class CanvasActivityFragmentColorPickerPickerViewDisplayedTests {
     }
 
     @Test
-    fun checkRootLayoutIsDisplayed() {
+    fun checkRootLayout_IsDisplayed() {
         onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPickerViewIsDisplayed() {
+    fun checkColorPickerView_IsDisplayed() {
         onView(withId(R.id.fragmentColorPickerPicker_colorPickerView)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkColorPreviewIsDisplayed() {
+    fun checkColorPreview_IsDisplayed() {
         onView(withId(R.id.fragmentColorPickerPicker_colorPreview)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun checkDoneButtonIsDisplayed() {
-        onView(withId(R.id.fragmentColorPickerPicker_doneButton)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkRootLayoutIsDisplayedWhenPickerTabIsPressed() {
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
-        onView(withId(R.id.fragmentColorPickerPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPickerViewIsDisplayedWhenPickerTabIsPressed() {
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
-        onView(withId(R.id.fragmentColorPickerPicker_colorPickerView)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPreviewIsDisplayedWhenPickerTabIsPressed() {
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
-        onView(withId(R.id.fragmentColorPickerPicker_colorPreview)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkDoneButtonIsDisplayedWhenPickerTabIsPressed() {
-        onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
+    fun checkDoneButton_IsDisplayed() {
         onView(withId(R.id.fragmentColorPickerPicker_doneButton)).check(matches(isDisplayed()))
     }
 }
