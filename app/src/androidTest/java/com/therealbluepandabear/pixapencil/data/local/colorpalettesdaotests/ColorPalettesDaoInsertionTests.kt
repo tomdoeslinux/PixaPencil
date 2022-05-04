@@ -21,16 +21,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/**
- * Test completion summary for `ColorPalettesDaoInsertionTests`:
- *
- * **Last completion of tests in this package file:**
- *
- * - 2022-05-02 21:04 (4/4 passed) on API 32
- *
- * **Last completion of tests in this package file for API 32:**
- * - 2022-05-02 21:04 (4/4 passed)
- */
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(AndroidJUnit4::class)
