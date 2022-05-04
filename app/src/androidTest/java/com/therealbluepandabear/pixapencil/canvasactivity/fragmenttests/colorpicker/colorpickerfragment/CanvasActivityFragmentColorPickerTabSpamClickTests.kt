@@ -30,6 +30,8 @@ class CanvasActivityFragmentColorPickerTabSpamClickTests {
         onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
     }
 
+    // Picker tab
+
     @Test
     fun click_PickerTab() {
         pressPickerTab()
@@ -56,29 +58,59 @@ class CanvasActivityFragmentColorPickerTabSpamClickTests {
         }
     }
 
+    // Hex tab
+
     @Test
     fun click_HexTab() {
         pressHexTab()
     }
 
     @Test
-    fun click_click_HexTab_25Times() {
+    fun click_HexTab_25Times() {
         for (i in 0..25) {
             pressHexTab()
         }
     }
 
     @Test
-    fun click_click_HexTab_50Times() {
+    fun click_HexTab_50Times() {
         for (i in 0..50) {
             pressHexTab()
         }
     }
 
     @Test
-    fun click_click_HexTab_100Times() {
+    fun click_HexTab_100Times() {
         for (i in 0..100) {
             pressHexTab()
+        }
+    }
+
+    // RGB tab
+
+    @Test
+    fun click_RGBTab() {
+        pressRGBTab()
+    }
+
+    @Test
+    fun click_RGBTab_25Times() {
+        for (i in 0..25) {
+            pressRGBTab()
+        }
+    }
+
+    @Test
+    fun click_RGBTab_50Times() {
+        for (i in 0..50) {
+            pressRGBTab()
+        }
+    }
+
+    @Test
+    fun click_RGBTab_100Times() {
+        for (i in 0..100) {
+            pressRGBTab()
         }
     }
 }
