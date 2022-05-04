@@ -9,6 +9,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.hexFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.pickerFragmentInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgbFragmentInstance
@@ -54,6 +55,18 @@ class CanvasActivityFragmentColorPickerTabTests {
         onView(withId(rgbFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun checkBasePickerRootLayout_IsDisplayed_InRGBTab() {
+        pressRGBTab()
+        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkBasePickerFragment_IsDisplayed_InRGBTab() {
+        pressRGBTab()
+        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+    }
+
     // Hexadecimal tab
 
     @Test
@@ -68,6 +81,18 @@ class CanvasActivityFragmentColorPickerTabTests {
         onView(withId(hexFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun checkBasePickerRootLayout_IsDisplayed_InHexTab() {
+        pressHexTab()
+        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkBasePickerFragment_IsDisplayed_InHexTab() {
+        pressHexTab()
+        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+    }
+
     // Picker tab
 
     @Test
@@ -80,5 +105,17 @@ class CanvasActivityFragmentColorPickerTabTests {
     fun checkPickerFragment_IsDisplayed_InPickerTab() {
         pressPickerTab()
         onView(withId(pickerFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkBasePickerRootLayout_IsDisplayed_InPickerTab() {
+        pressPickerTab()
+        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkBasePickerFragment_IsDisplayed_InPickerTab() {
+        pressPickerTab()
+        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
     }
 }
