@@ -66,4 +66,15 @@ class CoordinatesModelTests {
         assert(coordinate.x == 3)
         assert(coordinate.y == 1)
     }
+
+    @Test
+    fun createCoordinatesObj_assertQuadReflectionXY() {
+        val coordinates = Coordinates(1,1).getQuadReflectedCoordinateSet(5, 5)
+
+        assert(coordinates[0].x == 1)
+        assert(coordinates[0].y == 3)
+
+        assert(coordinates[1].x == 3)
+        assert(coordinates[1].y == 1)
+    }
 }
