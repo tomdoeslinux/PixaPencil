@@ -50,7 +50,7 @@ class OuterCanvasFragment : Fragment() {
     }
 
     fun getCurrentRotation(): Float {
-        return binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation
+        return cardViewParent.rotation
     }
 
     fun rotate(by: Int = IntConstants.DegreesNinety, animate: Boolean = true, clockwise: Boolean = true) {
@@ -61,11 +61,11 @@ class OuterCanvasFragment : Fragment() {
         }
 
         if (animate) {
-            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
+            cardViewParent
                 .animate()
                 .rotation(rotationAmount)
         } else {
-            binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.rotation = rotationAmount
+            cardViewParent.rotation = rotationAmount
         }
     }
 
