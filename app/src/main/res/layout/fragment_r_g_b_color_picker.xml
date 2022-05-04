@@ -68,7 +68,7 @@
         app:trackColor="#0000ff" />
 
     <Button
-        android:id="@+id/fragmentRGBColorPicker_doneButton"
+        android:id="@+id/fragmentHexadecimalColorPicker_doneButton"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

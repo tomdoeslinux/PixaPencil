@@ -209,7 +209,7 @@ class CanvasActivityColorPickerFragmentTests {
     fun checkFragmentRGBColorPickerDoneButtonIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
         onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
-        onView(withId(R.id.fragmentRGBColorPicker_doneButton)).check(matches(isDisplayed()))
+        onView(withId(R.id.fragmentHexadecimalColorPicker_doneButton)).check(matches(isDisplayed()))
     }
 
     @Test
