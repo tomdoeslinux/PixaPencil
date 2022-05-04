@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance

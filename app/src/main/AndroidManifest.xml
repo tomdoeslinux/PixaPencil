@@ -17,7 +17,6 @@
         android:theme="@style/Theme.PixaPencil">
         <activity
             android:name="com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity"
-            android:configChanges="orientation|keyboardHidden"
             android:windowSoftInputMode="adjustResize"
             android:hardwareAccelerated="true"
             android:exported="false" />

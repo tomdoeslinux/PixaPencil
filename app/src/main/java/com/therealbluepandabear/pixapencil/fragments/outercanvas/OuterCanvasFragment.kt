@@ -31,7 +31,7 @@ class OuterCanvasFragment : Fragment() {
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance( paramWidth, paramHeight, this)
+        canvasFragment = CanvasFragment.newInstance(paramWidth, paramHeight, this)
     }
 
     private fun addTransparentBackgroundView() {
