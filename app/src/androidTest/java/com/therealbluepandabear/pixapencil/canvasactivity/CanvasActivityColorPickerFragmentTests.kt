@@ -164,6 +164,12 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withId(R.id.fragmentColorPickerPicker_doneButton)).check(matches(isDisplayed()))
     }
 
+
+
+
+
+
+
     @Test
     fun checkFragmentRGBColorPickerRootLayoutIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
@@ -190,5 +196,40 @@ class CanvasActivityColorPickerFragmentTests {
         onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
         onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
         onView(withId(R.id.fragmentRGBColorPicker_blueProgressBar)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerColorPreviewIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_colorPreview)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerDoneButtonIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_doneButton)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerValueRIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_valueR)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerValueGIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_valueG)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun checkFragmentRGBColorPickerValueBIsDisplayedWhenRGBTabIsPressedInsideColorPickerFragment() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
+        onView(withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(longClick())
+        onView(withId(R.id.fragmentRGBColorPicker_valueB)).check(matches(isDisplayed()))
     }
 }
