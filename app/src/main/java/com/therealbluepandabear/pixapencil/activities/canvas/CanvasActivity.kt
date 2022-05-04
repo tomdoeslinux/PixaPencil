@@ -57,11 +57,6 @@ class CanvasActivity :
         super.onPause()
     }
 
-    override fun onResume() {
-        extendedOnResume()
-        super.onResume()
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         extendedOnSaveInstanceState(outState)
         super.onSaveInstanceState(outState)
