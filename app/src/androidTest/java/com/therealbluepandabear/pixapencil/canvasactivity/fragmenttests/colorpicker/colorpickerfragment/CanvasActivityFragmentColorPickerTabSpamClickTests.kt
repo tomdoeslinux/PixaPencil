@@ -2,12 +2,14 @@ package com.therealbluepandabear.pixapencil.canvasactivity.fragmenttests.colorpi
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.longClick
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,6 +30,11 @@ class CanvasActivityFragmentColorPickerTabSpamClickTests {
 
     private fun pressPickerTab() {
         onView(withText(R.string.fragmentColorPicker_tab_color_picker_str)).perform(longClick())
+    }
+
+    @Before
+    fun setup() {
+        onView(withId(R.id.activityCanvas_colorPrimaryView)).perform(longClick())
     }
 
     // Picker tab
