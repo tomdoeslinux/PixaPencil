@@ -231,6 +231,7 @@
                     android:id="@+id/fragmentTools_shadingButton"
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_shading_tool_content_description"
+                    android:layout_marginEnd="16dp"
                     app:srcCompat="@drawable/lighten_icon" />
             </FrameLayout>
         </LinearLayout>

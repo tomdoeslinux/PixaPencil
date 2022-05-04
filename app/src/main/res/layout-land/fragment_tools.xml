@@ -229,7 +229,8 @@
                     android:id="@+id/fragmentTools_shadingButton"
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_shading_tool_content_description"
-                    app:srcCompat="@drawable/lighten_icon" />
+                    android:layout_marginBottom="16dp"
+                    app:srcCompat="@drawable/ic_plus_minus_variant" />
             </FrameLayout>
         </LinearLayout>
     </ScrollView>
@@ -445,13 +446,14 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     style="@style/canvas_activity_button_tool_style_back"
-                    android:contentDescription="@string/fragmentTools_shading_tool_content_description" />
+                    android:contentDescription="@string/fragmentTools_shading_tool_content_description"
+                    android:layout_marginBottom="16dp"/>
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragmentTools_shadingButton_h"
                     style="@style/canvas_activity_button_tool_style"
+                   android:layout_marginEnd="16dp"
                     android:contentDescription="@string/fragmentTools_shading_tool_content_description"
-                    app:srcCompat="@drawable/ic_plus_minus_variant"
-                    android:layout_marginEnd="16dp"/>
+                    app:srcCompat="@drawable/ic_plus_minus_variant" />
             </FrameLayout>
         </LinearLayout>
     </HorizontalScrollView>
