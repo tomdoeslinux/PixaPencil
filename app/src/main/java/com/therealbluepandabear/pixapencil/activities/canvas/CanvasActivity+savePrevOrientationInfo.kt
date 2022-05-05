@@ -92,8 +92,7 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 outerCanvasInstance.rotate(prevRotation, animate = false)
             }
 
-            replacedBMP = false
-            prevOrientation = resources.configuration.orientation
+            replacedBMP = true
         }
     }
 }

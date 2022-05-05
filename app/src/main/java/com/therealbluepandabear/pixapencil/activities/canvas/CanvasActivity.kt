@@ -49,13 +49,14 @@ class CanvasActivity :
         val viewTemp = binding.activityCanvasOuterCanvasFragmentHost
 
         viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
-            if (viewTemp.isVisible && !replacedBMP) {
+            if (viewTemp.isVisible && replacedBMP && prevOrientation != resources.configuration.orientation) {
                 if (prevBitmapStr != null) {
                     val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
                     if (convertedBMP != null) {
                         pixelGridViewInstance.replaceBitmap(convertedBMP)
-                        replacedBMP = true
+                        replacedBMP = false
                     }
+                    prevOrientation = resources.configuration.orientation
                 }
             }
         }
