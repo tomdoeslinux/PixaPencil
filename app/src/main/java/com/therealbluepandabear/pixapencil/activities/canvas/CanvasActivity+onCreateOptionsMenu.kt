@@ -16,6 +16,10 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
         menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
         menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
 
+        if (pixelGridViewInstance.canvasWidth != pixelGridViewInstance.canvasHeight) {
+            menu.findItem(R.id.appMenu_symmetry_octal_subItem).isEnabled = false
+        }
+
         if (pixelGridViewInstance.canvasWidth > 500 || pixelGridViewInstance.canvasWidth > 500) {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isEnabled = false
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
