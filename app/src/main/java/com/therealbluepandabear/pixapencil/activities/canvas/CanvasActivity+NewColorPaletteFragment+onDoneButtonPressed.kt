@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
+import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -10,6 +11,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
@@ -37,9 +39,9 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
     }
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        val h = Handler(Looper.getMainLooper())
-        h.postDelayed( {
+        lifecycleScope.launch {
+            delay(LongConstants.DefaultHandlerDelay)
             extendedOnColorPaletteTapped(it.last())
-        }, LongConstants.DefaultHandlerDelay)
+        }
     }
 }

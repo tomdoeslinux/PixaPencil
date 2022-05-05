@@ -1,14 +1,15 @@
 package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
-import android.os.Handler
-import android.os.Looper
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
 import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 var invalidRadius = false
 var invalidStrength = false
@@ -79,9 +80,10 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
 
             hideKeyboard()
 
-            Handler(Looper.getMainLooper()).postDelayed({
+            lifecycleScope.launch {
+                delay(LongConstants.DefaultHandlerDelay)
                 caller.onDoneButtonPressed(radius, strength)
-            }, LongConstants.DefaultHandlerDelay)
+            }
         }
     }
 }

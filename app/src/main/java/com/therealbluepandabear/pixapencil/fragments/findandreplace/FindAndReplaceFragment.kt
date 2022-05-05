@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
@@ -17,6 +18,8 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class FindAndReplaceFragment : Fragment() {
@@ -46,10 +49,10 @@ class FindAndReplaceFragment : Fragment() {
         setOnClickListeners()
         setupPreview()
 
-        val h = Handler(Looper.getMainLooper())
-        h.postDelayed( {
+        lifecycleScope.launch {
+            delay(20)
             lock = false
-        }, 20)
+        }
     }
 
     private fun setupPreview() {
