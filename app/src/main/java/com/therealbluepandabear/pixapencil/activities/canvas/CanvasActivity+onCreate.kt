@@ -16,10 +16,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.onCreate() {
-    if (!AppData.colorPalettesDBInitialized) {
-        AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(this)
-    }
-
+    initColorPalettesDBIfNotInitialized()
     getExtras()
     setUpFragment()
     setBindings()
@@ -40,13 +37,13 @@ fun CanvasActivity.onCreate() {
 
         lifecycleScope.launch {
             delay(1000)
+
             if (prevBitmapStr != null) {
                 val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
                 if (convertedBMP != null) {
                     pixelGridViewInstance.replaceBitmap(convertedBMP)
                 }
             }
-
 
             if (prevPrimaryColor != null && prevSecondaryColor != null) {
                 setPrimaryPixelColor(prevPrimaryColor!!)
