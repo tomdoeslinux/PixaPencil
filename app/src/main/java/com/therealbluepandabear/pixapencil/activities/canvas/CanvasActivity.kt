@@ -37,6 +37,11 @@ class CanvasActivity :
         configureSavedInstanceState(savedInstanceState)
     }
 
+    override fun onStart() {
+        super.onStart()
+        savePrevOrientationInfo()
+    }
+
     fun initColorPickerFragmentInstance(colorPaletteMode: Boolean): ColorPickerFragment {
         return ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
     }

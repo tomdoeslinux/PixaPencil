@@ -11,5 +11,4 @@ fun CanvasActivity.onCreate() {
     initSharedPreferenceObject()
     setObjectGlobalScopeLifecycleOwner()
     setFlags()
-    savePrevOrientationInfo()
 }

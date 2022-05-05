@@ -16,15 +16,10 @@ import kotlinx.coroutines.launch
 fun CanvasActivity.savePrevOrientationInfo() {
 
     if (prevOrientation != resources.configuration.orientation) {
-        for (fragment in supportFragmentManager.fragments) {
-            if (fragment is OuterCanvasFragment) {
-                supportFragmentManager.beginTransaction()
-                    .remove(fragment).commit()
-            }
-        }
-
         lifecycleScope.launch {
-            delay(1000)
+            delay(200)
+            onOrientationChanged()
+            delay(200)
 
             if (prevBitmapStr != null) {
                 val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
