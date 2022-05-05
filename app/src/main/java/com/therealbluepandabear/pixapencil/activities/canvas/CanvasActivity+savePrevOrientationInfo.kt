@@ -21,13 +21,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
             onOrientationChanged()
             delay(200)
 
-            if (prevBitmapStr != null) {
-                val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
-                if (convertedBMP != null) {
-                    pixelGridViewInstance.replaceBitmap(convertedBMP)
-                }
-            }
-
             if (prevPrimaryColor != null && prevSecondaryColor != null) {
                 setPrimaryPixelColor(prevPrimaryColor!!)
                 setSecondaryPixelColor(prevSecondaryColor!!)
@@ -98,6 +91,8 @@ fun CanvasActivity.savePrevOrientationInfo() {
             if (prevRotation != 0) {
                 outerCanvasInstance.rotate(prevRotation, animate = false)
             }
+
+            replacedBMP = false
             prevOrientation = resources.configuration.orientation
         }
     }

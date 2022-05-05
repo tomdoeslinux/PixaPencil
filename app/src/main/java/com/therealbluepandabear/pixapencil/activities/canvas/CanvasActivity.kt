@@ -6,6 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
@@ -37,9 +40,25 @@ class CanvasActivity :
         configureSavedInstanceState(savedInstanceState)
     }
 
+    var replacedBMP = false
+
     override fun onStart() {
         super.onStart()
         savePrevOrientationInfo()
+
+        val viewTemp = binding.activityCanvasOuterCanvasFragmentHost
+
+        viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
+            if (viewTemp.isVisible && !replacedBMP) {
+                if (prevBitmapStr != null) {
+                    val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
+                    if (convertedBMP != null) {
+                        pixelGridViewInstance.replaceBitmap(convertedBMP)
+                        replacedBMP = true
+                    }
+                }
+            }
+        }
     }
 
     fun initColorPickerFragmentInstance(colorPaletteMode: Boolean): ColorPickerFragment {
