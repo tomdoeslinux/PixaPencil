@@ -1,5 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
+import com.therealbluepandabear.pixapencil.activities.canvas.lineMode_hasLetGo
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.lineOrigin
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
