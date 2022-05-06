@@ -89,7 +89,7 @@ fun NewProjectFragment.setOnClickListeners() {
                     val widthValue: Int = fragmentNewCanvasWidthTextInputEditText.text.toString().toInt()
                     val heightValue: Int = fragmentNewCanvasHeightTextInputEditText.text.toString().toInt()
 
-                    if (widthValue >= 950 && heightValue >= 950 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
+                    if (widthValue + heightValue >= 2000 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
                         val frameLayout: FrameLayout =
                             this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, null)
                                     as FrameLayout
