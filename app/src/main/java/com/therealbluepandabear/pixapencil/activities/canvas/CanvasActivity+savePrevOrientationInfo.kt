@@ -43,11 +43,11 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
             }
 
-            if (prevUndoToolbarButtonDisabledEnabledState) {
+            if (prevUndoToolbarButtonDisabledEnabledState && menu.findItem(R.id.activityCanvasTopAppMenu_undo) != null) {
                 menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
             }
 
-            if (prevRedoToolbarButtonDisabledEnabledState) {
+            if (prevRedoToolbarButtonDisabledEnabledState && menu.findItem(R.id.activityCanvasTopAppMenu_redo_item) != null) {
                 menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()
             }
 
