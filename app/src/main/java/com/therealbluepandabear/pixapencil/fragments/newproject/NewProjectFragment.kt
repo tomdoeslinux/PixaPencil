@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
 import android.content.Context
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment

@@ -8,7 +8,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentNewColorPaletteBinding
 import com.therealbluepandabear.pixapencil.listeners.NewColorPaletteFragmentListener
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class NewColorPaletteFragment : Fragment() {
     companion object {

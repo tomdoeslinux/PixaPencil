@@ -3,8 +3,6 @@ package com.therealbluepandabear.pixapencil.fragments.findandreplace
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -18,7 +16,6 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

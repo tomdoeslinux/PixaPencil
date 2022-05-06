@@ -1,8 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Color
-import android.os.Handler
-import android.os.Looper
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData

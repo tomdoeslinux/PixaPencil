@@ -1,5 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
-fun MainActivity.recentCreationsRecyclerViewSetHasFixedSize() {
+fun recentCreationsRecyclerViewSetHasFixedSize() {
     binding.activityMainRecentCreationsRecyclerView.setHasFixedSize(true)
 }

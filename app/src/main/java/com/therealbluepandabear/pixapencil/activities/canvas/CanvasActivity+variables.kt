@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.Menu
-import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
@@ -13,10 +12,6 @@ import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
-import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
-import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
-import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
-import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.IntConstants

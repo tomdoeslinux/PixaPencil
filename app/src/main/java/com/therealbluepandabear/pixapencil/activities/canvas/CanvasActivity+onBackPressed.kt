@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.utility.Flags
 fun CanvasActivity.extendedOnBackPressed() {
     Flags.PressedBackToExit = true
 
-    if (supportFragmentManager.backStackEntryCount > 0){
+    if (supportFragmentManager.backStackEntryCount > 0) {
         supportFragmentManager.popBackStackImmediate()
     } else if (!saved) {
         showDialog(

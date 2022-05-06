@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.main.eventlisteners
 
 import androidx.recyclerview.widget.RecyclerView
-import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.activities.main.binding
 
 fun recentCreationsRecyclerViewAddOnScrollListener() {
