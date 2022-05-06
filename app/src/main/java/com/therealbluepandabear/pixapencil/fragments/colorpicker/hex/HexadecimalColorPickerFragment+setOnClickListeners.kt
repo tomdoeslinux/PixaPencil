@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.fragments.colorpicker.hex
 
 import android.graphics.drawable.ColorDrawable
 import androidx.lifecycle.lifecycleScope
-import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.extensions.showItems
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
@@ -12,8 +11,6 @@ import kotlinx.coroutines.launch
 
 fun HexadecimalColorPickerFragment.setOnClickListeners() {
     binding.fragmentHexadecimalColorPickerDoneButton.setOnClickListener {
-        hideKeyboard()
-
         lifecycleScope.launch {
             delay(LongConstants.DefaultHandlerDelay)
             try {

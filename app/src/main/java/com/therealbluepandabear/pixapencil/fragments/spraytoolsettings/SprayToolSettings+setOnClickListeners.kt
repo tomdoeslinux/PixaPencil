@@ -4,7 +4,6 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
-import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.LongConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -77,8 +76,6 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
                 putInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, parsedStrength)
                 apply()
             }
-
-            hideKeyboard()
 
             lifecycleScope.launch {
                 delay(LongConstants.DefaultHandlerDelay)

@@ -9,7 +9,6 @@ import android.view.inputmethod.EditorInfo
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentRGBColorPickerBinding
-import com.therealbluepandabear.pixapencil.extensions.hideKeyboard
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
 import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
 import com.therealbluepandabear.pixapencil.utility.IntConstants
@@ -103,7 +102,6 @@ class RGBColorPickerFragment : Fragment() {
                         fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
-                    this@RGBColorPickerFragment.hideKeyboard()
                     return@setOnEditorActionListener true
                 }
                 false
@@ -137,7 +135,6 @@ class RGBColorPickerFragment : Fragment() {
                         fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
-                    this@RGBColorPickerFragment.hideKeyboard()
                     return@setOnEditorActionListener true
                 }
                 false
@@ -171,7 +168,6 @@ class RGBColorPickerFragment : Fragment() {
                         fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
-                    this@RGBColorPickerFragment.hideKeyboard()
                     return@setOnEditorActionListener true
                 }
                 false
