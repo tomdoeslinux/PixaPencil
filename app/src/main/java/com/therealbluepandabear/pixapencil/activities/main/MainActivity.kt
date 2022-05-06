@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,9 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFragmentListener {
+    var showLargeCanvasSizeWarning = true
+    lateinit var sharedPreferenceObject: SharedPreferences
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         extendedOnCreate()

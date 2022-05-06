@@ -6,7 +6,6 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun MainActivity.showWelcomeScreenIfApplicable() {
     if (sharedPreferenceObject.contains(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier)) {
-        firstLaunch = false
         firstLaunch = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier, false)
     } else {
         with(sharedPreferenceObject.edit()) {

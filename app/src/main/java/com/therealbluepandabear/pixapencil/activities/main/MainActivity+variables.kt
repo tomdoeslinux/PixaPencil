@@ -8,5 +8,5 @@ lateinit var binding: ActivityMainBinding
 
 lateinit var menu: Menu
 
-lateinit var sharedPreferenceObject: SharedPreferences
 var firstLaunch = false
+

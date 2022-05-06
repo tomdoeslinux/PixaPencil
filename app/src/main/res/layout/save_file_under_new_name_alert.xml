@@ -2,7 +2,7 @@
 
 <!--When create views that will be used in dialogs, use padding instead of margin-->
 
-<com.google.android.material.textfield.TextInputLayout android:id="@+id/fragmentHexadecimalColorPicker_hexadecimalValueTextInputLayout"
+<com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingStart="16dp"

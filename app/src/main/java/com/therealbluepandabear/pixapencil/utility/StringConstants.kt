@@ -34,6 +34,8 @@ object StringConstants {
         const val ShadingToolIdentifier = "ShadingTool"
 
         const val SharedPreferenceFirstLaunchIdentifier = "FirstLaunchIdentifier"
+        const val SharedPreferenceShowLargeCanvasSizeWarningIdentifier = "ShowLargeCanvasSizeWarningIdentifier"
+
         const val SharedPreferencePixelPerfectIdentifier = "PixelPerfectSharedPreference"
         const val SharedPreferencesSprayRadiusIdentifier = "SprayRadiusSharedPreference"
         const val SharedPreferencesSprayStrengthIdentifier = "SprayStrengthSharedPreference"

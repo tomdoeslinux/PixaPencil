@@ -1,9 +1,14 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
+import android.widget.FrameLayout
 import androidx.core.widget.doAfterTextChanged
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 var invalidTitle = false
 var invalidWidth = false
@@ -81,20 +86,48 @@ fun NewProjectFragment.setOnClickListeners() {
             if (!invalidTitle && !invalidWidth && !invalidHeight) {
                 try {
                     val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
+                    val widthValue: Int = fragmentNewCanvasWidthTextInputEditText.text.toString().toInt()
+                    val heightValue: Int = fragmentNewCanvasHeightTextInputEditText.text.toString().toInt()
 
-                    val widthValue: Int = binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toInt()
-                    val heightValue: Int = binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toInt()
+                    if (widthValue >= 950 && heightValue >= 950 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
+                        val frameLayout: FrameLayout =
+                            this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, null)
+                                    as FrameLayout
+                        val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
-                    caller.onDoneButtonPressed(
-                        title,
-                        widthValue,
-                        heightValue
-                    )
+                        requireActivity().showDialog(
+                            getString(R.string.dialog_large_canvas_warning_title_in_code_str),
+                            getString(R.string.dialog_large_canvas_warning_text_in_code_str),
+                            getString(R.string.dialog_large_canvas_warning_positive_button_text_in_code_str),
+                            { _, _ ->
+                                if (checkBox.isChecked) {
+                                    (requireActivity() as MainActivity).showLargeCanvasSizeWarning = false
+
+                                    with ((requireActivity() as MainActivity).sharedPreferenceObject.edit()) {
+                                        putBoolean(StringConstants.Identifiers.SharedPreferenceShowLargeCanvasSizeWarningIdentifier, (requireActivity() as MainActivity).showLargeCanvasSizeWarning)
+                                        apply()
+                                    }
+                                }
+
+                                caller.onDoneButtonPressed(
+                                    title,
+                                    widthValue,
+                                    heightValue
+                                )
+                            },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ ->
+                            }, frameLayout)
+                    } else {
+                        caller.onDoneButtonPressed(
+                            title,
+                            widthValue,
+                            heightValue
+                        )
+                    }
                 } catch (exception: Exception) {
-                    HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
+                    HapticFeedbackWrapper.performHapticFeedback(fragmentNewCanvasDoneButton)
                 }
             } else {
-                HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
+                HapticFeedbackWrapper.performHapticFeedback(fragmentNewCanvasDoneButton)
             }
         }
     }

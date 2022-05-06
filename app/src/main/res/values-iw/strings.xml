@@ -198,6 +198,9 @@
     <string name="dialog_delete_pixel_art_project_text_in_code_str">האם אתה בטוח שברצונך למחוק את %1$s? אי אפשר לבטל את זה.</string>
     <string name="dialog_welcome_title_in_code_str">ברוך הבא</string>
     <string name="dialog_welcome_text_in_code_str">ברוכים הבאים לאפליקציית PixaPencil! הקש והחזק על כל סמל כלי כדי לקבל מידע נוסף על אופן הפעולה של הכלי הספציפי.</string>
+    <string name="dialog_large_canvas_warning_title_in_code_str">אַזהָרָה</string>
+    <string name="dialog_large_canvas_warning_text_in_code_str">אתה יוצר קנבס גדול, אתה עלול להיתקל בבעיות ביצועים מכיוון שטלפונים מסוימים אינם יכולים לתמוך ביקנבס בגודל זה.</string>
+    <string name="dialog_large_canvas_warning_positive_button_text_in_code_str">אני מבין, תיצור את הפרויקט</string>
 
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text_in_code_str">פתח את הקובץ</string>
