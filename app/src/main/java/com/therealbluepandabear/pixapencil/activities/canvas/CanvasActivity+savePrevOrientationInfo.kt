@@ -90,7 +90,9 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 outerCanvasInstance.rotate(prevRotation, animate = false)
             }
 
-            replacedBMP = true
+            if (!saved) {
+                replacedBMP = true
+            }
         }
     }
 }
