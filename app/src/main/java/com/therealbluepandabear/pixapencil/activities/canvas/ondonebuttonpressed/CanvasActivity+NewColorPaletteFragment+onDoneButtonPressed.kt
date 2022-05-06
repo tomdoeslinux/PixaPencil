@@ -1,7 +1,9 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 
 import android.graphics.Color
 import androidx.lifecycle.lifecycleScope
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.extendedOnColorPaletteTapped
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
