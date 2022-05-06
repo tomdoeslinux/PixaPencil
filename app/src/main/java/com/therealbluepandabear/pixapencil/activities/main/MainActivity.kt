@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
