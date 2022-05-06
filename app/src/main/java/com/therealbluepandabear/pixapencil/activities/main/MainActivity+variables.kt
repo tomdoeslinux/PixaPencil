@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
-import android.content.SharedPreferences
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
 
