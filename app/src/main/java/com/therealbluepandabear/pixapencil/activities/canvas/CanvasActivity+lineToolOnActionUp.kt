@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.lineOrigin
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 

@@ -1,5 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
+import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.FloodFillAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 

@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.activities.canvas.coordinates
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, private val invisibleMode: Boolean = false) {

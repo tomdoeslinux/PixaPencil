@@ -1,6 +1,8 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.eventlisteners
 
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.activities.main.binding
 import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 

@@ -2,12 +2,12 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
-import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants

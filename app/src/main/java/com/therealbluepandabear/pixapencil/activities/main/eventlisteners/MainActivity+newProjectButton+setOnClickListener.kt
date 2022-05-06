@@ -1,7 +1,9 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.eventlisteners
 
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.activities.main.binding
 import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragment
 
 fun MainActivity.newProjectButtonSetOnClickListener() {

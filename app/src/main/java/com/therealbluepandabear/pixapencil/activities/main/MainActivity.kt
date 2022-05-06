@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     override fun onCreationTapped(creationTapped: PixelArt) = extendedOnCreationTapped(creationTapped)
 
-    override fun onCreationLongTapped(creationTapped: PixelArt) = extendedOnCreationLongTapped(creationTapped)
+    override fun onCreationLongTapped(creationTapped: PixelArt) {
+        extendedOnCreationLongTapped(creationTapped)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         return extendedOnCreateOptionsMenu(menu)

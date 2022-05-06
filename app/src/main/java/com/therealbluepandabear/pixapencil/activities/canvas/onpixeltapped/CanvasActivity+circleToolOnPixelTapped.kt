@@ -1,5 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
+import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance

@@ -1,8 +1,10 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.eventlisteners
 
 import androidx.recyclerview.widget.RecyclerView
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.activities.main.binding
 
-fun MainActivity.recentCreationsRecyclerViewAddOnScrollListener() {
+fun recentCreationsRecyclerViewAddOnScrollListener() {
     binding.activityMainRecentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (dy == 1 || dy == 0) {

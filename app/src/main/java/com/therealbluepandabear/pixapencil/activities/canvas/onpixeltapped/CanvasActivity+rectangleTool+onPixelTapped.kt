@@ -1,5 +1,8 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
+import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
+import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
+import com.therealbluepandabear.pixapencil.activities.canvas.rectangleMode_hasLetGo
 import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.enums.Tools

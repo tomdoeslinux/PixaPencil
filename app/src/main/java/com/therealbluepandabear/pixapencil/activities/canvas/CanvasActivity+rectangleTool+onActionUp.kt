@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.*
 import com.therealbluepandabear.pixapencil.algorithms.RectangleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
