@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentFindAndReplace_rootLayout"
+    tools:context=".fragments.findandreplace.FindAndReplaceFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".fragments.findandreplace.FindAndReplaceFragment">
+    android:id="@+id/fragmentFindAndReplace_rootLayout"
+    style="@style/defaultFragmentStyle">
 
     <TextView
         android:id="@+id/fragmentFindAndReplace_findTextView"

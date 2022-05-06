@@ -2,10 +2,9 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Bitmap
 import android.view.MenuItem
+import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
-import com.therealbluepandabear.pixapencil.extensions.hideItems
-import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
@@ -38,10 +37,11 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_new_color_palette_item -> {
-            newColorPaletteFragmentInstance = NewColorPaletteFragment.newInstance()
-            currentFragmentInstance = newColorPaletteFragmentInstance
-            navigateTo(supportFragmentManager, newColorPaletteFragmentInstance, R.id.activityCanvas_primaryFragmentHost, getString(R.string.fragment_new_color_palette_title_in_code_str), binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
-            menu.hideItems()
+            supportFragmentManager.commit {
+                replace(
+                    R.id.activityCanvas_primaryFragmentHost,  NewColorPaletteFragment.newInstance())
+                addToBackStack(null)
+            }
         }
 
         R.id.activityCanvasTopAppMenu_pixel_perfect_item -> {

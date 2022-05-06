@@ -6,7 +6,7 @@ fun MainActivity.extendedOnCreate() {
     setPrevOrientation()
     setVmPolicy()
     setBindings()
-    setOnClickListeners()
+    setEventListeners()
     setTitle()
     initializeRoomDatabases()
     requestPermissions()

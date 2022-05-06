@@ -11,7 +11,5 @@ fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, h
             .putExtra(StringConstants.Extras.WidthExtra, width)
             .putExtra(StringConstants.Extras.HeightExtra, height)
     )
-
     title = StringConstants.AppName
-    currentFragmentInstance = null
 }

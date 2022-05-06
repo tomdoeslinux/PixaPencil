@@ -4,7 +4,6 @@ import android.app.Activity
 import android.graphics.Bitmap
 import android.net.Uri
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.projectTitle
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog
@@ -19,7 +18,7 @@ lateinit var file: File
 fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
     val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
 
-    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context, outerCanvasInstance)
+    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context, outerCanvasInstance, projectTitle)
 
     fileHelperUtilitiesInstance.saveBitmapAsImage(90, format) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {

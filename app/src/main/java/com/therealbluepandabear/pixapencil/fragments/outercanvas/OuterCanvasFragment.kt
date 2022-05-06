@@ -22,16 +22,18 @@ class OuterCanvasFragment : Fragment() {
 
     private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
     private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    private var paramProjectTitle: String? = null
 
-    private fun setParams(paramWidth: Int, paramHeight: Int) {
+    private fun setParams(paramWidth: Int, paramHeight: Int, paramProjectTitle: String?) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
+        this.paramProjectTitle = paramProjectTitle
     }
 
     private fun instantiateVariables() {
         cardViewParent = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent
         fragmentHost = binding.fragmentOuterCanvasCanvasFragmentHost
-        canvasFragment = CanvasFragment.newInstance(paramWidth, paramHeight, this)
+        canvasFragment = CanvasFragment.newInstance(paramWidth, paramHeight, this, paramProjectTitle)
     }
 
     private fun addTransparentBackgroundView() {
@@ -70,9 +72,9 @@ class OuterCanvasFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(paramWidth: Int, paramHeight: Int): OuterCanvasFragment {
+        fun newInstance(paramWidth: Int, paramHeight: Int, paramProjectTitle: String?): OuterCanvasFragment {
             val fragment = OuterCanvasFragment()
-            fragment.setParams(paramWidth, paramHeight)
+            fragment.setParams(paramWidth, paramHeight, paramProjectTitle)
 
             return fragment
         }

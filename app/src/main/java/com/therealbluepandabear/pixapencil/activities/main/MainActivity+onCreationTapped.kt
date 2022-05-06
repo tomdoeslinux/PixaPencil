@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
         startActivity(
-            Intent(context, CanvasActivity::class.java)
+            Intent(this, CanvasActivity::class.java)
                 .putExtra(StringConstants.Extras.IndexExtra, it.indexOf(param))
                 .putExtra(StringConstants.Extras.ProjectTitleExtra, param.title)
         )

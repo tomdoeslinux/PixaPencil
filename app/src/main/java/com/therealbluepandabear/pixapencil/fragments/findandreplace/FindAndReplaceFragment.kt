@@ -5,12 +5,12 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -18,6 +18,7 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -136,6 +137,17 @@ class FindAndReplaceFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FindAndReplaceFragmentListener) caller = context
+        requireActivity().title = getString(R.string.fragment_find_and_replace_title_in_code_str)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -149,5 +161,6 @@ class FindAndReplaceFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding_ = null
+        requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }

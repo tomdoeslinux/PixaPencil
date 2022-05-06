@@ -31,6 +31,7 @@ class CanvasActivity :
     SprayToolSettingsFragmentListener {
 
     var previousView: View? = null
+    var projectTitle: String? = null
 
     lateinit var outerCanvasInstance: OuterCanvasFragment
 
@@ -60,10 +61,6 @@ class CanvasActivity :
                 }
             }
         }
-    }
-
-    fun initColorPickerFragmentInstance(colorPaletteMode: Boolean): ColorPickerFragment {
-        return ColorPickerFragment.newInstance(getSelectedColor(), colorPaletteMode)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

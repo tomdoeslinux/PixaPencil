@@ -158,4 +158,8 @@
         <item name="cardElevation">10dp</item>
         <item name="strokeWidth">0dp</item>
     </style>
+
+    <style name="defaultFragmentStyle">
+        <item name="android:background">?android:windowBackground</item>
+    </style>
 </resources>

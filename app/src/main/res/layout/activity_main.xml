@@ -2,20 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingConstraints"
+    tools:context=".activities.main.MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainRoot"
-    tools:ignore="MissingConstraints"
-    tools:context=".activities.main.MainActivity">
-
-    <FrameLayout
-        android:id="@+id/activityMain_primaryFragmentHost"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@color/white">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityMain_recentCreationsRecyclerView"
@@ -39,11 +31,11 @@
         android:id="@+id/clayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@id/activityMain_bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/activityMain_primaryFragmentHost">
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/activityMain_newProjectButton"
             style="@style/default_large_fab_style_activity_main"
@@ -52,4 +44,12 @@
             android:contentDescription="@string/activityMain_newProjectButton_contentDescription" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <FrameLayout
+        android:id="@+id/activityMain_primaryFragmentHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

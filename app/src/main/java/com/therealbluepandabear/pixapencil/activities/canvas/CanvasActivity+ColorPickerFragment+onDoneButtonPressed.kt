@@ -6,18 +6,12 @@ import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.utility.LongConstants
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
-    navigateBack(colorPickerFragmentInstance)
+    supportFragmentManager.popBackStackImmediate()
 
     if (!colorPaletteMode) {
-        lifecycleScope.launch {
-            delay(LongConstants.DefaultHandlerDelay)
-            setPixelColor(selectedColor)
-        }
+        setPixelColor(selectedColor)
     } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)

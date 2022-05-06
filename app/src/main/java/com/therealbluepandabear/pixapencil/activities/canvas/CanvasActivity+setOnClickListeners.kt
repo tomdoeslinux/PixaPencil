@@ -2,22 +2,15 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.drawable.ColorDrawable
 import android.view.View
+import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.extensions.hideItems
-import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
-
-
-fun CanvasActivity.openColorPickerDialog(colorPaletteMode: Boolean = false) {
-    colorPickerFragmentInstance = initColorPickerFragmentInstance(colorPaletteMode)
-    currentFragmentInstance = colorPickerFragmentInstance
-    navigateTo(supportFragmentManager, colorPickerFragmentInstance, R.id.activityCanvas_primaryFragmentHost, getString(R.string.fragment_color_picker_title_in_code_str), binding.activityCanvasPrimaryFragmentHost, binding.activityCanvasRootLayout)
-}
 
 fun clearCanvas() {
     pixelGridViewInstance.clearCanvas()
@@ -86,9 +79,12 @@ fun CanvasActivity.setOnClickListeners() {
     }
 
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
-        isPrimaryColorSelected = true
-        openColorPickerDialog()
-        menu.hideItems()
+        supportFragmentManager.commit {
+            replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
+                paramOldColor = getSelectedColor(),
+                paramColorPaletteMode = false))
+            addToBackStack(null)
+        }
         true
     }
 
@@ -101,9 +97,12 @@ fun CanvasActivity.setOnClickListeners() {
     }
 
     binding.activityCanvasColorSecondaryView.setOnLongClickListener {
-        isPrimaryColorSelected = false
-        openColorPickerDialog()
-        menu.hideItems()
+        supportFragmentManager.commit {
+            replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
+                paramOldColor = getSelectedColor(),
+                paramColorPaletteMode = false))
+            addToBackStack(null)
+        }
         true
     }
 }

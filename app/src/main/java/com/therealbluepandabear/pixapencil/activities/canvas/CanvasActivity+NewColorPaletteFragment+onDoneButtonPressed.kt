@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
-    navigateBack(newColorPaletteFragmentInstance)
+    supportFragmentManager.popBackStackImmediate()
 
     CoroutineScope(Dispatchers.IO).launch {
         if (!extractColorPaletteFromCanvas) {

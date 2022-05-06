@@ -19,24 +19,26 @@ class CanvasFragment : Fragment() {
     private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
     private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
     private var outerCanvasInstance: OuterCanvasFragment? = null
+    private var paramProjectTitle: String? = null
 
-    fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment) {
+    fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
         this.outerCanvasInstance = outerCanvasInstance
+        this.paramProjectTitle = paramProjectTitle
     }
 
     private fun setupCanvas() {
         if (outerCanvasInstance != null) {
-            pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, outerCanvasInstance!!)
+            pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, outerCanvasInstance!!, paramProjectTitle)
             binding.fragmentCanvasRootLayout.addView(pixelGridViewInstance)
         }
     }
 
     companion object {
-        fun newInstance(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment): CanvasFragment {
+        fun newInstance(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?): CanvasFragment {
             val fragment = CanvasFragment()
-            fragment.setParams(paramWidth, paramHeight, outerCanvasInstance)
+            fragment.setParams(paramWidth, paramHeight, outerCanvasInstance, paramProjectTitle)
 
             return fragment
         }

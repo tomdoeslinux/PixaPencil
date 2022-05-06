@@ -16,7 +16,6 @@ import android.os.Environment
 import androidx.core.view.drawToBitmap
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.projectTitle
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
@@ -25,9 +24,12 @@ import java.io.File
 import java.io.FileOutputStream
 
 
-class FileHelperUtilities(private val context: Context, private val outerCanvasFragment: OuterCanvasFragment) {
+class FileHelperUtilities(
+    private val context: Context,
+    private val outerCanvasFragment: OuterCanvasFragment,
+    private val projectTitle: String?) {
     companion object {
-        fun createInstance(context: Context, outerCanvasFragment: OuterCanvasFragment) = FileHelperUtilities(context, outerCanvasFragment)
+        fun createInstance(context: Context, outerCanvasFragment: OuterCanvasFragment, projectTitle: String?) = FileHelperUtilities(context, outerCanvasFragment, projectTitle)
     }
 
     private fun commonDocumentDirPath(): File? {

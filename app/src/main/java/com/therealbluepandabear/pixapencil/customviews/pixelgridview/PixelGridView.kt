@@ -24,7 +24,8 @@ class PixelGridView(
     context: Context,
     override var canvasWidth: Int,
     override var canvasHeight: Int,
-    val outerCanvasInstance: OuterCanvasFragment) : View(context), CustomView {
+    val outerCanvasInstance: OuterCanvasFragment,
+    val projectTitle: String?) : View(context), CustomView {
 
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap

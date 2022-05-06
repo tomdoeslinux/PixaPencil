@@ -1,12 +1,13 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.hideItems
-import com.therealbluepandabear.pixapencil.extensions.navigateTo
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.fragments.newcolorpalette.NewColorPaletteFragment
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
@@ -44,20 +45,11 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tools.SprayTool) {
         if (currentTool == Tools.SprayTool) {
-            sprayToolSettingsFragmentInstance =
-                SprayToolSettingsFragment.newInstance()
-            currentFragmentInstance = sprayToolSettingsFragmentInstance
-
-            navigateTo(
-                supportFragmentManager,
-                sprayToolSettingsFragmentInstance,
-                R.id.activityCanvas_primaryFragmentHost,
-                getString(R.string.fragment_spray_tool_settings_title_in_code_str),
-                binding.activityCanvasPrimaryFragmentHost,
-                binding.activityCanvasRootLayout
-            )
-
-            menu.hideItems()
+            supportFragmentManager.commit {
+                replace(
+                    R.id.activityCanvas_primaryFragmentHost,  SprayToolSettingsFragment.newInstance())
+                addToBackStack(null)
+            }
         }
     }
 

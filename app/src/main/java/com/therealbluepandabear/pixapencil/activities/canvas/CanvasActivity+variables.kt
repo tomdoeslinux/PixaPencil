@@ -35,8 +35,6 @@ var isPrimaryColorSelected = true
 var isSelected = false
 var background: Drawable? = null
 
-var currentFragmentInstance: Fragment? = null
-
 lateinit var currentPixelArtObj: PixelArt
 
 var currentTool: Tools = Tools.defaultTool
@@ -44,9 +42,6 @@ var currentTool: Tools = Tools.defaultTool
 var saved = true
 
 lateinit var colorPickerFragmentInstance: ColorPickerFragment
-lateinit var findAndReplaceFragmentInstance: FindAndReplaceFragment
-lateinit var newColorPaletteFragmentInstance: NewColorPaletteFragment
-lateinit var sprayToolSettingsFragmentInstance: SprayToolSettingsFragment
 
 lateinit var menu: Menu
 
@@ -58,8 +53,6 @@ var brushesFragmentInstance: BrushesFragment? = null
 var lineMode_hasLetGo = false
 var rectangleMode_hasLetGo = false
 var circleMode_hasLetGo = false
-
-var projectTitle: String? = null
 
 lateinit var sharedPreferenceObject: SharedPreferences
 

@@ -18,7 +18,7 @@ fun CanvasActivity.extendedSaveProject() {
     val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.45)
     val coverBMPFileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
 
-    val fileHelperInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance)
+    val fileHelperInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance, projectTitle)
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
     if (index == -1) {

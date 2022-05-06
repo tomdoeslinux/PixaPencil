@@ -9,7 +9,7 @@ fun MainActivity.extendedOnResume() {
     binding.apply {
         activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
         activityMainNewProjectButton.show()
-        activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(this@extendedOnResume, 2)
     }
 
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {

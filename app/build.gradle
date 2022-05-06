@@ -109,4 +109,6 @@ dependencies {
 
     // Annotation processor
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
 }
