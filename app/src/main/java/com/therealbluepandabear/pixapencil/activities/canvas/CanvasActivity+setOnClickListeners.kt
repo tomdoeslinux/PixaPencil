@@ -79,9 +79,12 @@ fun CanvasActivity.setOnClickListeners() {
     }
 
     binding.activityCanvasColorPrimaryView.setOnLongClickListener {
+        isPrimaryColorSelected = true
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = getSelectedColor(),
+                paramOldColor = primaryColor,
                 paramColorPaletteMode = false))
             addToBackStack(null)
         }
@@ -97,9 +100,12 @@ fun CanvasActivity.setOnClickListeners() {
     }
 
     binding.activityCanvasColorSecondaryView.setOnLongClickListener {
+        isPrimaryColorSelected = false
+        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = getSelectedColor(),
+                paramOldColor = secondaryColor,
                 paramColorPaletteMode = false))
             addToBackStack(null)
         }
