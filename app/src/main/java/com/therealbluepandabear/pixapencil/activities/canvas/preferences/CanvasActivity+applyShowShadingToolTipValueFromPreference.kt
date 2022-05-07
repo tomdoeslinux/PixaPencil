@@ -1,5 +1,7 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.preferences
 
+import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
+import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceShowShadingToolTip
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun applyShowShadingToolTipValueFromPreference() {
