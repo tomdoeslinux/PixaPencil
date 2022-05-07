@@ -12,7 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun CanvasActivity.extendedSaveProject() {
+fun CanvasActivity.saveProject() {
     saved = true
 
     val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.45)

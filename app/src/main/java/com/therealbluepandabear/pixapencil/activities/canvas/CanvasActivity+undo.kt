@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun extendedUndo() {
+fun undo() {
     pixelGridViewInstance.undo()
 
     pixelGridViewInstance.currentBitmapAction = null

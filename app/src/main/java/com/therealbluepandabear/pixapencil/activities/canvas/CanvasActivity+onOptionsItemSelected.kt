@@ -25,15 +25,15 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityMainTopAppMenu_save_project_item -> {
-            extendedSaveProject()
+            saveProject()
         }
 
         R.id.activityCanvasTopAppMenu_undo -> {
-            extendedUndo()
+            undo()
         }
 
         R.id.activityCanvasTopAppMenu_redo_item -> {
-            extendedRedo()
+            redo()
         }
 
         R.id.activityCanvasTopAppMenu_new_color_palette_item -> {

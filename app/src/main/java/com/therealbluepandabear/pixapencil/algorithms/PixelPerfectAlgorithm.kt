@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.activities.canvas.extendedUndo
+import com.therealbluepandabear.pixapencil.activities.canvas.undo
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
@@ -28,7 +28,7 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
             index += 1
         }
 
-        extendedUndo()
+        undo()
 
         pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
