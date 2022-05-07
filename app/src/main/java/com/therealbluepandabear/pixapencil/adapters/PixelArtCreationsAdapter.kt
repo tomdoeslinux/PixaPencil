@@ -50,11 +50,11 @@ class PixelArtCreationsAdapter(
             binding.apply {
                 val requestOptions: RequestOptions = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .centerCrop()
                     .dontAnimate()
                     .priority(Priority.IMMEDIATE)
                     .encodeFormat(Bitmap.CompressFormat.PNG)
                     .override(750, 750)
+                    .centerInside()
                     .format(DecodeFormat.DEFAULT)
 
                 Glide.with(context)
