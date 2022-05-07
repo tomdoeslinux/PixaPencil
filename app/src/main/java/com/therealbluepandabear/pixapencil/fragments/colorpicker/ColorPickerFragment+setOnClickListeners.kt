@@ -20,21 +20,27 @@ fun ColorPickerFragment.setOnClickListeners() {
     binding.fragmentColorPickerTabLayout.addOnTabSelectedListener(object :
         TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab) {
-            when (tab.text) {
-                getString(R.string.fragmentColorPicker_tab_color_picker_str) -> {
+            when (tab.position) {
+                0 -> {
                     hexFragmentInstance!!.requireView().visibility = View.GONE
                     rgbFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.VISIBLE
+
+                    currentTab = 0
                 }
-                getString(R.string.fragmentColorPicker_tab_rgb_str) -> {
+                1 -> {
                     hexFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.GONE
                     rgbFragmentInstance!!.requireView().visibility = View.VISIBLE
+
+                    currentTab = 1
                 }
-                getString(R.string.fragmentColorPicker_tab_hex_str) -> {
+                2 -> {
                     rgbFragmentInstance!!.requireView().visibility = View.GONE
                     pickerFragmentInstance!!.requireView().visibility = View.GONE
                     hexFragmentInstance!!.requireView().visibility = View.VISIBLE
+
+                    currentTab = 2
                 }
             }
         }

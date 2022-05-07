@@ -21,3 +21,7 @@ lateinit var caller: ColorPickerFragmentListener
 var hexFragmentInstance: HexadecimalColorPickerFragment? = null
 var rgbFragmentInstance: RGBColorPickerFragment? = null
 var pickerFragmentInstance: ColorPickerPickerFragment? = null
+
+var prevColorPickerTab: Int = 0
+
+var currentTab = 0

@@ -54,6 +54,7 @@ object StringConstants {
         const val prevRedoStackJsonStrIdentifier = "prevRedoStackJsonStr"
         const val prevSymmetryModeStrIdentifier = "prevSymmetryModeStr"
         const val prevRotationStrIdentifier = "prevRotationStr"
+        const val prevColorPickerTabBundleIdentifier = "PrevColorPickerTab"
     }
 
     object Colors {

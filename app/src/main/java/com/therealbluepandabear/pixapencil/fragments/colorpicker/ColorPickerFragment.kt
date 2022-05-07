@@ -6,9 +6,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.prevTab
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class ColorPickerFragment : Fragment(), ActivityFragment {
     private var paramOldColor: Int? = null
@@ -51,11 +53,32 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        if (savedInstanceState?.getInt(StringConstants.Identifiers.prevColorPickerTabBundleIdentifier) != null) {
+            prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.prevColorPickerTabBundleIdentifier)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (prevColorPickerTab != 0) {
+            binding.fragmentColorPickerTabLayout.getTabAt(prevColorPickerTab)?.select()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         menu.clear()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(
+            StringConstants.Identifiers.prevColorPickerTabBundleIdentifier,
+            currentTab
+        )
+
+        super.onSaveInstanceState(outState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
