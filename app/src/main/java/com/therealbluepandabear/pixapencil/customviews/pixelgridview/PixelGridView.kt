@@ -51,17 +51,17 @@ class PixelGridView(
 
     lateinit var caller: CanvasFragmentListener
 
-    private var path1 = Path()
-    private var path2 = Path()
+    var path1 = Path()
+    var path2 = Path()
 
-    private var xm = 0f
+    var xm = 0f
 
     override var dimenCW = 0
     override var dimenCH = 0
 
     override var st = false
 
-    private val gridPaint = Paint().apply {
+    val gridPaint = Paint().apply {
         strokeWidth = 1f
         pathEffect = null
         color = Color.LTGRAY
@@ -78,35 +78,7 @@ class PixelGridView(
     val shadingMap = mutableListOf<Coordinates>()
 
     private fun drawGrid(canvas: Canvas) {
-        gridPaint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
-        gridPaint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
-
-        xm = 0f
-        path1.reset()
-        path2.reset()
-
-        val dvr = if (canvasWidth >= canvasHeight) {
-            canvasWidth
-        } else {
-            canvasHeight
-        }
-
-        for (i in 0 until dvr) {
-            if (canvasWidth >= canvasHeight) {
-                path1.lineTo(xm, width.toFloat())
-                path2.lineTo(width.toFloat(), xm)
-            } else {
-                path1.lineTo(xm, height.toFloat())
-                path2.lineTo(width.toFloat(), xm)
-            }
-
-            xm += scaleWidth
-            path1.moveTo(xm, 0f)
-            path2.moveTo(0f, xm)
-        }
-
-        canvas.drawPath(path1, gridPaint)
-        canvas.drawPath(path2, gridPaint)
+        extendedDrawGrid(canvas)
     }
 
 
@@ -217,9 +189,7 @@ class PixelGridView(
     /** Use this code only in onMeasure **/
 
     private fun getCurrentPixelArtObj(): PixelArt {
-        val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-        return pixelArtData[currentIndex]
+        return extendedGetCurrentPixelArtObj()
     }
 
     private fun getCurrentBitmap(): Bitmap {
