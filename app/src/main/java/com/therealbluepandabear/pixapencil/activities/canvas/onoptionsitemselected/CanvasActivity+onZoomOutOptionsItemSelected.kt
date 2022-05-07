@@ -1,11 +1,13 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.menu
 import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import java.math.RoundingMode
 
-fun CanvasActivity.zoomOut() {
+fun CanvasActivity.onZoomOutOptionsItemSelected() {
     outerCanvasInstance.cardViewParent.apply {
         val canZoomOut = outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement
 

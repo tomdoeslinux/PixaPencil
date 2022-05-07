@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
 
-fun CanvasActivity.findAndReplaceToolOnToolTapped() {
+fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
     val uniqueColors = pixelGridViewInstance.getNumberOfUniqueColors()
 
     if (uniqueColors.isNotEmpty()) {

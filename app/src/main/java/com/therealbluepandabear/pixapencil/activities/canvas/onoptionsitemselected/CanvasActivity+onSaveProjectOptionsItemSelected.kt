@@ -1,6 +1,7 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.app.Activity
+import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -12,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun CanvasActivity.saveProject() {
+fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     saved = true
 
     val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.45)

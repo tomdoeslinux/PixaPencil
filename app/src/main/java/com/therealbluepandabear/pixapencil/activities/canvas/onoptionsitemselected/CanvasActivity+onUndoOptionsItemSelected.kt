@@ -1,10 +1,10 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun undo() {
+fun onUndoOptionsItemSelected() {
     pixelGridViewInstance.undo()
 
     pixelGridViewInstance.currentBitmapAction = null
