@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.FragmentNewProjectBinding
+import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-class NewProjectFragment : Fragment() {
+class NewProjectFragment : Fragment(), ActivityFragment {
     var root: View? = null
+
+    override val title: String by lazy { getString(R.string.fragment_new_project_title_in_code_str) }
 
     private fun instantiateRoot() {
         root = binding.fragmentNewCanvasRootLayout
@@ -32,7 +35,7 @@ class NewProjectFragment : Fragment() {
         super.onAttach(context)
         if (context is NewProjectFragmentListener) caller = context
         requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.GONE
-        requireActivity().title = getString(R.string.fragment_new_project_title_in_code_str)
+        requireActivity().title = this.title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

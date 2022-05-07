@@ -7,11 +7,14 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
+import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
 
-class ColorPickerFragment : Fragment() {
+class ColorPickerFragment : Fragment(), ActivityFragment {
     private var paramOldColor: Int? = null
     private var paramColorPaletteMode: Boolean = false
+
+    override val title: String by lazy { getString(R.string.fragment_color_picker_title_in_code_str) }
 
     fun setParams(paramOldColor: Int, paramColorPaletteMode: Boolean) {
         this.paramOldColor = paramOldColor
@@ -42,7 +45,7 @@ class ColorPickerFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is ColorPickerFragmentListener) caller = context
-        requireActivity().title = getString(R.string.fragment_color_picker_title_in_code_str)
+        requireActivity().title = this.title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

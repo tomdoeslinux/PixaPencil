@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentNewColorPaletteBinding
+import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewColorPaletteFragmentListener
 
-class NewColorPaletteFragment : Fragment() {
+class NewColorPaletteFragment : Fragment(), ActivityFragment {
+    override val title: String by lazy { getString(R.string.fragment_new_color_palette_title_in_code_str) }
+
     companion object {
         fun newInstance(): NewColorPaletteFragment {
             return NewColorPaletteFragment()
@@ -19,7 +22,7 @@ class NewColorPaletteFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is NewColorPaletteFragmentListener) caller = context
-        requireActivity().title = getString(R.string.fragment_new_color_palette_title_in_code_str)
+        requireActivity().title = this.title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

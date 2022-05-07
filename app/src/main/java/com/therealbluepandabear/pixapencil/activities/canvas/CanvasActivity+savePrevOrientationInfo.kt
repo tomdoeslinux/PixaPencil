@@ -7,6 +7,7 @@ import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -18,6 +19,12 @@ fun CanvasActivity.savePrevOrientationInfo() {
             delay(200)
             onOrientationChanged()
             delay(200)
+
+            for (fragment in supportFragmentManager.fragments) {
+                if (fragment is ActivityFragment) {
+                    title = fragment.title
+                }
+            }
 
             if (prevPrimaryColor != null && prevSecondaryColor != null) {
                 setPrimaryPixelColor(prevPrimaryColor!!)

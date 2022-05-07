@@ -8,11 +8,14 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
 import com.therealbluepandabear.pixapencil.databinding.FragmentSprayToolSettingsBinding
+import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.SprayToolSettingsFragmentListener
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-class SprayToolSettingsFragment : Fragment() {
+class SprayToolSettingsFragment : Fragment(), ActivityFragment {
+    override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }
+
     private fun setDefaultValues() {
         val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
         val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
@@ -38,7 +41,7 @@ class SprayToolSettingsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is SprayToolSettingsFragmentListener) caller = context
-        requireActivity().title = getString(R.string.fragment_spray_tool_settings_title_in_code_str)
+        requireActivity().title = this.title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
