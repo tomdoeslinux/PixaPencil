@@ -4,6 +4,8 @@ import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
+import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showShadingToolTip
+import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showSprayToolTip
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar

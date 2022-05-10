@@ -105,7 +105,6 @@ class PixelArtCreationsAdapter(
     private fun changeStarredIndicator(imageButton: ImageButton, pixelArt: PixelArt) {
         imageButton.apply {
             if (pixelArt.starred) setImageResource(R.drawable.ic_baseline_star_24)
-//            else setImageResource(R.drawable.ic_baseline_star_border_24)
         }
     }
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
