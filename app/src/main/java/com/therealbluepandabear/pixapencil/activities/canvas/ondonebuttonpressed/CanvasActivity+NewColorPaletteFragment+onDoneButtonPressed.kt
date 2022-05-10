@@ -39,9 +39,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
     }
 
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        lifecycleScope.launch {
-            delay(LongConstants.DefaultHandlerDelay)
-            extendedOnColorPaletteTapped(it.last())
-        }
+        extendedOnColorPaletteTapped(it.last())
     }
 }

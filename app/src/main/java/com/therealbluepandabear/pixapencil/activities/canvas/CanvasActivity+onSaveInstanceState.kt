@@ -26,7 +26,7 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
         outState.putInt(StringConstants.Identifiers.prevTabBundleIdentifier, currentTab)
         outState.putString(StringConstants.Identifiers.prevUndoStackJsonStrIdentifier, JsonConverter.convertListToJsonString(pixelGridViewInstance.bitmapActionData))
         outState.putString(StringConstants.Identifiers.prevRedoStackJsonStrIdentifier, JsonConverter.convertListToJsonString(pixelGridViewInstance.undoStack))
-        outState.putString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier, pixelGridViewInstance.symmetryMode.symmetryName,)
+        outState.putString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
         outState.putInt(StringConstants.Identifiers.prevRotationStrIdentifier, outerCanvasInstance.getCurrentRotation().toInt())
     } else {
         Flags.PressedBackFromImg = false

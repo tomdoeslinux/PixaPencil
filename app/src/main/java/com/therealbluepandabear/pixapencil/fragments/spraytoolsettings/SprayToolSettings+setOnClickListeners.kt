@@ -77,10 +77,7 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
                 apply()
             }
 
-            lifecycleScope.launch {
-                delay(LongConstants.DefaultHandlerDelay)
-                caller.onDoneButtonPressed(radius, strength)
-            }
+            caller.onDoneButtonPressed(radius, strength)
         }
     }
 }
