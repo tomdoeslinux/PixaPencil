@@ -44,7 +44,7 @@ object StringConstants {
         const val SharedPreferenceShowShadingToolTipIdentifier = "SharedPreferenceShowShadingToolTip"
 
         const val prevOrientationBundleIdentifier = "PrevOrientation"
-        const val prevBitmapStrBundleIdentifier = "PrevBitmapStr"
+        const val prevBitmapFilePathStrBundleIdentifier = "PrevBitmapFilePathStr"
         const val prevPrimaryColorBundleIdentifier = "PrevPrimaryColor"
         const val prevSecondaryColorBundleIdentifier = "PrevSecondaryColor"
         const val prevToolBundleIdentifier = "PrevTool"

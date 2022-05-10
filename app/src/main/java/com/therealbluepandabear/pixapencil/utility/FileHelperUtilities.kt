@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.media.MediaScannerConnection
@@ -21,6 +22,7 @@ import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import java.io.File
+import java.io.FileInputStream
 import java.io.FileOutputStream
 
 
@@ -166,11 +168,24 @@ class FileHelperUtilities(
         }
     }
 
-    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap) {
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG) {
         context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, it)
+            bitmap.compress(compressFormat, 90, it)
             it.close()
         }
     }
 
+    fun openBitmapFromInternalStorage(fileName: String): Bitmap {
+        val directory = context.filesDir
+        val file = File(directory, fileName)
+
+        return BitmapFactory.decodeStream(FileInputStream(file))
+    }
+
+    fun deleteBitmapFromInternalStorage(fileName: String): Boolean {
+        val directory = context.filesDir
+        val file = File(directory, fileName)
+
+        return file.delete()
+    }
 }

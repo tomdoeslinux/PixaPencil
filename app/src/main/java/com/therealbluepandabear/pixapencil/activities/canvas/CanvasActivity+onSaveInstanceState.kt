@@ -1,11 +1,13 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.graphics.Bitmap
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
@@ -14,10 +16,17 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
             StringConstants.Identifiers.prevOrientationBundleIdentifier,
             resources.configuration.orientation
         )
+
+        val fileHelperUtil = FileHelperUtilities.createInstance(this, outerCanvasInstance, null)
+        val bmp = pixelGridViewInstance.pixelGridViewBitmap
+        val fileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
+        fileHelperUtil.storeBitmapToInternalStorage(fileName, bmp, Bitmap.CompressFormat.PNG) // Compress format MUST be PNG to show transparency
+
         outState.putString(
-            StringConstants.Identifiers.prevBitmapStrBundleIdentifier,
-            BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
+            StringConstants.Identifiers.prevBitmapFilePathStrBundleIdentifier,
+            fileName
         )
+
         outState.putInt(
             StringConstants.Identifiers.prevPrimaryColorBundleIdentifier,
             (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color

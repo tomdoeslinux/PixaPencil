@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 fun configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {
         prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.prevOrientationBundleIdentifier)
-        prevBitmapStr = savedInstanceState.getString(StringConstants.Identifiers.prevBitmapStrBundleIdentifier)
+        prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.prevBitmapFilePathStrBundleIdentifier)
         prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevPrimaryColorBundleIdentifier)
         prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevSecondaryColorBundleIdentifier)
         prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.prevToolBundleIdentifier)

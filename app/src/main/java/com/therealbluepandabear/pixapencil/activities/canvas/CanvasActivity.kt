@@ -12,7 +12,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnCreateOptionsMenu
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
@@ -20,6 +19,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 
 class CanvasActivity :
     AppCompatActivity(),
@@ -55,12 +55,14 @@ class CanvasActivity :
 
         viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
             if (viewTemp.isVisible && replacedBMP && prevOrientation != resources.configuration.orientation) {
-                if (prevBitmapStr != null) {
-                    val convertedBMP = BitmapConverter.convertStringToBitmap(prevBitmapStr!!)
-                    if (convertedBMP != null) {
-                        pixelGridViewInstance.replaceBitmap(convertedBMP)
-                        replacedBMP = false
-                    }
+                if (prevBitmapFilePathStr != null) {
+                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance, null)
+                    val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(prevBitmapFilePathStr!!)
+
+                    pixelGridViewInstance.replaceBitmap(convertedBMP)
+                    fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(prevBitmapFilePathStr!!)
+                    replacedBMP = false
+
                     prevOrientation = resources.configuration.orientation
                 }
             }

@@ -58,7 +58,7 @@ var previewColorToFind: Int? = null
 var previewColorToReplace: Int? = null
 
 var prevOrientation: Int = 0
-var prevBitmapStr: String? = null
+var prevBitmapFilePathStr: String? = null
 var prevPrimaryColor: Int? = null
 var prevSecondaryColor: Int? = null
 var prevToolStr: String? = null
