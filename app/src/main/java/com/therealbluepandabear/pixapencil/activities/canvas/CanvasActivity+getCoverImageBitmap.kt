@@ -4,9 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Matrix
 import androidx.core.view.drawToBitmap
+import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
-import com.therealbluepandabear.pixapencil.utility.OverlayType
 
 var gridWasEnabled = false
 
