@@ -6,7 +6,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.prevTab
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener

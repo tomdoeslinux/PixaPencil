@@ -5,7 +5,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 const val zoomIncrement = 0.2f
 

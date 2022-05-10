@@ -1,7 +1,11 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
+import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -16,7 +20,8 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
                 R.id.activityCanvas_primaryFragmentHost, FindAndReplaceFragment.newInstance(
                     paramCanvasColors = pixelGridViewInstance.getNumberOfUniqueColors(),
                     paramBitmapSource = getCoverImageBitmap(),
-                    selectedColorPaletteIndex = selectedColorPaletteIndex))
+                    selectedColorPaletteIndex = selectedColorPaletteIndex
+                ))
             addToBackStack(null)
         }
     } else {

@@ -1,5 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.onResetZoomOptionsItemSelected() {
