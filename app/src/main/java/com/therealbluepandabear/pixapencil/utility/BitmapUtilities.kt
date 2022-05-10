@@ -3,11 +3,7 @@ package com.therealbluepandabear.pixapencil.utility
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
-
-enum class OverlayType {
-    Regular,
-    CenterSecond
-}
+import com.therealbluepandabear.pixapencil.enums.OverlayType
 
 object BitmapUtilities {
     /** Thank you to to RajaReddy PolamReddy on StackOverflow - the code here is  based off of their solution.
