@@ -5,8 +5,7 @@
     android:id="@+id/recentCreationsLayout_rootLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/white"
-    tools:ignore="MissingConstraints">
+    android:backgroundTint="@color/white">
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/recentCreationsLayout_materialCardView"
         android:layout_height="wrap_content"
@@ -31,13 +30,19 @@
                 app:layout_constraintBottom_toBottomOf="@+id/recentCreationsLayout_subtitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/recentCreationsLayout_subtitle" />
+
             <ImageView
-                android:adjustViewBounds="true"
                 android:id="@+id/recentCreationsLayout_imageView"
-                tools:srcCompat="@tools:sample/avatars"
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:contentDescription="@string/recentCreationsLayout_imageView_content_description" />
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/recentCreationsLayout_imageView_content_description"
+                app:layout_constraintBottom_toTopOf="@+id/recentCreationsLayout_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:layout_marginTop="16dp"
