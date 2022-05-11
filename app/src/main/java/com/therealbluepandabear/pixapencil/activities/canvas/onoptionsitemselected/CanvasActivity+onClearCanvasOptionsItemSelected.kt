@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.clearCanvas
+import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.clearCanvas
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 
 fun CanvasActivity.onClearCanvasOptionsItemSelected() {

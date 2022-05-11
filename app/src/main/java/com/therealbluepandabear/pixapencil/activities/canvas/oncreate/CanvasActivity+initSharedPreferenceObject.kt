@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.preferences
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.content.Context
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity

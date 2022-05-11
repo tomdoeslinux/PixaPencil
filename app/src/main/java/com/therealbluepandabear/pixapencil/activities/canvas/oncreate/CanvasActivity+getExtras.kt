@@ -1,5 +1,9 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.height
+import com.therealbluepandabear.pixapencil.activities.canvas.index
+import com.therealbluepandabear.pixapencil.activities.canvas.width
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.getExtras() {

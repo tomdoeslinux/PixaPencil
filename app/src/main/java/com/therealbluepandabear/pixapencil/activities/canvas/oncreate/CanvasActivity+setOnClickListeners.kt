@@ -1,10 +1,11 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
