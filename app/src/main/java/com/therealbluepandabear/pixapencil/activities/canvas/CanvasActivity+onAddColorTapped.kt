@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.extensions.hideItems
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
