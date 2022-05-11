@@ -18,13 +18,21 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(selectedColor)
 
-        newData.distinctBy { it == Color.TRANSPARENT }
-        newData.sortBy { it == Color.TRANSPARENT }
+        newData.distinctBy {
+            it == Color.TRANSPARENT
+        }
+
+        newData.sortBy {
+            it == Color.TRANSPARENT
+        }
 
         AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListToJsonString(newData.toList()), fromDB!!.objId)
+
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-            binding.activityCanvasColorPickerRecyclerView.adapter =
-                ColorPickerAdapter(fromDB!!, this)
+            binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(fromDB!!, this)
+
+            val colorData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
+            binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
         }
     }
 }
