@@ -2,10 +2,11 @@ package com.therealbluepandabear.pixapencil.adapters
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
@@ -37,10 +38,7 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
         if (isPaletteMode && !isPreviewMode) {
             if (colorData[position] == Color.TRANSPARENT) {
                 holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
-                holder.colorView.background.setColorFilter(
-                    Color.GRAY,
-                    PorterDuff.Mode.DST_OVER
-                )
+                holder.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
             }
         }
 
