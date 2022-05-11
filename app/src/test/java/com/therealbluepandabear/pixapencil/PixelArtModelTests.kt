@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.DateTimeCompatibilityUtilities
+import com.therealbluepandabear.pixapencil.utility.DateTimeCompat
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import io.mockk.every
 import io.mockk.mockk
@@ -86,7 +86,7 @@ class PixelArtModelTests {
     }
 
     fun createPixelArtObj_assertDateCreated() {
-        val dateCreated = DateTimeCompatibilityUtilities.getCompatibleCurrentDateTime()
+        val dateCreated = DateTimeCompat.getCompatibleCurrentDateTime()
 
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.dateCreated } returns dateCreated

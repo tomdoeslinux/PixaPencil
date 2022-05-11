@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.DateTimeCompatibilityUtilities
+import com.therealbluepandabear.pixapencil.utility.DateTimeCompat
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import io.mockk.every
 import io.mockk.mockk
@@ -129,7 +129,7 @@ class PixelArtCreationsDaoInsertionTests {
     @Test
     fun insertPixelArtCreation_assertDateCreated() {
         runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompatibilityUtilities.getCompatibleCurrentDateTime() }
+            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompat.getCompatibleCurrentDateTime() }
 
             dao.insertPixelArt(pixelArtCreation)
 

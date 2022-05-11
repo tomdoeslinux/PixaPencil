@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-object DateTimeCompatibilityUtilities {
+object DateTimeCompat {
     private const val dateTimeFormatPattern = "MMMM dd, yyyy\nHH:mm"
 
     fun getCompatibleCurrentDateTime(): String {

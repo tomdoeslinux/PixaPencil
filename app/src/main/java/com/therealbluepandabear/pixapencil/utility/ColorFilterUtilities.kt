@@ -11,11 +11,11 @@ object ColorFilterUtilities {
         var color = _color
 
         for (i in 0..strength) {
-            val r: Float = ColorCompatUtilities.getCompatibleRed(color)
-            val g: Float = ColorCompatUtilities.getCompatibleGreen(color)
-            val b: Float = ColorCompatUtilities.getCompatibleBlue(color)
+            val r: Float = ColorCompat.getCompatibleRed(color)
+            val g: Float = ColorCompat.getCompatibleGreen(color)
+            val b: Float = ColorCompat.getCompatibleBlue(color)
 
-            color = ColorCompatUtilities.getCompatibleRGB((r + g + b) / 3.toFloat(), r, r)
+            color = ColorCompat.getCompatibleRGB((r + g + b) / 3.toFloat(), r, r)
         }
 
         return color

@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.utility
 import android.graphics.Color
 import android.os.Build
 
-object ColorCompatUtilities {
+object ColorCompat {
     fun getCompatibleRed(color: Int): Float {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Color.valueOf(color).red()
