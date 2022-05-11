@@ -47,6 +47,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.therealbluepandabear.pixapencil'
     testOptions {
         unitTests.returnDefaultValues = true
     }
