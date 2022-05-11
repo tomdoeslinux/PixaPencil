@@ -7,6 +7,8 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnRedoActionCompleted
+import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnUndoActionCompleted
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnCreateOptionsMenu
