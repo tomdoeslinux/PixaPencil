@@ -170,7 +170,7 @@ class CanvasActivity :
 
         if (!selectedColorPalette.isPrimaryColorPalette) {
             showDialog(
-                getString(R.string.dialog_delete_pixel_art_project_title_in_code_str),
+                getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, name),
                 getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, name),
                 getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
                     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
