@@ -4,4 +4,5 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 interface ColorPalettesFragmentListener {
     fun onColorPaletteTapped(selectedColorPalette: ColorPalette)
+    fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette)
 }

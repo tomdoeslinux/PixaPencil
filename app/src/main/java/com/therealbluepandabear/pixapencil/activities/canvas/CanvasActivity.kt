@@ -14,6 +14,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnCreateOptionsMenu
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
+import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
@@ -158,6 +159,12 @@ class CanvasActivity :
 
     override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {
         extendedOnColorPaletteTapped(selectedColorPalette)
+    }
+
+    override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+            AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
+        }
     }
 
     override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
