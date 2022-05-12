@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PixaPencil</string>
+    <!-- Layout strings -->
+    <string name="recentCreationsLayout_favoriteButton_content_description">Préféré</string>
+    <string name="recentCreationsLayout_imageView_content_description">Aperçu pixel art</string>
+    <string name="colorPalettesLayout_color_palette_item_str">Élément de la palette de couleurs</string>
+    <string name="saveFileUnderNewNameAlertLayout_new_name_str">Nouveau nom</string>
+    <string name="defaultColorPalette_str">Palette de couleurs par défaut</string>
+    <!-- Fragment strings -->
+    <string name="fragmentFilters_color_filter_str">Filtre de couleur</string>
+    <string name="fragmentFilters_lighten_str">Eclairer</string>
+    <string name="fragmentFilters_darken_str">Assombrir</string>
+    <string name="fragmentFilters_invert_str">Inverser</string>
+    <string name="fragmentFilters_grayscale_str">Niveaux de gris</string>
+    <string name="fragmentNewColorPalette_done_str">Fini</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas_str">Extrait de toile</string>
+    <string name="fragmentNewColorPalette_color_palette_name_str">Nom de la palette de couleurs</string>
+    <string name="fragmentFindAndReplace_find_str">Trouver</string>
+    <string name="fragmentFindAndReplace_replace_with_str">Remplacer par</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Couleurs dans votre toile:</string>
+    <string name="fragmentFindAndReplace_not_enough_colors_str">Pas assez de couleurs ? Modifiez la palette de couleurs sélectionnée.</string>
+    <string name="fragmentSprayToolSettings_strength_str">Force</string>
+    <string name="fragmentSprayToolSettings_radius_str">Rayon</string>
+    <string name="fragmentSprayToolSettings_done_str">Fini</string>
+    <string name="fragmentNewColorPalette_width_str">Largeur</string>
+    <string name="fragmentNewColorPalette_height_str">Taille</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">Rechercher un aperçu</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">Remplacer l\'aperçu</string>
+    <string name="fragment_new_project_title_in_code_str">Nouveau projet</string>
+    <string name="fragment_find_and_replace_title_in_code_str">Trouver et remplacer</string>
+    <string name="fragment_color_picker_title_in_code_str">Sélectionnez la couleur</string>
+    <string name="fragment_new_color_palette_title_in_code_str">Nouvelle palette de couleurs</string>
+    <string name="fragment_spray_tool_settings_title_in_code_str">Paramètres de l\'outil de pulvérisation Settings</string>
+    <string name="fragmentTools_pencil_tool_content_description">Outil crayon</string>
+    <string name="fragmentTools_eraser_tool_content_description">Outil pour effacer</string>
+    <string name="fragmentTools_color_picker_tool_content_description">Outil de sélection des couleurs</string>
+    <string name="fragmentTools_fill_tool_content_description">Outil de remplissage</string>
+    <string name="fragmentTools_line_tool_content_description">Outil ligne</string>
+    <string name="fragmentTools_rectangle_tool_content_description">Outil rectangle</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">Outil rectangle délimité</string>
+    <string name="fragmentTools_square_tool_content_description">Outil carré</string>
+    <string name="fragmentTools_outlined_square_button_content_description">Outil carré décrit</string>
+    <string name="fragmentTools_circle_tool_content_description">Outil Cercle</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">Outil de cercle décrit</string>
+    <string name="fragmentTools_spray_tool_content_description">Outil de pulvérisation</string>
+    <string name="fragmentTools_polygon_tool_content_description">Outil Polygone</string>
+    <string name="fragmentTools_dither_tool_content_description">Outil de tramage</string>
+    <string name="fragmentTools_shading_tool_content_description">Outil d\'ombrage</string>
+    <string name="fragmentNewCanvas_project_name_str">Nom</string>
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Valeur hexadécimale</string>
+    <string name="fragmentColorPicker_tab_color_picker_str">Sélecteur de couleurs</string>
+    <!-- Activity strings -->
+    <string name="activityMain_newProjectButton_contentDescription">Nouveau projet</string>
+    <string name="activityCanvas_tab_brushes_str">Pinceaux</string>
+    <string name="activityCanvas_tab_filters_str">Filtre</string>
+    <string name="activityCanvas_tab_tools_str">Outils</string>
+    <string name="activityCanvas_tab_color_palettes_str">Palettes</string>
+    <!-- Menu strings -->
+    <string name="activityMainTopAppMenu_community_str">Communauté</string>
+    <string name="activityCanvasTopAppMenu_undo_str">Annuler</string>
+    <string name="activityCanvasTopAppMenu_redo_str">Refaire</string>
+    <string name="activityCanvasTopAppMenu_save_as_png_str">Enregistrer au format PNG</string>
+    <string name="activityCanvasTopAppMenu_save_as_jpg_str">Enregistrer au format JPG</string>
+    <string name="activityCanvasTopAppMenu_new_color_palette_str">Nouvelle palette de couleurs</string>
+    <string name="activityCanvasTopAppMenu_pixel_perfect_str">Pixel-parfait</string>
+    <string name="activityCanvasTopAppMenu_rotate_str">Pivoter</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise_str">Pivoter 90° (clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise_str">Pivoter 90° (anti-clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180_str">Pivoter 180°</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_str">Réinitialiser le zoom</string>
+    <string name="activityCanvasTopAppMenu_zoom_in_str">Agrandir</string>
+    <string name="activityCanvasTopAppMenu_zoom_out_str">Dézoomer</string>
+    <string name="activityCanvasTopAppMenu_save_text_str">Enregistrer</string>
+    <string name="activityCanvasTopAppMenu_grid_str">Grille</string>
+    <string name="activityCanvasTopAppMenu_find_and_replace_str">trouver et remplacer</string>
+    <string name="activityCanvasTopAppMenu_clear_canvas_str">Toile transparente</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quad</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">Symétrie</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none_str">Rien</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">Octal</string>
+    <string name="bottomNavigationMenu_starred_str">Favoris</string>
+    <string name="bottomNavigationMenu_home_str">Accueil</string>
+    <!-- Pencil tool information strings -->
+    <string name="pencil_tool_info_title_in_code_str">Informations sur l\'outil crayon</string>
+    <string name="pencil_tool_info_text_in_code_str">Dessinez des chemins pixélisés à main levée.</string>
+    <!-- Erase tool information strings -->
+    <string name="erase_tool_info_title_in_code_str">Effacer les informations sur l\'outil</string>
+    <string name="erase_tool_info_text_in_code_str">Effacer des pixels.</string>
+    <!-- Color picker tool information strings -->
+    <string name="color_picker_tool_info_title_in_code_str">Informations sur l\'outil de sélection des couleurs</string>
+    <string name="color_picker_tool_info_text_in_code_str">Obtenir la couleur au pixel spécifié.</string>
+    <!-- Fill tool information strings -->
+    <string name="fill_tool_info_title_in_code_str">Informations sur l\'outil de remplissage</string>
+    <string name="fill_tool_info_text_in_code_str">Remplir les pixels adjacents dont la valeur de couleur est similaire.</string>
+    <!-- Line tool information strings -->
+    <string name="line_tool_info_title_in_code_str">Infos sur l\'outil de ligne</string>
+    <string name="line_tool_info_text_in_code_str">Dessinez des lignes pixélisées.</string>
+    <!-- Rectangle tool information strings -->
+    <string name="rectangle_tool_info_title_in_code_str">Infos sur l\'outil Rectangle</string>
+    <string name="rectangle_tool_info_text_in_code_str">Dessinez des rectangles remplis et pixélisés.</string>
+    <!-- Outlined rectangle tool information strings -->
+    <string name="outlined_rectangle_tool_info_title_in_code_str">Infos sur l\'outil Rectangle souligné</string>
+    <string name="outlined_rectangle_tool_info_text_in_code_str">Dessinez des rectangles pixélisés délimités.</string>
+    <!-- Square tool information strings -->
+    <string name="square_tool_info_title_in_code_str">Infos sur l\'outil carré</string>
+    <string name="square_tool_info_text_in_code_str">Dessinez des carrés remplis et pixélisés.</string>
+    <!-- Outlined square tool information strings -->
+    <string name="outlined_square_tool_info_title_in_code_str">Informations sur l\'outil carré décrit</string>
+    <string name="outlined_square_tool_info_text_in_code_str">Dessinez des carrés pixélisés délimités.</string>
+    <!-- Circle tool information strings -->
+    <string name="circle_tool_info_title_in_code_str">Infos sur l\'outil Cercle</string>
+    <string name="circle_tool_info_text_in_code_str">Dessinez des cercles remplis et pixélisés.</string>
+    <!-- Outlined circle tool information strings -->
+    <string name="outlined_circle_tool_info_title_in_code_str">Infos sur l\'outil Cercle souligné</string>
+    <string name="outlined_circle_tool_info_text_in_code_str">Dessinez des cercles pixélisés délimités.</string>
+    <!-- Spray tool information strings -->
+    <string name="spray_tool_info_title_in_code_str">Informations sur l\'outil de pulvérisation</string>
+    <string name="spray_tool_info_text_in_code_str">Simuler une vraie peinture en aérosol.</string>
+    <!-- Polygon tool information strings -->
+    <string name="polygon_tool_info_title_in_code_str">Infos sur l\'outil Polygone</string>
+    <string name="polygon_tool_info_text_in_code_str">Dessiner des chemins polygonaux.</string>
+    <!-- Dither tool information strings -->
+    <string name="dither_tool_info_title_in_code_str">Informations sur l\'outil de tramage</string>
+    <string name="dither_tool_info_text_in_code_str">Dessinez des motifs en damier; bon pour l\'ombrage.</string>
+    <!-- Shading tool information strings -->
+    <string name="shading_tool_info_title_in_code_str">Informations sur l\'outil d\'ombrage</string>
+    <string name="shading_tool_info_text_in_code_str">Éclaircir/assombrir les pixels sur votre toile.</string>
+    <!-- Exception strings -->
+    <string name="exception_invalid_project_name_in_code_str">Le nom ne peut pas être vide</string>
+    <string name="exception_invalid_width_in_code_str">La valeur doit être comprise entre 1 et 10 000</string>
+    <string name="exception_invalid_height_in_code_str">La valeur doit être comprise entre 1 et 10 000</string>
+    <string name="exception_empty_width_in_code_str">La largeur ne peut pas être vide</string>
+    <string name="exception_empty_height_in_code_str">La hauteur ne peut pas être vide</string>
+    <string name="exception_accessing_negative_index_message_in_code_str">Impossible d\'accéder à un objet pixel art avec un index négatif dans la liste !</string>
+    <string name="exception_invalid_spray_radius_in_code_str">La valeur doit être comprise entre 1 et 20 000</string>
+    <string name="exception_invalid_spray_strength_in_code_str">La valeur doit être comprise entre 1 et 20 000</string>
+    <string name="exception_empty_spray_radius_in_code_str">Le rayon ne peut pas être vide</string>
+    <string name="exception_empty_spray_strength_in_code_str">La force ne peut pas être vide</string>
+    <!-- Dialog strings -->
+    <string name="dialog_positive_button_text_in_code_str">D\'accord</string>
+    <string name="dialog_negative_button_text_in_code_str">Annuler</string>
+    <string name="dialog_exception_info_title_in_code_str">Informations sur les exceptions</string>
+    <string name="dialog_view_file_error_title_in_code_str">Erreur lors de la tentative d\'affichage du fichier</string>
+    <string name="dialog_clear_canvas_title_in_code_str">Toile transparente</string>
+    <string name="dialog_clear_canvas_message_in_code_str">Êtes-vous sûr de vouloir effacer la toile ?</string>
+    <string name="dialog_unsaved_changes_title_in_code_str">Modifications non enregistrées</string>
+    <string name="dialog_unsaved_changes_message_in_code_str">Vous avez des modifications non enregistrées, êtes-vous sûr de vouloir quitter ?</string>
+    <string name="dialog_file_exists_title_in_code_str">Le fichier existe déjà</string>
+    <string name="dialog_file_exists_message_in_code_str">%1$s existe déjà, remplacez-le ou enregistrez-le sous un nouveau nom?</string>
+    <string name="dialog_file_exists_positive_button_text_in_code_str">Remplacer</string>
+    <string name="dialog_file_exists_negative_button_text_in_code_str">Enregistrer sous un nouveau nom</string>
+    <string name="dialog_save_under_new_name_title_in_code_str">Enregistrer sous un nouveau nom</string>
+    <string name="dialog_save_under_new_name_text_in_code_str">Assurez-vous que votre nouveau nom est unique !</string>
+    <string name="dialog_image_exception_when_saving_title_in_code_str">Erreur lors de l\'enregistrement de %1$s sous %2$s</string>
+    <string name="dialog_community_title_in_code_str">Communauté</string>
+    <string name="dialog_community_text_in_code_str">Nous serions ravis de vous avoir sur notre<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>ou serveur<a href="https://discord.gg/Ytm7WBMNz9">Discord.</a></string>
+    <string name="dialog_delete_pixel_art_project_title_in_code_str">Annuler %1$s?"</string>
+    <string name="dialog_delete_pixel_art_project_text_in_code_str">Voulez-vous vraiment supprimer %1$s ? - Ça ne peut pas être annulé."</string>
+    <string name="dialog_welcome_title_in_code_str">Bienvenue</string>
+    <string name="dialog_welcome_text_in_code_str">Bienvenue sur PixaPencil ! Appuyez et maintenez sur l\'icône de chaque outil pour obtenir plus d\'informations sur le fonctionnement de l\'outil spécifique.</string>
+    <string name="dialog_large_canvas_warning_title_in_code_str">Avertissement</string>
+    <string name="dialog_large_canvas_warning_text_in_code_str">Vous êtes sur le point de créer un grand canevas, gardez à l\'esprit que votre téléphone pourrait ne pas être en mesure de prendre en charge les bitmaps de ces tailles.</string>
+    <string name="dialog_large_canvas_warning_positive_button_text_in_code_str">Je comprends, créer le projet</string>
+    <!-- Snackbar strings -->
+    <string name="snackbar_view_exception_info_button_text_in_code_str">Voir</string>
+    <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Impossible de supprimer la palette de couleurs par défaut</string>
+    <string name="snackbar_find_and_replace_warning_in_code_str">Vous devez avoir au moins une couleur sur votre toile pour utiliser cet outil</string>
+    <string name="snackbar_on_color_long_tapped_in_code_str">Couleur supprimée de %1$s</string>
+    <string name="snackbar_image_successfully_saved_in_code_str">%1$s enregistré avec succès sous %2$s</string>
+    <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">%1$s enregistrés dans les articles favoris</string>
+    <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Suppression de %1$s des éléments favoris</string>
+    <!-- Tooltip strings -->
+    <string name="shading_tool_tip_in_code_str">Astuce : appuyez sur l\'icône pour changer le mode d\'ombrage</string>
+    <string name="spray_tool_tip_in_code_str">Astuce : appuyez sur l\'icône pour modifier les paramètres de pulvérisation</string>
+    <string name="tool_tip_dont_show_again_in_code_str">Ne plus afficher</string>
+</resources>
