@@ -2,23 +2,14 @@ package com.therealbluepandabear.pixapencil.fragments.colorpalettes
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.main.extendedOnCreationLongTapped
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPalettesBinding
-import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.utility.ObjectConstants
-import kotlinx.coroutines.selects.select
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     val context = this
