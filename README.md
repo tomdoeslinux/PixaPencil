@@ -90,6 +90,7 @@ If you spot issues with the translation send me an email at therealbluepandabear
 
 This app has been translated to:
 - 🇮🇱 Hebrew (by myself), the translation quality is OK.
+- 🇫🇷 French (by a user who has wished to remain anonymous), I am unsure about the translation quality, but it should be OK.
 
 ## 📣 Shoutout
 Thank you to:
