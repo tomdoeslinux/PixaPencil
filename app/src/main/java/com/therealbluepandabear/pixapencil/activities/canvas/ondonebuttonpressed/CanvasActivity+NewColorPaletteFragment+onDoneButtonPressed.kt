@@ -17,25 +17,16 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
     CoroutineScope(Dispatchers.IO).launch {
         if (!extractColorPaletteFromCanvas) {
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
-                ColorPalette(
-                    colorPaletteTitle,
-                    JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT))
-                )
+                ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
             )
         } else {
             val data = pixelGridViewInstance.getNumberOfUniqueColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
-                ColorPalette(
-                    colorPaletteTitle,
-                    JsonConverter.convertListToJsonString(data)
-                )
+                ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))
             )
         }
     }
 
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        extendedOnColorPaletteTapped(it.last())
-    }
 }

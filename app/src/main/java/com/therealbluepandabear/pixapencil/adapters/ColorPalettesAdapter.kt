@@ -64,6 +64,10 @@ class ColorPalettesAdapter(
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     override fun getItemCount(): Int {
         return data.size
     }
