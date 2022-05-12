@@ -166,20 +166,7 @@ class CanvasActivity :
     }
 
     override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
-        val name = selectedColorPalette.colorPaletteName
-
-        if (!selectedColorPalette.isPrimaryColorPalette) {
-            showDialog(
-                getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, name),
-                getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, name),
-                getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
-                    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-                        AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
-                    } }, getString(R.string.dialog_negative_button_text_in_code_str), null, null
-            )
-        } else {
-            binding.activityCanvasRootLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
-        }
+        extendedOnColorPaletteLongTapped(selectedColorPalette)
     }
 
     override fun onDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
