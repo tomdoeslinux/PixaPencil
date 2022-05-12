@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyGridEnabledValueFromPreference
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyPixelPerfectValueFromPreference
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyShowShadingToolTipValueFromPreference
