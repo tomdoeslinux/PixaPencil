@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnRedoActionCompleted
 import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnUndoActionCompleted
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
@@ -15,6 +16,9 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
+import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
@@ -162,8 +166,19 @@ class CanvasActivity :
     }
 
     override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-            AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
+        val name = selectedColorPalette.colorPaletteName
+
+        if (!selectedColorPalette.isPrimaryColorPalette) {
+            showDialog(
+                "Delete '$name'?",
+                "Are you sure you want to delete '$name'? - this cannot be undone.",
+                getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
+                    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+                        AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
+                    } }, getString(R.string.dialog_negative_button_text_in_code_str), null, null
+            )
+        } else {
+            binding.activityCanvasRootLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
         }
     }
 
