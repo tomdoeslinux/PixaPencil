@@ -28,5 +28,4 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             )
         }
     }
-
 }
