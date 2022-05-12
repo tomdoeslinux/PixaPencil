@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpresse
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.extendedOnColorPaletteTapped
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
