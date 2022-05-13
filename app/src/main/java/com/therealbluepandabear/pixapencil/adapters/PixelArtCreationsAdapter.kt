@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -91,10 +92,12 @@ class PixelArtCreationsAdapter(
                 recentCreationsLayoutFavoriteButton.setOnClickListener {
                     if (item.starred) {
                         unFavouriteRecentCreation(snackbarView, item)
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(false, item.objId)
+                        item.starred = false
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
                     } else {
                         favouriteRecentCreation(snackbarView, item)
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreationStarred(true, item.objId)
+                        item.starred = true
+                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
                     }
                     changeStarredIndicator((it as ImageButton), item)
                 }

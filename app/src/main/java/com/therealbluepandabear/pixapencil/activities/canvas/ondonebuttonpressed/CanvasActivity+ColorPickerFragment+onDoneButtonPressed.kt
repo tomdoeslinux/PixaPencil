@@ -26,7 +26,11 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
             it == Color.TRANSPARENT
         }
 
-        AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(JsonConverter.convertListToJsonString(newData.toList()), fromDB!!.objId)
+        fromDB!!.apply {
+            colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
+        }
+
+        AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
 
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
             binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(fromDB!!, this)

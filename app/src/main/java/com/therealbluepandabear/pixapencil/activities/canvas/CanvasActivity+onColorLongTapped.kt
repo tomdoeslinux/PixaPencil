@@ -16,15 +16,21 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
 
     val color = copy2[colorIndex]
 
-    AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
-        JsonConverter.convertListToJsonString(extractedJson), colorPalette.objId)
+    colorPalette.apply {
+        colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
+    }
+
+    AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
 
     val colorPaletteName = colorPalette.colorPaletteName
 
     binding.activityCanvasRootLayout.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPaletteName), SnackbarDuration.Default, "Undo") {
         extractedJson.add(colorIndex, color)
 
-        AppData.colorPalettesDB.colorPalettesDao().updateColorPaletteColorData(
-            JsonConverter.convertListToJsonString(extractedJson), colorPalette.objId)
+        colorPalette.apply {
+            colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
+        }
+
+        AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
     }
 }

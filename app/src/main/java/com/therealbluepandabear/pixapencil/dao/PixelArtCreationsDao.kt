@@ -1,10 +1,7 @@
 package com.therealbluepandabear.pixapencil.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.therealbluepandabear.pixapencil.models.PixelArt
 
 @Dao
@@ -21,15 +18,6 @@ interface PixelArtCreationsDao {
     @Delete
     fun deletePixelArtCreation(pixelArtObj: PixelArt)
 
-    @Query("UPDATE PixelArt SET item_cover_bitmap_file_path=:coverBitmapFilePath WHERE objId=:id_t")
-    fun updatePixelArtCreationCoverBitmap(coverBitmapFilePath: String, id_t: Int): Int
-
-    @Query("UPDATE PixelArt SET item_bitmap=:bitmap WHERE objId=:id_t")
-    fun updatePixelArtCreationBitmap(bitmap: String, id_t: Int): Int
-
-    @Query("UPDATE PixelArt SET item_starred=:starred WHERE objId=:id_t")
-    fun updatePixelArtCreationStarred(starred: Boolean, id_t: Int): Int
-
-    @Query("UPDATE PixelArt SET item_rotation=:rotation WHERE objId=:id_t")
-    fun updatePixelArtCreationRotation(rotation: Float, id_t: Int): Int
+    @Update
+    fun updatePixelArtCreation(pixelArtObj: PixelArt)
 }
