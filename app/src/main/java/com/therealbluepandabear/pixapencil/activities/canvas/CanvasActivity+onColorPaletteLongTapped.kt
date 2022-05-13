@@ -16,7 +16,7 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
             getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, name),
             getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
                 AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-                    AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette.objId)
+                    AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette)
                 } }, getString(R.string.dialog_negative_button_text_in_code_str), null, null
         )
     } else {
