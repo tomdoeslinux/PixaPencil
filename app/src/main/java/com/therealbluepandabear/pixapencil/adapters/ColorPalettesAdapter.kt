@@ -44,20 +44,11 @@ class ColorPalettesAdapter(
                 colorPalettesLayoutColorPalettePreviewRecyclerView.adapter = ColorPickerAdapter(item, null, isPreviewMode = true)
             }
 
-            binding.colorPalettesLayoutClickDetector.setOnClickListener {
-                caller.onColorPaletteTapped(item)
-            }
-
             this@parent.setOnClickListener {
                 caller.onColorPaletteTapped(item)
             }
 
             this@parent.setOnLongClickListener {
-                caller.onColorPaletteLongTapped(item)
-                true
-            }
-
-            binding.colorPalettesLayoutClickDetector.setOnLongClickListener {
                 caller.onColorPaletteLongTapped(item)
                 true
             }
