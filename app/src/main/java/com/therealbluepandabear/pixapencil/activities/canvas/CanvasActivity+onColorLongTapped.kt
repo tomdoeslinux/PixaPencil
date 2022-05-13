@@ -24,7 +24,7 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
 
     val colorPaletteName = colorPalette.colorPaletteName
 
-    binding.activityCanvasRootLayout.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPaletteName), SnackbarDuration.Default, "Undo") {
+    binding.activityCanvasRootLayout.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPaletteName), SnackbarDuration.Default, getString(R.string.activityCanvasTopAppMenu_undo_str)) {
         extractedJson.add(colorIndex, color)
 
         colorPalette.apply {
