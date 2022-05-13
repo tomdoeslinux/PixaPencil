@@ -23,10 +23,6 @@ class BrushesAdapter(private val data: List<Brush>, private val caller: BrushesL
 
             binding.brushesLayoutImageView.setImageResource(item.brushImage)
 
-            binding.brushesLayoutImageView.setOnClickListener {
-                caller.onBrushTapped(item)
-            }
-
             this@parent.setOnClickListener {
                 caller.onBrushTapped(item)
             }
