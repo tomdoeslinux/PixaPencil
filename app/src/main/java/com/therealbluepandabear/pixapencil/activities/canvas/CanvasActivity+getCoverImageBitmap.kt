@@ -6,6 +6,7 @@ import android.graphics.Matrix
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.extensions.isHeightLarger
+import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
@@ -37,12 +38,18 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     disableGridIfNeeded()
     var coverBitmap = createBasicCoverBitmap()
 
-    if (coverBitmap.isWidthLarger()) {
-        val bitmap = Bitmap.createBitmap(outerCanvasInstance.fragmentHost.width, outerCanvasInstance.fragmentHost.width, Bitmap.Config.ARGB_8888)
-        bitmap.eraseColor(Color.WHITE)
-        coverBitmap = BitmapUtilities.overlay(bitmap, coverBitmap, OverlayType.CenterSecond)
-    } else if (coverBitmap.isHeightLarger()) {
-        val bitmap = Bitmap.createBitmap(outerCanvasInstance.fragmentHost.height, outerCanvasInstance.fragmentHost.height, Bitmap.Config.ARGB_8888)
+    if (coverBitmap.isRect()) {
+        val bitmapBaseDimension = if (coverBitmap.isWidthLarger()) {
+            outerCanvasInstance.fragmentHost.width
+        } else {
+            outerCanvasInstance.fragmentHost.height
+        }
+
+        val bitmap = Bitmap.createBitmap(
+            bitmapBaseDimension,
+            bitmapBaseDimension,
+            Bitmap.Config.ARGB_8888
+        )
         bitmap.eraseColor(Color.WHITE)
         coverBitmap = BitmapUtilities.overlay(bitmap, coverBitmap, OverlayType.CenterSecond)
     }
