@@ -32,3 +32,11 @@ fun Bitmap.setPixel(coordinates: Coordinates, color: Int) {
 fun Bitmap.getPixel(coordinates: Coordinates): Int {
     return getPixel(coordinates.x, coordinates.y)
 }
+
+fun Bitmap.isWidthLarger(): Boolean {
+    return width > height
+}
+
+fun Bitmap.isHeightLarger(): Boolean {
+    return height > width
+}

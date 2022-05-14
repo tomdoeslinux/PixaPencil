@@ -7,11 +7,11 @@ import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
-    (binding.activityMainRecentCreationsRecyclerView.adapter as PixelArtCreationsAdapter).userHasLongPressed =
-        true
+    (binding.activityMainRecentCreationsRecyclerView.adapter as PixelArtCreationsAdapter).userHasLongPressed = true
 
     val title = pixelArtObj.title
 
@@ -23,7 +23,6 @@ fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
                     CoroutineScope(Dispatchers.IO).launch {
                         AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArtObj)
-//                        binding.activityMainRecentCreationsRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(pixelArtObj))
                     }
                 }
             },  getString(R.string.dialog_negative_button_text_in_code_str), null, null
