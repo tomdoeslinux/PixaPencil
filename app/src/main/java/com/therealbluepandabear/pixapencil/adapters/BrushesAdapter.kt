@@ -31,7 +31,7 @@ class BrushesAdapter(private val data: List<Brush>, private val caller: BrushesL
             binding.brushesLayoutImageView.setImageResource(item.brushImage)
 
             if (!defSelected) {
-                this@parent.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPalettesBGSelected)
+                this@parent.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.white)
                 previousViewElement = this
                 defSelected = true
             }
@@ -39,7 +39,7 @@ class BrushesAdapter(private val data: List<Brush>, private val caller: BrushesL
             this@parent.setOnClickListener {
                 caller.onBrushTapped(item)
 
-                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPaletteBG)
+                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.white)
 
                 it.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPalettesBGSelected)
                 previousViewElement = it
