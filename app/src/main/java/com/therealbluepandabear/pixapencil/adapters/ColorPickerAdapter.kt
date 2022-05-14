@@ -14,7 +14,11 @@ import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ColorPickerViewHolder
 
-class ColorPickerAdapter(private val data: ColorPalette, private val caller: ColorPickerListener?, private val isPaletteMode: Boolean = true, private val isPreviewMode: Boolean = false) : RecyclerView.Adapter<ColorPickerViewHolder>() {
+class ColorPickerAdapter(
+    private val data: ColorPalette,
+    private val caller: ColorPickerListener?,
+    private val isPaletteMode: Boolean = true,
+    private val isPreviewMode: Boolean = false) : RecyclerView.Adapter<ColorPickerViewHolder>() {
     private var colorData = listOf<Int>()
 
     init {
@@ -28,11 +32,13 @@ class ColorPickerAdapter(private val data: ColorPalette, private val caller: Col
     override fun onBindViewHolder(holder: ColorPickerViewHolder, position: Int) {
         holder.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
 
-        holder.colorView.setOnLongClickListener {
-            if (colorData[position] != Color.TRANSPARENT) {
-                caller!!.onColorLongTapped(data, position)
+        if (!isPreviewMode) {
+            holder.colorView.setOnLongClickListener {
+                if (colorData[position] != Color.TRANSPARENT) {
+                    caller!!.onColorLongTapped(data, position)
+                }
+                true
             }
-            true
         }
 
         if (isPaletteMode && !isPreviewMode) {
