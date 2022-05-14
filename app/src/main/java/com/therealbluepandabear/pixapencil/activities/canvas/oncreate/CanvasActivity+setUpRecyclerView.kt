@@ -9,10 +9,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.fromDB
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
-const val DEF_SPAN_COUNT = 1
-
 fun CanvasActivity.setUpRecyclerView() {
-    val layoutManager = GridLayoutManager(this, DEF_SPAN_COUNT)
+    val layoutManager = LinearLayoutManager(this)
 
     val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
         LinearLayoutManager.HORIZONTAL
