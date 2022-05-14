@@ -1,9 +1,12 @@
 package com.therealbluepandabear.pixapencil.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.BrushesLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.BrushesListener
 import com.therealbluepandabear.pixapencil.models.Brush
@@ -17,14 +20,29 @@ class BrushesAdapter(private val data: List<Brush>, private val caller: BrushesL
         return ViewHolder(binding.brushesLayoutRootLayout)
     }
 
+    private var previousViewElement: View? = null
+
+    private var defSelected = false
+
     override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) {
         binding.brushesLayoutMaterialCardView.apply parent@{
             val item = data[position]
 
             binding.brushesLayoutImageView.setImageResource(item.brushImage)
 
+            if (!defSelected) {
+                this@parent.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPalettesBGSelected)
+                previousViewElement = this
+                defSelected = true
+            }
+
             this@parent.setOnClickListener {
                 caller.onBrushTapped(item)
+
+                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPaletteBG)
+
+                it.backgroundTintList = AppCompatResources.getColorStateList(context!!, R.color.colorPalettesBGSelected)
+                previousViewElement = it
             }
         }
     }
