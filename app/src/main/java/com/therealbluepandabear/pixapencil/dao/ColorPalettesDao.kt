@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.models.PixelArt
 
 @Dao
 interface ColorPalettesDao {
@@ -17,8 +16,8 @@ interface ColorPalettesDao {
     fun getAllColorPalettesNoLiveData(): List<ColorPalette>
 
     @Delete
-    fun deleteColorPalette(colorPaletteObj: ColorPalette)
+    suspend fun deleteColorPalette(colorPaletteObj: ColorPalette)
 
     @Update
-    fun updateColorPalette(colorPaletteObj: ColorPalette)
+    suspend fun updateColorPalette(colorPaletteObj: ColorPalette)
 }

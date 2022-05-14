@@ -6,6 +6,9 @@ import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
     val copy2 = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
@@ -20,7 +23,9 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
         colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
     }
 
-    AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
+    CoroutineScope(Dispatchers.IO).launch {
+        AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
+    }
 
     val colorPaletteName = colorPalette.colorPaletteName
 
@@ -31,6 +36,8 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
             colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
         }
 
-        AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
+        CoroutineScope(Dispatchers.IO).launch {
+            AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
+        }
     }
 }

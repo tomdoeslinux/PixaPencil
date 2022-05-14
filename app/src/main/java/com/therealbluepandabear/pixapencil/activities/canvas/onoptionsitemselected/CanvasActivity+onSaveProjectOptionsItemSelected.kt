@@ -50,7 +50,10 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
                 bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
                 rotation = outerCanvasInstance.getCurrentRotation()
             }
-            updatePixelArtCreation(currentPixelArtObj)
+
+            CoroutineScope(Dispatchers.IO).launch {
+                updatePixelArtCreation(currentPixelArtObj)
+            }
         }
         outerCanvasInstance.rotate(0)
         (this as Activity).onBackPressed()

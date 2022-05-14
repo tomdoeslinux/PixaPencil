@@ -16,8 +16,8 @@ interface PixelArtCreationsDao {
     fun getAllPixelArtCreationsNoLiveData(): List<PixelArt>
 
     @Delete
-    fun deletePixelArtCreation(pixelArtObj: PixelArt)
+    suspend fun deletePixelArtCreation(pixelArtObj: PixelArt)
 
     @Update
-    fun updatePixelArtCreation(pixelArtObj: PixelArt)
+    suspend fun updatePixelArtCreation(pixelArtObj: PixelArt)
 }

@@ -15,7 +15,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -23,6 +22,9 @@ import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.File
 
 
@@ -93,11 +95,17 @@ class PixelArtCreationsAdapter(
                     if (item.starred) {
                         unFavouriteRecentCreation(snackbarView, item)
                         item.starred = false
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
+
+                        CoroutineScope(Dispatchers.IO).launch {
+                            AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
+                        }
                     } else {
                         favouriteRecentCreation(snackbarView, item)
                         item.starred = true
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
+
+                        CoroutineScope(Dispatchers.IO).launch {
+                            AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
+                        }
                     }
                     changeStarredIndicator((it as ImageButton), item)
                 }

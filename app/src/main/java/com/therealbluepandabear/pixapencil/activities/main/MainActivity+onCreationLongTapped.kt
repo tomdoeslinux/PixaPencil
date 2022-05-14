@@ -5,6 +5,9 @@ import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
     (binding.activityMainRecentCreationsRecyclerView.adapter as PixelArtCreationsAdapter).userHasLongPressed =
@@ -18,9 +21,10 @@ fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
             getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, title),
             getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
                 AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
-                    AppData.pixelArtDB.pixelArtCreationsDao()
-                        .deletePixelArtCreation(pixelArtObj)
-                    binding.activityMainRecentCreationsRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(pixelArtObj))
+                    CoroutineScope(Dispatchers.IO).launch {
+                        AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArtObj)
+//                        binding.activityMainRecentCreationsRecyclerView.adapter!!.notifyItemRemoved(it.indexOf(pixelArtObj))
+                    }
                 }
             },  getString(R.string.dialog_negative_button_text_in_code_str), null, null
         )

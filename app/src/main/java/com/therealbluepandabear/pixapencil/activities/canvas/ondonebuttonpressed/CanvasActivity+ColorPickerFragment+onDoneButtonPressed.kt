@@ -8,6 +8,9 @@ import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
     supportFragmentManager.popBackStackImmediate()
@@ -30,7 +33,9 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
             colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
         }
 
-        AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
+        CoroutineScope(Dispatchers.IO).launch {
+            AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
+        }
 
         AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
             binding.activityCanvasColorPickerRecyclerView.adapter = ColorPickerAdapter(fromDB!!, this)
