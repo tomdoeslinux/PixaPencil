@@ -8,6 +8,8 @@ Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org
 ## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store and F-Droid, as well as a .apk file.
 
+_A stable release (v0.0.1) is expected to release in a week or two._
+
 ## ▶️ Video
 https://www.youtube.com/watch?v=Y77EkLLC8Lo&ab_channel=thebluepandabear
 
