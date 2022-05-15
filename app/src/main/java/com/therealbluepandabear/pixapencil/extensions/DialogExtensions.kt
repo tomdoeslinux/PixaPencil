@@ -14,7 +14,7 @@ fun Activity.showDialog(
     dialogPositiveButtonAction: DialogInterface.OnClickListener,
     dialogNegativeButtonText: String?,
     dialogNegativeButtonAction: DialogInterface.OnClickListener?,
-    view: View?) {
+    view: View? = null) {
     MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)

@@ -23,7 +23,7 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
                         AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette)
                     }
                 }
-            }, getString(R.string.dialog_negative_button_text_in_code_str), null, null
+            }, getString(R.string.dialog_negative_button_text_in_code_str), null
         )
     } else {
         binding.activityCanvasRootLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)

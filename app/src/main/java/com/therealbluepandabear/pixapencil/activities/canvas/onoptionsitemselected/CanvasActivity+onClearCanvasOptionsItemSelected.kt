@@ -12,5 +12,5 @@ fun CanvasActivity.onClearCanvasOptionsItemSelected() {
         getString(R.string.dialog_positive_button_text_in_code_str),
         { _, _ ->
             clearCanvas()
-        }, getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> }, null)
+        }, getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> })
 }

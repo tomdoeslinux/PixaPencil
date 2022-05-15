@@ -24,7 +24,7 @@ fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
                         AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArtObj)
                     }
                 }
-            },  getString(R.string.dialog_negative_button_text_in_code_str), null, null
+            },  getString(R.string.dialog_negative_button_text_in_code_str), null
         )
     }
 }

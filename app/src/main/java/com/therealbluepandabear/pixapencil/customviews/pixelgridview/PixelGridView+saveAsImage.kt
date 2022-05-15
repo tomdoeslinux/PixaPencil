@@ -7,6 +7,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
@@ -29,8 +30,7 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
                     if (outputCode == OutputCode.Failure) {
                         if (exceptionMessage_2 != null) {
                             showSnackbarWithAction(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
-                                (context as Activity)
-                                    .showDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_2, context.getString(R.string.dialog_positive_button_text_in_code_str), { _, _ -> }, null, null, null)
+                                (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_2)
                             }
                         } else {
                             showSnackbar(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default)
@@ -43,8 +43,7 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
         } else {
             if (exceptionMessage_1 != null) {
                 showSnackbarWithAction(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
-                    (context as Activity)
-                        .showDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_1, context.getString(R.string.dialog_positive_button_text_in_code_str), { _, _ -> }, null, null, null)
+                    (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_1)
                 }
             } else {
                 showSnackbar(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default)

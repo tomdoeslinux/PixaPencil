@@ -7,10 +7,6 @@ import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun PixelGridView.extendedRedo() {
-    /**
-     * Added extra check here just to be safe that we're not operating on an empty data set.
-     */
-
     if (undoStack.size > 0) {
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
 

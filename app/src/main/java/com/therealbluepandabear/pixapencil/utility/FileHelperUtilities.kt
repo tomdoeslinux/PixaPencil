@@ -138,7 +138,7 @@ class FileHelperUtilities(
                     },
                     this.context.getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> },
                     textInput)
-                }, null)
+                })
         } else {
             createNewFile(file)
         }
