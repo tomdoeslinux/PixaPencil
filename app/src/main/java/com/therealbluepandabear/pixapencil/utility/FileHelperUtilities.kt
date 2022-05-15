@@ -124,7 +124,6 @@ class FileHelperUtilities(
                     createNewFile(file)
                 },
                 this.context.getString(R.string.dialog_file_exists_negative_button_text_in_code_str), { _, _ ->
-                    val bmp = outerCanvasFragment.fragmentHost.drawToBitmap()
                 this.context.activity()?.showDialog(
                     this.context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
                     this.context.getString(R.string.dialog_save_under_new_name_text_in_code_str),
@@ -134,7 +133,7 @@ class FileHelperUtilities(
                         outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$input.png" else "$input.jpg"
 
                         file = File(directory, outputName)
-                        createNewFile(file, bmp)
+                        createNewFile(file)
                     },
                     this.context.getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> },
                     textInput)
