@@ -1,15 +1,26 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.content.res.Configuration
+import android.graphics.Color
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
-import com.therealbluepandabear.pixapencil.activities.canvas.fromDB
+import androidx.recyclerview.widget.RecyclerView
+import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
+var firstLoad = false
+
 fun CanvasActivity.setUpRecyclerView() {
-    val layoutManager = LinearLayoutManager(this)
+    val layoutManager = object : LinearLayoutManager(this) {
+        override fun onLayoutCompleted(state: RecyclerView.State) {
+            super.onLayoutCompleted(state)
+            if (!firstLoad) {
+                setPrimaryPixelColor(Color.BLACK)
+                setSecondaryPixelColor(Color.BLUE)
+                firstLoad = true
+            }
+        }
+    }
 
     val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
         LinearLayoutManager.HORIZONTAL

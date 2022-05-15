@@ -10,7 +10,6 @@ fun CanvasActivity.onCreate() {
     setBindings()
     setUpRecyclerView()
     setOnClickListeners()
-    setColors()
     initSharedPreferenceObject()
     setObjectGlobalScopeLifecycleOwner()
     setFlags()
