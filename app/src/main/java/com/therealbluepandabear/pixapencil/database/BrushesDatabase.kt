@@ -16,7 +16,7 @@ object BrushesDatabase {
 
     init {
         val brushesData = listOf(
-            Brush("Default Brush", listOf(), R.drawable.default_brush),
+            Brush("Default Brush", listOf(), R.drawable.brush_0),
             Brush("Brush 1", listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
@@ -33,14 +33,14 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.ExpandTopLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTopRight, 1),
             ), R.drawable.brush_2),
-            Brush("Brush 4", listOf(
+            Brush("Brush 3", listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 2),
 
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 2),
-            ), R.drawable.brush_4),
-            Brush("Brush 6", listOf(
+            ), R.drawable.brush_3),
+            Brush("Brush 4", listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandBottomLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottomRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTopLeft, 1),
@@ -55,8 +55,10 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTop, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottom, 1),
-            ), R.drawable.brush_6))
+            ), R.drawable.brush_4))
 
-        for (brush in brushesData) addBrush(brush)
+        for (brush in brushesData) {
+            addBrush(brush)
+        }
     }
 }
