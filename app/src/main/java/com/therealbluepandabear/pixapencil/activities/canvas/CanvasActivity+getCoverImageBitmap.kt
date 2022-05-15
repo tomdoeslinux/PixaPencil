@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.Matrix
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.enums.OverlayType
-import com.therealbluepandabear.pixapencil.extensions.isHeightLarger
 import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance

@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.main.extendedOnCreationLongTapped
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog

@@ -37,10 +37,6 @@ fun Bitmap.isWidthLarger(): Boolean {
     return width > height
 }
 
-fun Bitmap.isHeightLarger(): Boolean {
-    return height > width
-}
-
 fun Bitmap.isRect(): Boolean {
     return width != height
 }

@@ -7,7 +7,6 @@ import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
