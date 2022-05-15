@@ -14,22 +14,20 @@ import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
-import androidx.core.view.drawToBitmap
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import java.io.*
 
 
 class FileHelperUtilities(
     private val context: Context,
-    private val outerCanvasFragment: OuterCanvasFragment,
+    private val bitmap: Bitmap,
     private val projectTitle: String?) {
     companion object {
-        fun createInstance(context: Context, outerCanvasFragment: OuterCanvasFragment, projectTitle: String?) = FileHelperUtilities(context, outerCanvasFragment, projectTitle)
+        fun createInstance(context: Context, bitmap: Bitmap, projectTitle: String?) = FileHelperUtilities(context, bitmap, projectTitle)
     }
 
     private fun commonDocumentDirPath(): File? {
@@ -85,26 +83,26 @@ class FileHelperUtilities(
                 as TextInputLayout
 
         // Nested function? Is it a good practice? I don't think so, but it works.
-        fun createNewFile(file_: File, bmp: Bitmap = outerCanvasFragment.fragmentHost.drawToBitmap()) {
+        fun createNewFile(file_: File, bitmap: Bitmap = this.bitmap) {
             try {
-                var bmp2 = bmp
+                var bitmap2 = bitmap
 
                 val outputStream = FileOutputStream(file_)
 
                 if (compressionFormat == Bitmap.CompressFormat.JPEG) {
                     val newBitmap = Bitmap.createBitmap(
-                        bmp2.width,
-                        bmp2.height,
-                        bmp2.config
+                        bitmap2.width,
+                        bitmap2.height,
+                        bitmap2.config
                     )
                     val canvas = Canvas(newBitmap)
                     canvas.drawColor(Color.WHITE)
-                    canvas.drawBitmap(bmp2, 0f, 0f, null)
+                    canvas.drawBitmap(bitmap2, 0f, 0f, null)
 
-                    bmp2 = newBitmap
+                    bitmap2 = newBitmap
                 }
 
-                bmp2.compress(compressionFormat, compressionOutputQuality, outputStream)
+                bitmap2.compress(compressionFormat, compressionOutputQuality, outputStream)
                 outputStream.close()
             } catch (exception: Exception) {
                 exceptionMessage = exception.message

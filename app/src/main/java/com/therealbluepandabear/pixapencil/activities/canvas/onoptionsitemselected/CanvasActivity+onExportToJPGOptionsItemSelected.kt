@@ -4,5 +4,5 @@ import android.graphics.Bitmap
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun onExportToJPGOptionsItemSelected() {
-    pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
+    pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
 }

@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.app.Activity
+import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -19,7 +20,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.45)
     val coverBMPFileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
 
-    val fileHelperInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance, projectTitle)
+    val fileHelperInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance.fragmentHost.drawToBitmap(), projectTitle)
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
     if (index == -1) {

@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.graphics.Bitmap
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
@@ -12,7 +13,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     if (!Flags.PressedBackFromImg && !Flags.PressedBackToExit) {
-        val fileHelperUtil = FileHelperUtilities.createInstance(this, outerCanvasInstance, null)
+        val fileHelperUtil = FileHelperUtilities.createInstance(this, outerCanvasInstance.fragmentHost.drawToBitmap(), null)
         val bmp = pixelGridViewInstance.pixelGridViewBitmap
         val fileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
         fileHelperUtil.storeBitmapToInternalStorage(fileName, bmp, Bitmap.CompressFormat.PNG) // Compress format MUST be PNG to show transparency

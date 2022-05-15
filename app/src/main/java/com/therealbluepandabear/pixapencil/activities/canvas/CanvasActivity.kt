@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnRedoActionCompleted
 import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnUndoActionCompleted
@@ -58,7 +59,7 @@ class CanvasActivity :
         viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
             if (viewTemp.isVisible && replacedBMP && prevOrientation != resources.configuration.orientation) {
                 if (prevBitmapFilePathStr != null) {
-                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance, null)
+                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance.fragmentHost.drawToBitmap(), null)
                     val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(prevBitmapFilePathStr!!)
 
                     pixelGridViewInstance.replaceBitmap(convertedBMP)

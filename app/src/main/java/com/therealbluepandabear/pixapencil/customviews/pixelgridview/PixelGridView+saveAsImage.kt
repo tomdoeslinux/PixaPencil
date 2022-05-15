@@ -3,10 +3,10 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 import android.app.Activity
 import android.graphics.Bitmap
 import android.net.Uri
+import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
@@ -19,7 +19,8 @@ lateinit var file: File
 fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
     val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
 
-    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context, outerCanvasInstance, projectTitle)
+    val bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
+    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context, bitmap, projectTitle)
 
     fileHelperUtilitiesInstance.saveBitmapAsImage(90, format) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {
