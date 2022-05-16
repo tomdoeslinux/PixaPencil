@@ -13,7 +13,7 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     if (!Flags.PressedBackFromImg && !Flags.PressedBackToExit) {
-        val fileHelperUtil = FileHelperUtilities.createInstance(this, outerCanvasInstance.fragmentHost.drawToBitmap(), null)
+        val fileHelperUtil = FileHelperUtilities.createInstance(this)
         val bmp = pixelGridViewInstance.pixelGridViewBitmap
         val fileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
         fileHelperUtil.storeBitmapToInternalStorage(fileName, bmp, Bitmap.CompressFormat.PNG) // Compress format MUST be PNG to show transparency

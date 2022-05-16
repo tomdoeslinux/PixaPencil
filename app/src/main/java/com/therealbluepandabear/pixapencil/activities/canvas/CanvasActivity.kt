@@ -72,7 +72,7 @@ class CanvasActivity :
         viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
             if (viewTemp.isVisible && replacedBMP && prevOrientation != resources.configuration.orientation) {
                 if (prevBitmapFilePathStr != null) {
-                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this, outerCanvasInstance.fragmentHost.drawToBitmap(), null)
+                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this)
                     val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(prevBitmapFilePathStr!!)
 
                     pixelGridViewInstance.replaceBitmap(convertedBMP)

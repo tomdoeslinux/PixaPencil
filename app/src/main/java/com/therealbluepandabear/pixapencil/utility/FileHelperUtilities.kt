@@ -22,12 +22,9 @@ import com.therealbluepandabear.pixapencil.extensions.showDialog
 import java.io.*
 
 
-class FileHelperUtilities(
-    private val context: Context,
-    private val bitmap: Bitmap,
-    private val projectTitle: String?) {
+class FileHelperUtilities(private val context: Context) {
     companion object {
-        fun createInstance(context: Context, bitmap: Bitmap, projectTitle: String?) = FileHelperUtilities(context, bitmap, projectTitle)
+        fun createInstance(context: Context) = FileHelperUtilities(context)
     }
 
     private fun commonDocumentDirPath(): File? {
@@ -54,9 +51,12 @@ class FileHelperUtilities(
         return dir
     }
 
-    fun saveBitmapAsImage(compressionOutputQuality: Int,
-                          compressionFormat: Bitmap.CompressFormat,
-                          onTaskFinished: (OutputCode, File, String?) -> Unit) {
+    fun saveBitmapAsImage(
+        bitmap: Bitmap,
+        projectTitle: String?,
+        compressionOutputQuality: Int,
+        compressionFormat: Bitmap.CompressFormat,
+        onTaskFinished: (OutputCode, File, String?) -> Unit) {
         /** Thank you to to javatar on StackOverflow - quite a bit of the code here is based off of their solution.
          *
          * - [Link to javatar's profile](https://stackoverflow.com/users/2033223/javatar)
@@ -82,10 +82,9 @@ class FileHelperUtilities(
             this.context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, null)
                 as TextInputLayout
 
-        // Nested function? Is it a good practice? I don't think so, but it works.
-        fun createNewFile(file_: File, bitmap: Bitmap = this.bitmap) {
+        fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             try {
-                var bitmap2 = bitmap
+                var bitmap2 = bitmap_
 
                 val outputStream = FileOutputStream(file_)
 
@@ -163,9 +162,9 @@ class FileHelperUtilities(
         }
     }
 
-    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG) {
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = 90) {
         context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
-            bitmap.compress(compressFormat, 90, it)
+            bitmap.compress(compressFormat, compressionOutputQuality, it)
             it.close()
         }
     }
