@@ -2,11 +2,11 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.Matrix
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
+import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 
@@ -54,11 +54,7 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     }
 
     val bmps: Bitmap?
-
-    val matrix = Matrix()
-    matrix.setRotate(outerCanvasInstance.getCurrentRotation())
-
-    bmps = Bitmap.createBitmap(coverBitmap, 0, 0, coverBitmap.width, coverBitmap.height, matrix, false)
+    bmps = coverBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt())
 
     enableGridIfNeeded()
 

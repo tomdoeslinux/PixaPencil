@@ -40,3 +40,10 @@ fun Bitmap.isWidthLarger(): Boolean {
 fun Bitmap.isRect(): Boolean {
     return width != height
 }
+
+fun Bitmap.rotate(degrees: Int): Bitmap {
+    val matrix = Matrix()
+    matrix.setRotate(degrees.toFloat())
+
+    return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, false)
+}
