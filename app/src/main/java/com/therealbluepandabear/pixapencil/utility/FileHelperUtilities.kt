@@ -182,25 +182,4 @@ class FileHelperUtilities(private val context: Context) {
 
         return file.delete()
     }
-//
-//    fun storeStringToInternalStorage(fileName: String, fileContents: String) {
-//        val bufferedWriter =
-//            BufferedWriter(FileWriter(File("${context.filesDir}/$fileName")))
-//        bufferedWriter.write(fileContents)
-//        bufferedWriter.close()
-//    }
-//
-//    fun loadStringFromInternalStorage(fileName: String): String {
-//        val bufferedReader =
-//            BufferedReader(FileReader(File("${context.filesDir}/$fileName")))
-//        var read: String?
-//        val builder = StringBuilder("")
-//
-//        while (bufferedReader.readLine().also { read = it } != null) {
-//            builder.append(read)
-//        }
-//        bufferedReader.close()
-//
-//        return builder.toString()
-//    }
 }
