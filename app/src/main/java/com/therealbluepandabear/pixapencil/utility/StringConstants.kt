@@ -50,8 +50,6 @@ object StringConstants {
         const val prevToolBundleIdentifier = "PrevTool"
         const val prevBrushBundleIdentifier = "PrevBrush"
         const val prevTabBundleIdentifier = "PrevTab"
-        const val prevUndoStackJsonStrIdentifier = "prevUndoStackJsonStr"
-        const val prevRedoStackJsonStrIdentifier = "prevRedoStackJsonStr"
         const val prevSymmetryModeStrIdentifier = "prevSymmetryModeStr"
         const val prevRotationStrIdentifier = "prevRotationStr"
         const val prevColorPickerTabBundleIdentifier = "PrevColorPickerTab"

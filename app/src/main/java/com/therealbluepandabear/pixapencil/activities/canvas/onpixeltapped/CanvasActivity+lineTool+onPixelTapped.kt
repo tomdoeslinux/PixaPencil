@@ -4,7 +4,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.lineMode_hasLetGo
 import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 

@@ -7,7 +7,6 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.extendedSetPixelAndSaveToBitmapAction
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp

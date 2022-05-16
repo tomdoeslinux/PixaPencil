@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.view.MotionEvent
-import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.Flags
 

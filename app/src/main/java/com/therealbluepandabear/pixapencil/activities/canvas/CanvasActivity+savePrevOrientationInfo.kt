@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tools

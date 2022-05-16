@@ -10,7 +10,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.squar
 import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.circleToolOnActionUp() {
     if (currentTool.toolFamily == ToolFamily.Circle && currentTool.outlined == false) {

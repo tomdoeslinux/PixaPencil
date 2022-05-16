@@ -7,7 +7,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInf
 import com.therealbluepandabear.pixapencil.activities.canvas.rectangleMode_hasLetGo
 import com.therealbluepandabear.pixapencil.algorithms.RectangleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {

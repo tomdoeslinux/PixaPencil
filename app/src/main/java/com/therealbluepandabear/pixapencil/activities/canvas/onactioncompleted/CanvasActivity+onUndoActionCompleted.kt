@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
-fun CanvasActivity.CanvasCommandsHelper.extendedOnUndoActionCompleted(
+fun extendedOnUndoActionCompleted(
     undoStack: List<BitmapAction>,
     bitmapActionData: List<BitmapAction>
 ) {

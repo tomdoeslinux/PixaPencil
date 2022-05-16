@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpresse
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.replacePixelsByColor
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.extendedOnDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
     supportFragmentManager.popBackStackImmediate()

@@ -1,9 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
-import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.onUndoOptionsItemSelected
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 
 
