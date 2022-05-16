@@ -16,13 +16,13 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
+fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat, thisRotation: Int = 0) {
     val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
 
     val bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context)
 
-    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format) { outputCode, _file, exceptionMessage_1 ->
+    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format, rotation = thisRotation) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {
             file = _file
 

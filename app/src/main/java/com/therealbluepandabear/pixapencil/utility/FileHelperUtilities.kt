@@ -18,6 +18,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
+import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import java.io.*
 
@@ -56,6 +57,7 @@ class FileHelperUtilities(private val context: Context) {
         projectTitle: String?,
         compressionOutputQuality: Int,
         compressionFormat: Bitmap.CompressFormat,
+        rotation: Int = 0,
         onTaskFinished: (OutputCode, File, String?) -> Unit) {
         /** Thank you to to javatar on StackOverflow - quite a bit of the code here is based off of their solution.
          *
@@ -85,6 +87,10 @@ class FileHelperUtilities(private val context: Context) {
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             try {
                 var bitmap2 = bitmap_
+
+                if (rotation != 0) {
+                    bitmap2 = bitmap2.rotate(rotation)
+                }
 
                 val outputStream = FileOutputStream(file_)
 
