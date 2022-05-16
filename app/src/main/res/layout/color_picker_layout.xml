@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/colorPickerLayout_rootLayout">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPickerRecyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPickerRecyclerView"
+        app:layout_constraintVertical_bias="0.0"/>
+    <View android:id="@+id/colorView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:color/holo_orange_dark" />
+</FrameLayout>
 
-
-<View android:id="@+id/colorView"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:background="@android:color/holo_orange_dark"
-    xmlns:android="http://schemas.android.com/apk/res/android"/>
