@@ -55,7 +55,7 @@ class ColorPickerAdapter(
         binding.colorView.setOnClickListener {
             if (colorData[position] != Color.TRANSPARENT) {
                 caller?.onColorTapped(colorData[position], it)
-            } else if (colorData[position] == Color.TRANSPARENT){
+            } else if (colorData[position] == Color.TRANSPARENT && position == colorData.size - 1){
                 caller?.onColorAdded(data)
             }
         }
