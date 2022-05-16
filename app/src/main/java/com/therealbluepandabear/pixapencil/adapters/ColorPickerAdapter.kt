@@ -42,7 +42,7 @@ class ColorPickerAdapter(
         }
 
         if (isPaletteMode && !isPreviewMode) {
-            if (colorData[position] == Color.TRANSPARENT) {
+            if (colorData[position] == Color.TRANSPARENT && colorData[position] == colorData.last()) {
                 holder.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
                 holder.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
             }
@@ -51,7 +51,7 @@ class ColorPickerAdapter(
         holder.colorView.setOnClickListener {
             if (colorData[position] != Color.TRANSPARENT) {
                 caller?.onColorTapped(colorData[position], it)
-            } else {
+            } else if (colorData[position] == Color.TRANSPARENT){
                 caller?.onColorAdded(data)
             }
         }
