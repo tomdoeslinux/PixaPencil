@@ -3,11 +3,11 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun initPrimaryAlgorithmInfoParameter() {
-    primaryAlgorithmInfoParameter =  AlgorithmInfoParameter.create(
-        pixelGridViewInstance,
+fun CanvasActivity.initPrimaryAlgorithmInfoParameter() {
+    primaryAlgorithmInfoParameter = AlgorithmInfoParameter.create(
+        canvasCommandsHelperInstance,
         pixelGridViewInstance.pixelGridViewBitmap,
-        pixelGridViewInstance.currentBitmapAction!!,
+        viewModel.currentBitmapAction!!,
         getSelectedColor()
     )
 }

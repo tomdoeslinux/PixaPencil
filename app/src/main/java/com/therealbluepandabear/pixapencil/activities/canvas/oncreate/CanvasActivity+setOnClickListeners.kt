@@ -13,10 +13,6 @@ import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFrag
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 
-fun clearCanvas() {
-    pixelGridViewInstance.clearCanvas()
-}
-
 fun CanvasActivity.setOnClickListeners() {
     brushesFragmentInstance = BrushesFragment.newInstance()
     supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, brushesFragmentInstance!!).commit()

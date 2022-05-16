@@ -1,7 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.redo
 
-fun onRedoOptionsItemSelected() {
-   pixelGridViewInstance.redo()
+fun CanvasActivity.onRedoOptionsItemSelected() {
+   canvasCommandsHelperInstance.redo()
 }

@@ -58,20 +58,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()
             }
 
-            if (prevUndoStackJsonStr != null) {
-                pixelGridViewInstance.bitmapActionData =
-                    JsonConverter.convertJsonStringToListOfBitmapAction(
-                        prevUndoStackJsonStr!!
-                    ).toMutableList()
-            }
-
-            if (prevRedoStackJsonStr != null) {
-                pixelGridViewInstance.undoStack =
-                    JsonConverter.convertJsonStringToListOfBitmapAction(
-                        prevRedoStackJsonStr!!
-                    ).toMutableList()
-            }
-
             if (prevSymmetryModeStr != null) {
                 pixelGridViewInstance.symmetryMode =
                     SymmetryMode.values().first { it.symmetryName == prevSymmetryModeStr }

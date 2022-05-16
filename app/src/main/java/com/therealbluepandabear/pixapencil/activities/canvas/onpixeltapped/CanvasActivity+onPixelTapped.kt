@@ -12,7 +12,7 @@ var polygonCoordinates = mutableListOf<Coordinates>()
 var cindx = 0
 var first = true
 
-fun extendedOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!primaryAlgorithmInfoParameterInitialized) {
         initPrimaryAlgorithmInfoParameter()
     }

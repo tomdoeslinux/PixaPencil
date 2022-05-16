@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
@@ -8,7 +9,7 @@ import com.therealbluepandabear.pixapencil.algorithms.RectangleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun rectangleToolOnActionUp() {
+fun CanvasActivity.rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
         val rectAlg: RectangleAlgorithm? =
             if (currentTool.toolFamily == ToolFamily.Rectangle && currentTool.outlined == false) {
@@ -20,8 +21,8 @@ fun rectangleToolOnActionUp() {
         rectAlg?.compute(rectangleOrigin!!, coordinates!!)
     }
 
-    pixelGridViewInstance.bitmapActionData.add(
-        pixelGridViewInstance.currentBitmapAction!!
+    viewModel.bitmapActionData.add(
+        viewModel.currentBitmapAction!!
     )
 
     coordinates = null

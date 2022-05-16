@@ -5,16 +5,17 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
-import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnRedoActionCompleted
-import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.extendedOnUndoActionCompleted
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.extendedSetPixelAndSaveToBitmapAction
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnCreateOptionsMenu
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
+import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
@@ -41,6 +42,18 @@ class CanvasActivity :
     var projectTitle: String? = null
 
     lateinit var outerCanvasInstance: OuterCanvasFragment
+
+    val viewModel: CanvasActivityViewModel by viewModels()
+
+    inner class CanvasCommandsHelper {
+        fun setPixelAndSaveToBitmapActionReference(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
+            setPixelAndSaveToBitmapAction(coordinates, color, saveToBitmapAction)
+        }
+
+        val viewModelReference: CanvasActivityViewModel by viewModels()
+    }
+
+    val canvasCommandsHelperInstance: CanvasCommandsHelper = CanvasCommandsHelper()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,15 +115,10 @@ class CanvasActivity :
         extendedOnActionUp()
     }
 
-    override fun onRedoActionCompleted(undoStack: List<BitmapAction>) {
-        extendedOnRedoActionCompleted(undoStack)
-    }
-
-    override fun onUndoActionCompleted(
-        undoStack: List<BitmapAction>,
-        bitmapActionData: List<BitmapAction>
-    ) {
-        extendedOnUndoActionCompleted(undoStack, bitmapActionData)
+    override fun dispatchTouchEvent() {
+        if (viewModel.currentBitmapAction == null) {
+            viewModel.currentBitmapAction = BitmapAction(mutableListOf())
+        }
     }
 
     override fun onColorTapped(colorTapped: Int, view: View) {
@@ -175,5 +183,9 @@ class CanvasActivity :
 
     override fun onDoneButtonPressed(radius: String, strength: String) {
         extendedOnDoneButtonPressed(radius, strength)
+    }
+
+    fun setPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true)  {
+        extendedSetPixelAndSaveToBitmapAction(coordinates, color, saveToBitmapAction)
     }
 }

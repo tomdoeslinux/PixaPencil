@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.onUndoOptionsItemSelected
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
@@ -28,14 +29,14 @@ class PixelPerfectAlgorithm(private val algorithmInfoParameter: AlgorithmInfoPar
             index += 1
         }
 
-        onUndoOptionsItemSelected()
+//        onUndoOptionsItemSelected()
 
-        pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
+//        pixelGridViewInstance.currentBitmapAction = BitmapAction(mutableListOf())
 
         for (value in data) {
-            pixelGridViewInstance.overrideSetPixel(value.coordinates, algorithmInfoParameter.color)
+            algorithmInfoParameter.canvasCommandsHelperInstance.overrideSetPixel(value.coordinates, algorithmInfoParameter.color)
         }
 
-        pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
+//        pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
     }
 }

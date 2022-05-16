@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-fun configureSavedInstanceState(savedInstanceState: Bundle?) {
+fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {
         prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.prevOrientationBundleIdentifier)
         prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.prevBitmapFilePathStrBundleIdentifier)
@@ -13,18 +13,8 @@ fun configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.prevToolBundleIdentifier)
         prevBrushStr = savedInstanceState.getString(StringConstants.Identifiers.prevBrushBundleIdentifier)
         prevTab = savedInstanceState.getInt(StringConstants.Identifiers.prevTabBundleIdentifier)
-        prevUndoStackJsonStr = savedInstanceState.getString(StringConstants.Identifiers.prevUndoStackJsonStrIdentifier)
-        prevRedoStackJsonStr = savedInstanceState.getString(StringConstants.Identifiers.prevRedoStackJsonStrIdentifier)
-        prevUndoToolbarButtonDisabledEnabledState = prevUndoStackJsonStr?.let {
-            JsonConverter.convertJsonStringToListOfBitmapAction(
-                it
-            ).isNotEmpty()
-        } == true
-        prevRedoToolbarButtonDisabledEnabledState = prevUndoStackJsonStr?.let {
-            JsonConverter.convertJsonStringToListOfBitmapAction(
-                it
-            ).isNotEmpty()
-        } == true
+        prevUndoToolbarButtonDisabledEnabledState = viewModel.bitmapActionData.isNotEmpty() == true
+        prevRedoToolbarButtonDisabledEnabledState = viewModel.undoStack.isNotEmpty() == true
         prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier)
         prevRotation = savedInstanceState.getInt(StringConstants.Identifiers.prevRotationStrIdentifier)
     }

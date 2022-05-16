@@ -9,9 +9,7 @@ fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
     val coordinateX = (event.x / scaleWidth).toInt()
     val coordinateY = (event.y / scaleHeight).toInt()
 
-    if (currentBitmapAction == null) {
-        currentBitmapAction = BitmapAction(mutableListOf())
-    }
+    caller.dispatchTouchEvent()
 
     when (event.actionMasked) {
         MotionEvent.ACTION_MOVE -> {

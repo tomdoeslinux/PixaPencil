@@ -36,11 +36,6 @@ class PixelGridView(
     var prevX: Int? = null
     var prevY: Int? = null
 
-    var bitmapActionData: MutableList<BitmapAction> = mutableListOf()
-    var undoStack: MutableList<BitmapAction> = mutableListOf()
-
-    var currentBitmapAction: BitmapAction? = null
-
     var currentBrush: Brush? = null
 
     var pixelPerfectMode: Boolean = false
@@ -146,32 +141,8 @@ class PixelGridView(
         return extendedDispatchTouchEvent(event)
     }
 
-    fun undo() {
-        extendedUndo()
-    }
-
-    fun redo() {
-        extendedRedo()
-    }
-
-    fun clearCanvas() {
-        extendedClearCanvas()
-    }
-
     fun getNumberOfUniqueColors(): List<Int> {
         return extendedGetNumberOfUniqueColors()
-    }
-
-    fun replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
-        extendedReplacePixelsByColor(colorToFind, colorToReplace)
-    }
-
-    fun applyBitmapFilter(lambda: (Int) -> Int) {
-        extendedApplyBitmapFilter(lambda)
-    }
-
-    fun overrideSetPixel(coordinates: Coordinates, color: Int, ignoreBrush: Boolean = false, saveToBitmapAction: Boolean = true, ignoreSymmetry: Boolean = false) {
-        extendedOverrideSetPixel(coordinates, color, ignoreBrush, saveToBitmapAction, ignoreSymmetry)
     }
 
     fun replaceBitmap(newBitmap: Bitmap) {

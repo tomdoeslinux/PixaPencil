@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.lineMode_hasLetGo
 import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
@@ -9,22 +10,22 @@ import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
 var firstLineDrawn = false
 
-fun lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
     if (!lineMode_hasLetGo) {
         if (!first) {
-            BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
         }
-        BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
+        BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
         first = false
 
         if (firstLineDrawn) {
-            pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
+            viewModel.currentBitmapAction!!.actionData.clear()
         }
     } else {
-        pixelGridViewInstance.currentBitmapAction = null
+        viewModel.currentBitmapAction = null
         lineMode_hasLetGo = false
         first = true
     }

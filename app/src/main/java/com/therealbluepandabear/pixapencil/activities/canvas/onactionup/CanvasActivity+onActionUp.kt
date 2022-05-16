@@ -10,7 +10,7 @@ import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun extendedOnActionUp() {
+fun CanvasActivity.extendedOnActionUp() {
     if (currentTool == Tools.ShadingTool) {
         pixelGridViewInstance.shadingMap.clear()
     }
@@ -25,8 +25,8 @@ fun extendedOnActionUp() {
         }
 
         currentTool == Tools.PolygonTool -> {
-            pixelGridViewInstance.bitmapActionData.add(
-               pixelGridViewInstance.currentBitmapAction!!
+            viewModel.bitmapActionData.add(
+                viewModel.currentBitmapAction!!
             )
         }
 
@@ -35,7 +35,7 @@ fun extendedOnActionUp() {
         }
 
         currentTool == Tools.EraseTool -> {
-            pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
+            viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
 
@@ -44,7 +44,7 @@ fun extendedOnActionUp() {
         }
 
         else -> {
-            pixelGridViewInstance.bitmapActionData.add(pixelGridViewInstance.currentBitmapAction!!)
+            viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
             if (pixelGridViewInstance.pixelPerfectMode
                 && (currentTool == Tools.PencilTool)
@@ -60,13 +60,13 @@ fun extendedOnActionUp() {
         }
     }
 
-    if (pixelGridViewInstance.bitmapActionData.isNotEmpty() && currentTool.draws) {
+    if (viewModel.bitmapActionData.isNotEmpty() && currentTool.draws) {
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
     }
 
-    if (pixelGridViewInstance.undoStack.isEmpty()) {
+    if (viewModel.undoStack.isEmpty()) {
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     }
 
-    pixelGridViewInstance.currentBitmapAction = null
+    viewModel.currentBitmapAction = null
 }

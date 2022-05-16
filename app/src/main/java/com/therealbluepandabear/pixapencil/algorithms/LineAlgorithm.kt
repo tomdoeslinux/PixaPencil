@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import kotlin.math.abs
 
@@ -22,7 +23,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            algorithmInfo.canvas.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
             x++
 
             if (p < 0) {
@@ -54,7 +55,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            algorithmInfo.canvas.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
             y++
 
             if (p < 0) {

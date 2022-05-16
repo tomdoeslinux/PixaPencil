@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 /**
@@ -20,35 +21,35 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
         val y = p2.y
 
         if (!evenDiameterMode) {
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc + x, yc - y),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc + y, yc - x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc + x, yc + y),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc + y, yc + x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - x, yc - y),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - y, yc - x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - y, yc + x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - x, yc + y),
                 algorithmInfo.color
             )
@@ -78,35 +79,35 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
                 }
             }
         } else {
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates((xc + x) + 1, yc - y),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates((xc + y) + 1, yc - x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates((xc + x) + 1, (yc + y) + 1),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates((xc + y) + 1, (yc + x) + 1),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - x, yc - y),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - y, yc - x),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - y, (yc + x) + 1),
                 algorithmInfo.color
             )
-            algorithmInfo.canvas.overrideSetPixel(
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc - x, (yc + y) + 1),
                 algorithmInfo.color
             )

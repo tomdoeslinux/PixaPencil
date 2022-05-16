@@ -70,7 +70,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     }
 
     if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && currentTool == Tools.PolygonTool) {
-        pixelGridViewInstance.currentBitmapAction = null
+        viewModel.currentBitmapAction = null
 
         polygonCoordinates.clear()
         cindx = 0

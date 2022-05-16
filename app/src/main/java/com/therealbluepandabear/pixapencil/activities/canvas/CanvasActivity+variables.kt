@@ -66,8 +66,6 @@ var prevBrushStr: String? = null
 var prevTab: Int = 0
 var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
 var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
-var prevUndoStackJsonStr: String? = null
-var prevRedoStackJsonStr: String? = null
 var prevSymmetryModeStr: String? = null
 var prevRotation: Int = 0
 

@@ -9,23 +9,23 @@ import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
 var firstCircleDrawn = false
 
-fun circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(primaryAlgorithmInfoParameter, null, true)
     val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter)
 
     if (!circleMode_hasLetGo) {
         if (!first) {
-            BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
+            BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
         }
-        BinaryPreviewStateSwitcher.feedState(pixelGridViewInstance.currentBitmapAction!!)
+        BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
         first = false
 
         if (firstCircleDrawn) {
-            pixelGridViewInstance.currentBitmapAction!!.actionData.clear()
+            viewModel.currentBitmapAction!!.actionData.clear()
         }
     } else {
-        pixelGridViewInstance.currentBitmapAction = null
+        viewModel.currentBitmapAction = null
         circleMode_hasLetGo = false
         first = true
     }

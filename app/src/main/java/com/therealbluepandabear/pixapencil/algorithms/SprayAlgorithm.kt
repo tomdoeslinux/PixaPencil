@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import kotlin.math.floor
 import kotlin.random.Random
@@ -22,7 +23,7 @@ class SprayAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private 
 
             val randCoordinates = Coordinates(randX, randY)
 
-            algorithmInfo.canvas.overrideSetPixel(randCoordinates, algorithmInfo.color)
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(randCoordinates, algorithmInfo.color)
         }
     }
 }

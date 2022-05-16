@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.circleMode_hasLetGo
 import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.circleOrigin
@@ -11,7 +12,7 @@ import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun circleToolOnActionUp() {
+fun CanvasActivity.circleToolOnActionUp() {
     if (currentTool.toolFamily == ToolFamily.Circle && currentTool.outlined == false) {
         val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter, true)
 
@@ -22,9 +23,7 @@ fun circleToolOnActionUp() {
         }
     }
 
-    pixelGridViewInstance.bitmapActionData.add(
-        pixelGridViewInstance.currentBitmapAction!!
-    )
+    viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
     coordinates = null
     circleOrigin = null

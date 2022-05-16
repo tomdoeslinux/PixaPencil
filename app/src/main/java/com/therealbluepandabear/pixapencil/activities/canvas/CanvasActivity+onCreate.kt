@@ -4,6 +4,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.initSharedPreferenceObject
 
 fun CanvasActivity.onCreate() {
+    viewModel.currentBitmapAction = null
     initColorPalettesDBIfNotInitialized()
     getExtras()
     setUpFragment()

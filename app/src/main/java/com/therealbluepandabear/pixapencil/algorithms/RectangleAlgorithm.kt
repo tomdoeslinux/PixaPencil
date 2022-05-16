@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val borderColor: Int? = null) {
@@ -23,40 +24,40 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
         if (p1.x >= p2.x && p1.y <= p2.y) {
             while (cx >= p2.x) {
                 for (i in cy..p2.y) {
-                    algorithmInfo.canvas.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
+                    algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
                 }
 
-                algorithmInfo.canvas.overrideSetPixel(p1, algorithmInfo.color, true)
+                algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(p1, algorithmInfo.color, true)
 
                 cx--
             }
         } else if (p1.x <= p2.x && p1.y <= p2.y) {
             while (cx <= p2.x) {
                 for (i in cy..p2.y) {
-                    algorithmInfo.canvas.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
+                    algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
                 }
 
-                algorithmInfo.canvas.overrideSetPixel(p1, algorithmInfo.color, true)
+                algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(p1, algorithmInfo.color, true)
 
                 cx++
             }
         } else if (p1.x <= p2.x && p1.y >= p2.y) {
             while (cx <= p2.x) {
                 for (i in p2.y..cy) {
-                    algorithmInfo.canvas.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
+                    algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
                 }
 
-                algorithmInfo.canvas.overrideSetPixel(p1, algorithmInfo.color, true)
+                algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(p1, algorithmInfo.color, true)
 
                 cx++
             }
         } else if (p1.x >= p2.x && p1.y >= p2.y) {
             while (cx >= p2.x) {
                 for (i in p2.y..cy) {
-                    algorithmInfo.canvas.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
+                    algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
                 }
 
-                algorithmInfo.canvas.overrideSetPixel(p1, algorithmInfo.color, true)
+                algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(p1, algorithmInfo.color, true)
 
                 cx--
             }
