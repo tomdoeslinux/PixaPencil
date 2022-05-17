@@ -162,5 +162,6 @@
 
     <style name="defaultFragmentStyle">
         <item name="android:background">?android:windowBackground</item>
+        <item name="android:clickable">true</item>
     </style>
 </resources>
