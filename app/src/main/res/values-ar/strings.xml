@@ -1,18 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">قلم بيكسا</string>
+    <string name="app_name">PixaPencil</string>
 
-    <!--Layout strings-->
+    <string name="activityMain_newProjectButton_contentDescription">مشروع جديد</string>
+
+    <string name="fragmentTools_shading_tool_content_description">أداة التظليل</string>
+    <string name="fragmentTools_color_picker_tool_content_description">أداة اختيار اللون</string>
+    <string name="fragmentTools_eraser_tool_content_description">أداة الممحاة</string>
+
     <string name="recentCreationsLayout_favoriteButton_content_description">المفضلة</string>
     <string name="recentCreationsLayout_imageView_content_description">معاينة فن البكسل</string>
 
+    <string name="fragmentNewCanvas_project_name_str">الاسم</string>
+    <string name="fragmentTools_pencil_tool_content_description">أداة القلم</string>
+
+    <string name="activityCanvas_tab_brushes_str">الفراشي</string>
+    <string name="activityCanvas_tab_filters_str">المصفيات</string>
+    <string name="activityCanvas_tab_tools_str">الأدوات</string>
+    <string name="activityCanvas_tab_color_palettes_str">لوحة الألوان</string>
+
     <string name="colorPalettesLayout_color_palette_item_str">عنصر لوحة الألوان</string>
 
-    <string name="saveFileUnderNewNameAlertLayout_new_name_str">اسم جديد</string>
+    <string name="fragmentTools_fill_tool_content_description">أداة التعبئة</string>
+    <string name="fragmentTools_line_tool_content_description">أداء الخط</string>
+    <string name="fragmentTools_rectangle_tool_content_description">أداة المستطيل</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">أداة المستطيل المحدد</string>
 
-    <string name="defaultColorPalette_str">لوحة الألوان الافتراضية</string>
+    <string name="bottomNavigationMenu_starred_str">مميز بنجمة</string>
+    <string name="bottomNavigationMenu_home_str">الرئيسية</string>
 
-    <!--Fragment strings-->
+    <string name="fragmentColorPicker_tab_color_picker_str">أداة اختيار اللون</string>
+    <string name="fragmentColorPicker_tab_rgb_str">RGB</string>
+    <string name="fragmentColorPicker_tab_hex_str">Hex</string>
+
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">قيمة Hex</string>
+
     <string name="fragmentFilters_color_filter_str">مصفي للون</string>
     <string name="fragmentFilters_lighten_str">تفتيح</string>
     <string name="fragmentFilters_darken_str">تعتيم</string>
@@ -26,54 +47,7 @@
     <string name="fragmentFindAndReplace_find_str">البحث</string>
     <string name="fragmentFindAndReplace_replace_with_str">الاستبدال بـ</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">الألوان التي في لوحة رسمك:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors_str">ألوان غير كافية؟ غير لوحة الألوان المحددة لديك.</string>
-
-    <string name="fragmentSprayToolSettings_strength_str">القوة</string>
-    <string name="fragmentSprayToolSettings_radius_str">نصف القطر</string>
-    <string name="fragmentSprayToolSettings_done_str">انتهى</string>
-    <string name="fragmentNewColorPalette_width_str">العرض</string>
-    <string name="fragmentNewColorPalette_height_str">الطور</string>
-    <string name="fragment_find_and_replace_find_preview_content_description">البحث عن معانية</string>
-    <string name="fragment_find_and_replace_replace_preview_content_description">استبدال المعاينة</string>
-
-    <string name="fragment_new_project_title_in_code_str">مشروع جديد</string>
-    <string name="fragment_find_and_replace_title_in_code_str">بحث واستبدال</string>
-    <string name="fragment_color_picker_title_in_code_str">تحديد اللون</string>
-    <string name="fragment_new_color_palette_title_in_code_str">لوحة ألوان جديدة</string>
-    <string name="fragment_spray_tool_settings_title_in_code_str">إعدادات أداة رذاذ الطال</string>
-
-    <string name="fragmentTools_pencil_tool_content_description">أداة القلم</string>
-    <string name="fragmentTools_eraser_tool_content_description">أداة الممحاة</string>
-    <string name="fragmentTools_color_picker_tool_content_description">أداة اختيار اللون</string>
-    <string name="fragmentTools_fill_tool_content_description">أداة التعبئة</string>
-    <string name="fragmentTools_line_tool_content_description">أداء الخط</string>
-    <string name="fragmentTools_rectangle_tool_content_description">أداة المستطيل</string>
-    <string name="fragmentTools_outlined_rectangle_tool_content_description">أداة المستطيل المحدد</string>
-    <string name="fragmentTools_square_tool_content_description">أداة المربع</string>
-    <string name="fragmentTools_outlined_square_button_content_description">أداة المربع المحدد</string>
-    <string name="fragmentTools_circle_tool_content_description">أداة الدائرة</string>
-    <string name="fragmentTools_outlined_circle_tool_content_description">أداة الدائرة المحددة</string>
-    <string name="fragmentTools_spray_tool_content_description">أداة رذاذ الطال</string>
-    <string name="fragmentTools_polygon_tool_content_description">أداة المضلع</string>
-    <string name="fragmentTools_dither_tool_content_description">أداة التردد</string>
-    <string name="fragmentTools_shading_tool_content_description">أداة التظليل</string>
-
-    <string name="fragmentNewCanvas_project_name_str">الاسم</string>
-
-    <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">قيمة عد ستة عشرية</string>
-
-    <string name="fragmentColorPicker_tab_color_picker_str">أداة اختيار اللون</string>
-
-    <!--Activity strings-->
-    <string name="activityMain_newProjectButton_contentDescription">مشروع جديد</string>
-
-    <string name="activityCanvas_tab_brushes_str">الفراشي</string>
-    <string name="activityCanvas_tab_filters_str">المصفيات</string>
-    <string name="activityCanvas_tab_tools_str">الأدوات</string>
-    <string name="activityCanvas_tab_color_palettes_str">لوحة الألوان</string>
-
-    <!--Menu strings-->
-    <string name="activityMainTopAppMenu_community_str">المجتمع</string>
+    <string name="fragmentRGBColorPicker_valueR_str">0</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">الرجوع إلى الوراء</string>
     <string name="activityCanvasTopAppMenu_redo_str">إعادة الرجوع إلى الوراء</string>
@@ -90,17 +64,29 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">تصغير</string>
     <string name="activityCanvasTopAppMenu_save_text_str">حفظ</string>
     <string name="activityCanvasTopAppMenu_grid_str">شبكة</string>
+
+    <string name="fragmentTools_spray_tool_content_description">أداة رذاذ الطال</string>
+
+    <string name="fragmentSprayToolSettings_strength_str">القوة</string>
+    <string name="fragmentSprayToolSettings_radius_str">نصف القطر</string>
+    <string name="fragmentSprayToolSettings_done_str">انتهى</string>
+    <string name="fragmentTools_polygon_tool_content_description">أداة المضلع</string>
+    <string name="fragmentTools_dither_tool_content_description">أداة التردد</string>
+    <string name="fragmentTools_square_tool_content_description">أداة المربع</string>
+    <string name="fragmentTools_outlined_square_button_content_description">أداة المربع المحدد</string>
+    <string name="fragmentTools_circle_tool_content_description">أداة الدائرة</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">أداة الدائرة المحددة</string>
+    <string name="fragmentNewColorPalette_width_str">العرض</string>
+    <string name="fragmentNewColorPalette_height_str">الطور</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">البحث عن معانية</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">استبدال المعاينة</string>
+
+    <string name="saveFileUnderNewNameAlert_new_name_str">اسم جديد</string>
+
+    <string name="activityMainTopAppMenu_community_str">المجتمع</string>
+
     <string name="activityCanvasTopAppMenu_find_and_replace_str">البحث والاستبدال</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">مسح لوحة الرسم بالكامل</string>
-    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">أفقي</string>
-    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">عمودي</string>
-    <string name="activityCanvasTopAppMenu_symmetry_quad_str">رباعي</string>
-    <string name="activityCanvasTopAppMenu_symmetry_str">نتاظر</string>
-    <string name="activityCanvasTopAppMenu_symmetry_none_str">لا شيء</string>
-    <string name="activityCanvasTopAppMenu_symmetry_octal_str">ثماني</string>
-
-    <string name="bottomNavigationMenu_starred_str">مميز بنجمة</string>
-    <string name="bottomNavigationMenu_home_str">الرئيسية</string>
 
     <!--Pencil tool information strings-->
     <string name="pencil_tool_info_title_in_code_str">معلموات أداة القلم</string>
@@ -168,6 +154,7 @@
     <string name="exception_invalid_height_in_code_str">يجب على القيمة أن تكون بين 1 و10,000</string>
     <string name="exception_empty_width_in_code_str">لا يمكن لقيمة العرض أن تكون فارغة</string>
     <string name="exception_empty_height_in_code_str">لا يمكن لقيمة الطول أن تكون فارغة</string>
+    <string name="exception_invalid_radius_strength_message_in_code_str">قيمة نصف قطر\قوة غير صالحة</string>
     <string name="exception_accessing_negative_index_message_in_code_str">لا يمكن الوصول إلى مجسم فن بكسل مع مع فهرس سالب في القائمة!</string>
     <string name="exception_invalid_spray_radius_in_code_str">يجب على القيمة أن تكون بين 1 و20,000</string>
     <string name="exception_invalid_spray_strength_in_code_str">يجب على القيمة أن تكون بين 1 و20,000</string>
@@ -202,21 +189,28 @@
     <string name="dialog_delete_pixel_art_project_text_in_code_str">هل أنت متأكد أنك تريد حذف %1$s? - عملية بلا رجعة."</string>
     <string name="dialog_welcome_title_in_code_str">يا أهلا وسهلا</string>
     <string name="dialog_welcome_text_in_code_str">يا أهلا وسهلا بك في PixaPencil! انقر مع الاستمرار على أي أداة للحصول على معلومات أكثر عن كيفية عمها.</string>
-    <string name="dialog_large_canvas_warning_title_in_code_str">تنبيه</string>
-    <string name="dialog_large_canvas_warning_text_in_code_str">أنت على وشك إنشاء لوحة رسم كبيرة, ضع في بالك أن هاتفك قد لا يستطيع دعم صور bitmap بهذه الأحجام.</string>
-    <string name="dialog_large_canvas_warning_positive_button_text_in_code_str">فهمت، إنشاء المشروع</string>
 
     <!--Snackbar strings-->
-    <string name="snackbar_view_exception_info_button_text_in_code_str">عرض</string>
-    <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">لا يمكن حذف لوحة الألوان الافتراضية</string>
-    <string name="snackbar_find_and_replace_warning_in_code_str">يجب أن يكون لديك على الأقل لون واحد على لوحة رسمك لكي تستطيع استعمال هذه الأداة</string>
-    <string name="snackbar_on_color_long_tapped_in_code_str">تمت إزالة لون من %1$s</string>
-    <string name="snackbar_image_successfully_saved_in_code_str">تم حفظ %1$s كـ%2$s</string>
-    <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">تم حفظ %1$s عند العناصر المميزة بنجمة</string>
-    <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">تم إزالة %1$s من العناصر المميزة بنجمة</string>
+    <string name="snackbar_view_exception_info_button_text_in_code_str">View</string>
+    <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Cannot delete default color palette</string>
+    <string name="snackbar_find_and_replace_warning_in_code_str">You must have at least one color on your canvas to use this tool</string>
+    <string name="snackbar_on_color_long_tapped_in_code_str">Removed color from %1$s</string>
+    <string name="snackbar_image_successfully_saved_in_code_str">Successfully saved %1$s as %2$s</string>
+    <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">Saved %1$s to starred items</string>
+    <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Removed %1$s from starred items</string>
 
-    <!--Tooltip strings-->
-    <string name="shading_tool_tip_in_code_str">تلميح: انقر على الأيقونة لتغيير وضع التظليل</string>
-    <string name="spray_tool_tip_in_code_str">تلميح: انقر على الأيقونة لتغيير وضع الرذاذ</string>
-    <string name="tool_tip_dont_show_again_in_code_str">عدم الإظهار مرة أخرى</string>
+    <!--Fragment title strings-->
+    <string name="fragment_new_project_title_in_code_str">مشروع جديد</string>
+    <string name="fragment_find_and_replace_title_in_code_str">بحث واستبدال</string>
+    <string name="fragment_color_picker_title_in_code_str">تحديد اللون</string>
+    <string name="fragment_new_color_palette_title_in_code_str">لوحة ألوان جديدة</string>
+    <string name="fragment_spray_tool_settings_title_in_code_str">إعدادات أداة رذاذ الطال</string>
+
+    <string name="fragmentFindAndReplace_not_enough_colors_str">ألوان غير كافية؟ غير لوحة الألوان المحددة لديك.</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">أفقي</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">عمودي</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">رباعي</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">نتاظر</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none_str">لا شيء</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">ثماني</string>
 </resources>
