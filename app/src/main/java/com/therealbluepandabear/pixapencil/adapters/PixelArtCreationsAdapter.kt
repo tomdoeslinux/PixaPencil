@@ -35,8 +35,6 @@ class PixelArtCreationsAdapter(
 ) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: RecentCreationsLayoutBinding
 
-    var userHasLongPressed = false
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<FrameLayout> {
         binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(binding.recentCreationsLayoutRootLayout)
@@ -81,7 +79,7 @@ class PixelArtCreationsAdapter(
                 }
 
                 this@parent.setOnClickListener {
-                    if (!userHasLongPressed) listener.onCreationTapped(item)
+                    listener.onCreationTapped(item)
                 }
 
                 this@parent.setOnLongClickListener {
