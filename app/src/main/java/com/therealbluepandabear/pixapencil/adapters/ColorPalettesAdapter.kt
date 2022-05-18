@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.adapters
 
 import android.content.res.Configuration
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
@@ -34,6 +36,14 @@ class ColorPalettesAdapter(
         binding.colorPalettesLayoutMaterialCardView.apply parent@{
             val item = data[position]
 
+            if (JsonConverter.convertJsonStringToListOfInt(item.colorPaletteColorData).size >= 2) {
+                binding.colorPalettesLayoutFirstColor.setBackgroundColor(JsonConverter.convertJsonStringToListOfInt(item.colorPaletteColorData)[0])
+                binding.colorPalettesLayoutSecondColor.setBackgroundColor(JsonConverter.convertJsonStringToListOfInt(item.colorPaletteColorData)[1])
+            } else {
+                binding.colorPalettesLayoutFirstColor.setBackgroundColor(Color.TRANSPARENT)
+                binding.colorPalettesLayoutSecondColor.setBackgroundColor(Color.TRANSPARENT)
+            }
+
             binding.apply {
                 colorPalettesLayoutColorPaletteTitle?.text = item.colorPaletteName
 
@@ -46,9 +56,6 @@ class ColorPalettesAdapter(
                 }
 
                 layoutManager.orientation = layoutManagerOrientation
-
-                colorPalettesLayoutColorPalettePreviewRecyclerView.layoutManager = layoutManager
-                colorPalettesLayoutColorPalettePreviewRecyclerView.adapter = ColorPickerAdapter(item, null, isPreviewMode = true)
             }
 
             if (!defSelected) {
