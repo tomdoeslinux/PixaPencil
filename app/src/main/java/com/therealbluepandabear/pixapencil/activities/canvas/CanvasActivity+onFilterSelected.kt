@@ -31,13 +31,7 @@ fun CanvasActivity.extendedOnFilterTapped(filterType: String) {
         }
     }
 
-    if (viewModel.bitmapActionData.isNotEmpty() && currentTool.draws) {
-        menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
-    }
-
-    if (viewModel.undoStack.isEmpty()) {
-        menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
-    }
+    judgeUndoRedoStacks()
 }
 
 
