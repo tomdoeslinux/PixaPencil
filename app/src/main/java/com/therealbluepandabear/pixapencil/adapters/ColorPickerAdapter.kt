@@ -45,23 +45,21 @@ class ColorPickerAdapter(
             }
         }
 
+        val isPlusIndicatorItemPosition = colorData[position] == Color.TRANSPARENT && position == colorData.size - 1
+
         if (isPaletteMode && !isPreviewMode) {
-            if (colorData[position] == Color.TRANSPARENT && position == colorData.size - 1) {
+            if (isPlusIndicatorItemPosition) {
                 binding.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
                 binding.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
             }
         }
 
         binding.colorView.setOnClickListener {
-            if (colorData[position] != Color.TRANSPARENT) {
-                caller?.onColorTapped(colorData[position], it)
-            } else if (colorData[position] == Color.TRANSPARENT && position == colorData.size - 1){
+            if (isPlusIndicatorItemPosition) {
                 caller?.onColorAdded(data)
+            } else {
+                caller?.onColorTapped(colorData[position], it)
             }
-        }
-
-        if (position == 0) {
-            caller?.onColorTapped(colorData[position], binding.colorView)
         }
     }
 
