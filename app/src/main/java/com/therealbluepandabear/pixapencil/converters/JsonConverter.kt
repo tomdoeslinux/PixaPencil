@@ -10,5 +10,4 @@ object JsonConverter {
     fun convertJsonStringToListOfInt(str: String): List<Int> {
         return Gson().fromJson(str, Array<Int>::class.java).toList()
     }
-
 }

@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.customviews.interface_
 
-interface CustomView {
+interface PixelatedView {
     var scaleWidth: Float
     var scaleHeight: Float
 

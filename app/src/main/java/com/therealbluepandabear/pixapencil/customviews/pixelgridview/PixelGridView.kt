@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
-import com.therealbluepandabear.pixapencil.customviews.interface_.CustomView
+import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
@@ -25,7 +25,7 @@ class PixelGridView(
     override var canvasWidth: Int,
     override var canvasHeight: Int,
     val outerCanvasInstance: OuterCanvasFragment,
-    val projectTitle: String?) : View(context), CustomView {
+    val projectTitle: String?) : View(context), PixelatedView {
 
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap

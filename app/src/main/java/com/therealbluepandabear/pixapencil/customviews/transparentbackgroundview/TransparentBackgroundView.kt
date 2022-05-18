@@ -10,7 +10,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
-import com.therealbluepandabear.pixapencil.customviews.interface_.CustomView
+import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
@@ -22,7 +22,7 @@ import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 @SuppressLint("ViewConstructor")
-class TransparentBackgroundView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), CustomView {
+class TransparentBackgroundView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), PixelatedView {
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
 
