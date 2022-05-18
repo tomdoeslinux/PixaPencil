@@ -18,8 +18,7 @@ import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 class ColorPickerAdapter(
     private val data: ColorPalette,
     private val caller: ColorPickerListener?,
-    private val isPaletteMode: Boolean = true,
-    private val isPreviewMode: Boolean = false) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
+    private val isPaletteMode: Boolean = true) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: ColorPickerLayoutBinding
 
     private var colorData = listOf<Int>()
@@ -36,29 +35,20 @@ class ColorPickerAdapter(
     override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) {
         binding.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
 
-        if (!isPreviewMode) {
-            binding.colorView.setOnLongClickListener {
-                if (colorData[position] != Color.TRANSPARENT) {
-                    caller!!.onColorLongTapped(data, position)
-                }
-                true
-            }
-        }
-
         val isPlusIndicatorItemPosition = colorData[position] == Color.TRANSPARENT && position == colorData.size - 1
 
-        if (isPaletteMode && !isPreviewMode) {
+        if (isPaletteMode) {
             if (isPlusIndicatorItemPosition) {
                 binding.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
                 binding.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
             }
-        }
 
-        binding.colorView.setOnClickListener {
-            if (isPlusIndicatorItemPosition) {
-                caller?.onColorAdded(data)
-            } else {
-                caller?.onColorTapped(colorData[position], it)
+            binding.colorView.setOnClickListener {
+                if (isPlusIndicatorItemPosition) {
+                    caller?.onColorAdded(data)
+                } else {
+                    caller?.onColorTapped(colorData[position], it)
+                }
             }
         }
     }
