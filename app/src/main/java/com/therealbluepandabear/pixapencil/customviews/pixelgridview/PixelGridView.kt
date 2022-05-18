@@ -157,7 +157,7 @@ class PixelGridView(
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources)
+            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
 
             val scaleFactorW = scaleFactorWHInfo.scaleFactorW
             val scaleFactorH = scaleFactorWHInfo.scaleFactorH

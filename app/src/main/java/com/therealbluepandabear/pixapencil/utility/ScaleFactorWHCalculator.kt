@@ -68,8 +68,8 @@ object ScaleFactorWHCalculator {
         }
     }
 
-    fun calculate(width: Int, height: Int, resources: Resources): ScaleFactorWHInfo {
-        return when (resources.configuration.orientation) {
+    fun calculate(width: Int, height: Int, orientation: Int, resources: Resources): ScaleFactorWHInfo {
+        return when (orientation) {
             Configuration.ORIENTATION_LANDSCAPE -> {
                 whenLandscape(width, height)
             }
