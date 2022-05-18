@@ -5,12 +5,8 @@ import android.content.Context
 import android.graphics.*
 import android.view.MotionEvent
 import android.view.View
-import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
@@ -119,7 +115,7 @@ class PixelGridView(
 
             postInvalidate()
         } else {
-            val currentBitmap = getCurrentBitmap()
+            val currentBitmap = getCurrentBitmap(this.context)
 
             canvasWidth = currentBitmap.width
             canvasHeight = currentBitmap.height
@@ -161,19 +157,6 @@ class PixelGridView(
 
     private fun getCurrentPixelArtObj(): PixelArt {
         return extendedGetCurrentPixelArtObj()
-    }
-
-    private fun getCurrentBitmap(): Bitmap {
-        if (currentIndex != -1) {
-            val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-            val gcbCurrentPixelArtObj = pixelArtData[currentIndex]
-
-            currentPixelArtObj = gcbCurrentPixelArtObj
-
-            return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
-        }
-        throw IllegalArgumentException(this.context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
     }
 
     override fun onDraw(canvas: Canvas) {

@@ -6,10 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
-import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.activities.canvas.index
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
@@ -75,7 +72,7 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
                 Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
         } else {
-            val currentBitmap = getCurrentBitmap()
+            val currentBitmap = getCurrentBitmap(this.context)
 
             canvasWidth = currentBitmap.width
             canvasHeight = currentBitmap.height
@@ -94,19 +91,6 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
         val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
 
         return pixelArtData[currentIndex]
-    }
-
-    private fun getCurrentBitmap(): Bitmap {
-        if (currentIndex != -1) {
-            val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-            val gcbCurrentPixelArtObj = pixelArtData[currentIndex]
-
-            currentPixelArtObj = gcbCurrentPixelArtObj
-
-            return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
-        }
-        throw IllegalArgumentException(this.context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
     }
 
     override fun onDraw(canvas: Canvas) {
