@@ -5,7 +5,9 @@ import android.graphics.Bitmap
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.models.PixelArt
 
 interface PixelatedView {
     var scaleWidth: Float
@@ -32,5 +34,11 @@ interface PixelatedView {
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
         throw IllegalArgumentException(context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
+    }
+
+    fun getCurrentPixelArtObj(): PixelArt {
+        val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
+
+        return pixelArtData[currentIndex]
     }
 }

@@ -155,10 +155,6 @@ class PixelGridView(
 
     /** Use this code only in onMeasure **/
 
-    private fun getCurrentPixelArtObj(): PixelArt {
-        return extendedGetCurrentPixelArtObj()
-    }
-
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
             val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources)

@@ -8,11 +8,9 @@ import android.graphics.Color
 import android.view.View
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.models.ScaleFactorWHInfo
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
@@ -85,12 +83,6 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
             postInvalidate()
         }
 
-    }
-
-    private fun getCurrentPixelArtObj(): PixelArt {
-        val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-        return pixelArtData[currentIndex]
     }
 
     override fun onDraw(canvas: Canvas) {
