@@ -15,6 +15,6 @@ fun CanvasActivity.getExtras() {
     if (title != null) {
         projectTitle = title.toString()
     } else {
-        title = "Unnamed Project"
+        title = ""
     }
 }
