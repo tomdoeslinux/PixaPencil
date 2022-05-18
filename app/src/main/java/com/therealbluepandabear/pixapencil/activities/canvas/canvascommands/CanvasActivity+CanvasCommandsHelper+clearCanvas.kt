@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.CanvasCommandsHelper.clearCanvas() {
-    with (pixelGridViewInstance) {
+    pixelGridViewInstance.apply {
         for (i_1 in 0 until pixelGridViewBitmap.width) {
             for (i_2 in 0 until pixelGridViewBitmap.height) {
                 pixelGridViewBitmap.setPixel(Coordinates(i_1, i_2), Color.TRANSPARENT)
