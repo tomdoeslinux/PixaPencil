@@ -19,15 +19,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         setPixelColor(selectedColor)
     } else {
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
-        newData.add(selectedColor)
-
-        newData.distinctBy {
-            it == Color.TRANSPARENT
-        }
-
-        newData.sortBy {
-            it == Color.TRANSPARENT
-        }
+        newData.add(newData.size - 1, selectedColor)
 
         fromDB!!.apply {
             colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
