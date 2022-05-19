@@ -17,8 +17,7 @@ import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
 class ColorPickerAdapter(
     private val data: ColorPalette,
-    private val caller: ColorPickerListener?,
-    private val isPaletteMode: Boolean = true) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
+    private val caller: ColorPickerListener?) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
     private lateinit var binding: ColorPickerLayoutBinding
 
     private var colorData = listOf<Int>()
@@ -37,18 +36,17 @@ class ColorPickerAdapter(
 
         val isPlusIndicatorItemPosition = colorData[position] == Color.TRANSPARENT && position == colorData.size - 1
 
-        if (isPaletteMode) {
-            if (isPlusIndicatorItemPosition) {
-                binding.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
-                binding.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
-            }
 
-            binding.colorView.setOnClickListener {
-                if (isPlusIndicatorItemPosition) {
-                    caller?.onColorAdded(data)
-                } else {
-                    caller?.onColorTapped(colorData[position], it)
-                }
+        if (isPlusIndicatorItemPosition) {
+            binding.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
+            binding.colorView.background.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.GRAY, BlendModeCompat.DST_OVER)
+        }
+
+        binding.colorView.setOnClickListener {
+            if (isPlusIndicatorItemPosition) {
+                caller?.onColorAdded(data)
+            } else {
+                caller?.onColorTapped(colorData[position], it)
             }
         }
     }

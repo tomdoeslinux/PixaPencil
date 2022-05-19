@@ -13,6 +13,7 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
+import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
@@ -65,25 +66,25 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
+
             fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
-                ColorPalette(
-                    null,
-                    JsonConverter.convertListToJsonString(paramCanvasColors)
-                ), FragmentFindAndReplaceCanvasColorsCaller(binding), false
-            )
+                ColorPalette(null, JsonConverter.convertListToJsonString(paramCanvasColors)),
+                ColorsToFindCaller(binding))
         }
     }
 
     private fun setupAvailableColorsRecyclerView() {
         binding.apply {
-            fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex], FragmentFindAndReplaceAvailableColorsRecyclerView(binding), false
-            )
-
             fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
                 LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
+
+            fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
+                AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex],
+                ColorsToReplaceCaller(binding)
+            )
+
         }
     }
 
@@ -94,26 +95,28 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
-    inner class FragmentFindAndReplaceCanvasColorsCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+    inner class ColorsToFindCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) {
-            if (!lock) {
-                colorToFind = colorTapped
+            colorToFind = colorTapped
 
-                val bmp = caller.onColorToFindTapped(paramBitmapSource, colorTapped)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bmp)
+            if (colorToReplace != null) {
+                val bitmap = paramBitmapSource.copy(paramBitmapSource.config, paramBitmapSource.isMutable)
+                bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
+                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
             }
         }
         override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
         override fun onColorAdded(colorPalette: ColorPalette) { }
     }
 
-    inner class FragmentFindAndReplaceAvailableColorsRecyclerView(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+    inner class ColorsToReplaceCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int, view: View) {
-            if (!lock) {
-                colorToReplace = colorTapped
+            colorToReplace = colorTapped
 
-                val bmp = caller.onColorToReplaceTapped(paramBitmapSource, colorTapped)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bmp)
+            if (colorToFind != null && colorToReplace != null) {
+                val bitmap = paramBitmapSource.copy(paramBitmapSource.config, paramBitmapSource.isMutable)
+                bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
+                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
             }
         }
         override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
