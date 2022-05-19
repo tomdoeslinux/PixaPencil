@@ -25,8 +25,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
 
-    private val currentActivityInstance = this.activity
-
     private var lock = true
 
     private lateinit var paramCanvasColors: List<Int>
@@ -64,7 +62,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private fun setupCanvasColorsRecyclerView() {
         binding.apply {
             fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager =
-                LinearLayoutManager(currentActivityInstance).apply {
+                LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
             fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
@@ -83,7 +81,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             )
 
             fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
-                LinearLayoutManager(currentActivityInstance).apply {
+                LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
         }
