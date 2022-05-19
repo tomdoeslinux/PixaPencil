@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -134,14 +133,6 @@ class CanvasActivity :
 
     override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) {
         extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
-    }
-
-    override fun onColorToFindTapped(bitmap: Bitmap, colorToFind: Int): Bitmap {
-        return extendedOnColorToFindTapped(bitmap, colorToFind)
-    }
-
-    override fun onColorToReplaceTapped(bitmap: Bitmap, colorToReplace: Int): Bitmap {
-        return extendedOnColorToReplaceTapped(bitmap, colorToReplace)
     }
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
