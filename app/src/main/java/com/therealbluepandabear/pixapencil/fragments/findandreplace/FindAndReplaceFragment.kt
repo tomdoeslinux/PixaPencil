@@ -88,9 +88,13 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                     orientation = LinearLayoutManager.HORIZONTAL
                 }
 
+            val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex]
+            val copiedPaletteData = JsonConverter.convertJsonStringToListOfInt(copiedPaletteRemoveLast.colorPaletteColorData).toMutableList()
+            copiedPaletteData.removeLast()
+
             fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex],
-                ColorsToReplaceCaller(binding)
+                copiedPaletteData,
+                ColorsToReplaceCaller(this),
             )
 
         }
