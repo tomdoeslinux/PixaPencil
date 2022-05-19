@@ -96,8 +96,7 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
     ShadingTool(
         StringConstants.Identifiers.ShadingToolIdentifier,
         ToolFamily.Shader,
-
-        false,
+        true,
     );
 
     companion object {
