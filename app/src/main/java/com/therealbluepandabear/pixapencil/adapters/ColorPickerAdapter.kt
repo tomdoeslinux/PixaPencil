@@ -67,6 +67,13 @@ class ColorPickerAdapter(private val caller: ColorPickerListener?) : RecyclerVie
                     caller?.onColorTapped(colorData[position], it)
                 }
             }
+
+            binding.colorView.setOnLongClickListener {
+                if (!isPlusIndicatorItemPosition) {
+                    caller?.onColorLongTapped(colorPalette, position)
+                }
+                true
+            }
         } else {
             binding.colorView.setBackgroundColor(data[position])
 
