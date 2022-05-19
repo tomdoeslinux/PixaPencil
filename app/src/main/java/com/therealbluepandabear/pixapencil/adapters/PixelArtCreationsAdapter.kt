@@ -22,6 +22,9 @@ class PixelArtCreationsAdapter(
     private val data: MutableList<PixelArt>,
     private val listener: RecentCreationsListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private val mainScope = CoroutineScope(Dispatchers.Main.immediate)
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return PixelArtViewHolder(binding)
@@ -49,14 +52,14 @@ class PixelArtCreationsAdapter(
                     unFavouriteRecentCreation(snackbarView, item)
                     item.starred = false
 
-                    CoroutineScope(Dispatchers.IO).launch {
+                    mainScope.launch {
                         AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
                     }
                 } else {
                     favouriteRecentCreation(snackbarView, item)
                     item.starred = true
 
-                    CoroutineScope(Dispatchers.IO).launch {
+                    mainScope.launch {
                         AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
                     }
                 }
