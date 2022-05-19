@@ -11,4 +11,6 @@ fun MainActivity.extendedOnCreate() {
     initializeRoomDatabases()
     requestPermissions()
     applyShowLargeCanvasSizeWarningValueFromPreference()
+    initView()
+    observeData()
 }
