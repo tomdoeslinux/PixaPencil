@@ -1,7 +1,9 @@
 package com.therealbluepandabear.pixapencil.extensions
 
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.Matrix
+import android.util.Log
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
 

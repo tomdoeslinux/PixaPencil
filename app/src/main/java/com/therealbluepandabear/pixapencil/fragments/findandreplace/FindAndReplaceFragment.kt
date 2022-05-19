@@ -18,6 +18,7 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,17 +30,20 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var lock = true
 
     private lateinit var paramCanvasColors: List<Int>
-    private lateinit var paramBitmapSource: Bitmap
+    private lateinit var paramTransparentBitmapSource: Bitmap
+    private lateinit var paramPixelGridViewBitmapSource: Bitmap
     private var selectedColorPaletteIndex: Int = 0
 
     override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
     fun setParams(
         paramCanvasColors: List<Int>,
-        paramBitmapSource: Bitmap,
+        paramTransparentBitmapSource: Bitmap,
+        paramPixelGridViewBitmapSource: Bitmap,
         selectedColorPaletteIndex: Int) {
         this.paramCanvasColors = paramCanvasColors
-        this.paramBitmapSource = paramBitmapSource
+        this.paramTransparentBitmapSource = paramTransparentBitmapSource
+        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
         this.selectedColorPaletteIndex = selectedColorPaletteIndex
     }
 
@@ -56,8 +60,12 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupPreview() {
-        binding.fragmentFindAndReplaceOldPreview.setImageBitmap(paramBitmapSource)
-        binding.fragmentFindAndReplaceNewPreview.setImageBitmap(paramBitmapSource)
+        val paramTransparentBitmapSourceCopy = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
+        val paramPixelGridViewBitmapSourceCopy = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
+
+        val bitmap = BitmapUtilities.overlay(paramTransparentBitmapSourceCopy, paramPixelGridViewBitmapSourceCopy)
+        binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmap)
+        binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
     }
 
     private fun setupCanvasColorsRecyclerView() {
@@ -100,9 +108,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToFind = colorTapped
 
             if (colorToReplace != null) {
-                val bitmap = paramBitmapSource.copy(paramBitmapSource.config, paramBitmapSource.isMutable)
+                val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
+
+                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource, bitmap)
+                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
         override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
@@ -114,9 +124,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToReplace = colorTapped
 
             if (colorToFind != null && colorToReplace != null) {
-                val bitmap = paramBitmapSource.copy(paramBitmapSource.config, paramBitmapSource.isMutable)
+                val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
+
+                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource, bitmap)
+                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
         override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
@@ -126,10 +138,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     companion object {
         fun newInstance(
             paramCanvasColors: List<Int>,
-            paramBitmapSource: Bitmap,
+            paramTransparentBitmapSource: Bitmap,
+            paramPixelGridViewBitmapSource: Bitmap,
             selectedColorPaletteIndex: Int): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramBitmapSource, selectedColorPaletteIndex)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, selectedColorPaletteIndex)
 
             return fragment
         }

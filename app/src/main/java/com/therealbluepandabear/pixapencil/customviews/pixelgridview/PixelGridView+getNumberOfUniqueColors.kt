@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
-import android.graphics.Color
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -11,7 +10,7 @@ fun PixelGridView.extendedGetNumberOfUniqueColors(): List<Int> {
             val coordinates = Coordinates(i_1, i_2)
             val colorAtPixel = pixelGridViewBitmap.getPixel(coordinates)
 
-            if (!colors.contains(colorAtPixel) && colorAtPixel != Color.TRANSPARENT) {
+            if (!colors.contains(colorAtPixel)) {
                 colors.add(colorAtPixel)
             }
         }
