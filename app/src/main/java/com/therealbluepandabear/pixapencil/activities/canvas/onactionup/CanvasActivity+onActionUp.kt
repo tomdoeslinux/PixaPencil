@@ -1,13 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.algorithms.PixelPerfectAlgorithm
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.enums.Tools
-import com.therealbluepandabear.pixapencil.extensions.disable
-import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.extendedOnActionUp() {
