@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.graphics.Color
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -20,7 +21,7 @@ fun CanvasActivity.extendedOnAddColorTapped(colorPalette: ColorPalette) {
     supportFragmentManager.commit {
         replace(
             R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-            paramOldColor = getSelectedColor(),
+            paramOldColor = Color.WHITE,
             paramColorPaletteMode = true))
         addToBackStack(null)
     }
