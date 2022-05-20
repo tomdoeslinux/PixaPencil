@@ -5,7 +5,7 @@ import com.therealbluepandabear.pixapencil.activities.main.eventlisteners.newPro
 import com.therealbluepandabear.pixapencil.activities.main.eventlisteners.recentCreationsRecyclerViewAddOnScrollListener
 
 fun MainActivity.setEventListeners() {
-    recentCreationsRecyclerViewSetHasFixedSize()
+    binding.activityMainRecentCreationsRecyclerView.setHasFixedSize(true)
     bottomNavigationViewSetOnItemSelectedListener()
     recentCreationsRecyclerViewAddOnScrollListener()
     newProjectButtonSetOnClickListener()
