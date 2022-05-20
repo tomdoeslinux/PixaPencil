@@ -1,10 +1,10 @@
 package com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.util.AttributeSet
 import android.view.View
 import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
@@ -12,12 +12,12 @@ import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.ScaleFactorWHInfo
+import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-@SuppressLint("ViewConstructor")
-class TransparentBackgroundView(context: Context, override var canvasWidth: Int, override var canvasHeight: Int) : View(context), PixelatedView {
+class TransparentBackgroundView : View, PixelatedView {
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
 
@@ -32,6 +32,22 @@ class TransparentBackgroundView(context: Context, override var canvasWidth: Int,
 
     override var dimenCW = 0
     override var dimenCH = 0
+
+    override var canvasWidth: Int = IntConstants.DefaultCanvasWidthHeight
+    override var canvasHeight: Int = IntConstants.DefaultCanvasWidthHeight
+
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    constructor(
+        context: Context,
+        canvasWidth: Int,
+        canvasHeight: Int
+    ) : super(context) {
+        this.canvasWidth = canvasWidth
+        this.canvasHeight = canvasHeight
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
