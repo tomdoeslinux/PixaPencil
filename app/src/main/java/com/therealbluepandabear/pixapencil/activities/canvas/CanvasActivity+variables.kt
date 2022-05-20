@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.Drawable
@@ -16,6 +17,7 @@ import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
+@SuppressLint("StaticFieldLeak")
 lateinit var binding: ActivityCanvasBinding
 var index: Int? = null
 
@@ -35,8 +37,6 @@ lateinit var currentPixelArtObj: PixelArt
 var currentTool: Tool = Tool.defaultTool
 
 var saved = true
-
-lateinit var colorPickerFragmentInstance: ColorPickerFragment
 
 lateinit var menu: Menu
 
