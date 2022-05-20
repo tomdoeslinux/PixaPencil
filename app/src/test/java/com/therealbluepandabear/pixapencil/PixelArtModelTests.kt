@@ -1,15 +1,17 @@
 package com.therealbluepandabear.pixapencil
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.DateTimeCompat
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import io.mockk.every
 import io.mockk.mockk
+import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
-@RunWith(AndroidJUnit4::class)
+@RunWith(JUnit4::class)
 class PixelArtModelTests {
+    @Test
     fun createPixelArtObj_assertTitle() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.title } returns "Project"
@@ -17,6 +19,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.title == "Project")
     }
 
+    @Test
     fun createPixelArtObj_assertStarredTrue() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.starred } returns true
@@ -24,6 +27,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.starred)
     }
 
+    @Test
     fun createPixelArtObj_assertStarredFalse() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.starred } returns false
@@ -31,6 +35,7 @@ class PixelArtModelTests {
         assert(!pixelArtObj.starred)
     }
 
+    @Test
     fun createPixelArtObj_assertCoverBitmapFilePath() {
         val title = "Project"
         val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(title)
@@ -43,6 +48,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.coverBitmapFilePath == coverBitmapFilePath)
     }
 
+    @Test
     fun createPixelArtObj_assertRotation() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.rotation } returns 90f
@@ -50,6 +56,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.rotation == 90f)
     }
 
+    @Test
     fun createPixelArtObj_assertObjId() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.objId } returns 55
@@ -57,6 +64,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.objId == 55)
     }
 
+    @Test
     fun createPixelArtObj_assertWidth() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.width } returns 10
@@ -64,6 +72,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.width == 10)
     }
 
+    @Test
     fun createPixelArtObj_assertHeight() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.height } returns 25
@@ -71,6 +80,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.height == 25)
     }
 
+    @Test
     fun createPixelArtObj_assertDimenCW() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.dimenCW } returns 15
@@ -78,6 +88,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.dimenCW == 15)
     }
 
+    @Test
     fun createPixelArtObj_assertDimenCH() {
         val pixelArtObj = mockk<PixelArt>(relaxed = true)
         every { pixelArtObj.dimenCH } returns 65
@@ -85,6 +96,7 @@ class PixelArtModelTests {
         assert(pixelArtObj.dimenCH == 65)
     }
 
+    @Test
     fun createPixelArtObj_assertDateCreated() {
         val dateCreated = DateTimeCompat.getCompatibleCurrentDateTime()
 

@@ -1,12 +1,12 @@
 package com.therealbluepandabear.pixapencil
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.CoordinatesDouble
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
-@RunWith(AndroidJUnit4::class)
+@RunWith(JUnit4::class)
 class CoordinatesModelTests {
     @Test
     fun createCoordinatesObj_assertX() {
