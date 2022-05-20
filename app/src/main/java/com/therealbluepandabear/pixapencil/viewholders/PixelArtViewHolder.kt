@@ -16,7 +16,6 @@ import java.io.File
 
 
 class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-
     fun bind(pixelArt: PixelArt){
         val requestOptions: RequestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -36,8 +35,13 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerVi
 
         binding.recentCreationsLayoutSubtitle.text = "${pixelArt.width}x${pixelArt.height}"
         binding.recentCreationsLayoutFavoriteButton.setImageResource(
-            if (pixelArt.starred) R.drawable.ic_baseline_star_24 else R.drawable.ic_baseline_star_border_24
+            if (pixelArt.starred) {
+                R.drawable.ic_baseline_star_24
+            } else {
+                R.drawable.ic_baseline_star_border_24
+            }
         )
+
         binding.recentCreationsLayoutTitle.apply {
             if (pixelArt.title.length > 6) {
                 ellipsize = TextUtils.TruncateAt.MARQUEE

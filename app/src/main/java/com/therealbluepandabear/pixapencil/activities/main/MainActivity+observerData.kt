@@ -6,17 +6,22 @@ import com.therealbluepandabear.pixapencil.database.AppData
 
 fun MainActivity.observeData(){
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
-        artList.clear()
-        artList.addAll(it)
+        pixelArtList.clear()
+        pixelArtList.addAll(it)
+
         val currentList =
             when (binding.activityMainBottomNavigationView.selectedItemId) {
                 R.id.activityMainBottomNavigationMenu_home_tab -> {
-                    artList
+                    pixelArtList
                 }
+
                 else -> {
-                    artList.filter { item -> item.starred }
+                    pixelArtList.filter { item ->
+                        item.starred
+                    }
                 }
             }
+
         adapter.updateDataSource(currentList)
     }
 }

@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     var showLargeCanvasSizeWarning = true
     lateinit var sharedPreferenceObject: SharedPreferences
     lateinit var adapter : PixelArtCreationsAdapter
-    val artList = mutableListOf<PixelArt>()
+    val pixelArtList = mutableListOf<PixelArt>()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
