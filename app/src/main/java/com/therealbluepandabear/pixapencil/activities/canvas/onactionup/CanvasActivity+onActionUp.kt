@@ -7,6 +7,11 @@ import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.enums.Tools
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
+fun resetPreviousCoordinates() {
+    pixelGridViewInstance.prevX = null
+    pixelGridViewInstance.prevY = null
+}
+
 fun CanvasActivity.extendedOnActionUp() {
     if (currentTool == Tools.ShadingTool) {
         pixelGridViewInstance.shadingMap.clear()
@@ -36,8 +41,7 @@ fun CanvasActivity.extendedOnActionUp() {
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
 
-            pixelGridViewInstance.prevX = null
-            pixelGridViewInstance.prevY = null
+            resetPreviousCoordinates()
         }
 
         else -> {
@@ -52,8 +56,7 @@ fun CanvasActivity.extendedOnActionUp() {
                 pixelPerfectAlgorithmInstance.compute()
             }
 
-            pixelGridViewInstance.prevX = null
-            pixelGridViewInstance.prevY = null
+            resetPreviousCoordinates()
         }
     }
 
