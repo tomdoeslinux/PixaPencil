@@ -11,7 +11,6 @@ import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.models.ScaleFactorWHInfo
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
@@ -103,25 +102,14 @@ class TransparentBackgroundView : View, PixelatedView {
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
-            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
+            val (scaleFactorW, scaleFactorH) = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
 
-            val scaleFactorW = scaleFactorWHInfo.scaleFactorW
-            val scaleFactorH = scaleFactorWHInfo.scaleFactorH
+            val (matrix, scaleWidth, scaleHeight) = transparentBackgroundViewBitmap.calculateMatrix(scaleFactorW.toFloat(), scaleFactorH.toFloat())
 
-            val calculatedMatrixInfo = transparentBackgroundViewBitmap.calculateMatrix(
-                scaleFactorW.toFloat(),
-                scaleFactorH.toFloat()
-            )
+            this.scaleWidth = scaleWidth
+            this.scaleHeight = scaleHeight
 
-            val calculatedMatrix = calculatedMatrixInfo.matrix
-
-            this.scaleWidth = calculatedMatrixInfo.scaleWidth
-            this.scaleHeight = calculatedMatrixInfo.scaleHeight
-
-            canvas.drawBitmap(
-                transparentBackgroundViewBitmap,
-                calculatedMatrix,
-                PaintCompatUtilities.getSDK28PaintOrNull())
+            canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompatUtilities.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH
