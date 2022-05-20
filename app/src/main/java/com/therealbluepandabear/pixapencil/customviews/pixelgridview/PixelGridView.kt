@@ -176,25 +176,14 @@ class PixelGridView : View, PixelatedView {
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            val scaleFactorWHInfo: ScaleFactorWHInfo = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
+            val (scaleFactorW, scaleFactorH) = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
 
-            val scaleFactorW = scaleFactorWHInfo.scaleFactorW
-            val scaleFactorH = scaleFactorWHInfo.scaleFactorH
+            val (matrix, scaleWidth, scaleHeight) = pixelGridViewBitmap.calculateMatrix(scaleFactorW.toFloat(), scaleFactorH.toFloat())
 
-            val calculatedMatrixInfo = pixelGridViewBitmap.calculateMatrix(
-                scaleFactorW.toFloat(),
-                scaleFactorH.toFloat()
-            )
+            this.scaleWidth = scaleWidth
+            this.scaleHeight = scaleHeight
 
-            val calculatedMatrix = calculatedMatrixInfo.matrix
-
-            this.scaleWidth = calculatedMatrixInfo.scaleWidth
-            this.scaleHeight = calculatedMatrixInfo.scaleHeight
-
-            canvas.drawBitmap(
-                pixelGridViewBitmap,
-                calculatedMatrix,
-                PaintCompatUtilities.getSDK28PaintOrNull())
+            canvas.drawBitmap(pixelGridViewBitmap, matrix, PaintCompatUtilities.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH
