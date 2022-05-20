@@ -61,6 +61,7 @@ class CanvasActivity :
 
     var replacedBMP = false
 
+
     override fun onStart() {
         super.onStart()
         savePrevOrientationInfo()
