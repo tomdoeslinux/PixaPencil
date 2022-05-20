@@ -1,8 +1,8 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
+import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.activities.canvas.index
@@ -12,17 +12,11 @@ import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.*
+import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
-@SuppressLint("ViewConstructor")
-class PixelGridView(
-    context: Context,
-    override var canvasWidth: Int,
-    override var canvasHeight: Int,
-    val outerCanvasInstance: OuterCanvasFragment,
-    val projectTitle: String?) : View(context), PixelatedView {
-
+class PixelGridView : View, PixelatedView {
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -52,7 +46,7 @@ class PixelGridView(
 
     override var st = false
 
-    val gridPaint = Paint().apply {
+    var gridPaint = Paint().apply {
         strokeWidth = 1f
         pathEffect = null
         color = Color.LTGRAY
@@ -68,10 +62,35 @@ class PixelGridView(
 
     val shadingMap = mutableListOf<Coordinates>()
 
+    lateinit var outerCanvasInstance: OuterCanvasFragment
+
+    var projectTitle: String = ""
+
+    override var canvasWidth: Int = IntConstants.DefaultCanvasWidthHeight
+    override var canvasHeight: Int = IntConstants.DefaultCanvasWidthHeight
+
+    constructor(
+        context: Context,
+        canvasWidth: Int,
+        canvasHeight: Int,
+        outerCanvasInstance: OuterCanvasFragment,
+        projectTitle: String?
+    ) : super(context) {
+        this.canvasWidth = canvasWidth
+        this.canvasHeight = canvasHeight
+        this.outerCanvasInstance = outerCanvasInstance
+        if (projectTitle != null) {
+            this.projectTitle = projectTitle
+        }
+    }
+
+    constructor(context: Context) : this(context, null)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     private fun drawGrid(canvas: Canvas) {
         extendedDrawGrid(canvas)
     }
-
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         if (dimenCW != 0 && dimenCH != 0) {
