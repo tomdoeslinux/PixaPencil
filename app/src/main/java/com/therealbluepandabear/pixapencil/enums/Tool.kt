@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.enums
 
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
-enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
+enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
     PencilTool(
         StringConstants.Identifiers.PencilToolIdentifier,
         ToolFamily.None,
@@ -100,9 +100,9 @@ enum class Tools(val toolName: String, val toolFamily: ToolFamily, val draws: Bo
     );
 
     companion object {
-        val defaultTool: Tools = PencilTool
+        val defaultTool: Tool = PencilTool
 
-        fun findToolByName(name: String): Tools? {
+        fun findToolByName(name: String): Tool? {
             return values().find {
                 it.toolName == name
             }

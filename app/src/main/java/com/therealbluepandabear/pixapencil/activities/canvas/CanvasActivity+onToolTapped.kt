@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polyg
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showShadingToolTip
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showSprayToolTip
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
@@ -15,11 +15,11 @@ import com.therealbluepandabear.pixapencil.utility.Flags
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    if (currentTool == Tools.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
+    if (currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
         pixelGridViewInstance.shadingMode = false
     }
 
-    if (currentTool == Tools.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
+    if (currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
         Flags.DisableActionMove = false
         polygonCoordinates.clear()
         cindx = 0
@@ -27,7 +27,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     val showSprayToolTip = (
                     toolName == StringConstants.Identifiers.SprayToolIdentifier &&
-                            currentTool != Tools.SprayTool &&
+                            currentTool != Tool.SprayTool &&
                             sharedPreferenceShowSprayToolTip
     )
 
@@ -37,7 +37,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     val showShadingToolTip = (
             toolName == StringConstants.Identifiers.ShadingToolIdentifier &&
-                    currentTool != Tools.ShadingTool &&
+                    currentTool != Tool.ShadingTool &&
                     sharedPreferenceShowShadingToolTip
             )
 
@@ -45,8 +45,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         showShadingToolTip()
     }
 
-    if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tools.SprayTool) {
-        if (currentTool == Tools.SprayTool) {
+    if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tool.SprayTool) {
+        if (currentTool == Tool.SprayTool) {
             supportFragmentManager.commit {
                 replace(
                     R.id.activityCanvas_primaryFragmentHost,  SprayToolSettingsFragment.newInstance())
@@ -55,7 +55,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
     }
 
-    if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && currentTool == Tools.ShadingTool) {
+    if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && currentTool == Tool.ShadingTool) {
         val snackbarText: String = if (shadingToolMode == "Lighten") {
             "Darken mode".also {
                 shadingToolMode = "Darken"
@@ -69,14 +69,14 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         binding.activityCanvasRootLayout.showSnackbar(snackbarText, SnackbarDuration.Short)
     }
 
-    if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && currentTool == Tools.PolygonTool) {
+    if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && currentTool == Tool.PolygonTool) {
         viewModel.currentBitmapAction = null
 
         polygonCoordinates.clear()
         cindx = 0
     }
 
-    currentTool = Tools.values().firstOrNull {
+    currentTool = Tool.values().firstOrNull {
         it.toolName == toolName
-    } ?: Tools.defaultTool
+    } ?: Tool.defaultTool
 }

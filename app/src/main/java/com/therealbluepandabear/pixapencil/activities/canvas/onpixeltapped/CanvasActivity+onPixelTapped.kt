@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.*
-import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -19,63 +19,63 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
 
     saved = false
     when (currentTool) {
-        Tools.PencilTool -> {
+        Tool.PencilTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.EraseTool -> {
+        Tool.EraseTool -> {
             eraseToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.ColorPickerTool -> {
+        Tool.ColorPickerTool -> {
             colorPickerToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.FillTool -> {
+        Tool.FillTool -> {
             fillToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.LineTool -> {
+        Tool.LineTool -> {
             lineToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.RectangleTool -> {
+        Tool.RectangleTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, false)
         }
 
-        Tools.OutlinedRectangleTool -> {
+        Tool.OutlinedRectangleTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, true)
         }
 
-        Tools.SquareTool -> {
+        Tool.SquareTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, false)
         }
 
-        Tools.OutlinedSquareTool -> {
+        Tool.OutlinedSquareTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, true)
         }
 
-        Tools.CircleTool -> {
+        Tool.CircleTool -> {
             circleToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.OutlinedCircleTool -> {
+        Tool.OutlinedCircleTool -> {
             circleToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.SprayTool -> {
+        Tool.SprayTool -> {
             sprayToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.PolygonTool -> {
+        Tool.PolygonTool -> {
             polygonToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.DitherTool -> {
+        Tool.DitherTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 
-        Tools.ShadingTool -> {
+        Tool.ShadingTool -> {
             pixelGridViewInstance.shadingMode = true
             pencilToolOnPixelTapped(coordinatesTapped)
         }

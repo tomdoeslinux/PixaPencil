@@ -6,7 +6,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInf
 import com.therealbluepandabear.pixapencil.activities.canvas.rectangleMode_hasLetGo
 import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
-import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
@@ -18,7 +18,7 @@ var firstRectangleDrawn = false
 
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
-    if (currentTool == Tools.RectangleTool || currentTool == Tools.OutlinedRectangleTool) {
+    if (currentTool == Tool.RectangleTool || currentTool == Tool.OutlinedRectangleTool) {
         rectangleAlgorithmInstance = if (!hasBorder) {
             RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
         } else {

@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.algorithms.PixelPerfectAlgorithm
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
-import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun resetPreviousCoordinates() {
@@ -13,12 +13,12 @@ fun resetPreviousCoordinates() {
 }
 
 fun CanvasActivity.extendedOnActionUp() {
-    if (currentTool == Tools.ShadingTool) {
+    if (currentTool == Tool.ShadingTool) {
         pixelGridViewInstance.shadingMap.clear()
     }
 
     when {
-        currentTool == Tools.LineTool -> {
+        currentTool == Tool.LineTool -> {
             lineToolOnActionUp()
         }
 
@@ -26,7 +26,7 @@ fun CanvasActivity.extendedOnActionUp() {
             rectangleToolOnActionUp()
         }
 
-        currentTool == Tools.PolygonTool -> {
+        currentTool == Tool.PolygonTool -> {
             viewModel.bitmapActionData.add(
                 viewModel.currentBitmapAction!!
             )
@@ -36,7 +36,7 @@ fun CanvasActivity.extendedOnActionUp() {
             circleToolOnActionUp()
         }
 
-        currentTool == Tools.EraseTool -> {
+        currentTool == Tool.EraseTool -> {
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
@@ -48,7 +48,7 @@ fun CanvasActivity.extendedOnActionUp() {
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
             if (pixelGridViewInstance.pixelPerfectMode
-                && (currentTool == Tools.PencilTool)
+                && (currentTool == Tool.PencilTool)
                 && (pixelGridViewInstance.currentBrush == null || pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first())) {
                 val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(
                     primaryAlgorithmInfoParameter

@@ -7,7 +7,7 @@ import android.view.Menu
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
-import com.therealbluepandabear.pixapencil.enums.Tools
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
@@ -32,7 +32,7 @@ var background: Drawable? = null
 
 lateinit var currentPixelArtObj: PixelArt
 
-var currentTool: Tools = Tools.defaultTool
+var currentTool: Tool = Tool.defaultTool
 
 var saved = true
 
