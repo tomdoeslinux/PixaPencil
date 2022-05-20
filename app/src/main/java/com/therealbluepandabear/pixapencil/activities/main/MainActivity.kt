@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
@@ -13,6 +14,8 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFragmentListener {
     var showLargeCanvasSizeWarning = true
     lateinit var sharedPreferenceObject: SharedPreferences
+    lateinit var adapter : PixelArtCreationsAdapter
+    val artList = mutableListOf<PixelArt>()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
