@@ -17,7 +17,7 @@ fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, c
             val coordinates = Coordinates(i_1, i_2)
 
             if (pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinates) == colorToFind) {
-                overrideSetPixel(coordinates, colorToReplace, true, ignoreSymmetry = true)
+                overrideSetPixel(coordinates, colorToReplace, true, ignoreSymmetry = true, ignoreDither = true)
             }
         }
     }

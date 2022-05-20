@@ -39,6 +39,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreBrush: Boolean = false,
     saveToBitmapAction: Boolean = true,
     ignoreSymmetry: Boolean = false,
+    ignoreDither: Boolean = false
 ) {
     with(pixelGridViewInstance) {
         var horizontallyReflectedCoordinates: Coordinates? = null
@@ -74,20 +75,20 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             else -> {}
         }
 
-        if (coordinatesInCanvasBounds(coordinates)) {
+        if (coordinatesInCanvasBounds(coordinates, ignoreDither)) {
             setPixelAndSaveToBitmapActionReference(coordinates, color)
 
-            if (horizontallyReflectedCoordinates != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinates)) {
+            if (horizontallyReflectedCoordinates != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinates, ignoreDither)) {
                 setPixelAndSaveToBitmapActionReference(horizontallyReflectedCoordinates, color)
             }
 
-            if (verticallyReflectedCoordinates != null && coordinatesInCanvasBounds(verticallyReflectedCoordinates)) {
+            if (verticallyReflectedCoordinates != null && coordinatesInCanvasBounds(verticallyReflectedCoordinates, ignoreDither)) {
                 setPixelAndSaveToBitmapActionReference(verticallyReflectedCoordinates, color)
             }
 
             if (quadMirroredCoordinates.isNotEmpty()) {
                 for (coordinate in quadMirroredCoordinates) {
-                    if (coordinatesInCanvasBounds(coordinate)) {
+                    if (coordinatesInCanvasBounds(coordinate, ignoreDither)) {
                         setPixelAndSaveToBitmapActionReference(coordinate, color)
                     }
                 }
@@ -95,7 +96,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
             if (octalMirroredCoordinates.isNotEmpty()) {
                 for (coordinate in octalMirroredCoordinates) {
-                    if (coordinatesInCanvasBounds(coordinate)) {
+                    if (coordinatesInCanvasBounds(coordinate, ignoreDither)) {
                         setPixelAndSaveToBitmapActionReference(coordinate, color)
                     }
                 }
@@ -103,14 +104,14 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
             if (currentBrush != null && !ignoreBrush) {
                 for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates)) {
-                    if (coordinatesInCanvasBounds(xyPosition_2)) {
+                    if (coordinatesInCanvasBounds(xyPosition_2, ignoreDither)) {
                         setPixelAndSaveToBitmapActionReference(xyPosition_2, color, saveToBitmapAction)
                     }
                 }
 
                 if (horizontallyReflectedCoordinates != null) {
                     for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinates)) {
-                        if (coordinatesInCanvasBounds(xyPosition_2)) {
+                        if (coordinatesInCanvasBounds(xyPosition_2, ignoreDither)) {
                             setPixelAndSaveToBitmapActionReference(xyPosition_2, color, saveToBitmapAction)
                         }
                     }
@@ -118,7 +119,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
                 if (verticallyReflectedCoordinates != null) {
                     for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinates)) {
-                        if (coordinatesInCanvasBounds(xyPosition_2)) {
+                        if (coordinatesInCanvasBounds(xyPosition_2, ignoreDither)) {
                             setPixelAndSaveToBitmapActionReference(xyPosition_2, color, saveToBitmapAction)
                         }
                     }
@@ -127,7 +128,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
                 if (quadMirroredCoordinates.isNotEmpty()) {
                     for (coordinates_1 in quadMirroredCoordinates) {
                         for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
-                            if (coordinatesInCanvasBounds(xyPosition_2)) {
+                            if (coordinatesInCanvasBounds(xyPosition_2, ignoreDither)) {
                                 setPixelAndSaveToBitmapActionReference(xyPosition_2, color, saveToBitmapAction)
                             }
                         }
@@ -137,7 +138,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
                 if (octalMirroredCoordinates.isNotEmpty()) {
                     for (coordinates_1 in octalMirroredCoordinates) {
                         for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
-                            if (coordinatesInCanvasBounds(xyPosition_2)) {
+                            if (coordinatesInCanvasBounds(xyPosition_2, ignoreDither)) {
                                 setPixelAndSaveToBitmapActionReference(xyPosition_2, color, saveToBitmapAction)
                             }
                         }

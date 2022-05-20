@@ -168,8 +168,8 @@ class PixelGridView : View, PixelatedView {
         extendedSaveAsImage(format, thisRotation)
     }
 
-    fun coordinatesInCanvasBounds(coordinates: Coordinates): Boolean {
-        return extendedCoordinatesInCanvasBounds(coordinates)
+    fun coordinatesInCanvasBounds(coordinates: Coordinates, ignoreDither: Boolean = false): Boolean {
+        return extendedCoordinatesInCanvasBounds(coordinates, ignoreDither)
     }
 
     /** Use this code only in onMeasure **/
