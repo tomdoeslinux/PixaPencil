@@ -77,23 +77,27 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
         if (coordinatesInCanvasBounds(coordinates)) {
             setPixelAndSaveToBitmapActionReference(coordinates, color)
 
-            if (horizontallyReflectedCoordinates != null) {
+            if (horizontallyReflectedCoordinates != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinates)) {
                 setPixelAndSaveToBitmapActionReference(horizontallyReflectedCoordinates, color)
             }
 
-            if (verticallyReflectedCoordinates != null) {
+            if (verticallyReflectedCoordinates != null && coordinatesInCanvasBounds(verticallyReflectedCoordinates)) {
                 setPixelAndSaveToBitmapActionReference(verticallyReflectedCoordinates, color)
             }
 
             if (quadMirroredCoordinates.isNotEmpty()) {
                 for (coordinate in quadMirroredCoordinates) {
-                    setPixelAndSaveToBitmapActionReference(coordinate, color)
+                    if (coordinatesInCanvasBounds(coordinate)) {
+                        setPixelAndSaveToBitmapActionReference(coordinate, color)
+                    }
                 }
             }
 
             if (octalMirroredCoordinates.isNotEmpty()) {
                 for (coordinate in octalMirroredCoordinates) {
-                    setPixelAndSaveToBitmapActionReference(coordinate, color)
+                    if (coordinatesInCanvasBounds(coordinate)) {
+                        setPixelAndSaveToBitmapActionReference(coordinate, color)
+                    }
                 }
             }
 
