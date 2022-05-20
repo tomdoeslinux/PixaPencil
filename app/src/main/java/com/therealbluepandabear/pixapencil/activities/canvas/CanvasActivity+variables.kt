@@ -54,9 +54,6 @@ lateinit var sharedPreferenceObject: SharedPreferences
 lateinit var sprayAlgorithmInstance: SprayAlgorithm
 var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
 
-var previewColorToFind: Int? = null
-var previewColorToReplace: Int? = null
-
 var prevOrientation: Int = 0
 var prevBitmapFilePathStr: String? = null
 var prevPrimaryColor: Int? = null
