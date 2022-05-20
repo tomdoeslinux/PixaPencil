@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
@@ -19,15 +18,10 @@ import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
-
-    private var lock = true
 
     private lateinit var paramCanvasColors: List<Int>
     private lateinit var paramTransparentBitmapSource: Bitmap
@@ -52,11 +46,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         setupAvailableColorsRecyclerView()
         setOnClickListeners()
         setupPreview()
-
-        lifecycleScope.launch {
-            delay(20)
-            lock = false
-        }
     }
 
     private fun setupPreview() {
@@ -103,7 +92,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private fun setOnClickListeners() {
         binding.fragmentFindAndReplaceDoneButton.setOnClickListener {
             caller.onDoneButtonPressed(colorToFind, colorToReplace)
-            lock = true
         }
     }
 
