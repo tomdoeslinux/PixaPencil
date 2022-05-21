@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
+import com.therealbluepandabear.pixapencil.extensions.clone
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
@@ -49,10 +50,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupPreview() {
-        val paramTransparentBitmapSourceCopy = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
-        val paramPixelGridViewBitmapSourceCopy = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
-
-        val bitmap = BitmapUtilities.overlay(paramTransparentBitmapSourceCopy, paramPixelGridViewBitmapSourceCopy)
+        val bitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), paramPixelGridViewBitmapSource.clone())
         binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmap)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
     }
@@ -100,11 +98,10 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToFind = colorTapped
 
             if (colorToReplace != null) {
-                val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
+                val bitmap = paramPixelGridViewBitmapSource.clone()
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-                val copyTransparentbmp = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
-                val finalBitmap = BitmapUtilities.overlay(copyTransparentbmp, bitmap)
+                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
@@ -117,11 +114,10 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToReplace = colorTapped
 
             if (colorToFind != null && colorToReplace != null) {
-                val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
+                val bitmap = paramPixelGridViewBitmapSource.clone()
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-                val copyTransparentbmp = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
-                val finalBitmap = BitmapUtilities.overlay(copyTransparentbmp, bitmap)
+                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
