@@ -1,0 +1,1 @@
+<i>PixaPencil</i> is a pixel art editor for Android, providing a load of tools one might need to create pixel graphics – including (but not limited to) pencil, fill, mirror, rectangle, circle, spray, polygon etc. It supports undo/redo as well as erasure/clear-canvas, zoom and more.
