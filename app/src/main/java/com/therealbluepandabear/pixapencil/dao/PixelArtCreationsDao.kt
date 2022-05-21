@@ -20,4 +20,7 @@ interface PixelArtCreationsDao {
 
     @Update
     suspend fun updatePixelArtCreation(pixelArtObj: PixelArt)
+
+    @Query("SELECT * FROM PixelArt WHERE objId =:pixelArtId")
+    fun getPixelArtWIthId(pixelArtId:Int) : PixelArt
 }

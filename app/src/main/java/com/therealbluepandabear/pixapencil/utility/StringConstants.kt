@@ -8,6 +8,7 @@ object StringConstants {
         const val WidthExtra = "WidthExtra"
         const val HeightExtra = "HeightExtra"
         const val IndexExtra = "IndexExtra"
+        const val PixelArtIdExtra = "PixelArtIdExtra"
     }
 
     object Identifiers {

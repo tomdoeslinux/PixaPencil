@@ -11,7 +11,7 @@ fun CanvasActivity.onOrientationChanged() {
         }
     }
 
-    outerCanvasInstance = OuterCanvasFragment.newInstance(width, height, projectTitle)
+    outerCanvasInstance = OuterCanvasFragment.newInstance(width, height, projectTitle, pixelArtId)
     supportFragmentManager.beginTransaction()
         .add(R.id.activityCanvas_outerCanvasFragmentHost, outerCanvasInstance).commit()
 }

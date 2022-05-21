@@ -5,7 +5,6 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
@@ -31,8 +30,6 @@ class PixelGridView : View, PixelatedView {
     var pixelPerfectMode: Boolean = false
 
     var gridEnabled = false
-
-    override var currentIndex = index!!
 
     lateinit var caller: CanvasFragmentListener
 
@@ -68,13 +65,15 @@ class PixelGridView : View, PixelatedView {
 
     override var canvasWidth: Int = IntConstants.DefaultCanvasWidthHeight
     override var canvasHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    override var pixelArtId: Int = -1
 
     constructor(
         context: Context,
         canvasWidth: Int,
         canvasHeight: Int,
         outerCanvasInstance: OuterCanvasFragment,
-        projectTitle: String?
+        projectTitle: String?,
+        pixelArtId:Int
     ) : super(context) {
         this.canvasWidth = canvasWidth
         this.canvasHeight = canvasHeight
@@ -82,6 +81,7 @@ class PixelGridView : View, PixelatedView {
         if (projectTitle != null) {
             this.projectTitle = projectTitle
         }
+        this.pixelArtId = pixelArtId
     }
 
     constructor(context: Context) : this(context, null)
@@ -99,8 +99,8 @@ class PixelGridView : View, PixelatedView {
                 dimenCH
             )
         } else {
-            if (currentIndex != -1) {
-                val currentPixelArtObj = getCurrentPixelArtObj()
+            if (pixelArtId != -1) {
+                val currentPixelArtObj = getCurrentPixelArtObjById(pixelArtId)
 
                 setMeasuredDimension(
                     currentPixelArtObj.dimenCW,
@@ -128,7 +128,7 @@ class PixelGridView : View, PixelatedView {
             pixelGridViewBitmap.recycle()
         }
 
-        if (currentIndex == -1) {
+        if (pixelArtId == -1) {
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
@@ -144,7 +144,7 @@ class PixelGridView : View, PixelatedView {
 
             pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getSDK28PaintOrNull())
 
-            outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
+            outerCanvasInstance.rotate(getCurrentPixelArtObjById(pixelArtId).rotation.toInt(), false)
 
             postInvalidate()
         }

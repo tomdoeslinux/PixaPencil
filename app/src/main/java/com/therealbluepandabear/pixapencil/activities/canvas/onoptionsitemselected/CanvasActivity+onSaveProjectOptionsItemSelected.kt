@@ -22,7 +22,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
-    if (index == -1) {
+    if (pixelArtId == -1) {
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
                 PixelArt(

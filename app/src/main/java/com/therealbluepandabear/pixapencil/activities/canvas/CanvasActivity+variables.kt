@@ -17,8 +17,7 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
 lateinit var binding: ActivityCanvasBinding
-var index: Int? = null
-
+var pixelArtId = -1
 var primaryColor: Int = Color.BLACK
 var secondaryColor: Int = Color.BLUE
 

@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.customviews.interface_
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.currentPixelArtObj
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -20,24 +19,18 @@ interface PixelatedView {
     var canvasWidth: Int
     var canvasHeight: Int
 
-    var currentIndex: Int
+    var pixelArtId : Int
 
     fun getCurrentBitmap(context: Context): Bitmap {
-        if (currentIndex != -1) {
-            val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-            val gcbCurrentPixelArtObj = pixelArtData[currentIndex]
-
-            currentPixelArtObj = gcbCurrentPixelArtObj
-
+        if (pixelArtId != -1) {
+            currentPixelArtObj = getCurrentPixelArtObjById(pixelArtId)
             return BitmapConverter.convertStringToBitmap(currentPixelArtObj.bitmap)!!
         }
-        throw IllegalArgumentException(context.getString(R.string.exception_accessing_negative_index_message_in_code_str))
+        throw IllegalArgumentException("Cannot access pixel art object with a negative id")
     }
 
-    fun getCurrentPixelArtObj(): PixelArt {
-        val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
-
-        return pixelArtData[currentIndex]
+    fun getCurrentPixelArtObjById(id:Int): PixelArt{
+        return AppData.pixelArtDB.pixelArtCreationsDao().getPixelArtWIthId(id)
     }
+
 }
