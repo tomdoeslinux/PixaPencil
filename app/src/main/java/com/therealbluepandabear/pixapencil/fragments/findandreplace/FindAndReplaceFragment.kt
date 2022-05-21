@@ -103,7 +103,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource, bitmap)
+                val copyTransparentbmp = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
+                val finalBitmap = BitmapUtilities.overlay(copyTransparentbmp, bitmap)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
@@ -119,7 +120,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 val bitmap = paramPixelGridViewBitmapSource.copy(paramPixelGridViewBitmapSource.config, paramPixelGridViewBitmapSource.isMutable)
                 bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource, bitmap)
+                val copyTransparentbmp = paramTransparentBitmapSource.copy(paramTransparentBitmapSource.config, paramTransparentBitmapSource.isMutable)
+                val finalBitmap = BitmapUtilities.overlay(copyTransparentbmp, bitmap)
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
