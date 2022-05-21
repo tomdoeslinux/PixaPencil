@@ -189,6 +189,10 @@
     <string name="dialog_welcome_title_in_code_str">يا أهلا وسهلا</string>
     <string name="dialog_welcome_text_in_code_str">يا أهلا وسهلا بك في PixaPencil! انقر مع الاستمرار على أي أداة للحصول على معلومات أكثر عن كيفية عمها.</string>
 
+    <string name="dialog_large_canvas_warning_title_in_code_str">تنبيه</string>
+    <string name="dialog_large_canvas_warning_text_in_code_str">أنت على وشك إنشاء لوحة رسم كبيرة, ضع في بالك أن هاتفك قد لا يستطيع دعم صور bitmap بهذه الأحجام.</string>
+    <string name="dialog_large_canvas_warning_positive_button_text_in_code_str">فهمت، إنشاء المشروع</string>
+
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text_in_code_str">عرض</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">لا يمكن حذف لوحة الألوان الافتراضية</string>
@@ -212,4 +216,8 @@
     <string name="activityCanvasTopAppMenu_symmetry_str">نتاظر</string>
     <string name="activityCanvasTopAppMenu_symmetry_none_str">لا شيء</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal_str">ثماني</string>
+
+    <string name="shading_tool_tip_in_code_str">تلميح: انقر على الأيقونة لتغيير وضع التظليل</string>
+    <string name="spray_tool_tip_in_code_str">تلميح: انقر على الأيقونة لتغيير وضع الرذاذ</string>
+    <string name="tool_tip_dont_show_again_in_code_str">عدم الإظهار مرة أخرى</string>
 </resources>
