@@ -1,9 +1,14 @@
-## ❓ About
-*A capable pixel art editor for Android.*
+<div align="center">
+  <h1>PixaPencil</a></h1>
+  <p>A capable — Kotlin-first — pixel art editor for Android.</p>
 
-Join the official Matrix server: https://matrix.to/#/#pixapencil:matrix.org 
 
-... or the official Discord server: https://discord.gg/Ytm7WBMNz9
+[![Discord](https://img.shields.io/badge/Discord-PixaPencil-blue.svg)](https://discord.com/invite/Ytm7WBMNz9)
+[![Matrix](https://img.shields.io/badge/Matrix-PixaPencil-green.svg)](https://matrix.to/#/#pixapencil:matrix.org)
+[![License](https://img.shields.io/badge/License-MIT-red.svg)](https://choosealicense.com/licenses/mit/)
+
+[<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="80">](https://github.com/therealbluepandabear/PixaPencil/releases/latest)
+</div>
 
 ## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store and F-Droid, as well as a .apk file.
