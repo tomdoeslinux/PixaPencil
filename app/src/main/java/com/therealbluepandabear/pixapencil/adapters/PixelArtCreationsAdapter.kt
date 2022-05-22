@@ -35,7 +35,8 @@ class PixelArtCreationsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = data[position]
-        if( holder is PixelArtViewHolder ) {
+
+        if (holder is PixelArtViewHolder) {
             holder.bind(item)
 
             holder.binding.recentCreationsLayoutMaterialCardView.setOnClickListener {
