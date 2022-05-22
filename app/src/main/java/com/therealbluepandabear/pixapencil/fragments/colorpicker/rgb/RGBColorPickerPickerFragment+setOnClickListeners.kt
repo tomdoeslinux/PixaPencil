@@ -1,8 +1,6 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.rgb
 
 import android.graphics.drawable.ColorDrawable
-import com.therealbluepandabear.pixapencil.activities.canvas.menu
-import com.therealbluepandabear.pixapencil.extensions.showItems
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
 
@@ -11,10 +9,9 @@ fun RGBColorPickerFragment.setOnClickListeners() {
         try {
             caller.onDoneButtonPressed((binding.fragmentRGBColorPickerColorPreview.background as ColorDrawable).color, colorPaletteMode_)
             unregisterKeyboardVisibilityEventListenerRegistrar()
-        } catch (exception: Exception) {
-
-        } finally {
-            menu.showItems()
-        }
+        } catch (exception: Exception) { }
+//        } finally {
+//            menu.showItems()
+//        }
     }
 }

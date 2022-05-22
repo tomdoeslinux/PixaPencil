@@ -1,9 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
-import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
-import com.therealbluepandabear.pixapencil.activities.canvas.rectangleMode_hasLetGo
 import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.enums.Tool
@@ -32,7 +29,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         }
     }
 
-    if (!rectangleMode_hasLetGo) {
+    if (!rectangleModeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -45,7 +42,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         }
     } else {
         viewModel.currentBitmapAction = null
-        rectangleMode_hasLetGo = false
+        rectangleModeHasLetGo = false
         first = true
     }
 

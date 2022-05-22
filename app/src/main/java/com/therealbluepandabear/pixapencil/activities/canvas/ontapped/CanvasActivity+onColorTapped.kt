@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import android.view.View
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.isSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.updateColorSelectedIndicator
 

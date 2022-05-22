@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.undo
-import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.Flags

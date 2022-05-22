@@ -5,7 +5,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyPi
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyShowShadingToolTipValueFromPreference
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyShowSprayToolTipValueFromPreference
 
-fun extendedOnViewLoaded() {
+fun CanvasActivity.extendedOnViewLoaded() {
     applyPixelPerfectValueFromPreference()
     applyGridEnabledValueFromPreference()
     applyShowShadingToolTipValueFromPreference()

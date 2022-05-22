@@ -1,8 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.circleMode_hasLetGo
-import com.therealbluepandabear.pixapencil.activities.canvas.primaryAlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -14,7 +12,7 @@ fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(primaryAlgorithmInfoParameter, null, true)
     val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter)
 
-    if (!circleMode_hasLetGo) {
+    if (!circleModeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -27,7 +25,7 @@ fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
         }
     } else {
         viewModel.currentBitmapAction = null
-        circleMode_hasLetGo = false
+        circleModeHasLetGo = false
         first = true
     }
 

@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
-import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
@@ -25,7 +24,7 @@ class TransparentBackgroundView : View, PixelatedView {
 
     var color = Color.parseColor(StringConstants.Colors.PixelGridViewCheckerboardColor)
 
-    override var currentIndex = index!!
+    override var currentIndex: Int = -1
 
     override var st = false
 
@@ -42,10 +41,12 @@ class TransparentBackgroundView : View, PixelatedView {
     constructor(
         context: Context,
         canvasWidth: Int,
-        canvasHeight: Int
+        canvasHeight: Int,
+        currentIndex: Int
     ) : super(context) {
         this.canvasWidth = canvasWidth
         this.canvasHeight = canvasHeight
+        this.currentIndex = currentIndex
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -55,7 +56,7 @@ class TransparentBackgroundView : View, PixelatedView {
                 dimenCH
             )
         } else {
-            if (index != -1) {
+            if (currentIndex != -1) {
                 val currentPixelArtObj = getCurrentPixelArtObj()
 
                 setMeasuredDimension(
@@ -80,7 +81,7 @@ class TransparentBackgroundView : View, PixelatedView {
             transparentBackgroundViewBitmap.recycle()
         }
 
-        if (index == -1) {
+        if (currentIndex == -1) {
             transparentBackgroundViewBitmap =
                 Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)

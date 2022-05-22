@@ -12,10 +12,11 @@ fun setOnClickListeners() {
                 (binding.fragmentHexadecimalColorPickerColorPreview.background as ColorDrawable).color,
                 colorPaletteMode_
             )
-        } catch (exception: Exception) {
-
-        } finally {
-            com.therealbluepandabear.pixapencil.activities.canvas.menu.showItems()
-        }
+        } catch (exception: Exception) { }
+//        } catch (exception: Exception) {
+//
+//        } finally {
+//            com.therealbluepandabear.pixapencil.activities.canvas.menu.showItems()
+//        }
     }
 }

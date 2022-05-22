@@ -18,27 +18,29 @@ class CanvasFragment : Fragment() {
 
     private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
     private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
-    private var outerCanvasInstance: OuterCanvasFragment? = null
+    private var paramOuterCanvasInstance: OuterCanvasFragment? = null
     private var paramProjectTitle: String? = null
+    private var paramIndex: Int = -1
 
-    fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?) {
+    fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?, paramIndex: Int) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
-        this.outerCanvasInstance = outerCanvasInstance
+        this.paramOuterCanvasInstance = outerCanvasInstance
         this.paramProjectTitle = paramProjectTitle
+        this.paramIndex = paramIndex
     }
 
     private fun setupCanvas() {
-        if (outerCanvasInstance != null) {
-            pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, outerCanvasInstance!!, paramProjectTitle)
+        if (paramOuterCanvasInstance != null) {
+            pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, paramOuterCanvasInstance!!, paramProjectTitle, paramIndex)
             binding.fragmentCanvasRootLayout.addView(pixelGridViewInstance)
         }
     }
 
     companion object {
-        fun newInstance(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?): CanvasFragment {
+        fun newInstance(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?, paramIndex: Int): CanvasFragment {
             val fragment = CanvasFragment()
-            fragment.setParams(paramWidth, paramHeight, outerCanvasInstance, paramProjectTitle)
+            fragment.setParams(paramWidth, paramHeight, outerCanvasInstance, paramProjectTitle, paramIndex)
 
             return fragment
         }

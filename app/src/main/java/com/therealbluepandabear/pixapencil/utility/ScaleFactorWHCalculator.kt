@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.utility
 
 import android.content.res.Configuration
 import android.content.res.Resources
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.models.ScaleFactorWHInfo
 
 object ScaleFactorWHCalculator {
@@ -10,13 +9,13 @@ object ScaleFactorWHCalculator {
         when {
             width == height -> {
                 return ScaleFactorWHInfo(
-                    binding.activityCanvasRootLayout.measuredHeight,
-                    binding.activityCanvasRootLayout.measuredHeight
+                    IntConstants.ActivityCanvasRootLayoutMeasuredHeightReference,
+                    IntConstants.ActivityCanvasRootLayoutMeasuredHeightReference
                 )
             }
 
             width > height -> {
-                val scaleFactorW = binding.activityCanvasRootLayout.measuredHeight
+                val scaleFactorW = IntConstants.ActivityCanvasRootLayoutMeasuredHeightReference
 
                 val ratio = height.toDouble() / width.toDouble()
 
@@ -26,7 +25,7 @@ object ScaleFactorWHCalculator {
             }
 
             else -> {
-                val scaleFactorH = binding.activityCanvasRootLayout.measuredHeight
+                val scaleFactorH = IntConstants.ActivityCanvasRootLayoutMeasuredHeightReference
 
                 val ratio = width.toDouble() / height.toDouble()
 
@@ -47,7 +46,7 @@ object ScaleFactorWHCalculator {
             }
 
             width > height -> {
-                val scaleFactorW = binding.activityCanvasRootLayout.measuredWidth
+                val scaleFactorW = IntConstants.ActivityCanvasRootLayoutMeasuredWidthReference
 
                 val ratio = height.toDouble() / width.toDouble()
 
@@ -57,7 +56,7 @@ object ScaleFactorWHCalculator {
             }
 
             else -> {
-                val scaleFactorH = binding.activityCanvasRootLayout.measuredWidth
+                val scaleFactorH = IntConstants.ActivityCanvasRootLayoutMeasuredWidthReference
 
                 val ratio = width.toDouble() / height.toDouble()
 

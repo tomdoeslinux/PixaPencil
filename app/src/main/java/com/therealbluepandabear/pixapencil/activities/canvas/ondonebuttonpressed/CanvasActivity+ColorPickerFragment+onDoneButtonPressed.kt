@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpresse
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter

@@ -14,6 +14,6 @@ fun CanvasActivity.CanvasCommandsHelper.clearCanvas() {
             }
         }
         invalidate()
-        viewModelReference.bitmapActionData.clear()
+        baseReference.viewModel.bitmapActionData.clear()
     }
 }

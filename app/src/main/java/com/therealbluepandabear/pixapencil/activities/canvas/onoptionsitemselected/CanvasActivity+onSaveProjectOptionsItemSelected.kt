@@ -9,6 +9,7 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
+import com.therealbluepandabear.pixapencil.utility.ObjectConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,14 +46,14 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
         pixelGridViewInstance.invalidate()
 
         AppData.pixelArtDB.pixelArtCreationsDao().apply {
-            currentPixelArtObj.apply {
+            ObjectConstants.CurrentPixelArtObj.apply {
                 coverBitmapFilePath = coverBMPFileName
                 bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
                 rotation = outerCanvasInstance.getCurrentRotation()
             }
 
             CoroutineScope(Dispatchers.IO).launch {
-                updatePixelArtCreation(currentPixelArtObj)
+                updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
             }
         }
         outerCanvasInstance.rotate(0)

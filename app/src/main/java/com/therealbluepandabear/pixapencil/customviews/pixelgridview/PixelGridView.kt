@@ -5,9 +5,9 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.therealbluepandabear.pixapencil.activities.canvas.index
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
+import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
@@ -32,7 +32,7 @@ class PixelGridView : View, PixelatedView {
 
     var gridEnabled = false
 
-    override var currentIndex = index!!
+    override var currentIndex = -1
 
     lateinit var caller: CanvasFragmentListener
 
@@ -74,7 +74,8 @@ class PixelGridView : View, PixelatedView {
         canvasWidth: Int,
         canvasHeight: Int,
         outerCanvasInstance: OuterCanvasFragment,
-        projectTitle: String?
+        projectTitle: String?,
+        currentIndex: Int
     ) : super(context) {
         this.canvasWidth = canvasWidth
         this.canvasHeight = canvasHeight
@@ -82,6 +83,7 @@ class PixelGridView : View, PixelatedView {
         if (projectTitle != null) {
             this.projectTitle = projectTitle
         }
+        this.currentIndex = currentIndex
     }
 
     constructor(context: Context) : this(context, null)
@@ -168,8 +170,8 @@ class PixelGridView : View, PixelatedView {
         extendedSaveAsImage(format, thisRotation)
     }
 
-    fun coordinatesInCanvasBounds(coordinates: Coordinates, ignoreDither: Boolean = false): Boolean {
-        return extendedCoordinatesInCanvasBounds(coordinates, ignoreDither)
+    fun coordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
+        return extendedCoordinatesInCanvasBounds(coordinates, currentTool, ignoreDither)
     }
 
     /** Use this code only in onMeasure **/

@@ -49,8 +49,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tool.SprayTool) {
         if (currentTool == Tool.SprayTool) {
             supportFragmentManager.commit {
-                replace(
-                    R.id.activityCanvas_primaryFragmentHost,  SprayToolSettingsFragment.newInstance())
+                replace(R.id.activityCanvas_primaryFragmentHost, SprayToolSettingsFragment.newInstance(sharedPreferenceObject))
                 addToBackStack(null)
             }
         }

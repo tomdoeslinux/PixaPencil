@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
 import androidx.core.widget.doAfterTextChanged
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -67,7 +66,7 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             val parsedRadius = radius.toInt()
             val parsedStrength = strength.toInt()
 
-            with (sharedPreferenceObject.edit()) {
+            with (paramSharedPreferenceObject.edit()) {
                 putInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, parsedRadius)
                 putInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, parsedStrength)
                 apply()

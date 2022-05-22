@@ -1,12 +1,12 @@
 package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.sharedPreferenceObject
 import com.therealbluepandabear.pixapencil.databinding.FragmentSprayToolSettingsBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.SprayToolSettingsFragmentListener
@@ -16,9 +16,15 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }
 
+    lateinit var paramSharedPreferenceObject: SharedPreferences
+
+    fun setParams(paramSharedPreferenceObject: SharedPreferences) {
+        this.paramSharedPreferenceObject = paramSharedPreferenceObject
+    }
+
     private fun setDefaultValues() {
-        val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
-        val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
+        val sprayRadiusSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
+        val sprayStrengthSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
 
         val sprayRadiusSharedPreferenceStr = sprayRadiusSharedPreference.toString()
         val sprayStrengthSharedPreferenceStr = sprayStrengthSharedPreference.toString()
@@ -33,8 +39,11 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     }
 
     companion object {
-        fun newInstance(): SprayToolSettingsFragment {
-            return SprayToolSettingsFragment()
+        fun newInstance(paramSharedPreferenceObject: SharedPreferences): SprayToolSettingsFragment {
+            val fragment = SprayToolSettingsFragment()
+            fragment.setParams(paramSharedPreferenceObject)
+
+            return fragment
         }
     }
 
