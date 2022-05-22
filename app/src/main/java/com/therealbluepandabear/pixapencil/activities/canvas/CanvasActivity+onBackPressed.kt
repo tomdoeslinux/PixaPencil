@@ -18,8 +18,10 @@ fun CanvasActivity.extendedOnBackPressed() {
             getString(R.string.dialog_positive_button_text_in_code_str),
             { _, _ ->
                 startActivity(Intent(this, MainActivity::class.java))
+                finishAffinity()
             },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> })
     } else {
         startActivity(Intent(this, MainActivity::class.java))
+        finishAffinity()
     }
 }
