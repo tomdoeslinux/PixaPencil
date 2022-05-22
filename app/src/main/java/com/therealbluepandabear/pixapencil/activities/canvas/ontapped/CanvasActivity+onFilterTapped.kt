@@ -1,7 +1,10 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import android.graphics.Color
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.applyBitmapFilter
+import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
+import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 

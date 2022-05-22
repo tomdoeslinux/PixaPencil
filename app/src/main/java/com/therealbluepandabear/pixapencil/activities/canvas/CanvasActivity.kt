@@ -16,8 +16,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
-import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
-import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
