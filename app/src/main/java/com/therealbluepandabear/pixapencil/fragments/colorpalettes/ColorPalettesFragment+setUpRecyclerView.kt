@@ -17,6 +17,6 @@ fun ColorPalettesFragment.setUpRecyclerView() {
 
     layoutManager.orientation = layoutManagerOrientation
 
-    adapter = ColorPalettesAdapter(mutableListOf(), context, this@setUpRecyclerView.requireContext())
+    adapter = ColorPalettesAdapter(mutableListOf(), this@setUpRecyclerView, this@setUpRecyclerView.requireContext())
     binding.fragmentColorPalettesRecyclerView.adapter = adapter
 }

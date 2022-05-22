@@ -13,8 +13,6 @@ import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
-    val context = this
-
     lateinit var adapter : ColorPalettesAdapter
     val colorPalettesList = mutableListOf<ColorPalette>()
 
