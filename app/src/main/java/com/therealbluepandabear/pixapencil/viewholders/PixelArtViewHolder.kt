@@ -16,7 +16,7 @@ import java.io.File
 
 
 class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(pixelArt: PixelArt){
+    private fun loadPixelArtCoverImage(pixelArt: PixelArt) {
         val requestOptions: RequestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .dontAnimate()
@@ -32,16 +32,9 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerVi
             .transition(DrawableTransitionOptions.withCrossFade())
             .placeholder(R.drawable.transparent_placeholder)
             .into(binding.recentCreationsLayoutImageView)
+    }
 
-        binding.recentCreationsLayoutSubtitle.text = "${pixelArt.width}x${pixelArt.height}"
-        binding.recentCreationsLayoutFavoriteButton.setImageResource(
-            if (pixelArt.starred) {
-                R.drawable.ic_baseline_star_24
-            } else {
-                R.drawable.ic_baseline_star_border_24
-            }
-        )
-
+    private fun loadPixelArtTitle(pixelArt: PixelArt) {
         if (pixelArt.title.length > 6) {
             binding.recentCreationsLayoutTitle.ellipsize = TextUtils.TruncateAt.MARQUEE
             binding.recentCreationsLayoutTitle.isSelected = true
@@ -50,5 +43,22 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerVi
         } else {
             binding.recentCreationsLayoutTitle.text = pixelArt.title
         }
+    }
+
+    private fun loadPixelArtStarred(pixelArt: PixelArt) {
+        binding.recentCreationsLayoutFavoriteButton.setImageResource(
+            if (pixelArt.starred) {
+                R.drawable.ic_baseline_star_24
+            } else {
+                R.drawable.ic_baseline_star_border_24
+            }
+        )
+    }
+
+    fun bind(pixelArt: PixelArt){
+        loadPixelArtCoverImage(pixelArt)
+        binding.recentCreationsLayoutSubtitle.text = "${pixelArt.width}x${pixelArt.height}"
+        loadPixelArtStarred(pixelArt)
+        loadPixelArtTitle(pixelArt)
     }
 }
