@@ -18,5 +18,5 @@ fun BrushesFragment.setUpRecyclerView() {
 
     binding.fragmentBrushesRecyclerView.layoutManager = layoutManager
 
-    binding.fragmentBrushesRecyclerView.adapter = BrushesAdapter(BrushesDatabase.toList(), this)
+    binding.fragmentBrushesRecyclerView.adapter = BrushesAdapter(BrushesDatabase.toList(), this, this@setUpRecyclerView.requireContext())
 }

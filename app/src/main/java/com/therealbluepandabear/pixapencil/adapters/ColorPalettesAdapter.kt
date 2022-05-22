@@ -17,6 +17,7 @@ class ColorPalettesAdapter(
     private val caller: ColorPalettesListener,
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ColorPalettesLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return ColorPalettesViewHolder(binding, context)
