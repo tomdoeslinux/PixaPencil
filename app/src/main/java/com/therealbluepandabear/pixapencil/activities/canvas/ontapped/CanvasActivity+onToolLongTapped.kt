@@ -1,6 +1,8 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.currentTool
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.utility.StringConstants

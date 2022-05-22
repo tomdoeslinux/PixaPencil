@@ -1,7 +1,8 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showShadingToolTip

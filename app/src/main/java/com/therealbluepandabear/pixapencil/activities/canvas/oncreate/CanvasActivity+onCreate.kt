@@ -1,7 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
-import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
-import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.initSharedPreferenceObject
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 
 fun CanvasActivity.onCreate() {
     viewModel.currentBitmapAction = null

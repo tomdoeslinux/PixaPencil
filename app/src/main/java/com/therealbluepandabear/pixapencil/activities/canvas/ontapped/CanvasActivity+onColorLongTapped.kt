@@ -1,6 +1,8 @@
-package com.therealbluepandabear.pixapencil.activities.canvas
+package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
