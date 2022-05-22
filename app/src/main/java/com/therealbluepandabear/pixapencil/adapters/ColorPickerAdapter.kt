@@ -1,84 +1,27 @@
 package com.therealbluepandabear.pixapencil.adapters
 
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.core.graphics.BlendModeColorFilterCompat
-import androidx.core.graphics.BlendModeCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.databinding.ColorPickerLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
-import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
+import com.therealbluepandabear.pixapencil.viewholders.ColorPickerViewHolder
 
-class ColorPickerAdapter(private val caller: ColorPickerListener?) : RecyclerView.Adapter<ViewHolder<FrameLayout>>() {
-    private lateinit var binding: ColorPickerLayoutBinding
-
-    private lateinit var colorPalette: ColorPalette
-    private lateinit var data: List<Int>
-
-    private var cstr1Filled = false
-    private var cstr2Filled = false
-
-    constructor(colorPalette: ColorPalette, caller: ColorPickerListener?) : this(caller) {
-        this.colorPalette = colorPalette
-        colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData)
-        this.cstr1Filled = true
+class ColorPickerAdapter(
+    private val colorData: List<Int>,
+    private val caller: ColorPickerListener
+    ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val binding = ColorPickerLayoutBinding.inflate(LayoutInflater.from(parent.context))
+        return ColorPickerViewHolder(binding)
     }
 
-    constructor(data: List<Int>, caller: ColorPickerListener?) : this(caller) {
-        this.data = data
-        this.cstr2Filled = true
-    }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ColorPickerViewHolder) {
+            holder.bind(colorData, position)
 
-
-    private var colorData = listOf<Int>()
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<FrameLayout> {
-        binding = ColorPickerLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return ViewHolder(binding.root)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) {
-        if (cstr1Filled) {
-            val isPlusIndicatorItemPosition =
-                colorData[position] == Color.TRANSPARENT && position == colorData.size - 1
-
-            binding.colorView.backgroundTintList = ColorStateList.valueOf(colorData[position])
-
-            if (isPlusIndicatorItemPosition) {
-                binding.colorView.setBackgroundResource(R.drawable.ic_baseline_add_24)
-                binding.colorView.background.colorFilter =
-                    BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
-                        Color.GRAY,
-                        BlendModeCompat.DST_OVER
-                    )
-            }
-
-            binding.colorView.setOnClickListener {
-                if (isPlusIndicatorItemPosition) {
-                    caller?.onColorAdded(colorPalette)
-                } else {
-                    caller?.onColorTapped(colorData[position], it)
-                }
-            }
-
-            binding.colorView.setOnLongClickListener {
-                if (!isPlusIndicatorItemPosition) {
-                    caller?.onColorLongTapped(colorPalette, position)
-                }
-                true
-            }
-        } else {
-            binding.colorView.setBackgroundColor(data[position])
-
-            binding.colorView.setOnClickListener {
-                caller?.onColorTapped(data[position], binding.colorView)
+            holder.binding.colorView.setOnClickListener {
+                caller.onColorTapped(colorData[position], it)
             }
         }
     }
@@ -88,10 +31,6 @@ class ColorPickerAdapter(private val caller: ColorPickerListener?) : RecyclerVie
     }
 
     override fun getItemCount(): Int {
-        return if (cstr1Filled) {
-            colorData.size
-        } else {
-            data.size
-        }
+        return colorData.size
     }
 }

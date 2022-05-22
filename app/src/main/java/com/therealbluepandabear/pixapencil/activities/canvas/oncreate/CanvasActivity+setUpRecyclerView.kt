@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
+import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
@@ -40,7 +41,7 @@ fun CanvasActivity.setUpRecyclerView() {
         }
         binding.activityCanvasColorPickerRecyclerView.adapter =
             toShow?.let { obj ->
-                ColorPickerAdapter(obj, this)
+                ColorPaletteColorPickerAdapter(obj, this)
             }
     }
 }

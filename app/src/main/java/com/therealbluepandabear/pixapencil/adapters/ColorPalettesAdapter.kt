@@ -10,7 +10,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
-import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.viewholders.ColorPalettesViewHolder
 
 class ColorPalettesAdapter(

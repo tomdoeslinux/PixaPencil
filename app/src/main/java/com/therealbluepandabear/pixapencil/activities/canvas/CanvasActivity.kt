@@ -36,7 +36,7 @@ import com.therealbluepandabear.pixapencil.utility.IntConstants
 class CanvasActivity :
     AppCompatActivity(),
     CanvasFragmentListener,
-    ColorPickerListener,
+    ColorPaletteColorPickerListener,
     ColorPickerFragmentListener,
     FindAndReplaceFragmentListener,
     ToolsFragmentListener,

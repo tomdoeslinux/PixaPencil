@@ -15,6 +15,7 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.extensions.clone
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
+import com.therealbluepandabear.pixapencil.listeners.ColorPaletteColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
@@ -61,9 +62,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
 
-        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
-            ColorPalette(null, JsonConverter.convertListToJsonString(paramCanvasColors)),
-            ColorsToFindCaller(binding))
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(paramCanvasColors, ColorsToFindCaller(binding))
     }
 
     private fun setupAvailableColorsRecyclerView() {
@@ -100,8 +99,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
-        override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
-        override fun onColorAdded(colorPalette: ColorPalette) { }
     }
 
     inner class ColorsToReplaceCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
@@ -116,8 +113,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
             }
         }
-        override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) { }
-        override fun onColorAdded(colorPalette: ColorPalette) { }
     }
 
     companion object {
