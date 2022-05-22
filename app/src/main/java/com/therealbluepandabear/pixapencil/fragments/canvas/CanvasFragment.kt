@@ -33,7 +33,7 @@ class CanvasFragment : Fragment() {
     private fun setupCanvas() {
         if (paramOuterCanvasInstance != null) {
             pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, paramOuterCanvasInstance!!, paramProjectTitle, paramIndex)
-            binding.fragmentCanvasRootLayout.addView(pixelGridViewInstance)
+            binding.root.addView(pixelGridViewInstance)
         }
     }
 

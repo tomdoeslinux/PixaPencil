@@ -41,7 +41,7 @@ class ColorPickerAdapter(private val caller: ColorPickerListener?) : RecyclerVie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<FrameLayout> {
         binding = ColorPickerLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return ViewHolder(binding.colorPickerLayoutRootLayout)
+        return ViewHolder(binding.root)
     }
 
     override fun onBindViewHolder(holder: ViewHolder<FrameLayout>, position: Int) {

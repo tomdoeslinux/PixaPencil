@@ -5,7 +5,6 @@
     tools:context=".fragments.newproject.NewProjectFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragmentNewCanvas_rootLayout"
     style="@style/defaultFragmentStyle">
 
     <com.google.android.material.textfield.TextInputLayout

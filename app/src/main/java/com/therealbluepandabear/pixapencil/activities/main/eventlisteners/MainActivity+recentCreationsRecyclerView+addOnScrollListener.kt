@@ -1,9 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.main.eventlisteners
 
 import androidx.recyclerview.widget.RecyclerView
-import com.therealbluepandabear.pixapencil.activities.main.binding
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 
-fun recentCreationsRecyclerViewAddOnScrollListener() {
+fun MainActivity.recentCreationsRecyclerViewAddOnScrollListener() {
     binding.activityMainRecentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (dy == 1 || dy == 0) {
@@ -17,7 +17,9 @@ fun recentCreationsRecyclerViewAddOnScrollListener() {
             }
         }
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-            if (newState == RecyclerView.SCROLL_STATE_IDLE) binding.activityMainNewProjectButton.show()
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                binding.activityMainNewProjectButton.show()
+            }
         }
     })
 }

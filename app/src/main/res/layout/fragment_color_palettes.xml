@@ -1,4 +1,4 @@
-<FrameLayout android:id="@+id/fragmentColorPalettes_rootLayout"
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="105dp"
     app:layout_constraintBottom_toBottomOf="parent"

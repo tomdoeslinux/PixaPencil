@@ -17,7 +17,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     override val title: String by lazy { getString(R.string.fragment_new_project_title_in_code_str) }
 
     private fun instantiateRoot() {
-        root = binding.fragmentNewCanvasRootLayout
+        root = binding.root
     }
 
     private fun setup() {

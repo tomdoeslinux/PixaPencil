@@ -4,7 +4,6 @@
 <!-->
 
 <FrameLayout xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentTools_rootLayout"
     android:layout_width="105dp"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toBottomOf="parent"

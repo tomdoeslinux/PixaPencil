@@ -24,7 +24,7 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
             addToBackStack(null)
         }
     } else {
-        binding.activityCanvasRootLayout.showSnackbar(
+        binding.root.showSnackbar(
             getString(R.string.snackbar_find_and_replace_warning_in_code_str),
             SnackbarDuration.Default)
     }
