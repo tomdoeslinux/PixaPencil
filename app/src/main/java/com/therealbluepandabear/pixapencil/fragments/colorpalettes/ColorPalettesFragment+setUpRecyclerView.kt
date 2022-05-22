@@ -3,8 +3,6 @@ package com.therealbluepandabear.pixapencil.fragments.colorpalettes
 import android.content.res.Configuration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
-import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.utility.ObjectConstants
 
 fun ColorPalettesFragment.setUpRecyclerView() {
     val activity = this.activity
@@ -20,8 +18,7 @@ fun ColorPalettesFragment.setUpRecyclerView() {
 
         layoutManager.orientation = layoutManagerOrientation
 
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(ObjectConstants.ObjectGlobalScopeLifecycleOwner) {
-            fragmentColorPalettesRecyclerView.adapter = ColorPalettesAdapter(it, context, this@setUpRecyclerView.requireContext())
-        }
+        adapter = ColorPalettesAdapter(mutableListOf(), context, this@setUpRecyclerView.requireContext())
+        fragmentColorPalettesRecyclerView.adapter = adapter
     }
 }

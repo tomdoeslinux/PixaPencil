@@ -12,5 +12,5 @@ fun MainActivity.extendedOnCreate() {
     requestPermissions()
     applyShowLargeCanvasSizeWarningValueFromPreference()
     initView()
-    observeData()
+    observePixelArtData()
 }

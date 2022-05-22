@@ -10,10 +10,11 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.viewholders.ColorPalettesViewHolder
 
 class ColorPalettesAdapter(
-    private val data: List<ColorPalette>,
+    private val data: MutableList<ColorPalette>,
     private val caller: ColorPalettesListener,
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -61,5 +62,11 @@ class ColorPalettesAdapter(
 
     override fun getItemCount(): Int {
         return data.size
+    }
+
+    fun updateDataSource(list: List<ColorPalette>){
+        data.clear()
+        data.addAll(list)
+        notifyDataSetChanged()
     }
 }

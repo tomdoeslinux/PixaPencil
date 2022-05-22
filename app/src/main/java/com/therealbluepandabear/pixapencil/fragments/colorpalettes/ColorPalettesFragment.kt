@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPalettesBinding
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
@@ -13,6 +14,9 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     val context = this
+
+    lateinit var adapter : ColorPalettesAdapter
+    val colorPalettesList = mutableListOf<ColorPalette>()
 
     companion object {
         fun newInstance(): ColorPalettesFragment {
@@ -29,6 +33,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
         binding_ = FragmentColorPalettesBinding.inflate(inflater, container, false)
 
         setUpRecyclerView()
+        observeColorPaletteData()
 
         return binding.root
     }

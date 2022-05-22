@@ -15,6 +15,7 @@ import com.therealbluepandabear.pixapencil.viewholders.PixelArtViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.internal.notifyAll
 
 
 class PixelArtCreationsAdapter(
@@ -82,7 +83,7 @@ class PixelArtCreationsAdapter(
         return data.size
     }
 
-    fun updateDataSource(list:List<PixelArt>){
+    fun updateDataSource(list: List<PixelArt>){
         data.clear()
         data.addAll(list)
         notifyDataSetChanged()

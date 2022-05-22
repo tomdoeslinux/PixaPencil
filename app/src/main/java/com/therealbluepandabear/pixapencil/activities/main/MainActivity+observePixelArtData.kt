@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
 
 
-fun MainActivity.observeData(){
+fun MainActivity.observePixelArtData(){
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
         pixelArtList.clear()
         pixelArtList.addAll(it)
