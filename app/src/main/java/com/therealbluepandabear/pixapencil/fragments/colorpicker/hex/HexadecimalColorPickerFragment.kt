@@ -14,10 +14,8 @@ class HexadecimalColorPickerFragment : Fragment() {
     private val oldColorAsHex = Integer.toHexString(oldColor_)
 
     private fun setup() {
-        binding.apply {
-            fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)
-            fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.setText(oldColorAsHex)
-        }
+        binding.fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)
+        binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.setText(oldColorAsHex)
     }
 
     private fun setDoAfterTextChangedListeners() {

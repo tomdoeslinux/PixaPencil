@@ -42,15 +42,13 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerVi
             }
         )
 
-        binding.recentCreationsLayoutTitle.apply {
-            if (pixelArt.title.length > 6) {
-                ellipsize = TextUtils.TruncateAt.MARQUEE
-                isSelected = true
-                isSingleLine = true
-                (pixelArt.title + " ".repeat(10)).repeat(200).also { text = it }
-            } else {
-                text = pixelArt.title
-            }
+        if (pixelArt.title.length > 6) {
+            binding.recentCreationsLayoutTitle.ellipsize = TextUtils.TruncateAt.MARQUEE
+            binding.recentCreationsLayoutTitle.isSelected = true
+            binding.recentCreationsLayoutTitle.isSingleLine = true
+            (pixelArt.title + " ".repeat(10)).repeat(200).also {  binding.recentCreationsLayoutTitle.text = it }
+        } else {
+            binding.recentCreationsLayoutTitle.text = pixelArt.title
         }
     }
 }

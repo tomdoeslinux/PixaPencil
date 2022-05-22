@@ -65,70 +65,68 @@ private fun NewProjectFragment.checkForHeightError() {
 }
 
 fun NewProjectFragment.setOnClickListeners() {
-    binding.apply {
-        fragmentNewCanvasProjectTitleTextInputEditText.doAfterTextChanged {
-            checkForTitleError()
-        }
+    binding.fragmentNewCanvasProjectTitleTextInputEditText.doAfterTextChanged {
+        checkForTitleError()
+    }
 
-        fragmentNewCanvasWidthTextInputEditText.doAfterTextChanged {
-            checkForWidthError()
-        }
+    binding.fragmentNewCanvasWidthTextInputEditText.doAfterTextChanged {
+        checkForWidthError()
+    }
 
-        fragmentNewCanvasHeightTextInputEditText.doAfterTextChanged {
-            checkForHeightError()
-        }
+    binding.fragmentNewCanvasHeightTextInputEditText.doAfterTextChanged {
+        checkForHeightError()
+    }
 
-        fragmentNewCanvasDoneButton.setOnClickListener {
-            checkForTitleError()
-            checkForWidthError()
-            checkForHeightError()
+    binding.fragmentNewCanvasDoneButton.setOnClickListener {
+        checkForTitleError()
+        checkForWidthError()
+        checkForHeightError()
 
-            if (!invalidTitle && !invalidWidth && !invalidHeight) {
-                try {
-                    val title = fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
-                    val widthValue: Int = fragmentNewCanvasWidthTextInputEditText.text.toString().toInt()
-                    val heightValue: Int = fragmentNewCanvasHeightTextInputEditText.text.toString().toInt()
+        if (!invalidTitle && !invalidWidth && !invalidHeight) {
+            try {
+                val title = binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
+                val widthValue: Int = binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toInt()
+                val heightValue: Int = binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toInt()
 
-                    if (widthValue + heightValue >= 2000 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
-                        val frameLayout: FrameLayout =
-                            this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, null)
-                                    as FrameLayout
-                        val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
+                if (widthValue + heightValue >= 2000 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
+                    val frameLayout: FrameLayout =
+                        this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, null)
+                                as FrameLayout
+                    val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
-                        requireActivity().showDialog(
-                            getString(R.string.dialog_large_canvas_warning_title_in_code_str),
-                            getString(R.string.dialog_large_canvas_warning_text_in_code_str),
-                            getString(R.string.dialog_large_canvas_warning_positive_button_text_in_code_str),
-                            { _, _ ->
-                                if (checkBox.isChecked) {
-                                    (requireActivity() as MainActivity).showLargeCanvasSizeWarning = false
+                    requireActivity().showDialog(
+                        getString(R.string.dialog_large_canvas_warning_title_in_code_str),
+                        getString(R.string.dialog_large_canvas_warning_text_in_code_str),
+                        getString(R.string.dialog_large_canvas_warning_positive_button_text_in_code_str),
+                        { _, _ ->
+                            if (checkBox.isChecked) {
+                                (requireActivity() as MainActivity).showLargeCanvasSizeWarning = false
 
-                                    with ((requireActivity() as MainActivity).sharedPreferenceObject.edit()) {
-                                        putBoolean(StringConstants.Identifiers.SharedPreferenceShowLargeCanvasSizeWarningIdentifier, (requireActivity() as MainActivity).showLargeCanvasSizeWarning)
-                                        apply()
-                                    }
+                                with ((requireActivity() as MainActivity).sharedPreferenceObject.edit()) {
+                                    putBoolean(StringConstants.Identifiers.SharedPreferenceShowLargeCanvasSizeWarningIdentifier, (requireActivity() as MainActivity).showLargeCanvasSizeWarning)
+                                    apply()
                                 }
+                            }
 
-                                caller.onDoneButtonPressed(
-                                    title,
-                                    widthValue,
-                                    heightValue
-                                )
-                            },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ ->
-                            }, frameLayout)
-                    } else {
-                        caller.onDoneButtonPressed(
-                            title,
-                            widthValue,
-                            heightValue
-                        )
-                    }
-                } catch (exception: Exception) {
-                    HapticFeedbackWrapper.performHapticFeedback(fragmentNewCanvasDoneButton)
+                            caller.onDoneButtonPressed(
+                                title,
+                                widthValue,
+                                heightValue
+                            )
+                        },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ ->
+                        }, frameLayout)
+                } else {
+                    caller.onDoneButtonPressed(
+                        title,
+                        widthValue,
+                        heightValue
+                    )
                 }
-            } else {
-                HapticFeedbackWrapper.performHapticFeedback(fragmentNewCanvasDoneButton)
+            } catch (exception: Exception) {
+                HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
             }
+        } else {
+            HapticFeedbackWrapper.performHapticFeedback(binding.fragmentNewCanvasDoneButton)
         }
     }
 }

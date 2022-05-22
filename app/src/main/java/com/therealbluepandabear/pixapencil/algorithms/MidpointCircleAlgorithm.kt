@@ -55,28 +55,28 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             )
 
             if (filledMode) {
-                LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush).apply {
-                    compute(
-                        Coordinates(xc + x, yc - y),
-                        Coordinates(xc - x, yc - y)
-                    )
-                    compute(
-                        Coordinates(xc - y, yc + x),
-                        Coordinates(xc + y, yc + x)
-                    )
-                    compute(
-                        Coordinates(xc - x, yc + y),
-                        Coordinates(xc + x, yc + y)
-                    )
-                    compute(
-                        Coordinates(xc - x, yc + y),
-                        Coordinates(xc + x, yc + y)
-                    )
-                    compute(
-                        Coordinates(xc - y, yc - x),
-                        Coordinates(xc + y, yc - x)
-                    )
-                }
+                val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
+
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc + x, yc - y),
+                    Coordinates(xc - x, yc - y)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - y, yc + x),
+                    Coordinates(xc + y, yc + x)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - x, yc + y),
+                    Coordinates(xc + x, yc + y)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - x, yc + y),
+                    Coordinates(xc + x, yc + y)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - y, yc - x),
+                    Coordinates(xc + y, yc - x)
+                )
             }
         } else {
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
@@ -113,28 +113,28 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             )
 
             if (filledMode) {
-                LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush).apply {
-                    compute(
-                        Coordinates((xc + x) + 1, yc - y),
-                        Coordinates(xc - x, yc - y)
-                    )
-                    compute(
-                        Coordinates(xc - y, (yc + x) + 1),
-                        Coordinates((xc + y) + 1, (yc + x) + 1)
-                    )
-                    compute(
-                        Coordinates(xc - x, (yc + y) + 1),
-                        Coordinates((xc + x) + 1, (yc + y) + 1)
-                    )
-                    compute(
-                        Coordinates(xc - x, (yc + y) + 1),
-                        Coordinates((xc + x) + 1, (yc + y) + 1)
-                    )
-                    compute(
-                        Coordinates(xc - y, yc - x),
-                        Coordinates((xc + y) + 1, yc - x)
-                    )
-                }
+                val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
+
+                lineAlgorithmInstance.compute(
+                    Coordinates((xc + x) + 1, yc - y),
+                    Coordinates(xc - x, yc - y)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - y, (yc + x) + 1),
+                    Coordinates((xc + y) + 1, (yc + x) + 1)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - x, (yc + y) + 1),
+                    Coordinates((xc + x) + 1, (yc + y) + 1)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - x, (yc + y) + 1),
+                    Coordinates((xc + x) + 1, (yc + y) + 1)
+                )
+                lineAlgorithmInstance.compute(
+                    Coordinates(xc - y, yc - x),
+                    Coordinates((xc + y) + 1, yc - x)
+                )
             }
         }
     }

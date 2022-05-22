@@ -11,11 +11,9 @@ class RectanglePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParamete
 
         val lineAlgorithmInstance = LineAlgorithm(modifiedShapeAlgorithmInfo, shouldRectIgnoreBrush)
 
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
-            compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
-            compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
-            compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
-        }
+        lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
     }
 }

@@ -153,10 +153,9 @@ class FileHelperUtilities(private val context: Context) {
         val intentAction = Intent.ACTION_VIEW
         val type = "image/*"
 
-        val intent = Intent().apply {
-            action = intentAction
-            setDataAndType(uri, type)
-        }
+        val intent = Intent()
+        intent.action = intentAction
+        intent.setDataAndType(uri, type)
 
         try {
             context.startActivity(intent)

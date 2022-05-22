@@ -3,47 +3,44 @@ package com.therealbluepandabear.pixapencil.fragments.filters
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun setOnClickListeners() {
-    binding.apply {
-        fragmentFiltersColorFilterButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.ColorFilterIdentifier)
-        }
-
-        fragmentFiltersLightenButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.LightenFilterIdentifier)
-        }
-
-        fragmentFiltersDarkenButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.DarkenFilterIdentifier)
-        }
-
-        fragmentFiltersInvertButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.InvertFilterIdentifier)
-        }
-
-        fragmentFiltersGrayScaleButton.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.GrayscaleFilterIdentifier)
-        }
+    binding.fragmentFiltersColorFilterButton.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.ColorFilterIdentifier)
     }
 
-    binding.apply {
-        fragmentFiltersColorFilterButtonH.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.ColorFilterIdentifier)
-        }
+    binding.fragmentFiltersLightenButton.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.LightenFilterIdentifier)
+    }
 
-        fragmentFiltersLightenButtonH.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.LightenFilterIdentifier)
-        }
+    binding.fragmentFiltersDarkenButton.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.DarkenFilterIdentifier)
+    }
 
-        fragmentFiltersDarkenButtonH.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.DarkenFilterIdentifier)
-        }
+    binding.fragmentFiltersInvertButton.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.InvertFilterIdentifier)
+    }
 
-        fragmentFiltersInvertButtonH.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.InvertFilterIdentifier)
-        }
+    binding.fragmentFiltersGrayScaleButton.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.GrayscaleFilterIdentifier)
+    }
 
-        fragmentFiltersGrayScaleButtonH.setOnClickListener {
-            caller.onFilterTapped(StringConstants.Identifiers.GrayscaleFilterIdentifier)
-        }
+
+    binding.fragmentFiltersColorFilterButtonH.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.ColorFilterIdentifier)
+    }
+
+    binding.fragmentFiltersLightenButtonH.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.LightenFilterIdentifier)
+    }
+
+    binding.fragmentFiltersDarkenButtonH.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.DarkenFilterIdentifier)
+    }
+
+    binding.fragmentFiltersInvertButtonH.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.InvertFilterIdentifier)
+    }
+
+    binding.fragmentFiltersGrayScaleButtonH.setOnClickListener {
+        caller.onFilterTapped(StringConstants.Identifiers.GrayscaleFilterIdentifier)
     }
 }

@@ -13,12 +13,11 @@ class AlgorithmInfoParameter {
 
     companion object {
         fun create(_canvasCommandsHelperInstance: CanvasActivity.CanvasCommandsHelper, _bitmap: Bitmap, _currentBitmapAction: BitmapAction, _color: Int): AlgorithmInfoParameter {
-            val toReturn = AlgorithmInfoParameter().apply {
-                canvasCommandsHelperInstance = _canvasCommandsHelperInstance
-                bitmap = _bitmap
-                currentBitmapAction = _currentBitmapAction
-                color = _color
-            }
+            val toReturn = AlgorithmInfoParameter()
+            toReturn.canvasCommandsHelperInstance = _canvasCommandsHelperInstance
+            toReturn.bitmap = _bitmap
+            toReturn.currentBitmapAction = _currentBitmapAction
+            toReturn.color = _color
 
             return toReturn
         }

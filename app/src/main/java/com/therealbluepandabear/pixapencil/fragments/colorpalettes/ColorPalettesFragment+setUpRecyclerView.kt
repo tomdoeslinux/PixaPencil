@@ -7,18 +7,16 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPalettesAdapter
 fun ColorPalettesFragment.setUpRecyclerView() {
     val activity = this.activity
 
-    binding.apply {
-        val layoutManager = LinearLayoutManager(activity)
+    val layoutManager = LinearLayoutManager(activity)
 
-        val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            LinearLayoutManager.HORIZONTAL
-        } else {
-            LinearLayoutManager.VERTICAL
-        }
-
-        layoutManager.orientation = layoutManagerOrientation
-
-        adapter = ColorPalettesAdapter(mutableListOf(), context, this@setUpRecyclerView.requireContext())
-        fragmentColorPalettesRecyclerView.adapter = adapter
+    val layoutManagerOrientation: Int = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+        LinearLayoutManager.HORIZONTAL
+    } else {
+        LinearLayoutManager.VERTICAL
     }
+
+    layoutManager.orientation = layoutManagerOrientation
+
+    adapter = ColorPalettesAdapter(mutableListOf(), context, this@setUpRecyclerView.requireContext())
+    binding.fragmentColorPalettesRecyclerView.adapter = adapter
 }

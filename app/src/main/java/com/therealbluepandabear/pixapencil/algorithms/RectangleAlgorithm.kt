@@ -10,12 +10,10 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
 
         val lineAlgorithmInstance = LineAlgorithm(modifiedShapeAlgorithmInfo, true)
 
-        lineAlgorithmInstance.apply {
-            compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
-            compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
-            compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
-            compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
-        }
+        lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
+        lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
     }
 
     fun compute(p1: Coordinates, p2: Coordinates) {

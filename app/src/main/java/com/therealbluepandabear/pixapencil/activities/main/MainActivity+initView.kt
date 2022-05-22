@@ -6,13 +6,11 @@ import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 
 
 fun MainActivity.initView(){
-    binding.apply {
-        activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
-        activityMainNewProjectButton.show()
-        activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(this@initView, 2)
-        adapter = PixelArtCreationsAdapter(binding.clayout, mutableListOf(), this@initView)
-        activityMainRecentCreationsRecyclerView.adapter = adapter
-    }
+    binding.activityMainRecentCreationsRecyclerView.visibility = View.VISIBLE
+    binding.activityMainNewProjectButton.show()
+    binding.activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(this@initView, 2)
+    adapter = PixelArtCreationsAdapter(binding.clayout, mutableListOf(), this@initView)
+    binding.activityMainRecentCreationsRecyclerView.adapter = adapter
 }
  
  

@@ -27,21 +27,19 @@ class RGBColorPickerFragment : Fragment() {
     }
 
     private fun setup() {
-        binding.apply {
-            fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
+        binding.fragmentRGBColorPickerColorPreview.setBackgroundColor(oldColor_)
 
-            val red = Color.red(oldColor_).toFloat()
-            val green = Color.green(oldColor_).toFloat()
-            val blue = Color.blue(oldColor_).toFloat()
+        val red = Color.red(oldColor_).toFloat()
+        val green = Color.green(oldColor_).toFloat()
+        val blue = Color.blue(oldColor_).toFloat()
 
-            fragmentRGBColorPickerRedProgressBar.value = red
-            fragmentRGBColorPickerGreenProgressBar.value = green
-            fragmentRGBColorPickerBlueProgressBar.value = blue
+        binding.fragmentRGBColorPickerRedProgressBar.value = red
+        binding.fragmentRGBColorPickerGreenProgressBar.value = green
+        binding.fragmentRGBColorPickerBlueProgressBar.value = blue
 
-            fragmentRGBColorPickerValueR.setText(red.toInt().toString())
-            fragmentRGBColorPickerValueG.setText(green.toInt().toString())
-            fragmentRGBColorPickerValueB.setText(blue.toInt().toString())
-        }
+        binding.fragmentRGBColorPickerValueR.setText(red.toInt().toString())
+        binding.fragmentRGBColorPickerValueG.setText(green.toInt().toString())
+        binding.fragmentRGBColorPickerValueB.setText(blue.toInt().toString())
 
         binding.textInputLayout1.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin, IntConstants.RGBMax))
         binding.textInputLayout2.editText?.filters = arrayOf(InputFilterMinMax(IntConstants.RGBMin, IntConstants.RGBMax))
@@ -53,53 +51,51 @@ class RGBColorPickerFragment : Fragment() {
     }
 
     private fun setOnChangeListeners() {
-        binding.apply {
-            fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
+            binding.fragmentRGBColorPickerRedProgressBar.addOnChangeListener { _, value, _ ->
                 valueR = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueR.setText(valueR.toInt().toString())
+                binding.fragmentRGBColorPickerValueR.setText(valueR.toInt().toString())
             }
 
-            fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
+            binding.fragmentRGBColorPickerGreenProgressBar.addOnChangeListener { _, value, _ ->
                 valueG = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueG.setText(valueG.toInt().toString())
+                binding.fragmentRGBColorPickerValueG.setText(valueG.toInt().toString())
             }
 
-            fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
+            binding.fragmentRGBColorPickerBlueProgressBar.addOnChangeListener { _, value, _ ->
                 valueB = value
                 updateColorPickerColorPreview()
-                fragmentRGBColorPickerValueB.setText(valueB.toInt().toString())
+                binding.fragmentRGBColorPickerValueB.setText(valueB.toInt().toString())
             }
-        }
 
-        binding.apply {
-            fragmentRGBColorPickerValueR.doAfterTextChanged {
+
+            binding.fragmentRGBColorPickerValueR.doAfterTextChanged {
                 try {
-                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
-                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
-                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
+                    valueR = binding.fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = binding.fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
             }
 
-            fragmentRGBColorPickerValueR.setOnFocusChangeListener{ _, hasFocus ->
+            binding.fragmentRGBColorPickerValueR.setOnFocusChangeListener{ _, hasFocus ->
                 if (!hasFocus) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
                 }
             }
 
-            fragmentRGBColorPickerValueR.setOnEditorActionListener { _, actionId, _ ->
+            binding.fragmentRGBColorPickerValueR.setOnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
                     return@setOnEditorActionListener true
@@ -107,32 +103,32 @@ class RGBColorPickerFragment : Fragment() {
                 false
             }
 
-            fragmentRGBColorPickerValueG.doAfterTextChanged {
+            binding.fragmentRGBColorPickerValueG.doAfterTextChanged {
                 try {
-                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
-                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
-                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
+                    valueR = binding.fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = binding.fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
             }
 
-            fragmentRGBColorPickerValueG.setOnFocusChangeListener{ _, hasFocus ->
+            binding.fragmentRGBColorPickerValueG.setOnFocusChangeListener{ _, hasFocus ->
                 if (!hasFocus) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
                 }
             }
 
-            fragmentRGBColorPickerValueG.setOnEditorActionListener { _, actionId, _ ->
+            binding.fragmentRGBColorPickerValueG.setOnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
                     return@setOnEditorActionListener true
@@ -140,49 +136,47 @@ class RGBColorPickerFragment : Fragment() {
                 false
             }
 
-            fragmentRGBColorPickerValueB.doAfterTextChanged {
+            binding.fragmentRGBColorPickerValueB.doAfterTextChanged {
                 try {
-                    valueR = fragmentRGBColorPickerValueR.text.toString().toFloat()
-                    valueG = fragmentRGBColorPickerValueG.text.toString().toFloat()
-                    valueB = fragmentRGBColorPickerValueB.text.toString().toFloat()
+                    valueR = binding.fragmentRGBColorPickerValueR.text.toString().toFloat()
+                    valueG = binding.fragmentRGBColorPickerValueG.text.toString().toFloat()
+                    valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
                 } catch (exception: Exception) { }
             }
 
-            fragmentRGBColorPickerValueB.setOnFocusChangeListener{ _, hasFocus ->
+            binding.fragmentRGBColorPickerValueB.setOnFocusChangeListener{ _, hasFocus ->
                 if (!hasFocus) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
                 }
             }
 
-            fragmentRGBColorPickerValueB.setOnEditorActionListener { _, actionId, _ ->
+            binding.fragmentRGBColorPickerValueB.setOnEditorActionListener { _, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     try {
-                        fragmentRGBColorPickerRedProgressBar.value = valueR
-                        fragmentRGBColorPickerGreenProgressBar.value = valueG
-                        fragmentRGBColorPickerBlueProgressBar.value = valueB
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
 
                     return@setOnEditorActionListener true
                 }
                 false
             }
-        }
+
 
         keyboardVisibilityEventListenerRegistrar = registerEventListener(requireActivity(),
             KeyboardVisibilityEventListener { isOpen ->
                 if (!isOpen) {
                     try {
-                        binding.apply {
-                            fragmentRGBColorPickerRedProgressBar.value = valueR
-                            fragmentRGBColorPickerGreenProgressBar.value = valueG
-                            fragmentRGBColorPickerBlueProgressBar.value = valueB
-                        }
+                        binding.fragmentRGBColorPickerRedProgressBar.value = valueR
+                        binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
+                        binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
                     } catch (exception: Exception) { }
                 }
             })

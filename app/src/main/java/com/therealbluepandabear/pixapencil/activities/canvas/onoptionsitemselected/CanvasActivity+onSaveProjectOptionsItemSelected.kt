@@ -45,17 +45,14 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     } else {
         pixelGridViewInstance.invalidate()
 
-        AppData.pixelArtDB.pixelArtCreationsDao().apply {
-            ObjectConstants.CurrentPixelArtObj.apply {
-                coverBitmapFilePath = coverBMPFileName
-                bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
-                rotation = outerCanvasInstance.getCurrentRotation()
-            }
+        ObjectConstants.CurrentPixelArtObj.coverBitmapFilePath = coverBMPFileName
+        ObjectConstants.CurrentPixelArtObj.bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
+        ObjectConstants.CurrentPixelArtObj.rotation = outerCanvasInstance.getCurrentRotation()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
-            }
+        CoroutineScope(Dispatchers.IO).launch {
+            AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
         }
+
         outerCanvasInstance.rotate(0)
         (this as Activity).onBackPressed()
     }

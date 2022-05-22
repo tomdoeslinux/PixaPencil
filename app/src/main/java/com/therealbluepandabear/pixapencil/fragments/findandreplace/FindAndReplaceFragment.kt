@@ -56,35 +56,30 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupCanvasColorsRecyclerView() {
-        binding.apply {
-            fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager =
-                LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
-                    orientation = LinearLayoutManager.HORIZONTAL
-                }
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager =
+            LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
+                orientation = LinearLayoutManager.HORIZONTAL
+            }
 
-            fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
-                ColorPalette(null, JsonConverter.convertListToJsonString(paramCanvasColors)),
-                ColorsToFindCaller(binding))
-        }
+        binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(
+            ColorPalette(null, JsonConverter.convertListToJsonString(paramCanvasColors)),
+            ColorsToFindCaller(binding))
     }
 
     private fun setupAvailableColorsRecyclerView() {
-        binding.apply {
-            fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
-                LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
-                    orientation = LinearLayoutManager.HORIZONTAL
-                }
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
+            LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
+                orientation = LinearLayoutManager.HORIZONTAL
+            }
 
-            val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex]
-            val copiedPaletteData = JsonConverter.convertJsonStringToListOfInt(copiedPaletteRemoveLast.colorPaletteColorData).toMutableList()
-            copiedPaletteData.removeLast()
+        val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex]
+        val copiedPaletteData = JsonConverter.convertJsonStringToListOfInt(copiedPaletteRemoveLast.colorPaletteColorData).toMutableList()
+        copiedPaletteData.removeLast()
 
-            fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-                copiedPaletteData,
-                ColorsToReplaceCaller(this),
-            )
-
-        }
+        binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
+            copiedPaletteData,
+            ColorsToReplaceCaller(binding),
+        )
     }
 
     private fun setOnClickListeners() {

@@ -36,461 +36,459 @@ fun ToolsFragment.onOptionTapped(it: View) {
 var currentlySelectedFAB: FloatingActionButton? = null
 
 fun ToolsFragment.setOnClickListeners() {
-    binding.apply {
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Pencil Tool
-
-        fragmentToolsPencilButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
-        }
-
-        fragmentToolsPencilButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsPencilButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.PencilToolIdentifier)
-            true
-        }
-
-        fragmentToolsPencilButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.PencilToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Fill Tool
-
-        fragmentToolsFillButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.FillToolIdentifier)
-        }
-
-        fragmentToolsFillButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.FillToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsFillButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.FillToolIdentifier)
-            true
-        }
-
-        fragmentToolsFillButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.FillToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Line Tool
-
-        fragmentToolsLineButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.LineToolIdentifier)
-        }
-
-        fragmentToolsLineButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.LineToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsLineButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.LineToolIdentifier)
-            true
-        }
-
-        fragmentToolsLineButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.LineToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Rectangle Tool
-
-        fragmentToolsRectangleButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.RectangleToolIdentifier)
-        }
-
-        fragmentToolsRectangleButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.RectangleToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsRectangleButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.RectangleToolIdentifier)
-            true
-        }
-
-        fragmentToolsRectangleButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.RectangleToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Outlined Rectangle Tool
-
-        fragmentToolsOutlinedRectangleButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
-        }
-
-        fragmentToolsOutlinedRectangleButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsOutlinedRectangleButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
-            true
-        }
-
-        fragmentToolsOutlinedRectangleButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Square Tool
-
-        fragmentToolsSquareButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.SquareToolIdentifier)
-        }
-
-        fragmentToolsSquareButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.SquareToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsSquareButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.SquareToolIdentifier)
-            true
-        }
-
-        fragmentToolsSquareButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.SquareToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Outlined Square Tool
-
-        fragmentToolsOutlinedSquareButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
-        }
-
-        fragmentToolsOutlinedSquareButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsOutlinedSquareButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
-            true
-        }
-
-        fragmentToolsOutlinedSquareButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-             caller.onToolLongTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Circle Tool
-
-        fragmentToolsCircleButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.CircleToolIdentifier)
-        }
-
-        fragmentToolsCircleButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.CircleToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsCircleButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.CircleToolIdentifier)
-            true
-        }
-
-        fragmentToolsCircleButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.CircleToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Outlined Circle Tool
-
-        fragmentToolsOutlinedCircleButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
-        }
-
-        fragmentToolsOutlinedCircleButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsOutlinedCircleButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
-            true
-        }
-
-        fragmentToolsOutlinedCircleButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Spray Tool
-
-        fragmentToolsSprayButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.SprayToolIdentifier)
-        }
-
-        fragmentToolsSprayButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.SprayToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsSprayButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.SprayToolIdentifier)
-            true
-        }
-
-        fragmentToolsSprayButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.SprayToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Polygon Tool
-
-        fragmentToolsPolygonButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.PolygonToolIdentifier)
-        }
-
-        fragmentToolsPolygonButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.PolygonToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsPolygonButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.PolygonToolIdentifier)
-            true
-        }
-
-        fragmentToolsPolygonButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.PolygonToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Dither Tool
-
-        fragmentToolsDitherButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.DitherToolIdentifier)
-        }
-
-        fragmentToolsDitherButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.DitherToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsDitherButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.DitherToolIdentifier)
-            true
-        }
-
-        fragmentToolsDitherButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.DitherToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Shading Tool
-
-        fragmentToolsShadingButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
-        }
-
-        fragmentToolsShadingButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsShadingButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
-            true
-        }
-
-        fragmentToolsShadingButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Color Picker Tool
-
-        fragmentToolsColorPickerButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
-        }
-
-        fragmentToolsColorPickerButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsColorPickerButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
-            true
-        }
-
-        fragmentToolsColorPickerButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
-        // *************** // Erase Tool
-
-        fragmentToolsEraseButton.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.EraseToolIdentifier)
-        }
-
-        fragmentToolsEraseButtonH.setOnClickListener {
-            onOptionTapped(it)
-            caller.onToolTapped(StringConstants.Identifiers.EraseToolIdentifier)
-        }
-
-        // ** //
-
-        fragmentToolsEraseButton.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.EraseToolIdentifier)
-            true
-        }
-
-        fragmentToolsEraseButtonH.setOnLongClickListener {
-            HapticFeedbackWrapper.performHapticFeedback(it)
-            caller.onToolLongTapped(StringConstants.Identifiers.EraseToolIdentifier)
-            true
-        }
-        // 1 //
-        // 2 //
-        // 3 //
-        // 4 //
-        // 5 //
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Pencil Tool
+
+    binding.fragmentToolsPencilButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
     }
+
+    binding.fragmentToolsPencilButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsPencilButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.PencilToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsPencilButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.PencilToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Fill Tool
+
+    binding.fragmentToolsFillButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.FillToolIdentifier)
+    }
+
+    binding.fragmentToolsFillButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.FillToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsFillButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.FillToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsFillButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.FillToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Line Tool
+
+    binding.fragmentToolsLineButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.LineToolIdentifier)
+    }
+
+    binding.fragmentToolsLineButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.LineToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsLineButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.LineToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsLineButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.LineToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Rectangle Tool
+
+    binding.fragmentToolsRectangleButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.RectangleToolIdentifier)
+    }
+
+    binding.fragmentToolsRectangleButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.RectangleToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsRectangleButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.RectangleToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsRectangleButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.RectangleToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Outlined Rectangle Tool
+
+    binding.fragmentToolsOutlinedRectangleButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
+    }
+
+    binding.fragmentToolsOutlinedRectangleButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsOutlinedRectangleButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsOutlinedRectangleButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedRectangleToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Square Tool
+
+    binding.fragmentToolsSquareButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.SquareToolIdentifier)
+    }
+
+    binding.fragmentToolsSquareButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.SquareToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsSquareButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.SquareToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsSquareButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.SquareToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Outlined Square Tool
+
+    binding.fragmentToolsOutlinedSquareButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
+    }
+
+    binding.fragmentToolsOutlinedSquareButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsOutlinedSquareButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsOutlinedSquareButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedSquareToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Circle Tool
+
+    binding.fragmentToolsCircleButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.CircleToolIdentifier)
+    }
+
+    binding.fragmentToolsCircleButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.CircleToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsCircleButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.CircleToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsCircleButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.CircleToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Outlined Circle Tool
+
+    binding.fragmentToolsOutlinedCircleButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
+    }
+
+    binding.fragmentToolsOutlinedCircleButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsOutlinedCircleButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsOutlinedCircleButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedCircleToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Spray Tool
+
+    binding.fragmentToolsSprayButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.SprayToolIdentifier)
+    }
+
+    binding.fragmentToolsSprayButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.SprayToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsSprayButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.SprayToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsSprayButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.SprayToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Polygon Tool
+
+    binding.fragmentToolsPolygonButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.PolygonToolIdentifier)
+    }
+
+    binding.fragmentToolsPolygonButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.PolygonToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsPolygonButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.PolygonToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsPolygonButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.PolygonToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Dither Tool
+
+    binding.fragmentToolsDitherButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.DitherToolIdentifier)
+    }
+
+    binding.fragmentToolsDitherButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.DitherToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsDitherButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.DitherToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsDitherButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.DitherToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Shading Tool
+
+    binding.fragmentToolsShadingButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
+    }
+
+    binding.fragmentToolsShadingButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.ShadingToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsShadingButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsShadingButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.ShadingToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Color Picker Tool
+
+    binding.fragmentToolsColorPickerButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
+    }
+
+    binding.fragmentToolsColorPickerButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsColorPickerButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsColorPickerButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.ColorPickerToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Erase Tool
+
+    binding.fragmentToolsEraseButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.EraseToolIdentifier)
+    }
+
+    binding.fragmentToolsEraseButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.EraseToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsEraseButton.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.EraseToolIdentifier)
+        true
+    }
+
+    binding.fragmentToolsEraseButtonH.setOnLongClickListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.EraseToolIdentifier)
+        true
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
 }

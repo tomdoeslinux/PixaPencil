@@ -20,9 +20,8 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
         val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
         newData.add(newData.size - 1, selectedColor)
 
-        fromDB!!.apply {
-            colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
-        }
+        fromDB!!.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
+
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)

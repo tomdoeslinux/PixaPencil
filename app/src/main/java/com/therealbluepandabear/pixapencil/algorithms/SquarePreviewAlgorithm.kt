@@ -8,18 +8,16 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
 
     private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
         if (!invisibleMode) {
-            lineAlgorithmInstance.apply {
-                compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
-                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
-                compute(
-                    Coordinates(from.x, from.y + size),
-                    Coordinates(from.x + size, from.y + size)
-                )
-                compute(
-                    Coordinates(from.x + size, from.y + size),
-                    Coordinates(from.x + size, from.y)
-                )
-            }
+            lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
+            lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+            lineAlgorithmInstance.compute(
+                Coordinates(from.x, from.y + size),
+                Coordinates(from.x + size, from.y + size)
+            )
+            lineAlgorithmInstance.compute(
+                Coordinates(from.x + size, from.y + size),
+                Coordinates(from.x + size, from.y)
+            )
         }
 
         endCoordinates = Coordinates(from.x + size, from.y + size)
