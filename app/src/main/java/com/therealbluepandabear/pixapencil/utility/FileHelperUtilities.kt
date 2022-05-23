@@ -39,7 +39,7 @@ class FileHelperUtilities(private val context: Context) {
         dir =
             File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                    .toString() + "/" + StringConstants.AppName
+                    .toString() + "/" + this.context.getString(R.string.app_name)
             )
 
 
@@ -73,7 +73,7 @@ class FileHelperUtilities(private val context: Context) {
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
         } else {
-            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + StringConstants.AppName)
+            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + this.context.getString(R.string.app_name))
         }
 
         directory?.mkdirs()

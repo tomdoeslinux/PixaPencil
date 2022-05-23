@@ -60,6 +60,6 @@ class NewProjectFragment : Fragment(), ActivityFragment {
         super.onDestroyView()
         binding_ = null
         requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.VISIBLE
-        requireActivity().title = StringConstants.AppName
+        requireActivity().title = getString(R.string.app_name)
     }
 }

@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.content.Intent
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.utility.StringConstants
 
@@ -11,5 +12,5 @@ fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, h
             .putExtra(StringConstants.Extras.WidthExtra, width)
             .putExtra(StringConstants.Extras.HeightExtra, height)
     )
-    title = StringConstants.AppName
+    title = getString(R.string.app_name)
 }

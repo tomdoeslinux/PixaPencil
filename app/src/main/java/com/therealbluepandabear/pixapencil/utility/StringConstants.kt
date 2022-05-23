@@ -1,8 +1,6 @@
 package com.therealbluepandabear.pixapencil.utility
 
 object StringConstants {
-    const val AppName = "PixaPencil"
-
     object Extras {
         const val ProjectTitleExtra = "project_title_extra"
         const val WidthExtra = "width_extra"
