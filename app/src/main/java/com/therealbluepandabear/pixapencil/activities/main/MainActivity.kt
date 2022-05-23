@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
         extendedOnCreate()
     }
 
-    override fun onCreationTapped(creationTapped: PixelArt) = extendedOnCreationTapped(creationTapped)
+    override fun onCreationTapped(creationTapped: PixelArt) {
+        extendedOnCreationTapped(creationTapped)
+    }
 
     override fun onCreationLongTapped(creationTapped: PixelArt) {
         extendedOnCreationLongTapped(creationTapped)

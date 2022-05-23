@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor

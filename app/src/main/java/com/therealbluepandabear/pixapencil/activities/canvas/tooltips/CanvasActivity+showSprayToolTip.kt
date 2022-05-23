@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.tooltips
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyShowSprayToolTipValueFromPreference
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction

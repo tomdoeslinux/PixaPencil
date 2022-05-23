@@ -37,6 +37,8 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 
+lateinit var binding: ActivityCanvasBinding
+
 class CanvasActivity :
     AppCompatActivity(),
     CanvasFragmentListener,
@@ -57,7 +59,6 @@ class CanvasActivity :
 
     val viewModel: CanvasActivityViewModel by viewModels()
 
-    lateinit var binding: ActivityCanvasBinding
     var index: Int? = null
 
     var primaryColor: Int = Color.BLACK
