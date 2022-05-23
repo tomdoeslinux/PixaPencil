@@ -6,7 +6,10 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.ContextCompat
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
+import com.therealbluepandabear.pixapencil.customviews.pixelgridview.extendedCoordinatesInCanvasBounds
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -22,7 +25,7 @@ class TransparentBackgroundView : View, PixelatedView {
     override var scaleWidth = 0f
     override var scaleHeight = 0f
 
-    var color = Color.parseColor(StringConstants.Colors.PixelGridViewCheckerboardColor)
+    var color = ContextCompat.getColor(this.context, R.color.pixelGridViewCheckerboardColor)
 
     override var currentIndex: Int = -1
 

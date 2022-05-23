@@ -54,10 +54,4 @@ object StringConstants {
         const val prevRotationStrIdentifier = "prevRotationStr"
         const val prevColorPickerTabBundleIdentifier = "PrevColorPickerTab"
     }
-
-    object Colors {
-        const val DefaultToolbarItemColor = "#0099cc"
-        const val PixelGridViewCheckerboardColor = "#d9d9d9"
-        const val SnackbarBackgroundColor = "#eaddff"
-    }
 }

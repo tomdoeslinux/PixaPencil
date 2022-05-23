@@ -9,4 +9,7 @@
     <color name="activityMainFAB_backgroundColor">#eaddff</color>
     <color name="colorPaletteBG">#f0f4fc</color>
     <color name="colorPalettesBGSelected">#b4c8f0</color>
+    <color name="defaultToolbarItemColor">#0099cc</color>
+    <color name="pixelGridViewCheckerboardColor">#d9d9d9</color>
+    <color name="snackbarBackgroundColor">#eaddff</color>
 </resources>
