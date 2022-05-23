@@ -9,14 +9,12 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
-import com.therealbluepandabear.pixapencil.customviews.pixelgridview.extendedCoordinatesInCanvasBounds
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class TransparentBackgroundView : View, PixelatedView {
     private lateinit var transparentBackgroundViewCanvas: Canvas

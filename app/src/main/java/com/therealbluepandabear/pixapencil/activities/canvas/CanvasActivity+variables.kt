@@ -1,18 +1,2 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.annotation.SuppressLint
-import android.content.SharedPreferences
-import android.graphics.Color
-import android.graphics.drawable.Drawable
-import android.view.Menu
-import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
-import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
-import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
-import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
-import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
-import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
-import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
-import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
-import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.IntConstants

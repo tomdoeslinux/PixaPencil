@@ -1,11 +1,9 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
-import android.graphics.Color
 import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun PixelGridView.extendedCoordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
     return if (currentTool == Tool.DitherTool && !ignoreDither) {

@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.hex
 
 import android.graphics.drawable.ColorDrawable
-import com.therealbluepandabear.pixapencil.extensions.showItems
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
 

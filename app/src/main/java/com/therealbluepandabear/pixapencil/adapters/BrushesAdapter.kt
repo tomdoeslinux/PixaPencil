@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
@@ -12,7 +11,6 @@ import com.therealbluepandabear.pixapencil.databinding.BrushesLayoutBinding
 import com.therealbluepandabear.pixapencil.listeners.BrushesListener
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.viewholders.BrushesViewHolder
-import com.therealbluepandabear.pixapencil.viewholders.ViewHolder
 
 class BrushesAdapter(
     private val data: List<Brush>,

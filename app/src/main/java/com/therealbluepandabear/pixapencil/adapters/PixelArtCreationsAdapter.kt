@@ -15,7 +15,6 @@ import com.therealbluepandabear.pixapencil.viewholders.PixelArtViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.internal.notifyAll
 
 
 class PixelArtCreationsAdapter(

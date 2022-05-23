@@ -15,10 +15,8 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBin
 import com.therealbluepandabear.pixapencil.extensions.clone
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
-import com.therealbluepandabear.pixapencil.listeners.ColorPaletteColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
-import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {

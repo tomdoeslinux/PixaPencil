@@ -4,10 +4,11 @@ import android.content.res.Configuration
 import android.graphics.Color
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
+import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
+import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
 var firstLoad = false

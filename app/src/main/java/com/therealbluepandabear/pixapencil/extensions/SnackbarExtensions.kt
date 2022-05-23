@@ -6,9 +6,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.BaseTransientBottomBar.ANIMATION_MODE_SLIDE
 import com.google.android.material.snackbar.Snackbar
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.customviews.pixelgridview.extendedCoordinatesInCanvasBounds
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun View.showSnackbar(snackbarText: String, duration: SnackbarDuration) {
     Snackbar.make(this, snackbarText, duration.timeValue)
