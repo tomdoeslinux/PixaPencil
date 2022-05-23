@@ -19,7 +19,7 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
                     paramCanvasColors = pixelGridViewInstance.getNumberOfUniqueColors(),
                     paramPixelGridViewBitmapSource = outerCanvasInstance.fragmentHost.drawToBitmap(),
                     paramTransparentBitmapSource = outerCanvasInstance.transparentBackgroundView.drawToBitmap(),
-                    selectedColorPaletteIndex = selectedColorPaletteIndex
+                    paramSelectedColorPaletteIndex = selectedColorPaletteIndex
                 ))
             addToBackStack(null)
         }

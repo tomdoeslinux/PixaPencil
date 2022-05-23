@@ -26,7 +26,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private lateinit var paramCanvasColors: List<Int>
     private lateinit var paramTransparentBitmapSource: Bitmap
     private lateinit var paramPixelGridViewBitmapSource: Bitmap
-    private var selectedColorPaletteIndex: Int = 0
+    private var paramSelectedColorPaletteIndex: Int = 0
 
     override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
@@ -34,11 +34,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         paramCanvasColors: List<Int>,
         paramTransparentBitmapSource: Bitmap,
         paramPixelGridViewBitmapSource: Bitmap,
-        selectedColorPaletteIndex: Int) {
+        paramSelectedColorPaletteIndex: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramTransparentBitmapSource = paramTransparentBitmapSource
         this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
-        this.selectedColorPaletteIndex = selectedColorPaletteIndex
+        this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
     }
 
     private fun setup() {
@@ -63,13 +63,21 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.adapter = ColorPickerAdapter(paramCanvasColors, ColorsToFindCaller(binding))
     }
 
+    private fun findAndReplace() {
+        val bitmap = paramPixelGridViewBitmapSource.clone()
+        bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
+
+        val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
+        binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
+    }
+
     private fun setupAvailableColorsRecyclerView() {
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
             LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
 
-        val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex]
+        val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[paramSelectedColorPaletteIndex]
         val copiedPaletteData = JsonConverter.convertJsonStringToListOfInt(copiedPaletteRemoveLast.colorPaletteColorData).toMutableList()
         copiedPaletteData.removeLast()
 
@@ -90,11 +98,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToFind = colorTapped
 
             if (colorToReplace != null) {
-                val bitmap = paramPixelGridViewBitmapSource.clone()
-                bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
-
-                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
+                findAndReplace()
             }
         }
     }
@@ -104,11 +108,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             colorToReplace = colorTapped
 
             if (colorToFind != null && colorToReplace != null) {
-                val bitmap = paramPixelGridViewBitmapSource.clone()
-                bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
-
-                val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
-                binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
+                findAndReplace()
             }
         }
     }
@@ -118,9 +118,9 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             paramCanvasColors: List<Int>,
             paramTransparentBitmapSource: Bitmap,
             paramPixelGridViewBitmapSource: Bitmap,
-            selectedColorPaletteIndex: Int): FindAndReplaceFragment {
+            paramSelectedColorPaletteIndex: Int): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, selectedColorPaletteIndex)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex)
 
             return fragment
         }
