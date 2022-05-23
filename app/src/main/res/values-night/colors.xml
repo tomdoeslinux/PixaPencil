@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fragment_background_color">#121212</color>
+    <color name="recycler_view_item_tapped_color">#424242</color>
+    <color name="recycler_view_item_untapped_color">@android:color/black</color>
+    <color name="app_white">#212121</color>
+</resources>

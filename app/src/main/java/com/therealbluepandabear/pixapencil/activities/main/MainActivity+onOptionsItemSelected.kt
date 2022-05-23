@@ -3,9 +3,9 @@ package com.therealbluepandabear.pixapencil.activities.main
 import android.text.method.LinkMovementMethod
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
-
 
 fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {

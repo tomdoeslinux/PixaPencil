@@ -20,7 +20,7 @@ class BrushesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = BrushesLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return BrushesViewHolder(binding)
+        return BrushesViewHolder(binding, context)
     }
 
     private var previousViewElement: View? = null
@@ -34,7 +34,7 @@ class BrushesAdapter(
             holder.bind(item)
 
             if (!defSelected) {
-                holder.binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.colorPalettesBGSelected)
+                holder.binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
                 previousViewElement = holder.binding.brushesLayoutMaterialCardView
                 defSelected = true
             }
@@ -42,9 +42,9 @@ class BrushesAdapter(
             holder.binding.brushesLayoutMaterialCardView.setOnClickListener {
                 caller.onBrushTapped(item)
 
-                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.white)
+                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color)
 
-                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.colorPalettesBGSelected)
+                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
                 previousViewElement = it
             }
         }

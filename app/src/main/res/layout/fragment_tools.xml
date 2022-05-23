@@ -10,7 +10,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/white"
+    style="@style/defaultFragmentStyle"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView

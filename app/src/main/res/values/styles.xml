@@ -17,7 +17,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/app_white</item>
         <item name="android:clickable">true</item>
         <item name="android:elevation">0dp</item>
         <item name="elevation">0dp</item>
@@ -132,7 +132,7 @@
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/app_white</item>
         <item name="strokeWidth">3dp</item>
         <item name="strokeColor">@android:color/holo_blue_dark</item>
     </style>
@@ -146,7 +146,7 @@
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:backgroundTint">@color/app_white</item>
         <item name="strokeWidth">3dp</item>
         <item name="strokeColor">@android:color/holo_blue_dark</item>
     </style>
@@ -161,7 +161,7 @@
     </style>
 
     <style name="defaultFragmentStyle">
-        <item name="android:background">?android:windowBackground</item>
+        <item name="android:background">@color/fragment_background_color</item>
         <item name="android:clickable">true</item>
     </style>
 </resources>

@@ -135,23 +135,6 @@ class CanvasActivity :
     override fun onStart() {
         super.onStart()
         savePrevOrientationInfo()
-
-        val viewTemp = binding.activityCanvasOuterCanvasFragmentHost
-
-        viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
-            if (viewTemp.isVisible && replacedBMP && prevOrientation != resources.configuration.orientation) {
-                if (prevBitmapFilePathStr != null) {
-                    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this)
-                    val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(prevBitmapFilePathStr!!)
-
-                    pixelGridViewInstance.replaceBitmap(convertedBMP)
-                    fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(prevBitmapFilePathStr!!)
-                    replacedBMP = false
-
-                    prevOrientation = resources.configuration.orientation
-                }
-            }
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
