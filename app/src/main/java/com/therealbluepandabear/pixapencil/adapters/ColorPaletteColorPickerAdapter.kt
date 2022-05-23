@@ -14,10 +14,10 @@ class ColorPaletteColorPickerAdapter(
     private val colorPalette: ColorPalette,
     private val caller: ColorPaletteColorPickerListener
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var colorData = listOf<Int>()
+    private var colorData = mutableListOf<Int>()
 
     init {
-        colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData)
+        colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -54,5 +54,11 @@ class ColorPaletteColorPickerAdapter(
 
     override fun getItemCount(): Int {
         return colorData.size
+    }
+
+    fun updateDataSource(list: List<Int>){
+        colorData.clear()
+        colorData.addAll(list)
+        notifyDataSetChanged()
     }
 }

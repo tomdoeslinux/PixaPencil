@@ -18,6 +18,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
+import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
+import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
@@ -114,6 +116,9 @@ class CanvasActivity :
     inner class CanvasCommandsHelper(val baseReference: CanvasActivity = this@CanvasActivity)
 
     val canvasCommandsHelperInstance: CanvasCommandsHelper = CanvasCommandsHelper()
+
+    val colorPaletteColorPickerData = mutableListOf<Int>()
+    lateinit var adapter: ColorPaletteColorPickerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -8,7 +8,9 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor
+import com.therealbluepandabear.pixapencil.activities.main.initView
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
+import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
 var firstLoad = false
@@ -34,15 +36,15 @@ fun CanvasActivity.setUpRecyclerView() {
     layoutManager.orientation = layoutManagerOrientation
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        val toShow = if (fromDB != null) {
-            fromDB
-        } else {
-            it.firstOrNull()
-        }
-        binding.activityCanvasColorPickerRecyclerView.adapter =
-            toShow?.let { obj ->
-                ColorPaletteColorPickerAdapter(obj, this)
-            }
+    val toShow = if (fromDB != null) {
+        fromDB
+    } else {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().firstOrNull()
     }
+
+    toShow?.let {
+        adapter = ColorPaletteColorPickerAdapter(it, this@setUpRecyclerView)
+    }
+
+    binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 }

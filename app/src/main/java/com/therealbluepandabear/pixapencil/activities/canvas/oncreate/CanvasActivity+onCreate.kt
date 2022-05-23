@@ -17,4 +17,5 @@ fun CanvasActivity.onCreate() {
     initSharedPreferenceObject()
     setObjectGlobalScopeLifecycleOwner()
     setFlags()
+    observeColorPaletteColorPickerData()
 }
