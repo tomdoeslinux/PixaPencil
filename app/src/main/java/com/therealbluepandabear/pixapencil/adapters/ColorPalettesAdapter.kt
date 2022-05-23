@@ -8,6 +8,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
+import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ColorPalettesViewHolder
@@ -48,9 +49,8 @@ class ColorPalettesAdapter(
                 previousViewElement = it
             }
 
-            holder.binding.colorPalettesLayoutMaterialCardView.setOnLongClickListener {
+            holder.binding.colorPalettesLayoutMaterialCardView.setOnLongPressListener {
                 caller.onColorPaletteLongTapped(item)
-                true
             }
         }
     }

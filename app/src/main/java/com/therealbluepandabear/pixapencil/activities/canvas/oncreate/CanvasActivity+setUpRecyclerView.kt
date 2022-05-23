@@ -8,9 +8,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor
-import com.therealbluepandabear.pixapencil.activities.main.initView
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.database.AppData
 
 var firstLoad = false

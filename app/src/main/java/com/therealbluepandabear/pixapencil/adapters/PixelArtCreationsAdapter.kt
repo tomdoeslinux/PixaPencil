@@ -8,6 +8,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
+import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
@@ -43,9 +44,8 @@ class PixelArtCreationsAdapter(
                 listener.onCreationTapped(item)
             }
 
-            holder.binding.recentCreationsLayoutMaterialCardView.setOnLongClickListener {
+            holder.binding.recentCreationsLayoutMaterialCardView.setOnLongPressListener {
                 listener.onCreationLongTapped(item)
-                true
             }
 
             holder.binding.recentCreationsLayoutFavoriteButton.setOnClickListener {

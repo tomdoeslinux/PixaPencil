@@ -19,7 +19,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.exten
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
@@ -31,7 +30,10 @@ import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.listeners.*
-import com.therealbluepandabear.pixapencil.models.*
+import com.therealbluepandabear.pixapencil.models.BitmapAction
+import com.therealbluepandabear.pixapencil.models.Brush
+import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.IntConstants
 

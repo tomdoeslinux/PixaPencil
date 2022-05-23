@@ -6,6 +6,7 @@ import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
@@ -74,7 +75,7 @@ fun CanvasActivity.setOnClickListeners() {
         setPixelColor((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorPrimaryView.setOnLongClickListener {
+    binding.activityCanvasColorPrimaryView.setOnLongPressListener {
         isPrimaryColorSelected = true
         binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
         binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
@@ -84,7 +85,6 @@ fun CanvasActivity.setOnClickListeners() {
                 paramColorPaletteMode = false))
             addToBackStack(null)
         }
-        true
     }
 
 
@@ -95,7 +95,7 @@ fun CanvasActivity.setOnClickListeners() {
         setPixelColor((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorSecondaryView.setOnLongClickListener {
+    binding.activityCanvasColorSecondaryView.setOnLongPressListener {
         isPrimaryColorSelected = false
         binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
         binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
@@ -105,6 +105,5 @@ fun CanvasActivity.setOnClickListeners() {
                 paramColorPaletteMode = false))
             addToBackStack(null)
         }
-        true
     }
 }

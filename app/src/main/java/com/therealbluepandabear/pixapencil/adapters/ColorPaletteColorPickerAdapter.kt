@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.databinding.ColorPickerLayoutBinding
+import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPaletteColorPickerListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ColorPaletteColorPickerViewHolder
@@ -39,11 +40,10 @@ class ColorPaletteColorPickerAdapter(
                 }
             }
 
-            holder.binding.colorView.setOnLongClickListener {
+            holder.binding.colorView.setOnLongPressListener {
                 if (!isPlusIndicatorItemPosition) {
                     caller.onColorLongTapped(colorPalette, position)
                 }
-                true
             }
         }
     }
