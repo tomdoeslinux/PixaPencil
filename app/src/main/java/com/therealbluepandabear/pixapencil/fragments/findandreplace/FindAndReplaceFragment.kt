@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pixapencil.extensions.clone
@@ -18,6 +17,7 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
+import com.therealbluepandabear.pixapencil.utility.ColorPaletteUtilities
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var colorToFind: Int? = null
@@ -76,13 +76,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
-
-        val copiedPaletteRemoveLast = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[paramSelectedColorPaletteIndex]
-        val copiedPaletteData = JsonConverter.convertJsonStringToListOfInt(copiedPaletteRemoveLast.colorPaletteColorData).toMutableList()
-        copiedPaletteData.removeLast()
-
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-            copiedPaletteData,
+            ColorPaletteUtilities.getFindAndReplaceCompatibleColorPaletteColorData(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[paramSelectedColorPaletteIndex]),
             ColorsToReplaceCaller(binding),
         )
     }
