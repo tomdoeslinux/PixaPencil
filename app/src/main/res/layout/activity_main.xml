@@ -25,7 +25,13 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/activityMain_bottomNavigationView"
-        style="@style/activityCanvas_bottomNavigationView_style"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/activityMain_recentCreationsRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/activity_main_bottom_navigation_menu" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/clayout"
