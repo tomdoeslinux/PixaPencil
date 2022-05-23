@@ -8,7 +8,7 @@ private var scrollingDown = false
 fun MainActivity.recentCreationsRecyclerViewAddOnScrollListener() {
     binding.activityMainRecentCreationsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            val threshold = 7
+            val threshold = 15
 
             if (dy < -threshold) {
                 scrollingDown = false
