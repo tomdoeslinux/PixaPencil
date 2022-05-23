@@ -51,3 +51,7 @@ fun Bitmap.rotate(degrees: Int): Bitmap {
 fun Bitmap.clone(): Bitmap {
     return this.copy(this.config, this.isMutable)
 }
+
+fun Bitmap.createMutableClone(): Bitmap {
+    return this.copy(this.config, true)
+}

@@ -51,5 +51,8 @@ object StringConstants {
         const val PrevSymmetryModeBundleIdentifier = "prev_symmetry_mode_bundle_identifier"
         const val PrevRotationBundleIdentifier = "prev_rotation_bundle_identifier"
         const val PrevColorPickerTabBundleIdentifier = "prev_color_picker_tab_bundle_identifier"
+        const val PrevColorsToFindBundleIdentifier = "prev_colors_to_find_bundle_identifier"
+        const val PrevTransparentBitmapSourceBundleIdentifier = "prev_transparent_bitmap_source_bundle_identifier"
+        const val PrevPixelGridViewBitmapSourceBundleIdentifier = "prev_pixel_grid_view_bitmap_source_bundle_identifier"
     }
 }

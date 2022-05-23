@@ -9,15 +9,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
+import com.therealbluepandabear.pixapencil.converters.BitmapConverter
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pixapencil.extensions.clone
+import com.therealbluepandabear.pixapencil.extensions.createMutableClone
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.currentTab
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.prevColorPickerTab
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
 import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
 import com.therealbluepandabear.pixapencil.utility.ColorPaletteUtilities
+import com.therealbluepandabear.pixapencil.utility.StringConstants
+import java.util.ArrayList
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var colorToFind: Int? = null
@@ -121,6 +128,17 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putIntegerArrayList(
+            StringConstants.Identifiers.PrevColorsToFindBundleIdentifier,
+            paramCanvasColors as ArrayList<Int>
+        )
+        outState.putString(StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier, BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
+        outState.putString(StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier, BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
+
+        super.onSaveInstanceState(outState)
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FindAndReplaceFragmentListener) caller = context
@@ -130,6 +148,12 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        if (savedInstanceState != null) {
+            paramCanvasColors = savedInstanceState.getIntegerArrayList(StringConstants.Identifiers.PrevColorsToFindBundleIdentifier)!!.toList()
+            paramTransparentBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+            paramPixelGridViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
