@@ -16,15 +16,15 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
         val fileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
         fileHelperUtil.storeBitmapToInternalStorage(fileName, bmp, Bitmap.CompressFormat.PNG) // Compress format MUST be PNG to show transparency
 
-        outState.putString(StringConstants.Identifiers.prevBitmapFilePathStrBundleIdentifier, fileName)
-        outState.putInt(StringConstants.Identifiers.prevOrientationBundleIdentifier, resources.configuration.orientation)
-        outState.putInt(StringConstants.Identifiers.prevPrimaryColorBundleIdentifier, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
-        outState.putInt(StringConstants.Identifiers.prevSecondaryColorBundleIdentifier, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
-        outState.putString(StringConstants.Identifiers.prevToolBundleIdentifier, currentTool.toolName)
-        outState.putString(StringConstants.Identifiers.prevBrushBundleIdentifier, pixelGridViewInstance.currentBrush?.brushName)
-        outState.putInt(StringConstants.Identifiers.prevTabBundleIdentifier, currentTab)
-        outState.putString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
-        outState.putInt(StringConstants.Identifiers.prevRotationStrIdentifier, outerCanvasInstance.getCurrentRotation().toInt())
+        outState.putString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier, fileName)
+        outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
+        outState.putInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
+        outState.putInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
+        outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
+        outState.putString(StringConstants.Identifiers.PrevBrushBundleIdentifier, pixelGridViewInstance.currentBrush?.brushName)
+        outState.putInt(StringConstants.Identifiers.PrevTabBundleIdentifier, currentTab)
+        outState.putString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
+        outState.putInt(StringConstants.Identifiers.PrevRotationBundleIdentifier, outerCanvasInstance.getCurrentRotation().toInt())
     } else {
         Flags.PressedBackFromImg = false
     }

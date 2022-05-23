@@ -5,16 +5,16 @@ import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {
-        prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.prevOrientationBundleIdentifier)
-        prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.prevBitmapFilePathStrBundleIdentifier)
-        prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevPrimaryColorBundleIdentifier)
-        prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.prevSecondaryColorBundleIdentifier)
-        prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.prevToolBundleIdentifier)
-        prevBrushStr = savedInstanceState.getString(StringConstants.Identifiers.prevBrushBundleIdentifier)
-        prevTab = savedInstanceState.getInt(StringConstants.Identifiers.prevTabBundleIdentifier)
+        prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier)
+        prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier)
+        prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier)
+        prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier)
+        prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.PrevToolBundleIdentifier)
+        prevBrushStr = savedInstanceState.getString(StringConstants.Identifiers.PrevBrushBundleIdentifier)
+        prevTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevTabBundleIdentifier)
         prevUndoToolbarButtonDisabledEnabledState = viewModel.bitmapActionData.isNotEmpty() == true
         prevRedoToolbarButtonDisabledEnabledState = viewModel.undoStack.isNotEmpty() == true
-        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.prevSymmetryModeStrIdentifier)
-        prevRotation = savedInstanceState.getInt(StringConstants.Identifiers.prevRotationStrIdentifier)
+        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier)
+        prevRotation = savedInstanceState.getInt(StringConstants.Identifiers.PrevRotationBundleIdentifier)
     }
 }

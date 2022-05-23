@@ -54,7 +54,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         setHasOptionsMenu(true)
 
         if (savedInstanceState != null) {
-            prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.prevColorPickerTabBundleIdentifier)
+            prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevColorPickerTabBundleIdentifier)
         }
     }
 
@@ -73,7 +73,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(
-            StringConstants.Identifiers.prevColorPickerTabBundleIdentifier,
+            StringConstants.Identifiers.PrevColorPickerTabBundleIdentifier,
             currentTab
         )
 
