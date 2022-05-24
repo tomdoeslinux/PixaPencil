@@ -23,7 +23,6 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
 
         fromDB!!.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
 
-
         CoroutineScope(Dispatchers.IO).launch {
             AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
         }

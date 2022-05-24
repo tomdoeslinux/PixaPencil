@@ -13,13 +13,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {
-    val copy2 = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
-
-    val extractedJson =
-        JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+    val extractedJson = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+    val colorRemoved = extractedJson[colorIndex]
     extractedJson.removeAt(colorIndex)
-
-    val color = copy2[colorIndex]
 
     colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
 
@@ -27,11 +23,8 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
         AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
     }
 
-    val colorPaletteName = colorPalette.colorPaletteName
-
-    binding.root.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPaletteName), SnackbarDuration.Default, getString(R.string.activityCanvasTopAppMenu_undo_str)) {
-        extractedJson.add(colorIndex, color)
-
+    binding.root.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPalette.colorPaletteName), SnackbarDuration.Default, getString(R.string.activityCanvasTopAppMenu_undo_str)) {
+        extractedJson.add(colorIndex, colorRemoved)
         colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(extractedJson)
 
         CoroutineScope(Dispatchers.IO).launch {
