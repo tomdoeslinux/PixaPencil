@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 import com.therealbluepandabear.pixapencil.getOrAwaitValue
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.DateTimeCompat
+import com.therealbluepandabear.pixapencil.utility.compat.DateTimeCompat
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import io.mockk.every
 import io.mockk.mockk

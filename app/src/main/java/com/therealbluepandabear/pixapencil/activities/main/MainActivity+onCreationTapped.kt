@@ -4,7 +4,7 @@ import android.content.Intent
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {

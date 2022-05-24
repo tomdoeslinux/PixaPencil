@@ -3,8 +3,8 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!sprayAlgorithmInstanceInitialized) {

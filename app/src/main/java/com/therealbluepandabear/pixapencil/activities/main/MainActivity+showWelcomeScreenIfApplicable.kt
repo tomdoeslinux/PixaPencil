@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.main
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.showWelcomeScreenIfApplicable() {
     if (sharedPreferenceObject.contains(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier)) {

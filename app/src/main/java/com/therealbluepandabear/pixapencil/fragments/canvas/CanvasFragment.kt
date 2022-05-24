@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
 import com.therealbluepandabear.pixapencil.databinding.FragmentCanvasBinding
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
-import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 lateinit var pixelGridViewInstance: PixelGridView
 

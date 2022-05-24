@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.os.Bundle
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {

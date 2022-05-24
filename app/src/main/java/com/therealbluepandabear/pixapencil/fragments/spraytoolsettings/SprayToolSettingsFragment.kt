@@ -10,8 +10,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentSprayToolSettingsBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.SprayToolSettingsFragmentListener
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }

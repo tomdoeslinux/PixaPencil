@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.main
 import android.content.Intent
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.extendedOnDoneButtonPressed(projectTitle: String, width: Int, height: Int) {
     startActivity(

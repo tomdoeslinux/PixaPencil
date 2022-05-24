@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
     when (toolName) {

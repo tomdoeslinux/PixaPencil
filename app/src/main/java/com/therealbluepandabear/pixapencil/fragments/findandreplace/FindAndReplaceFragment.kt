@@ -10,20 +10,17 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pixapencil.extensions.clone
 import com.therealbluepandabear.pixapencil.extensions.createMutableClone
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
-import com.therealbluepandabear.pixapencil.fragments.colorpicker.currentTab
-import com.therealbluepandabear.pixapencil.fragments.colorpicker.prevColorPickerTab
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
-import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
-import com.therealbluepandabear.pixapencil.utility.ColorPaletteUtilities
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.general.BitmapUtilities
+import com.therealbluepandabear.pixapencil.utility.general.ColorPaletteUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import java.util.ArrayList
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {
@@ -151,8 +148,10 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
         if (savedInstanceState != null) {
             paramCanvasColors = savedInstanceState.getIntegerArrayList(StringConstants.Identifiers.PrevColorsToFindBundleIdentifier)!!.toList()
-            paramTransparentBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
-            paramPixelGridViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+            paramTransparentBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
+                StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+            paramPixelGridViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
+                StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
         }
     }
 

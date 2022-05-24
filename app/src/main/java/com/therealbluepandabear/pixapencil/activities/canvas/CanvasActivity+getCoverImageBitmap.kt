@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.BitmapUtilities
+import com.therealbluepandabear.pixapencil.utility.general.BitmapUtilities
 
 var gridWasEnabled = false
 

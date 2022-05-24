@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.general
 
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.models.ColorPalette

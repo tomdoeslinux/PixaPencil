@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.view.MotionEvent
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun PixelGridView.extendedDispatchTouchEvent(event: MotionEvent): Boolean {
     val coordinateX = (event.x / scaleWidth).toInt()

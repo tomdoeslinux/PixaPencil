@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.getExtras() {
     index = intent.getIntExtra(StringConstants.Extras.IndexExtra, -1)

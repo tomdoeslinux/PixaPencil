@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.constants
 
 object IntConstants {
     const val WidthHeightMin = 1

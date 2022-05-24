@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 fun CanvasActivity.extendedOnDoneButtonPressed(radius: String, strength: String) {
     supportFragmentManager.popBackStackImmediate()

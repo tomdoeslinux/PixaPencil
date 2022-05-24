@@ -2,8 +2,8 @@ package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
 import androidx.core.widget.doAfterTextChanged
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 var invalidRadius = false
 var invalidStrength = false

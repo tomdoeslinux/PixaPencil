@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentToolsBinding
 import com.therealbluepandabear.pixapencil.listeners.ToolsFragmentListener
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class ToolsFragment : Fragment() {
     private fun setup() {

@@ -10,8 +10,8 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
-import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import java.io.File
 
 lateinit var file: File

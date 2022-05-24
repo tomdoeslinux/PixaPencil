@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.general
 
 import android.graphics.Bitmap
 import android.graphics.Canvas

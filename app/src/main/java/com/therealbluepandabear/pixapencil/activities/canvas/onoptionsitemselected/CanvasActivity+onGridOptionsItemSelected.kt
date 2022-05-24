@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.onGridOptionsItemSelected() {
     pixelGridViewInstance.gridEnabled = !pixelGridViewInstance.gridEnabled

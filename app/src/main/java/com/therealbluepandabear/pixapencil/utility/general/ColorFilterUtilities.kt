@@ -1,6 +1,7 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.general
 
 import androidx.core.graphics.ColorUtils
+import com.therealbluepandabear.pixapencil.utility.compat.ColorCompat
 
 object ColorFilterUtilities {
     fun inverseRGB(color: Int): Int {

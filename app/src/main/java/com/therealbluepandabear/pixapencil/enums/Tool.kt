@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.enums
 
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
     PencilTool(

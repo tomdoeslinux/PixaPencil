@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBinding
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
-import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 lateinit var canvasFragment: CanvasFragment
 

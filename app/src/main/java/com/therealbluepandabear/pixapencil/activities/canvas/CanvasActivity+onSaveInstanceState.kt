@@ -4,10 +4,10 @@ import android.graphics.Bitmap
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     if (!Flags.PressedBackFromImg && !Flags.PressedBackToExit) {

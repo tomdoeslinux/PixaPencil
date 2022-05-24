@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentRGBColorPickerBinding
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
 import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
-import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.registerEventListener
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
 import net.yslibrary.android.keyboardvisibilityevent.Unregistrar

@@ -8,8 +8,8 @@ import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
     baseReference.viewModel.undoStack.clear()

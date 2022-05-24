@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
@@ -9,7 +8,7 @@ import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

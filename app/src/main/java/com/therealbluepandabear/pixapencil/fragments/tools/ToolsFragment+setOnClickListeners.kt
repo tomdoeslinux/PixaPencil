@@ -8,7 +8,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun ToolsFragment.getSelectedStateListPairData(): Pair<ColorStateList, ColorStateList?> {
     return Pair(AppCompatResources.getColorStateList(context!!, android.R.color.holo_blue_dark), ContextCompat.getColorStateList(requireContext(), R.color.white))

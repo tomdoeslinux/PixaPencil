@@ -6,7 +6,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.ObjectConstants
+import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
 
 interface PixelatedView {
     var scaleWidth: Float

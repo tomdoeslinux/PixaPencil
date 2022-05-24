@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.constants
 
 import androidx.lifecycle.LifecycleOwner
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter

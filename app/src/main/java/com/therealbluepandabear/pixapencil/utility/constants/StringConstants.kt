@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.constants
 
 object StringConstants {
     object Extras {

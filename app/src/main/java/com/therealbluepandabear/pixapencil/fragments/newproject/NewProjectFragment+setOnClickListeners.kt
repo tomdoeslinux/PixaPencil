@@ -7,8 +7,8 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 var invalidTitle = false
 var invalidWidth = false

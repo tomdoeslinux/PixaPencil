@@ -1,9 +1,9 @@
-package com.therealbluepandabear.pixapencil.utility
+package com.therealbluepandabear.pixapencil.utility.compat
 
 import android.graphics.Paint
 import android.os.Build
 
-object PaintCompatUtilities {
+object PaintCompat {
     fun getSDK28PaintOrNull(): Paint? {
         val preSDK28Paint = Paint()
         preSDK28Paint.isFilterBitmap = false

@@ -12,8 +12,8 @@ import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.*
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 class PixelGridView : View, PixelatedView {
@@ -144,7 +144,7 @@ class PixelGridView : View, PixelatedView {
             pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
-            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getSDK28PaintOrNull())
+            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
 
             outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
 
@@ -185,7 +185,7 @@ class PixelGridView : View, PixelatedView {
             this.scaleWidth = scaleWidth
             this.scaleHeight = scaleHeight
 
-            canvas.drawBitmap(pixelGridViewBitmap, matrix, PaintCompatUtilities.getSDK28PaintOrNull())
+            canvas.drawBitmap(pixelGridViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH

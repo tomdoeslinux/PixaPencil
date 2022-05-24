@@ -12,8 +12,8 @@ import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.PaintCompatUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 class TransparentBackgroundView : View, PixelatedView {
@@ -95,7 +95,7 @@ class TransparentBackgroundView : View, PixelatedView {
             transparentBackgroundViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
 
-            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompatUtilities.getSDK28PaintOrNull())
+            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
 
             postInvalidate()
         }
@@ -111,7 +111,7 @@ class TransparentBackgroundView : View, PixelatedView {
             this.scaleWidth = scaleWidth
             this.scaleHeight = scaleHeight
 
-            canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompatUtilities.getSDK28PaintOrNull())
+            canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
 
             dimenCW = scaleFactorW
             dimenCH = scaleFactorH

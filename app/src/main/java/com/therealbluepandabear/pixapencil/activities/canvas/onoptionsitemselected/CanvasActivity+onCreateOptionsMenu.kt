@@ -5,7 +5,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater

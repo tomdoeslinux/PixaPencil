@@ -5,8 +5,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.applyBitmapFilter
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
-import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnFilterTapped(filterType: String) {
     when (filterType) {

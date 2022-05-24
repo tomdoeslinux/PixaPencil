@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.therealbluepandabear.pixapencil.utility.DateTimeCompat
+import com.therealbluepandabear.pixapencil.utility.compat.DateTimeCompat
 
 @Entity
 data class PixelArt(

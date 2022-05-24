@@ -4,7 +4,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.undo
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
     Flags.DisableActionMove = true

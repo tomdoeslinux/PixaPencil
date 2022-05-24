@@ -4,7 +4,7 @@ import android.content.Intent
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.utility.Flags
+import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.extendedOnBackPressed() {
     Flags.PressedBackToExit = true

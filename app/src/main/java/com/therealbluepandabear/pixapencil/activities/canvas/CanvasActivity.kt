@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
@@ -24,7 +23,6 @@ import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
@@ -34,9 +32,8 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
-import com.therealbluepandabear.pixapencil.utility.IntConstants
-import com.therealbluepandabear.pixapencil.utility.StringConstants
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 lateinit var binding: ActivityCanvasBinding
 

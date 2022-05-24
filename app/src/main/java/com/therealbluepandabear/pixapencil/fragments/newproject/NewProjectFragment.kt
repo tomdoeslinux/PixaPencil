@@ -9,7 +9,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.FragmentNewProjectBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
-import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 class NewProjectFragment : Fragment(), ActivityFragment {
     var root: View? = null

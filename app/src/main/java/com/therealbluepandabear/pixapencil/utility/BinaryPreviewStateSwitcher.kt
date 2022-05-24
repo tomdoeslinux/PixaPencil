@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.utility
 
 import com.therealbluepandabear.pixapencil.models.BitmapAction
+import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
 
 object BinaryPreviewStateSwitcher {
     private var binaryPairStateData: Pair<BitmapAction?, BitmapAction?> = Pair(null, null)
