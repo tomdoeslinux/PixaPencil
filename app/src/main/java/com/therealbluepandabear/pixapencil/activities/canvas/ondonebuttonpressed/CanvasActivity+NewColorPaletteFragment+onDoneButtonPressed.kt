@@ -2,6 +2,8 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpresse
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -26,5 +28,9 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
                 ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))
             )
         }
+    }
+
+    binding.root.post {
+        judgeUndoRedoStacks()
     }
 }

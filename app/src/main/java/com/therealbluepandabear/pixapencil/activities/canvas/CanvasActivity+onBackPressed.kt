@@ -11,6 +11,10 @@ fun CanvasActivity.extendedOnBackPressed() {
 
     if (supportFragmentManager.backStackEntryCount > 0) {
         supportFragmentManager.popBackStackImmediate()
+
+        binding.root.post {
+            judgeUndoRedoStacks()
+        }
     } else if (!saved) {
         showDialog(
             getString(R.string.dialog_unsaved_changes_title_in_code_str),
