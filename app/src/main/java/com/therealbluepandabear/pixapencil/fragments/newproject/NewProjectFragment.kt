@@ -19,16 +19,9 @@ class NewProjectFragment : Fragment(), ActivityFragment {
 
     lateinit var caller: NewProjectFragmentListener
 
-    var root: View? = null
-
     override val title: String by lazy { getString(R.string.fragment_new_project_title_in_code_str) }
 
-    private fun instantiateRoot() {
-        root = binding.root
-    }
-
     private fun setup() {
-        instantiateRoot()
         setOnClickListeners()
     }
 
