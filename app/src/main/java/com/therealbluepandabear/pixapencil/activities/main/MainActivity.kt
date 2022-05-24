@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
@@ -22,8 +23,11 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     lateinit var menu: Menu
 
     var firstLaunch = false
+    var darkMode = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
+        initSharedPreferencesObject()
+        toggleDarkModeIfApplicable()
         super.onCreate(savedInstanceState)
         extendedOnCreate()
     }

@@ -33,6 +33,8 @@ object StringConstants {
 
         const val SharedPreferenceFirstLaunchIdentifier = "first_launch_identifier"
         const val SharedPreferenceShowLargeCanvasSizeWarningIdentifier = "show_large_canvas_size_warning_identifier"
+        const val SharedPreferenceDarkLightModeIdentifier = "dark_light_mode_identifier"
+        const val SharedPreferenceDarkLightModeChanged = "dark_light_mode_changed_identifier"
 
         const val SharedPreferencePixelPerfectIdentifier = "pixel_perfect_shared_pref"
         const val SharedPreferencesSprayRadiusIdentifier = "spray_radius_shared_pref"

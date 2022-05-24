@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 fun MainActivity.extendedOnCreate() {
-    initSharedPreferencesObject()
     showWelcomeScreenIfApplicable()
     setVmPolicy()
     setBindings()
