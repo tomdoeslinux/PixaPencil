@@ -136,7 +136,7 @@ class PixelGridView : View, PixelatedView {
 
             postInvalidate()
         } else {
-            val currentBitmap = getCurrentBitmap(this.context)
+            val currentBitmap = getCurrentBitmap(context)
 
             canvasWidth = currentBitmap.width
             canvasHeight = currentBitmap.height

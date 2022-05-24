@@ -147,7 +147,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FindAndReplaceFragmentListener) caller = context
-        requireActivity().title = this.title
+        requireActivity().title = title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

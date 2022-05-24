@@ -20,7 +20,7 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat, thisRotatio
     val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
 
     val bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
-    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this.context)
+    val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)
 
     fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format, rotation = thisRotation) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {

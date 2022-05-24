@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 fun View.showSnackbar(snackbarText: String, duration: SnackbarDuration) {
     Snackbar.make(this, snackbarText, duration.timeValue)
         .setTextColor(Color.BLACK)
-        .setBackgroundTint(ContextCompat.getColor(this.context, R.color.snackbarBackgroundColor))
+        .setBackgroundTint(ContextCompat.getColor(context, R.color.snackbarBackgroundColor))
         .setAnimationMode(ANIMATION_MODE_SLIDE)
         .show()
 }
@@ -19,7 +19,7 @@ fun View.showSnackbar(snackbarText: String, duration: SnackbarDuration) {
 fun View.showSnackbarWithAction(snackbarText: String, duration: SnackbarDuration, actionText: String, actionOnClickListener: View.OnClickListener) {
     Snackbar.make(this, snackbarText, duration.timeValue)
         .setTextColor(Color.BLACK)
-        .setBackgroundTint(ContextCompat.getColor(this.context, R.color.snackbarBackgroundColor))
+        .setBackgroundTint(ContextCompat.getColor(context, R.color.snackbarBackgroundColor))
         .setAction(actionText, actionOnClickListener)
         .setAnimationMode(ANIMATION_MODE_SLIDE)
         .show()

@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.extensions
 import android.view.View
 
 fun View.setOnLongPressListener(event: (it: View) -> Unit) {
-    this.setOnLongClickListener {
+    setOnLongClickListener {
         event(it)
         true
     }

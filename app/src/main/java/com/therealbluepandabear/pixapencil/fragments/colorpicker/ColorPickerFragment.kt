@@ -46,7 +46,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is ColorPickerFragmentListener) caller = context
-        requireActivity().title = this.title
+        requireActivity().title = title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

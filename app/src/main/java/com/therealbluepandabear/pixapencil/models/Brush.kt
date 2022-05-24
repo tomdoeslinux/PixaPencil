@@ -6,7 +6,7 @@ data class Brush(val brushName: String, val brushInstructionData: List<BrushInst
     fun convertBrushInstructionDataToXYPositionData(from: Coordinates): List<Coordinates> {
         val instructions = mutableListOf<Coordinates>()
 
-        for (brushInstruction in this.brushInstructionData) {
+        for (brushInstruction in brushInstructionData) {
             when (brushInstruction.brushInstruction) {
                 BrushInstruction.ExpandTop -> {
                     instructions.add(Coordinates(from.x, from.y + brushInstruction.by))

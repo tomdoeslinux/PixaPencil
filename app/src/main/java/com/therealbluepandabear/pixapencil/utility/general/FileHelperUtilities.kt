@@ -40,7 +40,7 @@ class FileHelperUtilities(private val context: Context) {
         dir =
             File(
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                    .toString() + "/" + this.context.getString(R.string.app_name)
+                    .toString() + "/" + context.getString(R.string.app_name)
             )
 
 
@@ -74,7 +74,7 @@ class FileHelperUtilities(private val context: Context) {
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
         } else {
-            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + this.context.getString(R.string.app_name))
+            File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + context.getString(R.string.app_name))
         }
 
         directory?.mkdirs()
@@ -82,7 +82,7 @@ class FileHelperUtilities(private val context: Context) {
         var file = File(directory, outputName)
 
         val textInput: TextInputLayout =
-            this.context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, context.activity()?.findViewById(android.R.id.content),false)
+            context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, context.activity()?.findViewById(android.R.id.content),false)
                 as TextInputLayout
 
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
@@ -121,17 +121,17 @@ class FileHelperUtilities(private val context: Context) {
         }
 
         if (file.exists()) {
-            this.context.activity()?.showDialog(
-                this.context.getString(R.string.dialog_file_exists_title_in_code_str),
-                this.context.getString(R.string.dialog_file_exists_message_in_code_str, outputName),
-                this.context.getString(R.string.dialog_file_exists_positive_button_text_in_code_str), { _, _ ->
+            context.activity()?.showDialog(
+                context.getString(R.string.dialog_file_exists_title_in_code_str),
+                context.getString(R.string.dialog_file_exists_message_in_code_str, outputName),
+                context.getString(R.string.dialog_file_exists_positive_button_text_in_code_str), { _, _ ->
                     createNewFile(file)
                 },
-                this.context.getString(R.string.dialog_file_exists_negative_button_text_in_code_str), { _, _ ->
-                this.context.activity()?.showDialog(
-                    this.context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
-                    this.context.getString(R.string.dialog_save_under_new_name_text_in_code_str),
-                    this.context.getString(R.string.dialog_positive_button_text_in_code_str),
+                context.getString(R.string.dialog_file_exists_negative_button_text_in_code_str), { _, _ ->
+                context.activity()?.showDialog(
+                    context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
+                    context.getString(R.string.dialog_save_under_new_name_text_in_code_str),
+                    context.getString(R.string.dialog_positive_button_text_in_code_str),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
                         outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$input.png" else "$input.jpg"
@@ -139,7 +139,7 @@ class FileHelperUtilities(private val context: Context) {
                         file = File(directory, outputName)
                         createNewFile(file)
                     },
-                    this.context.getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> },
+                    context.getString(R.string.dialog_negative_button_text_in_code_str), { _, _ -> },
                     textInput)
                 })
         } else {

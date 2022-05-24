@@ -45,13 +45,13 @@ fun Bitmap.rotate(degrees: Int): Bitmap {
     val matrix = Matrix()
     matrix.setRotate(degrees.toFloat())
 
-    return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, false)
+    return Bitmap.createBitmap(this, 0, 0, width, height, matrix, false)
 }
 
 fun Bitmap.clone(): Bitmap {
-    return this.copy(this.config, this.isMutable)
+    return copy(config, isMutable)
 }
 
 fun Bitmap.createMutableClone(): Bitmap {
-    return this.copy(this.config, true)
+    return copy(config, true)
 }

@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 fun PixelGridView.extendedCoordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
     return if (currentTool == Tool.DitherTool && !ignoreDither) {
             (coordinates.x in 0 until canvasWidth && coordinates.y in 0 until canvasHeight &&
-                    outerCanvasInstance.transparentBackgroundView.transparentBackgroundViewBitmap.getPixel(coordinates.x, coordinates.y) == ContextCompat.getColor(this.context, R.color.pixelGridViewCheckerboardColor))
+                    outerCanvasInstance.transparentBackgroundView.transparentBackgroundViewBitmap.getPixel(coordinates.x, coordinates.y) == ContextCompat.getColor(context, R.color.pixelGridViewCheckerboardColor))
     } else {
         (coordinates.x in 0 until canvasWidth && coordinates.y in 0 until canvasHeight)
     }

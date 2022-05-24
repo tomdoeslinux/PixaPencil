@@ -23,7 +23,7 @@ class TransparentBackgroundView : View, PixelatedView {
     override var scaleWidth = 0f
     override var scaleHeight = 0f
 
-    var color = ContextCompat.getColor(this.context, R.color.pixelGridViewCheckerboardColor)
+    var color = ContextCompat.getColor(context, R.color.pixelGridViewCheckerboardColor)
 
     override var currentIndex: Int = -1
 
@@ -87,7 +87,7 @@ class TransparentBackgroundView : View, PixelatedView {
                 Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
             transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
         } else {
-            val currentBitmap = getCurrentBitmap(this.context)
+            val currentBitmap = getCurrentBitmap(context)
 
             canvasWidth = currentBitmap.width
             canvasHeight = currentBitmap.height

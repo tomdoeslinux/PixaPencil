@@ -35,7 +35,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
         super.onAttach(context)
         if (context is NewProjectFragmentListener) caller = context
         requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.GONE
-        requireActivity().title = this.title
+        requireActivity().title = title
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

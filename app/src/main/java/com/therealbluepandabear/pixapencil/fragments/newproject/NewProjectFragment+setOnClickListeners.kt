@@ -90,7 +90,7 @@ fun NewProjectFragment.setOnClickListeners() {
 
                 if (widthValue + heightValue >= 2000 && (requireActivity() as MainActivity).showLargeCanvasSizeWarning) {
                     val frameLayout: FrameLayout =
-                        this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, this.requireView().findViewById(android.R.id.content),false)
+                        this@setOnClickListeners.activity?.layoutInflater?.inflate(R.layout.dont_show_large_canvas_warning_again_checkbox, requireView().findViewById(android.R.id.content),false)
                                 as FrameLayout
                     val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
