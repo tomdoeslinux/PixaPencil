@@ -17,7 +17,4 @@ object IntConstants {
 
     const val RGBMin = 0
     const val RGBMax = 255
-
-    var ActivityCanvasRootLayoutMeasuredHeightReference: Int = 0
-    var ActivityCanvasRootLayoutMeasuredWidthReference: Int = 0
 }

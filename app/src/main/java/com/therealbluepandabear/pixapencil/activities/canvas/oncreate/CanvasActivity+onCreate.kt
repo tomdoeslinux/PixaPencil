@@ -11,8 +11,6 @@ fun CanvasActivity.onCreate() {
     getExtras()
     setUpFragment()
     setBindings()
-    IntConstants.ActivityCanvasRootLayoutMeasuredHeightReference = binding.root.measuredHeight
-    IntConstants.ActivityCanvasRootLayoutMeasuredWidthReference = binding.root.measuredWidth
     setUpRecyclerView()
     setOnClickListeners()
     initSharedPreferenceObject()
