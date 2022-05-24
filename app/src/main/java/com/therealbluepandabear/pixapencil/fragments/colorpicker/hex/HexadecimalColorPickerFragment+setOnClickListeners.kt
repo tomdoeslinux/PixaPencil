@@ -4,7 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
 
-fun setOnClickListeners() {
+fun HexadecimalColorPickerFragment.setOnClickListeners() {
     binding.fragmentHexadecimalColorPickerDoneButton.setOnClickListener {
         try {
             caller.onDoneButtonPressed(
@@ -12,10 +12,5 @@ fun setOnClickListeners() {
                 colorPaletteMode_
             )
         } catch (exception: Exception) { }
-//        } catch (exception: Exception) {
-//
-//        } finally {
-//            com.therealbluepandabear.pixapencil.activities.canvas.menu.showItems()
-//        }
     }
 }

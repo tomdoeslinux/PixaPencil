@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
 import com.therealbluepandabear.pixapencil.databinding.FragmentCanvasBinding
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
+import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 lateinit var pixelGridViewInstance: PixelGridView
@@ -21,6 +22,14 @@ class CanvasFragment : Fragment() {
     private var paramOuterCanvasInstance: OuterCanvasFragment? = null
     private var paramProjectTitle: String? = null
     private var paramIndex: Int = -1
+
+    var backingBindingProperty: FragmentCanvasBinding? = null
+
+    val binding get(): FragmentCanvasBinding {
+        return backingBindingProperty!!
+    }
+
+    lateinit var caller: CanvasFragmentListener
 
     fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?, paramIndex: Int) {
         this.paramWidth = paramWidth
@@ -47,7 +56,7 @@ class CanvasFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentCanvasBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentCanvasBinding.inflate(inflater, container, false)
 
         setupCanvas()
 
@@ -57,6 +66,6 @@ class CanvasFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 }

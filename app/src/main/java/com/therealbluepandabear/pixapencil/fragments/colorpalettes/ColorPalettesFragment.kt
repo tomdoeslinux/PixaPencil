@@ -16,6 +16,14 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     lateinit var adapter : ColorPalettesAdapter
     val colorPalettesList = mutableListOf<ColorPalette>()
 
+    private var backingBindingProperty: FragmentColorPalettesBinding? = null
+
+    val binding get(): FragmentColorPalettesBinding {
+        return backingBindingProperty!!
+    }
+
+    private lateinit var caller: ColorPalettesFragmentListener
+
     companion object {
         fun newInstance(): ColorPalettesFragment {
             return ColorPalettesFragment()
@@ -28,7 +36,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentColorPalettesBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentColorPalettesBinding.inflate(inflater, container, false)
 
         setUpRecyclerView()
         observeColorPaletteData()
@@ -38,7 +46,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 
     override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {

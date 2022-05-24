@@ -10,9 +10,9 @@ import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-var invalidTitle = false
-var invalidWidth = false
-var invalidHeight = false
+private var invalidTitle = false
+private var invalidWidth = false
+private var invalidHeight = false
 
 private fun NewProjectFragment.checkForTitleError() {
     val title = binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()

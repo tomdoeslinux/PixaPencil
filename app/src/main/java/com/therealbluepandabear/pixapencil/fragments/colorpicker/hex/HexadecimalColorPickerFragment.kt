@@ -13,6 +13,12 @@ import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
 class HexadecimalColorPickerFragment : Fragment() {
     private val oldColorAsHex = Integer.toHexString(oldColor_)
 
+    private var backingBindingProperty: FragmentHexadecimalColorPickerBinding? = null
+
+    val binding get(): FragmentHexadecimalColorPickerBinding {
+        return backingBindingProperty!!
+    }
+
     private fun setup() {
         binding.fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)
         binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.setText(oldColorAsHex)
@@ -35,7 +41,7 @@ class HexadecimalColorPickerFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentHexadecimalColorPickerBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentHexadecimalColorPickerBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
         setup()
@@ -46,6 +52,6 @@ class HexadecimalColorPickerFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 }

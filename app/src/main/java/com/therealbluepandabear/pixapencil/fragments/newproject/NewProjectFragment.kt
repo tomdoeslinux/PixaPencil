@@ -11,6 +11,14 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 
 class NewProjectFragment : Fragment(), ActivityFragment {
+    private var backingBindingProperty: FragmentNewProjectBinding? = null
+
+    val binding get(): FragmentNewProjectBinding {
+        return backingBindingProperty!!
+    }
+
+    lateinit var caller: NewProjectFragmentListener
+
     var root: View? = null
 
     override val title: String by lazy { getString(R.string.fragment_new_project_title_in_code_str) }
@@ -48,7 +56,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentNewProjectBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentNewProjectBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -57,7 +65,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
         requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.VISIBLE
         requireActivity().title = getString(R.string.app_name)
     }

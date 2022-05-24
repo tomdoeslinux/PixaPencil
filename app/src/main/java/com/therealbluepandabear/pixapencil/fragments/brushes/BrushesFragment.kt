@@ -12,6 +12,14 @@ import com.therealbluepandabear.pixapencil.listeners.BrushesListener
 import com.therealbluepandabear.pixapencil.models.Brush
 
 class BrushesFragment : Fragment(), BrushesListener {
+    private var backingBindingProperty: FragmentBrushesBinding? = null
+
+    val binding get(): FragmentBrushesBinding {
+        return backingBindingProperty!!
+    }
+
+    private lateinit var caller: BrushesFragmentListener
+
     companion object {
         fun newInstance(): BrushesFragment {
             return BrushesFragment()
@@ -24,7 +32,7 @@ class BrushesFragment : Fragment(), BrushesListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentBrushesBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentBrushesBinding.inflate(inflater, container, false)
 
         setUpRecyclerView()
 
@@ -34,7 +42,7 @@ class BrushesFragment : Fragment(), BrushesListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 
     override fun onBrushTapped(selectedBrush: Brush) {

@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.fragments.filters
 
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-fun setOnClickListeners() {
+fun FiltersFragment.setOnClickListeners() {
     binding.fragmentFiltersColorFilterButton.setOnClickListener {
         caller.onFilterTapped(StringConstants.Identifiers.ColorFilterIdentifier)
     }

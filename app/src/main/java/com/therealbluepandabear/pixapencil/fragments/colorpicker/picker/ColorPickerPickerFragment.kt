@@ -16,6 +16,14 @@ import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
 @SuppressLint("ClickableViewAccessibility")
 
 class ColorPickerPickerFragment : Fragment() {
+    private var backingBindingProperty: FragmentColorPickerPickerBinding? = null
+
+    val binding get(): FragmentColorPickerPickerBinding {
+        return backingBindingProperty!!
+    }
+
+    var selectedColor: Int = 0
+
     companion object {
         fun newInstance(): ColorPickerPickerFragment {
             return ColorPickerPickerFragment()
@@ -23,7 +31,7 @@ class ColorPickerPickerFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentColorPickerPickerBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentColorPickerPickerBinding.inflate(inflater, container, false)
 
         binding.fragmentColorPickerPickerColorPickerView.setInitialColor(oldColor_)
         binding.fragmentColorPickerPickerColorPreview.setBackgroundColor(oldColor_)
@@ -36,6 +44,6 @@ class ColorPickerPickerFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 }

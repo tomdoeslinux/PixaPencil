@@ -10,8 +10,5 @@ fun RGBColorPickerFragment.setOnClickListeners() {
             caller.onDoneButtonPressed((binding.fragmentRGBColorPickerColorPreview.background as ColorDrawable).color, colorPaletteMode_)
             unregisterKeyboardVisibilityEventListenerRegistrar()
         } catch (exception: Exception) { }
-//        } finally {
-//            menu.showItems()
-//        }
     }
 }
