@@ -12,6 +12,14 @@ import com.therealbluepandabear.pixapencil.listeners.ToolsFragmentListener
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class ToolsFragment : Fragment() {
+    private var backingBindingProperty: FragmentToolsBinding? = null
+
+    val binding get(): FragmentToolsBinding {
+        return backingBindingProperty!!
+    }
+
+    lateinit var caller: ToolsFragmentListener
+
     private fun setup() {
         setOnClickListeners()
 
@@ -160,7 +168,7 @@ class ToolsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentToolsBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentToolsBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -169,7 +177,7 @@ class ToolsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 
 }

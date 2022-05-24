@@ -18,6 +18,14 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
 
     lateinit var paramSharedPreferenceObject: SharedPreferences
 
+    private var backingBindingProperty: FragmentSprayToolSettingsBinding? = null
+
+    val binding get(): FragmentSprayToolSettingsBinding {
+        return backingBindingProperty!!
+    }
+
+    lateinit var caller: SprayToolSettingsFragmentListener
+
     fun setParams(paramSharedPreferenceObject: SharedPreferences) {
         this.paramSharedPreferenceObject = paramSharedPreferenceObject
     }
@@ -64,7 +72,7 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -73,7 +81,7 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }
