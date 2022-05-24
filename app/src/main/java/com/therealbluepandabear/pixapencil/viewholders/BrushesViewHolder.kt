@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.models.Brush
 
 class BrushesViewHolder(val binding: BrushesLayoutBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
     fun bind(brush: Brush) {
-        binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color)
+        binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color_daynight)
         binding.brushesLayoutImageView.setImageResource(brush.brushImage)
     }
 }

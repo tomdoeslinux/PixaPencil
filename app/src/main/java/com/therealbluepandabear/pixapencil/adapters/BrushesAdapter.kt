@@ -34,7 +34,7 @@ class BrushesAdapter(
             holder.bind(item)
 
             if (!defSelected) {
-                holder.binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
+                holder.binding.brushesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color_daynight)
                 previousViewElement = holder.binding.brushesLayoutMaterialCardView
                 defSelected = true
             }
@@ -42,9 +42,9 @@ class BrushesAdapter(
             holder.binding.brushesLayoutMaterialCardView.setOnClickListener {
                 caller.onBrushTapped(item)
 
-                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color)
+                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color_daynight)
 
-                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
+                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color_daynight)
                 previousViewElement = it
             }
         }

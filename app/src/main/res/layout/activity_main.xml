@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mainRoot"
-    android:background="@color/fragment_background_color">
+    android:background="@color/fragment_background_color_daynight">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityMain_recentCreationsRecyclerView"
@@ -27,7 +27,7 @@
         android:id="@+id/activityMain_bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@android:color/black"
+        app:itemIconTint="@color/black_color_daynight"
         app:layout_constraintBottom_toBottomOf="@+id/activityMain_recentCreationsRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

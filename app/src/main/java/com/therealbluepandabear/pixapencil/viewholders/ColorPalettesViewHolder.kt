@@ -11,7 +11,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 class ColorPalettesViewHolder(val binding: ColorPalettesLayoutBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
     fun bind(colorPalette: ColorPalette) {
-        binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color)
+        binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color_daynight)
 
         if (JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).size >= 2) {
             binding.colorPalettesLayoutFirstColor.setBackgroundColor(JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData)[0])

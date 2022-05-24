@@ -12,8 +12,9 @@
     <color name="pixelGridViewCheckerboardColor">#d9d9d9</color>
     <color name="snackbarBackgroundColor">#eaddff</color>
 
-    <color name="fragment_background_color">@color/white</color>
-    <color name="recycler_view_item_tapped_color">#b4c8f0</color>
-    <color name="recycler_view_item_untapped_color">@color/white</color>
-    <color name="app_white">@color/white</color>
+    <color name="fragment_background_color_daynight">@color/white</color>
+    <color name="recycler_view_item_tapped_color_daynight">#b4c8f0</color>
+    <color name="recycler_view_item_untapped_color_daynight">@color/white</color>
+    <color name="white_color_daynight">@color/white</color>
+    <color name="black_color_daynight">@color/black</color>
 </resources>

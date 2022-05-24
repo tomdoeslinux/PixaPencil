@@ -35,7 +35,7 @@ class ColorPalettesAdapter(
             holder.bind(item)
 
             if (!defSelected) {
-                holder.binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
+                holder.binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color_daynight)
                 previousViewElement = holder.binding.colorPalettesLayoutMaterialCardView
                 defSelected = true
             }
@@ -43,9 +43,9 @@ class ColorPalettesAdapter(
             holder.binding.colorPalettesLayoutMaterialCardView.setOnClickListener {
                 caller.onColorPaletteTapped(item)
 
-                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color)
+                previousViewElement?.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color_daynight)
 
-                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color)
+                it.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color_daynight)
                 previousViewElement = it
             }
 
