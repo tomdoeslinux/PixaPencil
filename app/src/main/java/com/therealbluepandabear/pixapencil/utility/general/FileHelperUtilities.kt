@@ -20,6 +20,7 @@ import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.fragments.newproject.setOnClickListeners
 import java.io.*
 
 
@@ -81,7 +82,7 @@ class FileHelperUtilities(private val context: Context) {
         var file = File(directory, outputName)
 
         val textInput: TextInputLayout =
-            this.context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, null)
+            this.context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, context.activity()?.findViewById(android.R.id.content),false)
                 as TextInputLayout
 
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
