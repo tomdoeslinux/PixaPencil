@@ -55,4 +55,9 @@ object StringConstants {
         const val PrevTransparentBitmapSourceBundleIdentifier = "prev_transparent_bitmap_source_bundle_identifier"
         const val PrevPixelGridViewBitmapSourceBundleIdentifier = "prev_pixel_grid_view_bitmap_source_bundle_identifier"
     }
+
+    object ShadingToolModes {
+        const val LightenShadingToolMode = "lighten_shading_tool_mode"
+        const val DarkenShadingToolMode = "darken_shading_tool_mode"
+    }
 }

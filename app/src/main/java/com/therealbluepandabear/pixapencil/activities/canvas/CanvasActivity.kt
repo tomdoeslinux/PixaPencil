@@ -36,6 +36,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.IntConstants
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 lateinit var binding: ActivityCanvasBinding
 
@@ -111,7 +112,7 @@ class CanvasActivity :
 
     var selectedColorPaletteIndex: Int = 0
 
-    var shadingToolMode = "Lighten"
+    var shadingToolMode = StringConstants.ShadingToolModes.LightenShadingToolMode
 
     var sharedPreferenceShowSprayToolTip = true
     var sharedPreferenceShowShadingToolTip = true

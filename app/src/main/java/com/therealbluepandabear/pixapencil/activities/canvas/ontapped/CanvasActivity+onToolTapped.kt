@@ -56,13 +56,13 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     }
 
     if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && currentTool == Tool.ShadingTool) {
-        val snackbarText: String = if (shadingToolMode == "Lighten") {
+        val snackbarText: String = if (shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
             "Darken mode".also {
-                shadingToolMode = "Darken"
+                shadingToolMode = StringConstants.ShadingToolModes.DarkenShadingToolMode
             }
         } else {
             "Lighten mode".also {
-                shadingToolMode = "Lighten"
+                shadingToolMode = StringConstants.ShadingToolModes.LightenShadingToolMode
             }
         }
 

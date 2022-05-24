@@ -9,6 +9,7 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.ColorFilterUtilities
+import com.therealbluepandabear.pixapencil.utility.StringConstants
 
 fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
     baseReference.viewModel.undoStack.clear()
@@ -19,7 +20,7 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
         pixelGridViewInstance.pixelGridViewBitmap.setPixel(coordinates, color)
     } else if (pixelGridViewInstance.shadingMode && !pixelGridViewInstance.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT) {
-        val shadeColor = if (baseReference.shadingToolMode == "Lighten") {
+        val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
             Color.WHITE
         } else {
             Color.BLACK
