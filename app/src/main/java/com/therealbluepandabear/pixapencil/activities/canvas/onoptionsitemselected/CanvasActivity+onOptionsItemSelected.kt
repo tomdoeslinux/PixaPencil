@@ -99,6 +99,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isChecked = true
             pixelGridViewInstance.symmetryMode = SymmetryMode.Octal
         }
+
+        R.id.activityCanvasTopAppMenu_save_in_background_item -> {
+            onSaveProjectOptionsItemSelected(true)
+        }
     }
     return true
 }

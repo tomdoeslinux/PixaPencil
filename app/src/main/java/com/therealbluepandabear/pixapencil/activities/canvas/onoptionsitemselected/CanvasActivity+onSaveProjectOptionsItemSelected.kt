@@ -14,7 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun CanvasActivity.onSaveProjectOptionsItemSelected() {
+fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
     saved = true
 
     val bmp = getCoverImageBitmap().resize(0.45)
@@ -41,7 +41,6 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
                 )
             )
         }
-        (this as Activity).onBackPressed()
     } else {
         pixelGridViewInstance.invalidate()
 
@@ -54,6 +53,9 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
         }
 
         outerCanvasInstance.rotate(0)
+    }
+
+    if (!quietly) {
         (this as Activity).onBackPressed()
     }
 }
