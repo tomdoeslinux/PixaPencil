@@ -13,14 +13,15 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFragmentListener {
-    var showLargeCanvasSizeWarning = true
     lateinit var sharedPreferenceObject: SharedPreferences
     lateinit var adapter : PixelArtCreationsAdapter
-    val pixelArtList = mutableListOf<PixelArt>()
-    lateinit var binding: ActivityMainBinding
 
+    val pixelArtList = mutableListOf<PixelArt>()
+
+    lateinit var binding: ActivityMainBinding
     lateinit var menu: Menu
 
+    var showLargeCanvasSizeWarning = true
     var firstLaunch = false
     var darkMode = false
 
