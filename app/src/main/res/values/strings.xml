@@ -179,7 +179,7 @@
 
     <!--Dialog strings-->
     <string name="dialog_unsaved_changes_positive_button_text_in_code_str">Save</string>
-    <string name="dialog_unsaved_changes_negative_button_text_in_code_str">Don\`t save</string>
+    <string name="dialog_unsaved_changes_negative_button_text_in_code_str">Don\'t save</string>
     <string name="dialog_unsaved_changes_button_text_in_code_str">Cancel</string>
     <string name="dialog_exception_info_title_in_code_str">Exception Info</string>
     <string name="dialog_view_file_error_title_in_code_str">Error trying to view file</string>
