@@ -113,7 +113,7 @@ fun NewProjectFragment.setOnClickListeners() {
                                 widthValue,
                                 heightValue
                             )
-                        },  getString(R.string.dialog_negative_button_text_in_code_str), { _, _ ->
+                        },  getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str), { _, _ ->
                         }, frameLayout)
                 } else {
                     caller.onDoneButtonPressed(

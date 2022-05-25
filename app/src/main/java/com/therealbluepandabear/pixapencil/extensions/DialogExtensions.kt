@@ -50,6 +50,6 @@ fun Activity.showSimpleInfoDialog(
     MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
-        .setPositiveButton(getString(R.string.dialog_positive_button_text_in_code_str), null)
+        .setPositiveButton(getString(R.string.dialog_unsaved_changes_positive_button_text_in_code_str), null)
         .show()
 }

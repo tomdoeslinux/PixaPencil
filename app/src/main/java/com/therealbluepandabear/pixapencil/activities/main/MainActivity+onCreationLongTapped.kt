@@ -14,12 +14,10 @@ fun MainActivity.extendedOnCreationLongTapped(pixelArtObj: PixelArt) {
     showDialog(
         getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, title),
         getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, title),
-        getString(R.string.dialog_positive_button_text_in_code_str), { _, _ ->
-            AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this) {
-                CoroutineScope(Dispatchers.IO).launch {
-                    AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArtObj)
-                }
+        getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str), { _, _ ->
+            CoroutineScope(Dispatchers.IO).launch {
+                AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArtObj)
             }
-        },  getString(R.string.dialog_negative_button_text_in_code_str), null
+        },  getString(R.string.dialog_delete_pixel_art_project_negative_button_text_in_code_str), null
     )
 }

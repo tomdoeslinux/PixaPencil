@@ -28,12 +28,10 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteM
             AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
         }
 
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-            binding.activityCanvasColorPickerRecyclerView.adapter = ColorPaletteColorPickerAdapter(fromDB!!, this)
+        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPaletteColorPickerAdapter(fromDB!!, this)
 
-            val colorData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
-            binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
-        }
+        val colorData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
+        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
     }
 
     binding.root.post {

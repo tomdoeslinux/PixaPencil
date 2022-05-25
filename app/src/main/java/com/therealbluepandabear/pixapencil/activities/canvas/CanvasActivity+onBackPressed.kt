@@ -20,14 +20,14 @@ fun CanvasActivity.extendedOnBackPressed() {
         showDialogWithNeutralButton(
             getString(R.string.dialog_unsaved_changes_title_in_code_str),
             getString(R.string.dialog_unsaved_changes_message_in_code_str, projectTitle),
-            getString(R.string.dialog_neutral_button_text_in_code_str),
+            getString(R.string.dialog_unsaved_changes_button_text_in_code_str),
             { _, _ -> },
-            getString(R.string.dialog_negative_button_text_in_code_str),
+            getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str),
             { _, _ ->
                 startActivity(Intent(this, MainActivity::class.java))
                 finishAffinity()
             },
-            getString(R.string.dialog_positive_button_text_in_code_str),
+            getString(R.string.dialog_unsaved_changes_positive_button_text_in_code_str),
             { _, _ ->
                 onSaveProjectOptionsItemSelected()
                 startActivity(Intent(this, MainActivity::class.java))
