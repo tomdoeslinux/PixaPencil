@@ -16,7 +16,7 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 import java.io.File
 
 
-class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
+class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
     private fun loadPixelArtCoverImage(pixelArt: PixelArt) {
         val requestOptions: RequestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
