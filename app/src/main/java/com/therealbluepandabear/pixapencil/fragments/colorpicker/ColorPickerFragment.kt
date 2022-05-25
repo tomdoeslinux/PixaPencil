@@ -9,24 +9,25 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
+import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class ColorPickerFragment : Fragment(), ActivityFragment {
     private var paramOldColor: Int? = null
-    private var paramColorPaletteMode: Boolean = false
+    private var paramColorPalette: ColorPalette? = null
 
     override val title: String by lazy { getString(R.string.fragment_color_picker_title_in_code_str) }
 
-    fun setParams(paramOldColor: Int, paramColorPaletteMode: Boolean) {
+    fun setParams(paramOldColor: Int, paramColorPalette: ColorPalette?) {
         this.paramOldColor = paramOldColor
-        this.paramColorPaletteMode = paramColorPaletteMode
+        this.paramColorPalette = paramColorPalette
     }
 
     private fun instantiateVariables() {
         if (paramOldColor != null) {
             oldColor_ = paramOldColor!!
+            colorPalette = paramColorPalette
         }
-        colorPaletteMode_ = paramColorPaletteMode
     }
 
     private fun setup() {
@@ -35,9 +36,9 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     }
 
     companion object {
-        fun newInstance(paramOldColor: Int, paramColorPaletteMode: Boolean = false): ColorPickerFragment {
+        fun newInstance(paramOldColor: Int, paramColorPalette: ColorPalette? = null): ColorPickerFragment {
             val fragment = ColorPickerFragment()
-            fragment.setParams(paramOldColor, paramColorPaletteMode)
+            fragment.setParams(paramOldColor, paramColorPalette)
 
             return fragment
         }

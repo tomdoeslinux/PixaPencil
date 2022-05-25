@@ -4,33 +4,33 @@ import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
-import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPaletteMode: Boolean) {
+fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPalette: ColorPalette? = null) {
     supportFragmentManager.popBackStackImmediate()
 
-    if (!colorPaletteMode) {
+    if (colorPalette == null) {
         setPixelColor(selectedColor)
     } else {
-        val newData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
+        val newData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
         newData.add(newData.size - 1, selectedColor)
 
-        fromDB!!.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
+        colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
 
         CoroutineScope(Dispatchers.IO).launch {
-            AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(fromDB!!)
+            AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
         }
 
-        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPaletteColorPickerAdapter(fromDB!!, this)
+        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPaletteColorPickerAdapter(colorPalette, this)
 
-        val colorData = JsonConverter.convertJsonStringToListOfInt(fromDB!!.colorPaletteColorData).toMutableList()
+        val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
         binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
     }
 

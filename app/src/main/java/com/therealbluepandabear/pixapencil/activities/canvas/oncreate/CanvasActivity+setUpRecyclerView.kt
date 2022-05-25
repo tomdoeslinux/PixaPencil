@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
-import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.fromDB
 import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
@@ -35,15 +34,7 @@ fun CanvasActivity.setUpRecyclerView() {
     layoutManager.orientation = layoutManagerOrientation
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
-    val toShow = if (fromDB != null) {
-        fromDB
-    } else {
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().firstOrNull()
-    }
-
-    toShow?.let {
-        adapter = ColorPaletteColorPickerAdapter(it, this@setUpRecyclerView)
-    }
+    adapter = ColorPaletteColorPickerAdapter(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().first(), this@setUpRecyclerView)
 
     binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 }

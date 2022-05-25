@@ -183,8 +183,8 @@ class CanvasActivity :
         extendedOnAddColorTapped(colorPalette)
     }
 
-    override fun onDoneButtonPressed(selectedColor: Int, isColorPaletteMode: Boolean) {
-        extendedOnDoneButtonPressed(selectedColor, isColorPaletteMode)
+    override fun onDoneButtonPressed(selectedColor: Int, colorPalette: ColorPalette?) {
+        extendedOnDoneButtonPressed(selectedColor, colorPalette)
     }
 
     override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {

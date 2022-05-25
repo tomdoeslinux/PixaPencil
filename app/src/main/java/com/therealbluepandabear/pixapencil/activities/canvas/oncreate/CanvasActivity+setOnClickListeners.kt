@@ -82,7 +82,7 @@ fun CanvasActivity.setOnClickListeners() {
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
                 paramOldColor = primaryColor,
-                paramColorPaletteMode = false))
+                paramColorPalette = null))
             addToBackStack(null)
         }
     }
@@ -102,7 +102,7 @@ fun CanvasActivity.setOnClickListeners() {
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
                 paramOldColor = secondaryColor,
-                paramColorPaletteMode = false))
+                paramColorPalette = null))
             addToBackStack(null)
         }
     }

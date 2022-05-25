@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.picker
 
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.caller
+import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPalette
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.colorPaletteMode_
 
 fun ColorPickerPickerFragment.setOnClickListeners() {
@@ -10,6 +11,6 @@ fun ColorPickerPickerFragment.setOnClickListeners() {
     }
 
     binding.fragmentColorPickerPickerDoneButton.setOnClickListener {
-        caller.onDoneButtonPressed(selectedColor, colorPaletteMode_)
+        caller.onDoneButtonPressed(selectedColor, colorPalette)
     }
 }
