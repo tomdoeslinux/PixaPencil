@@ -11,14 +11,13 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 var fromDB: ColorPalette? = null
 
 fun CanvasActivity.extendedOnAddColorTapped(colorPalette: ColorPalette) {
-    AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-        for (data in it) {
+        for (data in AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()) {
             if (data.objId == colorPalette.objId) {
                 fromDB = data
                 break
             }
         }
-    }
+
     supportFragmentManager.commit {
         replace(
             R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
