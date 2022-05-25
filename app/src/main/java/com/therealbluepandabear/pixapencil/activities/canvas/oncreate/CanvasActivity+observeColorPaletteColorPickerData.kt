@@ -9,7 +9,9 @@ fun CanvasActivity.observeColorPaletteColorPickerData() {
         colorPaletteColorPickerData.clear()
         colorPaletteColorPickerData.addAll(JsonConverter.convertJsonStringToListOfInt(it[selectedColorPaletteIndex].colorPaletteColorData))
 
-        adapter.updateDataSource(colorPaletteColorPickerData)
+        if (adapterInitialized) {
+            adapter.updateDataSource(colorPaletteColorPickerData)
+        }
     }
 }
  

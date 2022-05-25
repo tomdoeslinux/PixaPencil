@@ -34,7 +34,13 @@ fun CanvasActivity.setUpRecyclerView() {
     layoutManager.orientation = layoutManagerOrientation
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
-    adapter = ColorPaletteColorPickerAdapter(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().first(), this@setUpRecyclerView)
-
-    binding.activityCanvasColorPickerRecyclerView.adapter = adapter
+    if (AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().firstOrNull() == null) {
+        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
+            adapter = ColorPaletteColorPickerAdapter(it.first(), this@setUpRecyclerView)
+            binding.activityCanvasColorPickerRecyclerView.adapter = adapter
+        }
+    } else {
+        adapter = ColorPaletteColorPickerAdapter(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().first(), this@setUpRecyclerView)
+        binding.activityCanvasColorPickerRecyclerView.adapter = adapter
+    }
 }

@@ -120,6 +120,8 @@ class CanvasActivity :
 
     val colorPaletteColorPickerData = mutableListOf<Int>()
     lateinit var adapter: ColorPaletteColorPickerAdapter
+    val adapterInitialized = ::adapter.isInitialized
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
