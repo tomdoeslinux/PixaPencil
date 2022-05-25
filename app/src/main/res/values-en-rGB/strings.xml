@@ -175,14 +175,15 @@
     <string name="exception_empty_spray_strength_in_code_str">Strength cannot be empty</string>
 
     <!--Dialog strings-->
-    <string name="dialog_positive_button_text_in_code_str">OK</string>
-    <string name="dialog_negative_button_text_in_code_str">Cancel</string>
+    <string name="dialog_positive_button_text_in_code_str">Save</string>
+    <string name="dialog_negative_button_text_in_code_str">Don\'t save</string>
+    <string name="dialog_neutral_button_text_in_code_str">Cancel</string>
     <string name="dialog_exception_info_title_in_code_str">Exception Info</string>
     <string name="dialog_view_file_error_title_in_code_str">Error trying to view file</string>
     <string name="dialog_clear_canvas_title_in_code_str">Clear canvas</string>
     <string name="dialog_clear_canvas_message_in_code_str">Are you sure you want to clear the canvas?</string>
     <string name="dialog_unsaved_changes_title_in_code_str">Unsaved changes</string>
-    <string name="dialog_unsaved_changes_message_in_code_str">You have unsaved changes, are you sure you want to exit?</string>
+    <string name="dialog_unsaved_changes_message_in_code_str">Save changes to %1$s?</string>
     <string name="dialog_file_exists_title_in_code_str">File already exists</string>
     <string name="dialog_file_exists_message_in_code_str">%1$s already exists, replace it or save under a new name?</string>
     <string name="dialog_file_exists_positive_button_text_in_code_str">Replace</string>

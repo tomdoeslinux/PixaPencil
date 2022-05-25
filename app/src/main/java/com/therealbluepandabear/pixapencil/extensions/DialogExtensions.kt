@@ -24,6 +24,26 @@ fun Activity.showDialog(
         .show()
 }
 
+fun Activity.showDialogWithNeutralButton(
+    dialogTitle: String,
+    dialogMessage: String?,
+    dialogPositiveButtonText: String,
+    dialogPositiveButtonAction: DialogInterface.OnClickListener,
+    dialogNegativeButtonText: String?,
+    dialogNegativeButtonAction: DialogInterface.OnClickListener?,
+    dialogNeutralButtonText: String,
+    dialogNeutralButtonAction: DialogInterface.OnClickListener?,
+    view: View? = null) {
+    MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+        .setTitle(dialogTitle)
+        .setMessage(dialogMessage)
+        .setView(view)
+        .setPositiveButton(dialogPositiveButtonText, dialogPositiveButtonAction)
+        .setNegativeButton(dialogNegativeButtonText, dialogNegativeButtonAction)
+        .setNeutralButton(dialogNeutralButtonText, dialogNeutralButtonAction)
+        .show()
+}
+
 fun Activity.showSimpleInfoDialog(
     dialogTitle: String,
     dialogMessage: String) {
