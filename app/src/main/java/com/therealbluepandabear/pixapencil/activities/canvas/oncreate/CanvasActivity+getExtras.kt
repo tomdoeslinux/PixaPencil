@@ -14,4 +14,8 @@ fun CanvasActivity.getExtras() {
     } else {
         title = ""
     }
+
+    if (index == -1) {
+        saved = false
+    }
 }
