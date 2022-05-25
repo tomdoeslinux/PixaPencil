@@ -19,10 +19,10 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
         showDialog(
             getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, name),
             getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, name),
-            getString(R.string.dialog_unsaved_changes_positive_button_text_in_code_str),  { _, _ ->
+            getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),  { _, _ ->
                 CoroutineScope(Dispatchers.IO).launch {
                     AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette)
-                } }, getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str), null
+                } }, getString(R.string.dialog_delete_pixel_art_project_negative_button_text_in_code_str), null
         )
     } else {
         binding.root.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
