@@ -20,8 +20,9 @@ import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.fragments.newproject.setOnClickListeners
-import java.io.*
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 
 
 class FileHelperUtilities(private val context: Context) {
