@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,13 +22,14 @@ import kotlinx.coroutines.launch
 class PixelArtCreationsAdapter(
     private val snackbarView: View,
     private val data: MutableList<PixelArt>,
-    private val listener: RecentCreationsListener
+    private val listener: RecentCreationsListener,
+    private val context: Context
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val mainScope = CoroutineScope(Dispatchers.Main.immediate)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
-        return PixelArtViewHolder(binding)
+        return PixelArtViewHolder(binding, context)
     }
 
     override fun getItemViewType(position: Int): Int {

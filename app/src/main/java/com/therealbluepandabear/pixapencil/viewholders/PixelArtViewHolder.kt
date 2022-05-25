@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.viewholders
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.text.TextUtils
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 import java.io.File
 
 
-class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, val context: Context) : RecyclerView.ViewHolder(binding.root) {
     private fun loadPixelArtCoverImage(pixelArt: PixelArt) {
         val requestOptions: RequestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -57,7 +58,7 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding) : RecyclerVi
 
     fun bind(pixelArt: PixelArt){
         loadPixelArtCoverImage(pixelArt)
-        binding.recentCreationsLayoutSubtitle.text = "${pixelArt.width}x${pixelArt.height}"
+        binding.recentCreationsLayoutSubtitle.text = context.getString(R.string.recentCreationsLayoutSubtitle_str, pixelArt.width, pixelArt.height)
         loadPixelArtStarred(pixelArt)
         loadPixelArtTitle(pixelArt)
     }

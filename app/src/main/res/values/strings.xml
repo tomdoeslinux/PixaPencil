@@ -4,12 +4,12 @@
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
-
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
-
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
-
     <string name="defaultColorPalette_str" translatable="false">Default color palette</string>
+
+    <!--Other strings-->
+    <string name="recentCreationsLayoutSubtitle_str" translatable="false">%1$dx%2$d</string>
 
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">Color Filter</string>
