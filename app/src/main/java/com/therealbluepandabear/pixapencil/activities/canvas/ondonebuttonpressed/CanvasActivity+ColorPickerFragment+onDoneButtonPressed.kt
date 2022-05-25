@@ -4,6 +4,7 @@ import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
+import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.extendedOnColorPaletteTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
@@ -24,11 +25,13 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPalette:
 
         colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
 
+
         CoroutineScope(Dispatchers.IO).launch {
             AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
         }
 
-        binding.activityCanvasColorPickerRecyclerView.adapter = ColorPaletteColorPickerAdapter(colorPalette, this)
+        adapter = ColorPaletteColorPickerAdapter(colorPalette, this@extendedOnDoneButtonPressed)
+        binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 
         val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
         binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
