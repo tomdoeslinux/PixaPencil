@@ -5,7 +5,6 @@ fun MainActivity.extendedOnCreate() {
     setVmPolicy()
     setBindings()
     setEventListeners()
-    setTitle()
     initializeRoomDatabases()
     requestPermissions()
     applyShowLargeCanvasSizeWarningValueFromPreference()
