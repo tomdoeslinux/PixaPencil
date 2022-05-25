@@ -4,9 +4,9 @@ import android.app.Activity
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.extensions.resize
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.general.BitmapUtilities
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     saved = true
 
-    val bmp = BitmapUtilities.resize(getCoverImageBitmap(), 0.45)
+    val bmp = getCoverImageBitmap().resize(0.45)
     val coverBMPFileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)
 
     val fileHelperInstance = FileHelperUtilities.createInstance(this)

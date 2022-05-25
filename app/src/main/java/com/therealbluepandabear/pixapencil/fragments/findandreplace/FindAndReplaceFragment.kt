@@ -14,11 +14,11 @@ import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
 import com.therealbluepandabear.pixapencil.extensions.clone
 import com.therealbluepandabear.pixapencil.extensions.createMutableClone
+import com.therealbluepandabear.pixapencil.extensions.overlay
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
-import com.therealbluepandabear.pixapencil.utility.general.BitmapUtilities
 import com.therealbluepandabear.pixapencil.utility.general.ColorPaletteUtilities
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import java.util.ArrayList
@@ -61,7 +61,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupPreview() {
-        val bitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), paramPixelGridViewBitmapSource.clone())
+        val bitmap = paramTransparentBitmapSource.clone().overlay(paramPixelGridViewBitmapSource.clone())
         binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmap)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
     }
@@ -79,7 +79,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         val bitmap = paramPixelGridViewBitmapSource.clone()
         bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-        val finalBitmap = BitmapUtilities.overlay(paramTransparentBitmapSource.clone(), bitmap)
+        val finalBitmap = paramTransparentBitmapSource.clone().overlay(bitmap)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
     }
 

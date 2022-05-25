@@ -6,9 +6,9 @@ import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
+import com.therealbluepandabear.pixapencil.extensions.overlay
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.general.BitmapUtilities
 
 var gridWasEnabled = false
 
@@ -30,7 +30,7 @@ fun enableGridIfNeeded() {
 fun CanvasActivity.createBasicCoverBitmap(): Bitmap {
     val primaryBitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
     val transparentBackgroundBitmap = outerCanvasInstance.transparentBackgroundView.drawToBitmap()
-    return BitmapUtilities.overlay(transparentBackgroundBitmap, primaryBitmap)
+    return transparentBackgroundBitmap.overlay(primaryBitmap)
 }
 
 fun CanvasActivity.getCoverImageBitmap(): Bitmap {
@@ -50,7 +50,7 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
             Bitmap.Config.ARGB_8888
         )
         bitmap.eraseColor(Color.WHITE)
-        coverBitmap = BitmapUtilities.overlay(bitmap, coverBitmap, OverlayType.CenterSecond)
+        coverBitmap = bitmap.overlay(coverBitmap, OverlayType.CenterSecond)
     }
 
     val bmps: Bitmap?
