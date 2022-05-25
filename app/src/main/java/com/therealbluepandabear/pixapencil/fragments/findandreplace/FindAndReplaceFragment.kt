@@ -12,14 +12,10 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
-import com.therealbluepandabear.pixapencil.extensions.clone
-import com.therealbluepandabear.pixapencil.extensions.createMutableClone
-import com.therealbluepandabear.pixapencil.extensions.overlay
-import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
+import com.therealbluepandabear.pixapencil.extensions.*
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
 import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
-import com.therealbluepandabear.pixapencil.utility.general.ColorPaletteUtilities
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import java.util.ArrayList
 
@@ -89,7 +85,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
-            ColorPaletteUtilities.getFindAndReplaceCompatibleColorPaletteColorData(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[paramSelectedColorPaletteIndex]),
+            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[paramSelectedColorPaletteIndex].getFindAndReplaceCompatibleColorPaletteColorData(),
             ColorsToReplaceCaller(binding),
         )
     }
