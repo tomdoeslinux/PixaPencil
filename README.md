@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://user-images.githubusercontent.com/50536495/170165278-d8bb3c8f-0c23-49a8-9bde-9b057648160a.png" width = "210" height = "210" alt="Get it on F-Droid"/>
+<img src="https://user-images.githubusercontent.com/50536495/170400421-0c3a1711-4484-42b1-995b-ee0095c3c7cb.png" width = "210" height = "210" alt="Get it on F-Droid"/>
   <h1>PixaPencil</a></h1>
   <p>A capable — Kotlin-first — pixel art editor for Android.</p>
 
