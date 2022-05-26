@@ -27,7 +27,7 @@ fun CanvasActivity.extendedOnBackPressed() {
                 startActivity(Intent(this, MainActivity::class.java))
                 finishAffinity()
             },
-            getString(R.string.dialog_unsaved_changes_positive_button_text_in_code_str),
+            getString(R.string.activityCanvasTopAppMenu_save_text_str),
             { _, _ ->
                 onSaveProjectOptionsItemSelected()
                 startActivity(Intent(this, MainActivity::class.java))
