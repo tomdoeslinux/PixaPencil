@@ -8,4 +8,6 @@ class CanvasActivityViewModel : ViewModel() {
     var undoStack: MutableList<BitmapAction> = mutableListOf()
 
     var currentBitmapAction: BitmapAction? = null
+
+    var savedYet: Boolean = false
 }

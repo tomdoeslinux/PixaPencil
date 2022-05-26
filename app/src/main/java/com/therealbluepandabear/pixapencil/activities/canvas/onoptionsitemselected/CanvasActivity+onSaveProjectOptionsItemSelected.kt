@@ -24,22 +24,25 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
     if (index == -1) {
-        CoroutineScope(Dispatchers.IO).launch {
-            AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
-                PixelArt(
-                    coverBMPFileName,
-                    BitmapConverter.convertBitmapToString(
-                        pixelGridViewInstance.pixelGridViewBitmap
-                    ),
-                    width,
-                    height,
-                    pixelGridViewInstance.dimenCW,
-                    pixelGridViewInstance.dimenCH,
-                    outerCanvasInstance.getCurrentRotation(),
-                    title.toString(),
-                    false
+        if (!viewModel.savedYet) {
+            CoroutineScope(Dispatchers.IO).launch {
+                AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
+                    PixelArt(
+                        coverBMPFileName,
+                        BitmapConverter.convertBitmapToString(
+                            pixelGridViewInstance.pixelGridViewBitmap
+                        ),
+                        width,
+                        height,
+                        pixelGridViewInstance.dimenCW,
+                        pixelGridViewInstance.dimenCH,
+                        outerCanvasInstance.getCurrentRotation(),
+                        title.toString(),
+                        false
+                    )
                 )
-            )
+                viewModel.savedYet = true
+            }
         }
     } else {
         pixelGridViewInstance.invalidate()
