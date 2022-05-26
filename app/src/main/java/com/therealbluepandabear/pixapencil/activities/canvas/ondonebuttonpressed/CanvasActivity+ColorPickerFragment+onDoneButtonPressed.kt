@@ -4,7 +4,6 @@ import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
-import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.extendedOnColorPaletteTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.JsonConverter

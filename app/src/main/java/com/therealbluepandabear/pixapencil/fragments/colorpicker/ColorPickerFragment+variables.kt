@@ -11,7 +11,6 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 var binding_: FragmentColorPickerBinding? = null
 
 var oldColor_ = Color.BLACK
-var colorPaletteMode_: Boolean = false
 var colorPalette: ColorPalette? = null
 
 val binding get(): FragmentColorPickerBinding {
