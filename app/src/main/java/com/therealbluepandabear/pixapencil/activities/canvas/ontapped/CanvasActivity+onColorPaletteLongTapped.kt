@@ -25,6 +25,6 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
                 } }, getString(R.string.dialog_delete_pixel_art_project_negative_button_text_in_code_str), null
         )
     } else {
-        binding.root.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
+        binding.clayout?.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
     }
 }

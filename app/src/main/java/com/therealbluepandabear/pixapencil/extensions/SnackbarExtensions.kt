@@ -24,3 +24,21 @@ fun View.showSnackbarWithAction(snackbarText: String, duration: SnackbarDuration
         .setAnimationMode(ANIMATION_MODE_SLIDE)
         .show()
 }
+
+fun View.showSnackbarWithActionAndCallback(snackbarText: String, duration: SnackbarDuration, actionText: String, actionOnClickListener: View.OnClickListener, onDismissedCallback: () -> Unit) {
+    Snackbar.make(this, snackbarText, duration.timeValue)
+        .setTextColor(Color.BLACK)
+        .setBackgroundTint(ContextCompat.getColor(context, R.color.snackbarBackgroundColor))
+        .setAction(actionText, actionOnClickListener)
+        .setAnimationMode(ANIMATION_MODE_SLIDE)
+        .addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                super.onDismissed(transientBottomBar, event)
+
+                if (event == DISMISS_EVENT_SWIPE) {
+                    onDismissedCallback()
+                }
+            }
+        })
+        .show()
+}

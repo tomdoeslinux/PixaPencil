@@ -66,7 +66,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             }
         }
 
-        binding.root.showSnackbar(snackbarText, SnackbarDuration.Short)
+        binding.clayout?.showSnackbar(snackbarText, SnackbarDuration.Short)
     }
 
     if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && currentTool == Tool.PolygonTool) {
