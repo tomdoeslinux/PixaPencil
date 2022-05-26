@@ -132,7 +132,7 @@ class FileHelperUtilities(private val context: Context) {
                 context.activity()?.showDialog(
                     context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
                     context.getString(R.string.dialog_save_under_new_name_text_in_code_str),
-                    context.getString(R.string.dialog_unsaved_changes_positive_button_text_in_code_str),
+                    context.getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
                         outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$input.png" else "$input.jpg"
@@ -140,7 +140,7 @@ class FileHelperUtilities(private val context: Context) {
                         file = File(directory, outputName)
                         createNewFile(file)
                     },
-                    context.getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str), { _, _ -> },
+                    context.getString(R.string.dialog_delete_pixel_art_project_negative_button_text_in_code_str), { _, _ -> },
                     textInput)
                 })
         } else {
