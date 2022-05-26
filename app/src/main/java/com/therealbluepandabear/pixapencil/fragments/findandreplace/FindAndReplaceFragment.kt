@@ -35,6 +35,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private lateinit var paramTransparentBitmapSource: Bitmap
     private lateinit var paramPixelGridViewBitmapSource: Bitmap
     private var paramSelectedColorPaletteIndex: Int = 0
+    private var paramRotation: Int = 0
 
     override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
@@ -42,11 +43,13 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         paramCanvasColors: List<Int>,
         paramTransparentBitmapSource: Bitmap,
         paramPixelGridViewBitmapSource: Bitmap,
-        paramSelectedColorPaletteIndex: Int) {
+        paramSelectedColorPaletteIndex: Int,
+        paramRotation: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramTransparentBitmapSource = paramTransparentBitmapSource
-        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
+        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource.rotate(paramRotation)
         this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
+        this.paramRotation = paramRotation
     }
 
     private fun setup() {
@@ -121,9 +124,10 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             paramCanvasColors: List<Int>,
             paramTransparentBitmapSource: Bitmap,
             paramPixelGridViewBitmapSource: Bitmap,
-            paramSelectedColorPaletteIndex: Int): FindAndReplaceFragment {
+            paramSelectedColorPaletteIndex: Int,
+            paramRotation: Int = 0): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex, paramRotation)
 
             return fragment
         }
@@ -134,8 +138,13 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             StringConstants.Identifiers.PrevColorsToFindBundleIdentifier,
             paramCanvasColors as ArrayList<Int>
         )
-        outState.putString(StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier, BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
-        outState.putString(StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier, BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
+
+        outState.putString(
+            StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier,
+            BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
+        outState.putString(
+            StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier,
+            BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
 
         super.onSaveInstanceState(outState)
     }
