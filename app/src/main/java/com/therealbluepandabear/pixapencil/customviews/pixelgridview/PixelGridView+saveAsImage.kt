@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 import android.app.Activity
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
@@ -19,7 +20,23 @@ import java.io.File
 lateinit var file: File
 
 fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat, thisRotation: Int = 0) {
-    val formatName = if (format == Bitmap.CompressFormat.PNG) "PNG" else "JPG"
+    val formatName = when {
+        format == Bitmap.CompressFormat.PNG -> {
+            "PNG"
+        }
+
+        format == Bitmap.CompressFormat.WEBP -> {
+            "WEBP"
+        }
+
+        Build.VERSION.SDK_INT >= 30 && ( format == Bitmap.CompressFormat.WEBP_LOSSLESS || format == Bitmap.CompressFormat.WEBP_LOSSY) -> {
+            "WEBP"
+        }
+
+        else -> {
+            "JPG"
+        }
+    }
 
     val bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)

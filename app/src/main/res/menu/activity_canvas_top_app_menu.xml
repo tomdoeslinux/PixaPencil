@@ -113,6 +113,10 @@
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_jpg_item"
                 app:showAsAction="ifRoom"
                 android:title="JPG" />
+
+            <item android:id="@+id/activityCanvasTopAppMenu_export_to_webp_item"
+                app:showAsAction="ifRoom"
+                android:title="WEBP" />
         </menu>
     </item>
 </menu>

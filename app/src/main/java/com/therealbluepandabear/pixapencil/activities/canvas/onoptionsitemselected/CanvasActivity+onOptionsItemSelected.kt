@@ -47,6 +47,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             onExportToJPGOptionsItemSelected()
         }
 
+        R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
+            onExportToWEBPOptionsItemSelected()
+        }
+
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
             onRotate90DegreesOptionsItemSelected()
         }
