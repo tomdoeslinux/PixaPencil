@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
+import android.graphics.Bitmap
+import android.os.Build
 import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
@@ -40,15 +42,19 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            onExportToPNGOptionsItemSelected()
+            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            onExportToJPGOptionsItemSelected()
+            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
-            onExportToWEBPOptionsItemSelected()
+            if (Build.VERSION.SDK_INT >= 30) {
+                pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP_LOSSLESS)
+            } else {
+                pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP)
+            }
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
