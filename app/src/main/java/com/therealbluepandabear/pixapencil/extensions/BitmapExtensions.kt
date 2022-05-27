@@ -78,3 +78,7 @@ fun Bitmap.overlay(bmp2: Bitmap, overlayType: OverlayType = OverlayType.Regular)
 
     return bitmapOverlay
 }
+
+fun Bitmap.isEmpty(): Boolean {
+    return (Bitmap.createBitmap(width, height, config).sameAs(this))
+}

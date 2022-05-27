@@ -6,6 +6,7 @@ import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.enable
+import com.therealbluepandabear.pixapencil.extensions.isEmpty
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
@@ -87,22 +88,24 @@ fun CanvasActivity.savePrevOrientationInfo() {
 
             val viewTemp = binding.activityCanvasOuterCanvasFragmentHost
 
-            viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
-                if (replacedBMP) {
-                    val fileHelperUtilitiesInstance =
-                        FileHelperUtilities.createInstance(this@savePrevOrientationInfo)
-                    val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(
-                        prevBitmapFilePathStr!!
-                    )
+            val fileHelperUtilitiesInstance =
+                FileHelperUtilities.createInstance(this@savePrevOrientationInfo)
+            val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(
+                prevBitmapFilePathStr!!
+            )
 
-                    pixelGridViewInstance.replaceBitmap(convertedBMP)
-                    fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
-                        prevBitmapFilePathStr!!
-                    )
+            if (!convertedBMP.isEmpty()) {
+                viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
+                    if (replacedBMP) {
+                        pixelGridViewInstance.replaceBitmap(convertedBMP)
+                        fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
+                            prevBitmapFilePathStr!!
+                        )
 
-                    replacedBMP = false
+                        replacedBMP = false
 
-                    prevOrientation = resources.configuration.orientation
+                        prevOrientation = resources.configuration.orientation
+                    }
                 }
             }
         }
