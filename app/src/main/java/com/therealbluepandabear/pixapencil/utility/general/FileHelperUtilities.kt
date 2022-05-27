@@ -136,8 +136,7 @@ class FileHelperUtilities(private val context: Context) {
                     context.getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
-                        outputName = if (compressionFormat == Bitmap.CompressFormat.PNG) "$input.png" else "$input.jpg"
-
+                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
                         file = File(directory, outputName)
                         createNewFile(file)
                     },
