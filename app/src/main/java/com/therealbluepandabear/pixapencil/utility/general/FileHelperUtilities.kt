@@ -71,23 +71,7 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        var outputName = when {
-            compressionFormat == Bitmap.CompressFormat.PNG -> {
-                "$projectTitle.png"
-            }
-
-            compressionFormat == Bitmap.CompressFormat.WEBP -> {
-                "$projectTitle.webp"
-            }
-
-            Build.VERSION.SDK_INT >= 30 && (compressionFormat == Bitmap.CompressFormat.WEBP_LOSSLESS || compressionFormat == Bitmap.CompressFormat.WEBP_LOSSY) -> {
-                "$projectTitle.webp"
-            }
-
-            else -> {
-                "$projectTitle.jpg"
-            }
-        }
+        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
