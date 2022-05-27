@@ -78,12 +78,3 @@ fun Bitmap.overlay(bmp2: Bitmap, overlayType: OverlayType = OverlayType.Regular)
 
     return bitmapOverlay
 }
-
-
-fun Bitmap.resize(ratio: Double): Bitmap {
-    return Bitmap.createScaledBitmap(
-        this, (width * ratio).toInt(),
-        (height * ratio).toInt(),
-        false
-    )
-}

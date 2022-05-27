@@ -99,6 +99,7 @@ fun CanvasActivity.savePrevOrientationInfo() {
                     fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
                         prevBitmapFilePathStr!!
                     )
+
                     replacedBMP = false
 
                     prevOrientation = resources.configuration.orientation
