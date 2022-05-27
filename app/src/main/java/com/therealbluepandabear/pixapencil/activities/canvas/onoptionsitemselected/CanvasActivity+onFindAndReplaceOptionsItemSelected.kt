@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import androidx.core.view.drawToBitmap
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
@@ -18,8 +17,8 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
             replace(
                 R.id.activityCanvas_primaryFragmentHost, FindAndReplaceFragment.newInstance(
                     paramCanvasColors = pixelGridViewInstance.getNumberOfUniqueColors(),
-                    paramPixelGridViewBitmapSource = outerCanvasInstance.fragmentHost.drawToBitmap(),
-                    paramTransparentBitmapSource = outerCanvasInstance.transparentBackgroundView.drawToBitmap(),
+                    paramPixelGridViewBitmapSource = outerCanvasInstance.drawFragmentHostToBitmap(),
+                    paramTransparentBitmapSource = outerCanvasInstance.drawTransparentBackgroundViewToBitmap(),
                     paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
                     paramRotation = outerCanvasInstance.getCurrentRotation().toInt()
                 ))

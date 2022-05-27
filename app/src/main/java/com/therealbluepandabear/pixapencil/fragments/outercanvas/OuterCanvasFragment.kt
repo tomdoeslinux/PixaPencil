@@ -1,16 +1,19 @@
 package com.therealbluepandabear.pixapencil.fragments.outercanvas
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBinding
 import com.therealbluepandabear.pixapencil.enums.RotationValue
+import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
@@ -76,6 +79,18 @@ class OuterCanvasFragment : Fragment() {
         } else {
             cardViewParent.rotation = rotationAmount
         }
+    }
+
+    fun drawFragmentHostToBitmap(): Bitmap {
+        return fragmentHost
+            .drawToBitmap()
+            .rotate(getCurrentRotation().toInt())
+    }
+
+    fun drawTransparentBackgroundViewToBitmap(): Bitmap {
+        return transparentBackgroundView
+            .drawToBitmap()
+            .rotate(getCurrentRotation().toInt())
     }
 
     companion object {

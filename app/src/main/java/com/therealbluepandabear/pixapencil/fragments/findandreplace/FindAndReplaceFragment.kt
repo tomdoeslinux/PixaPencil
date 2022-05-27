@@ -46,8 +46,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         paramSelectedColorPaletteIndex: Int,
         paramRotation: Int) {
         this.paramCanvasColors = paramCanvasColors
-        this.paramTransparentBitmapSource = paramTransparentBitmapSource.rotate(paramRotation)
-        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource.rotate(paramRotation)
+        this.paramTransparentBitmapSource = paramTransparentBitmapSource
+        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
         this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
         this.paramRotation = paramRotation
     }
