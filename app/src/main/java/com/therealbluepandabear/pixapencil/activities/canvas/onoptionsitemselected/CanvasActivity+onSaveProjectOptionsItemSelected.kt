@@ -24,7 +24,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
     if (index == -1) {
-        if (!viewModel.savedYet) {
+        if (!viewModel.createdYet) {
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
                     PixelArt(
@@ -41,7 +41,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
                         false
                     )
                 )
-                viewModel.savedYet = true
+                viewModel.createdYet = true
             }
         }
     } else {

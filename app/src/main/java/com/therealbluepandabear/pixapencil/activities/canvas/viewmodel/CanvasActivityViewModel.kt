@@ -9,5 +9,5 @@ class CanvasActivityViewModel : ViewModel() {
 
     var currentBitmapAction: BitmapAction? = null
 
-    var savedYet: Boolean = false
+    var createdYet: Boolean = false
 }
