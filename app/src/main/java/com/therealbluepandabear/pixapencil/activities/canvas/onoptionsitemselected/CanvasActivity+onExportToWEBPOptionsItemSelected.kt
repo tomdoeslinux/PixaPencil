@@ -5,10 +5,10 @@ import android.os.Build
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
-fun CanvasActivity.onExportToWEBPOptionsItemSelected() {
+fun onExportToWEBPOptionsItemSelected() {
     if (Build.VERSION.SDK_INT >= 30) {
-        pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP_LOSSLESS, outerCanvasInstance.getCurrentRotation().toInt())
+        pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP_LOSSLESS)
     } else {
-        pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP, outerCanvasInstance.getCurrentRotation().toInt())
+        pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP)
     }
 }

@@ -54,8 +54,6 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
         }
-
-        outerCanvasInstance.rotate(RotationValue.Zero)
     }
 
     if (!quietly) {

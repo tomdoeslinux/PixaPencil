@@ -166,8 +166,8 @@ class PixelGridView : View, PixelatedView {
         extendedReplaceBitmap(newBitmap)
     }
 
-    fun saveAsImage(format: Bitmap.CompressFormat, thisRotation: Int = 0) {
-        extendedSaveAsImage(format, thisRotation)
+    fun saveAsImage(format: Bitmap.CompressFormat) {
+        extendedSaveAsImage(format)
     }
 
     fun coordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {

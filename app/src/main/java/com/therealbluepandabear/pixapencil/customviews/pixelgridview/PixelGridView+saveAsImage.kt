@@ -19,10 +19,10 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat, thisRotation: Int = 0) {
+fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
     val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
-    val bitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
+    val bitmap = outerCanvasInstance.drawFragmentHostToBitmap()
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)
 
     var cntxView = if (context is CanvasActivity) {
@@ -33,7 +33,7 @@ fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat, thisRotatio
         cntxView = this
     }
 
-    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format, rotation = thisRotation) { outputCode, _file, exceptionMessage_1 ->
+    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {
             file = _file
 
