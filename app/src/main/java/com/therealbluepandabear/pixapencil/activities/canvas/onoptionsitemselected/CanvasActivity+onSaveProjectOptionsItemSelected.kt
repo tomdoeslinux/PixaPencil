@@ -4,6 +4,7 @@ import android.app.Activity
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
@@ -54,7 +55,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
             AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
         }
 
-        outerCanvasInstance.rotate(0)
+        outerCanvasInstance.rotate(RotationValue.Zero)
     }
 
     if (!quietly) {

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBinding
+import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
@@ -57,11 +58,15 @@ class OuterCanvasFragment : Fragment() {
         return cardViewParent.rotation
     }
 
-    fun rotate(by: Int = IntConstants.DegreesNinety, animate: Boolean = true, clockwise: Boolean = true) {
+    fun rotate(rotationValue: RotationValue, animate: Boolean = false) {
+        rotate(rotationValue.degrees, rotationValue.clockwise, animate)
+    }
+
+    fun rotate(degrees: Int, clockwise: Boolean = true, animate: Boolean = false) {
         val rotationAmount = if (clockwise) {
-                (getCurrentRotation() + by)
+            (getCurrentRotation() + degrees)
         } else {
-                (getCurrentRotation() - by)
+            (getCurrentRotation() - degrees)
         }
 
         if (animate) {
