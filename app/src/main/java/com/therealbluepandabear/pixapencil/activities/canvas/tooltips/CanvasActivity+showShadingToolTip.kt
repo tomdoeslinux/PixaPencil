@@ -5,7 +5,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.preferences.applyShowShadingToolTipValueFromPreference
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithActionAndCallback
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 

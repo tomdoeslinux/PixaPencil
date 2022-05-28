@@ -7,9 +7,6 @@ object IntConstants {
     const val SprayOptionsMin = 2
     const val SprayOptionsMax = 20000
 
-    const val DegreesNinety = 90
-    const val DegreesOneEighty = 180
-
     const val DefaultCanvasWidthHeight = 50
 
     var SprayRadius = 10

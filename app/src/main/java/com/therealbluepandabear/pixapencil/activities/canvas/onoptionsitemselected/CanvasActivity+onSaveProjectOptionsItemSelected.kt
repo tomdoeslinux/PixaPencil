@@ -1,15 +1,15 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.app.Activity
-import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
