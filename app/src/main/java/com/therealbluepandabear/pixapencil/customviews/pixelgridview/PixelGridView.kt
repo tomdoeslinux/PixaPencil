@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
+import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
@@ -166,7 +167,7 @@ class PixelGridView : View, PixelatedView {
         extendedReplaceBitmap(newBitmap)
     }
 
-    fun saveAsImage(format: Bitmap.CompressFormat) {
+    fun saveAsImage(format: BitmapCompressFormat) {
         extendedSaveAsImage(format)
     }
 

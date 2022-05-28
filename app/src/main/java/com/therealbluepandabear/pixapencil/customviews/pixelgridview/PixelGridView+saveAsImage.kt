@@ -7,6 +7,7 @@ import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
@@ -19,8 +20,8 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsImage(format: Bitmap.CompressFormat) {
-    val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
+fun PixelGridView.extendedSaveAsImage(format: BitmapCompressFormat) {
+    val formatName = BitmapCompressFormatUtilities.getFormattedName(format.correspondingEnum.invoke())
 
     val bitmap = outerCanvasInstance.drawFragmentHostToBitmap()
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)

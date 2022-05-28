@@ -16,10 +16,13 @@ import android.os.Build
 import android.os.Environment
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
-import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import org.beyka.tiffbitmapfactory.CompressionScheme
+import org.beyka.tiffbitmapfactory.TiffSaver
+import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -58,7 +61,7 @@ class FileHelperUtilities(private val context: Context) {
         bitmap: Bitmap,
         projectTitle: String?,
         compressionOutputQuality: Int,
-        compressionFormat: Bitmap.CompressFormat,
+        compressionFormat: BitmapCompressFormat,
         onTaskFinished: (OutputCode, File, String?) -> Unit) {
         /** Thank you to to javatar on StackOverflow - quite a bit of the code here is based off of their solution.
          *
@@ -70,7 +73,7 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat.correspondingEnum.invoke()).lowercase()}"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
@@ -87,31 +90,50 @@ class FileHelperUtilities(private val context: Context) {
                 as TextInputLayout
 
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
-            try {
-                var bitmap2 = bitmap_
+            var bitmap2 = bitmap_
 
-                val outputStream = FileOutputStream(file_)
+            if (compressionFormat == BitmapCompressFormat.PNG ||
+                compressionFormat == BitmapCompressFormat.JPEG ||
+                compressionFormat == BitmapCompressFormat.WEBP ||
+                compressionFormat == BitmapCompressFormat.WEBP_LOSSLESS ||
+                compressionFormat == BitmapCompressFormat.WEBP_LOSSY) {
+                try {
+                    val outputStream = FileOutputStream(file_)
 
-                if (compressionFormat == Bitmap.CompressFormat.JPEG) {
-                    val newBitmap = Bitmap.createBitmap(
-                        bitmap2.width,
-                        bitmap2.height,
-                        bitmap2.config
-                    )
-                    val canvas = Canvas(newBitmap)
-                    canvas.drawColor(Color.WHITE)
-                    canvas.drawBitmap(bitmap2, 0f, 0f, null)
+                    if (compressionFormat == BitmapCompressFormat.JPEG) {
+                        val newBitmap = Bitmap.createBitmap(
+                            bitmap2.width,
+                            bitmap2.height,
+                            bitmap2.config
+                        )
+                        val canvas = Canvas(newBitmap)
+                        canvas.drawColor(Color.WHITE)
+                        canvas.drawBitmap(bitmap2, 0f, 0f, null)
 
-                    bitmap2 = newBitmap
+                        bitmap2 = newBitmap
+                    }
+
+                    bitmap2.compress(compressionFormat.correspondingEnum.invoke(), compressionOutputQuality, outputStream)
+                    outputStream.close()
+                } catch (exception: Exception) {
+                    exceptionMessage = exception.message
+                    outputCode = OutputCode.Failure
+                } finally {
+                    onTaskFinished(outputCode, file_, exceptionMessage)
                 }
+            } else {
+                val options = SaveOptions()
+                options.inThrowException = true
+                options.compressionScheme = CompressionScheme.LZW
 
-                bitmap2.compress(compressionFormat, compressionOutputQuality, outputStream)
-                outputStream.close()
-            } catch (exception: Exception) {
-                exceptionMessage = exception.message
-                outputCode = OutputCode.Failure
-            } finally {
-                onTaskFinished(outputCode, file_, exceptionMessage)
+                try {
+                    TiffSaver.saveBitmap(file_.absolutePath, bitmap, options)
+                } catch (exception: Exception) {
+                    exceptionMessage = exception.message
+                    outputCode = OutputCode.Failure
+                } finally {
+                    onTaskFinished(outputCode, file_, exceptionMessage)
+                }
             }
 
             MediaScannerConnection.scanFile(context, arrayOf(file_.path), arrayOf(pathData), null)
@@ -131,7 +153,7 @@ class FileHelperUtilities(private val context: Context) {
                     context.getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
-                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat.correspondingEnum.invoke()).lowercase()}"
                         file = File(directory, outputName)
                         createNewFile(file)
                     },

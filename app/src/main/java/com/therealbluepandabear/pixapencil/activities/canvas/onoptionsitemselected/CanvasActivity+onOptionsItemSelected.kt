@@ -1,10 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import android.graphics.Bitmap
 import android.os.Build
 import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
@@ -42,19 +42,23 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.PNG)
+            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.PNG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.JPEG)
+            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.JPEG)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
             if (Build.VERSION.SDK_INT >= 30) {
-                pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP_LOSSLESS)
+                pixelGridViewInstance.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS)
             } else {
-                pixelGridViewInstance.saveAsImage(Bitmap.CompressFormat.WEBP)
+                pixelGridViewInstance.saveAsImage(BitmapCompressFormat.WEBP)
             }
+        }
+
+        R.id.activityCanvasTopAppMenu_export_to_tiff_item -> {
+            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.TIFF)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {

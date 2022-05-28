@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.os.Build
 
 object BitmapCompressFormatUtilities {
-    fun getFormattedName(format: Bitmap.CompressFormat): String {
+    fun getFormattedName(format: Bitmap.CompressFormat?): String {
         return when {
             format == Bitmap.CompressFormat.PNG -> {
                 "PNG"
@@ -16,6 +16,10 @@ object BitmapCompressFormatUtilities {
 
             Build.VERSION.SDK_INT >= 30 && (format == Bitmap.CompressFormat.WEBP_LOSSLESS || format == Bitmap.CompressFormat.WEBP_LOSSY) -> {
                 "WEBP"
+            }
+
+            format == null -> {
+                "TIF"
             }
 
             else -> {
