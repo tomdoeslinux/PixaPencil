@@ -1,9 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
-import com.therealbluepandabear.pixapencil.activities.canvas.*
-import com.therealbluepandabear.pixapencil.database.BrushesDatabase
-import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
+import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.enums.Tool
+import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun resetPreviousCoordinates() {

@@ -6,7 +6,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.ContextWrapper
 import com.therealbluepandabear.pixapencil.enums.OutputCode
-import com.therealbluepandabear.pixapencil.fragments.colorpicker.hex.setOnClickListeners
 
 /** Thank you to to rjrjr on StackOverflow - the code here is  based off of their solution. It may be modified a bit.
  *

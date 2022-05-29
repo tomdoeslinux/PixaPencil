@@ -1,8 +1,5 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.hex
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
