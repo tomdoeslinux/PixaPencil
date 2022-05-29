@@ -12,25 +12,26 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+lateinit var palette: ColorPalette
+
 fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extractColorPaletteFromCanvas: Boolean) {
     supportFragmentManager.popBackStackImmediate()
 
     CoroutineScope(Dispatchers.IO).launch {
         if (!extractColorPaletteFromCanvas) {
-            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
-                ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
-            )
+            palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
+            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(palette)
         } else {
             val data = pixelGridViewInstance.getNumberOfUniqueColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
-            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(
-                ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))
-            )
+            palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))
+            AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(palette)
         }
     }
 
     binding.root.post {
         judgeUndoRedoStacks()
+        onColorPaletteTapped(palette)
     }
 }
