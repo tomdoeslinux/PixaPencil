@@ -29,6 +29,12 @@ class OuterCanvasFragment : Fragment() {
     private var paramProjectTitle: String? = null
     private var paramIndex: Int = -1
 
+    private var backingBindingProperty: FragmentOuterCanvasBinding? = null
+
+    private val binding get(): FragmentOuterCanvasBinding {
+        return backingBindingProperty!!
+    }
+
     private fun setParams(paramWidth: Int, paramHeight: Int, paramProjectTitle: String?, paramIndex: Int) {
         this.paramWidth = paramWidth
         this.paramHeight = paramHeight
@@ -103,7 +109,7 @@ class OuterCanvasFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentOuterCanvasBinding.inflate(inflater, container, false)
+        backingBindingProperty = FragmentOuterCanvasBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -113,6 +119,6 @@ class OuterCanvasFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        backingBindingProperty = null
     }
 }
