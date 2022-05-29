@@ -1,9 +1,7 @@
 @file:Suppress("DEPRECATION")
-@file:SuppressLint("InflateParams")
 
 package com.therealbluepandabear.pixapencil.utility.general
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
