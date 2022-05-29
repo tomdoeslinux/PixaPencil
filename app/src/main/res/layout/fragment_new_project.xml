@@ -22,6 +22,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fragmentNewCanvas_projectTitleTextInputEditText"
             android:layout_width="match_parent"
+            android:maxLength="50"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
