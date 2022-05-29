@@ -12,11 +12,12 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (pixelGridViewInstance.prevX != null && pixelGridViewInstance.prevY != null) {
-        val color = if (pixelGridViewInstance.pixelPerfectMode && pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first() || pixelGridViewInstance.currentBrush == null) {
+        val color = if (pixelGridViewInstance.pixelPerfectMode && (pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first() || pixelGridViewInstance.currentBrush == null)) {
             pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinatesTapped)
         } else {
             getSelectedColor()
         }
+
         primaryAlgorithmInfoParameter.color = color
 
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
@@ -30,7 +31,7 @@ fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
     pixelGridViewInstance.prevY = coordinatesTapped.y
 
 
-    if (pixelGridViewInstance.pixelPerfectMode && pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first() || pixelGridViewInstance.currentBrush == null) {
+    if (pixelGridViewInstance.pixelPerfectMode && (pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first() || pixelGridViewInstance.currentBrush == null)) {
         for (i in PixelPerfectAlgorithm(primaryAlgorithmInfoParameter).compute()) {
             canvasCommandsHelperInstance.overrideSetPixel(i, getSelectedColor())
         }
