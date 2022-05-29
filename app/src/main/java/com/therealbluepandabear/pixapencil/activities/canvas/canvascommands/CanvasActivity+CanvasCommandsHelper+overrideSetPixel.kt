@@ -47,6 +47,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
         var quadMirroredCoordinates = listOf<Coordinates>()
         var octalMirroredCoordinates = listOf<Coordinates>()
 
+
         when {
             symmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
                 horizontallyReflectedCoordinates =

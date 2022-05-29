@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
 import com.therealbluepandabear.pixapencil.activities.canvas.*
-import com.therealbluepandabear.pixapencil.algorithms.PixelPerfectAlgorithm
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.enums.Tool
@@ -46,16 +45,6 @@ fun CanvasActivity.extendedOnActionUp() {
 
         else -> {
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
-
-            if (pixelGridViewInstance.pixelPerfectMode
-                && (currentTool == Tool.PencilTool)
-                && (pixelGridViewInstance.currentBrush == null || pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first())) {
-                val pixelPerfectAlgorithmInstance = PixelPerfectAlgorithm(
-                    primaryAlgorithmInfoParameter
-                )
-                pixelPerfectAlgorithmInstance.compute()
-            }
-
             resetPreviousCoordinates()
         }
     }
