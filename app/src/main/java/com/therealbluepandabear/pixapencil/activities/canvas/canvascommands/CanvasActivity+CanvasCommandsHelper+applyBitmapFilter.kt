@@ -20,7 +20,7 @@ fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) ->
             if (colorAtCoordinates != Color.TRANSPARENT) {
                 val color = filterLambda(colorAtCoordinates)
 
-                overrideSetPixel(coordinates, color, true, ignoreSymmetry = true)
+                overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true)
             }
         }
     }

@@ -11,15 +11,15 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true) {
+fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
     baseReference.viewModel.undoStack.clear()
 
     val colorAtCoordinates = pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinates)
 
-    if (saveToBitmapAction && !pixelGridViewInstance.shadingMode) {
+    if ((saveToBitmapAction && !pixelGridViewInstance.shadingMode) || (pixelGridViewInstance.shadingMode && ignoreShadingMap)) {
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
         pixelGridViewInstance.pixelGridViewBitmap.setPixel(coordinates, color)
-    } else if (pixelGridViewInstance.shadingMode && !pixelGridViewInstance.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT) {
+    } else if (pixelGridViewInstance.shadingMode && !pixelGridViewInstance.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
         val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
             Color.WHITE
         } else {
@@ -39,7 +39,8 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreBrush: Boolean = false,
     saveToBitmapAction: Boolean = true,
     ignoreSymmetry: Boolean = false,
-    ignoreDither: Boolean = false
+    ignoreDither: Boolean = false,
+    ignoreShadingMap: Boolean = false,
 ) {
     with(pixelGridViewInstance) {
         var horizontallyReflectedCoordinates: Coordinates? = null
@@ -77,7 +78,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
         }
 
         if (coordinatesInCanvasBounds(coordinates, baseReference.currentTool, ignoreDither)) {
-            extendedSetPixelAndSaveToBitmapAction(coordinates, color)
+            extendedSetPixelAndSaveToBitmapAction(coordinates, color, ignoreShadingMap = ignoreShadingMap)
 
             if (horizontallyReflectedCoordinates != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinates, baseReference.currentTool, ignoreDither)) {
                 extendedSetPixelAndSaveToBitmapAction(horizontallyReflectedCoordinates, color)
