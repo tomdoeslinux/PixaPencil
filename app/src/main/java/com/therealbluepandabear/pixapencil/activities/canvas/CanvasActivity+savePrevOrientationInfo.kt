@@ -90,11 +90,13 @@ fun CanvasActivity.savePrevOrientationInfo() {
 
             val fileHelperUtilitiesInstance =
                 FileHelperUtilities.createInstance(this@savePrevOrientationInfo)
-            val convertedBMP = fileHelperUtilitiesInstance.openBitmapFromInternalStorage(
-                prevBitmapFilePathStr!!
-            )
+            val convertedBMP = prevBitmapFilePathStr?.let {
+                fileHelperUtilitiesInstance.openBitmapFromInternalStorage(
+                    it
+                )
+            }
 
-            if (!convertedBMP.isEmpty()) {
+            if (convertedBMP?.isEmpty() == false) {
                 viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
                     if (replacedBMP) {
                         pixelGridViewInstance.replaceBitmap(convertedBMP)

@@ -22,23 +22,23 @@ fun ColorPickerFragment.setOnClickListeners() {
         override fun onTabSelected(tab: TabLayout.Tab) {
             when (tab.position) {
                 0 -> {
-                    hexFragmentInstance!!.requireView().visibility = View.GONE
-                    rgbFragmentInstance!!.requireView().visibility = View.GONE
-                    pickerFragmentInstance!!.requireView().visibility = View.VISIBLE
+                    hexFragmentInstance?.view?.visibility = View.GONE
+                    rgbFragmentInstance?.view?.visibility = View.GONE
+                    pickerFragmentInstance?.view?.visibility = View.VISIBLE
 
                     currentTab = 0
                 }
                 1 -> {
-                    hexFragmentInstance!!.requireView().visibility = View.GONE
-                    pickerFragmentInstance!!.requireView().visibility = View.GONE
-                    rgbFragmentInstance!!.requireView().visibility = View.VISIBLE
+                    hexFragmentInstance?.view?.visibility = View.GONE
+                    pickerFragmentInstance?.view?.visibility = View.GONE
+                    rgbFragmentInstance?.view?.visibility = View.VISIBLE
 
                     currentTab = 1
                 }
                 2 -> {
-                    rgbFragmentInstance!!.requireView().visibility = View.GONE
-                    pickerFragmentInstance!!.requireView().visibility = View.GONE
-                    hexFragmentInstance!!.requireView().visibility = View.VISIBLE
+                    rgbFragmentInstance?.view?.visibility = View.GONE
+                    pickerFragmentInstance?.view?.visibility = View.GONE
+                    hexFragmentInstance?.view?.visibility = View.VISIBLE
 
                     currentTab = 2
                 }
