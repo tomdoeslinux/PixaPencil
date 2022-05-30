@@ -14,6 +14,8 @@
 ## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store as well as F-Droid.
 
+**Warning: if you have a phone with a _very_ small screen size (e.g. 400x800 Galaxy Core Prime) this app will not work well. Keep that in mind. I am working on making this app more compatible with smaller screen sizes, but for now it's on hold.**
+
 The app is currently in the beta stage, but you are free to download the beta `.apk` files from here:
 
 https://github.com/therealbluepandabear/PixaPencil/releases
