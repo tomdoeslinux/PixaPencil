@@ -19,7 +19,7 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
         showDialog(
             getString(R.string.dialog_welcome_title_in_code_str),
             getString(R.string.dialog_welcome_text_in_code_str),
-            getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),
+            getString(R.string.generic_ok_in_code_str),
             { _, _ ->
                 startSpotLight()
             }, "No, thanks", { _, _ -> })

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PixaPencil</string>
+    <string name="generic_ok_in_code_str">לְאַשֵׁר</string>
+    <string name="generic_cancel_in_code_str">לְבַטֵל</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">מועדף על הפרויקט הזה</string>
@@ -193,8 +195,6 @@
     </string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">למחוק את %1$s?</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">האם אתה בטוח שברצונך למחוק את %1$s? אי אפשר לבטל את זה.</string>
-    <string name="dialog_delete_pixel_art_project_positive_button_text_in_code_str">לְאַשֵׁר</string>
-    <string name="dialog_delete_pixel_art_project_negative_button_text_in_code_str">לְבַטֵל</string>
     <string name="dialog_welcome_title_in_code_str">ברוך הבא</string>
     <string name="dialog_welcome_text_in_code_str">ברוך הבא ל-PixaPencil! האם תרצה להתחיל הדרכה אינטראקטיבית?</string>
     <string name="dialog_large_canvas_warning_title_in_code_str">אַזהָרָה</string>

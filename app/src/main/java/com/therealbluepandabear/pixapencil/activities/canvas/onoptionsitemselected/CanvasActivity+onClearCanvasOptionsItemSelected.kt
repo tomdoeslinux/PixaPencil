@@ -10,9 +10,9 @@ fun CanvasActivity.onClearCanvasOptionsItemSelected() {
     showDialog(
         getString(R.string.dialog_clear_canvas_title_in_code_str),
         getString(R.string.dialog_clear_canvas_message_in_code_str),
-        getString(R.string.dialog_delete_pixel_art_project_positive_button_text_in_code_str),
+        getString(R.string.generic_ok_in_code_str),
         { _, _ ->
             canvasCommandsHelperInstance.clearCanvas()
             judgeUndoRedoStacks()
-        }, getString(R.string.dialog_delete_pixel_art_project_negative_button_text_in_code_str), { _, _ -> })
+        }, getString(R.string.generic_cancel_in_code_str), { _, _ -> })
 }
