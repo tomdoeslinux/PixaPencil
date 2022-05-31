@@ -24,6 +24,8 @@ The app is also available on the IzzySoft repository:
 
 https://apt.izzysoft.de/fdroid/index/apk/com.therealbluepandabear.pixapencil
 
+PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew. It used to have support for more languages but I dropped support for this since there is no demand for the app and I was putting a lot of effort trying to maintain the translations. Plus can't really be bothered to set up a translation service for a small app like this.
+
 ## 🖼️ Showcase
 
 ![image](https://user-images.githubusercontent.com/50536495/164863846-a2616e20-e7d1-4cf8-a659-ce0ab43586a0.png)
