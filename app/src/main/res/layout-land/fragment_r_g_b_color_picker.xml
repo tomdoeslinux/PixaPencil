@@ -92,7 +92,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +110,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +128,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_valueR_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

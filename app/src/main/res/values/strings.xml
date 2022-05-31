@@ -1,12 +1,13 @@
 <resources>
     <string name="app_name">PixaPencil</string>
+    <string name="fragmentRGBColorPicker_defaultRGBValue_str" translatable="false">0</string>
+    <string name="defaultColorPalette_str" translatable="false">Default color palette</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
-    <string name="defaultColorPalette_str" translatable="false">Default color palette</string>
 
     <!--Other strings-->
     <string name="recentCreationsLayoutSubtitle_str" translatable="false">%1$dx%2$d</string>
@@ -26,8 +27,6 @@
     <string name="fragmentFindAndReplace_replace_with_str">Replace with</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Colors in your canvas:</string>
     <string name="fragmentFindAndReplace_not_enough_colors_str">Not enough colors? Change your selected color palette.</string>
-
-    <string name="fragmentRGBColorPicker_valueR_str" translatable="false">0</string>
 
     <string name="fragmentSprayToolSettings_strength_str">Strength</string>
     <string name="fragmentSprayToolSettings_radius_str">Radius</string>
