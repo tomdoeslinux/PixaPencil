@@ -10,7 +10,7 @@ fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier)
         prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier)
         prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.PrevToolBundleIdentifier)
-        prevBrushStr = savedInstanceState.getString(StringConstants.Identifiers.PrevBrushBundleIdentifier)
+        prevBrushStr = savedInstanceState.getInt(StringConstants.Identifiers.PrevBrushBundleIdentifier)
         prevTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevTabBundleIdentifier)
         prevUndoToolbarButtonDisabledEnabledState = viewModel.bitmapActionData.isNotEmpty() == true
         prevRedoToolbarButtonDisabledEnabledState = viewModel.undoStack.isNotEmpty() == true

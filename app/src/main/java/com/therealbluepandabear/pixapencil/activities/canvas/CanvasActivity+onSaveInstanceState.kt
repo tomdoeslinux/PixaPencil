@@ -21,7 +21,7 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
         outState.putInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
         outState.putInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
         outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
-        outState.putString(StringConstants.Identifiers.PrevBrushBundleIdentifier, pixelGridViewInstance.currentBrush?.brushName)
+        outState.putInt(StringConstants.Identifiers.PrevBrushBundleIdentifier, pixelGridViewInstance.currentBrush?.brushId!!)
         outState.putInt(StringConstants.Identifiers.PrevTabBundleIdentifier, currentTab)
         outState.putString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
         outState.putInt(StringConstants.Identifiers.PrevRotationBundleIdentifier, outerCanvasInstance.getCurrentRotation().toInt())

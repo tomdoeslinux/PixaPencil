@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.models
 
 import com.therealbluepandabear.pixapencil.enums.BrushInstruction
 
-data class Brush(val brushName: String, val brushInstructionData: List<BrushInstructionCommand>, val brushImage: Int) {
+data class Brush(val brushId: Int, val brushInstructionData: List<BrushInstructionCommand>, val brushImage: Int) {
     fun convertBrushInstructionDataToXYPositionData(from: Coordinates): List<Coordinates> {
         val instructions = mutableListOf<Coordinates>()
 

@@ -16,14 +16,14 @@ object BrushesDatabase {
 
     init {
         val brushesData = listOf(
-            Brush("Default Brush", listOf(), R.drawable.brush_0),
-            Brush("Brush 1", listOf(
+            Brush(0, listOf(), R.drawable.brush_0),
+            Brush(1, listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTop, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottom, 1),
             ), R.drawable.brush_1),
-            Brush("Brush 2", listOf(
+            Brush(2, listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTop, 1),
@@ -33,14 +33,14 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.ExpandTopLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTopRight, 1),
             ), R.drawable.brush_2),
-            Brush("Brush 3", listOf(
+            Brush(3, listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 2),
 
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 2),
             ), R.drawable.brush_3),
-            Brush("Brush 4", listOf(
+            Brush(4, listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandBottomLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottomRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTopLeft, 1),
