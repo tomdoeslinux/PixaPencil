@@ -20,7 +20,7 @@ fun CanvasActivity.extendedOnBackPressed() {
         showDialogWithNeutralButton(
             getString(R.string.dialog_unsaved_changes_title_in_code_str),
             getString(R.string.dialog_unsaved_changes_message_in_code_str, projectTitle),
-            getString(R.string.dialog_unsaved_changes_button_text_in_code_str),
+            getString(R.string.generic_cancel_in_code_str),
             { _, _ -> },
             getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str),
             { _, _ ->
