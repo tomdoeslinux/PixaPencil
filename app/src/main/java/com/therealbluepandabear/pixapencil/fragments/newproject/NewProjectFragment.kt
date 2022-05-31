@@ -100,9 +100,8 @@ class NewProjectFragment : Fragment(), ActivityFragment {
                 override fun onEnded() { }
 
                 override fun onStarted() {
-                    text.text = "Type in your project's name"
+                    text.text = getString(R.string.spot_light_new_project_fragment_1_in_code_str)
                 }
-
             })
             .setShape(RoundedRectangle(300f, 1400f, 20f))
             .setOverlay(lyt)
@@ -116,7 +115,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
                 override fun onEnded() { }
 
                 override fun onStarted() {
-                    text.text = "Now, set your project's width"
+                    text.text = getString(R.string.spot_light_new_project_fragment_2_in_code_str)
                 }
 
             })
@@ -132,7 +131,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
                 override fun onEnded() { }
 
                 override fun onStarted() {
-                    text.text = "Finally, set your project's height"
+                    text.text = getString(R.string.spot_light_new_project_fragment_3_in_code_str)
                 }
 
             })
@@ -148,7 +147,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
                 override fun onEnded() { }
 
                 override fun onStarted() {
-                    text.text = "Tap to create your project"
+                    text.text = getString(R.string.spot_light_new_project_fragment_4_in_code_str)
                 }
 
             })
