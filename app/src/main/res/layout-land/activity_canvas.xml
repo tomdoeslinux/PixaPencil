@@ -124,25 +124,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/activityCanvas_toolsTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_tools" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/activityCanvas_filtersTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_gradient" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/activityCanvas_palettesTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_palette" />
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/activityCanvas_brushesTabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_brush" />

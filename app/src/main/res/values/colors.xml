@@ -17,4 +17,6 @@
     <color name="recycler_view_item_untapped_color_daynight">@color/white</color>
     <color name="white_color_daynight">@color/white</color>
     <color name="black_color_daynight">@color/black</color>
+
+    <color name="spotlightBackground">#BF000000</color>
 </resources>

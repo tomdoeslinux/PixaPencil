@@ -8,6 +8,7 @@ fun CanvasActivity.getExtras() {
     title = intent.getStringExtra(StringConstants.Extras.ProjectTitleExtra)
     width = intent.getIntExtra(StringConstants.Extras.WidthExtra, width)
     height = intent.getIntExtra(StringConstants.Extras.HeightExtra, width)
+    spotLightInProgress = intent.getBooleanExtra(StringConstants.Extras.SpotLightInProgressExtra, false)
 
     if (title != null) {
         projectTitle = title.toString()

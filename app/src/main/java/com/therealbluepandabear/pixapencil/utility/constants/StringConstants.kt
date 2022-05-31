@@ -6,6 +6,7 @@ object StringConstants {
         const val WidthExtra = "width_extra"
         const val HeightExtra = "height_extra"
         const val IndexExtra = "index_extra"
+        const val SpotLightInProgressExtra = "spot_light_in_progress_extra"
     }
 
     object Identifiers {

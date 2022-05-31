@@ -111,7 +111,8 @@ fun NewProjectFragment.setOnClickListeners() {
                             caller.onDoneButtonPressed(
                                 title,
                                 widthValue,
-                                heightValue
+                                heightValue,
+                                paramSpotLightInProgress
                             )
                         },  getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str), { _, _ ->
                         }, frameLayout)
@@ -119,7 +120,8 @@ fun NewProjectFragment.setOnClickListeners() {
                     caller.onDoneButtonPressed(
                         title,
                         widthValue,
-                        heightValue
+                        heightValue,
+                        paramSpotLightInProgress
                     )
                 }
             } catch (exception: Exception) {

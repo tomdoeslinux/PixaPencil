@@ -7,8 +7,20 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
+import android.widget.Button
+import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.doOnPreDraw
+import com.takusemba.spotlight.OnTargetListener
+import com.takusemba.spotlight.Spotlight
+import com.takusemba.spotlight.Target
+import com.takusemba.spotlight.shape.Circle
+import com.takusemba.spotlight.shape.RoundedRectangle
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
@@ -122,15 +134,180 @@ class CanvasActivity :
     lateinit var adapter: ColorPaletteColorPickerAdapter
     val adapterInitialized = ::adapter.isInitialized
 
+    var spotLightInProgress: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
         configureSavedInstanceState(savedInstanceState)
+
+        if (spotLightInProgress) {
+            binding.activityCanvasColorPrimaryView.doOnPreDraw {
+                startSpotLight()
+            }
+        }
+    }
+
+    private fun startSpotLight() {
+        val firstRoot = FrameLayout(this)
+        val lyt = layoutInflater.inflate(R.layout.layout_target, firstRoot)
+        val text = lyt.findViewById<TextView>(R.id.layoutTarget_text)
+        val targets = ArrayList<Target>()
+
+        val firstTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasColorPrimaryView)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    text.text = "Long tap on either your primary or secondary color to get to the color picker"
+                }
+
+            })
+            .setShape(Circle(300f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(firstTarget)
+
+        val secondTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y -= 400
+                    text.text = "Here you will find your tools"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(secondTarget)
+
+        val thirdTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y -= 200
+                    text.text = "Tap on 'Filters' to try out some project filters"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(thirdTarget)
+
+        val fourthTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y += 200
+                    text.text = "Here you can try different canvas filters"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(fourthTarget)
+
+        val fifthTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y -= 200
+                    text.text = "Tap on 'Palettes' to view your palettes"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(fifthTarget)
+
+        val sixthTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y += 200
+                    text.text = "You only have the default palette, but you can always create a new one by tapping the three dots at the top right of your screen"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(sixthTarget)
+
+        val seventhTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y -= 200
+                    text.text = "Tap on 'Brushes' to view your brushes"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(seventhTarget)
+
+        val eighthTarget = Target.Builder()
+            .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+            .setOnTargetListener(object : OnTargetListener {
+                override fun onEnded() {}
+
+                override fun onStarted() {
+                    lyt.y += 200
+                    text.text = "PixaPencil has five brushes you can try out"
+                }
+
+            })
+            .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+            .setOverlay(lyt)
+            .build()
+
+        targets.add(eighthTarget)
+
+        val spotlight = Spotlight.Builder(this)
+            .setTargets(targets)
+            .setBackgroundColorRes(R.color.spotlightBackground)
+            .setDuration(1000L)
+            .setAnimation(DecelerateInterpolator(2f))
+            .build()
+
+        lyt.findViewById<Button>(R.id.layoutTarget_nextButton).setOnClickListener {
+            spotlight.next()
+        }
+
+        lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
+            spotlight.finish()
+        }
+
+        spotlight.start()
     }
 
     var replacedBMP = false
-
 
     override fun onStart() {
         super.onStart()
