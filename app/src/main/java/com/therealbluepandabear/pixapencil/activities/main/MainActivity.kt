@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
             .setAnimation(DecelerateInterpolator(2f))
             .setOnSpotlightListener(object : OnSpotlightListener {
                 override fun onStarted() {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_text).text = "Tap to create a\nnew project"
+                    lyt.findViewById<TextView>(R.id.layoutTarget_text).text = getString(R.string.spot_light_activity_main_in_code_str)
                 }
 
                 override fun onEnded() { }

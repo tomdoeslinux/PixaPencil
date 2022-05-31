@@ -221,4 +221,6 @@
     <string name="spot_light_new_project_fragment_2_in_code_str">עכשיו, הקלד את הרוחב הרצוי</string>
     <string name="spot_light_new_project_fragment_3_in_code_str">כשלב אחרון, הגדר את גובה הפרויקט שלך</string>
     <string name="spot_light_new_project_fragment_4_in_code_str">לחץ על הכפתור כדי ליצור את הפרויקט שלך</string>
+
+    <string name="spot_light_activity_main_in_code_str">הקש כדי ליצור\nפרויקט חדש</string>
 </resources>

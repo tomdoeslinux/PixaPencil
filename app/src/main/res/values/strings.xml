@@ -227,4 +227,6 @@
     <string name="spot_light_new_project_fragment_2_in_code_str">Now, type in your desired width</string>
     <string name="spot_light_new_project_fragment_3_in_code_str">Finally, set your project\'s height</string>
     <string name="spot_light_new_project_fragment_4_in_code_str">Tap to create your project</string>
+
+    <string name="spot_light_activity_main_in_code_str">Tap to create a\nnew project</string>
 </resources>
