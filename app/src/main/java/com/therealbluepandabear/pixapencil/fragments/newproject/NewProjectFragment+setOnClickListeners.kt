@@ -95,7 +95,7 @@ fun NewProjectFragment.setOnClickListeners() {
                     val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
                     requireActivity().showDialog(
-                        getString(R.string.dialog_large_canvas_warning_title_in_code_str),
+                        getString(R.string.generic_warning_in_code_str),
                         getString(R.string.dialog_large_canvas_warning_text_in_code_str),
                         getString(R.string.dialog_large_canvas_warning_positive_button_text_in_code_str),
                         { _, _ ->

@@ -26,8 +26,8 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
 
         if (this@showWelcomeScreenIfApplicable.getScreenWidth() < 600 && this@showWelcomeScreenIfApplicable.getScreenHeight() < 850) {
             showSimpleInfoDialog(
-                getString(R.string.dialog_large_canvas_warning_title_in_code_str),
-                "You seem to have a small screen size, PixaPencil is currently incompatible with screens of your size."
+                getString(R.string.generic_warning_in_code_str),
+                getString(R.string.dialog_small_screen_warning_text_in_code_str)
             )
         }
     }
