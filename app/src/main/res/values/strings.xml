@@ -4,6 +4,7 @@
     <string name="defaultColorPalette_str" translatable="false">Default color palette</string>
     <string name="generic_ok_in_code_str">OK</string>
     <string name="generic_cancel_in_code_str">Cancel</string>
+    <string name="generic_no_thanks_in_code_str">No, thanks</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>

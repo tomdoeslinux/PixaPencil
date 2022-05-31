@@ -22,7 +22,7 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
             getString(R.string.generic_ok_in_code_str),
             { _, _ ->
                 startSpotLight()
-            }, "No, thanks", { _, _ -> })
+            }, getString(R.string.generic_no_thanks_in_code_str), { _, _ -> })
 
         if (this@showWelcomeScreenIfApplicable.getScreenWidth() < 600 && this@showWelcomeScreenIfApplicable.getScreenHeight() < 850) {
             showSimpleInfoDialog(
