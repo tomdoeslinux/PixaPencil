@@ -202,7 +202,7 @@
     <string name="dialog_delete_pixel_art_project_negative_button_text_in_code_str">Cancel</string>
 
     <string name="dialog_welcome_title_in_code_str">Welcome</string>
-    <string name="dialog_welcome_text_in_code_str">Welcome to PixaPencil! Tap and hold on each tool\'s icon to get further information on how the specific tool works.</string>
+    <string name="dialog_welcome_text_in_code_str">Welcome to PixaPencil! Would you like to start an interactive tutorial?</string>
     <string name="dialog_large_canvas_warning_title_in_code_str">Warning</string>
     <string name="dialog_large_canvas_warning_text_in_code_str">You are about to create a large canvas, keep in mind that your phone might not be able to support bitmaps of these sizes.</string>
     <string name="dialog_large_canvas_warning_positive_button_text_in_code_str">I understand, create the project</string>
