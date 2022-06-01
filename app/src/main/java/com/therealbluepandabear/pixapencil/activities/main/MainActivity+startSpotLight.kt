@@ -16,7 +16,7 @@ fun MainActivity.startSpotLight() {
 
     val firstTarget = Target.Builder()
         .setAnchor(binding.activityMainNewProjectButton)
-        .setShape(Circle(200f))
+        .setShape(Circle((binding.activityMainNewProjectButton.measuredWidth + 20).toFloat()))
         .setOverlay(lyt)
         .build()
 

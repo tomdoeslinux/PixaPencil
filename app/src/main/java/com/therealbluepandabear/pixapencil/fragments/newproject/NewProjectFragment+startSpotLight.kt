@@ -26,7 +26,7 @@ fun NewProjectFragment.startSpotLight() {
                 text.text = getString(R.string.spot_light_new_project_fragment_1_in_code_str)
             }
         })
-        .setShape(RoundedRectangle(300f, 1400f, 20f))
+        .setShape(RoundedRectangle((binding.fragmentNewCanvasProjectTitleTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth ).toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
@@ -42,7 +42,7 @@ fun NewProjectFragment.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(300f, 1400f, 20f))
+        .setShape(RoundedRectangle((binding.fragmentNewCanvasWidthTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
@@ -74,7 +74,7 @@ fun NewProjectFragment.startSpotLight() {
             }
 
         })
-        .setShape(Circle(200f))
+        .setShape(RoundedRectangle((binding.fragmentNewCanvasHeightTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
