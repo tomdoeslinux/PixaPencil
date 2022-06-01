@@ -12,7 +12,6 @@ fun CanvasActivity.onCreate() {
     setUpRecyclerView()
     setOnClickListeners()
     initSharedPreferenceObject()
-    setObjectGlobalScopeLifecycleOwner()
     setFlags()
     observeColorPaletteColorPickerData()
 }
