@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
+import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
+
 fun MainActivity.extendedOnCreate() {
     showWelcomeScreenIfApplicable()
     setVmPolicy()
@@ -10,4 +12,5 @@ fun MainActivity.extendedOnCreate() {
     applyShowLargeCanvasSizeWarningValueFromPreference()
     initView()
     observePixelArtData()
+    selectedColorPaletteIndex = 0
 }
