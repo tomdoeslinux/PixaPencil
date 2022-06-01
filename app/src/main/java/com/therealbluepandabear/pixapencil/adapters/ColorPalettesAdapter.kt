@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.databinding.ColorPalettesLayoutBinding
 import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
@@ -34,11 +35,16 @@ class ColorPalettesAdapter(
         if (holder is ColorPalettesViewHolder) {
             holder.bind(item)
 
-            if (!defSelected) {
-                holder.binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_tapped_color_daynight)
-                previousViewElement = holder.binding.colorPalettesLayoutMaterialCardView
-                defSelected = true
-            }
+                if (position == selectedColorPaletteIndex) {
+                    holder.binding.colorPalettesLayoutMaterialCardView.backgroundTintList =
+                        AppCompatResources.getColorStateList(
+                            context,
+                            R.color.recycler_view_item_tapped_color_daynight
+                        )
+                    previousViewElement = holder.binding.colorPalettesLayoutMaterialCardView
+                    defSelected = true
+                }
+
 
             holder.binding.colorPalettesLayoutMaterialCardView.setOnClickListener {
                 caller.onColorPaletteTapped(item)

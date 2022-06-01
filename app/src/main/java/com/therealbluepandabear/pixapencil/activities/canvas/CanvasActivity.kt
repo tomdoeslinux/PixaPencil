@@ -47,6 +47,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 lateinit var binding: ActivityCanvasBinding
+var selectedColorPaletteIndex: Int = 0
 
 class CanvasActivity :
     AppCompatActivity(),
@@ -117,8 +118,6 @@ class CanvasActivity :
 
     lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
     val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
-
-    var selectedColorPaletteIndex: Int = 0
 
     var shadingToolMode = StringConstants.ShadingToolModes.LightenShadingToolMode
 
