@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
-import androidx.core.view.children
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.getScreenHeight
 import com.therealbluepandabear.pixapencil.extensions.getScreenWidth

@@ -7,19 +7,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.animation.DecelerateInterpolator
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
-import com.takusemba.spotlight.OnTargetListener
-import com.takusemba.spotlight.Spotlight
-import com.takusemba.spotlight.Target
-import com.takusemba.spotlight.shape.Circle
-import com.takusemba.spotlight.shape.RoundedRectangle
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
@@ -128,9 +118,7 @@ class CanvasActivity :
 
     val canvasCommandsHelperInstance: CanvasCommandsHelper = CanvasCommandsHelper()
 
-    val colorPaletteColorPickerData = mutableListOf<Int>()
     lateinit var adapter: ColorPaletteColorPickerAdapter
-    val adapterInitialized = ::adapter.isInitialized
 
     var spotLightInProgress: Boolean = false
 
