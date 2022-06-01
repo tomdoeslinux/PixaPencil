@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.therealbluepandabear.pixapencil"
-        minSdk 22
+        minSdk 26
         targetSdk 31
         versionCode 4
         versionName "0.0.1-beta4"
