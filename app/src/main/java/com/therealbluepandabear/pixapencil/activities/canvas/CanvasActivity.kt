@@ -159,7 +159,7 @@ class CanvasActivity :
                 override fun onEnded() {}
 
                 override fun onStarted() {
-                    text.text = "Long tap on either your primary or secondary color to get to the color picker"
+                    text.text = getString(R.string.spot_light_activity_canvas_1_in_code_str)
                 }
 
             })
@@ -176,7 +176,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y -= 400
-                    text.text = "Here you will find your tools"
+                    text.text = getString(R.string.spot_light_activity_canvas_2_in_code_str)
                 }
 
             })
@@ -193,7 +193,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y -= 200
-                    text.text = "Tap on 'Filters' to try out some project filters"
+                    text.text = getString(R.string.spot_light_activity_canvas_3_in_code_str)
                 }
 
             })
@@ -210,7 +210,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y += 200
-                    text.text = "Here you can try different canvas filters"
+                    text.text = getString(R.string.spot_light_activity_canvas_4_in_code_str)
                 }
 
             })
@@ -227,7 +227,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y -= 200
-                    text.text = "Tap on 'Palettes' to view your palettes"
+                    text.text = getString(R.string.spot_light_activity_canvas_5_in_code_str)
                 }
 
             })
@@ -244,7 +244,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y += 200
-                    text.text = "You only have the default palette, but you can always create a new one by tapping the three dots at the top right of your screen"
+                    text.text = getString(R.string.spot_light_activity_canvas_6_in_code_str)
                 }
 
             })
@@ -261,7 +261,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y -= 200
-                    text.text = "Tap on 'Brushes' to view your brushes"
+                    text.text = getString(R.string.spot_light_activity_canvas_7_in_code_str)
                 }
 
             })
@@ -278,7 +278,7 @@ class CanvasActivity :
 
                 override fun onStarted() {
                     lyt.y += 200
-                    text.text = "PixaPencil has five brushes you can try out"
+                    text.text = getString(R.string.spot_light_activity_canvas_8_in_code_str)
                 }
 
             })
