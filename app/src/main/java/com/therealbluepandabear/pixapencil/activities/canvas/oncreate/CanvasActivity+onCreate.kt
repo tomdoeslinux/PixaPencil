@@ -1,6 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
+import androidx.core.view.doOnPreDraw
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.binding
 
 fun CanvasActivity.onCreate() {
     prevOrientation = resources.configuration.orientation
@@ -13,5 +15,8 @@ fun CanvasActivity.onCreate() {
     setOnClickListeners()
     initSharedPreferenceObject()
     setFlags()
-    observeColorPaletteColorPickerData()
+
+    binding.activityCanvasColorPickerRecyclerView.doOnPreDraw {
+        observeColorPaletteColorPickerData()
+    }
 }

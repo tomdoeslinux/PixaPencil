@@ -12,7 +12,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.viewholders.ColorPaletteColorPickerViewHolder
 
 class ColorPaletteColorPickerAdapter(
-    private val colorPalette: ColorPalette,
+    private var colorPalette: ColorPalette,
     private val caller: ColorPaletteColorPickerListener
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -53,10 +53,8 @@ class ColorPaletteColorPickerAdapter(
         return colorData.size
     }
 
-    fun updateDataSource(list: List<Int>){
-        val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
-        colorData.clear()
-        colorData.addAll(list)
+    fun updateData(colorPalette: ColorPalette){
+        this.colorPalette = colorPalette
         notifyDataSetChanged()
     }
 }

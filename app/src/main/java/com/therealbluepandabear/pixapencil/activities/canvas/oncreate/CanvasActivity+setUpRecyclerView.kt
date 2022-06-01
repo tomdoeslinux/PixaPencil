@@ -9,7 +9,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.setPrimaryPixelColor
 import com.therealbluepandabear.pixapencil.activities.canvas.setSecondaryPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 var firstLoad = false
 
@@ -34,13 +35,6 @@ fun CanvasActivity.setUpRecyclerView() {
     layoutManager.orientation = layoutManagerOrientation
     binding.activityCanvasColorPickerRecyclerView.layoutManager = layoutManager
 
-    if (AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().firstOrNull() == null) {
-        AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-            adapter = ColorPaletteColorPickerAdapter(it.first(), this@setUpRecyclerView)
-            binding.activityCanvasColorPickerRecyclerView.adapter = adapter
-        }
-    } else {
-        adapter = ColorPaletteColorPickerAdapter(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().first(), this@setUpRecyclerView)
-        binding.activityCanvasColorPickerRecyclerView.adapter = adapter
-    }
+    adapter = ColorPaletteColorPickerAdapter(ColorPalette(null, JsonConverter.convertListToJsonString(listOf<String>())), this@setUpRecyclerView)
+    binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 }
