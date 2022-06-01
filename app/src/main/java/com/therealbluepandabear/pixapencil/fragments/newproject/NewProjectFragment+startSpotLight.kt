@@ -74,7 +74,7 @@ fun NewProjectFragment.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle((binding.fragmentNewCanvasHeightTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
+        .setShape(Circle((binding.fragmentNewCanvasDoneButton.measuredWidth).toFloat()))
         .setOverlay(lyt)
         .build()
 
