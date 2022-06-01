@@ -93,6 +93,7 @@ fun NewProjectFragment.startSpotLight() {
 
     lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
         spotlight.finish()
+        paramSpotLightInProgress = false
     }
 
 

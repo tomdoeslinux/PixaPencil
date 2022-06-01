@@ -36,6 +36,7 @@ fun MainActivity.startSpotLight() {
 
     lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
         spotlight.finish()
+        mainSpotlight = null
     }
 
     lyt.findViewById<Button>(R.id.layoutTarget_nextButton).isEnabled = false
