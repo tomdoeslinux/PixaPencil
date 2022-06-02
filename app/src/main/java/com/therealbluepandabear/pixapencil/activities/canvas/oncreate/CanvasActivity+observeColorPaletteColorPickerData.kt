@@ -6,7 +6,7 @@ import com.therealbluepandabear.pixapencil.database.AppData
 
 fun CanvasActivity.observeColorPaletteColorPickerData() {
     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this@observeColorPaletteColorPickerData) {
-        if (selectedColorPaletteIndex <= it.size) {
+        if (selectedColorPaletteIndex < it.size) {
             adapter.updateData(it[selectedColorPaletteIndex])
         }
     }
