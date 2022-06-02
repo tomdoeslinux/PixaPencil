@@ -9,20 +9,13 @@
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](https://choosealicense.com/licenses/mit/)
 
 [<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="80">](https://github.com/therealbluepandabear/PixaPencil/releases/latest)
+[<img src="https://user-images.githubusercontent.com/50536495/171554128-69c2ef09-039d-4395-b064-601551daf9d8.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/com.therealbluepandabear.pixapencil)
 </div>
 
 ## 📱 Android market
 **PixaPencil** will be available soon on the Google Play Store as well as F-Droid.
 
 **Warning: if you have a phone with a _very_ small screen size (e.g. 400x800 Galaxy Core Prime) this app will not work well. Keep that in mind. I am working on making this app more compatible with smaller screen sizes, but for now it's on hold.**
-
-The app is currently in the beta stage, but you are free to download the beta `.apk` files from here:
-
-https://github.com/therealbluepandabear/PixaPencil/releases
-
-The app is also available on the IzzySoft repository:
-
-https://apt.izzysoft.de/fdroid/index/apk/com.therealbluepandabear.pixapencil
 
 PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew. It used to have support for more languages but I dropped support for this since there is no demand for the app and I was putting a lot of effort trying to maintain the translations. Plus can't really be bothered to set up a translation service for a small app like this.
 
