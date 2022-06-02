@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.databinding.FragmentHexadecimalColorPickerBinding
