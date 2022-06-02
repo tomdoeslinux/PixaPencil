@@ -11,7 +11,7 @@
         android:id="@+id/fragmentColorPickerPicker_colorPickerView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:enableAlpha="true"
+        app:enableAlpha="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
