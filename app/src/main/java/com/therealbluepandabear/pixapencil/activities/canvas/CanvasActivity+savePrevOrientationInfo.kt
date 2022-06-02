@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.view.ViewTreeObserver
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
@@ -96,19 +97,23 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 )
             }
 
-            if (convertedBMP?.isEmpty() == false) {
-                viewTemp.viewTreeObserver.addOnGlobalLayoutListener {
-                    if (replacedBMP) {
-                        pixelGridViewInstance.replaceBitmap(convertedBMP)
-                        fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
-                            prevBitmapFilePathStr!!
-                        )
+            if (convertedBMP?.isEmpty() == false && viewModel.bitmapActionData.isNotEmpty()) {
+                viewTemp.viewTreeObserver.addOnGlobalLayoutListener( object : ViewTreeObserver.OnGlobalLayoutListener {
+                    override fun onGlobalLayout() {
+                        if (replacedBMP)
+                        {
+                            pixelGridViewInstance.replaceBitmap(convertedBMP)
+                            fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
+                                prevBitmapFilePathStr!!
+                            )
 
-                        replacedBMP = false
+                            replacedBMP = false
 
-                        prevOrientation = resources.configuration.orientation
+                            prevOrientation = resources.configuration.orientation
+                            viewTemp.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                        }
                     }
-                }
+                })
             }
         }
     }
