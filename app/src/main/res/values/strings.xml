@@ -7,6 +7,12 @@
     <string name="generic_no_thanks_in_code_str">No, thanks</string>
     <string name="generic_warning_in_code_str">Warning</string>
 
+    <string name="generic_png_str" translatable="false">PNG</string>
+    <string name="generic_jpg_str" translatable="false">JPG</string>
+    <string name="generic_webp_str" translatable="false">WEBP</string>
+    <string name="generic_tif_str" translatable="false">TIF</string>
+    <string name="generic_bmp_str" translatable="false">BMP</string>
+
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
@@ -104,6 +110,8 @@
     <string name="activityCanvasTopAppMenu_symmetry_str">Symmetry</string>
     <string name="activityCanvasTopAppMenu_symmetry_none_str">None</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal_str">Octal</string>
+    <string name="activityCanvasTopAppMenu_save_in_background_str">Save in Background</string>
+    <string name="activityCanvasTopAppMenu_save_as_str">Save as</string>
 
     <string name="bottomNavigationMenu_starred_str">Starred</string>
     <string name="bottomNavigationMenu_home_str">Home</string>

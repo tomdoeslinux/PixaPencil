@@ -99,6 +99,8 @@
     <string name="activityCanvasTopAppMenu_symmetry_str">הגדרות סימטריה</string>
     <string name="activityCanvasTopAppMenu_symmetry_none_str">בלי סימטריה</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal_str">אוקטל</string>
+    <string name="activityCanvasTopAppMenu_save_in_background_str">תשמור ברקע</string>
+    <string name="activityCanvasTopAppMenu_save_as_str">תשמור</string>
 
     <string name="bottomNavigationMenu_starred_str">פרויקטים מועדפים</string>
     <string name="bottomNavigationMenu_home_str">כל הפרויקטים</string>

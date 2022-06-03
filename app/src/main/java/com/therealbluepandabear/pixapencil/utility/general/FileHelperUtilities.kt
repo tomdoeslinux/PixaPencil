@@ -146,7 +146,7 @@ class FileHelperUtilities(private val context: Context) {
                         }
 
                         override fun onFileExists(isDirectory: Boolean) {
-                            TODO("Not yet implemented")
+
                         }
 
                         override fun onIOException(e: IOException?) {
