@@ -46,8 +46,6 @@ object StringConstants {
 
         const val PrevOrientationBundleIdentifier = "prev_orientation_bundle_identifier"
         const val PrevBitmapFilePathBundleIdentifier = "prev_bitmap_file_path_bundle_identifier"
-        const val PrevPrimaryColorBundleIdentifier = "prev_primary_color_bundle_identifier"
-        const val PrevSecondaryColorBundleIdentifier = "prev_secondary_color_bundle_identifier"
         const val PrevToolBundleIdentifier = "prev_tool_bundle_identifier"
         const val PrevBrushBundleIdentifier = "prev_brush_bundle_identifier"
         const val PrevTabBundleIdentifier = "prev_tab_bundle_identifier"
