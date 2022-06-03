@@ -28,11 +28,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 }
             }
 
-            if (prevPrimaryColor != null && prevSecondaryColor != null) {
-                setPrimaryPixelColor(prevPrimaryColor!!)
-                setSecondaryPixelColor(prevSecondaryColor!!)
-            }
-
             if (prevToolStr != null) {
                 currentTool = if (Tool.findToolByName(prevToolStr!!) != null) {
                     Tool.findToolByName(prevToolStr!!)!!

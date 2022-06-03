@@ -61,9 +61,6 @@ class CanvasActivity :
 
     var index: Int? = null
 
-    var primaryColor: Int = Color.BLACK
-    var secondaryColor: Int = Color.BLUE
-
     var width = IntConstants.DefaultCanvasWidthHeight
     var height = IntConstants.DefaultCanvasWidthHeight
 
@@ -94,8 +91,6 @@ class CanvasActivity :
 
     var prevOrientation: Int = 0
     var prevBitmapFilePathStr: String? = null
-    var prevPrimaryColor: Int? = null
-    var prevSecondaryColor: Int? = null
     var prevToolStr: String? = null
     var prevBrushStr: Int = 0
     var prevTab: Int = 0

@@ -19,8 +19,8 @@ fun CanvasActivity.setUpRecyclerView() {
         override fun onLayoutCompleted(state: RecyclerView.State) {
             super.onLayoutCompleted(state)
             if (!firstLoad) {
-                setPrimaryPixelColor(Color.BLACK)
-                setSecondaryPixelColor(Color.BLUE)
+                setPrimaryPixelColor(viewModel.primaryColor)
+                setSecondaryPixelColor(viewModel.secondaryColor)
                 firstLoad = true
             }
         }

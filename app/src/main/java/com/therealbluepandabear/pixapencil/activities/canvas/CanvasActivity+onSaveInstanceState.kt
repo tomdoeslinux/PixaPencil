@@ -17,8 +17,6 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
 
     outState.putString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier, fileName)
     outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
-    outState.putInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier, (binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
-    outState.putInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier, (binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
     pixelGridViewInstance.currentBrush?.brushId?.let {
         outState.putInt(StringConstants.Identifiers.PrevBrushBundleIdentifier,

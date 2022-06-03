@@ -1,6 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 fun CanvasActivity.setSecondaryPixelColor(color: Int) {
-    secondaryColor = color
+    viewModel.secondaryColor = color
     binding.activityCanvasColorSecondaryView.setBackgroundColor(color)
 }

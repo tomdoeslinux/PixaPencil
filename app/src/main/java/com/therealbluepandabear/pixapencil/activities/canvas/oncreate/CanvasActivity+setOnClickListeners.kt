@@ -81,7 +81,7 @@ fun CanvasActivity.setOnClickListeners() {
         binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = primaryColor,
+                paramOldColor = viewModel.primaryColor,
                 paramColorPalette = null))
             addToBackStack(null)
         }
@@ -101,7 +101,7 @@ fun CanvasActivity.setOnClickListeners() {
         binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
         supportFragmentManager.commit {
             replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = secondaryColor,
+                paramOldColor = viewModel.secondaryColor,
                 paramColorPalette = null))
             addToBackStack(null)
         }

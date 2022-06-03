@@ -7,8 +7,6 @@ fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
     if (savedInstanceState != null) {
         prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier)
         prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier)
-        prevPrimaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevPrimaryColorBundleIdentifier)
-        prevSecondaryColor = savedInstanceState.getInt(StringConstants.Identifiers.PrevSecondaryColorBundleIdentifier)
         prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.PrevToolBundleIdentifier)
         prevBrushStr = savedInstanceState.getInt(StringConstants.Identifiers.PrevBrushBundleIdentifier)
         prevTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevTabBundleIdentifier)
