@@ -136,13 +136,13 @@ class FileHelperUtilities(private val context: Context) {
                 }
 
                 else -> {
-                    BitmapEncoder.encodeFile(file_, bitmap, false, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
+                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
                         override fun onCreateFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, "Creation exception")
+                            onTaskFinished(OutputCode.Failure, file_, "Failed to create file")
                         }
 
                         override fun onCompressFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, "Compression exception")
+                            onTaskFinished(OutputCode.Failure, file_, "Failed to compress file")
                         }
 
                         override fun onFileExists(isDirectory: Boolean) {
@@ -150,7 +150,7 @@ class FileHelperUtilities(private val context: Context) {
                         }
 
                         override fun onIOException(e: IOException?) {
-                            onTaskFinished(OutputCode.Failure, file_, "IO exception")
+                            onTaskFinished(OutputCode.Failure, file_, e?.message)
                         }
 
                         override fun onSuccess() {
