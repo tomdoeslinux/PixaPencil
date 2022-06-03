@@ -46,8 +46,6 @@ fun PixelGridView.extendedSaveAsImage(format: BitmapCompressFormat) {
                         } else {
                             cntxView.showSnackbar(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default)
                         }
-                    } else {
-                        Flags.PressedBackFromImg = true
                     }
                 }
             }

@@ -14,7 +14,6 @@ fun CanvasActivity.onCreate() {
     setUpRecyclerView()
     setOnClickListeners()
     initSharedPreferenceObject()
-    setFlags()
 
     binding.activityCanvasColorPickerRecyclerView.doOnPreDraw {
         observeColorPaletteColorPickerData()

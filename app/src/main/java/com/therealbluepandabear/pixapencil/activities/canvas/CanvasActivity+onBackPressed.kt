@@ -8,8 +8,6 @@ import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButto
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.extendedOnBackPressed() {
-    Flags.PressedBackToExit = true
-
     if (supportFragmentManager.backStackEntryCount > 0) {
         supportFragmentManager.popBackStackImmediate()
 
