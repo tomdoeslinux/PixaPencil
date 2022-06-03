@@ -121,6 +121,10 @@
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_tiff_item"
                 app:showAsAction="ifRoom"
                 android:title="TIF" />
+
+            <item android:id="@+id/activityCanvasTopAppMenu_export_to_bmp_item"
+                app:showAsAction="ifRoom"
+                android:title="BMP" />
         </menu>
     </item>
 </menu>

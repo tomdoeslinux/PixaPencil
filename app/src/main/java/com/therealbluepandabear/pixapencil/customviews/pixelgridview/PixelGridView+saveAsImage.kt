@@ -19,7 +19,7 @@ import java.io.File
 lateinit var file: File
 
 fun PixelGridView.extendedSaveAsImage(format: BitmapCompressFormat) {
-    val formatName = BitmapCompressFormatUtilities.getFormattedName(format.correspondingEnum.invoke())
+    val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
     val bitmap = outerCanvasInstance.drawFragmentHostToBitmap()
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)

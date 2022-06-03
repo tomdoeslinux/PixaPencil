@@ -18,12 +18,14 @@ import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
 import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
+import java.io.IOException
 
 
 class FileHelperUtilities(private val context: Context) {
@@ -71,7 +73,7 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat.correspondingEnum.invoke()).lowercase()}"
+        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
@@ -90,47 +92,71 @@ class FileHelperUtilities(private val context: Context) {
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             var bitmap2 = bitmap_
 
-            if (compressionFormat == BitmapCompressFormat.PNG ||
-                compressionFormat == BitmapCompressFormat.JPEG ||
-                compressionFormat == BitmapCompressFormat.WEBP ||
-                compressionFormat == BitmapCompressFormat.WEBP_LOSSLESS ||
-                compressionFormat == BitmapCompressFormat.WEBP_LOSSY) {
-                try {
-                    val outputStream = FileOutputStream(file_)
+            when (compressionFormat) {
+                BitmapCompressFormat.PNG, BitmapCompressFormat.JPEG, BitmapCompressFormat.WEBP, BitmapCompressFormat.WEBP_LOSSLESS, BitmapCompressFormat.WEBP_LOSSY -> {
+                    try {
+                        val outputStream = FileOutputStream(file_)
 
-                    if (compressionFormat == BitmapCompressFormat.JPEG) {
-                        val newBitmap = Bitmap.createBitmap(
-                            bitmap2.width,
-                            bitmap2.height,
-                            bitmap2.config
-                        )
-                        val canvas = Canvas(newBitmap)
-                        canvas.drawColor(Color.WHITE)
-                        canvas.drawBitmap(bitmap2, 0f, 0f, null)
+                        if (compressionFormat == BitmapCompressFormat.JPEG) {
+                            val newBitmap = Bitmap.createBitmap(
+                                bitmap2.width,
+                                bitmap2.height,
+                                bitmap2.config
+                            )
+                            val canvas = Canvas(newBitmap)
+                            canvas.drawColor(Color.WHITE)
+                            canvas.drawBitmap(bitmap2, 0f, 0f, null)
 
-                        bitmap2 = newBitmap
+                            bitmap2 = newBitmap
+                        }
+
+                        bitmap2.compress(compressionFormat.correspondingEnum.invoke(), compressionOutputQuality, outputStream)
+                        outputStream.close()
+                    } catch (exception: Exception) {
+                        exceptionMessage = exception.message
+                        outputCode = OutputCode.Failure
+                    } finally {
+                        onTaskFinished(outputCode, file_, exceptionMessage)
                     }
-
-                    bitmap2.compress(compressionFormat.correspondingEnum.invoke(), compressionOutputQuality, outputStream)
-                    outputStream.close()
-                } catch (exception: Exception) {
-                    exceptionMessage = exception.message
-                    outputCode = OutputCode.Failure
-                } finally {
-                    onTaskFinished(outputCode, file_, exceptionMessage)
                 }
-            } else {
-                val options = SaveOptions()
-                options.inThrowException = true
-                options.compressionScheme = CompressionScheme.LZW
 
-                try {
-                    TiffSaver.saveBitmap(file_.absolutePath, bitmap, options)
-                } catch (exception: Exception) {
-                    exceptionMessage = exception.message
-                    outputCode = OutputCode.Failure
-                } finally {
-                    onTaskFinished(outputCode, file_, exceptionMessage)
+                BitmapCompressFormat.TIFF -> {
+                    val options = SaveOptions()
+                    options.inThrowException = true
+                    options.compressionScheme = CompressionScheme.LZW
+
+                    try {
+                        TiffSaver.saveBitmap(file_.absolutePath, bitmap, options)
+                    } catch (exception: Exception) {
+                        exceptionMessage = exception.message
+                        outputCode = OutputCode.Failure
+                    } finally {
+                        onTaskFinished(outputCode, file_, exceptionMessage)
+                    }
+                }
+
+                else -> {
+                    BitmapEncoder.encodeFile(file_, bitmap, false, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
+                        override fun onCreateFailure() {
+                            onTaskFinished(OutputCode.Failure, file_, "Creation exception")
+                        }
+
+                        override fun onCompressFailure() {
+                            onTaskFinished(OutputCode.Failure, file_, "Compression exception")
+                        }
+
+                        override fun onFileExists(isDirectory: Boolean) {
+                            TODO("Not yet implemented")
+                        }
+
+                        override fun onIOException(e: IOException?) {
+                            onTaskFinished(OutputCode.Failure, file_, "IO exception")
+                        }
+
+                        override fun onSuccess() {
+                            onTaskFinished(OutputCode.Success, file_, exceptionMessage)
+                        }
+                    })
                 }
             }
 
@@ -151,7 +177,7 @@ class FileHelperUtilities(private val context: Context) {
                     context.getString(R.string.generic_ok_in_code_str),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
-                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat.correspondingEnum.invoke()).lowercase()}"
+                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
                         file = File(directory, outputName)
                         createNewFile(file)
                     },

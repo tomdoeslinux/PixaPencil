@@ -1,25 +1,29 @@
 package com.therealbluepandabear.pixapencil.utility.general
 
-import android.graphics.Bitmap
 import android.os.Build
+import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 
 object BitmapCompressFormatUtilities {
-    fun getFormattedName(format: Bitmap.CompressFormat?): String {
+    fun getFormattedName(format: BitmapCompressFormat): String {
         return when {
-            format == Bitmap.CompressFormat.PNG -> {
+            format == BitmapCompressFormat.PNG -> {
                 "PNG"
             }
 
-            format == Bitmap.CompressFormat.WEBP -> {
+            format == BitmapCompressFormat.WEBP -> {
                 "WEBP"
             }
 
-            Build.VERSION.SDK_INT >= 30 && (format == Bitmap.CompressFormat.WEBP_LOSSLESS || format == Bitmap.CompressFormat.WEBP_LOSSY) -> {
+            Build.VERSION.SDK_INT >= 30 && (format == BitmapCompressFormat.WEBP_LOSSLESS || format == BitmapCompressFormat.WEBP_LOSSY) -> {
                 "WEBP"
             }
 
-            format == null -> {
+            format == BitmapCompressFormat.TIFF -> {
                 "TIF"
+            }
+
+            format == BitmapCompressFormat.BMP -> {
+                "BMP"
             }
 
             else -> {

@@ -61,6 +61,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             pixelGridViewInstance.saveAsImage(BitmapCompressFormat.TIFF)
         }
 
+        R.id.activityCanvasTopAppMenu_export_to_bmp_item -> {
+            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.BMP)
+        }
+
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
             onRotate90DegreesOptionsItemSelected()
         }

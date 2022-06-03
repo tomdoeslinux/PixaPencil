@@ -81,6 +81,7 @@ dependencies {
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
     implementation 'io.github.beyka:Android-TiffBitmapFactory:0.9.9.0'
     implementation 'com.github.takusemba:spotlight:2.0.5'
+    implementation 'com.github.tianscar:quickbitmap:1.0.2.6'
 
     // Test implementations
     testImplementation"androidx.arch.core:core-testing:2.1.0"
