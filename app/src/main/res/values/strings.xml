@@ -7,6 +7,7 @@
     <string name="generic_no_thanks_in_code_str">No, thanks</string>
     <string name="generic_warning_in_code_str">Warning</string>
     <string name="generic_saved_in_code_str">Saved</string>
+    <string name="generic_error_while_saving_in_code_str">Error while saving %1$s</string>
 
     <string name="generic_png_str" translatable="false">PNG</string>
     <string name="generic_jpg_str" translatable="false">JPG</string>

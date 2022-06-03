@@ -6,6 +6,7 @@
     <string name="generic_no_thanks_in_code_str">לא תודה</string>
     <string name="generic_warning_in_code_str">אַזהָרָה</string>
     <string name="generic_saved_in_code_str">הפרויקט נשמר</string>
+    <string name="generic_error_while_saving_in_code_str">שגיאה בשמירה של %1$s</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">מועדף על הפרויקט הזה</string>
