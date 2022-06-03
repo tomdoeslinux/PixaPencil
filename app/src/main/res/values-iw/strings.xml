@@ -5,6 +5,7 @@
     <string name="generic_cancel_in_code_str">לְבַטֵל</string>
     <string name="generic_no_thanks_in_code_str">לא תודה</string>
     <string name="generic_warning_in_code_str">אַזהָרָה</string>
+    <string name="generic_saved_in_code_str">הפרויקט נשמר</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">מועדף על הפרויקט הזה</string>

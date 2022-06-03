@@ -2,11 +2,14 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import android.os.Build
 import android.view.MenuItem
+import android.widget.Toast
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
 
 const val zoomIncrement = 0.2f
 
@@ -120,6 +123,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {
             onSaveProjectOptionsItemSelected(true)
+
+            if (ObjectConstants.CurrentPixelArtObj.bitmap == BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)) {
+                Toast.makeText(this@extendedOnOptionsItemSelected, getString(R.string.generic_saved_in_code_str), Toast.LENGTH_SHORT).show()
+            }
         }
     }
     return true
