@@ -43,7 +43,7 @@ For more info go to: https://choosealicense.com/licenses/mit/.
 
 _Do not use the name '**PixaPencil**' in your app/other product._
 
-## 📝 Features (as of May 28, 2022)
+## 📝 Features (as of June 4, 2022)
 - Pencil tool
 - Fill tool 
 - Line tool
@@ -55,7 +55,7 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Outlined Circle Tool
 - Spray tool
 - Polygon tool
-- Dither tool
+- Dither tool **with custom dither brushes**
 - Shading tool
 - Picker tool
 - Find and replace by color tool
@@ -72,7 +72,7 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Brushes
 - Ability to select custom colors using a color picker, RGB sliders, or HEX code
 - Ability to unfavorite/favorite projects
-- Ability to export projects to PNG/JPG/WEBP/TIFF
+- Ability to export projects to PNG/JPG/WEBP/TIFF/BMP
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 - Ability to save projects in background
 
