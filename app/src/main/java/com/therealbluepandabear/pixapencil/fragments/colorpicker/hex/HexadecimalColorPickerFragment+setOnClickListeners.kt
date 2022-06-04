@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.fragments.colorpicker.hex
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.copyToClipboard
@@ -16,12 +17,12 @@ fun HexadecimalColorPickerFragment.setOnClickListeners() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
             if (code == OutputCode.Success) {
                 binding.fragmentHexadecimalColorPickerCoordinatorLayout.showSnackbar(
-                    "Successfully copied to clipboard",
+                    getString(R.string.fragmentHexadecimalColorPicker_successfully_copied_to_clipboard_in_code_str),
                     SnackbarDuration.Short
                 )
             } else {
                 binding.fragmentHexadecimalColorPickerCoordinatorLayout.showSnackbar(
-                    "Failed to copy text clipboard",
+                    getString(R.string.fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard_in_code_str),
                     SnackbarDuration.Short
                 )
             }

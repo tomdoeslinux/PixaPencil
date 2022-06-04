@@ -64,6 +64,8 @@
     <string name="fragmentNewCanvas_project_name_str">שֵׁם</string>
 
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">ערך הקסדצימלי</string>
+    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard_in_code_str">הקוד הועתק בהצלחה ללוח</string>
+    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard_in_code_str">ההעתקה של לוח הטקסט נכשלה</string>
 
     <string name="fragmentColorPicker_tab_color_picker_str">בוחר צבעים</string>
 

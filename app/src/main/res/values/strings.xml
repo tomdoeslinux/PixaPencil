@@ -73,6 +73,8 @@
     <string name="fragmentNewCanvas_project_name_str">Name</string>
 
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Hexadecimal value</string>
+    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard_in_code_str">Successfully copied to clipboard</string>
+    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard_in_code_str">Failed to copy text clipboard</string>
 
     <string name="fragmentColorPicker_tab_color_picker_str">Color Picker</string>
     <string name="fragmentColorPicker_tab_rgb_str" translatable="false">RGB</string>
