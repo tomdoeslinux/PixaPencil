@@ -21,18 +21,20 @@ class DitherBrushesViewHolder(val binding: BrushesLayoutBinding, private val con
         binding.brushesLayoutMaterialCardView.layoutParams.width = 200
         binding.brushesLayoutMaterialCardView.layoutParams.height = 200
 
-        val bmp = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888)
+        val ditherBrushPreviewBitmap = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888)
 
         for (i_1 in 0..9) {
             for (i_2 in 0..9) {
                 if (ditherBrush.algorithm.invoke(Coordinates(i_1, i_2))) {
-                    bmp.setPixel(Coordinates(i_1, i_2), ColorDatabase.toList().first())
+                    ditherBrushPreviewBitmap.setPixel(Coordinates(i_1, i_2), ColorDatabase.toList().first())
+                } else {
+                    ditherBrushPreviewBitmap.setPixel(Coordinates(i_1, i_2), Color.WHITE)
                 }
             }
         }
 
         val img = ImageView(context)
-        img.setImageBitmap(bmp.scale(200, 200, false))
+        img.setImageBitmap(ditherBrushPreviewBitmap.scale(200, 200, false))
 
         binding.brushesLayoutMaterialCardView.addView(img)
     }
