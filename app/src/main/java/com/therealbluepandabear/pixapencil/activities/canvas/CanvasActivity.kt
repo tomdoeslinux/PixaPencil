@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -231,5 +230,9 @@ class CanvasActivity :
         viewModel.currentDitherBrush = ditherBrush
         pixelGridViewInstance.currentDitherBrush = viewModel.currentDitherBrush
         supportFragmentManager.popBackStackImmediate()
+
+        binding.root.post {
+            judgeUndoRedoStacks()
+        }
     }
 }
