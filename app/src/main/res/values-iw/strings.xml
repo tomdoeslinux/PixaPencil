@@ -47,6 +47,7 @@
     <string name="fragment_color_picker_title_in_code_str">בחר צבע</string>
     <string name="fragment_new_color_palette_title_in_code_str">פלטת צבעים חדשה</string>
     <string name="fragment_spray_tool_settings_title_in_code_str">הגדרות כלי ספריי צבע</string>
+    <string name="fragment_dither_tool_settings_title_in_code_str">הגדרות כלי דיטר</string>
 
     <string name="fragmentTools_pencil_tool_content_description">כלי עיפרון</string>
     <string name="fragmentTools_eraser_tool_content_description">כלי מחק</string>
