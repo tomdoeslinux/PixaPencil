@@ -68,6 +68,18 @@ object DitherBrushDatabase {
             DitherBrush(14) {
                 it.x % 3 == 0 || it.y % 2 == 0
             },
+
+            DitherBrush(15) {
+                ((it.x + it.y) % 2 == 0) || (it.y % 3 == 0)
+            },
+
+            DitherBrush(15) {
+                ((it.x + it.y) % 2 == 0) || (it.x % 3 == 0)
+            },
+
+            DitherBrush(15) {
+                ((it.x + it.y) % 2 == 0) || (it.x % 3 == 0 || it.y % 3 == 0 )
+            },
         )
 
         for (brush in ditherBrushData) {
