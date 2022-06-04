@@ -61,11 +61,11 @@ object DitherBrushDatabase {
                 !((it.x + it.y) % 4 == 0 || (it.x - it.y) % 4 == 0)
             },
 
-            DitherBrush(12) {
+            DitherBrush(13) {
                 it.y % 3 == 0 || it.x % 2 == 0
             },
 
-            DitherBrush(12) {
+            DitherBrush(14) {
                 it.x % 3 == 0 || it.y % 2 == 0
             },
         )
