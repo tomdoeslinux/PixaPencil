@@ -2,7 +2,9 @@ package com.therealbluepandabear.pixapencil.activities.canvas.viewmodel
 
 import android.graphics.Color
 import androidx.lifecycle.ViewModel
+import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
 import com.therealbluepandabear.pixapencil.models.BitmapAction
+import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 class CanvasActivityViewModel : ViewModel() {
     var bitmapActionData: MutableList<BitmapAction> = mutableListOf()
@@ -14,4 +16,6 @@ class CanvasActivityViewModel : ViewModel() {
 
     var primaryColor: Int = Color.BLACK
     var secondaryColor: Int = Color.BLUE
+
+    var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
 }

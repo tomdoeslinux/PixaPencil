@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
+import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tool
@@ -18,6 +19,8 @@ import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 class PixelGridView : View, PixelatedView {
+    var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
+
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 

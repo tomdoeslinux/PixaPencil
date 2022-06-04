@@ -11,6 +11,7 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.fragments.dithertoolsettings.DitherToolSettingsFragment
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -50,6 +51,15 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         if (currentTool == Tool.SprayTool) {
             supportFragmentManager.commit {
                 replace(R.id.activityCanvas_primaryFragmentHost, SprayToolSettingsFragment.newInstance(sharedPreferenceObject))
+                addToBackStack(null)
+            }
+        }
+    }
+
+    if (toolName == StringConstants.Identifiers.DitherToolIdentifier && currentTool == Tool.DitherTool) {
+        if (currentTool == Tool.DitherTool) {
+            supportFragmentManager.commit {
+                replace(R.id.activityCanvas_primaryFragmentHost, DitherToolSettingsFragment.newInstance())
                 addToBackStack(null)
             }
         }
