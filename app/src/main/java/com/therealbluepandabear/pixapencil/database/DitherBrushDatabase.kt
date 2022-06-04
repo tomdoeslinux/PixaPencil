@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.database
 
 import com.therealbluepandabear.pixapencil.models.DitherBrush
-import kotlin.math.floor
 
 object DitherBrushDatabase {
     private val database = mutableListOf<DitherBrush>()
@@ -60,6 +59,14 @@ object DitherBrushDatabase {
 
             DitherBrush(12) {
                 !((it.x + it.y) % 4 == 0 || (it.x - it.y) % 4 == 0)
+            },
+
+            DitherBrush(12) {
+                it.y % 3 == 0 || it.x % 2 == 0
+            },
+
+            DitherBrush(12) {
+                it.x % 3 == 0 || it.y % 2 == 0
             },
         )
 
