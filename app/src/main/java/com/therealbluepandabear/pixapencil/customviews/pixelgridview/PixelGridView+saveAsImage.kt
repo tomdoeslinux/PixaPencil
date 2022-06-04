@@ -11,7 +11,6 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
-import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.general.BitmapCompressFormatUtilities
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import java.io.File

@@ -5,7 +5,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.onSaveProjectOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButton
-import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.extendedOnBackPressed() {
     if (supportFragmentManager.backStackEntryCount > 0) {

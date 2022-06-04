@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.content.res.Configuration
-import android.graphics.Color
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity

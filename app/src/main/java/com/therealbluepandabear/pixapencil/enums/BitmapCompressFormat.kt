@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.enums
 
 import android.graphics.Bitmap
 import android.os.Build
-import com.tianscar.quickbitmap.BitmapEncoder
 
 enum class BitmapCompressFormat(val correspondingEnum: () -> Bitmap.CompressFormat?) {
     PNG ({

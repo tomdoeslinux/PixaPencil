@@ -1,13 +1,11 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Bitmap
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
-import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 
 fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     val fileHelperUtil = FileHelperUtilities.createInstance(this)
