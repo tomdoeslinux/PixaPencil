@@ -16,16 +16,16 @@ object BrushesDatabase {
 
     init {
         val brushesData = listOf(
-            Brush(0, listOf(), R.drawable.brush_0),
+            Brush(listOf(), R.drawable.brush_0),
 
-            Brush(1, listOf(
+            Brush(listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTop, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottom, 1),
             ), R.drawable.brush_1),
 
-            Brush(2, listOf(
+            Brush(listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTop, 1),
@@ -36,7 +36,7 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.ExpandTopRight, 1),
             ), R.drawable.brush_2),
 
-            Brush(3, listOf(
+            Brush(listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandRight, 2),
 
@@ -44,7 +44,7 @@ object BrushesDatabase {
                 BrushInstructionCommand(BrushInstruction.ExpandLeft, 2),
             ), R.drawable.brush_3),
 
-            Brush(4, listOf(
+            Brush(listOf(
                 BrushInstructionCommand(BrushInstruction.ExpandBottomLeft, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandBottomRight, 1),
                 BrushInstructionCommand(BrushInstruction.ExpandTopLeft, 1),
@@ -62,6 +62,7 @@ object BrushesDatabase {
             ), R.drawable.brush_4))
 
         for (brush in brushesData) {
+            brush.id = brushesData.indexOf(brush)
             addBrush(brush)
         }
     }

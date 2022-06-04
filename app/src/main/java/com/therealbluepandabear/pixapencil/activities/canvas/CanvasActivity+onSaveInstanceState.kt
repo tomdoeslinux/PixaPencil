@@ -16,7 +16,7 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     outState.putString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier, fileName)
     outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
     outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
-    pixelGridViewInstance.currentBrush?.brushId?.let {
+    pixelGridViewInstance.currentBrush?.id?.let {
         outState.putInt(StringConstants.Identifiers.PrevBrushBundleIdentifier,
             it
         )

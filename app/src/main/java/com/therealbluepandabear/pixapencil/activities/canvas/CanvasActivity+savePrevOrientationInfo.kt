@@ -40,7 +40,7 @@ fun CanvasActivity.savePrevOrientationInfo() {
 
             if (prevBrushStr != null) {
                 pixelGridViewInstance.currentBrush =
-                    BrushesDatabase.toList().find { it.brushId == prevBrushStr }
+                    BrushesDatabase.toList().find { it.id == prevBrushStr }
             }
 
             if (prevTab != 0) {

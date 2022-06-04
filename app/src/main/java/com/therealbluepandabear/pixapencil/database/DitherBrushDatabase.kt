@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.database
 
+import android.util.Log
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 object DitherBrushDatabase {
@@ -13,77 +14,79 @@ object DitherBrushDatabase {
 
     init {
         val ditherBrushData = listOf(
-            DitherBrush(1) {
+            DitherBrush {
                 (it.x + it.y) % 2 == 0
             },
 
-            DitherBrush(2) {
+            DitherBrush {
                 it.x % 3 == 0
             },
 
-            DitherBrush(3) {
+            DitherBrush {
                 it.y % 3 == 0
             },
 
-            DitherBrush(4) {
+            DitherBrush {
                 (it.x + it.y) % 3 != 0
             },
 
-            DitherBrush(5) {
+            DitherBrush {
                 (it.x + it.y) % 3 == 0
             },
 
-            DitherBrush(6) {
+            DitherBrush {
                 it.x % 3 == 0 || it.y % 3 == 0
             },
 
-            DitherBrush(7) {
+            DitherBrush {
                 it.x % 3 != 0 || it.y % 3 != 0
             },
 
-            DitherBrush(8) {
+            DitherBrush {
                 it.x % 3 != 0 && it.y % 3 != 0
             },
 
-            DitherBrush(9) {
+            DitherBrush {
                 it.x % 3 == 0 || it.y % 3 != 0
             },
 
-            DitherBrush(10) {
+            DitherBrush {
                 (it.x + it.y) % 4 != 0
             },
 
-            DitherBrush(11) {
+            DitherBrush {
                 (it.x + it.y) % 4 == 0 || (it.x - it.y) % 4 == 0
             },
 
-            DitherBrush(12) {
+            DitherBrush {
                 !((it.x + it.y) % 4 == 0 || (it.x - it.y) % 4 == 0)
             },
 
-            DitherBrush(13) {
+            DitherBrush {
                 it.y % 3 == 0 || it.x % 2 == 0
             },
 
-            DitherBrush(14) {
+            DitherBrush {
                 it.x % 3 == 0 || it.y % 2 == 0
             },
 
-            DitherBrush(15) {
+            DitherBrush {
                 ((it.x + it.y) % 2 == 0) || (it.y % 3 == 0)
             },
 
-            DitherBrush(15) {
+            DitherBrush {
                 ((it.x + it.y) % 2 == 0) || (it.x % 3 == 0)
             },
 
-            DitherBrush(15) {
+            DitherBrush {
                 ((it.x + it.y) % 2 == 0) || (it.x % 3 == 0 || it.y % 3 == 0 )
             },
         )
 
-        for (brush in ditherBrushData) {
-            addDitherBrush(brush)
+        for (ditherBrush in ditherBrushData) {
+            ditherBrush.id = ditherBrushData.indexOf(ditherBrush)
+            Log.d("BEPPER", ditherBrush.id.toString())
+            addDitherBrush(ditherBrush)
         }
     }
 }
