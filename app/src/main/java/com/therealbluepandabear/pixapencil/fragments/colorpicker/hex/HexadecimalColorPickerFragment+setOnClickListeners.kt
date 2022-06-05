@@ -14,7 +14,7 @@ fun HexadecimalColorPickerFragment.setOnClickListeners() {
     binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputLayout.setEndIconOnClickListener {
         val code = this@setOnClickListeners.requireContext().copyToClipboard("hex_code", binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.text.toString())
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             if (code == OutputCode.Success) {
                 binding.fragmentHexadecimalColorPickerCoordinatorLayout.showSnackbar(
                     getString(R.string.fragmentHexadecimalColorPicker_successfully_copied_to_clipboard_in_code_str),
