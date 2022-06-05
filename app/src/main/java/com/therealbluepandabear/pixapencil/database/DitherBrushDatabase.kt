@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.database
 
-import android.util.Log
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 object DitherBrushDatabase {
@@ -85,7 +84,6 @@ object DitherBrushDatabase {
 
         for (ditherBrush in ditherBrushData) {
             ditherBrush.id = ditherBrushData.indexOf(ditherBrush)
-            Log.d("BEPPER", ditherBrush.id.toString())
             addDitherBrush(ditherBrush)
         }
     }
