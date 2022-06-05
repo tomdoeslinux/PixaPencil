@@ -5,6 +5,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
+import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showDitherToolTip
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showShadingToolTip
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showSprayToolTip
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -45,6 +46,16 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     if (showShadingToolTip) {
         showShadingToolTip()
+    }
+
+    val showDitherToolTip = (
+            toolName == StringConstants.Identifiers.DitherToolIdentifier &&
+                    currentTool != Tool.DitherTool &&
+                    sharedPreferenceShowDitherToolTip
+            )
+
+    if (showDitherToolTip) {
+        showDitherToolTip()
     }
 
     if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tool.SprayTool) {

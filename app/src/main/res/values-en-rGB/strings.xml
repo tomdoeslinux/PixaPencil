@@ -229,6 +229,7 @@
     <!--Tooltip strings-->
     <string name="shading_tool_tip_in_code_str">Tip: tap on icon to change shading mode</string>
     <string name="spray_tool_tip_in_code_str">Tip: tap on icon to change spray settings</string>
+    <string name="dither_tool_tip_in_code_str">Tip: tap on icon to change dither brush</string>
     <string name="tool_tip_dont_show_again_in_code_str">Don\'t show again</string>
 
     <!--Spotlight strings-->

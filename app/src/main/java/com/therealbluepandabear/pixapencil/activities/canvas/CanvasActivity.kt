@@ -106,6 +106,7 @@ class CanvasActivity :
 
     var sharedPreferenceShowSprayToolTip = true
     var sharedPreferenceShowShadingToolTip = true
+    var sharedPreferenceShowDitherToolTip = true
 
     inner class CanvasCommandsHelper(val baseReference: CanvasActivity = this@CanvasActivity)
 

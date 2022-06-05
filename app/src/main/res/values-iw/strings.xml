@@ -226,6 +226,7 @@
     <!--Tooltip strings-->
     <string name="shading_tool_tip_in_code_str">עֵצָה: הקש על האייקון כדי לשנות את מצב ההצללה</string>
     <string name="spray_tool_tip_in_code_str">עֵצָה: הקש על הסמל כדי לשנות את הגדרות כלי הריסוס</string>
+    <string name="dither_tool_tip_in_code_str">טיפ: הקש על הסמל כדי לשנות מברשת דיטר</string>
     <string name="tool_tip_dont_show_again_in_code_str">אל תראה שוב</string>
 
     <!--Spotlight strings-->

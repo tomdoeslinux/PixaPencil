@@ -43,6 +43,7 @@ object StringConstants {
         const val SharedPreferenceGridIdentifier = "grid_shared_pref"
         const val SharedPreferenceShowSprayToolTipIdentifier = "show_spray_tooltip_shared_pref"
         const val SharedPreferenceShowShadingToolTipIdentifier = "show_shading_tooltip_shared_pref"
+        const val SharedPreferenceShowDitherToolTipIdentifier = "show_dither_tooltip_shared_pref"
 
         const val PrevOrientationBundleIdentifier = "prev_orientation_bundle_identifier"
         const val PrevBitmapFilePathBundleIdentifier = "prev_bitmap_file_path_bundle_identifier"
