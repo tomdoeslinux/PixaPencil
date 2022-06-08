@@ -196,7 +196,7 @@
     <string name="dialog_clear_canvas_title_in_code_str">נקה תוכן קנבס</string>
     <string name="dialog_clear_canvas_message_in_code_str">האם אתה בטוח שברצונך להסיר את תוכן הקנבס?</string>
     <string name="dialog_unsaved_changes_title_in_code_str">בקובץ הזה יש שינויים שלא נשמרו</string>
-    <string name="dialog_unsaved_changes_message_in_code_str">Save changes to %1$s?</string>
+    <string name="dialog_unsaved_changes_message_in_code_str">האם לשמור שינויים עבור %1$s?</string>
     <string name="dialog_file_exists_title_in_code_str">קובץ בשם זה כבר קיים</string>
     <string name="dialog_file_exists_message_in_code_str">תמונה בשם %1$s כבר קיימת, להחליף אותה או לשמור בשם חדש?</string>
     <string name="dialog_file_exists_positive_button_text_in_code_str">החלף את הקובץ</string>
