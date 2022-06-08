@@ -51,6 +51,8 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Outlined rectangle tool
 - Square tool
 - Outlined square tool
+- Ellipse Tool
+- Outlined Ellipse Tool
 - Circle Tool
 - Outlined Circle Tool
 - Spray tool
