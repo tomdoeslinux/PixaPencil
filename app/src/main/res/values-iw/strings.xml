@@ -151,6 +151,14 @@
     <string name="outlined_square_tool_info_title_in_code_str">מידע על הכלי ליצירת הריבועים (עם קווי מתאר)</string>
     <string name="outlined_square_tool_info_text_in_code_str">כלי זה מצייר ריבועים עם קווי מתאר ומפוקסלים.</string>
 
+    <!--Ellipse tool information strings-->
+    <string name="ellipse_tool_info_title_in_code_str">מידע על כלי אליפסה</string>
+    <string name="ellipse_tool_info_text_in_code_str">כלי זה מצייר אליפסות מלאות בצבע ומפוקסלות.</string>
+
+    <!--Outlined ellipse tool information strings-->
+    <string name="outlined_ellipse_tool_info_title_in_code_str">מידע על כלי אליפסה (עם קווי מתאר)</string>
+    <string name="outlined_ellipse_tool_info_text_in_code_str">כלי זה מצייר אליפסות עם קווי מתאר ופיקסלים.</string>
+
     <!--Circle tool information strings-->
     <string name="circle_tool_info_title_in_code_str">מידע על כלי ליצירת המעגלים</string>
     <string name="circle_tool_info_text_in_code_str">כלי זה מצייר עיגולים מלאים בצבע ומפוקסלים.</string>

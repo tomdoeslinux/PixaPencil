@@ -64,6 +64,22 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
+        StringConstants.Identifiers.EllipseToolIdentifier -> {
+            if (currentTool == Tool.EllipseTool) {
+                showSimpleInfoDialog(
+                    getString(R.string.ellipse_tool_info_title_in_code_str),
+                    getString(R.string.ellipse_tool_info_text_in_code_str))
+            }
+        }
+
+        StringConstants.Identifiers.OutlinedEllipseToolIdentifier -> {
+            if (currentTool == Tool.OutlinedEllipseTool) {
+                showSimpleInfoDialog(
+                    getString(R.string.outlined_ellipse_tool_info_title_in_code_str),
+                    getString(R.string.outlined_ellipse_tool_info_text_in_code_str))
+            }
+        }
+
         StringConstants.Identifiers.CircleToolIdentifier -> {
             if (currentTool == Tool.CircleTool) {
                 showSimpleInfoDialog(

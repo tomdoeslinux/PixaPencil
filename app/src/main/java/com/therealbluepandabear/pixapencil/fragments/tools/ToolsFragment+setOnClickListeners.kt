@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.fragments.tools
 
 import android.content.res.ColorStateList
+import android.util.Log
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
@@ -280,15 +281,16 @@ fun ToolsFragment.setOnClickListeners() {
 
     // ** //
 
-    binding.fragmentToolsOutlinedCircleButton.setOnLongPressListener {
+    binding.fragmentToolsOutlinedEllipseButton.setOnLongPressListener {
         HapticFeedbackWrapper.performHapticFeedback(it)
         caller.onToolLongTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
     }
 
-    binding.fragmentToolsOutlinedCircleButtonH.setOnLongPressListener {
+    binding.fragmentToolsOutlinedEllipseButtonH.setOnLongPressListener {
         HapticFeedbackWrapper.performHapticFeedback(it)
         caller.onToolLongTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
     }
+
     // 1 //
     // 2 //
     // 3 //
