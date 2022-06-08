@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-->
-    Ugly solution, but ¯\_(ツ)_/¯
-<!-->
-
 <FrameLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="105dp"
@@ -11,7 +7,8 @@
     app:layout_constraintStart_toStartOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/defaultFragmentStyle"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="tooManyViews">
 
     <ScrollView
         android:id="@+id/activityCanvas_canvasToolsScrollView"
@@ -179,6 +176,34 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_outlined_circle_tool_content_description"
                     app:srcCompat="@drawable/ic_circle_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_ellipse_tool_content_description"
+                    />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_ellipseButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_ellipse_tool_content_description"
+                    app:srcCompat="@drawable/ic_ellipse"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_outlined_ellipse_button_content_description"
+                    />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedEllipseButton"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_outlined_ellipse_button_content_description"
+                    app:srcCompat="@drawable/ic_ellipse_outline" />
             </FrameLayout>
 
             <FrameLayout
@@ -374,6 +399,34 @@
                     style="@style/canvas_activity_button_tool_style"
                     android:contentDescription="@string/fragmentTools_outlined_square_button_content_description"
                     app:srcCompat="@drawable/ic_square_outline" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_ellipse_tool_content_description"
+                    />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_ellipseButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_ellipse_tool_content_description"
+                    app:srcCompat="@drawable/ic_ellipse"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    style="@style/canvas_activity_button_tool_style_back"
+                    android:contentDescription="@string/fragmentTools_outlined_ellipse_button_content_description"
+                    />
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fragmentTools_outlinedEllipseButton_h"
+                    style="@style/canvas_activity_button_tool_style"
+                    android:contentDescription="@string/fragmentTools_outlined_ellipse_button_content_description"
+                    app:srcCompat="@drawable/ic_ellipse_outline" />
             </FrameLayout>
 
             <FrameLayout

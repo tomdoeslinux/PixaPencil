@@ -4,7 +4,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coord
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, private val invisibleMode: Boolean = false) {
-    private val shouldSquareIgnoreBrush = false
 
     private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
         if (!invisibleMode) {
@@ -81,9 +80,8 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
 
         endCoordinates = Coordinates(from.x - size, from.y + size)
     }
-
     fun compute(from: Coordinates, to: Coordinates) {
-        val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldSquareIgnoreBrush)
+        val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, ignoreBrush = false)
 
         val fromDouble = from.convertToCoordinatesDouble()
         val toDouble = to.convertToCoordinatesDouble()

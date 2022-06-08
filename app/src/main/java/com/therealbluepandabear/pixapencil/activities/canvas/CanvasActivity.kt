@@ -81,6 +81,7 @@ class CanvasActivity :
     var lineModeHasLetGo = false
     var rectangleModeHasLetGo = false
     var circleModeHasLetGo = false
+    var ellipseModeHasLetGo = false
 
     lateinit var sharedPreferenceObject: SharedPreferences
 

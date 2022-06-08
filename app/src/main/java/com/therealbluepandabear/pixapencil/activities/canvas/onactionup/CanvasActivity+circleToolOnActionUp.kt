@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 
 fun CanvasActivity.circleToolOnActionUp() {
-    if (currentTool.toolFamily == ToolFamily.Circle && currentTool.outlined == false) {
+    if (currentTool.toolFamily == ToolFamily.Ellipse && currentTool.outlined == false) {
         val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter, true)
 
         if (circleOrigin!!.x > coordinates!!.x) {

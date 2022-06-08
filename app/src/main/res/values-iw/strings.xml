@@ -58,6 +58,8 @@
     <string name="fragmentTools_outlined_rectangle_tool_content_description">כלי מלבן (עם קווי מתאר)</string>
     <string name="fragmentTools_square_tool_content_description">כלי ליצירת ריבוע</string>
     <string name="fragmentTools_outlined_square_button_content_description">כלי ליצירת ריבוע (עם קווי מתאר)</string>
+    <string name="fragmentTools_ellipse_tool_content_description">Ellipse Tool</string>
+    <string name="fragmentTools_outlined_ellipse_button_content_description">Outlined Ellipse Tool</string>
     <string name="fragmentTools_circle_tool_content_description">כלי ליצירת מעגלים</string>
     <string name="fragmentTools_outlined_circle_tool_content_description">כלי ליצירת מעגלים (עם קווי מתאר)</string>
     <string name="fragmentTools_spray_tool_content_description">כלי ספריי צבע</string>

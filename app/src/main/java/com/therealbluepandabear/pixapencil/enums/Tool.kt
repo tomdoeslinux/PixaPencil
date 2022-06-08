@@ -61,16 +61,30 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
         true,
     ),
 
+    EllipseTool(
+        StringConstants.Identifiers.EllipseToolIdentifier,
+        ToolFamily.Ellipse,
+        true,
+        false,
+    ),
+
+    OutlinedEllipseTool(
+        StringConstants.Identifiers.OutlinedEllipseToolIdentifier,
+        ToolFamily.Ellipse,
+        true,
+        false,
+    ),
+
     CircleTool(
         StringConstants.Identifiers.CircleToolIdentifier,
-        ToolFamily.Circle,
+        ToolFamily.Ellipse,
         true,
         false,
     ),
 
     OutlinedCircleTool(
         StringConstants.Identifiers.OutlinedCircleToolIdentifier,
-        ToolFamily.Circle,
+        ToolFamily.Ellipse,
         true,
         true,
     ),

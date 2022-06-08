@@ -60,6 +60,8 @@
     <string name="fragmentTools_outlined_rectangle_tool_content_description">Outlined Rectangle Tool</string>
     <string name="fragmentTools_square_tool_content_description">Square Tool</string>
     <string name="fragmentTools_outlined_square_button_content_description">Outlined Square Tool</string>
+    <string name="fragmentTools_ellipse_tool_content_description">Ellipse Tool</string>
+    <string name="fragmentTools_outlined_ellipse_button_content_description">Outlined Ellipse Tool</string>
     <string name="fragmentTools_circle_tool_content_description">Circle Tool</string>
     <string name="fragmentTools_outlined_circle_tool_content_description">Outlined Circle Tool</string>
     <string name="fragmentTools_spray_tool_content_description">Spray Tool</string>

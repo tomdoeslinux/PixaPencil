@@ -36,8 +36,12 @@ fun CanvasActivity.extendedOnActionUp() {
             )
         }
 
-        currentTool.toolFamily == ToolFamily.Circle -> {
+        currentTool.toolFamily == ToolFamily.Ellipse && (currentTool == Tool.CircleTool || currentTool == Tool.OutlinedCircleTool) -> {
             circleToolOnActionUp()
+        }
+
+        currentTool.toolFamily == ToolFamily.Ellipse && (currentTool == Tool.EllipseTool || currentTool == Tool.OutlinedEllipseTool) -> {
+            ellipseToolOnActionUp()
         }
 
         currentTool == Tool.EraseTool -> {

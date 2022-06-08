@@ -8,6 +8,7 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 var lineOrigin: Coordinates? = null
 var rectangleOrigin: Coordinates? = null
 var circleOrigin: Coordinates? = null
+var ellipseOrigin: Coordinates? = null
 var polygonCoordinates = mutableListOf<Coordinates>()
 var cindx = 0
 var first = true
@@ -53,6 +54,14 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
 
         Tool.OutlinedSquareTool -> {
             rectangleToolOnPixelTapped(coordinatesTapped, true)
+        }
+
+        Tool.EllipseTool -> {
+            ellipseToolOnPixelTapped(coordinatesTapped)
+        }
+
+        Tool.OutlinedEllipseTool -> {
+            ellipseToolOnPixelTapped(coordinatesTapped)
         }
 
         Tool.CircleTool -> {

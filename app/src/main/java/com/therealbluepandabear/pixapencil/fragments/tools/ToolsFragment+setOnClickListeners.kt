@@ -238,6 +238,62 @@ fun ToolsFragment.setOnClickListeners() {
     // 3 //
     // 4 //
     // 5 //
+    // *************** // Ellipse Tool
+
+    binding.fragmentToolsEllipseButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.EllipseToolIdentifier)
+    }
+
+    binding.fragmentToolsEllipseButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.EllipseToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsEllipseButton.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.EllipseToolIdentifier)
+    }
+
+    binding.fragmentToolsEllipseButtonH.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.EllipseToolIdentifier)
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
+    // *************** // Outlined Ellipse Tool
+
+    binding.fragmentToolsOutlinedEllipseButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
+    }
+
+    binding.fragmentToolsOutlinedEllipseButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsOutlinedCircleButton.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
+    }
+
+    binding.fragmentToolsOutlinedCircleButtonH.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.OutlinedEllipseToolIdentifier)
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
     // *************** // Circle Tool
 
     binding.fragmentToolsCircleButton.setOnClickListener {
