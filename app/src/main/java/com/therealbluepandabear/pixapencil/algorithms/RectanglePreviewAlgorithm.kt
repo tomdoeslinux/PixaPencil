@@ -1,7 +1,5 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import android.graphics.Color
-import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
 import com.therealbluepandabear.pixapencil.models.Coordinates
 

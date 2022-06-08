@@ -2,9 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.algorithms.EllipseAlgorithm
-import com.therealbluepandabear.pixapencil.algorithms.MidpointEllipseAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
-import com.therealbluepandabear.pixapencil.algorithms.SquarePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 

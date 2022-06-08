@@ -1,10 +1,7 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import android.graphics.Color
-import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import kotlin.math.exp
 
 class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val xDEC: Boolean = false, private val yDEC: Boolean = false, private val filledMode: Boolean = false) {
     private val shouldLineIgnoreBrush = true

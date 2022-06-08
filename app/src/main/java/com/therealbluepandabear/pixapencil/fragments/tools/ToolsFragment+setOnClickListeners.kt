@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.fragments.tools
 
 import android.content.res.ColorStateList
-import android.util.Log
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat

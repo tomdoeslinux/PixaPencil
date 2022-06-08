@@ -1,8 +1,5 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import android.graphics.Color
-import android.util.Log
-import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.CoordinatesDouble
 import kotlin.math.abs
