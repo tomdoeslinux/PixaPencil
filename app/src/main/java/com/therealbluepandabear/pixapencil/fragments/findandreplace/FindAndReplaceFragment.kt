@@ -35,7 +35,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private lateinit var paramTransparentBitmapSource: Bitmap
     private lateinit var paramPixelGridViewBitmapSource: Bitmap
     private var paramSelectedColorPaletteIndex: Int = 0
-    private var paramRotation: Int = 0
 
     override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
@@ -43,13 +42,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         paramCanvasColors: List<Int>,
         paramTransparentBitmapSource: Bitmap,
         paramPixelGridViewBitmapSource: Bitmap,
-        paramSelectedColorPaletteIndex: Int,
-        paramRotation: Int) {
+        paramSelectedColorPaletteIndex: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramTransparentBitmapSource = paramTransparentBitmapSource
         this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
         this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
-        this.paramRotation = paramRotation
     }
 
     private fun setup() {
@@ -124,10 +121,9 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             paramCanvasColors: List<Int>,
             paramTransparentBitmapSource: Bitmap,
             paramPixelGridViewBitmapSource: Bitmap,
-            paramSelectedColorPaletteIndex: Int,
-            paramRotation: Int = 0): FindAndReplaceFragment {
+            paramSelectedColorPaletteIndex: Int): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex, paramRotation)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex)
 
             return fragment
         }
