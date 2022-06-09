@@ -4,7 +4,7 @@
     <item android:id="@+id/activityMainTopAppMenu_dark_light_mode_item"
         android:icon="@drawable/ic_theme_light_dark"
         app:showAsAction="ifRoom"
-        android:title="Dark/Light Mode" />
+        android:title="@string/activityMainTopAppMenu_dark_light_mode_str" />
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
         android:icon="@drawable/ic_account_group"
         app:showAsAction="ifRoom"

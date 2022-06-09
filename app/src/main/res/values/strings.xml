@@ -95,6 +95,7 @@
     <string name="activityCanvas_tab_color_palettes_str">Palettes</string>
 
     <!--Menu strings-->
+    <string name="activityMainTopAppMenu_dark_light_mode_str">Dark/Light Mode</string>
     <string name="activityMainTopAppMenu_community_str">Community</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">Undo</string>

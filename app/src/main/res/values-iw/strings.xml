@@ -84,6 +84,7 @@
     <string name="activityCanvas_tab_color_palettes_str">לוחות צבעים</string>
 
     <!--Menu strings-->
+    <string name="activityMainTopAppMenu_dark_light_mode_str">נושא כהה/בהיר</string>
     <string name="activityMainTopAppMenu_community_str">קהילה</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">בטל פעולה</string>
