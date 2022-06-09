@@ -8,7 +8,6 @@ fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevOrientation = savedInstanceState.getInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier)
         prevBitmapFilePathStr = savedInstanceState.getString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier)
         prevToolStr = savedInstanceState.getString(StringConstants.Identifiers.PrevToolBundleIdentifier)
-        prevBrushStr = savedInstanceState.getInt(StringConstants.Identifiers.PrevBrushBundleIdentifier)
         prevTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevTabBundleIdentifier)
         prevUndoToolbarButtonDisabledEnabledState = viewModel.bitmapActionData.isNotEmpty() == true
         prevRedoToolbarButtonDisabledEnabledState = viewModel.undoStack.isNotEmpty() == true

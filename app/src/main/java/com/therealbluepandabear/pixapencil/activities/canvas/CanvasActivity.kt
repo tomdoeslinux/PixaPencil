@@ -90,7 +90,6 @@ class CanvasActivity :
     var prevOrientation: Int = 0
     var prevBitmapFilePathStr: String? = null
     var prevToolStr: String? = null
-    var prevBrushStr: Int = 0
     var prevTab: Int = 0
     var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
     var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
