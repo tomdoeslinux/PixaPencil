@@ -24,5 +24,9 @@ fun CanvasActivity.onCreate() {
         toolsFragmentInstance?.requireView()?.doOnPreDraw {
             toolsFragmentInstance?.tapOnToolByName(viewModel.currentTool.toolName)
         }
+
+        if (viewModel.currentTab in 1..3) {
+            binding.activityCanvasTabLayout.getTabAt(viewModel.currentTab)?.select()
+        }
     }
 }

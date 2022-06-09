@@ -87,12 +87,9 @@ class CanvasActivity :
 
     var prevOrientation: Int = 0
     var prevBitmapFilePathStr: String? = null
-    var prevTab: Int = 0
     var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
     var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
     var prevRotation: Int = 0
-
-    var currentTab = 0
 
     lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
     val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized

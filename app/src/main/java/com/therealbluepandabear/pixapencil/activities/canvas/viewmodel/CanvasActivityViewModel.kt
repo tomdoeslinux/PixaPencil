@@ -25,4 +25,5 @@ class CanvasActivityViewModel : ViewModel() {
     var currentBrush: Brush = BrushesDatabase.toList().first()
     var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
     var currentTool: Tool = Tool.defaultTool
+    var currentTab: Int = 0
 }

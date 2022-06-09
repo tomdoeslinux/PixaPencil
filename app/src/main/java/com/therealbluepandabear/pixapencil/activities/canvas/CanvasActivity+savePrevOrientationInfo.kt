@@ -28,10 +28,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 }
             }
 
-            if (prevTab != 0) {
-                binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
-            }
-
             if (prevUndoToolbarButtonDisabledEnabledState && menu.findItem(R.id.activityCanvasTopAppMenu_undo) != null) {
                 menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
             }
