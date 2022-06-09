@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
@@ -104,15 +105,15 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
                 }
             }
 
-            if (currentBrush != null && !ignoreBrush) {
-                for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates)) {
+            if (baseReference.viewModel.currentBrush != BrushesDatabase.toList().first() && !ignoreBrush) {
+                for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(coordinates)) {
                     if (coordinatesInCanvasBounds(xyPosition_2,baseReference.currentTool, ignoreDither)) {
                         extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                     }
                 }
 
                 if (horizontallyReflectedCoordinates != null) {
-                    for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinates)) {
+                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinates)) {
                         if (coordinatesInCanvasBounds(xyPosition_2, baseReference.currentTool, ignoreDither)) {
                             extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                         }
@@ -120,7 +121,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
                 }
 
                 if (verticallyReflectedCoordinates != null) {
-                    for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinates)) {
+                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinates)) {
                         if (coordinatesInCanvasBounds(xyPosition_2, baseReference.currentTool, ignoreDither)) {
                             extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                         }
@@ -129,7 +130,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
                 if (quadMirroredCoordinates.isNotEmpty()) {
                     for (coordinates_1 in quadMirroredCoordinates) {
-                        for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
+                        for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
                             if (coordinatesInCanvasBounds(xyPosition_2, baseReference.currentTool, ignoreDither)) {
                                 extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                             }
@@ -139,7 +140,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
                 if (octalMirroredCoordinates.isNotEmpty()) {
                     for (coordinates_1 in octalMirroredCoordinates) {
-                        for (xyPosition_2 in currentBrush!!.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
+                        for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(coordinates_1)) {
                             if (coordinatesInCanvasBounds(xyPosition_2, baseReference.currentTool, ignoreDither)) {
                                 extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                             }

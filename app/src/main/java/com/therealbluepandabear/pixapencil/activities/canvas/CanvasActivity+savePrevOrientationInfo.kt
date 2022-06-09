@@ -38,10 +38,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 toolsFragmentInstance?.tapOnToolByName(prevToolStr!!)
             }
 
-                pixelGridViewInstance.currentBrush =
-                    BrushesDatabase.toList().find { it.id == prevBrushStr }
-
-
             if (prevTab != 0) {
                 binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
             }

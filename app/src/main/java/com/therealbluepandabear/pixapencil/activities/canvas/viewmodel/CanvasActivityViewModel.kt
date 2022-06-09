@@ -2,8 +2,10 @@ package com.therealbluepandabear.pixapencil.activities.canvas.viewmodel
 
 import android.graphics.Color
 import androidx.lifecycle.ViewModel
+import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
 import com.therealbluepandabear.pixapencil.models.BitmapAction
+import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 class CanvasActivityViewModel : ViewModel() {
@@ -18,4 +20,5 @@ class CanvasActivityViewModel : ViewModel() {
     var secondaryColor: Int = Color.BLUE
 
     var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
+    var currentBrush: Brush = BrushesDatabase.toList().first()
 }

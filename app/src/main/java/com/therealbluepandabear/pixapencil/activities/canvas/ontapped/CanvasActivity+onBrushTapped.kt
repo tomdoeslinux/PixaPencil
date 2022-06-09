@@ -1,8 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.models.Brush
 
-fun extendedOnBrushTapped(selectedBrush: Brush) {
-    pixelGridViewInstance.currentBrush = selectedBrush
+fun CanvasActivity.extendedOnBrushTapped(selectedBrush: Brush) {
+    viewModel.currentBrush = selectedBrush
 }

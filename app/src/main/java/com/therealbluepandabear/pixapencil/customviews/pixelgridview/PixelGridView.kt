@@ -28,8 +28,6 @@ class PixelGridView : View, PixelatedView {
     var prevX: Int? = null
     var prevY: Int? = null
 
-    var currentBrush: Brush? = null
-
     var pixelPerfectMode: Boolean = false
 
     var gridEnabled = false

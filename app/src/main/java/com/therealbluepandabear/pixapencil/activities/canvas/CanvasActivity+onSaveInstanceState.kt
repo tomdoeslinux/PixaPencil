@@ -16,11 +16,6 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     outState.putString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier, fileName)
     outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
     outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
-    pixelGridViewInstance.currentBrush?.id?.let {
-        outState.putInt(StringConstants.Identifiers.PrevBrushBundleIdentifier,
-            it
-        )
-    }
     outState.putInt(StringConstants.Identifiers.PrevTabBundleIdentifier, currentTab)
     outState.putString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
     outState.putInt(StringConstants.Identifiers.PrevRotationBundleIdentifier, outerCanvasInstance.getCurrentRotation().toInt())

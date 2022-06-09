@@ -53,7 +53,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         else -> {
-            val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && currentTool == Tool.PencilTool && (pixelGridViewInstance.currentBrush == BrushesDatabase.toList().first() || pixelGridViewInstance.currentBrush == null))
+            val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()
