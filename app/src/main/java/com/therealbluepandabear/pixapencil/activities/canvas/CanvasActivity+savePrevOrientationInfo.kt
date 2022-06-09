@@ -28,16 +28,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 }
             }
 
-            if (prevToolStr != null) {
-                currentTool = if (Tool.findToolByName(prevToolStr!!) != null) {
-                    Tool.findToolByName(prevToolStr!!)!!
-                } else {
-                    Tool.PencilTool
-                }
-
-                toolsFragmentInstance?.tapOnToolByName(prevToolStr!!)
-            }
-
             if (prevTab != 0) {
                 binding.activityCanvasTabLayout.getTabAt(prevTab)?.select()
             }

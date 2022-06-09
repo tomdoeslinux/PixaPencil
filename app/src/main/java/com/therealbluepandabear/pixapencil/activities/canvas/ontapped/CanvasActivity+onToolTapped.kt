@@ -18,11 +18,11 @@ import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    if (currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
+    if (viewModel.currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
         pixelGridViewInstance.shadingMode = false
     }
 
-    if (currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
+    if (viewModel.currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
         Flags.DisableActionMove = false
         polygonCoordinates.clear()
         cindx = 0
@@ -30,7 +30,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     val showSprayToolTip = (
                     toolName == StringConstants.Identifiers.SprayToolIdentifier &&
-                            currentTool != Tool.SprayTool &&
+                            viewModel.currentTool != Tool.SprayTool &&
                             sharedPreferenceShowSprayToolTip
     )
 
@@ -40,7 +40,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     val showShadingToolTip = (
             toolName == StringConstants.Identifiers.ShadingToolIdentifier &&
-                    currentTool != Tool.ShadingTool &&
+                    viewModel.currentTool != Tool.ShadingTool &&
                     sharedPreferenceShowShadingToolTip
             )
 
@@ -50,7 +50,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     val showDitherToolTip = (
             toolName == StringConstants.Identifiers.DitherToolIdentifier &&
-                    currentTool != Tool.DitherTool &&
+                    viewModel.currentTool != Tool.DitherTool &&
                     sharedPreferenceShowDitherToolTip
             )
 
@@ -58,8 +58,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         showDitherToolTip()
     }
 
-    if (toolName == StringConstants.Identifiers.SprayToolIdentifier && currentTool == Tool.SprayTool) {
-        if (currentTool == Tool.SprayTool) {
+    if (toolName == StringConstants.Identifiers.SprayToolIdentifier && viewModel.currentTool == Tool.SprayTool) {
+        if (viewModel.currentTool == Tool.SprayTool) {
             supportFragmentManager.commit {
                 replace(R.id.activityCanvas_primaryFragmentHost, SprayToolSettingsFragment.newInstance(sharedPreferenceObject))
                 addToBackStack(null)
@@ -67,8 +67,8 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
     }
 
-    if (toolName == StringConstants.Identifiers.DitherToolIdentifier && currentTool == Tool.DitherTool) {
-        if (currentTool == Tool.DitherTool) {
+    if (toolName == StringConstants.Identifiers.DitherToolIdentifier && viewModel.currentTool == Tool.DitherTool) {
+        if (viewModel.currentTool == Tool.DitherTool) {
             supportFragmentManager.commit {
                 replace(R.id.activityCanvas_primaryFragmentHost, DitherToolSettingsFragment.newInstance())
                 addToBackStack(null)
@@ -76,7 +76,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
     }
 
-    if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && currentTool == Tool.ShadingTool) {
+    if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && viewModel.currentTool == Tool.ShadingTool) {
         val snackbarText: String = if (shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
             getString(R.string.generic_darken_mode_tooltip_in_code_str).also {
                 shadingToolMode = StringConstants.ShadingToolModes.DarkenShadingToolMode
@@ -90,14 +90,14 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         binding.clayout?.showSnackbar(snackbarText, SnackbarDuration.Short)
     }
 
-    if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && currentTool == Tool.PolygonTool) {
+    if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && viewModel.currentTool == Tool.PolygonTool) {
         viewModel.currentBitmapAction = null
 
         polygonCoordinates.clear()
         cindx = 0
     }
 
-    currentTool = Tool.values().firstOrNull {
+    viewModel.currentTool = Tool.values().firstOrNull {
         it.toolName == toolName
     } ?: Tool.defaultTool
 }

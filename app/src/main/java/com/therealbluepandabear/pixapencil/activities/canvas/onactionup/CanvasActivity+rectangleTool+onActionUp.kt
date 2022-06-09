@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.enums.ToolFamily
 fun CanvasActivity.rectangleToolOnActionUp() {
     if (coordinates != null && rectangleOrigin != null) {
         val rectAlg: RectangleAlgorithm? =
-            if (currentTool.toolFamily == ToolFamily.Rectangle && currentTool.outlined == false) {
+            if (viewModel.currentTool.toolFamily == ToolFamily.Rectangle && viewModel.currentTool.outlined == false) {
                 RectangleAlgorithm(primaryAlgorithmInfoParameter)
             } else {
                 null

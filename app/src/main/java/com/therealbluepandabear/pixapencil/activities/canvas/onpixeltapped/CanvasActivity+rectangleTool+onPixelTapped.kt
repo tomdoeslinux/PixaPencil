@@ -15,7 +15,7 @@ var firstRectangleDrawn = false
 
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
-    if (currentTool == Tool.RectangleTool || currentTool == Tool.OutlinedRectangleTool) {
+    if (viewModel.currentTool == Tool.RectangleTool || viewModel.currentTool == Tool.OutlinedRectangleTool) {
         rectangleAlgorithmInstance = if (!hasBorder) {
             RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
         } else {

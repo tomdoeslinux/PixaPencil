@@ -17,34 +17,34 @@ fun resetPreviousCoordinates() {
 }
 
 fun CanvasActivity.extendedOnActionUp() {
-    if (currentTool == Tool.ShadingTool) {
+    if (viewModel.currentTool == Tool.ShadingTool) {
         pixelGridViewInstance.shadingMap.clear()
     }
 
     when {
-        currentTool == Tool.LineTool -> {
+        viewModel.currentTool == Tool.LineTool -> {
             lineToolOnActionUp()
         }
 
-        currentTool.toolFamily == ToolFamily.Rectangle -> {
+        viewModel.currentTool.toolFamily == ToolFamily.Rectangle -> {
             rectangleToolOnActionUp()
         }
 
-        currentTool == Tool.PolygonTool -> {
+        viewModel.currentTool == Tool.PolygonTool -> {
             viewModel.bitmapActionData.add(
                 viewModel.currentBitmapAction!!
             )
         }
 
-        currentTool.toolFamily == ToolFamily.Ellipse && (currentTool == Tool.CircleTool || currentTool == Tool.OutlinedCircleTool) -> {
+        viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.CircleTool || viewModel.currentTool == Tool.OutlinedCircleTool) -> {
             circleToolOnActionUp()
         }
 
-        currentTool.toolFamily == ToolFamily.Ellipse && (currentTool == Tool.EllipseTool || currentTool == Tool.OutlinedEllipseTool) -> {
+        viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.EllipseTool || viewModel.currentTool == Tool.OutlinedEllipseTool) -> {
             ellipseToolOnActionUp()
         }
 
-        currentTool == Tool.EraseTool -> {
+        viewModel.currentTool == Tool.EraseTool -> {
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
@@ -53,7 +53,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         else -> {
-            val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
+            val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()

@@ -66,8 +66,6 @@ class CanvasActivity :
     var isSelected = false
     var background: Drawable? = null
 
-    var currentTool: Tool = Tool.defaultTool
-
     var saved = true
 
     lateinit var menu: Menu
@@ -89,7 +87,6 @@ class CanvasActivity :
 
     var prevOrientation: Int = 0
     var prevBitmapFilePathStr: String? = null
-    var prevToolStr: String? = null
     var prevTab: Int = 0
     var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
     var prevRedoToolbarButtonDisabledEnabledState: Boolean = false

@@ -28,8 +28,6 @@ class ToolsFragment : Fragment() {
         } else {
             onOptionTapped(binding.fragmentToolsPencilButtonH)
         }
-
-        caller.onToolTapped(StringConstants.Identifiers.PencilToolIdentifier)
     }
 
     fun tapOnToolByName(toolName: String) {

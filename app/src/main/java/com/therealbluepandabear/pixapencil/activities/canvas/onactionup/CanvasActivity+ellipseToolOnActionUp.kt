@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.algorithms.EllipseAlgorithm
 import com.therealbluepandabear.pixapencil.enums.Tool
 
 fun CanvasActivity.ellipseToolOnActionUp() {
-    if (currentTool == Tool.EllipseTool && currentTool.outlined == false) {
+    if (viewModel.currentTool == Tool.EllipseTool && viewModel.currentTool.outlined == false) {
         val circleAlgorithmInstance = EllipseAlgorithm(primaryAlgorithmInfoParameter, true)
 
         if (ellipseOrigin!!.x > coordinates!!.x) {

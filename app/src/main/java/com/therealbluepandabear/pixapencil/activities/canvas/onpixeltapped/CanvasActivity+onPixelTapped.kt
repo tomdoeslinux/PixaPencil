@@ -19,7 +19,7 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     }
 
     saved = false
-    when (currentTool) {
+    when (viewModel.currentTool) {
         Tool.PencilTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)
         }
