@@ -21,7 +21,6 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapt
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
-import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
@@ -87,7 +86,7 @@ class CanvasActivity :
 
     var prevOrientation: Int = 0
     var prevBitmapFilePathStr: String? = null
-    var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
+    var prevUndoToolbarButtonDisabledEnabledState: Boolean = false
     var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
     var prevRotation: Int = 0
 

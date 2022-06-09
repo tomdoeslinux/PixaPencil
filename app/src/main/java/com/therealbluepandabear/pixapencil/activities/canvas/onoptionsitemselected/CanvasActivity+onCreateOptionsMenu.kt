@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import android.util.Log
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity

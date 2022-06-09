@@ -6,17 +6,14 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
-import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
-import com.therealbluepandabear.pixapencil.enums.SymmetryMode
-import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
-import com.therealbluepandabear.pixapencil.models.*
-import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
-import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
+import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
+import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 class PixelGridView : View, PixelatedView {
     lateinit var pixelGridViewCanvas: Canvas

@@ -3,9 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.view.ViewTreeObserver
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.database.BrushesDatabase
-import com.therealbluepandabear.pixapencil.enums.SymmetryMode
-import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.extensions.isEmpty
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
