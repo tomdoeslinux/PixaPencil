@@ -50,27 +50,6 @@ fun CanvasActivity.savePrevOrientationInfo() {
                 menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()
             }
 
-            if (prevSymmetryModeStr != null) {
-                pixelGridViewInstance.symmetryMode =
-                    SymmetryMode.values().first { it.symmetryName == prevSymmetryModeStr }
-
-                when (pixelGridViewInstance.symmetryMode) {
-                    SymmetryMode.Horizontal -> {
-                        menu.findItem(R.id.appMenu_symmetry_horizontal_subItem).isChecked = true
-                    }
-
-                    SymmetryMode.Vertical -> {
-                        menu.findItem(R.id.appMenu_symmetry_vertical_subItem).isChecked = true
-                    }
-
-                    SymmetryMode.Quad -> {
-                        menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
-                    }
-
-                    else -> {}
-                }
-            }
-
             if (prevRotation != 0) {
                 outerCanvasInstance.rotate(prevRotation)
             }

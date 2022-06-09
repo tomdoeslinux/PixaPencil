@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
@@ -21,4 +22,5 @@ class CanvasActivityViewModel : ViewModel() {
 
     var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
     var currentBrush: Brush = BrushesDatabase.toList().first()
+    var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
 }

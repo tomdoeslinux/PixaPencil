@@ -99,27 +99,27 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.appMenu_symmetry_none_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = SymmetryMode.defaultSymmetryMode
+            viewModel.currentSymmetryMode = SymmetryMode.defaultSymmetryMode
         }
 
         R.id.appMenu_symmetry_horizontal_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_horizontal_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = SymmetryMode.Horizontal
+            viewModel.currentSymmetryMode = SymmetryMode.Horizontal
         }
 
         R.id.appMenu_symmetry_vertical_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_vertical_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = SymmetryMode.Vertical
+            viewModel.currentSymmetryMode = SymmetryMode.Vertical
         }
 
         R.id.appMenu_symmetry_quad_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = SymmetryMode.Quad
+            viewModel.currentSymmetryMode = SymmetryMode.Quad
         }
 
         R.id.appMenu_symmetry_octal_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isChecked = true
-            pixelGridViewInstance.symmetryMode = SymmetryMode.Octal
+            viewModel.currentSymmetryMode = SymmetryMode.Octal
         }
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {

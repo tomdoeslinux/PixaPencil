@@ -93,7 +93,6 @@ class CanvasActivity :
     var prevTab: Int = 0
     var prevUndoToolbarButtonDisabledEnabledState: Boolean = false // false means it's disabled
     var prevRedoToolbarButtonDisabledEnabledState: Boolean = false
-    var prevSymmetryModeStr: String? = null
     var prevRotation: Int = 0
 
     var currentTab = 0

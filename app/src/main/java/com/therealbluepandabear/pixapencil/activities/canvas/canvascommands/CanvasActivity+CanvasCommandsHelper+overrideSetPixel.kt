@@ -51,24 +51,24 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
 
 
         when {
-            symmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
+            baseReference.viewModel.currentSymmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
                 horizontallyReflectedCoordinates =
                     coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height)
             }
 
-            symmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
+            baseReference.viewModel.currentSymmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
                 verticallyReflectedCoordinates =
                     coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
             }
 
-            symmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
+            baseReference.viewModel.currentSymmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
                 quadMirroredCoordinates = coordinates.getQuadReflectedCoordinateSet(
                     pixelGridViewBitmap.width,
                     pixelGridViewBitmap.height
                 )
             }
 
-            symmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
+            baseReference.viewModel.currentSymmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
                 octalMirroredCoordinates = coordinates.getOctalReflectedCoordinateSet(
                     pixelGridViewBitmap.width,
                     pixelGridViewBitmap.height

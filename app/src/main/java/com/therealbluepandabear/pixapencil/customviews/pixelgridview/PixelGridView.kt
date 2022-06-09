@@ -56,8 +56,6 @@ class PixelGridView : View, PixelatedView {
         isFilterBitmap = false
     }
 
-    var symmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
-
     var shadingMode: Boolean = false
 
     val shadingMap = mutableListOf<Coordinates>()

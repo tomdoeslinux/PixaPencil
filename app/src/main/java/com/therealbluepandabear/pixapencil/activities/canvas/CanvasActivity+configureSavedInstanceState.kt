@@ -11,7 +11,6 @@ fun CanvasActivity.configureSavedInstanceState(savedInstanceState: Bundle?) {
         prevTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevTabBundleIdentifier)
         prevUndoToolbarButtonDisabledEnabledState = viewModel.bitmapActionData.isNotEmpty() == true
         prevRedoToolbarButtonDisabledEnabledState = viewModel.undoStack.isNotEmpty() == true
-        prevSymmetryModeStr = savedInstanceState.getString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier)
         prevRotation = savedInstanceState.getInt(StringConstants.Identifiers.PrevRotationBundleIdentifier)
     }
 }

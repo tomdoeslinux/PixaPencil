@@ -1,8 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
+import android.util.Log
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
@@ -33,6 +35,26 @@ fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
 
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).disable()
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
+
+        when (viewModel.currentSymmetryMode) {
+            SymmetryMode.Horizontal -> {
+                menu.findItem(R.id.appMenu_symmetry_horizontal_subItem).isChecked = true
+            }
+
+            SymmetryMode.Vertical -> {
+                menu.findItem(R.id.appMenu_symmetry_vertical_subItem).isChecked = true
+            }
+
+            SymmetryMode.Quad -> {
+                menu.findItem(R.id.appMenu_symmetry_quad_subItem).isChecked = true
+            }
+
+            SymmetryMode.Octal -> {
+                menu.findItem(R.id.appMenu_symmetry_octal_subItem).isChecked = true
+            }
+
+            else -> {}
+        }
     }
 
     return true

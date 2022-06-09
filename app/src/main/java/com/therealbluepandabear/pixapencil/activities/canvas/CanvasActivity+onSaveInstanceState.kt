@@ -17,6 +17,5 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
     outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
     outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, currentTool.toolName)
     outState.putInt(StringConstants.Identifiers.PrevTabBundleIdentifier, currentTab)
-    outState.putString(StringConstants.Identifiers.PrevSymmetryModeBundleIdentifier, pixelGridViewInstance.symmetryMode.symmetryName)
     outState.putInt(StringConstants.Identifiers.PrevRotationBundleIdentifier, outerCanvasInstance.getCurrentRotation().toInt())
 }
