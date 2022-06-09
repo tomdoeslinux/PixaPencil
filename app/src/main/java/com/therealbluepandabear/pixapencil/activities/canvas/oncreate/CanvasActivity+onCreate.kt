@@ -21,9 +21,8 @@ fun CanvasActivity.onCreate() {
     }
 
     binding.root.post {
-        toolsFragmentInstance!!.requireView().doOnPreDraw {
-            Log.d("BEPPER", viewModel.currentTool.toString())
-            toolsFragmentInstance!!.tapOnToolByName(viewModel.currentTool.toolName)
+        toolsFragmentInstance?.requireView()?.doOnPreDraw {
+            toolsFragmentInstance?.tapOnToolByName(viewModel.currentTool.toolName)
         }
     }
 }
