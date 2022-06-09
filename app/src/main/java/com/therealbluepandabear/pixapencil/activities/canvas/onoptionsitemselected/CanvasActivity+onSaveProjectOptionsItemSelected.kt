@@ -25,6 +25,20 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
 
     if (index == -1) {
         if (!viewModel.createdYet) {
+            val pixelArt = PixelArt(
+                coverBMPFileName,
+                BitmapConverter.convertBitmapToString(
+                    pixelGridViewInstance.pixelGridViewBitmap
+                ),
+                width,
+                height,
+                pixelGridViewInstance.dimenCW,
+                pixelGridViewInstance.dimenCH,
+                outerCanvasInstance.getCurrentRotation(),
+                title.toString(),
+                false
+            )
+
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
                     PixelArt(
@@ -42,17 +56,20 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
                     )
                 )
                 viewModel.createdYet = true
+                ObjectConstants.CurrentPixelArtObj = pixelArt
             }
         }
     } else {
         pixelGridViewInstance.invalidate()
 
         ObjectConstants.CurrentPixelArtObj.coverBitmapFilePath = coverBMPFileName
-        ObjectConstants.CurrentPixelArtObj.bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
+        ObjectConstants.CurrentPixelArtObj.bitmap =
+            BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
         ObjectConstants.CurrentPixelArtObj.rotation = outerCanvasInstance.getCurrentRotation()
 
         CoroutineScope(Dispatchers.IO).launch {
-            AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
+            AppData.pixelArtDB.pixelArtCreationsDao()
+                .updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
         }
     }
 
