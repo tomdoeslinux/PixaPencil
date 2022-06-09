@@ -15,6 +15,4 @@ fun CanvasActivity.extendedOnSaveInstanceState(outState: Bundle) {
 
     outState.putString(StringConstants.Identifiers.PrevBitmapFilePathBundleIdentifier, fileName)
     outState.putInt(StringConstants.Identifiers.PrevOrientationBundleIdentifier, resources.configuration.orientation)
-    outState.putString(StringConstants.Identifiers.PrevToolBundleIdentifier, viewModel.currentTool.toolName)
-    outState.putInt(StringConstants.Identifiers.PrevRotationBundleIdentifier, outerCanvasInstance.getCurrentRotation().toInt())
 }
