@@ -40,21 +40,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
             )
 
             CoroutineScope(Dispatchers.IO).launch {
-                AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(
-                    PixelArt(
-                        coverBMPFileName,
-                        BitmapConverter.convertBitmapToString(
-                            pixelGridViewInstance.pixelGridViewBitmap
-                        ),
-                        width,
-                        height,
-                        pixelGridViewInstance.dimenCW,
-                        pixelGridViewInstance.dimenCH,
-                        outerCanvasInstance.getCurrentRotation(),
-                        title.toString(),
-                        false
-                    )
-                )
+                AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(pixelArt)
                 viewModel.createdYet = true
                 ObjectConstants.CurrentPixelArtObj = pixelArt
             }
