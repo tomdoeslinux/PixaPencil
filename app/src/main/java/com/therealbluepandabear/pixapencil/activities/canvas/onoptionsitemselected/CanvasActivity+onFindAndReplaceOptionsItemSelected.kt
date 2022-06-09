@@ -18,9 +18,11 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
             replace(
                 R.id.activityCanvas_primaryFragmentHost, FindAndReplaceFragment.newInstance(
                     paramCanvasColors = pixelGridViewInstance.getNumberOfUniqueColors(),
-                    paramPixelGridViewBitmapSource = outerCanvasInstance.drawFragmentHostToBitmap(),
-                    paramTransparentBitmapSource = outerCanvasInstance.drawTransparentBackgroundViewToBitmap(),
-                    paramSelectedColorPaletteIndex = selectedColorPaletteIndex
+                    paramPixelGridViewBitmapSource = outerCanvasInstance.drawPixelGridViewBitmap(),
+                    paramTransparentBitmapSource = outerCanvasInstance.drawTransparentBackgroundViewBitmap(),
+                    paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
+                    paramScaledWidth = pixelGridViewInstance.measuredWidth,
+                    paramScaledHeight = pixelGridViewInstance.measuredHeight
                 ))
             addToBackStack(null)
         }

@@ -18,7 +18,7 @@ import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 class TransparentBackgroundView : View, PixelatedView {
     private lateinit var transparentBackgroundViewCanvas: Canvas
-    private lateinit var transparentBackgroundViewBitmap: Bitmap
+    lateinit var transparentBackgroundViewBitmap: Bitmap
 
     override var scaleWidth = 0f
     override var scaleHeight = 0f

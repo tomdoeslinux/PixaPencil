@@ -35,6 +35,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private lateinit var paramTransparentBitmapSource: Bitmap
     private lateinit var paramPixelGridViewBitmapSource: Bitmap
     private var paramSelectedColorPaletteIndex: Int = 0
+    private var paramScaledWidth: Int = 500
+    private var paramScaledHeight: Int = 500
 
     override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
@@ -42,11 +44,15 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         paramCanvasColors: List<Int>,
         paramTransparentBitmapSource: Bitmap,
         paramPixelGridViewBitmapSource: Bitmap,
-        paramSelectedColorPaletteIndex: Int) {
+        paramSelectedColorPaletteIndex: Int,
+        paramScaledWidth: Int,
+        paramScaledHeight: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramTransparentBitmapSource = paramTransparentBitmapSource
         this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
         this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
+        this.paramScaledWidth = paramScaledWidth
+        this.paramScaledHeight = paramScaledHeight
     }
 
     private fun setup() {
@@ -57,7 +63,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupPreview() {
-        val bitmap = paramTransparentBitmapSource.clone().overlay(paramPixelGridViewBitmapSource.clone())
+        val bitmap = Bitmap.createScaledBitmap(paramTransparentBitmapSource.clone().overlay(paramPixelGridViewBitmapSource.clone()), paramScaledWidth, paramScaledHeight, false)
         binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmap)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
     }
@@ -75,7 +81,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         val bitmap = paramPixelGridViewBitmapSource.clone()
         bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
-        val finalBitmap = paramTransparentBitmapSource.clone().overlay(bitmap)
+        val finalBitmap = Bitmap.createScaledBitmap(paramTransparentBitmapSource.clone().overlay(bitmap), paramScaledWidth, paramScaledHeight, false)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(finalBitmap)
     }
 
@@ -121,9 +127,11 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             paramCanvasColors: List<Int>,
             paramTransparentBitmapSource: Bitmap,
             paramPixelGridViewBitmapSource: Bitmap,
-            paramSelectedColorPaletteIndex: Int): FindAndReplaceFragment {
+            paramSelectedColorPaletteIndex: Int,
+            paramScaledWidth: Int,
+            paramScaledHeight: Int): FindAndReplaceFragment {
             val fragment = FindAndReplaceFragment()
-            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex, paramScaledWidth, paramScaledHeight)
 
             return fragment
         }

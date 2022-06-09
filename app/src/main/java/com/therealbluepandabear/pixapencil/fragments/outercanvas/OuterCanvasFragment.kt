@@ -15,6 +15,7 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBindin
 import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 lateinit var canvasFragment: CanvasFragment
@@ -93,9 +94,13 @@ class OuterCanvasFragment : Fragment() {
             .rotate(getCurrentRotation().toInt())
     }
 
-    fun drawTransparentBackgroundViewToBitmap(): Bitmap {
-        return transparentBackgroundView
-            .drawToBitmap()
+    fun drawPixelGridViewBitmap(): Bitmap {
+        return pixelGridViewInstance.pixelGridViewBitmap
+            .rotate(getCurrentRotation().toInt())
+    }
+
+    fun drawTransparentBackgroundViewBitmap(): Bitmap {
+        return transparentBackgroundView.transparentBackgroundViewBitmap
             .rotate(getCurrentRotation().toInt())
     }
 
