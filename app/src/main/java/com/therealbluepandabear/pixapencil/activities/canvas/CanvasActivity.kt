@@ -23,7 +23,6 @@ import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
@@ -230,7 +229,6 @@ class CanvasActivity :
 
     override fun onDitherBrushTapped(ditherBrush: DitherBrush) {
         viewModel.currentDitherBrush = ditherBrush
-        pixelGridViewInstance.currentDitherBrush = viewModel.currentDitherBrush
         supportFragmentManager.popBackStackImmediate()
 
         binding.root.post {

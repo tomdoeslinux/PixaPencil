@@ -19,8 +19,6 @@ import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 
 class PixelGridView : View, PixelatedView {
-    var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
-
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
@@ -172,10 +170,6 @@ class PixelGridView : View, PixelatedView {
 
     fun saveAsImage(format: BitmapCompressFormat) {
         extendedSaveAsImage(format)
-    }
-
-    fun coordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
-        return extendedCoordinatesInCanvasBounds(coordinates, currentTool, ignoreDither)
     }
 
     /** Use this code only in onMeasure **/
