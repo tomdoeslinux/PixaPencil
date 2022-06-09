@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/activityMainTopAppMenu_dark_light_mode_item"
         android:icon="@drawable/ic_theme_light_dark"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:title="Dark/Light Mode" />
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
         android:icon="@drawable/ic_account_group"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:title="@string/activityMainTopAppMenu_community_str" />
 </menu>
