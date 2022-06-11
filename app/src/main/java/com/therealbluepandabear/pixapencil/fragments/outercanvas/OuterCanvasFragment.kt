@@ -4,17 +4,14 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBinding
@@ -23,8 +20,6 @@ import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 
 lateinit var canvasFragment: CanvasFragment
@@ -67,8 +62,8 @@ class OuterCanvasFragment : Fragment() {
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 
-    var originalX: Float? = null
-    var originalY: Float? = null
+    private var originalX: Float? = null
+    private var originalY: Float? = null
 
     private fun setup() {
         instantiateVariables()
@@ -106,7 +101,7 @@ class OuterCanvasFragment : Fragment() {
         binding.root.invalidate()
     }
 
-    var dX = 0f
+    private var dX = 0f
     var dY = 0f
 
     @SuppressLint("ClickableViewAccessibility")

@@ -1,11 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
-import android.util.Log
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
-import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
