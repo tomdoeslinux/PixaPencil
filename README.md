@@ -92,3 +92,7 @@ This app has been partially translated to:
 - duanhong169 (https://github.com/duanhong169) - ColorPicker (https://github.com/duanhong169/ColorPicker)
 - yshrsmz (https://github.com/yshrsmz) - KeyboardVisibilityEvent (https://github.com/yshrsmz/KeyboardVisibilityEvent) 
 - Beyka (https://github.com/Beyka) - Android-TiffBitmapFactory (https://github.com/Beyka/Android-TiffBitmapFactory)
+
+## Mirror Repo (in case of censorship)
+
+https://bitbucket.org/thebluepandabear/pixapencil/src/master/
