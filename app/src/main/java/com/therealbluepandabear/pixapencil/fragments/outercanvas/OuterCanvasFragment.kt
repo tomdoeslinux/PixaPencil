@@ -118,7 +118,6 @@ class OuterCanvasFragment : Fragment() {
                     binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x = event.rawX + dX
                 }
             }
-            Log.d("BEPPER", "${binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x}, ${binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y}")
 
             binding.root.invalidate()
             true
