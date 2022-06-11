@@ -97,7 +97,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         cindx = 0
     }
 
-    if (toolName == StringConstants.Identifiers.MoveToolIdentifier && viewModel.currentTool != Tool.MoveTool) {
+    if (toolName == StringConstants.Identifiers.MoveToolIdentifier) {
         outerCanvasInstance.setOnTouchListener()
     } else {
         outerCanvasInstance.removeOnTouchListener()
