@@ -1,8 +1,14 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
+import android.util.Log
 import androidx.core.view.doOnPreDraw
+import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 fun CanvasActivity.onCreate() {
     prevOrientation = resources.configuration.orientation
@@ -26,6 +32,13 @@ fun CanvasActivity.onCreate() {
 
         if (viewModel.currentTab in 1..3) {
             binding.activityCanvasTabLayout.getTabAt(viewModel.currentTab)?.select()
+        }
+
+        if (viewModel.currentTool.toolName == StringConstants.Identifiers.MoveToolIdentifier) {
+            lifecycleScope.launch {
+                delay(200)
+                outerCanvasInstance.setOnTouchListener()
+            }
         }
     }
 }

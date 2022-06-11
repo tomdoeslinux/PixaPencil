@@ -121,6 +121,10 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             viewModel.currentSymmetryMode = SymmetryMode.Octal
         }
 
+        R.id.activityCanvasTopAppMenu_reset_position_subItem -> {
+            outerCanvasInstance.resetPosition()
+        }
+
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {
             onSaveProjectOptionsItemSelected(true)
 

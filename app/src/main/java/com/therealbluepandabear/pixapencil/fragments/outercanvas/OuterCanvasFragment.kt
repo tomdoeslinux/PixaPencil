@@ -1,14 +1,20 @@
 package com.therealbluepandabear.pixapencil.fragments.outercanvas
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
 import com.therealbluepandabear.pixapencil.databinding.FragmentOuterCanvasBinding
@@ -17,6 +23,9 @@ import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 lateinit var canvasFragment: CanvasFragment
 
@@ -58,11 +67,72 @@ class OuterCanvasFragment : Fragment() {
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
 
+    var originalX: Float? = null
+    var originalY: Float? = null
+
     private fun setup() {
         instantiateVariables()
         addTransparentBackgroundView()
         beginCanvasFragmentTransaction()
+
+        binding.root.post {
+            lifecycleScope.launch {
+                delay(100)
+                setOriginalCoordinates()
+            }
+        }
     }
+
+    private fun setOriginalCoordinates() {
+        if (originalX == null) {
+            originalX = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x
+        }
+
+        if (originalY == null) {
+            originalY = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun removeOnTouchListener() {
+        binding.fragmentOuterCanvasMoveView.setOnTouchListener { _, _ -> false }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    fun setOnTouchListener() {
+        binding.fragmentOuterCanvasMoveView.setOnTouchListener(onTouchListener())
+    }
+
+    fun resetPosition() {
+        binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x = originalX ?: 0f
+        binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y = originalY ?: 0f
+        binding.root.invalidate()
+    }
+
+    var dX = 0f
+    var dY = 0f
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun onTouchListener(): View.OnTouchListener {
+        return View.OnTouchListener { _, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN -> {
+                    dX = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x - event.rawX
+                    dY = binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y - event.rawY
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y = event.rawY + dY
+                    binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x = event.rawX + dX
+                }
+            }
+            Log.d("BEPPER", "${binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.x}, ${binding.fragmentOuterCanvasCanvasFragmentHostCardViewParent.y}")
+
+            binding.root.invalidate()
+            true
+        }
+    }
+
 
     fun getCurrentRotation(): Float {
         return cardViewParent.rotation

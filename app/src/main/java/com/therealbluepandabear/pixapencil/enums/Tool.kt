@@ -15,6 +15,12 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
         true,
     ),
 
+    MoveTool(
+        StringConstants.Identifiers.MoveToolIdentifier,
+        ToolFamily.None,
+        false,
+    ),
+
     ColorPickerTool(
         StringConstants.Identifiers.ColorPickerToolIdentifier,
         ToolFamily.None,

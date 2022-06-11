@@ -48,6 +48,14 @@ class ToolsFragment : Fragment() {
                 }
             }
 
+            StringConstants.Identifiers.MoveToolIdentifier -> {
+                if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                    onOptionTapped(binding.fragmentToolsMoveButton)
+                } else {
+                    onOptionTapped(binding.fragmentToolsMoveButtonH)
+                }
+            }
+
             StringConstants.Identifiers.ColorPickerToolIdentifier -> {
                 if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     onOptionTapped(binding.fragmentToolsColorPickerButton)

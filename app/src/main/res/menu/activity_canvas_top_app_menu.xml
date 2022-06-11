@@ -29,6 +29,10 @@
         app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_reset_zoom_str" />
 
+    <item android:id="@+id/activityCanvasTopAppMenu_reset_position_subItem"
+        app:showAsAction="ifRoom"
+        android:title="@string/activityCanvasTopAppMenu_reset_position_str" />
+
     <item app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_rotate_str" >
         <menu>

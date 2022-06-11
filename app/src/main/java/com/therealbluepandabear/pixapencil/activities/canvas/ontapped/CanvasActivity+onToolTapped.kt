@@ -97,6 +97,12 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         cindx = 0
     }
 
+    if (toolName == StringConstants.Identifiers.MoveToolIdentifier && viewModel.currentTool != Tool.MoveTool) {
+        outerCanvasInstance.setOnTouchListener()
+    } else {
+        outerCanvasInstance.removeOnTouchListener()
+    }
+
     viewModel.currentTool = Tool.values().firstOrNull {
         it.toolName == toolName
     } ?: Tool.defaultTool

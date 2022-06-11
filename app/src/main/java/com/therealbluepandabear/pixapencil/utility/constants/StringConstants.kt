@@ -18,6 +18,7 @@ object StringConstants {
 
         const val PencilToolIdentifier = "pencil_tool"
         const val EraseToolIdentifier = "erase_tool"
+        const val MoveToolIdentifier = "move_tool"
         const val ColorPickerToolIdentifier = "color_picker_tool"
         const val FillToolIdentifier = "fill_tool"
         const val LineToolIdentifier = "line_tool"

@@ -9,6 +9,7 @@
         style="@style/activityCanvas_canvasFragmentHostCardViewParent_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,5 +27,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/fragmentOuterCanvas_moveView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:elevation="8dp"
+        android:translationZ="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

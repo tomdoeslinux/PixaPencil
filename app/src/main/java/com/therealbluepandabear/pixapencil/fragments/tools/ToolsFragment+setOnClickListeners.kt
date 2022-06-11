@@ -519,4 +519,32 @@ fun ToolsFragment.setOnClickListeners() {
     // 3 //
     // 4 //
     // 5 //
+    // *************** // Move Tool
+
+    binding.fragmentToolsMoveButton.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.MoveToolIdentifier)
+    }
+
+    binding.fragmentToolsMoveButtonH.setOnClickListener {
+        onOptionTapped(it)
+        caller.onToolTapped(StringConstants.Identifiers.MoveToolIdentifier)
+    }
+
+    // ** //
+
+    binding.fragmentToolsMoveButton.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.MoveToolIdentifier)
+    }
+
+    binding.fragmentToolsMoveButtonH.setOnLongPressListener {
+        HapticFeedbackWrapper.performHapticFeedback(it)
+        caller.onToolLongTapped(StringConstants.Identifiers.MoveToolIdentifier)
+    }
+    // 1 //
+    // 2 //
+    // 3 //
+    // 4 //
+    // 5 //
 }
