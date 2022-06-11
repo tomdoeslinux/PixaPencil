@@ -75,11 +75,8 @@ class OuterCanvasFragment : Fragment() {
         addTransparentBackgroundView()
         beginCanvasFragmentTransaction()
 
-        binding.root.post {
-            lifecycleScope.launch {
-                delay(100)
-                setOriginalCoordinates()
-            }
+        binding.fragmentOuterCanvasCanvasFragmentHost.post {
+            setOriginalCoordinates()
         }
     }
 
