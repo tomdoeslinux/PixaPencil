@@ -1,8 +1,7 @@
 <div align="center">
 <img src="https://user-images.githubusercontent.com/50536495/170400421-0c3a1711-4484-42b1-995b-ee0095c3c7cb.png" width = "210" height = "210" alt="Get it on F-Droid"/>
   <h1>PixaPencil</a></h1>
-  <p>A capable — Kotlin-first — pixel art editor for Android.</p>
-
+  <p><b>The #1, open source pixel art editor for Android</b><br>
 
 [![Discord](https://img.shields.io/badge/Discord-PixaPencil-blue.svg)](https://discord.com/invite/Ytm7WBMNz9)
 [![Matrix](https://img.shields.io/badge/Matrix-PixaPencil-green.svg)](https://matrix.to/#/#pixapencil:matrix.org)
@@ -45,6 +44,7 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 
 ## 📝 Features (as of June 4, 2022)
 - Pencil tool
+- Move tool
 - Fill tool 
 - Line tool
 - Rectangle tool
@@ -61,7 +61,7 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 - Shading tool
 - Picker tool
 - Find and replace by color tool
-- Eraser tool
+- Erase tool
 - Pixel grid
 - Pixel perfect mode
 - 4 symmetry options (horizontal, vertical, quad, octal) 
