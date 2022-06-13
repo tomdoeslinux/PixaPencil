@@ -1,1 +1,1 @@
-a capable pixel art editor for Android
+The #1, open source pixel art editor for Android
