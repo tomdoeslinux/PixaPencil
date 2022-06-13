@@ -52,6 +52,10 @@ fun CanvasActivity.extendedOnActionUp() {
             resetPreviousCoordinates()
         }
 
+        viewModel.currentTool == Tool.ColorPickerTool -> {
+
+        }
+
         else -> {
             val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 

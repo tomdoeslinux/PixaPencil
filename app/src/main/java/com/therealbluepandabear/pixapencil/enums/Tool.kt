@@ -121,6 +121,5 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
 
     companion object {
         val defaultTool: Tool = PencilTool
-
     }
 }
