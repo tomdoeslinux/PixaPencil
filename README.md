@@ -13,11 +13,20 @@
 
 ## 🗏 About
 
-PixaPencil contains zero Google Play services (which track you heavily), and it is 100% free of other tracking. Unlike other apps on the 'Play' store, it contains **no ads**, and is **100% open source**. 
+PixaPencil is the number one open source pixel art editor for Android.
+
+Why you should try out PixaPencil:
+
+- Contains over 33+ useful features (see 'Features' section below)
+- 100% free of evil Google Play (tracking) services
+- 100% free of evil (tracking) advertisements
+- 100% commitment to open source
 
 **Warning: if you have a phone with a _very_ small screen size (e.g. 400x800 Galaxy Core Prime) this app will not work well. Keep that in mind. I am working on making this app more compatible with smaller screen sizes, but for now it's on hold.**
 
 PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew.
+
+PixaPencil only runs on Android 8.0 or higher.
 
 ## 🖼️ Showcase
 
