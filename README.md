@@ -11,12 +11,13 @@
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/)
 </div>
 
-## 📱 Android market
-**PixaPencil** will be available soon on the Google Play Store as well as F-Droid.
+## 🗏 About
+
+PixaPencil contains zero Google Play services (which track you heavily), and it is 100% free of other tracking. Unlike other apps on the 'Play' store, it contains **no ads**, and is **100% open source**. 
 
 **Warning: if you have a phone with a _very_ small screen size (e.g. 400x800 Galaxy Core Prime) this app will not work well. Keep that in mind. I am working on making this app more compatible with smaller screen sizes, but for now it's on hold.**
 
-PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew. It used to have support for more languages but I dropped support for this since there is no demand for the app and I was putting a lot of effort trying to maintain the translations. Plus can't really be bothered to set up a translation service for a small app like this.
+PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew.
 
 ## 🖼️ Showcase
 
@@ -42,7 +43,7 @@ For more info go to: https://choosealicense.com/licenses/mit/.
 
 _Do not use the name '**PixaPencil**' in your app/other product._
 
-## 📝 Features (as of June 4, 2022)
+## 📝 Features (as of June 13, 2022)
 - Pencil tool
 - Move tool
 - Fill tool 
@@ -82,11 +83,6 @@ Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look
 
 # 📓 Translations
 If you spot issues with the translation send me an email at therealbluepandabear@gmail.com or open an issue request.
-
-This app has been partially translated to:
-- 🇮🇱 Hebrew (by myself), the translation quality is OK.
-- 🇫🇷 French (by a user who has wished to remain anonymous), I am unsure about the translation quality, but it should be OK.
-- Arabic (by ManeraKai [https://github.com/ManeraKai])
 
 ## 📚 Other libraries used
 - duanhong169 (https://github.com/duanhong169) - ColorPicker (https://github.com/duanhong169/ColorPicker)
