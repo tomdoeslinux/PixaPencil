@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 import android.app.Activity
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
+import com.therealbluepandabear.pixapencil.activities.canvas.gridWasEnabled
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -61,5 +62,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
 
     if (!quietly) {
         (this as Activity).onBackPressed()
+    } else if (quietly && gridWasEnabled) {
+        pixelGridViewInstance.gridEnabled = true
     }
 }

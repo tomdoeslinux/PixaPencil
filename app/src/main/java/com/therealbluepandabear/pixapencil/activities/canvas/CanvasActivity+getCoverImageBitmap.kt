@@ -17,6 +17,8 @@ fun disableGridIfNeeded() {
         pixelGridViewInstance.gridEnabled = false
         pixelGridViewInstance.invalidate()
         gridWasEnabled = true
+    } else {
+        gridWasEnabled = false
     }
 }
 
