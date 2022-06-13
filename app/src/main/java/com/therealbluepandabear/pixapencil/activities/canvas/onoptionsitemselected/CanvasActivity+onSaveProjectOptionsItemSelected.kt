@@ -42,9 +42,9 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
 
             CoroutineScope(Dispatchers.IO).launch {
                 AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(pixelArt)
-                viewModel.createdYet = true
             }
 
+            viewModel.createdYet = true
             ObjectConstants.CurrentPixelArtObj = pixelArt
         }
     } else {
