@@ -193,7 +193,7 @@ class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter
             putPixel(Coordinates(incx, incy), Coordinates(xkp1, ykp1))
         }
 
-        var p2k = (ry * ry) * ((xkp1 + 0.5) * (xkp1 + 0.5)) + (rx * rx) * ((ykp1 - 1) * (ykp1 - 1)) - ((rx * rx) * (ry * ry))
+        var p2k = (ry.toDouble() * ry.toDouble()) * ((xkp1.toDouble() + 0.5) * (xkp1.toDouble() + 0.5)) + (rx.toDouble() * rx.toDouble()) * ((ykp1.toDouble() - 1) * (ykp1.toDouble() - 1)) - ((rx.toDouble() * rx.toDouble()) * (ry.toDouble() * ry.toDouble()))
 
         while (
             ykp1 > 0
