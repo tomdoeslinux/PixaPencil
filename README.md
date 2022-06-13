@@ -1,6 +1,6 @@
 <div align="center">
 <img src="https://user-images.githubusercontent.com/50536495/170400421-0c3a1711-4484-42b1-995b-ee0095c3c7cb.png" width = "210" height = "210" alt="Get it on F-Droid"/>
-  <h1>PixaPencil</a></h1>
+  <h1>PixaPencil</h1>
   <p><b>The #1, open source pixel art editor for Android</b><br>
 
 [![Discord](https://img.shields.io/badge/Discord-PixaPencil-blue.svg)](https://discord.com/invite/Ytm7WBMNz9)
