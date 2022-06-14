@@ -3,6 +3,7 @@ package com.therealbluepandabear.pixapencil.fragments.newcolorpalette
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
@@ -47,6 +48,12 @@ class NewColorPaletteFragment : Fragment(), ActivityFragment {
         backingBindingProperty = FragmentNewColorPaletteBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
+
+        binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.doAfterTextChanged {
+            if (binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString().isNotBlank()) {
+                binding.fragmentNewColorPaletteColorPaletteNameTextInputLayout.error = null
+            }
+        }
 
         return binding.root
     }
