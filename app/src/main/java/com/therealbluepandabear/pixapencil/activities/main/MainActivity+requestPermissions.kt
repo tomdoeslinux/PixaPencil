@@ -1,9 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.Manifest
-import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 
 fun MainActivity.requestPermissions() {
     val requestCode = 1
