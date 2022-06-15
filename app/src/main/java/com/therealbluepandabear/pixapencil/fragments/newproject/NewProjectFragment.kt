@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.doOnPreDraw
@@ -29,6 +30,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     }
 
     private fun setup() {
+        activity?.findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView)?.visibility = View.GONE
         setOnClickListeners()
     }
 
@@ -44,7 +46,6 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is NewProjectFragmentListener) caller = context
-        requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.GONE
         requireActivity().title = title
     }
 
@@ -75,7 +76,6 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     override fun onDestroyView() {
         super.onDestroyView()
         backingBindingProperty = null
-        requireActivity().findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView).visibility = View.VISIBLE
         requireActivity().title = getString(R.string.app_name)
     }
 }
