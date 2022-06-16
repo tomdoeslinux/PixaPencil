@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_cancel_in_code_str">Annuler</string>
+    <string name="generic_warning_in_code_str">Attention</string>
+    <string name="generic_no_thanks_in_code_str">Non, merci</string>
+    <string name="generic_saved_in_code_str">Enregistré</string>
+    <string name="generic_error_while_saving_in_code_str">Erreur lors de la sauvegarde de %1$s</string>
+    <string name="generic_lighten_mode_tooltip_in_code_str">Mode d\'éclaircissement</string>
+    <string name="generic_darken_mode_tooltip_in_code_str">Mode d\'assombrissement</string>
+    <string name="fragmentFilters_color_filter_str">Filtre de couleur</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">Favori</string>
+    <string name="recentCreationsLayout_imageView_content_description">Aperçu de Pixel Art</string>
+    <string name="colorPalettesLayout_color_palette_item_str">Élément de la palette de couleurs</string>
+    <string name="fragmentFilters_lighten_str">Éclaircir</string>
+    <string name="fragmentFilters_darken_str">Assombrir</string>
+    <string name="fragmentFilters_invert_str">Inverser</string>
+    <string name="saveFileUnderNewNameAlertLayout_new_name_str">Nouveau nom</string>
+    <string name="app_name">PixaPencil</string>
+    <string name="generic_ok_in_code_str">OK</string>
+</resources>
