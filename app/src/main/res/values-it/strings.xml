@@ -77,4 +77,22 @@
     <string name="fragmentColorPicker_tab_color_picker_str">Selettore Colore</string>
     <string name="activityCanvas_tab_brushes_str">Pennelli</string>
     <string name="activityCanvasTopAppMenu_new_color_palette_str">Nuova Tavolozza Colori</string>
+    <string name="activityCanvasTopAppMenu_reset_position_str">Posizione Iniziale</string>
+    <string name="activityCanvasTopAppMenu_zoom_in_str">Ingrandisci</string>
+    <string name="activityCanvasTopAppMenu_zoom_out_str">Diminuisci</string>
+    <string name="activityCanvasTopAppMenu_save_text_str">Salva</string>
+    <string name="activityCanvasTopAppMenu_grid_str">Griglia</string>
+    <string name="activityCanvasTopAppMenu_find_and_replace_str">Trova e Rimpiazza</string>
+    <string name="activityCanvasTopAppMenu_clear_canvas_str">Pulisci Tela</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Orizzontale</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Verticale</string>
+    <string name="activityCanvasTopAppMenu_symmetry_str">Simmetria</string>
+    <string name="activityCanvasTopAppMenu_save_in_background_str">Salva in sottofondo</string>
+    <string name="activityCanvasTopAppMenu_save_as_str">Salva come</string>
+    <string name="pencil_tool_info_title_in_code_str">Info Strumento Matita</string>
+    <string name="erase_tool_info_title_in_code_str">Info Strumento Gomma</string>
+    <string name="erase_tool_info_text_in_code_str">Cancella pixel.</string>
+    <string name="color_picker_tool_info_title_in_code_str">Info Strumento Prendi Colore</string>
+    <string name="color_picker_tool_info_text_in_code_str">Prendi il colore del pixel specifico.</string>
+    <string name="fill_tool_info_title_in_code_str">Info Strumento Riempi</string>
 </resources>
