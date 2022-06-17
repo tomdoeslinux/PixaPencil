@@ -12,10 +12,12 @@ fun CanvasActivity.circleToolOnActionUp() {
     if (viewModel.currentTool.toolFamily == ToolFamily.Ellipse && viewModel.currentTool.outlined == false) {
         val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter, true)
 
-        if (circleOrigin!!.x > coordinates!!.x) {
-            circleAlgorithmInstance.compute(coordinates!!, circleOrigin!!)
-        } else {
-            circleAlgorithmInstance.compute(circleOrigin!!, coordinates!!)
+        if (circleOrigin != null && coordinates != null) {
+            if (circleOrigin!!.x > coordinates!!.x) {
+                circleAlgorithmInstance.compute(coordinates!!, circleOrigin!!)
+            } else {
+                circleAlgorithmInstance.compute(circleOrigin!!, coordinates!!)
+            }
         }
     }
 
