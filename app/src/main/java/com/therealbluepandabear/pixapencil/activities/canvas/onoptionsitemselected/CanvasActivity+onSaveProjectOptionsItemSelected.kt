@@ -1,6 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.app.Activity
+import android.util.Log
+import android.widget.Toast
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.gridWasEnabled
@@ -24,7 +27,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBMPFileName, bmp)
 
-    if (index == -1) {
+    if (index == -1 && !viewModel.createdYet) {
         val pixelArt = PixelArt(
             coverBMPFileName,
             BitmapConverter.convertBitmapToString(
@@ -44,7 +47,6 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         }
 
         viewModel.createdYet = true
-        ObjectConstants.CurrentPixelArtObj = pixelArt
     } else {
         pixelGridViewInstance.invalidate()
 
@@ -56,6 +58,22 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao()
                 .updatePixelArtCreation(ObjectConstants.CurrentPixelArtObj)
+        }
+    }
+
+    if (quietly && !ObjectConstants.CurrentPixelArtObjInitialized) {
+        AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreations().observe(this@onSaveProjectOptionsItemSelected) {
+            ObjectConstants.CurrentPixelArtObj = it.last()
+
+            if (ObjectConstants.CurrentPixelArtObj.objId == AppData.pixelArtDB.pixelArtCreationsDao()
+                    .getAllPixelArtCreationsNoLiveData().last().objId
+            ) {
+                Toast.makeText(
+                    this@onSaveProjectOptionsItemSelected,
+                    getString(R.string.generic_saved_in_code_str),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
