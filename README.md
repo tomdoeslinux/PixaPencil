@@ -13,6 +13,8 @@
 
 ## 🗏 About
 
+Watch the trailer: https://odysee.com/@thebluepandabear:3/pixapenciltrailer:1
+
 PixaPencil is the number one open source pixel art editor for Android.
 
 Why you should try out PixaPencil:
