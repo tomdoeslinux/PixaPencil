@@ -30,7 +30,7 @@ PixaPencil only runs on Android 8.0 or higher.
 
 ## 🖼️ Showcase
 
-![image](https://user-images.githubusercontent.com/50536495/174203917-1a6e02d0-c63c-42d8-b8f6-932bb8d01994.png)
+![image](https://user-images.githubusercontent.com/50536495/174204673-71da804b-3d83-4d96-91f5-821583aa7543.png)
 
 ![image](https://user-images.githubusercontent.com/50536495/174204000-bf8a2b63-517f-40c4-ba96-4726061b9270.png)
 
