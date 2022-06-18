@@ -2,15 +2,11 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import android.os.Build
 import android.view.MenuItem
-import android.widget.Toast
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
 
 const val zoomIncrement = 0.2f
 

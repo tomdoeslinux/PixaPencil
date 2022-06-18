@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.fragments.appinfo
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.text.util.Linkify
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView

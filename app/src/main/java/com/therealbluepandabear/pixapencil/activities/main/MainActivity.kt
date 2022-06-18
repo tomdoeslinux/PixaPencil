@@ -1,13 +1,11 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.content.SharedPreferences
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R

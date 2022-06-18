@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
 import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.*
 import androidx.core.view.doOnPreDraw
