@@ -197,7 +197,7 @@
     <string name="fragmentAppInfo_created_by_text_str">Laget av <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
     <string name="dither_tool_info_title_in_code_str">Utjevningsverktøyinfo</string>
     <string name="fragmentAppInfo_community_text_str_land">Vi ser deg gjerne på
-\nvår \u0020<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>
+\nvår <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>
     <string name="fragmentAppInfo_description_text_str_land">PixaPencil er et <a href="https://github.com/therealbluepandabear/PixaPencil">fritt</a> program for pikselredigering, 100% uten personvernshemmende Google Play-tjenester og irriterende reklame.
 \n
 \nFor å ivareta dette anbefales det at du
