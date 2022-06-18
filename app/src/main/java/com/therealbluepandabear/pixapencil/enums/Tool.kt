@@ -2,7 +2,7 @@ package com.therealbluepandabear.pixapencil.enums
 
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boolean = false, val outlined: Boolean? = null) {
+enum class Tool(val toolName: String, val toolFamily: ToolFamily, val outlined: Boolean? = null) {
     PencilTool(
         StringConstants.Identifiers.PencilToolIdentifier,
         ToolFamily.None,
@@ -43,13 +43,11 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
         StringConstants.Identifiers.RectangleToolIdentifier,
         ToolFamily.Rectangle,
         true,
-        false,
     ),
 
     OutlinedRectangleTool(
         StringConstants.Identifiers.OutlinedRectangleToolIdentifier,
         ToolFamily.Rectangle,
-        true,
         true,
     ),
 
@@ -57,13 +55,11 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
         StringConstants.Identifiers.SquareToolIdentifier,
         ToolFamily.Rectangle,
         true,
-        false,
     ),
 
     OutlinedSquareTool(
         StringConstants.Identifiers.OutlinedSquareToolIdentifier,
         ToolFamily.Rectangle,
-        true,
         true,
     ),
 
@@ -71,27 +67,23 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val draws: Boo
         StringConstants.Identifiers.EllipseToolIdentifier,
         ToolFamily.Ellipse,
         true,
-        false,
     ),
 
     OutlinedEllipseTool(
         StringConstants.Identifiers.OutlinedEllipseToolIdentifier,
         ToolFamily.Ellipse,
         true,
-        false,
     ),
 
     CircleTool(
         StringConstants.Identifiers.CircleToolIdentifier,
         ToolFamily.Ellipse,
         true,
-        false,
     ),
 
     OutlinedCircleTool(
         StringConstants.Identifiers.OutlinedCircleToolIdentifier,
         ToolFamily.Ellipse,
-        true,
         true,
     ),
 
