@@ -27,10 +27,10 @@ fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
         first = true
     }
 
-    if (lineOrigin == null) {
-        lineOrigin = coordinatesTapped
+    if (shapeOrigin == null) {
+        shapeOrigin = coordinatesTapped
     } else {
-        lineAlgorithmInstance.compute(lineOrigin!!, coordinatesTapped)
+        lineAlgorithmInstance.compute(shapeOrigin!!, coordinatesTapped)
         firstLineDrawn = true
     }
 }

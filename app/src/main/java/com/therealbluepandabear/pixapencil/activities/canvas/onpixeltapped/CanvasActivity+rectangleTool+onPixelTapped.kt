@@ -46,14 +46,14 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         first = true
     }
 
-    if (rectangleOrigin == null) {
-        rectangleOrigin = coordinatesTapped
+    if (shapeOrigin == null) {
+        shapeOrigin = coordinatesTapped
     } else {
         if (rectangleAlgorithmInstance != null) {
-            rectangleAlgorithmInstance!!.compute(rectangleOrigin!!, coordinatesTapped)
+            rectangleAlgorithmInstance!!.compute(shapeOrigin!!, coordinatesTapped)
             coordinates = coordinatesTapped
         } else {
-            squareAlgorithmInstance!!.compute(rectangleOrigin!!, coordinatesTapped)
+            squareAlgorithmInstance!!.compute(shapeOrigin!!, coordinatesTapped)
         }
         firstRectangleDrawn = true
     }

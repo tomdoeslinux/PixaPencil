@@ -29,21 +29,21 @@ fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
         first = true
     }
 
-    if (ellipseOrigin == null) {
-        ellipseOrigin = coordinatesTapped
+    if (shapeOrigin == null) {
+        shapeOrigin = coordinatesTapped
     } else {
         coordinates = coordinatesTapped
 
-        rectanglePreviewAlgorithmInstance.compute(ellipseOrigin!!, coordinatesTapped)
+        rectanglePreviewAlgorithmInstance.compute(shapeOrigin!!, coordinatesTapped)
 
-        if (ellipseOrigin!!.y == coordinates!!.y || ellipseOrigin!!.y + 1 == coordinatesTapped.y || ellipseOrigin!!.y - 1 == coordinatesTapped.y ) {
+        if (shapeOrigin!!.y == coordinates!!.y || shapeOrigin!!.y + 1 == coordinatesTapped.y || shapeOrigin!!.y - 1 == coordinatesTapped.y ) {
             val ra = RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
-            ra.compute(ellipseOrigin!!, coordinatesTapped)
+            ra.compute(shapeOrigin!!, coordinatesTapped)
         } else {
-            if (ellipseOrigin!!.x > coordinates!!.x) {
-                ellipseAlgorithmInstance.compute(coordinates!!, ellipseOrigin!!)
+            if (shapeOrigin!!.x > coordinates!!.x) {
+                ellipseAlgorithmInstance.compute(coordinates!!, shapeOrigin!!)
             } else {
-                ellipseAlgorithmInstance.compute(ellipseOrigin!!, coordinates!!)
+                ellipseAlgorithmInstance.compute(shapeOrigin!!, coordinates!!)
             }
 
             firstEllipseDrawn = true

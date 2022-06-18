@@ -29,17 +29,17 @@ fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
         first = true
     }
 
-    if (circleOrigin == null) {
-        circleOrigin = coordinatesTapped
+    if (shapeOrigin == null) {
+        shapeOrigin = coordinatesTapped
     } else {
         coordinates = coordinatesTapped
 
-        squarePreviewAlgorithmInstance.compute(circleOrigin!!, coordinatesTapped)
+        squarePreviewAlgorithmInstance.compute(shapeOrigin!!, coordinatesTapped)
 
-        if (circleOrigin!!.x > coordinates!!.x) {
-            circleAlgorithmInstance.compute(coordinates!!, circleOrigin!!)
+        if (shapeOrigin!!.x > coordinates!!.x) {
+            circleAlgorithmInstance.compute(coordinates!!, shapeOrigin!!)
         } else {
-            circleAlgorithmInstance.compute(circleOrigin!!, coordinates!!)
+            circleAlgorithmInstance.compute(shapeOrigin!!, coordinates!!)
         }
 
         firstCircleDrawn = true

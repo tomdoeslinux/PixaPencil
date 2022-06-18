@@ -6,7 +6,7 @@ import com.therealbluepandabear.pixapencil.algorithms.RectangleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 
 fun CanvasActivity.rectangleToolOnActionUp() {
-    if (coordinates != null && rectangleOrigin != null) {
+    if (coordinates != null && shapeOrigin != null) {
         val rectAlg: RectangleAlgorithm? =
             if (viewModel.currentTool.toolFamily == ToolFamily.Rectangle && viewModel.currentTool.outlined == false) {
                 RectangleAlgorithm(primaryAlgorithmInfoParameter)
@@ -14,7 +14,7 @@ fun CanvasActivity.rectangleToolOnActionUp() {
                 null
             }
 
-        rectAlg?.compute(rectangleOrigin!!, coordinates!!)
+        rectAlg?.compute(shapeOrigin!!, coordinates!!)
     }
 
     viewModel.bitmapActionData.add(
@@ -22,7 +22,7 @@ fun CanvasActivity.rectangleToolOnActionUp() {
     )
 
     coordinates = null
-    rectangleOrigin = null
+    shapeOrigin = null
     rectangleModeHasLetGo = false
     rectangleAlgorithmInstance = null
     squareAlgorithmInstance = null

@@ -6,7 +6,7 @@
         app:showAsAction="ifRoom"
         android:title="@string/activityMainTopAppMenu_dark_light_mode_str" />
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
-        android:icon="@drawable/ic_account_group"
+        android:icon="@drawable/ic_baseline_info_24"
         app:showAsAction="ifRoom"
         android:title="@string/activityMainTopAppMenu_community_str" />
 </menu>

@@ -2,11 +2,11 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.lineOrigin
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.shapeOrigin
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
 fun CanvasActivity.lineToolOnActionUp() {
-    lineOrigin = null
+    shapeOrigin = null
     lineModeHasLetGo = false
     first = true
 
