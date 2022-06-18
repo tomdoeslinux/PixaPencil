@@ -174,4 +174,32 @@
     <string name="spot_light_activity_canvas_1_in_code_str">Trykk lenge på enten primær eller sekundærfarge for å bruke fargevelgeren</string>
     <string name="spot_light_new_project_fragment_3_in_code_str">Til slutt setter du prosjektets høyde</string>
     <string name="dither_tool_info_text_in_code_str">Tegn sjakkmønster. Nyttig for skyggelegging.</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas_str">Utled fra lerret</string>
+    <string name="fragment_dither_tool_settings_title_in_code_str">Utjevningsverktøyinnstillinger</string>
+    <string name="fragmentTools_outlined_square_button_content_description">Kvadratomrissverktøy</string>
+    <string name="fragmentTools_dither_tool_content_description">Utjevningsverktøy</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad_str">Kvadrupel</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal_str">Oktal</string>
+    <string name="outlined_rectangle_tool_info_text_in_code_str">Tegn omriss av pikselerte rektangler.</string>
+    <string name="outlined_square_tool_info_title_in_code_str">Kvadratomrissverktøyinfo</string>
+    <string name="dialog_save_under_new_name_text_in_code_str">Forsikre deg om at det nye navnet ikke finnes fra før.</string>
+    <string name="dialog_small_screen_warning_text_in_code_str">PixaPencil trenger større skjermoppløsning for å fungere.</string>
+    <string name="dialog_large_canvas_warning_text_in_code_str">Du er i ferd med å opprette et stort lerret. Det kan hende at enheten din ikke støtter bitmap-bilder av denne størrelsen.</string>
+    <string name="exception_accessing_negative_index_message_in_code_str">Får ikke tilgang til pikselkunstobjekt med negativ indeks i liste.</string>
+    <string name="dialog_file_exists_message_in_code_str">%1$s finnes allerede. Erstatt det eller lagre med nytt navn\?</string>
+    <string name="dither_tool_tip_in_code_str">Tips: Trykk på ikonet for å endre utjevningspensel.</string>
+    <string name="fragmentAppInfo_community_text_str">Vi ser deg gjerne på
+\nvår <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>
+    <string name="fragmentAppInfo_description_text_str"> PixaPencil er et <a href="https://github.com/therealbluepandabear/PixaPencil">fritt</a> program for pikselredigering, 100% uten personvernshemmende Google Play-tjenester og irriterende reklame.
+\n
+\n For å ivareta dette anbefales det at du
+\ninstallerer programmet via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> eller <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>. </string>
+    <string name="fragmentAppInfo_created_by_text_str">Laget av <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
+    <string name="dither_tool_info_title_in_code_str">Utjevningsverktøyinfo</string>
+    <string name="fragmentAppInfo_community_text_str_land">Vi ser deg gjerne på
+\nvår \u0020<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>
+    <string name="fragmentAppInfo_description_text_str_land">PixaPencil er et <a href="https://github.com/therealbluepandabear/PixaPencil">fritt</a> program for pikselredigering, 100% uten personvernshemmende Google Play-tjenester og irriterende reklame.
+\n
+\nFor å ivareta dette anbefales det at du
+\ninstallerer programmet via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> eller <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
 </resources>
