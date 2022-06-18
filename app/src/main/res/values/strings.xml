@@ -87,7 +87,7 @@
     <string name="fragmentColorPicker_tab_rgb_str" translatable="false">RGB</string>
     <string name="fragmentColorPicker_tab_hex_str" translatable="false">Hex</string>
 
-    <string name="fragmentAppInfo_created_by_text_str">Created by <a href="https://matrix.to/#/#pixapencil:matrix.org">thebluepandabear</a>.</string>
+    <string name="fragmentAppInfo_created_by_text_str">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
     <string name="fragmentAppInfo_community_text_str">We would love to have you on\nour
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
