@@ -142,7 +142,7 @@
     <string name="dialog_file_exists_negative_button_text_in_code_str">Unter neuem Name speichern</string>
     <string name="dialog_save_under_new_name_title_in_code_str">Unter neuem Name speichern</string>
     <string name="dialog_image_exception_when_saving_title_in_code_str">Fehler beim Speichern von %1$s als %2$s</string>
-    <string name="dialog_community_text_in_code_str">Wir würden uns freuen dich auf<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> oder <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> begrüßen zu können. </string>
+    <string name="fragmentAppInfo_community_text_str">Wir würden uns freuen dich auf<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> oder <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> begrüßen zu können. </string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">%1$s löschen\?</string>
     <string name="dialog_welcome_title_in_code_str">Willkommen</string>
     <string name="dialog_large_canvas_warning_text_in_code_str">Sie sind dabei, eine große Leinwand zu erstellen, denken Sie daran, dass Ihr Telefon möglicherweise nicht in der Lage sein, Bitmaps dieser Größen zu unterstützen.</string>
@@ -150,7 +150,6 @@
     <string name="snackbar_view_exception_info_button_text_in_code_str">Ansicht</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Kann Standardpalette nicht löschen</string>
     <string name="snackbar_find_and_replace_warning_in_code_str">Sie müssen mindestens eine Farbe auf Ihrer Leinwand haben, um dieses Tool zu verwenden</string>
-    <string name="dialog_community_title_in_code_str">Gemeinschaft</string>
     <string name="snackbar_on_color_long_tapped_in_code_str">Farbe von %1$s entfernt</string>
     <string name="snackbar_image_successfully_saved_in_code_str">Erfolgreich %1$s als %2$s gespeichert</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">%1$s zu Favoriten hinzugefügt</string>

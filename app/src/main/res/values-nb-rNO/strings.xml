@@ -89,7 +89,6 @@
     <string name="dialog_file_exists_positive_button_text_in_code_str">Erstatt</string>
     <string name="dialog_file_exists_negative_button_text_in_code_str">Lagre med nytt navn</string>
     <string name="dialog_save_under_new_name_title_in_code_str">Lagre med nytt navn</string>
-    <string name="dialog_community_title_in_code_str">Gemenskap</string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">Slett %1$s\?</string>
     <string name="dialog_welcome_title_in_code_str">Velkommen</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">Slett %1$s\? Dette kan ikke angres.</string>
