@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.*
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
