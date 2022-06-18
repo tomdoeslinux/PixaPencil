@@ -88,7 +88,11 @@ _Do not use the name '**PixaPencil**' in your app/other product._
 Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
 
 # 📓 Translations
-If you spot issues with the translation send me an email at therealbluepandabear@gmail.com or open an issue request.
+**BECOME A CONTRIBUTOR, help translate the app at Weblate by clicking the image below.**
+
+<a href="https://hosted.weblate.org/projects/pixapencil/#languages">
+<img src="https://hosted.weblate.org/widgets/pixapencil/-/287x66-grey.png" alt="Translation status" />
+</a>
 
 ## 📚 Other libraries used
 Thanks to these people who helped create the libraries used in the app:
