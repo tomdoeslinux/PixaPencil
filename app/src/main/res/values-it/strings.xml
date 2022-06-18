@@ -185,7 +185,8 @@
     <string name="spot_light_activity_canvas_7_in_code_str">Premi su \'Pennelli\' per vedere i tuoi pennelli</string>
     <string name="spot_light_activity_canvas_8_in_code_str">PixaPencil ha cinque pennelli che puoi provare</string>
     <string name="dialog_image_exception_when_saving_title_in_code_str">Errore salvando %1$s come %2$s</string>
-    <string name="fragmentAppInfo_community_text_str">Ci piacerebbe averti sul nostro server <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> o <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="fragmentAppInfo_community_text_str">Ci piacerebbe averti sul nostro server
+\n<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> o <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="snackbar_find_and_replace_warning_in_code_str">Devi avere almeno un colore nella tua tela per questo strumento</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Rimozione tavolozza predefinita non possibile</string>
 </resources>

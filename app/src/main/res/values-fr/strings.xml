@@ -93,4 +93,8 @@
     <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quadrant</string>
     <string name="activityCanvasTopAppMenu_symmetry_none_str">Aucun</string>
     <string name="activityCanvasTopAppMenu_save_as_str">Enregistrer sous</string>
+    <string name="fragmentAppInfo_community_text_str">Nous serions ravis de vous avoir sur
+\nnotre <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> serveur. </string>
+    <string name="fragmentAppInfo_created_by_text_str">Créé par <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
+    <string name="fragmentFilters_grayscale_str">Niveaux de gris</string>
 </resources>
