@@ -1,11 +1,16 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
 import android.content.SharedPreferences
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.takusemba.spotlight.Spotlight
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
@@ -52,6 +57,11 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     override fun onDoneButtonPressed(projectName: String, width: Int, height: Int, spotLightInProgress: Boolean) {
         extendedOnDoneButtonPressed(projectName, width, height, spotLightInProgress)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView)?.visibility = View.VISIBLE
     }
 }
 
