@@ -94,7 +94,10 @@
     <string name="fragmentAppInfo_description_text_str">
         PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\n To ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.
     </string>
-
+    <string name="fragmentAppInfo_description_text_str_land">PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\nTo ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
+    <string name="fragmentAppInfo_community_text_str_land">We would love to have you on\nour
+         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
+    </string>
     <!--Activity strings-->
     <string name="activityMain_newProjectButton_contentDescription">New Project</string>
 
