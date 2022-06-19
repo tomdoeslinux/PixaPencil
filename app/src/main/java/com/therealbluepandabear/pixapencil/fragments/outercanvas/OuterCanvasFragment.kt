@@ -90,7 +90,7 @@ class OuterCanvasFragment : Fragment() {
     }
 
     fun setOnTouchListener() {
-        binding.fragmentOuterCanvasMoveView.setOnTouchListener(onTouchListener())
+        binding.fragmentOuterCanvasMoveView.setOnTouchListener(onMoveViewTouchListener())
     }
 
     fun resetPosition() {
@@ -102,8 +102,7 @@ class OuterCanvasFragment : Fragment() {
     private var dX = 0f
     private var dY = 0f
 
-    @SuppressLint("ClickableViewAccessibility")
-    private fun onTouchListener(): View.OnTouchListener {
+    private fun onMoveViewTouchListener(): View.OnTouchListener {
         return View.OnTouchListener { _, event ->
             when (event.actionMasked) {
                 MotionEvent.ACTION_DOWN -> {
