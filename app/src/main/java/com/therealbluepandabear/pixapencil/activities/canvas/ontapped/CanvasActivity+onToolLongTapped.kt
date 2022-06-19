@@ -24,6 +24,14 @@ fun CanvasActivity.extendedOnToolLongTapped(toolName: String) {
             }
         }
 
+        StringConstants.Identifiers.MoveToolIdentifier  -> {
+            if (viewModel.currentTool == Tool.MoveTool) {
+                showSimpleInfoDialog(
+                    getString(R.string.move_tool_info_title_in_code_str),
+                    getString(R.string.move_tool_info_text_in_code_str))
+            }
+        }
+
         StringConstants.Identifiers.LineToolIdentifier -> {
             if (viewModel.currentTool == Tool.LineTool) {
                 showSimpleInfoDialog(

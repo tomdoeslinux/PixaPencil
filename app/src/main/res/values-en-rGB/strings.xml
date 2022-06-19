@@ -107,6 +107,9 @@
     <!--Erase tool information strings-->
     <string name="erase_tool_info_title_in_code_str">Erase Tool Info</string>
     <string name="erase_tool_info_text_in_code_str">Erase pixels.</string>
+    <!--Move tool information strings-->
+    <string name="move_tool_info_title_in_code_str">Move Tool Info</string>
+    <string name="move_tool_info_text_in_code_str">Move around the canvas by holding your finger on the screen and dragging.</string>
     <!--Color picker tool information strings-->
     <string name="color_picker_tool_info_title_in_code_str">Colour Picker Tool Info</string>
     <string name="color_picker_tool_info_text_in_code_str">Get the colour at the specified pixel.</string>
