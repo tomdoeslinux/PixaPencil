@@ -100,7 +100,7 @@ class OuterCanvasFragment : Fragment() {
     }
 
     private var dX = 0f
-    var dY = 0f
+    private var dY = 0f
 
     @SuppressLint("ClickableViewAccessibility")
     private fun onTouchListener(): View.OnTouchListener {
