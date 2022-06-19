@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.viewholders
 
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.text.TextUtils
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +19,18 @@ import java.io.File
 
 class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
     private fun loadPixelArtCoverImage(pixelArt: PixelArt) {
+        var widthHeight = 750
+
+        if (context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            widthHeight = 350
+        }
+
         val requestOptions: RequestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .dontAnimate()
             .priority(Priority.IMMEDIATE)
             .encodeFormat(Bitmap.CompressFormat.PNG)
-            .override(750, 750)
+            .override(widthHeight, widthHeight)
             .centerInside()
             .format(DecodeFormat.DEFAULT)
 
