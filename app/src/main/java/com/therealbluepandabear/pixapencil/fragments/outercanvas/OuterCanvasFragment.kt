@@ -23,6 +23,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 lateinit var canvasFragment: CanvasFragment
 
+@SuppressLint("ClickableViewAccessibility")
 class OuterCanvasFragment : Fragment() {
     lateinit var cardViewParent: CardView
     lateinit var fragmentHost: FrameLayout
@@ -84,12 +85,10 @@ class OuterCanvasFragment : Fragment() {
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     fun removeOnTouchListener() {
         binding.fragmentOuterCanvasMoveView.setOnTouchListener { _, _ -> false }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     fun setOnTouchListener() {
         binding.fragmentOuterCanvasMoveView.setOnTouchListener(onTouchListener())
     }
