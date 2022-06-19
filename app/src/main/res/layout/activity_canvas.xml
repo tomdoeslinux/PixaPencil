@@ -16,14 +16,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPickerRecyclerView"
         app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPickerRecyclerView"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/transparent" />
 
     <View
         android:id="@+id/activityCanvas_colorPrimaryView"
@@ -47,14 +48,24 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPrimaryView"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPrimaryView"
-        android:layout_marginEnd="16dp" />
+        app:srcCompat="@drawable/transparent" />
+
+
+    <ImageView
+        android:id="@+id/activityCanvas_colorPrimaryColorPickerIndicator"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:srcCompat="@drawable/colorpicker3" />
 
     <View
         android:id="@+id/activityCanvas_colorSecondaryView"
@@ -71,11 +82,19 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
-        android:visibility="invisible"
         android:background="@drawable/border_drawable_frame_2"
-        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPrimaryView"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPrimaryView" />
+
+    <ImageView
+        android:id="@+id/activityCanvas_colorSecondaryColorPickerIndicator"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:srcCompat="@drawable/colorpicker3" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activityCanvas_colorPickerRecyclerView"

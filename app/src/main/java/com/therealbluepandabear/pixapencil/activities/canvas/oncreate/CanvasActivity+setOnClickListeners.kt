@@ -1,32 +1,41 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.MotionEvent
 import android.view.View
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
-import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.ColorPickerFragment
 import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 
+@SuppressLint("ClickableViewAccessibility")
 fun CanvasActivity.setOnClickListeners() {
     brushesFragmentInstance = BrushesFragment.newInstance()
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, brushesFragmentInstance!!).commit()
+    supportFragmentManager.beginTransaction()
+        .add(R.id.activityCanvas_tabLayoutFragmentHost, brushesFragmentInstance!!).commit()
 
     filtersFragmentInstance = FiltersFragment.newInstance()
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, filtersFragmentInstance!!).commit()
+    supportFragmentManager.beginTransaction()
+        .add(R.id.activityCanvas_tabLayoutFragmentHost, filtersFragmentInstance!!).commit()
 
     colorPalettesFragmentInstance = ColorPalettesFragment.newInstance()
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
+    supportFragmentManager.beginTransaction()
+        .add(R.id.activityCanvas_tabLayoutFragmentHost, colorPalettesFragmentInstance!!).commit()
 
     toolsFragmentInstance = ToolsFragment.newInstance()
-    supportFragmentManager.beginTransaction().add(R.id.activityCanvas_tabLayoutFragmentHost, toolsFragmentInstance!!).commit()
+    supportFragmentManager.beginTransaction()
+        .add(R.id.activityCanvas_tabLayoutFragmentHost, toolsFragmentInstance!!).commit()
 
-    binding.activityCanvasTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+    binding.activityCanvasTabLayout.addOnTabSelectedListener(object :
+        TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab) {
             when (tab.position) {
                 0 -> {
@@ -63,9 +72,9 @@ fun CanvasActivity.setOnClickListeners() {
             }
         }
 
-        override fun onTabReselected(tab: TabLayout.Tab) { }
+        override fun onTabReselected(tab: TabLayout.Tab) {}
 
-        override fun onTabUnselected(tab: TabLayout.Tab) { }
+        override fun onTabUnselected(tab: TabLayout.Tab) {}
     })
 
     binding.activityCanvasColorSecondaryView.setOnClickListener {
@@ -75,16 +84,31 @@ fun CanvasActivity.setOnClickListeners() {
         setPixelColor((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorPrimaryView.setOnLongPressListener {
-        isPrimaryColorSelected = true
-        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
-        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
-        supportFragmentManager.commit {
-            replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = viewModel.primaryColor,
-                paramColorPalette = null))
-            addToBackStack(null)
+    binding.activityCanvasColorPrimaryColorPickerIndicator?.setOnTouchListener { _, event ->
+        val x = event.x
+        val y = event.y
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                if (binding.activityCanvasColorSecondaryColorPickerIndicator?.drawToBitmap()
+                        ?.getPixel(x.toInt(), y.toInt()) != Color.TRANSPARENT
+                ) {
+                    isPrimaryColorSelected = true
+                    binding.activityCanvasColorSecondaryViewIndicator.visibility = View.INVISIBLE
+                    binding.activityCanvasColorPrimaryViewIndicator.visibility = View.VISIBLE
+                    supportFragmentManager.commit {
+                        replace(
+                            R.id.activityCanvas_primaryFragmentHost,
+                            ColorPickerFragment.newInstance(
+                                paramOldColor = viewModel.primaryColor,
+                                paramColorPalette = null
+                            )
+                        )
+                        addToBackStack(null)
+                    }
+                }
+            }
         }
+        false
     }
 
 
@@ -95,15 +119,28 @@ fun CanvasActivity.setOnClickListeners() {
         setPixelColor((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorSecondaryView.setOnLongPressListener {
-        isPrimaryColorSelected = false
-        binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
-        binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
-        supportFragmentManager.commit {
-            replace(R.id.activityCanvas_primaryFragmentHost, ColorPickerFragment.newInstance(
-                paramOldColor = viewModel.secondaryColor,
-                paramColorPalette = null))
-            addToBackStack(null)
+    binding.activityCanvasColorSecondaryColorPickerIndicator?.setOnTouchListener { _, event ->
+        val x = event.x
+        val y = event.y
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                if (binding.activityCanvasColorSecondaryColorPickerIndicator?.drawToBitmap()?.getPixel(x.toInt(), y.toInt()) != Color.TRANSPARENT) {
+                    isPrimaryColorSelected = false
+                    binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
+                    binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
+                    supportFragmentManager.commit {
+                        replace(
+                            R.id.activityCanvas_primaryFragmentHost,
+                            ColorPickerFragment.newInstance(
+                                paramOldColor = viewModel.secondaryColor,
+                                paramColorPalette = null
+                            )
+                        )
+                        addToBackStack(null)
+                    }
+                }
+            }
         }
+        false
     }
 }
