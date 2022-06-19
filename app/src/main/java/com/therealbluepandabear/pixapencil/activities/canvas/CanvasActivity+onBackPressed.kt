@@ -4,7 +4,6 @@ import android.content.Intent
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.onSaveProjectOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
-import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButton
 import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButtonAndOnCancelListener
 
 fun CanvasActivity.extendedOnBackPressed() {

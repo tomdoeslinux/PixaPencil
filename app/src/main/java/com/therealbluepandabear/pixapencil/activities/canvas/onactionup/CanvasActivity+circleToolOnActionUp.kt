@@ -1,8 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
-import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.*
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.shapeOrigin
+import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.squareAlgorithmInstance
 import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 
