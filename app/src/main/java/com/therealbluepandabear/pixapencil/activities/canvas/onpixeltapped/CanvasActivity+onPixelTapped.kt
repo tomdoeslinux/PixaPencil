@@ -15,7 +15,7 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         initPrimaryAlgorithmInfoParameter()
     }
 
-    saved = false
+    viewModel.saved = false
     when (viewModel.currentTool) {
         Tool.PencilTool -> {
             pencilToolOnPixelTapped(coordinatesTapped)

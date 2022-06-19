@@ -65,8 +65,6 @@ class CanvasActivity :
     var isSelected = false
     var background: Drawable? = null
 
-    var saved = true
-
     lateinit var menu: Menu
 
     var toolsFragmentInstance: ToolsFragment? = null

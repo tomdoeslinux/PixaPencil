@@ -26,4 +26,7 @@ class CanvasActivityViewModel : ViewModel() {
     var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
     var currentTool: Tool = Tool.defaultTool
     var currentTab: Int = 0
+
+    var saved = true
+    var unsavedChangesDialogShown = false
 }

@@ -9,7 +9,7 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) -> Int) {
     pixelGridViewInstance.shadingMap.clear()
-    baseReference.saved = false
+    baseReference.viewModel.saved = false
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
     for (i_1 in 0 until pixelGridViewInstance.pixelGridViewBitmap.width) {

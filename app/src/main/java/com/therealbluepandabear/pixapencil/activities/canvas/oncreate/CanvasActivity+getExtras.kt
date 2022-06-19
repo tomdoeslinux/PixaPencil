@@ -17,6 +17,6 @@ fun CanvasActivity.getExtras() {
     }
 
     if (index == -1) {
-        saved = false
+        viewModel.saved = false
     }
 }

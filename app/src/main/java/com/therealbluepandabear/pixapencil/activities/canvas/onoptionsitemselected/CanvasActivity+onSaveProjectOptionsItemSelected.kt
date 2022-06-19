@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
-    saved = true
+    viewModel.saved = true
 
     val bmp = getCoverImageBitmap()
     val coverBMPFileName = InternalBitmapFileNameGenerator.generate(projectTitle!!)

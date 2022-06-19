@@ -7,7 +7,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
-    baseReference.saved = false
+    baseReference.viewModel.saved = false
 
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
