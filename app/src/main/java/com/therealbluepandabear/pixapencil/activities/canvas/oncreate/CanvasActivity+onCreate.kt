@@ -10,6 +10,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButtonAndOnCancelListener
+import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -31,8 +32,8 @@ fun CanvasActivity.onCreate() {
     }
 
     binding.root.post {
-        toolsFragmentInstance?.requireView()?.doOnPreDraw {
-            toolsFragmentInstance?.tapOnToolByName(viewModel.currentTool.toolName)
+        supportFragmentManager.findFragmentByTag("f" + 0)?.requireView()?.doOnPreDraw {
+            (supportFragmentManager.findFragmentByTag("f" + 0) as ToolsFragment).tapOnToolByName(viewModel.currentTool.toolName)
         }
 
         binding.activityCanvasTabLayout.getTabAt(binding.activityCanvasViewPager2.currentItem)?.select()
