@@ -33,9 +33,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         }
     }
 
-    private fun setup() {
-        instantiateVariables()
-
+    private fun setupViewPager() {
         val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         binding.fragmentColorPickerViewPager2.adapter = adapter
         binding.fragmentColorPickerViewPager2.offscreenPageLimit = 3
@@ -48,6 +46,11 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
             override fun onTabReselected(tab: TabLayout.Tab?) { }
         })
+    }
+
+    private fun setup() {
+        instantiateVariables()
+        setupViewPager()
     }
 
     companion object {
