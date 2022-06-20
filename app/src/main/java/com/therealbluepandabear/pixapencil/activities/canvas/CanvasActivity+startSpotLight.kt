@@ -34,7 +34,7 @@ fun CanvasActivity.startSpotLight() {
     targets.add(firstTarget)
 
     val secondTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -44,14 +44,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat(), binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(secondTarget)
 
     val thirdTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -61,14 +61,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(thirdTarget)
 
     val fourthTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -78,14 +78,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat(), binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(fourthTarget)
 
     val fifthTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -95,14 +95,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(fifthTarget)
 
     val sixthTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -112,14 +112,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat(), binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(sixthTarget)
 
     val seventhTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -129,14 +129,14 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat() + 300, binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
     targets.add(seventhTarget)
 
     val eighthTarget = Target.Builder()
-        .setAnchor(binding.activityCanvasTabLayoutFragmentHost)
+        .setAnchor(binding.activityCanvasViewPager2!!.focusedChild)
         .setOnTargetListener(object : OnTargetListener {
             override fun onEnded() {}
 
@@ -146,7 +146,7 @@ fun CanvasActivity.startSpotLight() {
             }
 
         })
-        .setShape(RoundedRectangle(binding.activityCanvasTabLayoutFragmentHost.measuredHeight.toFloat(), binding.activityCanvasTabLayoutFragmentHost.measuredWidth.toFloat(), 20f))
+        .setShape(RoundedRectangle(binding.activityCanvasViewPager2!!.focusedChild.measuredHeight.toFloat(), binding.activityCanvasViewPager2!!.focusedChild.measuredWidth.toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 

@@ -109,7 +109,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_tabLayoutFragmentHost"
+        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_viewPager2"
         app:layout_constraintStart_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,8 +122,8 @@
         app:layout_constraintStart_toEndOf="@+id/activityCanvas_outerCanvasFragmentHost"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/activityCanvas_tabLayoutFragmentHost"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/activityCanvas_viewPager2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="120dp"

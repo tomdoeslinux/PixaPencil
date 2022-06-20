@@ -122,7 +122,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:tabStripEnabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/activityCanvas_tabLayoutFragmentHost"
+        app:layout_constraintBottom_toTopOf="@+id/activityCanvas_viewPager2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <com.google.android.material.tabs.TabItem
@@ -146,8 +146,8 @@
             android:text="@string/activityCanvas_tab_brushes_str" />
     </com.google.android.material.tabs.TabLayout>
 
-    <FrameLayout
-        android:id="@+id/activityCanvas_tabLayoutFragmentHost"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/activityCanvas_viewPager2"
         android:layout_width="0dp"
         android:layout_height="110dp"
         app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_primaryFragmentHost"

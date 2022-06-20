@@ -68,9 +68,6 @@ class CanvasActivity :
     lateinit var menu: Menu
 
     var toolsFragmentInstance: ToolsFragment? = null
-    var filtersFragmentInstance: FiltersFragment? = null
-    var colorPalettesFragmentInstance: ColorPalettesFragment? = null
-    var brushesFragmentInstance: BrushesFragment? = null
 
     var lineModeHasLetGo = false
     var rectangleModeHasLetGo = false

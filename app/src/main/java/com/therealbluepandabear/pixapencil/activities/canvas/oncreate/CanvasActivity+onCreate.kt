@@ -21,8 +21,9 @@ fun CanvasActivity.onCreate() {
     setUpFragment()
     setBindings()
     setUpRecyclerView()
-    setOnClickListeners()
+    setListeners()
     initSharedPreferenceObject()
+    setupViewPager()
 
     binding.activityCanvasColorPickerRecyclerView.doOnPreDraw {
         observeColorPaletteColorPickerData()
@@ -33,9 +34,7 @@ fun CanvasActivity.onCreate() {
             toolsFragmentInstance?.tapOnToolByName(viewModel.currentTool.toolName)
         }
 
-        if (viewModel.currentTab in 1..3) {
-            binding.activityCanvasTabLayout.getTabAt(viewModel.currentTab)?.select()
-        }
+        binding.activityCanvasTabLayout.getTabAt(binding.activityCanvasViewPager2.currentItem)?.select()
 
         if (viewModel.currentTool.toolName == StringConstants.Identifiers.MoveToolIdentifier) {
             lifecycleScope.launch {

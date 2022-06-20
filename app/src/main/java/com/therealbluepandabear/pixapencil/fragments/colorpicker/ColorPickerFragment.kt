@@ -34,13 +34,13 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupViewPager() {
-        val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        val adapter = ViewPagerAdapter(childFragmentManager, lifecycle)
         binding.fragmentColorPickerViewPager2.adapter = adapter
         binding.fragmentColorPickerViewPager2.offscreenPageLimit = 3
         binding.fragmentColorPickerViewPager2.isUserInputEnabled = false
         binding.fragmentColorPickerTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                binding.fragmentColorPickerViewPager2.currentItem = tab.position
+                binding.fragmentColorPickerViewPager2.setCurrentItem(tab.position, false)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) { }
@@ -80,10 +80,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
     override fun onStart() {
         super.onStart()
-
-        if (prevColorPickerTab != 0) {
-            binding.fragmentColorPickerTabLayout.getTabAt(prevColorPickerTab)?.select()
-        }
+        binding.fragmentColorPickerTabLayout.getTabAt(binding.fragmentColorPickerViewPager2.currentItem)?.select()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
