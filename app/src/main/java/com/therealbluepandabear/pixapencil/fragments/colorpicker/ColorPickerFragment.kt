@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentColorPickerBinding
@@ -11,6 +13,7 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+
 
 class ColorPickerFragment : Fragment(), ActivityFragment {
     private var paramOldColor: Int? = null
@@ -32,7 +35,19 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
     private fun setup() {
         instantiateVariables()
-        setOnClickListeners()
+
+        val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        binding.fragmentColorPickerViewPager2.adapter = adapter
+        binding.fragmentColorPickerViewPager2.offscreenPageLimit = 3
+        binding.fragmentColorPickerTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                binding.fragmentColorPickerViewPager2.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) { }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) { }
+        })
     }
 
     companion object {

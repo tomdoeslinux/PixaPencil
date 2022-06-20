@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.colorpicker.ColorPickerFragment"
+    style="@style/defaultFragmentStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/defaultFragmentStyle">
+    tools:context=".fragments.colorpicker.ColorPickerFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/fragmentColorPicker_tabLayout"
@@ -15,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,13 +41,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/fragmentColorPicker_tabLayoutFragmentHost"
-        android:layout_width="match_parent"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/fragmentColorPicker_viewPager2"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragmentColorPicker_primaryFragmentHost"
         app:layout_constraintTop_toBottomOf="@+id/fragmentColorPicker_tabLayout" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
