@@ -37,6 +37,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
         binding.fragmentColorPickerViewPager2.adapter = adapter
         binding.fragmentColorPickerViewPager2.offscreenPageLimit = 3
+        binding.fragmentColorPickerViewPager2.isUserInputEnabled = false
         binding.fragmentColorPickerTabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 binding.fragmentColorPickerViewPager2.currentItem = tab.position
