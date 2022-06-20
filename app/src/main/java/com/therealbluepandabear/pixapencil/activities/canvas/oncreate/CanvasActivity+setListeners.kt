@@ -55,12 +55,12 @@ fun CanvasActivity.setListeners() {
         setPixelColor((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color)
     }
 
-    binding.activityCanvasColorSecondaryColorPickerIndicator?.setOnTouchListener { _, event ->
+    binding.activityCanvasColorSecondaryColorPickerIndicator.setOnTouchListener { _, event ->
         val x = event.x
         val y = event.y
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                if (binding.activityCanvasColorSecondaryColorPickerIndicator?.drawToBitmap()?.getPixel(x.toInt(), y.toInt()) != Color.TRANSPARENT) {
+                if (binding.activityCanvasColorSecondaryColorPickerIndicator.drawToBitmap().getPixel(x.toInt(), y.toInt()) != Color.TRANSPARENT) {
                     isPrimaryColorSelected = false
                     binding.activityCanvasColorPrimaryViewIndicator.visibility = View.INVISIBLE
                     binding.activityCanvasColorSecondaryViewIndicator.visibility = View.VISIBLE
