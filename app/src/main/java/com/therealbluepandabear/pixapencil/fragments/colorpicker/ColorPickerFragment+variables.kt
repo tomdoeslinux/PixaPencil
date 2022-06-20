@@ -24,5 +24,3 @@ var rgbFragmentInstance: RGBColorPickerFragment? = null
 var pickerFragmentInstance: ColorPickerPickerFragment? = null
 
 var prevColorPickerTab: Int = 0
-
-var currentTab = 0

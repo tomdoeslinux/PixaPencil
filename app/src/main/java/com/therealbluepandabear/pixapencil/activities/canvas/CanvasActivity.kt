@@ -21,9 +21,6 @@ import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapt
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
-import com.therealbluepandabear.pixapencil.fragments.brushes.BrushesFragment
-import com.therealbluepandabear.pixapencil.fragments.colorpalettes.ColorPalettesFragment
-import com.therealbluepandabear.pixapencil.fragments.filters.FiltersFragment
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.listeners.*

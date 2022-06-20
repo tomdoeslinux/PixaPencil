@@ -88,15 +88,6 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         menu.clear()
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(
-            StringConstants.Identifiers.PrevColorPickerTabBundleIdentifier,
-            currentTab
-        )
-
-        super.onSaveInstanceState(outState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
 
