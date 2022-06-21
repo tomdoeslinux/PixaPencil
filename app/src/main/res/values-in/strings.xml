@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_ok_in_code_str">OK</string>
+    <string name="fragmentFilters_darken_str">Gelapkan</string>
+    <string name="fragmentNewColorPalette_height_str">Tinggi</string>
+    <string name="fragmentFindAndReplace_find_str">Cari</string>
+    <string name="fragment_spray_tool_settings_title_in_code_str">Pengaturan Alat Semprot</string>
+    <string name="fragmentNewColorPalette_width_str">Lebar</string>
+    <string name="generic_no_thanks_in_code_str">Tidak, terima kasih</string>
+    <string name="fragment_new_project_title_in_code_str">Proyek Baru</string>
+    <string name="fragment_find_and_replace_title_in_code_str">Cari dan Ubah</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">Favoritkan</string>
+    <string name="saveFileUnderNewNameAlertLayout_new_name_str">Nama baru</string>
+    <string name="fragmentNewColorPalette_color_palette_name_str">Nama Palet Warna</string>
+    <string name="fragmentSprayToolSettings_radius_str">Radius</string>
+    <string name="fragmentSprayToolSettings_done_str">Selesai</string>
+    <string name="fragment_color_picker_title_in_code_str">Pilih Warna</string>
+    <string name="fragment_new_color_palette_title_in_code_str">Buat Palet Warna</string>
+    <string name="fragmentTools_pencil_tool_content_description">Alat Pensil</string>
+    <string name="fragmentTools_color_picker_tool_content_description">Alat Pemilih Warna</string>
+    <string name="fragmentFilters_color_filter_str">Filter Warna</string>
+    <string name="fragmentFindAndReplace_replace_with_str">Ubah dengan</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas_str">Warna-warna pada kanvas:</string>
+    <string name="fragmentTools_eraser_tool_content_description">Alat Penghapus</string>
+    <string name="fragmentTools_rectangle_tool_content_description">Alat Persegi</string>
+    <string name="fragmentNewColorPalette_done_str">Selesai</string>
+    <string name="fragmentTools_move_tool_content_description">Alat Pemindah</string>
+    <string name="fragmentTools_line_tool_content_description">Alat Garis</string>
+    <string name="app_name">PixaPencil</string>
+    <string name="generic_warning_in_code_str">Peringatan</string>
+    <string name="generic_saved_in_code_str">Disimpan</string>
+    <string name="generic_error_while_saving_in_code_str">Gagal menyimpan %1$s</string>
+    <string name="generic_cancel_in_code_str">Batal</string>
+</resources>

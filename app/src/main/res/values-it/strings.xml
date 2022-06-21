@@ -189,4 +189,5 @@
 \n<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> o <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="snackbar_find_and_replace_warning_in_code_str">Devi avere almeno un colore nella tua tela per questo strumento</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text_in_code_str">Rimozione tavolozza predefinita non possibile</string>
+    <string name="fragmentAppInfo_created_by_text_str">Creato da <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
 </resources>
