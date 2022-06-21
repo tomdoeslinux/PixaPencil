@@ -61,8 +61,8 @@
 
     <ImageView
         android:id="@+id/activityCanvas_colorPrimaryColorPickerIndicator"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:srcCompat="@drawable/colorpicker3" />
@@ -90,8 +90,8 @@
 
     <ImageView
         android:id="@+id/activityCanvas_colorSecondaryColorPickerIndicator"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:srcCompat="@drawable/colorpicker3" />
