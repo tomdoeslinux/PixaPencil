@@ -12,7 +12,8 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_image_24" />
+        app:srcCompat="@drawable/ic_baseline_image_24"
+        app:tint="@color/black_color_daynight" />
 
     <TextView
         android:id="@+id/textView"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="View Details"
-        android:textColor="@color/black"
+        android:textColor="@color/black_color_daynight"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Rename"
-        android:textColor="@color/black"
+        android:textColor="@color/black_color_daynight"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Delete"
-        android:textColor="@color/black"
+        android:textColor="@color/black_color_daynight"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView9" />
@@ -52,17 +53,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/black"
+        app:tint="@color/black_color_daynight"
         app:layout_constraintEnd_toEndOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_baseline_pencil_24"
-        app:tint="@color/black" />
+        app:srcCompat="@drawable/ic_baseline_pencil_24" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:tint="@color/black_color_daynight"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
