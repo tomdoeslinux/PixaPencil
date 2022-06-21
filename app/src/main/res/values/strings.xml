@@ -282,4 +282,6 @@
     <string name="spot_light_activity_canvas_6_in_code_str">You only have the default palette, but you can always create a new one by tapping the three dots at the top right of your screen</string>
     <string name="spot_light_activity_canvas_7_in_code_str">Tap on \'Brushes\' to view your brushes</string>
     <string name="spot_light_activity_canvas_8_in_code_str">PixaPencil has five brushes you can try out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

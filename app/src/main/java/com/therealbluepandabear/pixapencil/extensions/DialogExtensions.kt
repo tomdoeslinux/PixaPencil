@@ -3,9 +3,9 @@ package com.therealbluepandabear.pixapencil.extensions
 import android.app.Activity
 import android.content.DialogInterface
 import android.view.View
+import android.view.WindowManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
-
 
 fun Activity.showDialog(
     dialogTitle: String,
@@ -14,14 +14,20 @@ fun Activity.showDialog(
     dialogPositiveButtonAction: DialogInterface.OnClickListener,
     dialogNegativeButtonText: String?,
     dialogNegativeButtonAction: DialogInterface.OnClickListener?,
-    view: View? = null) {
-    MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+    view: View? = null,
+    dimBackground: Boolean = true) {
+    val builder = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
         .setView(view)
         .setPositiveButton(dialogPositiveButtonText, dialogPositiveButtonAction)
         .setNegativeButton(dialogNegativeButtonText, dialogNegativeButtonAction)
-        .show()
+
+    if (!dimBackground) {
+        builder.show().window!!.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+    } else {
+        builder.show()
+    }
 }
 
 fun Activity.showDialogWithNeutralButtonAndOnCancelListener(

@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.extensions
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Matrix
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -15,6 +16,22 @@ fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
             }
         }
     }
+}
+
+fun Bitmap.getNumberOfUniqueColors(): Int {
+    val colors = mutableListOf<Int>()
+    for (i_1 in 0 until width) {
+        for (i_2 in 0 until height) {
+            val coordinates = Coordinates(i_1, i_2)
+            val colorAtPixel = getPixel(coordinates)
+
+            if (!colors.contains(colorAtPixel) && colorAtPixel != Color.TRANSPARENT) {
+                colors.add(colorAtPixel)
+            }
+        }
+    }
+
+    return colors.size
 }
 
 fun Bitmap.calculateMatrix(newWidth: Float, newHeight: Float): MatrixInfo {
