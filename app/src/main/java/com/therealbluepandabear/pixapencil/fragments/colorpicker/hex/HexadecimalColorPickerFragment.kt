@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.hex
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,13 +79,13 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentHexadecimalColorP
 import com.therealbluepandabear.pixapencil.fragments.colorpicker.oldColor_
 
 class HexadecimalColorPickerFragment : Fragment() {
-    private val oldColorAsHex = Integer.toHexString(oldColor_)
-
     private var backingBindingProperty: FragmentHexadecimalColorPickerBinding? = null
 
     val binding get(): FragmentHexadecimalColorPickerBinding {
         return backingBindingProperty!!
     }
+
+    private val oldColorAsHex = Integer.toHexString(oldColor_)
 
     private fun setup() {
         binding.fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(oldColor_)

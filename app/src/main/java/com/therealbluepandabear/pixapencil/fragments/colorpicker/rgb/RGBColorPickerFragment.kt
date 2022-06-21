@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.rgb
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +83,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent.registerEventListener
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener
 import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
-
 
 class RGBColorPickerFragment : Fragment() {
     private lateinit var keyboardVisibilityEventListenerRegistrar: Unregistrar

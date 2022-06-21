@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.spraytoolsettings
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -14,8 +82,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class SprayToolSettingsFragment : Fragment(), ActivityFragment {
-    override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }
-
     lateinit var paramSharedPreferenceObject: SharedPreferences
 
     private var backingBindingProperty: FragmentSprayToolSettingsBinding? = null
@@ -25,6 +91,8 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     }
 
     lateinit var caller: SprayToolSettingsFragmentListener
+
+    override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }
 
     fun setParams(paramSharedPreferenceObject: SharedPreferences) {
         this.paramSharedPreferenceObject = paramSharedPreferenceObject
@@ -61,11 +129,6 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
         requireActivity().title = title
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         menu.clear()
@@ -77,6 +140,11 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
         setup()
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onDestroyView() {

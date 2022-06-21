@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.brushes
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,6 +94,10 @@ class BrushesFragment : Fragment(), BrushesListener {
         }
     }
 
+    override fun onBrushTapped(selectedBrush: Brush) {
+        caller.onBrushTapped(selectedBrush)
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BrushesFragmentListener) caller = context
@@ -43,9 +115,5 @@ class BrushesFragment : Fragment(), BrushesListener {
     override fun onDestroyView() {
         super.onDestroyView()
         backingBindingProperty = null
-    }
-
-    override fun onBrushTapped(selectedBrush: Brush) {
-        caller.onBrushTapped(selectedBrush)
     }
 }

@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.outercanvas
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -20,11 +88,16 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.CanvasFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
-
 lateinit var canvasFragment: CanvasFragment
 
 @SuppressLint("ClickableViewAccessibility")
 class OuterCanvasFragment : Fragment() {
+    private var backingBindingProperty: FragmentOuterCanvasBinding? = null
+
+    private val binding get(): FragmentOuterCanvasBinding {
+        return backingBindingProperty!!
+    }
+
     lateinit var cardViewParent: CardView
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
@@ -34,11 +107,11 @@ class OuterCanvasFragment : Fragment() {
     private var paramProjectTitle: String? = null
     private var paramIndex: Int = -1
 
-    private var backingBindingProperty: FragmentOuterCanvasBinding? = null
+    private var originalX: Float? = null
+    private var originalY: Float? = null
 
-    private val binding get(): FragmentOuterCanvasBinding {
-        return backingBindingProperty!!
-    }
+    private var dX = 0f
+    private var dY = 0f
 
     private fun setParams(paramWidth: Int, paramHeight: Int, paramProjectTitle: String?, paramIndex: Int) {
         this.paramWidth = paramWidth
@@ -61,9 +134,6 @@ class OuterCanvasFragment : Fragment() {
     private fun beginCanvasFragmentTransaction() {
         requireActivity().supportFragmentManager.beginTransaction().add(R.id.fragmentOuterCanvas_canvasFragmentHost, canvasFragment).commit()
     }
-
-    private var originalX: Float? = null
-    private var originalY: Float? = null
 
     private fun setup() {
         instantiateVariables()
@@ -99,9 +169,6 @@ class OuterCanvasFragment : Fragment() {
         binding.root.invalidate()
     }
 
-    private var dX = 0f
-    private var dY = 0f
-
     private fun onMoveViewTouchListener(): View.OnTouchListener {
         return View.OnTouchListener { _, event ->
             when (event.actionMasked) {
@@ -120,7 +187,6 @@ class OuterCanvasFragment : Fragment() {
             true
         }
     }
-
 
     fun getCurrentRotation(): Float {
         return cardViewParent.rotation

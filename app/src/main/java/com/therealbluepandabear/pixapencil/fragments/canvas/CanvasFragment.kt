@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.canvas
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,14 +83,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 lateinit var pixelGridViewInstance: PixelGridView
 
 class CanvasFragment : Fragment() {
-    var bitmap: Bitmap? = null
-
-    private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
-    private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
-    private var paramOuterCanvasInstance: OuterCanvasFragment? = null
-    private var paramProjectTitle: String? = null
-    private var paramIndex: Int = -1
-
     var backingBindingProperty: FragmentCanvasBinding? = null
 
     val binding get(): FragmentCanvasBinding {
@@ -30,6 +90,14 @@ class CanvasFragment : Fragment() {
     }
 
     lateinit var caller: CanvasFragmentListener
+
+    var bitmap: Bitmap? = null
+
+    private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
+    private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    private var paramOuterCanvasInstance: OuterCanvasFragment? = null
+    private var paramProjectTitle: String? = null
+    private var paramIndex: Int = -1
 
     fun setParams(paramWidth: Int, paramHeight: Int, outerCanvasInstance: OuterCanvasFragment, paramProjectTitle: String?, paramIndex: Int) {
         this.paramWidth = paramWidth
@@ -39,7 +107,7 @@ class CanvasFragment : Fragment() {
         this.paramIndex = paramIndex
     }
 
-    private fun setupCanvas() {
+    private fun setup() {
         if (paramOuterCanvasInstance != null) {
             pixelGridViewInstance = PixelGridView(requireContext(), paramWidth, paramHeight, paramOuterCanvasInstance!!, paramProjectTitle, paramIndex)
             binding.root.addView(pixelGridViewInstance)
@@ -58,7 +126,7 @@ class CanvasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         backingBindingProperty = FragmentCanvasBinding.inflate(inflater, container, false)
 
-        setupCanvas()
+        setup()
 
         return binding.root
     }

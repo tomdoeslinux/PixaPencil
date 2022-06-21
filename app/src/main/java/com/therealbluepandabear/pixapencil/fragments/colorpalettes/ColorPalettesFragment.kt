@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpalettes
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +81,6 @@ import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
-    lateinit var adapter : ColorPalettesAdapter
-    val colorPalettesList = mutableListOf<ColorPalette>()
-
     private var backingBindingProperty: FragmentColorPalettesBinding? = null
 
     val binding get(): FragmentColorPalettesBinding {
@@ -24,10 +89,26 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
 
     private lateinit var caller: ColorPalettesFragmentListener
 
+    lateinit var adapter : ColorPalettesAdapter
+    val colorPalettesList = mutableListOf<ColorPalette>()
+
+    private fun setup() {
+        setUpRecyclerView()
+        observeColorPaletteData()
+    }
+
     companion object {
         fun newInstance(): ColorPalettesFragment {
             return ColorPalettesFragment()
         }
+    }
+
+    override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {
+        caller.onColorPaletteTapped(selectedColorPalette)
+    }
+
+    override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
+        caller.onColorPaletteLongTapped(selectedColorPalette)
     }
 
     override fun onAttach(context: Context) {
@@ -38,8 +119,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         backingBindingProperty = FragmentColorPalettesBinding.inflate(inflater, container, false)
 
-        setUpRecyclerView()
-        observeColorPaletteData()
+        setup()
 
         return binding.root
     }
@@ -47,13 +127,5 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     override fun onDestroyView() {
         super.onDestroyView()
         backingBindingProperty = null
-    }
-
-    override fun onColorPaletteTapped(selectedColorPalette: ColorPalette) {
-        caller.onColorPaletteTapped(selectedColorPalette)
-    }
-
-    override fun onColorPaletteLongTapped(selectedColorPalette: ColorPalette) {
-        caller.onColorPaletteLongTapped(selectedColorPalette)
     }
 }

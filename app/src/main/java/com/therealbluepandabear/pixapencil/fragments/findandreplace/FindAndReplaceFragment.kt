@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.findandreplace
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -28,6 +96,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
     private lateinit var caller: FindAndReplaceFragmentListener
 
+    override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
+
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
 
@@ -37,8 +107,6 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     private var paramSelectedColorPaletteIndex: Int = 0
     private var paramScaledWidth: Int = 500
     private var paramScaledHeight: Int = 500
-
-    override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
 
     fun setParams(
         paramCanvasColors: List<Int>,
@@ -137,26 +205,23 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putIntegerArrayList(
-            StringConstants.Identifiers.PrevColorsToFindBundleIdentifier,
-            paramCanvasColors as ArrayList<Int>
-        )
-
-        outState.putString(
-            StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier,
-            BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
-        outState.putString(
-            StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier,
-            BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
-
-        super.onSaveInstanceState(outState)
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FindAndReplaceFragmentListener) caller = context
         requireActivity().title = title
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        backingBindingProperty = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
+
+        setup()
+
+        return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -172,17 +237,20 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        menu.clear()
-    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putIntegerArrayList(
+            StringConstants.Identifiers.PrevColorsToFindBundleIdentifier,
+            paramCanvasColors as ArrayList<Int>
+        )
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
+        outState.putString(
+            StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier,
+            BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
+        outState.putString(
+            StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier,
+            BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
 
-        setup()
-
-        return binding.root
+        super.onSaveInstanceState(outState)
     }
 
     override fun onDestroyView() {

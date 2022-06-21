@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.dithertoolsettings
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.content.Context
 import android.os.Bundle
 import android.view.*
@@ -29,15 +97,14 @@ class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesLi
         }
     }
 
+    override fun onDitherBrushTapped(ditherBrush: DitherBrush) {
+        caller.onDitherBrushTapped(ditherBrush)
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is DitherToolSettingsFragmentListener) caller = context
         requireActivity().title = title
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -53,13 +120,14 @@ class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesLi
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         backingBindingProperty = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
-    }
-
-    override fun onDitherBrushTapped(ditherBrush: DitherBrush) {
-        caller.onDitherBrushTapped(ditherBrush)
     }
 }

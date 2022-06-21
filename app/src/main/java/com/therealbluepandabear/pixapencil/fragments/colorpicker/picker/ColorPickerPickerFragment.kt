@@ -1,5 +1,73 @@
 package com.therealbluepandabear.pixapencil.fragments.colorpicker.picker
 
+/**
+ * Fragment Structure -> If you are making any changes to the code, follow these guidelines:
+ *
+ * ,------------,
+ * [    Root    ]
+ * '------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    Binding    ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------,
+ * [    Caller    ]
+ * '--------------'
+ *      │
+ *      ▼
+ * ,-------------,
+ * [    Title    ]
+ * '-------------'
+ *      │
+ *      ▼
+ * ,-----------------,
+ * [    Variables    ]
+ * '-----------------'
+ *      │
+ *      ▼
+ * ,-----------------------------------,
+ * [    Private Functions/Functions    ]
+ * '-----------------------------------'
+ *      │
+ *      ▼
+ * ,------------------------,
+ * [    Companion Object    ]
+ * '------------------------'
+ *      │
+ *      ▼
+ * ,----------------------------------,
+ * [    Interface Caller Functions    ]
+ * '----------------------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnAttach   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------------,
+ * [    OnCreateOptionsMenu   ]
+ * '--------------------------'
+ *      │
+ *      ▼
+ * ,-------------------,
+ * [    OnCreateView   ]
+ * '-------------------'
+ *      │
+ *      ▼
+ * ,---------------,
+ * [    OnCreate   ]
+ * '---------------'
+ *      │
+ *      ▼
+ * ,--------------------,
+ * [    OnDestroyView   ]
+ * '--------------------'
+ */
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +92,13 @@ class ColorPickerPickerFragment : Fragment() {
 
     var selectedColor: Int = 0
 
+    private fun setup() {
+        binding.fragmentColorPickerPickerColorPickerView.setInitialColor(oldColor_)
+        binding.fragmentColorPickerPickerColorPreview.setBackgroundColor(oldColor_)
+        selectedColor = oldColor_
+        setOnClickListeners()
+    }
+
     companion object {
         fun newInstance(): ColorPickerPickerFragment {
             return ColorPickerPickerFragment()
@@ -33,11 +108,7 @@ class ColorPickerPickerFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         backingBindingProperty = FragmentColorPickerPickerBinding.inflate(inflater, container, false)
 
-        binding.fragmentColorPickerPickerColorPickerView.setInitialColor(oldColor_)
-        binding.fragmentColorPickerPickerColorPreview.setBackgroundColor(oldColor_)
-        selectedColor = oldColor_
-        setOnClickListeners()
-
+        setup()
 
         return binding.root
     }
