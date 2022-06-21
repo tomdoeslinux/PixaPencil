@@ -1,15 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
-import android.content.Intent
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
-import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.onSaveProjectOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
-import com.therealbluepandabear.pixapencil.activities.main.MainActivity
-import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButtonAndOnCancelListener
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import kotlinx.coroutines.delay

@@ -22,7 +22,6 @@ import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
-import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.*
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
@@ -63,8 +62,6 @@ class CanvasActivity :
     var background: Drawable? = null
 
     lateinit var menu: Menu
-
-    var toolsFragmentInstance: ToolsFragment? = null
 
     var lineModeHasLetGo = false
     var rectangleModeHasLetGo = false
