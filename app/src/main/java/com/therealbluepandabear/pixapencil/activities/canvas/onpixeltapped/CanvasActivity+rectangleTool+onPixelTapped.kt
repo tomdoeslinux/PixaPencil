@@ -11,8 +11,6 @@ var coordinates: Coordinates? = null
 var rectangleAlgorithmInstance: RectanglePreviewAlgorithm? = null
 var squareAlgorithmInstance: SquarePreviewAlgorithm? = null
 
-var firstRectangleDrawn = false
-
 fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, hasBorder: Boolean) {
 
     if (viewModel.currentTool == Tool.RectangleTool || viewModel.currentTool == Tool.OutlinedRectangleTool) {
@@ -37,7 +35,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
         first = false
 
-        if (firstRectangleDrawn) {
+        if (firstShapeDrawn) {
             viewModel.currentBitmapAction!!.actionData.clear()
         }
     } else {
@@ -55,6 +53,6 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         } else {
             squareAlgorithmInstance!!.compute(shapeOrigin!!, coordinatesTapped)
         }
-        firstRectangleDrawn = true
+        firstShapeDrawn = true
     }
 }

@@ -65,6 +65,7 @@ class CanvasActivity :
 
     var shapeOrigin: Coordinates? = null
     var shapeHasLetGo = false
+    var firstShapeDrawn = false
 
     lateinit var sharedPreferenceObject: SharedPreferences
 

@@ -5,8 +5,6 @@ import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
-var firstLineDrawn = false
-
 fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
@@ -18,7 +16,7 @@ fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
         BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
         first = false
 
-        if (firstLineDrawn) {
+        if (firstShapeDrawn) {
             viewModel.currentBitmapAction!!.actionData.clear()
         }
     } else {
@@ -31,6 +29,6 @@ fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
         shapeOrigin = coordinatesTapped
     } else {
         lineAlgorithmInstance.compute(shapeOrigin!!, coordinatesTapped)
-        firstLineDrawn = true
+        firstShapeDrawn = true
     }
 }

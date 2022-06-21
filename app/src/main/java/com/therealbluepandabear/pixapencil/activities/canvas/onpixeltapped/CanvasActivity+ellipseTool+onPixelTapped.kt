@@ -6,8 +6,6 @@ import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
-var firstEllipseDrawn = false
-
 fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val rectanglePreviewAlgorithmInstance = RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter, true)
     val ellipseAlgorithmInstance = EllipseAlgorithm(primaryAlgorithmInfoParameter)
@@ -20,7 +18,7 @@ fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
         BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
         first = false
 
-        if (firstEllipseDrawn) {
+        if (firstShapeDrawn) {
             viewModel.currentBitmapAction!!.actionData.clear()
         }
     } else {
@@ -46,7 +44,7 @@ fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
                 ellipseAlgorithmInstance.compute(shapeOrigin!!, coordinates!!)
             }
 
-            firstEllipseDrawn = true
+            firstShapeDrawn = true
         }
     }
 }
