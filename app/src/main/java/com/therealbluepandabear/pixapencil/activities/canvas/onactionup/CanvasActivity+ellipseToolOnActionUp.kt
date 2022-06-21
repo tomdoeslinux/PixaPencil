@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.shapeOrigin
 import com.therealbluepandabear.pixapencil.algorithms.EllipseAlgorithm
 import com.therealbluepandabear.pixapencil.enums.Tool
 
@@ -24,6 +23,6 @@ fun CanvasActivity.ellipseToolOnActionUp() {
 
     coordinates = null
     shapeOrigin = null
-    ellipseModeHasLetGo = false
+    shapeHasLetGo = false
     first = true
 }

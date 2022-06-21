@@ -5,7 +5,6 @@ import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
-var shapeOrigin: Coordinates? = null
 var polygonCoordinates = mutableListOf<Coordinates>()
 var cindx = 0
 var first = true

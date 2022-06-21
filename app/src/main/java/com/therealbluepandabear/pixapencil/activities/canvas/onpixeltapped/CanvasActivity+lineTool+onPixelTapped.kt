@@ -10,7 +10,7 @@ var firstLineDrawn = false
 fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-    if (!lineModeHasLetGo) {
+    if (!shapeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -23,7 +23,7 @@ fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
         }
     } else {
         viewModel.currentBitmapAction = null
-        lineModeHasLetGo = false
+        shapeHasLetGo = false
         first = true
     }
 

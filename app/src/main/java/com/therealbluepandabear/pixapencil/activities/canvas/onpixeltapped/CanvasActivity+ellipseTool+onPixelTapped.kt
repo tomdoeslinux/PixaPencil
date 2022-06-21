@@ -12,7 +12,7 @@ fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val rectanglePreviewAlgorithmInstance = RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter, true)
     val ellipseAlgorithmInstance = EllipseAlgorithm(primaryAlgorithmInfoParameter)
 
-    if (!ellipseModeHasLetGo) {
+    if (!shapeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -25,7 +25,7 @@ fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
         }
     } else {
         viewModel.currentBitmapAction = null
-        ellipseModeHasLetGo = false
+        shapeHasLetGo = false
         first = true
     }
 

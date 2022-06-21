@@ -63,10 +63,8 @@ class CanvasActivity :
 
     lateinit var menu: Menu
 
-    var lineModeHasLetGo = false
-    var rectangleModeHasLetGo = false
-    var circleModeHasLetGo = false
-    var ellipseModeHasLetGo = false
+    var shapeOrigin: Coordinates? = null
+    var shapeHasLetGo = false
 
     lateinit var sharedPreferenceObject: SharedPreferences
 

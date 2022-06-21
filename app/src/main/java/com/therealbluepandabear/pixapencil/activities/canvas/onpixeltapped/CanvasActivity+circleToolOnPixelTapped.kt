@@ -12,7 +12,7 @@ fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
     val squarePreviewAlgorithmInstance = SquarePreviewAlgorithm(primaryAlgorithmInfoParameter, null, true)
     val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter)
 
-    if (!circleModeHasLetGo) {
+    if (!shapeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -25,7 +25,7 @@ fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
         }
     } else {
         viewModel.currentBitmapAction = null
-        circleModeHasLetGo = false
+        shapeHasLetGo = false
         first = true
     }
 

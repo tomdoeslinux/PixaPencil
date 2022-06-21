@@ -29,7 +29,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         }
     }
 
-    if (!rectangleModeHasLetGo) {
+    if (!shapeHasLetGo) {
         if (!first) {
             BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
             BinaryPreviewStateSwitcher.switch()
@@ -42,7 +42,7 @@ fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates, ha
         }
     } else {
         viewModel.currentBitmapAction = null
-        rectangleModeHasLetGo = false
+        shapeHasLetGo = false
         first = true
     }
 

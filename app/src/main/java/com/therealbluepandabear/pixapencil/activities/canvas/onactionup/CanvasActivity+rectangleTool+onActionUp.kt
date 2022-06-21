@@ -23,7 +23,7 @@ fun CanvasActivity.rectangleToolOnActionUp() {
 
     coordinates = null
     shapeOrigin = null
-    rectangleModeHasLetGo = false
+    shapeHasLetGo = false
     rectangleAlgorithmInstance = null
     squareAlgorithmInstance = null
     first = true
