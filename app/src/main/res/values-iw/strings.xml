@@ -225,6 +225,8 @@
     </string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">למחוק את %1$s?</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">האם אתה בטוח שברצונך למחוק את %1$s? אי אפשר לבטל את זה.</string>
+    <string name="dialog_project_details_title_in_code_str">פרטים</string>
+    <string name="dialog_rename_title_in_code_str">תשנה את השם</string>
     <string name="dialog_welcome_title_in_code_str">ברוך הבא</string>
     <string name="dialog_welcome_text_in_code_str">ברוך הבא ל-PixaPencil! האם תרצה להתחיל הדרכה אינטראקטיבית?</string>
     <string name="dialog_large_canvas_warning_text_in_code_str">אתה יוצר קנבס גדול, אתה עלול להיתקל בבעיות ביצועים מכיוון שטלפונים מסוימים אינם יכולים לתמוך ביקנבס בגודל זה.</string>

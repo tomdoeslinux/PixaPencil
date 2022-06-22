@@ -244,7 +244,8 @@
     <string name="dialog_image_exception_when_saving_title_in_code_str">Error saving %1$s as %2$s</string>
     <string name="dialog_delete_pixel_art_project_title_in_code_str">Delete %1$s?"</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">Are you sure you want to delete %1$s? - this cannot be undone."</string>
-
+    <string name="dialog_project_details_title_in_code_str">Details</string>
+    <string name="dialog_rename_title_in_code_str">Rename</string>
     <string name="dialog_welcome_title_in_code_str">Welcome</string>
     <string name="dialog_welcome_text_in_code_str">Welcome to PixaPencil! Would you like to start an interactive tutorial?</string>
     <string name="dialog_large_canvas_warning_text_in_code_str">You are about to create a large canvas, keep in mind that your phone might not be able to support bitmaps of these sizes.</string>

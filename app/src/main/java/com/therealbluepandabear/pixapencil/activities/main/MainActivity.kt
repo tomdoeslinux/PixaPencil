@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import com.takusemba.spotlight.Spotlight
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
         details.findViewById<TextView>(R.id.projectDetailsAlertBox_created).text = pixelArt.dateCreated
 
         showDialog(
-            "Details",
+            getString(R.string.dialog_project_details_title_in_code_str),
             null,
             getString(R.string.generic_ok_in_code_str), { _, _ ->
             }, null, null, view = details, dimBackground = false
@@ -100,7 +101,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
                     as TextInputLayout
 
         showDialog(
-            "Rename",
+            getString(R.string.dialog_rename_title_in_code_str),
             null,
             getString(R.string.generic_ok_in_code_str), { _, _ ->
                 val input: String = textInput.editText?.text.toString()
