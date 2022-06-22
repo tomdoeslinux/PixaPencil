@@ -6,6 +6,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.extensions.getColors
+import com.therealbluepandabear.pixapencil.extensions.getNumberOfUniqueColors
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
@@ -22,7 +24,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(palette)
         } else {
-            val data = pixelGridViewInstance.getNumberOfUniqueColors().toMutableList()
+            val data = pixelGridViewInstance.pixelGridViewBitmap.getColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))

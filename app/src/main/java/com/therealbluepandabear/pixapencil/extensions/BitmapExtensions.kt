@@ -18,20 +18,38 @@ fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
     }
 }
 
-fun Bitmap.getNumberOfUniqueColors(): Int {
+fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): Int {
     val colors = mutableListOf<Int>()
+
     for (i_1 in 0 until width) {
         for (i_2 in 0 until height) {
             val coordinates = Coordinates(i_1, i_2)
             val colorAtPixel = getPixel(coordinates)
 
-            if (!colors.contains(colorAtPixel) && colorAtPixel != Color.TRANSPARENT) {
+            if (!colors.contains(colorAtPixel) && (excludeTransparentPixels && colorAtPixel != Color.TRANSPARENT)) {
                 colors.add(colorAtPixel)
             }
         }
     }
 
     return colors.size
+}
+
+fun Bitmap.getColors(): MutableList<Int> {
+    val colors = mutableListOf<Int>()
+
+    for (i_1 in 0 until width) {
+        for (i_2 in 0 until height) {
+            val coordinates = Coordinates(i_1, i_2)
+            val colorAtPixel = getPixel(coordinates)
+
+            if (!colors.contains(colorAtPixel)) {
+                colors.add(colorAtPixel)
+            }
+        }
+    }
+
+    return colors
 }
 
 fun Bitmap.calculateMatrix(newWidth: Float, newHeight: Float): MatrixInfo {

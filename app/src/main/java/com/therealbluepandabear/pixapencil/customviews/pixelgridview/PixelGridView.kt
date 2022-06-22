@@ -153,10 +153,6 @@ class PixelGridView : View, PixelatedView {
         return extendedDispatchTouchEvent(event)
     }
 
-    fun getNumberOfUniqueColors(): List<Int> {
-        return extendedGetNumberOfUniqueColors()
-    }
-
     fun replaceBitmap(newBitmap: Bitmap) {
         extendedReplaceBitmap(newBitmap)
     }
