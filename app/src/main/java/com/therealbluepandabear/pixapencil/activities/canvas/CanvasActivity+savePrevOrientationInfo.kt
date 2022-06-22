@@ -2,8 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.view.ViewTreeObserver
 import androidx.lifecycle.lifecycleScope
-import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.extensions.isEmpty
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
