@@ -20,6 +20,11 @@
     <string name="activityMainBottomSheet_rename_str">Rename</string>
     <string name="activityMainBottomSheet_delete_str">Delete</string>
 
+    <string name="projectDetailsAlertBox_width_str">Width</string>
+    <string name="projectDetailsAlertBox_height_str">Height</string>
+    <string name="projectDetailsAlertBox_created_str">Created</string>
+    <string name="projectDetailsAlertBox_colors_str">Colors</string>
+
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">Colour Filter</string>
     <string name="fragmentFilters_lighten_str">Lighten</string>

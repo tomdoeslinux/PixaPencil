@@ -22,6 +22,11 @@
     <string name="activityMainBottomSheet_rename_str">תשנה את השם</string>
     <string name="activityMainBottomSheet_delete_str">למחוק</string>
 
+    <string name="projectDetailsAlertBox_width_str">רוֹחַב</string>
+    <string name="projectDetailsAlertBox_height_str">גוֹבַה</string>
+    <string name="projectDetailsAlertBox_created_str">נוצר</string>
+    <string name="projectDetailsAlertBox_colors_str">צבעים</string>
+
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">שכבת צבע</string>
     <string name="fragmentFilters_lighten_str">להבהיר</string>

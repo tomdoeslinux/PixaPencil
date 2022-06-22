@@ -28,6 +28,11 @@
     <string name="activityMainBottomSheet_rename_str">Rename</string>
     <string name="activityMainBottomSheet_delete_str">Delete</string>
 
+    <string name="projectDetailsAlertBox_width_str">Width</string>
+    <string name="projectDetailsAlertBox_height_str">Height</string>
+    <string name="projectDetailsAlertBox_created_str">Created</string>
+    <string name="projectDetailsAlertBox_colors_str">Colors</string>
+
     <!--Other strings-->
     <string name="recentCreationsLayoutSubtitle_str" translatable="false">%1$dx%2$d</string>
 
