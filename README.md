@@ -24,11 +24,7 @@ Why you should try out PixaPencil:
 - 100% free of evil (tracking) advertisements
 - 100% commitment to open source
 
-**Warning: if you have a phone with a _very_ small screen size (e.g. 400x800 Galaxy Core Prime) this app will not work well. Keep that in mind. I am working on making this app more compatible with smaller screen sizes, but for now it's on hold.**
-
-PixaPencil is available in either English (US), English (UK/NZ/AU, etc), or Hebrew.
-
-PixaPencil only runs on Android 8.0 or higher.
+PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
 
 ## 🖼️ Showcase
 
@@ -39,15 +35,7 @@ PixaPencil only runs on Android 8.0 or higher.
 ![image](https://user-images.githubusercontent.com/50536495/174217529-14c05774-6829-42cf-8163-cd7da436d45c.png)
 
 
-**If you want to showcase an image of your own please send me an email at therealbluepandabear@gmail.com.**
-
-## 📜 License
-
-To disclaim, this repository is licensed under the MIT license.
-
-For more info go to: https://choosealicense.com/licenses/mit/.
-
-_Do not use the name '**PixaPencil**' in your app/other product._
+**If you want to showcase an image of your own please send me an email at therealbluepandabear@protonmail.com.**
 
 ## 📝 Features (as of June 13, 2022)
 - Pencil tool
@@ -104,5 +92,7 @@ Thanks to these people who helped create the libraries used in the app:
 - Takusemba (https://github.com/TakuSemba) - Spotlight (https://github.com/TakuSemba/Spotlight)
 
 ## Mirror Repo (in case of censorship)
+
+(On hold as it's not working properly.)
 
 https://bitbucket.org/thebluepandabear/pixapencil/src/master/
