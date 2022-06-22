@@ -24,6 +24,10 @@
     <string name="colorPalettesLayout_color_palette_item_str">Color Palette Item</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
 
+    <string name="activityMainBottomSheet_view_details_str">View Details</string>
+    <string name="activityMainBottomSheet_rename_str">Rename</string>
+    <string name="activityMainBottomSheet_delete_str">Delete</string>
+
     <!--Other strings-->
     <string name="recentCreationsLayoutSubtitle_str" translatable="false">%1$dx%2$d</string>
 

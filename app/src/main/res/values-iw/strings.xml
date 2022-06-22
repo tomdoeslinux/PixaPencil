@@ -18,6 +18,10 @@
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">שם חדש</string>
     <string name="defaultColorPalette_str">לוח צבעים עיקרי</string>
 
+    <string name="activityMainBottomSheet_view_details_str">הצג פרטים</string>
+    <string name="activityMainBottomSheet_rename_str">תשנה את השם</string>
+    <string name="activityMainBottomSheet_delete_str">למחוק</string>
+
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">שכבת צבע</string>
     <string name="fragmentFilters_lighten_str">להבהיר</string>

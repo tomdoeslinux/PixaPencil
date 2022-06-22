@@ -15,6 +15,11 @@
     <string name="colorPalettesLayout_color_palette_item_str">Colour Palette Item</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
     <string name="defaultColorPalette_str">Default colour palette</string>
+
+    <string name="activityMainBottomSheet_view_details_str">View Details</string>
+    <string name="activityMainBottomSheet_rename_str">Rename</string>
+    <string name="activityMainBottomSheet_delete_str">Delete</string>
+
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter_str">Colour Filter</string>
     <string name="fragmentFilters_lighten_str">Lighten</string>
