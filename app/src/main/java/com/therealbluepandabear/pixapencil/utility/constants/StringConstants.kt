@@ -55,6 +55,8 @@ object StringConstants {
         const val PrevColorsToFindBundleIdentifier = "prev_colors_to_find_bundle_identifier"
         const val PrevTransparentBitmapSourceBundleIdentifier = "prev_transparent_bitmap_source_bundle_identifier"
         const val PrevPixelGridViewBitmapSourceBundleIdentifier = "prev_pixel_grid_view_bitmap_source_bundle_identifier"
+
+        const val BottomSheetCapturedPixelArt = "bottom_sheet_captured_pixel_art"
     }
 
     object ShadingToolModes {

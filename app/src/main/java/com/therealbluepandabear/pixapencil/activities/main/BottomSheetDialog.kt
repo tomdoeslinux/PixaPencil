@@ -34,7 +34,7 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("px", Gson().toJson(pixelArt))
+        outState.putString(StringConstants.Identifiers.BottomSheetCapturedPixelArt, Gson().toJson(pixelArt))
     }
 
     private fun setup() {
@@ -72,7 +72,7 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState != null) {
-            pixelArt = Gson().fromJson(savedInstanceState.getString("px"), PixelArt::class.java)
+            pixelArt = Gson().fromJson(savedInstanceState.getString(StringConstants.Identifiers.BottomSheetCapturedPixelArt), PixelArt::class.java)
         }
     }
 }
