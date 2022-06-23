@@ -1,20 +1,41 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
-
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.gson.Gson
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBottomSheetBinding
 import com.therealbluepandabear.pixapencil.listeners.BottomSheetDialogListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-class BottomSheetDialog(private val pixelArt: PixelArt) : BottomSheetDialogFragment() {
+class BottomSheetDialog : BottomSheetDialogFragment() {
     private lateinit var binding: ActivityMainBottomSheetBinding
 
     private lateinit var caller: BottomSheetDialogListener
+
+    private lateinit var pixelArt: PixelArt
+
+    fun setParams(pixelArt: PixelArt) {
+        this.pixelArt = pixelArt
+    }
+
+    companion object {
+        fun newInstance(pixelArt: PixelArt): BottomSheetDialog {
+            val bottomSheetDialog = BottomSheetDialog()
+            bottomSheetDialog.setParams(pixelArt)
+
+            return bottomSheetDialog
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("px", Gson().toJson(pixelArt))
+    }
 
     private fun setup() {
         binding.activityMainBottomSheetViewDetails.setOnClickListener {
@@ -22,11 +43,11 @@ class BottomSheetDialog(private val pixelArt: PixelArt) : BottomSheetDialogFragm
         }
 
         binding.activityMainBottomSheetRename.setOnClickListener {
-            caller.onRenameTapped(pixelArt)
+            caller.onRenameTapped(pixelArt, this)
         }
 
         binding.activityMainBottomSheetDelete.setOnClickListener {
-            caller.onDeleteTapped(pixelArt)
+            caller.onDeleteTapped(pixelArt, this)
         }
     }
 
@@ -45,5 +66,13 @@ class BottomSheetDialog(private val pixelArt: PixelArt) : BottomSheetDialogFragm
         setup()
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (savedInstanceState != null) {
+            pixelArt = Gson().fromJson(savedInstanceState.getString("px"), PixelArt::class.java)
+        }
     }
 }

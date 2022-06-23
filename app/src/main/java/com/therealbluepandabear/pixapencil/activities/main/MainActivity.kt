@@ -8,9 +8,9 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
@@ -42,8 +42,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     var firstLaunch = false
     var darkMode = false
     var mainSpotlight: Spotlight? = null
-
-    lateinit var bottomSheet: BottomSheetDialog
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         initSharedPreferencesObject()
@@ -95,7 +93,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
         )
     }
 
-    override fun onRenameTapped(pixelArt: PixelArt) {
+    override fun onRenameTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
         val textInput: TextInputLayout =
             activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, activity()?.findViewById(android.R.id.content),false)
                     as TextInputLayout
@@ -110,21 +108,21 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
                     if (input.isNotBlank()) {
                         pixelArt.title = input
                         AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(pixelArt)
-                        bottomSheet.dismiss()
+                        bottomSheetDialog.dismiss()
                     }
                 }
            }, getString(R.string.generic_cancel_in_code_str), null, view = textInput, dimBackground = false
         )
     }
 
-    override fun onDeleteTapped(pixelArt: PixelArt) {
+    override fun onDeleteTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
         val title = pixelArt.title
 
         showDialog(
             getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, title),
             getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, title),
             getString(R.string.generic_ok_in_code_str), { _, _ ->
-                bottomSheet.dismiss()
+                bottomSheetDialog.dismiss()
                 CoroutineScope(Dispatchers.IO).launch {
                     AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArt)
                 }
