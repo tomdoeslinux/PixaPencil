@@ -16,6 +16,7 @@
     <string name="saveFileUnderNewNameAlertLayout_new_name_str">New name</string>
     <string name="defaultColorPalette_str">Default colour palette</string>
 
+    <string name="activityMainBottomSheet_duplicate_str">Duplicate</string>
     <string name="activityMainBottomSheet_view_details_str">View Details</string>
     <string name="activityMainBottomSheet_rename_str">Rename</string>
     <string name="activityMainBottomSheet_delete_str">Delete</string>
