@@ -73,7 +73,6 @@
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value_str">Valeur hexadécimale</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard_in_code_str">Échec de la copie du texte dans le presse-papiers</string>
     <string name="activityMainTopAppMenu_dark_light_mode_str">Mode sombre/clair</string>
-    <string name="activityMainTopAppMenu_community_str">Communauté</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect_str">Pixel Perfect</string>
     <string name="activityCanvasTopAppMenu_save_in_background_str">Enregistrer en arrière-plan</string>
     <string name="fragmentTools_ellipse_tool_content_description">Outil ellipse</string>

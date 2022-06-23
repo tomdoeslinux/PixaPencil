@@ -117,7 +117,7 @@
 
     <!--Menu strings-->
     <string name="activityMainTopAppMenu_dark_light_mode_str">Dark/Light Mode</string>
-    <string name="activityMainTopAppMenu_community_str">Community</string>
+    <string name="activityMainTopAppMenu_about_str">About</string>
 
     <string name="activityCanvasTopAppMenu_undo_str">Undo</string>
     <string name="activityCanvasTopAppMenu_redo_str">Redo</string>

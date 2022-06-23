@@ -57,7 +57,6 @@
     <string name="activityCanvas_tab_filters_str">Filtros</string>
     <string name="activityCanvas_tab_tools_str">Ferramentas</string>
     <string name="activityCanvas_tab_color_palettes_str">Paletas</string>
-    <string name="activityMainTopAppMenu_community_str">Comunidade</string>
     <string name="activityCanvasTopAppMenu_redo_str">Refazer</string>
     <string name="activityCanvasTopAppMenu_save_as_png_str">Salvar como PNG</string>
     <string name="activityCanvasTopAppMenu_save_as_jpg_str">Salvar como JPG</string>

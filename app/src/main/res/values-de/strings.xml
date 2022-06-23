@@ -82,7 +82,6 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">Raus zoomen</string>
     <string name="activityCanvasTopAppMenu_save_text_str">Speichern</string>
     <string name="activityCanvas_tab_tools_str">Werkzeuge</string>
-    <string name="activityMainTopAppMenu_community_str">Gemeinschaft</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">Leinwand leeren</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertikal</string>

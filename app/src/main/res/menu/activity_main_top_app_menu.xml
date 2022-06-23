@@ -8,5 +8,5 @@
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
         android:icon="@drawable/ic_baseline_info_24"
         app:showAsAction="ifRoom"
-        android:title="@string/activityMainTopAppMenu_community_str" />
+        android:title="@string/activityMainTopAppMenu_about_str" />
 </menu>

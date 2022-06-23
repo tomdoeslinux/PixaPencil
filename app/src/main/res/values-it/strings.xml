@@ -57,7 +57,6 @@
     <string name="activityCanvas_tab_tools_str">Strumenti</string>
     <string name="activityCanvas_tab_color_palettes_str">Tavolozze</string>
     <string name="activityMainTopAppMenu_dark_light_mode_str">Modalità Scura/Chiara</string>
-    <string name="activityMainTopAppMenu_community_str">Comunità</string>
     <string name="activityCanvasTopAppMenu_undo_str">Annulla</string>
     <string name="activityCanvasTopAppMenu_redo_str">Ripeti</string>
     <string name="activityCanvasTopAppMenu_save_as_png_str">Salva come PNG</string>
