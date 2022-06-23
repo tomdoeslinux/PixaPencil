@@ -38,6 +38,10 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
     }
 
     private fun setup() {
+        binding.activityMainBottomSheetDuplicate.setOnClickListener {
+            caller.onDuplicateTapped(pixelArt, this)
+        }
+
         binding.activityMainBottomSheetViewDetails.setOnClickListener {
             caller.onViewDetailsTapped(pixelArt)
         }

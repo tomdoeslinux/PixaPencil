@@ -20,6 +20,7 @@ import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.getNumberOfUniqueColors
 import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.listeners.BottomSheetDialogListener
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
@@ -73,6 +74,26 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     override fun onBackPressed() {
         super.onBackPressed()
         findViewById<BottomNavigationView>(R.id.activityMain_bottomNavigationView)?.visibility = View.VISIBLE
+    }
+
+    override fun onDuplicateTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val pixelArtt = PixelArt(
+                pixelArt.coverBitmapFilePath,
+                pixelArt.bitmap,
+                pixelArt.width,
+                pixelArt.height,
+                pixelArt.dimenCW,
+                pixelArt.dimenCH,
+                pixelArt.rotation,
+                pixelArt.title,
+                pixelArt.starred
+            )
+
+            AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(pixelArtt)
+        }
+
+        bottomSheetDialog.dismiss()
     }
 
     override fun onViewDetailsTapped(pixelArt: PixelArt) {
