@@ -85,7 +85,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
                 pixelArt.height,
                 pixelArt.dimenCW,
                 pixelArt.dimenCH,
-                pixelArt.rotation,
                 pixelArt.title,
                 pixelArt.starred
             )

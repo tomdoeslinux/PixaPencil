@@ -141,8 +141,6 @@ class PixelGridView : View, PixelatedView {
 
             pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
 
-            outerCanvasInstance.rotate(getCurrentPixelArtObj().rotation.toInt(), false)
-
             postInvalidate()
         }
 

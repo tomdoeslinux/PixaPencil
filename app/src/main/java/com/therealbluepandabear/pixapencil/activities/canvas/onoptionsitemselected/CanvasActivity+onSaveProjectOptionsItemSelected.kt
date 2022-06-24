@@ -8,6 +8,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.gridWasEnabled
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.InternalBitmapFileNameGenerator
@@ -30,13 +31,12 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         val pixelArt = PixelArt(
             coverBMPFileName,
             BitmapConverter.convertBitmapToString(
-                pixelGridViewInstance.pixelGridViewBitmap
+                pixelGridViewInstance.pixelGridViewBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt())
             ),
             width,
             height,
             pixelGridViewInstance.dimenCW,
             pixelGridViewInstance.dimenCH,
-            outerCanvasInstance.getCurrentRotation(),
             title.toString(),
             false
         )
@@ -50,9 +50,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         pixelGridViewInstance.invalidate()
 
         ObjectConstants.CurrentPixelArtObj.coverBitmapFilePath = coverBMPFileName
-        ObjectConstants.CurrentPixelArtObj.bitmap =
-            BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap)
-        ObjectConstants.CurrentPixelArtObj.rotation = outerCanvasInstance.getCurrentRotation()
+        ObjectConstants.CurrentPixelArtObj.bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt()))
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao()
