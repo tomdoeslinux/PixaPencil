@@ -1,7 +1,7 @@
 package com.therealbluepandabear.pixapencil.utility.general
 
+import android.graphics.Color
 import androidx.core.graphics.ColorUtils
-import com.therealbluepandabear.pixapencil.utility.compat.ColorCompat
 
 object ColorFilterUtilities {
     fun inverseRGB(color: Int): Int {
@@ -12,11 +12,11 @@ object ColorFilterUtilities {
         var color = _color
 
         for (i in 0..strength) {
-            val r: Float = ColorCompat.getCompatibleRed(color)
-            val g: Float = ColorCompat.getCompatibleGreen(color)
-            val b: Float = ColorCompat.getCompatibleBlue(color)
+            val r: Float = Color.valueOf(color).red()
+            val g: Float = Color.valueOf(color).green()
+            val b: Float = Color.valueOf(color).blue()
 
-            color = ColorCompat.getCompatibleRGB((r + g + b) / 3.toFloat(), r, r)
+            color = Color.rgb((r + g + b) / 3.toFloat(), r, r)
         }
 
         return color
