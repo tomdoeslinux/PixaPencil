@@ -11,6 +11,10 @@
         app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_find_and_replace_str" />
 
+    <item android:id="@+id/activityCanvasTopAppMenu_import_lospec_palette_item"
+        app:showAsAction="ifRoom"
+        android:title="Import Lospec Palette" />
+
     <item android:id="@+id/activityCanvasTopAppMenu_new_color_palette_item"
         app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_new_color_palette_str" />

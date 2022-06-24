@@ -1,12 +1,31 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
+import android.graphics.Color
 import android.os.Build
+import android.util.Log
 import android.view.MenuItem
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.android.material.textfield.TextInputEditText
+import com.google.gson.Gson
+import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
+import com.therealbluepandabear.pixapencil.extensions.activity
+import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
+import com.therealbluepandabear.pixapencil.models.ColorPalette
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.json.JSONObject
+
 
 const val zoomIncrement = 0.2f
 
@@ -124,6 +143,45 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {
             onSaveProjectOptionsItemSelected(true)
+        }
+
+        R.id.activityCanvasTopAppMenu_import_lospec_palette_item -> {
+            val details: ConstraintLayout =
+                activity()?.layoutInflater?.inflate(R.layout.import_lospec_palette_alert, activity()?.findViewById(android.R.id.content),false)
+                        as ConstraintLayout
+
+            showDialog(
+                "Import Lospec Palette",
+                null,
+                getString(R.string.generic_ok_in_code_str), { _, _ ->
+                    val queue = Volley.newRequestQueue(this)
+                    val url = "https://lospec.com/palette-list/${details.findViewById<TextInputEditText>(R.id.importLospecPaletteAlert_palette_url_identifier_textInputEditText).text.toString()}.json"
+
+                    val stringRequest = StringRequest(Request.Method.GET, url,
+                        { response ->
+                            val mJsonObject = JsonParser.parseString(response).asJsonObject
+
+                            val colorPaletteTitle = Gson().fromJson(mJsonObject.get("name"), String::class.java)
+                            val colorPaletteColorData1 = Gson().fromJson(mJsonObject.get("colors"), Array<String>::class.java).toList()
+                            val colorPaletteColorData2 = mutableListOf<Int>()
+
+                            for (i in colorPaletteColorData1) {
+                                colorPaletteColorData2.add(Color.parseColor("#$i"))
+                            }
+
+                            val colorPalette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(colorPaletteColorData2))
+
+                            CoroutineScope(Dispatchers.IO).launch {
+                                AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(colorPalette)
+                            }
+                        }, {
+
+                        })
+
+                    queue.add(stringRequest)
+
+                }, null, null, view = details
+            )
         }
     }
     return true
