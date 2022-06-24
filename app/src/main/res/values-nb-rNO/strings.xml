@@ -203,4 +203,18 @@
 \ninstallerer programmet via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> eller <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
     <string name="move_tool_info_text_in_code_str">Flytt lerretet rundt ved å holde fingeren på skjermen samtidig som du drar.</string>
     <string name="move_tool_info_title_in_code_str">Flyttingsverktøyinfo</string>
+    <string name="dialog_rename_title_in_code_str">Endre navn</string>
+    <string name="activityMainBottomSheet_duplicate_str">Dupliser</string>
+    <string name="activityMainBottomSheet_view_details_str">Vis detaljer</string>
+    <string name="activityMainBottomSheet_rename_str">Endre navn</string>
+    <string name="activityMainBottomSheet_delete_str">Slett</string>
+    <string name="projectDetailsAlertBox_width_str">Bredde</string>
+    <string name="projectDetailsAlertBox_height_str">Høyde</string>
+    <string name="projectDetailsAlertBox_created_str">Opprettet</string>
+    <string name="projectDetailsAlertBox_colors_str">Farger</string>
+    <string name="activityCanvasTopAppMenu_import_lospec_palette_str">Importer Lospec-palett</string>
+    <string name="activityMainTopAppMenu_about_str">Om</string>
+    <string name="snackbar_successfully_imported_lospec_palette_in_code_str">Importerte %1$s</string>
+    <string name="generic_switch_in_code_str">Bytt</string>
+    <string name="dialog_project_details_title_in_code_str">Detaljer</string>
 </resources>
