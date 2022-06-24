@@ -3,7 +3,8 @@ package com.therealbluepandabear.pixapencil.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.therealbluepandabear.pixapencil.utility.compat.DateTimeCompat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Entity
 data class PixelArt(
@@ -15,6 +16,6 @@ data class PixelArt(
     @ColumnInfo(name = "item_dimen_ch") var dimenCH: Int,
     @ColumnInfo(name = "item_title") var title: String,
     @ColumnInfo(name = "item_starred") var starred: Boolean,
-    @ColumnInfo(name = "item_date_created") var dateCreated: String = DateTimeCompat.getCompatibleCurrentDateTime()) {
+    @ColumnInfo(name = "item_date_created") var dateCreated: String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMMM dd, yyyy\nHH:mm"))) {
     @PrimaryKey(autoGenerate = true) var objId = 0
 }
