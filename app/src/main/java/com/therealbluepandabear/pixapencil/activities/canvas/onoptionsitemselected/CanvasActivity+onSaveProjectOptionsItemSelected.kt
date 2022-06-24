@@ -30,9 +30,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
     if (index == -1 && !viewModel.createdYet) {
         val pixelArt = PixelArt(
             coverBMPFileName,
-            BitmapConverter.convertBitmapToString(
-                pixelGridViewInstance.pixelGridViewBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt())
-            ),
+            BitmapConverter.convertBitmapToString(outerCanvasInstance.drawPixelGridViewBitmap()),
             width,
             height,
             pixelGridViewInstance.dimenCW,
@@ -50,7 +48,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected(quietly: Boolean = false) {
         pixelGridViewInstance.invalidate()
 
         ObjectConstants.CurrentPixelArtObj.coverBitmapFilePath = coverBMPFileName
-        ObjectConstants.CurrentPixelArtObj.bitmap = BitmapConverter.convertBitmapToString(pixelGridViewInstance.pixelGridViewBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt()))
+        ObjectConstants.CurrentPixelArtObj.bitmap = BitmapConverter.convertBitmapToString(outerCanvasInstance.drawPixelGridViewBitmap())
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.pixelArtCreationsDao()
