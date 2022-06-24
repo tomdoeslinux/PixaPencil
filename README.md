@@ -20,8 +20,8 @@ PixaPencil is the number one open source pixel art editor for Android.
 Why you should try out PixaPencil:
 
 - Contains over 33+ useful features (see 'Features' section below)
-- 100% free of evil Google Play (tracking) services
-- 100% free of evil (tracking) advertisements
+- 100% free of Google Play (tracking) services
+- 100% free of advertisements
 - 100% commitment to open source
 
 PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
@@ -37,22 +37,18 @@ PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@protonmail.com.**
 
-## 📝 Features (as of June 13, 2022)
+## 📝 Features (as of June 24, 2022)
 - Pencil tool
 - Move tool
 - Fill tool 
 - Line tool
-- Rectangle tool
-- Outlined rectangle tool
-- Square tool
-- Outlined square tool
-- Ellipse Tool
-- Outlined Ellipse Tool
-- Circle Tool
-- Outlined Circle Tool
+- Rectangle tool/Outlined rectangle tool
+- Square tool/Outlined square tool
+- Ellipse Tool/Outlined Ellipse Tool
+- Circle Tool/Outlined Circle Tool
 - Spray tool
 - Polygon tool
-- Dither tool **with custom dither brushes**
+- Dither tool/dither brushes
 - Shading tool
 - Picker tool
 - Find and replace by color tool
@@ -60,23 +56,23 @@ PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
 - Pixel grid
 - Pixel perfect mode
 - 4 symmetry options (horizontal, vertical, quad, octal) 
-- Undo
-- Redo
-- Zoom in
-- Zoom out
+- Undo/Redo
+- Zoom in/Zoom out
 - Canvas filters (color filter, lighten, darken, invert, grayscale)
 - Color palette support
 - Brushes
+- Ability to import Lospec palettes
+- Ability to duplicate and rename projects
 - Ability to select custom colors using a color picker, RGB sliders, or HEX code
 - Ability to unfavorite/favorite projects
 - Ability to export projects to PNG/JPG/WEBP/TIFF/BMP
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 - Ability to save projects in background
 
-Go to https://github.com/therealbluepandabear/PixaPencil/projects to have a look at features we want to add to **PixaPencil**.
+New features are always being added.
 
 # 📓 Translations
-**BECOME A CONTRIBUTOR, help translate the app at Weblate by clicking the image below.**
+**If you want to become a contributor, you can help translate the app at Weblate by clicking the image below.**
 
 <a href="https://hosted.weblate.org/projects/pixapencil/#languages">
 <img src="https://hosted.weblate.org/widgets/pixapencil/-/287x66-grey.png" alt="Translation status" />
