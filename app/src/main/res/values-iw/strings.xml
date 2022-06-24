@@ -100,6 +100,7 @@
     <string name="activityCanvasTopAppMenu_redo_str">בצע מחדש את הפעולה</string>
     <string name="activityCanvasTopAppMenu_save_as_png_str">שמור את הקובץ ל-PNG</string>
     <string name="activityCanvasTopAppMenu_save_as_jpg_str">שמור את הקובץ ל-JPG</string>
+    <string name="activityCanvasTopAppMenu_import_lospec_palette_str">הוסף פלטת Lospec</string>
     <string name="activityCanvasTopAppMenu_new_color_palette_str">פלטת צבעים חדשה</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect_str">פיקסל פרפקט</string>
     <string name="activityCanvasTopAppMenu_rotate_str">סובב את הקנבס</string>
