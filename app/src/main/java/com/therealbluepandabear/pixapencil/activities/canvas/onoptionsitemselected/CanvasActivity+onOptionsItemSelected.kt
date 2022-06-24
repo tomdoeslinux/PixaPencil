@@ -182,7 +182,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                             }
 
                             binding.root.post {
-                                binding.clayout!!.showSnackbarWithAction("Successfully imported $colorPaletteTitle", SnackbarDuration.Medium, "Switch") {
+                                binding.clayout!!.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette_in_code_str, colorPaletteTitle), SnackbarDuration.Medium, getString(R.string.generic_switch_in_code_str)) {
                                     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
                                         selectedColorPaletteIndex = it.size - 1
                                     }

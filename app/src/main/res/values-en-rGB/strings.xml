@@ -9,6 +9,7 @@
     <string name="generic_error_while_saving_in_code_str">Error while saving %1$s</string>
     <string name="generic_darken_mode_tooltip_in_code_str">Darken mode</string>
     <string name="generic_lighten_mode_tooltip_in_code_str">Lighten mode</string>
+    <string name="generic_switch_in_code_str">Switch</string>
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favourite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
@@ -215,6 +216,7 @@
     <string name="snackbar_image_successfully_saved_in_code_str">Successfully saved %1$s as %2$s</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items_in_code_str">Saved %1$s to starred items</string>
     <string name="snackbar_pixel_art_project_removed_from_starred_items_in_code_str">Removed %1$s from starred items</string>
+    <string name="snackbar_successfully_imported_lospec_palette_in_code_str">Successfully imported %1$s</string>
     <!--Tooltip strings-->
     <string name="shading_tool_tip_in_code_str">Tip: tap on icon to change shading mode</string>
     <string name="spray_tool_tip_in_code_str">Tip: tap on icon to change spray settings</string>
