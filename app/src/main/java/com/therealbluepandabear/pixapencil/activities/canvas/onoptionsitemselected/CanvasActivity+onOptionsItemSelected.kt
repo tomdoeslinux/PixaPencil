@@ -151,7 +151,7 @@ fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
                         as ConstraintLayout
 
             showDialog(
-                "Import Lospec Palette",
+                getString(R.string.activityCanvasTopAppMenu_import_lospec_palette_str),
                 null,
                 getString(R.string.generic_ok_in_code_str), { _, _ ->
                     val queue = Volley.newRequestQueue(this)

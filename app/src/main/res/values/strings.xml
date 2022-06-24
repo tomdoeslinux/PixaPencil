@@ -124,6 +124,7 @@
     <string name="activityCanvasTopAppMenu_redo_str">Redo</string>
     <string name="activityCanvasTopAppMenu_save_as_png_str">Save as PNG</string>
     <string name="activityCanvasTopAppMenu_save_as_jpg_str">Save as JPG</string>
+    <string name="activityCanvasTopAppMenu_import_lospec_palette_str">Import Lospec Palette</string>
     <string name="activityCanvasTopAppMenu_new_color_palette_str">New Color Palette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect_str">Pixel Perfect</string>
     <string name="activityCanvasTopAppMenu_rotate_str">Rotate</string>
