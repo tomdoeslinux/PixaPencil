@@ -14,7 +14,7 @@ object BitmapCompressFormatUtilities {
                 "WEBP"
             }
 
-            Build.VERSION.SDK_INT >= 30 && (format == BitmapCompressFormat.WEBP_LOSSLESS || format == BitmapCompressFormat.WEBP_LOSSY) -> {
+            Build.VERSION.SDK_INT >= 30 && (format == BitmapCompressFormat.WEBP_LOSSLESS) -> {
                 "WEBP"
             }
 

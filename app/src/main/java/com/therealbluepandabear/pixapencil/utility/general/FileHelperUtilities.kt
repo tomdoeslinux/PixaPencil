@@ -93,7 +93,7 @@ class FileHelperUtilities(private val context: Context) {
             var bitmap2 = bitmap_
 
             when (compressionFormat) {
-                BitmapCompressFormat.PNG, BitmapCompressFormat.JPEG, BitmapCompressFormat.WEBP, BitmapCompressFormat.WEBP_LOSSLESS, BitmapCompressFormat.WEBP_LOSSY -> {
+                BitmapCompressFormat.PNG, BitmapCompressFormat.JPEG, BitmapCompressFormat.WEBP, BitmapCompressFormat.WEBP_LOSSLESS -> {
                     try {
                         val outputStream = FileOutputStream(file_)
 

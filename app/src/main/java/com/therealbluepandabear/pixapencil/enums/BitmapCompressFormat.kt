@@ -24,14 +24,6 @@ enum class BitmapCompressFormat(val correspondingEnum: () -> Bitmap.CompressForm
         }
     }),
 
-    WEBP_LOSSY({
-        if (Build.VERSION.SDK_INT >= 30) {
-            Bitmap.CompressFormat.WEBP_LOSSY
-        } else {
-            Bitmap.CompressFormat.WEBP
-        }
-    }),
-
     TIFF({
         null
     }),
