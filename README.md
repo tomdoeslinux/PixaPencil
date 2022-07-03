@@ -26,6 +26,11 @@ Why you should try out PixaPencil:
 
 PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
 
+## Permissions
+The app uses the file permission to make it possible to export your creations to PNG.
+
+The app uses the internet permission for Lospec palette support -- nothing else :)
+
 ## 🖼️ Showcase
 
 ![image](https://user-images.githubusercontent.com/50536495/174204673-71da804b-3d83-4d96-91f5-821583aa7543.png)
