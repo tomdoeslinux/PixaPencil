@@ -15,7 +15,7 @@ private fun SprayToolSettingsFragment.checkForRadiusError() {
             invalidRadius = true
         }
 
-        !in IntConstants.SprayOptionsMin..IntConstants.SprayOptionsMax -> {
+        !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
             binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius_in_code_str)
             invalidRadius = true
         }
@@ -34,7 +34,7 @@ private fun SprayToolSettingsFragment.checkForStrengthError() {
             invalidStrength = true
         }
 
-        !in IntConstants.SprayOptionsMin..IntConstants.SprayOptionsMax -> {
+        !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
             binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength_in_code_str)
             invalidStrength = true
         }
@@ -67,8 +67,8 @@ fun SprayToolSettingsFragment.setOnClickListeners() {
             val parsedStrength = strength.toInt()
 
             with (paramSharedPreferenceObject.edit()) {
-                putInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, parsedRadius)
-                putInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, parsedStrength)
+                putInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_RADIUS_IDENTIFIER, parsedRadius)
+                putInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_STRENGTH_IDENTIFIER, parsedStrength)
                 apply()
             }
 

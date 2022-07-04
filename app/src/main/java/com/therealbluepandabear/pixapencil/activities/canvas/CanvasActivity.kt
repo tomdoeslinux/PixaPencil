@@ -53,8 +53,8 @@ class CanvasActivity :
 
     var index: Int? = null
 
-    var width = IntConstants.DefaultCanvasWidthHeight
-    var height = IntConstants.DefaultCanvasWidthHeight
+    var width = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    var height = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
 
     var isPrimaryColorSelected = true
 
@@ -79,7 +79,7 @@ class CanvasActivity :
     lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
     val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized
 
-    var shadingToolMode = StringConstants.ShadingToolModes.LightenShadingToolMode
+    var shadingToolMode = StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE
 
     var sharedPreferenceShowSprayToolTip = true
     var sharedPreferenceShowShadingToolTip = true

@@ -99,8 +99,8 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     }
 
     private fun setDefaultValues() {
-        val sprayRadiusSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayRadiusIdentifier, IntConstants.SprayRadius)
-        val sprayStrengthSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SharedPreferencesSprayStrengthIdentifier, IntConstants.SprayStrength)
+        val sprayRadiusSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_RADIUS_IDENTIFIER, IntConstants.SprayRadius)
+        val sprayStrengthSharedPreference = paramSharedPreferenceObject.getInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_STRENGTH_IDENTIFIER, IntConstants.SprayStrength)
 
         val sprayRadiusSharedPreferenceStr = sprayRadiusSharedPreference.toString()
         val sprayStrengthSharedPreferenceStr = sprayStrengthSharedPreference.toString()

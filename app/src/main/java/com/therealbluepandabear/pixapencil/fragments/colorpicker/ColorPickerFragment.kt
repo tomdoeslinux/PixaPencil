@@ -154,7 +154,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         setHasOptionsMenu(true)
 
         if (savedInstanceState != null) {
-            prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.PrevColorPickerTabBundleIdentifier)
+            prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.PREV_COLOR_PICKER_TAB_BUNDLE_IDENTIFIER)
         }
     }
 

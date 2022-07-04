@@ -102,8 +102,8 @@ class OuterCanvasFragment : Fragment() {
     lateinit var fragmentHost: FrameLayout
     lateinit var transparentBackgroundView: TransparentBackgroundView
 
-    private var paramWidth: Int = IntConstants.DefaultCanvasWidthHeight
-    private var paramHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    private var paramWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    private var paramHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
     private var paramProjectTitle: String? = null
     private var paramIndex: Int = -1
 

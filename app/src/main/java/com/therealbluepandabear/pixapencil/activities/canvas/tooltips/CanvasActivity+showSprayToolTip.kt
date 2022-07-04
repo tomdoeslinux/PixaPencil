@@ -16,7 +16,7 @@ fun CanvasActivity.showSprayToolTip() {
         {
             with(sharedPreferenceObject.edit()) {
                 putBoolean(
-                    StringConstants.Identifiers.SharedPreferenceShowSprayToolTipIdentifier,
+                    StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_SPRAY_TOOLTIP_IDENTIFIER,
                     false
                 )
                 apply()
@@ -26,7 +26,7 @@ fun CanvasActivity.showSprayToolTip() {
     ) {
         with(sharedPreferenceObject.edit()) {
             putBoolean(
-                StringConstants.Identifiers.SharedPreferenceShowSprayToolTipIdentifier,
+                StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_SPRAY_TOOLTIP_IDENTIFIER,
                 false
             )
             apply()

@@ -6,8 +6,8 @@ import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.onZoomInOptionsItemSelected() {
-    outerCanvasInstance.cardViewParent.scaleX += zoomIncrement
-    outerCanvasInstance.cardViewParent.scaleY += zoomIncrement
+    outerCanvasInstance.cardViewParent.scaleX += ZOOM_INCREMENT
+    outerCanvasInstance.cardViewParent.scaleY += ZOOM_INCREMENT
     
     menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).enable()
 

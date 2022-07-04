@@ -16,7 +16,7 @@ fun CanvasActivity.showShadingToolTip() {
         {
             with(sharedPreferenceObject.edit()) {
                 putBoolean(
-                    StringConstants.Identifiers.SharedPreferenceShowShadingToolTipIdentifier,
+                    StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_SHADING_TOOLTIP_IDENTIFIER,
                     false
                 )
                 apply()
@@ -26,7 +26,7 @@ fun CanvasActivity.showShadingToolTip() {
     ) {
         with(sharedPreferenceObject.edit()) {
             putBoolean(
-                StringConstants.Identifiers.SharedPreferenceShowShadingToolTipIdentifier,
+                StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_SHADING_TOOLTIP_IDENTIFIER,
                 false
             )
             apply()

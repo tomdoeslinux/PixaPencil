@@ -11,7 +11,7 @@ fun CanvasActivity.onGridOptionsItemSelected() {
     menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
 
     with (sharedPreferenceObject.edit()) {
-        putBoolean(StringConstants.Identifiers.SharedPreferenceGridIdentifier, pixelGridViewInstance.gridEnabled)
+        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, pixelGridViewInstance.gridEnabled)
         apply()
     }
 

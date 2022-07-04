@@ -59,7 +59,7 @@ class PixelArtAdapter(
         }
     }
 
-    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
+    private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) { // move to listener
         contextView.showSnackbar(contextView.context.getString(R.string.snackbar_pixel_art_project_saved_to_starred_items_in_code_str, pixelArt.title), SnackbarDuration.Default)
         pixelArt.starred = true
     }
@@ -78,7 +78,6 @@ class PixelArtAdapter(
             override fun areContentsTheSame(oldItem: PixelArt, newItem: PixelArt): Boolean {
                 return oldItem.coverBitmapFilePath == newItem.coverBitmapFilePath
             }
-
         }
     }
 }

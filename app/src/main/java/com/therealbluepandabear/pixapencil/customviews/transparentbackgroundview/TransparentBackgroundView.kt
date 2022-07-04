@@ -32,8 +32,8 @@ class TransparentBackgroundView : View, PixelatedView {
     override var dimenCW = 0
     override var dimenCH = 0
 
-    override var canvasWidth: Int = IntConstants.DefaultCanvasWidthHeight
-    override var canvasHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    override var canvasWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    override var canvasHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)

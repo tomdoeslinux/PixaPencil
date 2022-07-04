@@ -10,23 +10,23 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnFilterTapped(filterType: String) {
     when (filterType) {
-        StringConstants.Identifiers.ColorFilterIdentifier -> {
+        StringConstants.Identifiers.COLOR_FILTER_IDENTIFIER -> {
             canvasCommandsHelperInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, getSelectedColor()) }
         }
 
-        StringConstants.Identifiers.DarkenFilterIdentifier -> {
+        StringConstants.Identifiers.DARKEN_FILTER_IDENTIFIER -> {
             canvasCommandsHelperInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.BLACK) }
         }
 
-        StringConstants.Identifiers.LightenFilterIdentifier -> {
+        StringConstants.Identifiers.LIGHTEN_FILTER_IDENTIFIER -> {
             canvasCommandsHelperInstance.applyBitmapFilter { ColorFilterUtilities.blendColor(it, Color.WHITE) }
         }
 
-        StringConstants.Identifiers.InvertFilterIdentifier -> {
+        StringConstants.Identifiers.INVERT_FILTER_IDENTIFIER -> {
             canvasCommandsHelperInstance.applyBitmapFilter { ColorFilterUtilities.inverseRGB(it) }
         }
 
-        StringConstants.Identifiers.GrayscaleFilterIdentifier -> {
+        StringConstants.Identifiers.GRAYSCALE_FILTER_IDENTIFIER -> {
             canvasCommandsHelperInstance.applyBitmapFilter { ColorFilterUtilities.grayScale(it) }
         }
     }

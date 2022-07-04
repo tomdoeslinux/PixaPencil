@@ -11,7 +11,7 @@ fun CanvasActivity.onPixelPerfectOptionsItemSelected() {
     menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
 
     with (sharedPreferenceObject.edit()) {
-        putBoolean(StringConstants.Identifiers.SharedPreferencePixelPerfectIdentifier, pixelGridViewInstance.pixelPerfectMode)
+        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER, pixelGridViewInstance.pixelPerfectMode)
         apply()
     }
 }

@@ -7,28 +7,28 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 fun MainActivity.toggleDarkModeIfApplicable() {
     when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
         Configuration.UI_MODE_NIGHT_NO -> {
-            darkMode = if (!sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeChanged, false)) {
+            darkMode = if (!sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_CHANGED_IDENTIFIER, false)) {
                 with(sharedPreferenceObject.edit()) {
-                    putBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeIdentifier, false)
+                    putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER, false)
                     apply()
                 }
 
                 false
             } else {
-                sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeIdentifier, darkMode)
+                sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER, darkMode)
             }
         }
 
         Configuration.UI_MODE_NIGHT_YES -> {
-            darkMode = if (!sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeChanged, false)) {
+            darkMode = if (!sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_CHANGED_IDENTIFIER, false)) {
                 with(sharedPreferenceObject.edit()) {
-                    putBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeIdentifier, true)
+                    putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER, true)
                     apply()
                 }
 
                 true
             } else {
-                sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeIdentifier, darkMode)
+                sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER, darkMode)
             }
         }
     }

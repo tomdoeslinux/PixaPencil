@@ -21,7 +21,7 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
         pixelGridViewInstance.pixelGridViewBitmap.setPixel(coordinates, color)
     } else if (pixelGridViewInstance.shadingMode && !pixelGridViewInstance.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
-        val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
+        val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE) {
             Color.WHITE
         } else {
             Color.BLACK

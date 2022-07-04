@@ -229,25 +229,25 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         setHasOptionsMenu(true)
 
         if (savedInstanceState != null) {
-            paramCanvasColors = savedInstanceState.getIntegerArrayList(StringConstants.Identifiers.PrevColorsToFindBundleIdentifier)!!.toList()
+            paramCanvasColors = savedInstanceState.getIntegerArrayList(StringConstants.Identifiers.PREV_COLORS_TO_FIND_BUNDLE_IDENTIFIER)!!.toList()
             paramTransparentBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
-                StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+                StringConstants.Identifiers.PREV_TRANSPARENT_BITMAP_SOURCE_BUNDLE_IDENTIFIER)!!)!!.createMutableClone()
             paramPixelGridViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
-                StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier)!!)!!.createMutableClone()
+                StringConstants.Identifiers.PREV_PIXEL_GRID_VIEW_BITMAP_SOURCE_BUNDLE_IDENTIFIER)!!)!!.createMutableClone()
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putIntegerArrayList(
-            StringConstants.Identifiers.PrevColorsToFindBundleIdentifier,
+            StringConstants.Identifiers.PREV_COLORS_TO_FIND_BUNDLE_IDENTIFIER,
             paramCanvasColors as ArrayList<Int>
         )
 
         outState.putString(
-            StringConstants.Identifiers.PrevTransparentBitmapSourceBundleIdentifier,
+            StringConstants.Identifiers.PREV_TRANSPARENT_BITMAP_SOURCE_BUNDLE_IDENTIFIER,
             BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
         outState.putString(
-            StringConstants.Identifiers.PrevPixelGridViewBitmapSourceBundleIdentifier,
+            StringConstants.Identifiers.PREV_PIXEL_GRID_VIEW_BITMAP_SOURCE_BUNDLE_IDENTIFIER,
             BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
 
         super.onSaveInstanceState(outState)

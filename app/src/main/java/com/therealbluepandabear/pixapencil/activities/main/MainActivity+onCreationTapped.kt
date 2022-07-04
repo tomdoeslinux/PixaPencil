@@ -8,6 +8,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 fun MainActivity.extendedOnCreationTapped(param: PixelArt) {
     startActivity(
         Intent(this, CanvasActivity::class.java)
-            .putExtra(StringConstants.Extras.IndexExtra, pixelArtData.indexOf(param))
-            .putExtra(StringConstants.Extras.ProjectTitleExtra, param.title))
+            .putExtra(StringConstants.Extras.INDEX_EXTRA, pixelArtData.indexOf(param))
+            .putExtra(StringConstants.Extras.PROJECT_TITLE_EXTRA, param.title))
 }

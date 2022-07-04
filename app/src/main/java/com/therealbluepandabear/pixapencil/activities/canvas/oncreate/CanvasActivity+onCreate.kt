@@ -46,7 +46,7 @@ fun CanvasActivity.onCreate() {
 
         binding.activityCanvasTabLayout.getTabAt(binding.activityCanvasViewPager2.currentItem)?.select()
 
-        if (viewModel.currentTool.toolName == StringConstants.Identifiers.MoveToolIdentifier) {
+        if (viewModel.currentTool.toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER) {
             lifecycleScope.launch {
                 delay(200)
                 outerCanvasInstance.setOnTouchListener()

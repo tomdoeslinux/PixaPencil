@@ -20,8 +20,8 @@ fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
             darkMode = !darkMode
 
             with(sharedPreferenceObject.edit()) {
-                putBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeIdentifier, darkMode)
-                putBoolean(StringConstants.Identifiers.SharedPreferenceDarkLightModeChanged, true)
+                putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER, darkMode)
+                putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_DARK_LIGHT_MODE_CHANGED_IDENTIFIER, true)
                 apply()
             }
 

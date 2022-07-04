@@ -16,7 +16,7 @@ fun CanvasActivity.showDitherToolTip() {
         {
             with(sharedPreferenceObject.edit()) {
                 putBoolean(
-                    StringConstants.Identifiers.SharedPreferenceShowDitherToolTipIdentifier,
+                    StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_DITHER_TOOLTIP_IDENTIFIER,
                     false
                 )
                 apply()
@@ -26,7 +26,7 @@ fun CanvasActivity.showDitherToolTip() {
     ) {
         with(sharedPreferenceObject.edit()) {
             putBoolean(
-                StringConstants.Identifiers.SharedPreferenceShowDitherToolTipIdentifier,
+                StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_DITHER_TOOLTIP_IDENTIFIER,
                 false
             )
             apply()

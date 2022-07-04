@@ -7,16 +7,16 @@ import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstanc
 import java.math.RoundingMode
 
 fun CanvasActivity.onZoomOutOptionsItemSelected() {
-    val canZoomOut = outerCanvasInstance.cardViewParent.scaleX - zoomIncrement > zoomIncrement
+    val canZoomOut = outerCanvasInstance.cardViewParent.scaleX - ZOOM_INCREMENT > ZOOM_INCREMENT
 
     if (canZoomOut) {
-        outerCanvasInstance.cardViewParent.scaleX -= zoomIncrement
-        outerCanvasInstance.cardViewParent.scaleY -= zoomIncrement
+        outerCanvasInstance.cardViewParent.scaleX -= ZOOM_INCREMENT
+        outerCanvasInstance.cardViewParent.scaleY -= ZOOM_INCREMENT
     }
 
-    val roundedZoom = zoomIncrement.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
+    val roundedZoom = ZOOM_INCREMENT.toBigDecimal().setScale(1, RoundingMode.UP).toDouble()
 
-    if (outerCanvasInstance.cardViewParent.scaleX - zoomIncrement < roundedZoom) {
+    if (outerCanvasInstance.cardViewParent.scaleX - ZOOM_INCREMENT < roundedZoom) {
         menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).disable()
     }
 

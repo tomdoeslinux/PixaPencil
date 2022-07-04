@@ -29,7 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-const val zoomIncrement = 0.2f
+const val ZOOM_INCREMENT = 0.2f
 
 fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
 

@@ -4,100 +4,100 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 enum class Tool(val toolName: String, val toolFamily: ToolFamily, val outlined: Boolean? = null) {
     PencilTool(
-        StringConstants.Identifiers.PencilToolIdentifier,
+        StringConstants.Identifiers.PENCIL_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     EraseTool(
-        StringConstants.Identifiers.EraseToolIdentifier,
+        StringConstants.Identifiers.ERASE_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     MoveTool(
-        StringConstants.Identifiers.MoveToolIdentifier,
+        StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     ColorPickerTool(
-        StringConstants.Identifiers.ColorPickerToolIdentifier,
+        StringConstants.Identifiers.COLOR_PICKER_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     FillTool(
-        StringConstants.Identifiers.FillToolIdentifier,
+        StringConstants.Identifiers.FILL_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     LineTool(
-        StringConstants.Identifiers.LineToolIdentifier,
+        StringConstants.Identifiers.LINE_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     RectangleTool(
-        StringConstants.Identifiers.RectangleToolIdentifier,
+        StringConstants.Identifiers.RECTANGLE_TOOL_IDENTIFIER,
         ToolFamily.Rectangle,
         false,
     ),
 
     OutlinedRectangleTool(
-        StringConstants.Identifiers.OutlinedRectangleToolIdentifier,
+        StringConstants.Identifiers.OUTLINED_RECTANGLE_TOOL_IDENTIFIER,
         ToolFamily.Rectangle,
         true,
     ),
 
     SquareTool(
-        StringConstants.Identifiers.SquareToolIdentifier,
+        StringConstants.Identifiers.SQUARE_TOOL_IDENTIFIER,
         ToolFamily.Rectangle,
         false,
     ),
 
     OutlinedSquareTool(
-        StringConstants.Identifiers.OutlinedSquareToolIdentifier,
+        StringConstants.Identifiers.OUTLINED_SQUARE_TOOL_IDENTIFIER,
         ToolFamily.Rectangle,
         true,
     ),
 
     EllipseTool(
-        StringConstants.Identifiers.EllipseToolIdentifier,
+        StringConstants.Identifiers.ELLIPSE_TOOL_IDENTIFIER,
         ToolFamily.Ellipse,
         false,
     ),
 
     OutlinedEllipseTool(
-        StringConstants.Identifiers.OutlinedEllipseToolIdentifier,
+        StringConstants.Identifiers.OUTLINED_ELLIPSE_TOOL_IDENTIFIER,
         ToolFamily.Ellipse,
         true,
     ),
 
     CircleTool(
-        StringConstants.Identifiers.CircleToolIdentifier,
+        StringConstants.Identifiers.CIRCLE_TOOL_IDENTIFIER,
         ToolFamily.Ellipse,
         false,
     ),
 
     OutlinedCircleTool(
-        StringConstants.Identifiers.OutlinedCircleToolIdentifier,
+        StringConstants.Identifiers.OUTLINED_CIRCLE_TOOL_IDENTIFIER,
         ToolFamily.Ellipse,
         true,
     ),
 
     SprayTool(
-        StringConstants.Identifiers.SprayToolIdentifier,
+        StringConstants.Identifiers.SPRAY_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     PolygonTool(
-        StringConstants.Identifiers.PolygonToolIdentifier,
+        StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     DitherTool(
-        StringConstants.Identifiers.DitherToolIdentifier,
+        StringConstants.Identifiers.DITHER_TOOL_IDENTIFIER,
         ToolFamily.None,
     ),
 
     ShadingTool(
-        StringConstants.Identifiers.ShadingToolIdentifier,
+        StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER,
         ToolFamily.Shader,
     );
 

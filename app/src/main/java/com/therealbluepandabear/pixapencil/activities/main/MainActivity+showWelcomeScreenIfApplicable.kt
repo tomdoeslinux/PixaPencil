@@ -8,11 +8,11 @@ import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.showWelcomeScreenIfApplicable() {
-    if (sharedPreferenceObject.contains(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier)) {
-        firstLaunch = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier, false)
+    if (sharedPreferenceObject.contains(StringConstants.Identifiers.SHARED_PREFERENCE_FIRST_LAUNCH_IDENTIFIER)) {
+        firstLaunch = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_FIRST_LAUNCH_IDENTIFIER, false)
     } else {
         with(sharedPreferenceObject.edit()) {
-            putBoolean(StringConstants.Identifiers.SharedPreferenceFirstLaunchIdentifier, true)
+            putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_FIRST_LAUNCH_IDENTIFIER, true)
             apply()
         }
 

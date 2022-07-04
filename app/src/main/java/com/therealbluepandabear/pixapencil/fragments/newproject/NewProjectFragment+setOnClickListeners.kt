@@ -33,7 +33,7 @@ private fun NewProjectFragment.checkForWidthError() {
             invalidWidth = true
         }
 
-        !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
+        !in IntConstants.WIDTH_HEIGHT_MIN..IntConstants.WIDTH_HEIGHT_MAX -> {
             binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
             invalidWidth = true
         }
@@ -52,7 +52,7 @@ private fun NewProjectFragment.checkForHeightError() {
             invalidHeight = true
         }
 
-        !in IntConstants.WidthHeightMin..IntConstants.WidthHeightMax -> {
+        !in IntConstants.WIDTH_HEIGHT_MIN..IntConstants.WIDTH_HEIGHT_MAX -> {
             binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
             invalidHeight = true
         }
@@ -113,7 +113,7 @@ fun NewProjectFragment.setOnClickListeners() {
 
                                     with((requireActivity() as MainActivity).sharedPreferenceObject.edit()) {
                                         putBoolean(
-                                            StringConstants.Identifiers.SharedPreferenceShowLargeCanvasSizeWarningIdentifier,
+                                            StringConstants.Identifiers.SHARED_PREFERENCE_SHOW_LARGE_CANVAS_SIZE_WARNING_IDENTIFIER,
                                             (requireActivity() as MainActivity).showLargeCanvasSizeWarning
                                         )
                                         apply()

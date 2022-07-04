@@ -18,18 +18,18 @@ import com.therealbluepandabear.pixapencil.utility.constants.Flags
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
-    if (viewModel.currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.ShadingToolIdentifier) {
+    if (viewModel.currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER) {
         pixelGridViewInstance.shadingMode = false
     }
 
-    if (viewModel.currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.PolygonToolIdentifier) {
+    if (viewModel.currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER) {
         Flags.DisableActionMove = false
         polygonCoordinates.clear()
         cindx = 0
     }
 
     val showSprayToolTip = (
-                    toolName == StringConstants.Identifiers.SprayToolIdentifier &&
+                    toolName == StringConstants.Identifiers.SPRAY_TOOL_IDENTIFIER &&
                             viewModel.currentTool != Tool.SprayTool &&
                             sharedPreferenceShowSprayToolTip
     )
@@ -39,7 +39,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     }
 
     val showShadingToolTip = (
-            toolName == StringConstants.Identifiers.ShadingToolIdentifier &&
+            toolName == StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER &&
                     viewModel.currentTool != Tool.ShadingTool &&
                     sharedPreferenceShowShadingToolTip
             )
@@ -49,7 +49,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     }
 
     val showDitherToolTip = (
-            toolName == StringConstants.Identifiers.DitherToolIdentifier &&
+            toolName == StringConstants.Identifiers.DITHER_TOOL_IDENTIFIER &&
                     viewModel.currentTool != Tool.DitherTool &&
                     sharedPreferenceShowDitherToolTip
             )
@@ -58,7 +58,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         showDitherToolTip()
     }
 
-    if (toolName == StringConstants.Identifiers.SprayToolIdentifier && viewModel.currentTool == Tool.SprayTool) {
+    if (toolName == StringConstants.Identifiers.SPRAY_TOOL_IDENTIFIER && viewModel.currentTool == Tool.SprayTool) {
         if (viewModel.currentTool == Tool.SprayTool) {
             supportFragmentManager.commit {
                 replace(R.id.activityCanvas_primaryFragmentHost, SprayToolSettingsFragment.newInstance(sharedPreferenceObject))
@@ -67,7 +67,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
     }
 
-    if (toolName == StringConstants.Identifiers.DitherToolIdentifier && viewModel.currentTool == Tool.DitherTool) {
+    if (toolName == StringConstants.Identifiers.DITHER_TOOL_IDENTIFIER && viewModel.currentTool == Tool.DitherTool) {
         if (viewModel.currentTool == Tool.DitherTool) {
             supportFragmentManager.commit {
                 replace(R.id.activityCanvas_primaryFragmentHost, DitherToolSettingsFragment.newInstance())
@@ -76,28 +76,28 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         }
     }
 
-    if (toolName == StringConstants.Identifiers.ShadingToolIdentifier && viewModel.currentTool == Tool.ShadingTool) {
-        val snackbarText: String = if (shadingToolMode == StringConstants.ShadingToolModes.LightenShadingToolMode) {
+    if (toolName == StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER && viewModel.currentTool == Tool.ShadingTool) {
+        val snackbarText: String = if (shadingToolMode == StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE) {
             getString(R.string.generic_darken_mode_tooltip_in_code_str).also {
-                shadingToolMode = StringConstants.ShadingToolModes.DarkenShadingToolMode
+                shadingToolMode = StringConstants.ShadingToolModes.DARKEN_SHADING_TOOL_MODE
             }
         } else {
             getString(R.string.generic_lighten_mode_tooltip_in_code_str).also {
-                shadingToolMode = StringConstants.ShadingToolModes.LightenShadingToolMode
+                shadingToolMode = StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE
             }
         }
 
         binding.clayout?.showSnackbar(snackbarText, SnackbarDuration.Short)
     }
 
-    if (toolName == StringConstants.Identifiers.PolygonToolIdentifier && viewModel.currentTool == Tool.PolygonTool) {
+    if (toolName == StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER && viewModel.currentTool == Tool.PolygonTool) {
         viewModel.currentBitmapAction = null
 
         polygonCoordinates.clear()
         cindx = 0
     }
 
-    if (toolName == StringConstants.Identifiers.MoveToolIdentifier) {
+    if (toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER) {
         outerCanvasInstance.setOnTouchListener()
     } else {
         outerCanvasInstance.removeOnTouchListener()

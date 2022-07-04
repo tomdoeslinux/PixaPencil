@@ -61,8 +61,8 @@ class PixelGridView : View, PixelatedView {
 
     var projectTitle: String = ""
 
-    override var canvasWidth: Int = IntConstants.DefaultCanvasWidthHeight
-    override var canvasHeight: Int = IntConstants.DefaultCanvasWidthHeight
+    override var canvasWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    override var canvasHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
 
     constructor(
         context: Context,
