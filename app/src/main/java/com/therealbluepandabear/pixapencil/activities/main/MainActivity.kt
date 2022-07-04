@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.textfield.TextInputLayout
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDeleteTapped
@@ -19,19 +16,11 @@ import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedO
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnViewDetailsTapped
 import com.therealbluepandabear.pixapencil.activities.main.viewmodel.PixelArtViewModel
 import com.therealbluepandabear.pixapencil.adapters.PixelArtAdapter
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
-import com.therealbluepandabear.pixapencil.extensions.activity
-import com.therealbluepandabear.pixapencil.extensions.getNumberOfUniqueColors
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.listeners.BottomSheetDialogListener
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFragmentListener, BottomSheetDialogListener {

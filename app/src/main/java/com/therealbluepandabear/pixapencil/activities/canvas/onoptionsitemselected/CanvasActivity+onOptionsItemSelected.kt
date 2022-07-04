@@ -2,10 +2,8 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import android.graphics.Color
 import android.os.Build
-import android.util.Log
 import android.view.MenuItem
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.lifecycleScope
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -15,7 +13,6 @@ import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
-import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.palette
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -30,7 +27,6 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.json.JSONObject
 
 
 const val zoomIncrement = 0.2f

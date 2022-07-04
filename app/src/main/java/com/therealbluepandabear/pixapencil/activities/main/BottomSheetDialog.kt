@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.gson.Gson
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBottomSheetBinding
 import com.therealbluepandabear.pixapencil.listeners.BottomSheetDialogListener
 import com.therealbluepandabear.pixapencil.models.PixelArt

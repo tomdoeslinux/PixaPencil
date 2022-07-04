@@ -1,9 +1,7 @@
 package com.therealbluepandabear.pixapencil.database
 
 import android.content.Context
-import android.widget.Toast
 import androidx.room.*
-import androidx.room.Database
 import androidx.room.migration.AutoMigrationSpec
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao

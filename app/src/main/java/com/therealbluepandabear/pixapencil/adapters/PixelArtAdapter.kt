@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.RecentCreationsLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
@@ -16,9 +15,6 @@ import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.viewholders.PixelArtViewHolder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 class PixelArtAdapter(

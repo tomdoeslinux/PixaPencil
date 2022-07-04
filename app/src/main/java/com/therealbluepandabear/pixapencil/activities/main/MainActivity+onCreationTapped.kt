@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.main
 
 import android.content.Intent
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.PixelArt
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
