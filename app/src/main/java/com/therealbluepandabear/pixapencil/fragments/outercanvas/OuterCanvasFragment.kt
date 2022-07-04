@@ -67,7 +67,7 @@ package com.therealbluepandabear.pixapencil.fragments.outercanvas
  * [    OnDestroyView   ]
  * '--------------------'
  */
-
+// TODO create readme for fragment style guide
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -92,10 +92,10 @@ lateinit var canvasFragment: CanvasFragment
 
 @SuppressLint("ClickableViewAccessibility")
 class OuterCanvasFragment : Fragment() {
-    private var backingBindingProperty: FragmentOuterCanvasBinding? = null
+    private var _binding: FragmentOuterCanvasBinding? = null
 
     private val binding get(): FragmentOuterCanvasBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var cardViewParent: CardView
@@ -238,7 +238,7 @@ class OuterCanvasFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentOuterCanvasBinding.inflate(inflater, container, false)
+        _binding = FragmentOuterCanvasBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -248,6 +248,6 @@ class OuterCanvasFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

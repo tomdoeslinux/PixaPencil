@@ -87,10 +87,10 @@ import net.yslibrary.android.keyboardvisibilityevent.Unregistrar
 class RGBColorPickerFragment : Fragment() {
     private lateinit var keyboardVisibilityEventListenerRegistrar: Unregistrar
 
-    private var backingBindingProperty: FragmentRGBColorPickerBinding? = null
+    private var _binding: FragmentRGBColorPickerBinding? = null
 
     val binding get(): FragmentRGBColorPickerBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     private var valueR = 0f
@@ -266,7 +266,7 @@ class RGBColorPickerFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentRGBColorPickerBinding.inflate(inflater, container, false)
+        _binding = FragmentRGBColorPickerBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
         setup()
@@ -277,6 +277,6 @@ class RGBColorPickerFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

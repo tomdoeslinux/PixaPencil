@@ -80,10 +80,10 @@ import com.therealbluepandabear.pixapencil.listeners.BrushesListener
 import com.therealbluepandabear.pixapencil.models.Brush
 
 class BrushesFragment : Fragment(), BrushesListener {
-    private var backingBindingProperty: FragmentBrushesBinding? = null
+    private var _binding: FragmentBrushesBinding? = null
 
     val binding get(): FragmentBrushesBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     private lateinit var caller: BrushesFragmentListener
@@ -104,7 +104,7 @@ class BrushesFragment : Fragment(), BrushesListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentBrushesBinding.inflate(inflater, container, false)
+        _binding = FragmentBrushesBinding.inflate(inflater, container, false)
 
         setUpRecyclerView()
 
@@ -114,6 +114,6 @@ class BrushesFragment : Fragment(), BrushesListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

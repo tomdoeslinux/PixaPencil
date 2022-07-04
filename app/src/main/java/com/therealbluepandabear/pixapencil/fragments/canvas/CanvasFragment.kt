@@ -83,10 +83,10 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 lateinit var pixelGridViewInstance: PixelGridView
 
 class CanvasFragment : Fragment() {
-    var backingBindingProperty: FragmentCanvasBinding? = null
+    private var _binding: FragmentCanvasBinding? = null
 
     val binding get(): FragmentCanvasBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: CanvasFragmentListener
@@ -124,7 +124,7 @@ class CanvasFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentCanvasBinding.inflate(inflater, container, false)
+        _binding = FragmentCanvasBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -134,6 +134,6 @@ class CanvasFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

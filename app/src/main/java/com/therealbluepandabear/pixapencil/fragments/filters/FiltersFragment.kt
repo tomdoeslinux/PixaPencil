@@ -78,10 +78,10 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentFiltersBinding
 import com.therealbluepandabear.pixapencil.listeners.FiltersFragmentListener
 
 class FiltersFragment : Fragment() {
-    private var backingBindingProperty: FragmentFiltersBinding? = null
+    private var _binding: FragmentFiltersBinding? = null
 
     val binding get(): FragmentFiltersBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: FiltersFragmentListener
@@ -98,7 +98,7 @@ class FiltersFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentFiltersBinding.inflate(inflater, container, false)
+        _binding = FragmentFiltersBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
 
@@ -107,6 +107,6 @@ class FiltersFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

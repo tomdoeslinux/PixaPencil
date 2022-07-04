@@ -81,10 +81,10 @@ import com.therealbluepandabear.pixapencil.listeners.ColorPalettesListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 class ColorPalettesFragment : Fragment(), ColorPalettesListener {
-    private var backingBindingProperty: FragmentColorPalettesBinding? = null
+    private var _binding: FragmentColorPalettesBinding? = null
 
     val binding get(): FragmentColorPalettesBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     private lateinit var caller: ColorPalettesFragmentListener
@@ -117,7 +117,7 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentColorPalettesBinding.inflate(inflater, container, false)
+        _binding = FragmentColorPalettesBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -126,6 +126,6 @@ class ColorPalettesFragment : Fragment(), ColorPalettesListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

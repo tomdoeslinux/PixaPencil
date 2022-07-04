@@ -84,10 +84,10 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     lateinit var paramSharedPreferenceObject: SharedPreferences
 
-    private var backingBindingProperty: FragmentSprayToolSettingsBinding? = null
+    private var _binding: FragmentSprayToolSettingsBinding? = null
 
     val binding get(): FragmentSprayToolSettingsBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: SprayToolSettingsFragmentListener
@@ -135,7 +135,7 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
+        _binding = FragmentSprayToolSettingsBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -149,7 +149,7 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }

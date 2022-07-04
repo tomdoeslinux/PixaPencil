@@ -78,10 +78,10 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.FragmentAppInfoBinding
 
 class AppInfoFragment : Fragment() {
-    private var backingBindingProperty: FragmentAppInfoBinding? = null
+    private var _binding: FragmentAppInfoBinding? = null
 
     val binding get(): FragmentAppInfoBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     private fun setup() {
@@ -105,7 +105,7 @@ class AppInfoFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentAppInfoBinding.inflate(inflater, container, false)
+        _binding = FragmentAppInfoBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -119,6 +119,6 @@ class AppInfoFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
     }
 }

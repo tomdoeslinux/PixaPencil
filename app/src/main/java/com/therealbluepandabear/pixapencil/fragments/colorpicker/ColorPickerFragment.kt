@@ -142,7 +142,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding_ = FragmentColorPickerBinding.inflate(inflater, container, false)
+        _binding = FragmentColorPickerBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -165,7 +165,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding_ = null
+        _binding = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }

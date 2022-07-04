@@ -8,13 +8,13 @@ import com.therealbluepandabear.pixapencil.fragments.colorpicker.rgb.RGBColorPic
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerFragmentListener
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
-var binding_: FragmentColorPickerBinding? = null
+var _binding: FragmentColorPickerBinding? = null
 
 var oldColor_ = Color.BLACK
 var colorPalette: ColorPalette? = null
 
 val binding get(): FragmentColorPickerBinding {
-    return binding_!!
+    return _binding!!
 }
 
 lateinit var caller: ColorPickerFragmentListener

@@ -88,10 +88,10 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import java.util.ArrayList
 
 class FindAndReplaceFragment : Fragment(), ActivityFragment {
-    private var backingBindingProperty: FragmentFindAndReplaceBinding? = null
+    private var _binding: FragmentFindAndReplaceBinding? = null
 
     private val binding get(): FragmentFindAndReplaceBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     private lateinit var caller: FindAndReplaceFragmentListener
@@ -217,7 +217,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
+        _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -255,7 +255,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }

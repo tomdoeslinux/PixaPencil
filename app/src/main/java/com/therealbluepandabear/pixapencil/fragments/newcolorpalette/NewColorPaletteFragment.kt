@@ -82,10 +82,10 @@ import com.therealbluepandabear.pixapencil.listeners.NewColorPaletteFragmentList
 class NewColorPaletteFragment : Fragment(), ActivityFragment {
     override val title: String by lazy { getString(R.string.fragment_new_color_palette_title_in_code_str) }
 
-    private var backingBindingProperty: FragmentNewColorPaletteBinding? = null
+    private var _binding: FragmentNewColorPaletteBinding? = null
 
     val binding get(): FragmentNewColorPaletteBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: NewColorPaletteFragmentListener
@@ -108,7 +108,7 @@ class NewColorPaletteFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentNewColorPaletteBinding.inflate(inflater, container, false)
+        _binding = FragmentNewColorPaletteBinding.inflate(inflater, container, false)
 
         setOnClickListeners()
 
@@ -128,7 +128,7 @@ class NewColorPaletteFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }

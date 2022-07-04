@@ -80,10 +80,10 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 
 class NewProjectFragment : Fragment(), ActivityFragment {
-    private var backingBindingProperty: FragmentNewProjectBinding? = null
+    private var _binding: FragmentNewProjectBinding? = null
 
     val binding get(): FragmentNewProjectBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: NewProjectFragmentListener
@@ -122,7 +122,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentNewProjectBinding.inflate(inflater, container, false)
+        _binding = FragmentNewProjectBinding.inflate(inflater, container, false)
 
         setup()
 
@@ -142,7 +142,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
         requireActivity().title = getString(R.string.app_name)
     }
 }

@@ -83,10 +83,10 @@ import com.therealbluepandabear.pixapencil.models.DitherBrush
 class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesListener {
     override val title: String by lazy { getString(R.string.fragment_dither_tool_settings_title_in_code_str) }
 
-    private var backingBindingProperty: FragmentDitherToolSettingsBinding? = null
+    private var _binding: FragmentDitherToolSettingsBinding? = null
 
     val binding get(): FragmentDitherToolSettingsBinding {
-        return backingBindingProperty!!
+        return _binding!!
     }
 
     lateinit var caller: DitherToolSettingsFragmentListener
@@ -113,7 +113,7 @@ class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesLi
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        backingBindingProperty = FragmentDitherToolSettingsBinding.inflate(inflater, container, false)
+        _binding = FragmentDitherToolSettingsBinding.inflate(inflater, container, false)
 
         setUpRecyclerView()
 
@@ -127,7 +127,7 @@ class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesLi
 
     override fun onDestroyView() {
         super.onDestroyView()
-        backingBindingProperty = null
+        _binding = null
         requireActivity().title = (requireActivity() as CanvasActivity).projectTitle
     }
 }
