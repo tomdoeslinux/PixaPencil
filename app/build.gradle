@@ -90,7 +90,7 @@ dependencies {
 
     // Implementations ==> [JetBrains]
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3'
-    runtimeOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    runtimeOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
 
     // Test Implementations ==> [JUnit]
     testImplementation 'junit:junit:4.13.2'
@@ -116,7 +116,7 @@ dependencies {
     // Android Test Implementations ==> [Core Android Test Implementations]
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3'
     androidTestImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test:1.6.20"
