@@ -5,6 +5,5 @@ import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
 
 fun MainActivity.initializeRoomDatabases() {
-    AppData.pixelArtDB = PixelArtDatabase.getDatabase(this)
     AppData.colorPalettesDB = ColorPalettesDatabase.getDatabase(this)
 }

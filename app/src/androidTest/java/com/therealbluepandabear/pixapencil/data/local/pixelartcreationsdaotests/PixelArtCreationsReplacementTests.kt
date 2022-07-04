@@ -38,7 +38,7 @@ class PixelArtCreationsReplacementTests {
             ApplicationProvider.getApplicationContext(),
             PixelArtDatabase::class.java
         ).allowMainThreadQueries().build()
-        dao = database.pixelArtCreationsDao()
+        dao = database.dao()
     }
 
     @After
@@ -57,14 +57,14 @@ class PixelArtCreationsReplacementTests {
                 every { it.objId } returns 1
             }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
             val bitmapObj2 = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
             val bitmapString2 =  BitmapConverter.convertBitmapToString(bitmapObj2)
 
             dao.updatePixelArtCreationBitmap(bitmapString2, 1)
 
-            val bitmapObj3 = BitmapConverter.convertStringToBitmap(dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap)
+            val bitmapObj3 = BitmapConverter.convertStringToBitmap(dao.getAll().getOrAwaitValue().first().bitmap)
 
             assert(bitmapObj3!!.width == bitmapObj2.width)
             assert(bitmapObj3.height == bitmapObj2.height)
@@ -80,12 +80,12 @@ class PixelArtCreationsReplacementTests {
                 every { it.objId } returns 1
             }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
             val newRotation = 90f
             dao.updatePixelArtCreationRotation(newRotation, 1)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().rotation == newRotation)
+            assert(dao.getAll().getOrAwaitValue().first().rotation == newRotation)
         }
     }
 
@@ -97,12 +97,12 @@ class PixelArtCreationsReplacementTests {
                 every { it.objId } returns 1
             }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
             val newStarred = true
             dao.updatePixelArtCreationStarred(newStarred, 1)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().starred == newStarred)
+            assert(dao.getAll().getOrAwaitValue().first().starred == newStarred)
         }
     }
 }

@@ -36,7 +36,7 @@ class PixelArtCreationsDeletionTests {
             ApplicationProvider.getApplicationContext(),
             PixelArtDatabase::class.java
         ).allowMainThreadQueries().build()
-        dao = database.pixelArtCreationsDao()
+        dao = database.dao()
     }
 
     @After
@@ -51,23 +51,23 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            dao.deletePixelArtCreation(1)
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 4)
+            dao.delete(1)
+            assert(dao.getAll().getOrAwaitValue().size == 4)
 
-            dao.deletePixelArtCreation(2)
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 3)
+            dao.delete(2)
+            assert(dao.getAll().getOrAwaitValue().size == 3)
 
-            dao.deletePixelArtCreation(3)
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 2)
+            dao.delete(3)
+            assert(dao.getAll().getOrAwaitValue().size == 2)
 
-            dao.deletePixelArtCreation(4)
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1)
+            dao.delete(4)
+            assert(dao.getAll().getOrAwaitValue().size == 1)
 
-            dao.deletePixelArtCreation(5)
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().isEmpty())
+            dao.delete(5)
+            assert(dao.getAll().getOrAwaitValue().isEmpty())
         }
     }
 
@@ -78,14 +78,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..8) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 8)
+            assert(dao.getAll().getOrAwaitValue().size == 8)
         }
     }
 
@@ -96,14 +96,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..16) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 16)
+            assert(dao.getAll().getOrAwaitValue().size == 16)
         }
     }
 
@@ -114,14 +114,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..32) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 32)
+            assert(dao.getAll().getOrAwaitValue().size == 32)
         }
     }
 
@@ -132,14 +132,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..64) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 64)
+            assert(dao.getAll().getOrAwaitValue().size == 64)
         }
     }
 
@@ -150,14 +150,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..128) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 128)
+            assert(dao.getAll().getOrAwaitValue().size == 128)
         }
     }
 
@@ -168,14 +168,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..256) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 256)
+            assert(dao.getAll().getOrAwaitValue().size == 256)
         }
     }
 
@@ -186,14 +186,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..512) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 512)
+            assert(dao.getAll().getOrAwaitValue().size == 512)
         }
     }
 
@@ -204,14 +204,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..1024) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1024)
+            assert(dao.getAll().getOrAwaitValue().size == 1024)
         }
     }
 
@@ -222,14 +222,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..2048) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 2048)
+            assert(dao.getAll().getOrAwaitValue().size == 2048)
         }
     }
 
@@ -240,14 +240,14 @@ class PixelArtCreationsDeletionTests {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
                 every { pixelArtCreation.objId } returns i
 
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
             for (i in 1..4096) {
-                dao.deletePixelArtCreation(i)
+                dao.delete(i)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 4096)
+            assert(dao.getAll().getOrAwaitValue().size == 4096)
         }
     }
 }

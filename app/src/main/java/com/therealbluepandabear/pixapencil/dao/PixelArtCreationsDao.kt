@@ -7,17 +7,17 @@ import com.therealbluepandabear.pixapencil.models.PixelArt
 @Dao
 interface PixelArtCreationsDao {
     @Insert
-    suspend fun insertPixelArt(pixelArt: PixelArt)
-
-    @Query("SELECT * FROM PixelArt ")
-    fun getAllPixelArtCreations(): LiveData<List<PixelArt>>
-
-    @Query("SELECT * FROM PixelArt ")
-    fun getAllPixelArtCreationsNoLiveData(): List<PixelArt>
-
-    @Delete
-    suspend fun deletePixelArtCreation(pixelArtObj: PixelArt)
+    suspend fun insert(pixelArt: PixelArt)
 
     @Update
-    suspend fun updatePixelArtCreation(pixelArtObj: PixelArt)
+    suspend fun update(pixelArt: PixelArt)
+
+    @Delete
+    fun delete(pixelArtObj: PixelArt)
+
+    @Query("SELECT * FROM PixelArt ")
+    fun getAll(): LiveData<List<PixelArt>>
+
+    @Query("SELECT * FROM PixelArt ")
+    fun getAllNoLiveData(): List<PixelArt>
 }

@@ -16,9 +16,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 class BottomSheetDialog : BottomSheetDialogFragment() {
     private lateinit var binding: ActivityMainBottomSheetBinding
-
     private lateinit var caller: BottomSheetDialogListener
-
     private lateinit var pixelArt: PixelArt
 
     fun setParams(pixelArt: PixelArt) {
@@ -70,7 +68,9 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
         binding = ActivityMainBottomSheetBinding.inflate(LayoutInflater.from(context))
 
         setup()
-        (dialog as com.google.android.material.bottomsheet.BottomSheetDialog).behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+        val bsDialog = (dialog as com.google.android.material.bottomsheet.BottomSheetDialog)
+        bsDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
 
         return binding.root
     }
@@ -79,7 +79,8 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState != null) {
-            pixelArt = Gson().fromJson(savedInstanceState.getString(StringConstants.Identifiers.BottomSheetCapturedPixelArt), PixelArt::class.java)
+            val extractedJson = Gson().fromJson(savedInstanceState.getString(StringConstants.Identifiers.BottomSheetCapturedPixelArt), PixelArt::class.java)
+            pixelArt = extractedJson
         }
     }
 }

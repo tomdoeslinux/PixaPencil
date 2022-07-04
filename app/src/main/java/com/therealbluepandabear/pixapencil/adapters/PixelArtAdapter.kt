@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -19,52 +21,43 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class PixelArtCreationsAdapter(
+class PixelArtAdapter(
     private val snackbarView: View,
-    private val data: MutableList<PixelArt>,
     private val listener: RecentCreationsListener,
     private val context: Context
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val mainScope = CoroutineScope(Dispatchers.Main.immediate)
-
+) : ListAdapter<PixelArt, RecyclerView.ViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = RecentCreationsLayoutBinding.inflate(LayoutInflater.from(parent.context))
         return PixelArtViewHolder(binding, context)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return position
-    }
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = data[position]
+        val pixelArt = getItem(position)
 
         if (holder is PixelArtViewHolder) {
-            holder.bind(item)
+            holder.bind(pixelArt)
 
             holder.binding.recentCreationsLayoutMaterialCardView.setOnClickListener {
-                listener.onCreationTapped(item)
+                listener.onCreationTapped(pixelArt)
             }
 
             holder.binding.recentCreationsLayoutMaterialCardView.setOnLongPressListener {
-                listener.onCreationLongTapped(item)
+                listener.onCreationLongTapped(pixelArt)
             }
 
             holder.binding.recentCreationsLayoutFavoriteButton.setOnClickListener {
-                if (item.starred) {
-                    unFavouriteRecentCreation(snackbarView, item)
-                    item.starred = false
+                if (pixelArt.starred) {
+                    pixelArt.starred = false
+                    listener.onUnstarredTapped(pixelArt)
 
-                    mainScope.launch {
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
-                    }
+                    unFavouriteRecentCreation(snackbarView, pixelArt)
+                    holder.bind(pixelArt)
                 } else {
-                    favouriteRecentCreation(snackbarView, item)
-                    item.starred = true
+                    pixelArt.starred = true
+                    listener.onStarredTapped(pixelArt)
 
-                    mainScope.launch {
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(item)
-                    }
+                    favouriteRecentCreation(snackbarView, pixelArt)
+                    holder.bind(pixelArt)
                 }
             }
         }
@@ -80,13 +73,16 @@ class PixelArtCreationsAdapter(
         pixelArt.starred = false
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
+    companion object {
+        val diffCallback: DiffUtil.ItemCallback<PixelArt> = object : DiffUtil.ItemCallback<PixelArt>() {
+            override fun areItemsTheSame(oldItem: PixelArt, newItem: PixelArt): Boolean {
+                return oldItem.objId == newItem.objId
+            }
 
-    fun updateDataSource(list: List<PixelArt>){
-        data.clear()
-        data.addAll(list)
-        notifyDataSetChanged()
+            override fun areContentsTheSame(oldItem: PixelArt, newItem: PixelArt): Boolean {
+                return oldItem.coverBitmapFilePath == newItem.coverBitmapFilePath
+            }
+
+        }
     }
 }

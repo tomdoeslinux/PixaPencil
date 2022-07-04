@@ -24,7 +24,7 @@ interface PixelatedView {
 
     fun getCurrentBitmap(context: Context): Bitmap {
         if (currentIndex != -1) {
-            val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
+            val pixelArtData = AppData.pixelArtDB.dao().getAllNoLiveData()
 
             val gcbCurrentPixelArtObj = pixelArtData[currentIndex]
 
@@ -36,7 +36,7 @@ interface PixelatedView {
     }
 
     fun getCurrentPixelArtObj(): PixelArt {
-        val pixelArtData = AppData.pixelArtDB.pixelArtCreationsDao().getAllPixelArtCreationsNoLiveData()
+        val pixelArtData = AppData.pixelArtDB.dao().getAllNoLiveData()
 
         return pixelArtData[currentIndex]
     }

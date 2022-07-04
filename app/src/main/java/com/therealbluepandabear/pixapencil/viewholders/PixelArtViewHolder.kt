@@ -19,10 +19,10 @@ import java.io.File
 
 class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, private val context: Context) : RecyclerView.ViewHolder(binding.root) {
     private fun loadPixelArtCoverImage(pixelArt: PixelArt) {
-        var widthHeight = 750
-
-        if (context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            widthHeight = 350
+        val widthHeight = if (context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+             350
+        } else {
+            750
         }
 
         val requestOptions: RequestOptions = RequestOptions()

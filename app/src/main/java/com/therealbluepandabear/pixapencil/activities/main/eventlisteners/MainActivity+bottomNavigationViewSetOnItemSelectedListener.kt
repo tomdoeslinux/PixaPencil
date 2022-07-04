@@ -7,10 +7,11 @@ fun MainActivity.bottomNavigationViewSetOnItemSelectedListener() {
     binding.activityMainBottomNavigationView.setOnItemSelectedListener { item ->
         when (item.itemId) {
             R.id.activityMainBottomNavigationMenu_home_tab -> {
-                adapter.updateDataSource(pixelArtList)
+                adapter.submitList(pixelArtData)
             }
+
             R.id.activityMainBottomNavigationMenu_starred_tab -> {
-                adapter.updateDataSource(pixelArtList.filter { pixelArt ->
+                adapter.submitList(pixelArtData.filter { pixelArt ->
                     pixelArt.starred
                 })
             }

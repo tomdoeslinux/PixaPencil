@@ -6,21 +6,25 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
-import com.google.gson.Gson
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.adapters.PixelArtCreationsAdapter
+import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDeleteTapped
+import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDuplicateTapped
+import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnRenameTapped
+import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnViewDetailsTapped
+import com.therealbluepandabear.pixapencil.activities.main.viewmodel.PixelArtViewModel
+import com.therealbluepandabear.pixapencil.adapters.PixelArtAdapter
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.getNumberOfUniqueColors
 import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.listeners.BottomSheetDialogListener
 import com.therealbluepandabear.pixapencil.listeners.NewProjectFragmentListener
 import com.therealbluepandabear.pixapencil.listeners.RecentCreationsListener
@@ -32,9 +36,7 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFragmentListener, BottomSheetDialogListener {
     lateinit var sharedPreferenceObject: SharedPreferences
-    lateinit var adapter : PixelArtCreationsAdapter
-
-    val pixelArtList = mutableListOf<PixelArt>()
+    lateinit var adapter: PixelArtAdapter
 
     lateinit var binding: ActivityMainBinding
     lateinit var menu: Menu
@@ -43,6 +45,9 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     var firstLaunch = false
     var darkMode = false
     var mainSpotlight: Spotlight? = null
+
+    val pixelArtViewModel: PixelArtViewModel by viewModels()
+    lateinit var pixelArtData: List<PixelArt>
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         initSharedPreferencesObject()
@@ -57,6 +62,14 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     override fun onCreationLongTapped(creationTapped: PixelArt) {
         extendedOnCreationLongTapped(creationTapped)
+    }
+
+    override fun onStarredTapped(pixelArt: PixelArt) {
+        pixelArtViewModel.update(pixelArt)
+    }
+
+    override fun onUnstarredTapped(pixelArt: PixelArt) {
+        pixelArtViewModel.update(pixelArt)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -77,77 +90,19 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     }
 
     override fun onDuplicateTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val pixelArtt = PixelArt(
-                pixelArt.coverBitmapFilePath,
-                pixelArt.bitmap,
-                pixelArt.width,
-                pixelArt.height,
-                pixelArt.dimenCW,
-                pixelArt.dimenCH,
-                pixelArt.title,
-                pixelArt.starred
-            )
-
-            AppData.pixelArtDB.pixelArtCreationsDao().insertPixelArt(pixelArtt)
-        }
-
-        bottomSheetDialog.dismiss()
+        extendedOnDuplicateTapped(pixelArt, bottomSheetDialog)
     }
 
     override fun onViewDetailsTapped(pixelArt: PixelArt) {
-        val details: ConstraintLayout =
-            activity()?.layoutInflater?.inflate(R.layout.project_details_alert_box, activity()?.findViewById(android.R.id.content),false)
-                    as ConstraintLayout
-
-        details.findViewById<TextView>(R.id.projectDetailsAlertBox_width).text = pixelArt.width.toString()
-        details.findViewById<TextView>(R.id.projectDetailsAlertBox_height).text = pixelArt.height.toString()
-        details.findViewById<TextView>(R.id.projectDetailsAlertBox_colors).text = BitmapConverter.convertStringToBitmap(pixelArt.bitmap)?.getNumberOfUniqueColors().toString()
-        details.findViewById<TextView>(R.id.projectDetailsAlertBox_created).text = pixelArt.dateCreated
-
-        showDialog(
-            getString(R.string.dialog_project_details_title_in_code_str),
-            null,
-            getString(R.string.generic_ok_in_code_str), { _, _ ->
-            }, null, null, view = details, dimBackground = false
-        )
+        extendedOnViewDetailsTapped(pixelArt)
     }
 
     override fun onRenameTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
-        val textInput: TextInputLayout =
-            activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, activity()?.findViewById(android.R.id.content),false)
-                    as TextInputLayout
-
-        showDialog(
-            getString(R.string.dialog_rename_title_in_code_str),
-            null,
-            getString(R.string.generic_ok_in_code_str), { _, _ ->
-                val input: String = textInput.editText?.text.toString()
-
-                CoroutineScope(Dispatchers.IO).launch {
-                    if (input.isNotBlank()) {
-                        pixelArt.title = input
-                        AppData.pixelArtDB.pixelArtCreationsDao().updatePixelArtCreation(pixelArt)
-                        bottomSheetDialog.dismiss()
-                    }
-                }
-           }, getString(R.string.generic_cancel_in_code_str), null, view = textInput, dimBackground = false
-        )
+        extendedOnRenameTapped(pixelArt, bottomSheetDialog)
     }
 
     override fun onDeleteTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
-        val title = pixelArt.title
-
-        showDialog(
-            getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, title),
-            getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, title),
-            getString(R.string.generic_ok_in_code_str), { _, _ ->
-                bottomSheetDialog.dismiss()
-                CoroutineScope(Dispatchers.IO).launch {
-                    AppData.pixelArtDB.pixelArtCreationsDao().deletePixelArtCreation(pixelArt)
-                }
-            },  getString(R.string.generic_cancel_in_code_str), null, dimBackground = false
-        )
+        extendedOnDeleteTapped(pixelArt, bottomSheetDialog)
     }
 }
 

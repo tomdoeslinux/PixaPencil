@@ -39,7 +39,7 @@ class PixelArtCreationsDaoInsertionTests {
             ApplicationProvider.getApplicationContext(),
             PixelArtDatabase::class.java
         ).allowMainThreadQueries().build()
-        dao = database.pixelArtCreationsDao()
+        dao = database.dao()
     }
 
     @After
@@ -53,9 +53,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.title } returns "PixelArtCreation" }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().title == pixelArtCreation.title)
+            assert(dao.getAll().getOrAwaitValue().first().title == pixelArtCreation.title)
         }
     }
 
@@ -64,9 +64,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.width } returns 5 }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().width == pixelArtCreation.width)
+            assert(dao.getAll().getOrAwaitValue().first().width == pixelArtCreation.width)
         }
     }
 
@@ -75,9 +75,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.height } returns 5 }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().height == pixelArtCreation.height)
+            assert(dao.getAll().getOrAwaitValue().first().height == pixelArtCreation.height)
         }
     }
 
@@ -86,9 +86,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dimenCW } returns 5 }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dimenCW == pixelArtCreation.dimenCW)
+            assert(dao.getAll().getOrAwaitValue().first().dimenCW == pixelArtCreation.dimenCW)
         }
     }
 
@@ -97,9 +97,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dimenCH } returns 5 }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dimenCH == pixelArtCreation.dimenCH)
+            assert(dao.getAll().getOrAwaitValue().first().dimenCH == pixelArtCreation.dimenCH)
         }
     }
 
@@ -108,9 +108,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.rotation } returns 90f }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().rotation == pixelArtCreation.rotation)
+            assert(dao.getAll().getOrAwaitValue().first().rotation == pixelArtCreation.rotation)
         }
     }
 
@@ -119,9 +119,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.starred } returns false }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().starred == pixelArtCreation.starred)
+            assert(dao.getAll().getOrAwaitValue().first().starred == pixelArtCreation.starred)
         }
     }
 
@@ -130,9 +130,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompat.getCompatibleCurrentDateTime() }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
+            assert(dao.getAll().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
         }
     }
 
@@ -144,9 +144,9 @@ class PixelArtCreationsDaoInsertionTests {
 
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.bitmap } returns bitmapString }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap == pixelArtCreation.bitmap)
+            assert(dao.getAll().getOrAwaitValue().first().bitmap == pixelArtCreation.bitmap)
         }
     }
 
@@ -158,9 +158,9 @@ class PixelArtCreationsDaoInsertionTests {
                 every { it.coverBitmapFilePath } returns InternalBitmapFileNameGenerator.generate(it.title)
             }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().first().coverBitmapFilePath == pixelArtCreation.coverBitmapFilePath)
+            assert(dao.getAll().getOrAwaitValue().first().coverBitmapFilePath == pixelArtCreation.coverBitmapFilePath)
         }
     }
 
@@ -172,9 +172,9 @@ class PixelArtCreationsDaoInsertionTests {
 
             val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.bitmap } returns bitmapString }
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            val bitmapStringFromDB: String = dao.getAllPixelArtCreations().getOrAwaitValue().first().bitmap
+            val bitmapStringFromDB: String = dao.getAll().getOrAwaitValue().first().bitmap
             val bitmapObjFromDB: Bitmap = BitmapConverter.convertStringToBitmap(bitmapStringFromDB)!!
 
             assert(bitmapObjFromDB.width == bitmapObj.width)
@@ -188,9 +188,9 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             val pixelArtCreation = mockk<PixelArt>(relaxed = true)
 
-            dao.insertPixelArt(pixelArtCreation)
+            dao.insert(pixelArtCreation)
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1)
+            assert(dao.getAll().getOrAwaitValue().size == 1)
         }
     }
 
@@ -199,10 +199,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..5) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 5)
+            assert(dao.getAll().getOrAwaitValue().size == 5)
         }
     }
 
@@ -211,10 +211,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..25) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 25)
+            assert(dao.getAll().getOrAwaitValue().size == 25)
         }
     }
 
@@ -223,10 +223,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..50) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 50)
+            assert(dao.getAll().getOrAwaitValue().size == 50)
         }
     }
 
@@ -235,10 +235,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..100) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 100)
+            assert(dao.getAll().getOrAwaitValue().size == 100)
         }
     }
 
@@ -247,10 +247,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..250) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 250)
+            assert(dao.getAll().getOrAwaitValue().size == 250)
         }
     }
 
@@ -259,10 +259,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..500) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 500)
+            assert(dao.getAll().getOrAwaitValue().size == 500)
         }
     }
 
@@ -271,10 +271,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..1_000) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 1_000)
+            assert(dao.getAll().getOrAwaitValue().size == 1_000)
         }
     }
 
@@ -283,10 +283,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..2_000) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 2_000)
+            assert(dao.getAll().getOrAwaitValue().size == 2_000)
         }
     }
 
@@ -295,10 +295,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..4_000) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 4_000)
+            assert(dao.getAll().getOrAwaitValue().size == 4_000)
         }
     }
 
@@ -307,10 +307,10 @@ class PixelArtCreationsDaoInsertionTests {
         runTest {
             for (i in 1..8_000) {
                 val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                dao.insertPixelArt(pixelArtCreation)
+                dao.insert(pixelArtCreation)
             }
 
-            assert(dao.getAllPixelArtCreations().getOrAwaitValue().size == 8_000)
+            assert(dao.getAll().getOrAwaitValue().size == 8_000)
         }
     }
 }

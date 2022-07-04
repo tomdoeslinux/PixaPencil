@@ -6,13 +6,13 @@ import androidx.room.Database
 import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.models.PixelArt
 
-@Database(entities = [PixelArt::class], version = 3)
+@Database(entities = [PixelArt::class], version = 4)
 abstract class PixelArtDatabase: RoomDatabase() {
-    abstract fun pixelArtCreationsDao(): PixelArtCreationsDao
+    abstract fun dao(): PixelArtCreationsDao
 
     companion object {
         private var instance: PixelArtDatabase? = null
-        fun getDatabase(context: Context): PixelArtDatabase {
+        fun get(context: Context): PixelArtDatabase {
             if (instance == null) {
                 synchronized(PixelArtDatabase::class) {
                     if (instance == null) {
