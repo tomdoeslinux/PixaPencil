@@ -25,7 +25,12 @@ fun View.showSnackbarWithAction(snackbarText: String, duration: SnackbarDuration
         .show()
 }
 
-fun View.showSnackbarWithActionAndCallback(snackbarText: String, duration: SnackbarDuration, actionText: String, actionOnClickListener: View.OnClickListener, onDismissedCallback: () -> Unit) {
+fun View.showSnackbarWithActionAndCallback(
+    snackbarText: String,
+    duration: SnackbarDuration,
+    actionText: String,
+    actionOnClickListener: View.OnClickListener,
+    onDismissedCallback: () -> Unit) {
     Snackbar.make(this, snackbarText, duration.timeValue)
         .setTextColor(Color.BLACK)
         .setBackgroundTint(ContextCompat.getColor(context, R.color.snackbarBackgroundColor))
