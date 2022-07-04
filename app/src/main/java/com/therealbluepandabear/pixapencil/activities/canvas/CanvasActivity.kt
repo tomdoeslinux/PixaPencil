@@ -112,7 +112,7 @@ class CanvasActivity :
         savePrevOrientationInfo()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return extendedOnCreateOptionsMenu(menu)
     }
 

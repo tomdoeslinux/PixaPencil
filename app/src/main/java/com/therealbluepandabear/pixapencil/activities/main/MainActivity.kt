@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
         pixelArtViewModel.update(pixelArt)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return extendedOnCreateOptionsMenu(menu)
     }
 
