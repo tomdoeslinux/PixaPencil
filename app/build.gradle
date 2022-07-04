@@ -71,9 +71,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.0"
 
     // Implementations ==> [ External Libraries ]
     implementation 'com.github.takusemba:spotlight:2.0.5'
@@ -89,7 +89,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.1'
 
     // Implementations ==> [JetBrains]
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3'
     runtimeOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
     // Test Implementations ==> [JUnit]
