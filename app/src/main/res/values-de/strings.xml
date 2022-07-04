@@ -190,4 +190,29 @@
     <string name="spot_light_activity_canvas_3_in_code_str">Tippen Sie auf \'Filter\', um einige Projektfilter auszuprobieren</string>
     <string name="spot_light_activity_canvas_6_in_code_str">Sie haben nur die Standard-Palette, aber Sie können immer eine neue erstellen, indem Sie die drei Punkte oben rechts auf Ihrem Bildschirm tippen</string>
     <string name="dialog_delete_pixel_art_project_text_in_code_str">Bist du sicher, dass du %1$s speichern möchtest\? Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="dialog_project_details_title_in_code_str">Details</string>
+    <string name="dialog_rename_title_in_code_str">Umbenennen</string>
+    <string name="activityMainBottomSheet_rename_str">Umbenennen</string>
+    <string name="activityMainBottomSheet_delete_str">Löschen</string>
+    <string name="activityMainBottomSheet_view_details_str">Details ansehen</string>
+    <string name="generic_switch_in_code_str">Schalter</string>
+    <string name="activityMainBottomSheet_duplicate_str">Duplikat</string>
+    <string name="projectDetailsAlertBox_width_str">Breite</string>
+    <string name="projectDetailsAlertBox_height_str">Höhe</string>
+    <string name="projectDetailsAlertBox_created_str">Erstellt</string>
+    <string name="projectDetailsAlertBox_colors_str">Farben</string>
+    <string name="activityMainTopAppMenu_about_str">Über</string>
+    <string name="activityCanvasTopAppMenu_import_lospec_palette_str">Lospec-Palette importieren</string>
+    <string name="snackbar_successfully_imported_lospec_palette_in_code_str">%1$s wurde importier</string>
+    <string name="fragmentAppInfo_description_text_str"> PixaPencil ist ein <a href="https://github.com/therealbluepandabear/PixaPencil">quelloffener</a> Pixel-Art-Editor, ohne Google Play Services und ohne Werbung.
+\n
+\n Um dies sicherzustellen, ist es empfehlenswert, die App
+\n via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> oder via <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> zu installieren. </string>
+    <string name="fragmentAppInfo_created_by_text_str">Erstellt von <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
+    <string name="fragmentAppInfo_description_text_str_land">PixaPencil ist ein <a href="https://github.com/therealbluepandabear/PixaPencil">quelloffener</a> Pixel-Art-Editor, ohne Google Play Services und ohne Werbung.
+\n
+\n Um dies sicherzustellen, ist es empfehlenswert, die App
+\n via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> oder via <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> zu installieren.</string>
+    <string name="fragmentAppInfo_community_text_str_land">Wir begrüßen dich auch gerne in unserem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>-Raum oder auf unserem <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-Server. </string>
+    <string name="move_tool_info_title_in_code_str">Werkzeug-Info bewegen</string>
 </resources>
