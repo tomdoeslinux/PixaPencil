@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider
 
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.extensions.disable
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
-fun CanvasActivity.extendedOnCreateOptionsMenu(_menu: Menu?): Boolean {
+fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater
     inflater.inflate(R.menu.activity_canvas_top_app_menu, _menu)
 

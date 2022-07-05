@@ -71,8 +71,13 @@ package com.therealbluepandabear.pixapencil.fragments.newproject
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.activity.OnBackPressedCallback
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.core.view.children
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.FragmentNewProjectBinding
@@ -116,9 +121,9 @@ class NewProjectFragment : Fragment(), ActivityFragment {
         requireActivity().title = title
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        menu.clear()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(ActivityFragment.rootMenuProvider, viewLifecycleOwner, Lifecycle.State.STARTED)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -133,11 +138,6 @@ class NewProjectFragment : Fragment(), ActivityFragment {
         }
 
         return binding.root
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onDestroyView() {

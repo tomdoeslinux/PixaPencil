@@ -1,13 +1,14 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider
 
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.fragments.appinfo.AppInfoFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-fun MainActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
+fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
     when (item.itemId) {
         R.id.activityMainTopAppMenu_save_project_item -> {
             supportFragmentManager.commit {

@@ -1,7 +1,10 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.oncreate.root
 
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
+import com.therealbluepandabear.pixapencil.activities.main.*
 import com.therealbluepandabear.pixapencil.activities.main.eventlisteners.setEventListeners
+import com.therealbluepandabear.pixapencil.activities.main.oncreate.*
+import com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider.addMenuProvider
 
 fun MainActivity.extendedOnCreate() {
     showWelcomeScreenIfApplicable()
@@ -13,5 +16,6 @@ fun MainActivity.extendedOnCreate() {
     applyShowLargeCanvasSizeWarningValueFromPreference()
     setupRecyclerView()
     observePixelArtData()
+    addMenuProvider()
     selectedColorPaletteIndex = 0
 }

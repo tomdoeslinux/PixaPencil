@@ -1,6 +1,7 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.oncreate
 
 import androidx.recyclerview.widget.GridLayoutManager
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.adapters.PixelArtAdapter
 
 

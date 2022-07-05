@@ -4,16 +4,13 @@ import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
-import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.onCreate
+import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
-import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnCreateOptionsMenu
-import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.extendedOnOptionsItemSelected
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
@@ -110,14 +107,6 @@ class CanvasActivity :
     override fun onStart() {
         super.onStart()
         savePrevOrientationInfo()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        return extendedOnCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return extendedOnOptionsItemSelected(item)
     }
 
     override fun onPause() {

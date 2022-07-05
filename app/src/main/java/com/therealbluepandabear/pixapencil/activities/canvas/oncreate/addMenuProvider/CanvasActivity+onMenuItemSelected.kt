@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider
 
 import android.graphics.Color
 import android.os.Build
@@ -13,6 +13,7 @@ import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.*
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -31,7 +32,7 @@ import kotlinx.coroutines.launch
 
 const val ZOOM_INCREMENT = 0.2f
 
-fun CanvasActivity.extendedOnOptionsItemSelected(item: MenuItem): Boolean {
+fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
         R.id.activityCanvasTopAppMenu_zoom_out_item -> {

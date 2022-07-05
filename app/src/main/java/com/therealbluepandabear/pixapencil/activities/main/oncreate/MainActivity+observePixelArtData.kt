@@ -1,4 +1,6 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.oncreate
+
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 
 fun MainActivity.observePixelArtData() {
     pixelArtViewModel.getAll().observe(this) {

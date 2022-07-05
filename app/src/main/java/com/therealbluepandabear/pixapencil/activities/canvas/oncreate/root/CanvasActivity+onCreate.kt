@@ -1,10 +1,12 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root
 
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
+import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
@@ -23,6 +25,7 @@ fun CanvasActivity.onCreate() {
     setListeners()
     initSharedPreferenceObject()
     setupViewPager()
+    addMenuProvider()
 
     binding.activityCanvasColorPickerRecyclerView.doOnPreDraw {
         observeColorPaletteColorPickerData()

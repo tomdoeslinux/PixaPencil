@@ -71,7 +71,11 @@ package com.therealbluepandabear.pixapencil.fragments.colorpicker
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.therealbluepandabear.pixapencil.R
@@ -136,9 +140,9 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
         requireActivity().title = title
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        menu.clear()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(ActivityFragment.rootMenuProvider, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -151,7 +155,6 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
 
         if (savedInstanceState != null) {
             prevColorPickerTab = savedInstanceState.getInt(StringConstants.Identifiers.PREV_COLOR_PICKER_TAB_BUNDLE_IDENTIFIER)

@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.main
+package com.therealbluepandabear.pixapencil.activities.main.oncreate
 
 import android.os.StrictMode
 

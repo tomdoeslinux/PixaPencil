@@ -1,12 +1,13 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R
@@ -14,6 +15,7 @@ import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedO
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDuplicateTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnRenameTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnViewDetailsTapped
+import com.therealbluepandabear.pixapencil.activities.main.oncreate.root.extendedOnCreate
 import com.therealbluepandabear.pixapencil.activities.main.viewmodel.PixelArtViewModel
 import com.therealbluepandabear.pixapencil.adapters.PixelArtAdapter
 import com.therealbluepandabear.pixapencil.databinding.ActivityMainBinding
@@ -59,14 +61,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     override fun onUnstarredTapped(pixelArt: PixelArt) {
         pixelArtViewModel.update(pixelArt)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        return extendedOnCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return extendedOnOptionsItemSelected(item)
     }
 
     override fun onDoneButtonPressed(projectName: String, width: Int, height: Int, spotLightInProgress: Boolean) {
