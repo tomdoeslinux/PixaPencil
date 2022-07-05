@@ -76,7 +76,7 @@ class PixelArtAdapter(
             }
 
             override fun areContentsTheSame(oldItem: PixelArt, newItem: PixelArt): Boolean {
-                return oldItem.coverBitmapFilePath == newItem.coverBitmapFilePath
+                return oldItem == newItem
             }
         }
     }
