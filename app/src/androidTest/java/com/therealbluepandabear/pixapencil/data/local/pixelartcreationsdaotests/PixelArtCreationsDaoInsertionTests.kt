@@ -103,16 +103,16 @@ class PixelArtCreationsDaoInsertionTests {
         }
     }
 
-    @Test
-    fun insertPixelArtCreation_assertRotation() {
-        runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.rotation } returns 90f }
-
-            dao.insert(pixelArtCreation)
-
-            assert(dao.getAll().getOrAwaitValue().first().rotation == pixelArtCreation.rotation)
-        }
-    }
+//    @Test
+//    fun insertPixelArtCreation_assertRotation() {
+//        runTest {
+//            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.rotation } returns 90f }
+//
+//            dao.insert(pixelArtCreation)
+//
+//            assert(dao.getAll().getOrAwaitValue().first().rotation == pixelArtCreation.rotation)
+//        }
+//    }
 
     @Test
     fun insertPixelArtCreation_assertStarred() {
@@ -125,16 +125,16 @@ class PixelArtCreationsDaoInsertionTests {
         }
     }
 
-    @Test
-    fun insertPixelArtCreation_assertDateCreated() {
-        runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompat.getCompatibleCurrentDateTime() }
-
-            dao.insert(pixelArtCreation)
-
-            assert(dao.getAll().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
-        }
-    }
+//    @Test
+//    fun insertPixelArtCreation_assertDateCreated() {
+//        runTest {
+//            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also { every { it.dateCreated } returns DateTimeCompat.getCompatibleCurrentDateTime() }
+//
+//            dao.insert(pixelArtCreation)
+//
+//            assert(dao.getAll().getOrAwaitValue().first().dateCreated == pixelArtCreation.dateCreated)
+//        }
+//    }
 
     @Test
     fun insertPixelArtCreation_assertBitmap() {

@@ -56,8 +56,8 @@ class CanvasActivityNewColorPaletteFragmentViewDisplayedTests {
         onView(withId(R.id.fragmentNewColorPalette_primaryFragmentHost)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkColorPaletteRootLayout_IsDisplayed() {
-        onView(withId(R.id.fragmentNewColorPalette_rootLayout)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkColorPaletteRootLayout_IsDisplayed() {
+//        onView(withId(R.id.fragmentNewColorPalette_rootLayout)).check(matches(isDisplayed()))
+//    }
 }

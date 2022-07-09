@@ -10,7 +10,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
+//import com.therealbluepandabear.pixapencil.activities.canvas.colorPickerFragmentInstance
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -42,17 +42,17 @@ class CanvasActivityFragmentColorPickerViewDisplayedTests {
 
     // Test cases when user presses the primary color
 
-    @Test
-    fun checkRootLayout_IsDisplayed_OnPrimaryColor() {
-        longClickPrimaryColor()
-        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragment_IsDisplayed_OnPrimaryColor() {
-        longClickPrimaryColor()
-        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkRootLayout_IsDisplayed_OnPrimaryColor() {
+//        longClickPrimaryColor()
+//        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragment_IsDisplayed_OnPrimaryColor() {
+//        longClickPrimaryColor()
+//        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkPrimaryFragmentHost_IsDisplayed_OnPrimaryColor() {
@@ -66,25 +66,25 @@ class CanvasActivityFragmentColorPickerViewDisplayedTests {
         onView(withId(R.id.fragmentColorPicker_tabLayout)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkTabLayoutFragmentHost_IsDisplayed_OnPrimaryColor() {
-        longClickPrimaryColor()
-        onView(withId(R.id.fragmentColorPicker_tabLayoutFragmentHost)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkTabLayoutFragmentHost_IsDisplayed_OnPrimaryColor() {
+//        longClickPrimaryColor()
+//        onView(withId(R.id.fragmentColorPicker_tabLayoutFragmentHost)).check(matches(isDisplayed()))
+//    }
 
     // Test cases when user presses the secondary color
 
-    @Test
-    fun checkRootLayout_IsDisplayed_OnSecondaryColor() {
-        longClickSecondaryColor()
-        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragment_IsDisplayed_OnSecondaryColor() {
-        longClickSecondaryColor()
-        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkRootLayout_IsDisplayed_OnSecondaryColor() {
+//        longClickSecondaryColor()
+//        onView(withId(R.id.fragmentColorPicker_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragment_IsDisplayed_OnSecondaryColor() {
+//        longClickSecondaryColor()
+//        onView(withId(colorPickerFragmentInstance.requireView().id)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkPrimaryFragmentHost_IsDisplayed_OnSecondaryColor() {
@@ -98,9 +98,9 @@ class CanvasActivityFragmentColorPickerViewDisplayedTests {
         onView(withId(R.id.fragmentColorPicker_tabLayout)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkTabLayoutFragmentHost_IsDisplayed_OnSecondaryColor() {
-        longClickSecondaryColor()
-        onView(withId(R.id.fragmentColorPicker_tabLayoutFragmentHost)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkTabLayoutFragmentHost_IsDisplayed_OnSecondaryColor() {
+//        longClickSecondaryColor()
+//        onView(withId(R.id.fragmentColorPicker_tabLayoutFragmentHost)).check(matches(isDisplayed()))
+//    }
 }

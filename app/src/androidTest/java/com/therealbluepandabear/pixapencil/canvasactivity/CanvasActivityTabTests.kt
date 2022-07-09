@@ -27,100 +27,100 @@ class CanvasActivityTabTests {
         onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
     }
 
-    @Test
-    fun checkFragmentToolsRootLayoutIsDisplayedByDefault() {
-        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragmentFiltersRootLayoutIsDisplayedWhenFiltersTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
-        onView(withId(R.id.fragmentFilters_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenColorPalettesTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
-        onView(withId(R.id.fragmentColorPalettes_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragmentBrushesRootLayoutIsDisplayedWhenBrushesTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
-        onView(withId(R.id.fragmentBrushes_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFragmentToolsRootLayoutIsDisplayedWhenToolsTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
-        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkOtherFragmentsAreNotDisplayedWhenToolsTabClicked() {
-        notDisplayedSetup()
-        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
-
-        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-    }
-
-    @Test
-    fun checkOtherFragmentsAreNotDisplayedWhenFiltersTabClicked() {
-        notDisplayedSetup()
-        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
-
-        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-    }
-
-    @Test
-    fun checkOtherFragmentsAreNotDisplayedWhenPalettesTabClicked() {
-        notDisplayedSetup()
-        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
-
-        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-    }
-
-    @Test
-    fun checkOtherFragmentsAreNotDisplayedWhenBrushesTabClicked() {
-        notDisplayedSetup()
-
-        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
-    }
-
-    @Test
-    fun checkToolsFragmentInstanceIsDisplayedByDefault() {
-        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkFiltersFragmentInstanceIsDisplayedWhenFiltersTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
-        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkColorPalettesFragmentInstanceIsDisplayedWhenColorPalettesTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
-        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkBrushesFragmentInstanceIsDisplayedWhenBrushesTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
-        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
-
-    @Test
-    fun checkToolsFragmentInstanceIsDisplayedWhenToolsTabClicked() {
-        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
-        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkFragmentToolsRootLayoutIsDisplayedByDefault() {
+//        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragmentFiltersRootLayoutIsDisplayedWhenFiltersTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+//        onView(withId(R.id.fragmentFilters_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragmentColorPalettesRootLayoutIsDisplayedWhenColorPalettesTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+//        onView(withId(R.id.fragmentColorPalettes_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragmentBrushesRootLayoutIsDisplayedWhenBrushesTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+//        onView(withId(R.id.fragmentBrushes_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFragmentToolsRootLayoutIsDisplayedWhenToolsTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+//        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkOtherFragmentsAreNotDisplayedWhenToolsTabClicked() {
+//        notDisplayedSetup()
+//        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+//
+//        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//    }
+//
+//    @Test
+//    fun checkOtherFragmentsAreNotDisplayedWhenFiltersTabClicked() {
+//        notDisplayedSetup()
+//        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+//
+//        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//    }
+//
+//    @Test
+//    fun checkOtherFragmentsAreNotDisplayedWhenPalettesTabClicked() {
+//        notDisplayedSetup()
+//        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+//
+//        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//    }
+//
+//    @Test
+//    fun checkOtherFragmentsAreNotDisplayedWhenBrushesTabClicked() {
+//        notDisplayedSetup()
+//
+//        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(not(isDisplayed())))
+//    }
+//
+//    @Test
+//    fun checkToolsFragmentInstanceIsDisplayedByDefault() {
+//        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkFiltersFragmentInstanceIsDisplayedWhenFiltersTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
+//        onView(withId(filtersFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkColorPalettesFragmentInstanceIsDisplayedWhenColorPalettesTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
+//        onView(withId(colorPalettesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkBrushesFragmentInstanceIsDisplayedWhenBrushesTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
+//        onView(withId(brushesFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+//    }
+//
+//    @Test
+//    fun checkToolsFragmentInstanceIsDisplayedWhenToolsTabClicked() {
+//        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
+//        onView(withId(toolsFragmentInstance!!.requireView().id)).check(matches(isDisplayed()))
+//    }
 }

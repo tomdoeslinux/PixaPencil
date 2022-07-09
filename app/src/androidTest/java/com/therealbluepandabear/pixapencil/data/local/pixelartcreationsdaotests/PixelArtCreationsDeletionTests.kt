@@ -43,212 +43,212 @@ class PixelArtCreationsDeletionTests {
     fun tearDown() {
         database.close()
     }
+//
+//    @Test
+//    fun insert5PixelArtCreations_deleteItems_assertSizeChanges() {
+//        runTest {
+//            for (i in 1..5) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            dao.delete(1)
+//            assert(dao.getAll().getOrAwaitValue().size == 4)
+//
+//            dao.delete(2)
+//            assert(dao.getAll().getOrAwaitValue().size == 3)
+//
+//            dao.delete(3)
+//            assert(dao.getAll().getOrAwaitValue().size == 2)
+//
+//            dao.delete(4)
+//            assert(dao.getAll().getOrAwaitValue().size == 1)
+//
+//            dao.delete(5)
+//            assert(dao.getAll().getOrAwaitValue().isEmpty())
+//        }
+//    }
 
-    @Test
-    fun insert5PixelArtCreations_deleteItems_assertSizeChanges() {
-        runTest {
-            for (i in 1..5) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
+//    @Test
+//    fun insert16PixelArtCreations_deleteHalf_assertSize8() {
+//        runTest {
+//            for (i in 1..16) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..8) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 8)
+//        }
+//    }
 
-                dao.insert(pixelArtCreation)
-            }
+//    @Test
+//    fun insert32PixelArtCreations_deleteHalf_assertSize16() {
+//        runTest {
+//            for (i in 1..32) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..16) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 16)
+//        }
+//    }
+//
+//    @Test
+//    fun insert64PixelArtCreations_deleteHalf_assertSize32() {
+//        runTest {
+//            for (i in 1..64) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..32) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 32)
+//        }
+//    }
 
-            dao.delete(1)
-            assert(dao.getAll().getOrAwaitValue().size == 4)
+//    @Test
+//    fun insert128PixelArtCreations_deleteHalf_assertSize64() {
+//        runTest {
+//            for (i in 1..128) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..64) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 64)
+//        }
+//    }
 
-            dao.delete(2)
-            assert(dao.getAll().getOrAwaitValue().size == 3)
+//    @Test
+//    fun insert256PixelArtCreations_deleteHalf_assertSize128() {
+//        runTest {
+//            for (i in 1..256) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..128) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 128)
+//        }
+//    }
 
-            dao.delete(3)
-            assert(dao.getAll().getOrAwaitValue().size == 2)
+//    @Test
+//    fun insert512PixelArtCreations_deleteHalf_assertSize256() {
+//        runTest {
+//            for (i in 1..512) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..256) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 256)
+//        }
+//    }
 
-            dao.delete(4)
-            assert(dao.getAll().getOrAwaitValue().size == 1)
+//    @Test
+//    fun insert1024PixelArtCreations_deleteHalf_assertSize512() {
+//        runTest {
+//            for (i in 1..1024) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..512) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 512)
+//        }
+//    }
 
-            dao.delete(5)
-            assert(dao.getAll().getOrAwaitValue().isEmpty())
-        }
-    }
+//    @Test
+//    fun insert2048PixelArtCreations_deleteHalf_assertSize1024() {
+//        runTest {
+//            for (i in 1..2048) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..1024) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 1024)
+//        }
+//    }
 
-    @Test
-    fun insert16PixelArtCreations_deleteHalf_assertSize8() {
-        runTest {
-            for (i in 1..16) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
+//    @Test
+//    fun insert4096PixelArtCreations_deleteHalf_assertSize2048() {
+//        runTest {
+//            for (i in 1..4096) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..2048) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 2048)
+//        }
+//    }
 
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..8) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 8)
-        }
-    }
-
-    @Test
-    fun insert32PixelArtCreations_deleteHalf_assertSize16() {
-        runTest {
-            for (i in 1..32) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..16) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 16)
-        }
-    }
-
-    @Test
-    fun insert64PixelArtCreations_deleteHalf_assertSize32() {
-        runTest {
-            for (i in 1..64) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..32) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 32)
-        }
-    }
-
-    @Test
-    fun insert128PixelArtCreations_deleteHalf_assertSize64() {
-        runTest {
-            for (i in 1..128) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..64) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 64)
-        }
-    }
-
-    @Test
-    fun insert256PixelArtCreations_deleteHalf_assertSize128() {
-        runTest {
-            for (i in 1..256) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..128) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 128)
-        }
-    }
-
-    @Test
-    fun insert512PixelArtCreations_deleteHalf_assertSize256() {
-        runTest {
-            for (i in 1..512) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..256) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 256)
-        }
-    }
-
-    @Test
-    fun insert1024PixelArtCreations_deleteHalf_assertSize512() {
-        runTest {
-            for (i in 1..1024) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..512) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 512)
-        }
-    }
-
-    @Test
-    fun insert2048PixelArtCreations_deleteHalf_assertSize1024() {
-        runTest {
-            for (i in 1..2048) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..1024) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 1024)
-        }
-    }
-
-    @Test
-    fun insert4096PixelArtCreations_deleteHalf_assertSize2048() {
-        runTest {
-            for (i in 1..4096) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..2048) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 2048)
-        }
-    }
-
-    @Test
-    fun insert8192PixelArtCreations_deleteHalf_assertSize4096() {
-        runTest {
-            for (i in 1..8192) {
-                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
-                every { pixelArtCreation.objId } returns i
-
-                dao.insert(pixelArtCreation)
-            }
-
-            for (i in 1..4096) {
-                dao.delete(i)
-            }
-
-            assert(dao.getAll().getOrAwaitValue().size == 4096)
-        }
-    }
+//    @Test
+//    fun insert8192PixelArtCreations_deleteHalf_assertSize4096() {
+//        runTest {
+//            for (i in 1..8192) {
+//                val pixelArtCreation = mockk<PixelArt>(relaxed = true)
+//                every { pixelArtCreation.objId } returns i
+//
+//                dao.insert(pixelArtCreation)
+//            }
+//
+//            for (i in 1..4096) {
+//                dao.delete(i)
+//            }
+//
+//            assert(dao.getAll().getOrAwaitValue().size == 4096)
+//        }
+//    }
 }
 

@@ -55,20 +55,20 @@ class CanvasActivityViewDisplayedTests {
         onView(withId(R.id.activityCanvas_primaryFragmentHost)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkRootLayoutIsDisplayed() {
-        onView(withId(R.id.activityCanvas_rootLayout)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkRootLayoutIsDisplayed() {
+//        onView(withId(R.id.activityCanvas_rootLayout)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkTabLayoutIsDisplayed() {
         onView(withId(R.id.activityCanvas_tabLayout)).check(matches(isDisplayed()))
     }
-
-    @Test
-    fun checkTabLayoutFragmentHostIsDisplayed() {
-        onView(withId(R.id.activityCanvas_tabLayoutFragmentHost)).check(matches(isDisplayed()))
-    }
+//
+//    @Test
+//    fun checkTabLayoutFragmentHostIsDisplayed() {
+//        onView(withId(R.id.activityCanvas_tabLayoutFragmentHost)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkResetZoomInItemIsDisplayed() {

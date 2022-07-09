@@ -40,10 +40,10 @@ class CanvasActivityFindAndReplaceFragmentViewDisplayedTests {
         onView(withText(R.string.activityCanvasTopAppMenu_find_and_replace_str)).perform(click())
     }
 
-    @Test
-    fun checkRootLayout_IsDisplayed() {
-        onView(withId(R.id.fragmentFindAndReplace_rootLayout)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkRootLayout_IsDisplayed() {
+//        onView(withId(R.id.fragmentFindAndReplace_rootLayout)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkAvailableColorsRecyclerView_IsDisplayed() {

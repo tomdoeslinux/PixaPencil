@@ -26,10 +26,10 @@ class CanvasActivityFragmentHexColorPickerViewDisplayedTests {
         onView(withText(R.string.fragmentColorPicker_tab_hex_str)).perform(longClick())
     }
 
-    @Test
-    fun checkRootLayout_IsDisplayed() {
-        onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkRootLayout_IsDisplayed() {
+//        onView(withId(R.id.fragmentHexadecimalColorPicker_rootLayout)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkColorPreview_IsDisplayed() {

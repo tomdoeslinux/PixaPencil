@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import android.graphics.Color
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
@@ -44,6 +45,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreShadingMap: Boolean = false,
 ) {
     with(pixelGridViewInstance) {
+        Log.d("BEPPER", coordinates.toString())
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()

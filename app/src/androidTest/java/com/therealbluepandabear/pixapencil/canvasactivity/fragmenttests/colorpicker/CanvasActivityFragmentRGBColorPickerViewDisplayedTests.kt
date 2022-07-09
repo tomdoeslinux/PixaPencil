@@ -28,10 +28,10 @@ class CanvasActivityFragmentRGBColorPickerViewDisplayedTests {
         onView(ViewMatchers.withText(R.string.fragmentColorPicker_tab_rgb_str)).perform(ViewActions.longClick())
     }
 
-    @Test
-    fun checkColorPickerRootLayout_IsDisplayed() {
-        onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
-    }
+//    @Test
+//    fun checkColorPickerRootLayout_IsDisplayed() {
+//        onView(withId(R.id.fragmentRGBColorPicker_rootLayout)).check(matches(isDisplayed()))
+//    }
 
     @Test
     fun checkColorPickerRedProgressBar_IsDisplayed() {

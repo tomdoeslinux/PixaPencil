@@ -46,63 +46,63 @@ class PixelArtCreationsReplacementTests {
         database.close()
     }
 
-    @Test
-    fun insertPixelArtCreation_assertBitmapDoesReplace() {
-        runTest {
-            val bitmapObj = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888)
-            val bitmapString = BitmapConverter.convertBitmapToString(bitmapObj)
+//    @Test
+//    fun insertPixelArtCreation_assertBitmapDoesReplace() {
+//        runTest {
+//            val bitmapObj = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888)
+//            val bitmapString = BitmapConverter.convertBitmapToString(bitmapObj)
+//
+//            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+//                every { it.bitmap } returns bitmapString
+//                every { it.objId } returns 1
+//            }
+//
+//            dao.insert(pixelArtCreation)
+//
+//            val bitmapObj2 = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
+//            val bitmapString2 =  BitmapConverter.convertBitmapToString(bitmapObj2)
+//
+//            dao.updatePixelArtCreationBitmap(bitmapString2, 1)
+//
+//            val bitmapObj3 = BitmapConverter.convertStringToBitmap(dao.getAll().getOrAwaitValue().first().bitmap)
+//
+//            assert(bitmapObj3!!.width == bitmapObj2.width)
+//            assert(bitmapObj3.height == bitmapObj2.height)
+//            assert(bitmapObj3.config == bitmapObj2.config)
+//        }
+//    }
 
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
-                every { it.bitmap } returns bitmapString
-                every { it.objId } returns 1
-            }
+//    @Test
+//    fun insertPixelArtCreation_assertRotationDoesReplace() {
+//        runTest {
+//            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+//                every { it.rotation } returns 180f
+//                every { it.objId } returns 1
+//            }
+//
+//            dao.insert(pixelArtCreation)
+//
+//            val newRotation = 90f
+//            dao.updatePixelArtCreationRotation(newRotation, 1)
+//
+//            assert(dao.getAll().getOrAwaitValue().first().rotation == newRotation)
+//        }
+//    }
 
-            dao.insert(pixelArtCreation)
-
-            val bitmapObj2 = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
-            val bitmapString2 =  BitmapConverter.convertBitmapToString(bitmapObj2)
-
-            dao.updatePixelArtCreationBitmap(bitmapString2, 1)
-
-            val bitmapObj3 = BitmapConverter.convertStringToBitmap(dao.getAll().getOrAwaitValue().first().bitmap)
-
-            assert(bitmapObj3!!.width == bitmapObj2.width)
-            assert(bitmapObj3.height == bitmapObj2.height)
-            assert(bitmapObj3.config == bitmapObj2.config)
-        }
-    }
-
-    @Test
-    fun insertPixelArtCreation_assertRotationDoesReplace() {
-        runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
-                every { it.rotation } returns 180f
-                every { it.objId } returns 1
-            }
-
-            dao.insert(pixelArtCreation)
-
-            val newRotation = 90f
-            dao.updatePixelArtCreationRotation(newRotation, 1)
-
-            assert(dao.getAll().getOrAwaitValue().first().rotation == newRotation)
-        }
-    }
-
-    @Test
-    fun insertPixelArtCreation_assertStarredDoesReplace() {
-        runTest {
-            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
-                every { it.starred } returns false
-                every { it.objId } returns 1
-            }
-
-            dao.insert(pixelArtCreation)
-
-            val newStarred = true
-            dao.updatePixelArtCreationStarred(newStarred, 1)
-
-            assert(dao.getAll().getOrAwaitValue().first().starred == newStarred)
-        }
-    }
+//    @Test
+//    fun insertPixelArtCreation_assertStarredDoesReplace() {
+//        runTest {
+//            val pixelArtCreation = mockk<PixelArt>(relaxed = true).also {
+//                every { it.starred } returns false
+//                every { it.objId } returns 1
+//            }
+//
+//            dao.insert(pixelArtCreation)
+//
+//            val newStarred = true
+//            dao.updatePixelArtCreationStarred(newStarred, 1)
+//
+//            assert(dao.getAll().getOrAwaitValue().first().starred == newStarred)
+//        }
+//    }
 }
