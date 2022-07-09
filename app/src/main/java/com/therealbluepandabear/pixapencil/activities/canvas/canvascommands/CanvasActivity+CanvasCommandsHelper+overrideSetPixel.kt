@@ -45,7 +45,8 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreShadingMap: Boolean = false,
 ) {
     with(pixelGridViewInstance) {
-        Log.d("BEPPER", baseReference.viewModel.bitmapActionData.toString())
+
+        Log.d("BEPPER", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${coordinates.x}, ${coordinates.y})) == Color.BLACK)")
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()
