@@ -20,6 +20,19 @@ import kotlin.random.Random
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class FindAndReplaceToolTests {
+    private fun setRandomPixels(activity: CanvasActivity, iterations: Int): List<Coordinates> {
+        val randomCoordinates: MutableList<Coordinates> = mutableListOf()
+
+        for (i in 0..iterations) {
+            val randomCoordinate = Coordinates(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
+            randomCoordinates.add(randomCoordinate)
+
+            pixelGridViewInstance.pixelGridViewBitmap.setPixel(randomCoordinate, Color.BLACK)
+        }
+
+        return randomCoordinates
+    }
+
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
@@ -28,20 +41,32 @@ class FindAndReplaceToolTests {
         activityRule.scenario.onActivity {
             ToolTestsHelper.prepare(it)
 
-            val randomCoordinates: MutableList<Coordinates> = mutableListOf()
+            val iterations = 200
+            val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
 
-            for (i in 0..200) {
-                val randomCoordinate = Coordinates(Random.nextInt(0, it.width), Random.nextInt(0, it.height))
-                randomCoordinates.add(randomCoordinate)
-
-                pixelGridViewInstance.pixelGridViewBitmap.setPixel(randomCoordinate, Color.BLACK)
-            }
-
-            // This is the specific onDoneButtonPressed function for the 'Done' button in the 'Find and Replace' fragment.
+            // For all tests after this: this is the specific onDoneButtonPressed function for the 'Done' button in the 'Find and Replace' fragment.
             it.onDoneButtonPressed(Color.BLACK, Color.YELLOW)
 
             for (coordinate in randomCoordinates) {
                 assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.YELLOW)
+            }
+        }
+    }
+
+    @Test
+    fun rnd_fartt_2() {
+        activityRule.scenario.onActivity {
+            activityRule.scenario.onActivity {
+                ToolTestsHelper.prepare(it)
+
+                val iterations = 2000
+                val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
+
+                it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
+
+                for (coordinate in randomCoordinates) {
+                    assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
+                }
             }
         }
     }
