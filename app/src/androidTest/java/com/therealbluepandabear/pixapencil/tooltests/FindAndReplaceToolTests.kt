@@ -5,8 +5,6 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
-import com.therealbluepandabear.pixapencil.algorithms.FloodFillAlgorithm
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
@@ -65,6 +63,31 @@ class FindAndReplaceToolTests {
 
             for (coordinate in randomCoordinates) {
                 assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
+            }
+        }
+    }
+
+    @Test
+    fun rnd_fartt_3() {
+        activityRule.scenario.onActivity {
+            ToolTestsHelper.prepare(it)
+
+            val iterations1 = 3000
+            val randomCoordinates1: List<Coordinates> = setRandomPixels(it, iterations1, Color.RED)
+
+            it.onDoneButtonPressed(Color.RED, Color.BLACK)
+
+            for (coordinate in randomCoordinates1) {
+                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.BLACK)
+            }
+
+            val iterations2 = 500
+            val randomCoordinates2: List<Coordinates> = setRandomPixels(it, iterations2, Color.LTGRAY)
+
+            it.onDoneButtonPressed(Color.LTGRAY, Color.MAGENTA)
+
+            for (coordinate in randomCoordinates2) {
+                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.MAGENTA)
             }
         }
     }
