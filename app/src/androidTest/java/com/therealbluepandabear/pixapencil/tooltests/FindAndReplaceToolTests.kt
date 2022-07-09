@@ -56,17 +56,15 @@ class FindAndReplaceToolTests {
     @Test
     fun rnd_fartt_2() {
         activityRule.scenario.onActivity {
-            activityRule.scenario.onActivity {
-                ToolTestsHelper.prepare(it)
+            ToolTestsHelper.prepare(it)
 
-                val iterations = 2000
-                val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
+            val iterations = 2000
+            val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
 
-                it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
+            it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
 
-                for (coordinate in randomCoordinates) {
-                    assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
-                }
+            for (coordinate in randomCoordinates) {
+                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
             }
         }
     }
