@@ -20,14 +20,14 @@ import kotlin.random.Random
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class FindAndReplaceToolTests {
-    private fun setRandomPixels(activity: CanvasActivity, iterations: Int): List<Coordinates> {
+    private fun setRandomPixels(activity: CanvasActivity, iterations: Int, color: Int = Color.BLACK): List<Coordinates> {
         val randomCoordinates: MutableList<Coordinates> = mutableListOf()
 
         for (i in 0..iterations) {
             val randomCoordinate = Coordinates(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
             randomCoordinates.add(randomCoordinate)
 
-            pixelGridViewInstance.pixelGridViewBitmap.setPixel(randomCoordinate, Color.BLACK)
+            pixelGridViewInstance.pixelGridViewBitmap.setPixel(randomCoordinate, color)
         }
 
         return randomCoordinates
