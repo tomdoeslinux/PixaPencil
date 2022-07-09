@@ -22,6 +22,7 @@ import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.tooltests.helper.ToolTestsHelper
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,22 +30,13 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class CircleToolTests {
-    // Functions
-    private fun prepare(activity: CanvasActivity) {
-        activity.viewModel.currentTool = Tool.CircleTool
-        activity.viewModel.bitmapActionData = mutableListOf()
-        activity.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
-        activity.initPrimaryAlgorithmInfoParameter()
-    }
-
-    // Test
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
     @Test
     fun ctt_1() {
         activityRule.scenario.onActivity {
-            prepare(it)
+            ToolTestsHelper.prepare(it)
 
             val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
             circleAlgorithm.compute(Coordinates(0, 0), Coordinates(2, 2))
@@ -59,7 +51,7 @@ class CircleToolTests {
     @Test
     fun ctt_2() {
         activityRule.scenario.onActivity {
-            prepare(it)
+            ToolTestsHelper.prepare(it)
 
             val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
             circleAlgorithm.compute(Coordinates(0, 0), Coordinates(3, 3))
@@ -78,7 +70,7 @@ class CircleToolTests {
     @Test
     fun ctt_3() {
         activityRule.scenario.onActivity {
-            prepare(it)
+            ToolTestsHelper.prepare(it)
 
             val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
             circleAlgorithm.compute(Coordinates(0, 0), Coordinates(4, 4))
@@ -101,7 +93,7 @@ class CircleToolTests {
     @Test
     fun ctt_4() {
         activityRule.scenario.onActivity {
-            prepare(it)
+            ToolTestsHelper.prepare(it)
 
             val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
             circleAlgorithm.compute(Coordinates(0, 0), Coordinates(5, 5))
@@ -128,7 +120,7 @@ class CircleToolTests {
     @Test
     fun ctt_5() {
         activityRule.scenario.onActivity {
-            prepare(it)
+            ToolTestsHelper.prepare(it)
 
             val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
             circleAlgorithm.compute(Coordinates(0, 0), Coordinates(6, 6))
@@ -149,7 +141,6 @@ class CircleToolTests {
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5, 1)) == Color.BLACK)
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5, 5)) == Color.BLACK)
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 5)) == Color.BLACK)
-
         }
     }
 }
