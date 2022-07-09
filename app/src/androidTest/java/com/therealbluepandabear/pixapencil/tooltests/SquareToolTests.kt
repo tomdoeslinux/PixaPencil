@@ -38,4 +38,27 @@ class SquareToolTests {
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 2)) == Color.BLACK)
         }
     }
+
+    @Test
+    fun stt_2() {
+        activityRule.scenario.onActivity {
+            ToolTestsHelper.prepare(it)
+
+            val squareAlgorithm = SquarePreviewAlgorithm(it.primaryAlgorithmInfoParameter)
+            squareAlgorithm.compute(Coordinates(0, 0), Coordinates(3, 3))
+
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 0)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 0)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2, 0)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 0)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 1)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 2)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 1)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 2)) == Color.BLACK)
+        }
+    }
 }
