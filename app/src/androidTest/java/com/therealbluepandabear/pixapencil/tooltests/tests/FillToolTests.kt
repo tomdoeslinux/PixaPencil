@@ -6,6 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
+import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.FloodFillAlgorithm
 import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.extensions.getPixel
@@ -104,6 +105,53 @@ class FillToolTests {
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,4)) == Color.BLUE)
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(6,4)) == Color.BLUE)
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(7,4)) == Color.BLUE)
+        }
+    }
+
+    @Test
+    fun ftt_3() {
+        activityRule.scenario.onActivity {
+            ToolTestsHelper.prepare(it)
+
+            val circleAlgorithm = CircleAlgorithm(it.primaryAlgorithmInfoParameter)
+            circleAlgorithm.compute(Coordinates(0, 0), Coordinates(7, 7))
+
+            it.primaryAlgorithmInfoParameter.color = Color.YELLOW
+            val floodFillAlgorithm = FloodFillAlgorithm(it.primaryAlgorithmInfoParameter)
+            floodFillAlgorithm.compute(Coordinates(2,2))
+
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,1)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,1)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,1)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,1)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(6,2)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(6,3)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(6,4)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(6,5)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2,6)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3,6)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4,6)) == Color.YELLOW)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(5,6)) == Color.YELLOW)
         }
     }
 }
