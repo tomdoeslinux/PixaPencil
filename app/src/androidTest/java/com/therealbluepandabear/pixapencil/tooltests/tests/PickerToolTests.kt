@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.tooltests
+package com.therealbluepandabear.pixapencil.tooltests.tests
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

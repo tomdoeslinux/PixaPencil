@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.tooltests
+package com.therealbluepandabear.pixapencil.tooltests.tests
 
 import android.graphics.Color
 import androidx.test.ext.junit.rules.ActivityScenarioRule
