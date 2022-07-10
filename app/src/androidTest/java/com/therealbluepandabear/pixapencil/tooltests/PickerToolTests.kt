@@ -36,4 +36,20 @@ class PickerToolTests {
             assert(it.getSelectedColor() == Color.BLUE)
         }
     }
+
+    @Test
+    fun ptt_2() {
+        activityRule.scenario.onActivity {
+            ToolTestsHelper.prepare(it)
+
+            it.viewModel.currentTool = Tool.ColorPickerTool
+            binding.activityCanvasColorSecondaryView.performClick()
+
+            it.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(0,0), Color.GREEN)
+            it.onPixelTapped(Coordinates(0, 0))
+
+            assert((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color == Color.GREEN)
+            assert(it.getSelectedColor() == Color.GREEN)
+        }
+    }
 }
