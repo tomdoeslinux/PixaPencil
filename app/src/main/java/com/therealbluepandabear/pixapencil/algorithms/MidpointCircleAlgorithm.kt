@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
@@ -140,6 +141,7 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
     }
 
     fun compute(p1: Coordinates, radius: Int) {
+        Log.d("CIRCLE", "CIRCLE STARTED")
         val xc = p1.x
         val yc = p1.y
 
