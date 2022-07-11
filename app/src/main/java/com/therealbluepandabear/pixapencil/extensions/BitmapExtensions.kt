@@ -5,15 +5,22 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
 import com.therealbluepandabear.pixapencil.enums.OverlayType
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
 
-fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
+fun Bitmap.iterate(func: (Coordinates) -> Unit) {
     for (i_1 in 0 until width) {
         for (i_2 in 0 until height) {
-            if (getPixel(i_1, i_2) == colorToFind) {
-                setPixel(i_1, i_2, colorToReplace)
-            }
+            func.invoke(Coordinates(i_1, i_2))
+        }
+    }
+}
+
+fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
+    iterate {
+        if (getPixel(it) == colorToFind) {
+            setPixel(it, colorToReplace)
         }
     }
 }
@@ -21,14 +28,11 @@ fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
 fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): Int {
     val colors = mutableListOf<Int>()
 
-    for (i_1 in 0 until width) {
-        for (i_2 in 0 until height) {
-            val coordinates = Coordinates(i_1, i_2)
-            val colorAtPixel = getPixel(coordinates)
+    iterate {
+        val colorAtPixel = getPixel(it)
 
-            if (!colors.contains(colorAtPixel) && (excludeTransparentPixels && colorAtPixel != Color.TRANSPARENT)) {
-                colors.add(colorAtPixel)
-            }
+        if (!colors.contains(colorAtPixel) && (excludeTransparentPixels && colorAtPixel != Color.TRANSPARENT)) {
+            colors.add(colorAtPixel)
         }
     }
 
@@ -38,14 +42,11 @@ fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): In
 fun Bitmap.getColors(): MutableList<Int> {
     val colors = mutableListOf<Int>()
 
-    for (i_1 in 0 until width) {
-        for (i_2 in 0 until height) {
-            val coordinates = Coordinates(i_1, i_2)
-            val colorAtPixel = getPixel(coordinates)
+    iterate {
+        val colorAtPixel = getPixel(it)
 
-            if (!colors.contains(colorAtPixel)) {
-                colors.add(colorAtPixel)
-            }
+        if (!colors.contains(colorAtPixel)) {
+            colors.add(colorAtPixel)
         }
     }
 
