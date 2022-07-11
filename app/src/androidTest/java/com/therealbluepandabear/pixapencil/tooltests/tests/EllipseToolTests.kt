@@ -49,4 +49,33 @@ class EllipseToolTests {
             assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(8, 3)) == Color.BLACK)
         }
     }
+
+    @Test
+    fun ett_2() {
+        activityRule.scenario.onActivity {
+            ToolTestsHelper.prepare(it)
+
+            val ellipseAlgorithm = EllipseAlgorithm(it.primaryAlgorithmInfoParameter)
+            ellipseAlgorithm.compute(Coordinates(0, 0), Coordinates(4, 9))
+
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2, 0)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 1)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 1)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(1, 8)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(2, 9)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(3, 8)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 2)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 4)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 5)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 6)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(0, 7)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 2)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 3)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 4)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 5)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 6)) == Color.BLACK)
+            assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(4, 7)) == Color.BLACK)
+        }
+    }
 }
