@@ -8,8 +8,6 @@ import java.util.*
 
 class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
     fun compute(seed: Coordinates) {
-        Log.d("FLOODFILL", "FLOODFILLSTARTED")
-
         val colorAtSeed = algorithmInfo.bitmap.getPixel(seed)
 
         val queue = LinkedList<Coordinates>()

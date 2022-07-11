@@ -45,8 +45,6 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreShadingMap: Boolean = false,
 ) {
     with(pixelGridViewInstance) {
-        Log.d("FLOODFILL", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${coordinates.x}, ${coordinates.y})) == Color.BLACK)")
-
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()
@@ -62,7 +60,6 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
                 verticallyReflectedCoordinates =
                     coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
-                Log.d("MIRR", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${verticallyReflectedCoordinates.x}, ${verticallyReflectedCoordinates.y})) == Color.BLACK)")
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {

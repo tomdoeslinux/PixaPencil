@@ -157,8 +157,6 @@ class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter
     }
 
     fun compute(p1: Coordinates, rx: Int, ry: Int) {
-        Log.d("ELLIPSE", "ELLIPSE")
-
         val idp = Coordinates(0, ry)
 
         var xkp1 = idp.x
