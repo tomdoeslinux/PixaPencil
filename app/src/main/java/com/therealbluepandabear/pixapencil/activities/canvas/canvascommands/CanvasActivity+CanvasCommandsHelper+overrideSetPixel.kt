@@ -62,6 +62,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
                 verticallyReflectedCoordinates =
                     coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
+                Log.d("MIRR", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${verticallyReflectedCoordinates.x}, ${verticallyReflectedCoordinates.y})) == Color.BLACK)")
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
