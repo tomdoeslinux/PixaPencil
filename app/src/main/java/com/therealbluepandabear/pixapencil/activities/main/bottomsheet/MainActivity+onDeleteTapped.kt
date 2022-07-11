@@ -11,7 +11,7 @@ fun MainActivity.extendedOnDeleteTapped(pixelArt: PixelArt, bottomSheetDialog: B
     bottomSheetDialog.dismiss()
     pixelArtViewModel.delete(pixelArt)
 
-    binding.clayout.showSnackbarWithAction(
+    binding.activityMainCoordinatorLayout.showSnackbarWithAction(
         getString(R.string.dialog_delete_pixel_art_project_deleted_text_in_code_str, pixelArt.title),
         SnackbarDuration.Long,
         getString(R.string.activityCanvasTopAppMenu_undo_str)) {

@@ -9,7 +9,7 @@ fun MainActivity.setupRecyclerView() {
     binding.activityMainRecentCreationsRecyclerView.layoutManager = GridLayoutManager(this, 2)
     binding.activityMainRecentCreationsRecyclerView.setHasFixedSize(true)
 
-    adapter = PixelArtAdapter(binding.clayout, this, this)
+    adapter = PixelArtAdapter(binding.activityMainCoordinatorLayout, this, this)
     binding.activityMainRecentCreationsRecyclerView.adapter = adapter
 }
  

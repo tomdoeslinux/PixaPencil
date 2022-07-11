@@ -31,7 +31,7 @@
         app:menu="@menu/activity_main_bottom_navigation_menu" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/clayout"
+        android:id="@+id/activityMain_coordinatorLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/activityMain_bottomNavigationView"
