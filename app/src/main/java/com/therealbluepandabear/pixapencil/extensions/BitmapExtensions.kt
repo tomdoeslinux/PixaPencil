@@ -118,3 +118,7 @@ fun Bitmap.overlay(bmp2: Bitmap, overlayType: OverlayType = OverlayType.Regular)
 fun Bitmap.isEmpty(): Boolean {
     return (Bitmap.createBitmap(width, height, config).sameAs(this))
 }
+
+fun Bitmap.clear() {
+    eraseColor(Color.TRANSPARENT)
+}
