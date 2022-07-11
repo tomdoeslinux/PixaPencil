@@ -1,6 +1,10 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import android.graphics.Color
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
+import com.therealbluepandabear.pixapencil.extensions.getPixel
+import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val xDEC: Boolean = false, private val yDEC: Boolean = false, private val filledMode: Boolean = false) {
@@ -153,6 +157,8 @@ class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter
     }
 
     fun compute(p1: Coordinates, rx: Int, ry: Int) {
+        Log.d("ZIMBABWE", "ELLIPSE")
+
         val idp = Coordinates(0, ry)
 
         var xkp1 = idp.x
