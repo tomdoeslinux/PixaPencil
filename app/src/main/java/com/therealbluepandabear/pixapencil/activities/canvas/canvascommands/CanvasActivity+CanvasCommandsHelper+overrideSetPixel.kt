@@ -45,8 +45,8 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreShadingMap: Boolean = false,
 ) {
     with(pixelGridViewInstance) {
+        Log.d("FLOODFILL", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${coordinates.x}, ${coordinates.y})) == Color.BLACK)")
 
-        Log.d("ELLIPSE", "assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(Coordinates(${coordinates.x}, ${coordinates.y})) == Color.BLACK)")
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()

@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -7,6 +8,8 @@ import java.util.*
 
 class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
     fun compute(seed: Coordinates) {
+        Log.d("FLOODFILL", "FLOODFILLSTARTED")
+
         val colorAtSeed = algorithmInfo.bitmap.getPixel(seed)
 
         val queue = LinkedList<Coordinates>()
