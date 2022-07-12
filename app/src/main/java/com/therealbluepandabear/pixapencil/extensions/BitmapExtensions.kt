@@ -8,14 +8,6 @@ import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
 
-fun Bitmap.iterate(func: (Coordinates) -> Unit) {
-    for (i_1 in 0 until width) {
-        for (i_2 in 0 until height) {
-            func.invoke(Coordinates(i_1, i_2))
-        }
-    }
-}
-
 fun Bitmap.size(): Int {
     return width * height
 }
@@ -57,6 +49,21 @@ fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): In
     }
 
     return colors.size
+}
+
+fun Bitmap.filterBitmap(func: (Int) -> Int, func2: (Coordinates, Int) -> Unit) {
+    val array = IntArray(size())
+
+    getPixels(array, 0, width, 0, 0, width, height)
+
+    for (i in array.indices) {
+        val color = array[i]
+
+        if (color != Color.TRANSPARENT) {
+            val filteredColor = func(color)
+            func2.invoke(Coordinates.fromIndex(i, width), filteredColor)
+        }
+    }
 }
 
 fun Bitmap.getColors(): MutableList<Int> {
