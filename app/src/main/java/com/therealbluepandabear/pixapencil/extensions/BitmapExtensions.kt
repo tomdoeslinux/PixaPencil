@@ -61,12 +61,15 @@ fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): In
 
 fun Bitmap.getColors(): MutableList<Int> {
     val colors = mutableListOf<Int>()
+    val array = IntArray(size())
 
-    iterate {
-        val colorAtPixel = getPixel(it)
+    getPixels(array, 0, width, 0, 0, width, height)
 
-        if (!colors.contains(colorAtPixel)) {
-            colors.add(colorAtPixel)
+    for (i in array.indices) {
+        val color = array[i]
+
+        if (!colors.contains(color)) {
+            colors.add(color)
         }
     }
 
