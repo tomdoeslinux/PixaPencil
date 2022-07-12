@@ -4,10 +4,12 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
+import android.util.Log
 import com.therealbluepandabear.pixapencil.enums.OverlayType
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
+import kotlin.math.ceil
+import kotlin.system.measureTimeMillis
 
 fun Bitmap.iterate(func: (Coordinates) -> Unit) {
     for (i_1 in 0 until width) {
@@ -17,12 +19,30 @@ fun Bitmap.iterate(func: (Coordinates) -> Unit) {
     }
 }
 
-fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
-    iterate {
-        if (getPixel(it) == colorToFind) {
-            setPixel(it, colorToReplace)
+fun Bitmap.size(): Int {
+    return width * height
+}
+
+/** Thank you to to confucius on StackOverflow for this solution.
+ *
+ * - [Link to confucius' profile](https://stackoverflow.com/users/671676/confucius)
+ * - [Original StackOverFlow post](https://stackoverflow.com/questions/7237915/replace-black-color-in-bitmap-with-red)
+ * **/
+
+fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int, func: ((Coordinates) -> Unit)? = null) {
+    val array = IntArray(size())
+
+    getPixels(array, 0, width, 0, 0, width, height)
+
+    for (i in array.indices) {
+        if (array[i] == colorToFind) {
+            array[i] = colorToReplace
+
+            func?.invoke(Coordinates.fromIndex(i, width))
         }
     }
+
+    setPixels(array, 0, width, 0, 0, width, height)
 }
 
 fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): Int {

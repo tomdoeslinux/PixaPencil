@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.models
 
+import kotlin.math.floor
+
 data class Coordinates(val x: Int, val y: Int) {
     private fun swap(): Coordinates {
         return Coordinates(y, x)
@@ -64,6 +66,14 @@ data class Coordinates(val x: Int, val y: Int) {
     companion object {
         fun staticSet(x: Int, y: Int): Coordinates {
             return Coordinates(x, y)
+        }
+
+        // thanks to PapaBread for this solution ;)
+        fun fromIndex(index: Int, bitmapWidth: Int): Coordinates {
+            return Coordinates(
+                x = (index.toDouble() % bitmapWidth.toDouble()).toInt(),
+                y = floor(index.toDouble() / bitmapWidth).toInt()
+            )
         }
     }
 }
