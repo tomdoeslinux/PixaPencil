@@ -4,12 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
-import android.util.Log
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
-import kotlin.math.ceil
-import kotlin.system.measureTimeMillis
 
 fun Bitmap.iterate(func: (Coordinates) -> Unit) {
     for (i_1 in 0 until width) {
@@ -47,12 +44,15 @@ fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int, func: ((C
 
 fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): Int {
     val colors = mutableListOf<Int>()
+    val array = IntArray(size())
 
-    iterate {
-        val colorAtPixel = getPixel(it)
+    getPixels(array, 0, width, 0, 0, width, height)
 
-        if (!colors.contains(colorAtPixel) && (excludeTransparentPixels && colorAtPixel != Color.TRANSPARENT)) {
-            colors.add(colorAtPixel)
+    for (i in array.indices) {
+        val color = array[i]
+
+        if (!colors.contains(color) && (excludeTransparentPixels && color != Color.TRANSPARENT)) {
+            colors.add(color)
         }
     }
 
