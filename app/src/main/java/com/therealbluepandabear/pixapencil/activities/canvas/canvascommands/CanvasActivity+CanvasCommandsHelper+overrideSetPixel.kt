@@ -46,7 +46,6 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreDither: Boolean = false,
     ignoreShadingMap: Boolean = false,
 ) {
-    val x = measureTimeMillis {
     with(baseReference.binding.activityCanvasPixelGridView) {
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
@@ -153,7 +152,4 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             }
         }
     }
-    }
-
-    Log.d("BEPPER", x.toString())
 }
