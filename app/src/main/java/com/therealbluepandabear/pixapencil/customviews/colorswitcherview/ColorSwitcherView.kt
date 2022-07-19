@@ -236,6 +236,32 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                 drawRect(
                     0f,
                     0f,
+                    toDp(25),
+                    toDp(25),
+                    transparentPaint)
+                drawRect(
+                    toDp(25),
+                    toDp(25),
+                    toDp(50),
+                    toDp(50),
+                    transparentPaint)
+
+                drawRect(
+                    0f,
+                    toDp(50),
+                    toDp(25),
+                    toDp(75),
+                    transparentPaint)
+                drawRect(
+                    toDp(25),
+                    toDp(75),
+                    toDp(50),
+                    toDp(100),
+                    transparentPaint)
+
+                drawRect(
+                    0f,
+                    0f,
                     toDp(50),
                     toDp(50),
                     primaryPaint)
