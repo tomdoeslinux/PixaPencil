@@ -15,7 +15,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasAct
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
-import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.*
@@ -63,7 +62,6 @@ class CanvasActivity :
     var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
 
     var prevOrientation: Int = 0
-    var prevBitmapFilePathStr: String? = null
     var prevRotation: Int = 0
 
     lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
@@ -94,8 +92,6 @@ class CanvasActivity :
         onCreate()
         configureSavedInstanceState(savedInstanceState)
     }
-
-    var replacedBMP = false
 
     override fun onStart() {
         super.onStart()

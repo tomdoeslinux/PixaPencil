@@ -27,8 +27,10 @@ fun CanvasActivity.calcCrucialViewDimensions() {
                               resources.configuration.orientation == Configuration.ORIENTATION_UNDEFINED
     val orientationLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
-    if (index != -1) {
+    if (index != -1 && viewModel.currentBitmap == null) {
         binding.activityCanvasPixelGridView.setExistingBitmap(BitmapConverter.convertStringToBitmap(AppData.pixelArtDB.dao().getAllNoLiveData()[index].bitmap)!!)
+    } else if (viewModel.currentBitmap != null) {
+        binding.activityCanvasPixelGridView.setExistingBitmap(viewModel.currentBitmap!!)
     }
 
     OneShotPreDrawListener.add(binding.activityCanvasDistanceContainer) {

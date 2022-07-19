@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import android.graphics.Color
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
@@ -10,6 +11,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+import kotlin.system.measureTimeMillis
 
 fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
     baseReference.viewModel.redoStack.clear()
@@ -31,6 +33,8 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
         baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(coordinates, newColor)
         baseReference.binding.activityCanvasPixelGridView.shadingMap.add(coordinates)
     }
+
+    baseReference.viewModel.currentBitmap = baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap
 }
 
 fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
@@ -42,6 +46,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreDither: Boolean = false,
     ignoreShadingMap: Boolean = false,
 ) {
+    val x = measureTimeMillis {
     with(baseReference.binding.activityCanvasPixelGridView) {
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
@@ -148,4 +153,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             }
         }
     }
+    }
+
+    Log.d("BEPPER", x.toString())
 }

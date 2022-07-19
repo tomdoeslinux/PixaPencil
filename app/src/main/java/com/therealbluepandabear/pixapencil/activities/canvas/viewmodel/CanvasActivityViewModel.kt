@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.viewmodel
 
+import android.graphics.Bitmap
 import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
@@ -28,4 +29,6 @@ class CanvasActivityViewModel : ViewModel() {
 
     var saved = true
     var unsavedChangesDialogShown = false
+
+    var currentBitmap: Bitmap? = null
 }
