@@ -21,7 +21,7 @@ class ColorPickerAdapter(
             holder.bind(colorData, position)
 
             holder.binding.colorView.setOnClickListener {
-                caller.onColorTapped(colorData[position], it)
+                caller.onColorTapped(colorData[position])
             }
         }
     }

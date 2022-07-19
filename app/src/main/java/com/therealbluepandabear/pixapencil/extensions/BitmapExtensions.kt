@@ -4,6 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
+import androidx.core.content.ContextCompat
+import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
@@ -151,4 +153,28 @@ fun Bitmap.isEmpty(): Boolean {
 
 fun Bitmap.clear() {
     eraseColor(Color.TRANSPARENT)
+}
+
+fun Bitmap.drawTransparent() {
+    val color = Color.parseColor("#d9d9d9")
+
+    for (i_1 in 0 until width) {
+        for (i_2 in 0 until height) {
+            val coordinates = Coordinates.staticSet(i_1, i_2)
+
+            if (i_1 % 2 == 0) {
+                if ((i_1 % 2 == 0) && (i_2 % 2 == 0)) {
+                    setPixel(coordinates, color)
+                } else {
+                    setPixel(coordinates, Color.WHITE)
+                }
+            } else {
+                if ((i_1 % 2 != 0) && (i_2 % 2 != 0)) {
+                    setPixel(coordinates, color)
+                } else {
+                    setPixel(coordinates, Color.WHITE)
+                }
+            }
+        }
+    }
 }

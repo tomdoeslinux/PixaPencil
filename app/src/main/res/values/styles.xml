@@ -153,7 +153,6 @@
 
     <style name="activityCanvas_canvasFragmentHostCardViewParent_style">
         <item name="android:background">@drawable/border_drawable_frame</item>
-        <item name="android:elevation">50dp</item>
         <item name="backgroundColor">@android:color/transparent</item>
         <item name="cardCornerRadius">0dp</item>
         <item name="cardElevation">10dp</item>

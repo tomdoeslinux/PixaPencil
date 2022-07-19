@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.database.AppData

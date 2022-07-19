@@ -11,7 +11,7 @@ fun CanvasActivity.judgeUndoRedoStacks() {
         menu.findItem(R.id.activityCanvasTopAppMenu_undo).disable()
     }
 
-    if (viewModel.undoStack.isEmpty()) {
+    if (viewModel.redoStack.isEmpty()) {
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).disable()
     } else {
         menu.findItem(R.id.activityCanvasTopAppMenu_redo_item).enable()

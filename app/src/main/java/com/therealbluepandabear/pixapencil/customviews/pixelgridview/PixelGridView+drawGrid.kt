@@ -1,23 +1,26 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
 import android.graphics.Canvas
+import android.view.View
 
 fun PixelGridView.extendedDrawGrid(canvas: Canvas) {
-    gridPaint.isAntiAlias = outerCanvasInstance.cardViewParent.scaleX <= 3
-    gridPaint.alpha = outerCanvasInstance.cardViewParent.scaleX.toInt() * 100
+    if (parent is View && parent != null) {
+        gridPaint.isAntiAlias = (parent as View).scaleX <= 3
+        gridPaint.alpha = (parent as View).scaleX.toInt() * 100
+    }
 
     xm = 0f
     path1.reset()
     path2.reset()
 
-    val dvr = if (canvasWidth >= canvasHeight) {
-        canvasWidth
+    val dvr = if (pixelGridViewBitmap.width >= pixelGridViewBitmap.height) {
+        pixelGridViewBitmap.width
     } else {
-        canvasHeight
+        pixelGridViewBitmap.height
     }
 
     for (i in 0 until dvr) {
-        if (canvasWidth >= canvasHeight) {
+        if (pixelGridViewBitmap.width >= pixelGridViewBitmap.height) {
             path1.lineTo(xm, width.toFloat())
             path2.lineTo(width.toFloat(), xm)
         } else {

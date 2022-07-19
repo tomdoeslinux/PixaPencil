@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
 import android.graphics.Color
 import android.os.Build
@@ -12,7 +12,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.resetPosition
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.*
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
@@ -23,12 +23,11 @@ import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+import java.util.*
 
 const val ZOOM_INCREMENT = 0.2f
 
@@ -64,27 +63,27 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.PNG)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.JPEG)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
         }
 
         R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
             if (Build.VERSION.SDK_INT >= 30) {
-                pixelGridViewInstance.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS)
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
             } else {
-                pixelGridViewInstance.saveAsImage(BitmapCompressFormat.WEBP)
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
             }
         }
 
         R.id.activityCanvasTopAppMenu_export_to_tiff_item -> {
-            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.TIFF)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
         }
 
         R.id.activityCanvasTopAppMenu_export_to_bmp_item -> {
-            pixelGridViewInstance.saveAsImage(BitmapCompressFormat.BMP)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
@@ -141,11 +140,11 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_reset_position_subItem -> {
-            outerCanvasInstance.resetPosition()
+            resetPosition()
         }
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {
-            onSaveProjectOptionsItemSelected(true)
+            onSaveInBackgroundOptionsItemSelected()
         }
 
         R.id.activityCanvasTopAppMenu_import_lospec_palette_item -> {
@@ -179,7 +178,7 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                             }
 
                             binding.root.post {
-                                binding.clayout!!.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette_in_code_str, colorPaletteTitle), SnackbarDuration.Medium, getString(R.string.generic_switch_in_code_str)) {
+                                binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette_in_code_str, colorPaletteTitle), SnackbarDuration.Medium, getString(R.string.generic_switch_in_code_str)) {
                                     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
                                         selectedColorPaletteIndex = it.size - 1
                                     }

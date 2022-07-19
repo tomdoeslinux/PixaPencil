@@ -12,14 +12,14 @@ import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 class CanvasActivityViewModel : ViewModel() {
     var bitmapActionData: MutableList<BitmapAction> = mutableListOf()
-    var undoStack: MutableList<BitmapAction> = mutableListOf()
+    var redoStack: MutableList<BitmapAction> = mutableListOf()
 
     var currentBitmapAction: BitmapAction? = null
 
-    var createdYet: Boolean = false
-
     var primaryColor: Int = Color.BLACK
     var secondaryColor: Int = Color.BLUE
+
+    var isPrimaryColorSelected: Boolean = true
 
     var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
     var currentBrush: Brush = BrushesDatabase.toList().first()

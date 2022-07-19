@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -22,7 +21,7 @@ fun CanvasActivity.extendedOnColorLongTapped(colorPalette: ColorPalette, colorIn
         AppData.colorPalettesDB.colorPalettesDao().updateColorPalette(colorPalette)
     }
 
-    binding.clayout?.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPalette.colorPaletteName), SnackbarDuration.Default, getString(R.string.activityCanvasTopAppMenu_undo_str)) {
+    binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.snackbar_on_color_long_tapped_in_code_str, colorPalette.colorPaletteName), SnackbarDuration.Default, getString(R.string.activityCanvasTopAppMenu_undo_str)) {
         colorData.add(colorIndex, colorToRemove)
         colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(colorData)
 

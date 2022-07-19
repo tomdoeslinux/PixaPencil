@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 var polygonCoordinates = mutableListOf<Coordinates>()
@@ -81,7 +80,7 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         }
 
         Tool.ShadingTool -> {
-            pixelGridViewInstance.shadingMode = true
+            binding.activityCanvasPixelGridView.shadingMode = true
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 

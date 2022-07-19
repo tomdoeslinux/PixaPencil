@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,122 +6,99 @@
     android:layout_height="match_parent"
     android:background="@color/fragment_background_color_daynight"
     tools:context=".activities.canvas.CanvasActivity">
-
+    <!-- This view is here to ensure that when the user zooms in, there is no overlap -->
     <View
-        android:id="@+id/view"
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        android:id="@+id/activityCanvas_topView"
         android:layout_width="90dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/fragment_background_color_daynight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <!-- The ColorSwitcherView is a view I created which helps
+         simplify the code for controlling the user's primary/secondary color -->
+    <com.therealbluepandabear.pixapencil.customviews.colorswitcherview.ColorSwitcherView
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        android:id="@+id/activityCanvas_colorSwitcherView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent"
+        app:isPrimarySelected="true"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_topView"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_topView"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/transparent" />
-
-    <View
-        android:id="@+id/activityCanvas_colorPrimaryView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/holo_blue_bright"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorPrimaryView"
-        app:srcCompat="@drawable/transparent" />
-
-    <View
-        android:id="@+id/activityCanvas_colorSecondaryView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@android:color/holo_blue_bright"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorPrimaryView" />
-
-    <View
-        android:id="@+id/activityCanvas_colorPrimaryViewIndicator"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="visible"
-        android:background="@drawable/border_drawable_frame_2"
-        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorPrimaryView"
-        app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPrimaryView" />
-
-    <ImageView
-        android:id="@+id/activityCanvas_colorPrimaryColorPickerIndicator"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:srcCompat="@drawable/colorpicker3" />
-
+        app:orientationLandscape="true" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:elevation="20dp"
+        android:outlineProvider="none"
         android:id="@+id/activityCanvas_colorPickerRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorSecondaryView"
-        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorSecondaryView"
-        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorSecondaryView"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_topView"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorSwitcherView"
+        app:layout_constraintStart_toStartOf="@+id/activityCanvas_colorSwitcherView"
+        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorSwitcherView"
         tools:listitem="@layout/color_picker_layout" />
-    <View
-        android:id="@+id/activityCanvas_colorSecondaryViewIndicator"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="invisible"
-        android:background="@drawable/border_drawable_frame_2"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_colorSecondaryView"
-        app:layout_constraintTop_toBottomOf="@+id/activityCanvas_colorPrimaryView" />
 
-    <ImageView
-        android:id="@+id/activityCanvas_colorSecondaryColorPickerIndicator"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:srcCompat="@drawable/colorpicker3" />
-
+    <!-- This FrameLayout is crucial when it comes to the calculation of the TransparentBackgroundView and PixelGridView -->
     <FrameLayout
-        android:id="@+id/activityCanvas_outerCanvasFragmentHost"
+        android:id="@+id/activityCanvas_distanceContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_primaryFragmentHost"
         app:layout_constraintEnd_toStartOf="@+id/activityCanvas_viewPager2"
-        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintStart_toEndOf="@+id/activityCanvas_topView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- This gives both views (the PixelGridView and TransparentBackgroundView) a nice drop shadow -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/activityCanvas_cardView"
+        style="@style/activityCanvas_canvasFragmentHostCardViewParent_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_primaryFragmentHost"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_distanceContainer"
+        app:layout_constraintStart_toEndOf="@+id/activityCanvas_topView"
+        app:layout_constraintTop_toTopOf="parent">
+        <!-- At runtime, the width and height of the TransparentBackgroundView and PixelGridView will be calculated -->
+        <com.therealbluepandabear.pixapencil.customviews.transparentbackgroundview.TransparentBackgroundView
+            android:id="@+id/activityCanvas_transparentBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
 
-    <FrameLayout
+        <com.therealbluepandabear.pixapencil.customviews.pixelgridview.PixelGridView
+            android:id="@+id/activityCanvas_pixelGridView"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- This view allows move functionality -->
+    <View
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        android:id="@+id/activityCanvas_moveView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_primaryFragmentHost"
-        app:layout_constraintStart_toEndOf="@+id/activityCanvas_outerCanvasFragmentHost"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_distanceContainer"
+        app:layout_constraintEnd_toEndOf="@+id/activityCanvas_distanceContainer"
+        app:layout_constraintStart_toEndOf="@+id/activityCanvas_topView"
+        app:layout_constraintTop_toTopOf="@+id/activityCanvas_distanceContainer" />
 
+    <!-- The tools, palettes, brushes, and filters fragment will be displayed inside this ViewPager -->
     <androidx.viewpager2.widget.ViewPager2
+        android:elevation="20dp"
+        android:outlineProvider="none"
         android:id="@+id/activityCanvas_viewPager2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -132,7 +108,10 @@
         app:layout_constraintStart_toStartOf="@+id/activityCanvas_tabLayout"
         app:layout_constraintTop_toTopOf="@+id/activityCanvas_primaryFragmentHost" />
 
+    <!-- The primary tab layout -->
     <com.google.android.material.tabs.TabLayout
+        android:elevation="20dp"
+        android:outlineProvider="none"
         android:id="@+id/activityCanvas_tabLayout"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -163,7 +142,21 @@
             android:icon="@drawable/ic_brush" />
     </com.google.android.material.tabs.TabLayout>
 
+    <!-- This CoordinatorLayout is responsible for ensuring that the app's snackbars can be swiped -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        android:id="@+id/activityCanvas_coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- All of the full page fragments will be displayed in this fragment host -->
     <FrameLayout
+        android:elevation="20dp"
+        android:outlineProvider="none"
         android:id="@+id/activityCanvas_primaryFragmentHost"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

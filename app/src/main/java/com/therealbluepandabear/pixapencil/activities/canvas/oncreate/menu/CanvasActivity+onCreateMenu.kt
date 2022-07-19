@@ -1,11 +1,10 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
 import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.disable
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
 fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
@@ -14,20 +13,20 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
 
     if (_menu != null) {
         menu = _menu
-        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
-        menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
+//        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = binding.activityCanvasPixelGridView.pixelPerfectMode
+//        menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = binding.activityCanvasPixelGridView.gridEnabled
         menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
 
-        if (pixelGridViewInstance.canvasWidth != pixelGridViewInstance.canvasHeight) {
+        if (binding.activityCanvasPixelGridView.pixelGridViewBitmap.width != binding.activityCanvasPixelGridView.pixelGridViewBitmap.width) {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isEnabled = false
         }
 
-        if (pixelGridViewInstance.canvasWidth > 500 || pixelGridViewInstance.canvasWidth > 500) {
+        if (binding.activityCanvasPixelGridView.pixelGridViewBitmap.width > 500 || binding.activityCanvasPixelGridView.pixelGridViewBitmap.width > 500) {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isEnabled = false
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
 
-            pixelGridViewInstance.gridEnabled = false
-            pixelGridViewInstance.invalidate()
+//            binding.activityCanvasPixelGridView.gridEnabled = false
+            binding.activityCanvasPixelGridView.invalidate()
 
             Flags.DisableGridSharedPreferenceChanges = true
         }

@@ -8,30 +8,29 @@ import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
 import com.therealbluepandabear.pixapencil.extensions.overlay
 import com.therealbluepandabear.pixapencil.extensions.rotate
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 var gridWasEnabled = false
 
-fun disableGridIfNeeded() {
-    if (pixelGridViewInstance.gridEnabled) {
-        pixelGridViewInstance.gridEnabled = false
-        pixelGridViewInstance.invalidate()
+fun CanvasActivity.disableGridIfNeeded() {
+    if (binding.activityCanvasPixelGridView.gridEnabled) {
+        binding.activityCanvasPixelGridView.gridEnabled = false
+        binding.activityCanvasPixelGridView.invalidate()
         gridWasEnabled = true
     } else {
         gridWasEnabled = false
     }
 }
 
-fun enableGridIfNeeded() {
+fun CanvasActivity.enableGridIfNeeded() {
     if (gridWasEnabled) {
-        pixelGridViewInstance.gridEnabled = false
-        pixelGridViewInstance.invalidate()
+        binding.activityCanvasPixelGridView.gridEnabled = false
+        binding.activityCanvasPixelGridView.invalidate()
     }
 }
 
 fun CanvasActivity.createBasicCoverBitmap(): Bitmap {
-    val primaryBitmap = outerCanvasInstance.fragmentHost.drawToBitmap()
-    val transparentBackgroundBitmap = outerCanvasInstance.transparentBackgroundView.drawToBitmap()
+    val primaryBitmap = binding.activityCanvasPixelGridView.drawToBitmap()
+    val transparentBackgroundBitmap = binding.activityCanvasTransparentBackgroundView.drawToBitmap()
     return transparentBackgroundBitmap.overlay(primaryBitmap)
 }
 
@@ -41,9 +40,9 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
 
     if (coverBitmap.isRect()) {
         val bitmapBaseDimension = if (coverBitmap.isWidthLarger()) {
-            outerCanvasInstance.fragmentHost.width
+            binding.activityCanvasCardView.width
         } else {
-            outerCanvasInstance.fragmentHost.height
+            binding.activityCanvasCardView.height
         }
 
         val bitmap = Bitmap.createBitmap(
@@ -56,7 +55,7 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     }
 
     val bmps: Bitmap?
-    bmps = coverBitmap.rotate(outerCanvasInstance.getCurrentRotation().toInt())
+    bmps = coverBitmap.rotate(binding.activityCanvasCardView.rotation.toInt())
 
     enableGridIfNeeded()
 

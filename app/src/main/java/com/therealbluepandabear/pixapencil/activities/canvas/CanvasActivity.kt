@@ -4,11 +4,9 @@ import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.doOnPreDraw
-import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.extendedOnActionUp
+import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
@@ -17,14 +15,13 @@ import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasAct
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
 import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
+import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
-import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.*
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-lateinit var binding: ActivityCanvasBinding
 var selectedColorPaletteIndex: Int = 0
 
 class CanvasActivity :
@@ -41,21 +38,17 @@ class CanvasActivity :
     SprayToolSettingsFragmentListener,
     DitherToolSettingsFragmentListener {
 
-    var previousView: View? = null
-    var projectTitle: String? = null
+    lateinit var binding: ActivityCanvasBinding
 
-    lateinit var outerCanvasInstance: OuterCanvasFragment
+    var projectTitle: String? = null
 
     val viewModel: CanvasActivityViewModel by viewModels()
 
-    var index: Int? = null
+    var index: Int = -1
 
     var width = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
     var height = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
 
-    var isPrimaryColorSelected = true
-
-    var isSelected = false
     var background: Drawable? = null
 
     lateinit var menu: Menu
@@ -90,16 +83,16 @@ class CanvasActivity :
 
     var spotLightInProgress: Boolean = false
 
+    var originalX: Float? = null
+    var originalY: Float? = null
+
+    var dX = 0f
+    var dY = 0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
         configureSavedInstanceState(savedInstanceState)
-
-        if (spotLightInProgress) {
-            binding.activityCanvasColorPrimaryView.doOnPreDraw {
-                startSpotLight()
-            }
-        }
     }
 
     var replacedBMP = false
@@ -137,8 +130,8 @@ class CanvasActivity :
         }
     }
 
-    override fun onColorTapped(colorTapped: Int, view: View) {
-        extendedOnColorTapped(colorTapped, view)
+    override fun onColorTapped(colorTapped: Int) {
+        extendedOnColorTapped(colorTapped)
     }
 
     override fun onColorLongTapped(colorPalette: ColorPalette, colorIndex: Int) {

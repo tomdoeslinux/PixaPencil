@@ -1,47 +1,76 @@
 package com.therealbluepandabear.pixapencil.customviews.pixelgridview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
-import com.therealbluepandabear.pixapencil.fragments.outercanvas.OuterCanvasFragment
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
-class PixelGridView : View, PixelatedView {
+class PixelGridView(context: Context, attributeSet: AttributeSet): View(context, attributeSet){
     lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
-    override var scaleWidth = 0f
-    override var scaleHeight = 0f
+    private var bitmapWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    private var bitmapHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+
+    private var viewWidth: Int = bitmapWidth        // this will change at runtime
+    private var viewHeight: Int = bitmapHeight      // this will change at runtime
+
+    private var existingBitmap: Bitmap? = null
+
+    var scaleWidth = 0f
+    var scaleHeight = 0f
 
     var prevX: Int? = null
     var prevY: Int? = null
 
-    var pixelPerfectMode: Boolean = false
-
-    var gridEnabled = false
-
-    override var currentIndex = -1
-
     lateinit var caller: CanvasFragmentListener
+
+    var pixelPerfectMode: Boolean = false
+    var gridEnabled = false
+    var xm = 0f
 
     var path1 = Path()
     var path2 = Path()
 
-    var xm = 0f
+    var shadingMode: Boolean = false
+    val shadingMap = mutableListOf<Coordinates>()
 
-    override var dimenCW = 0
-    override var dimenCH = 0
+    fun setBitmapWidth(bitmapWidth: Int) {
+        this.bitmapWidth = bitmapWidth
+        invalidate()
+        requestLayout()
+    }
 
-    override var st = false
+    fun setBitmapHeight(bitmapHeight: Int) {
+        this.bitmapHeight = bitmapHeight
+        invalidate()
+        requestLayout()
+    }
+
+    fun setViewWidth(viewWidth: Int) {
+        this.viewWidth = viewWidth
+        invalidate()
+        requestLayout()
+    }
+
+    fun setViewHeight(viewHeight: Int) {
+        this.viewHeight = viewHeight
+        invalidate()
+        requestLayout()
+    }
+
+    fun setExistingBitmap(existingBitmap: Bitmap) {
+        this.existingBitmap = existingBitmap
+    }
 
     var gridPaint = Paint().apply {
         strokeWidth = 1f
@@ -53,67 +82,12 @@ class PixelGridView : View, PixelatedView {
         isFilterBitmap = false
     }
 
-    var shadingMode: Boolean = false
-
-    val shadingMap = mutableListOf<Coordinates>()
-
-    lateinit var outerCanvasInstance: OuterCanvasFragment
-
-    var projectTitle: String = ""
-
-    override var canvasWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-    override var canvasHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-
-    constructor(
-        context: Context,
-        canvasWidth: Int,
-        canvasHeight: Int,
-        outerCanvasInstance: OuterCanvasFragment,
-        projectTitle: String?,
-        currentIndex: Int
-    ) : super(context) {
-        this.canvasWidth = canvasWidth
-        this.canvasHeight = canvasHeight
-        this.outerCanvasInstance = outerCanvasInstance
-        if (projectTitle != null) {
-            this.projectTitle = projectTitle
-        }
-        this.currentIndex = currentIndex
-    }
-
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
     private fun drawGrid(canvas: Canvas) {
         extendedDrawGrid(canvas)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        if (dimenCW != 0 && dimenCH != 0) {
-            setMeasuredDimension(
-                dimenCW,
-                dimenCH
-            )
-        } else {
-            if (currentIndex != -1) {
-                val currentPixelArtObj = getCurrentPixelArtObj()
-
-                setMeasuredDimension(
-                    currentPixelArtObj.dimenCW,
-                    currentPixelArtObj.dimenCH
-                )
-
-                postInvalidate()
-            } else {
-                setMeasuredDimension(
-                    widthMeasureSpec,
-                    heightMeasureSpec
-                )
-
-                postInvalidate()
-            }
-        }
+        setMeasuredDimension(viewWidth, viewHeight)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -125,62 +99,38 @@ class PixelGridView : View, PixelatedView {
             pixelGridViewBitmap.recycle()
         }
 
-        if (currentIndex == -1) {
-            pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
-            pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
+        pixelGridViewBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
+        pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
-            postInvalidate()
-        } else {
-            val currentBitmap = getCurrentBitmap(context)
-
-            canvasWidth = currentBitmap.width
-            canvasHeight = currentBitmap.height
-
-            pixelGridViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
-            pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
-
-            pixelGridViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
-
-            postInvalidate()
+        if (existingBitmap != null) {
+            pixelGridViewCanvas.drawBitmap(existingBitmap!!, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
         }
 
         caller.onViewLoaded()
     }
 
-    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
-        return extendedDispatchTouchEvent(event)
+    @SuppressLint("ClickableViewAccessibility")
+    /** I will un-suppress in future commits **/
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return extendedOnTouchEvent(event)
     }
 
     fun replaceBitmap(newBitmap: Bitmap) {
         extendedReplaceBitmap(newBitmap)
     }
 
-    fun saveAsImage(format: BitmapCompressFormat) {
-        extendedSaveAsImage(format)
+    fun saveAsImage(format: BitmapCompressFormat, coordinatorLayout: CoordinatorLayout, projectTitle: String) {
+        extendedSaveAsImage(format, coordinatorLayout, projectTitle)
     }
 
     /** Use this code only in onMeasure **/
 
     override fun onDraw(canvas: Canvas) {
         if (::pixelGridViewBitmap.isInitialized) {
-            val (scaleFactorW, scaleFactorH) = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
-
-            val (matrix, scaleWidth, scaleHeight) = pixelGridViewBitmap.calculateMatrix(scaleFactorW.toFloat(), scaleFactorH.toFloat())
-
-            this.scaleWidth = scaleWidth
-            this.scaleHeight = scaleHeight
-
+            val (matrix, sw, sh) = pixelGridViewBitmap.calculateMatrix(viewWidth.toFloat(), viewHeight.toFloat())
             canvas.drawBitmap(pixelGridViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
-
-            dimenCW = scaleFactorW
-            dimenCH = scaleFactorH
-
-            if (!st) {
-                requestLayout()
-                postInvalidate()
-                invalidate()
-                st = true
-            }
+            scaleWidth = sw
+            scaleHeight = sh
 
             if (gridEnabled) {
                 drawGrid(canvas)

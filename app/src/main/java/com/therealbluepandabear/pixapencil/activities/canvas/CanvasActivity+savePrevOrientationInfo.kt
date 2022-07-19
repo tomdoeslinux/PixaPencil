@@ -2,21 +2,16 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.view.ViewTreeObserver
 import androidx.lifecycle.lifecycleScope
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotate
 import com.therealbluepandabear.pixapencil.extensions.isEmpty
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.savePrevOrientationInfo() {
 
     if (prevOrientation != resources.configuration.orientation) {
         lifecycleScope.launch {
-            delay(200)
-            onOrientationChanged()
-            delay(200)
-
             for (fragment in supportFragmentManager.fragments) {
                 if (fragment is ActivityFragment) {
                     title = fragment.title
@@ -24,15 +19,14 @@ fun CanvasActivity.savePrevOrientationInfo() {
             }
 
             if (prevRotation != 0) {
-                outerCanvasInstance.rotate(prevRotation)
+                rotate(prevRotation)
             }
 
             replacedBMP = true
 
-            val viewTemp = binding.activityCanvasOuterCanvasFragmentHost
+            val viewTemp = binding.activityCanvasCardView
 
-            val fileHelperUtilitiesInstance =
-                FileHelperUtilities.createInstance(this@savePrevOrientationInfo)
+            val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(this@savePrevOrientationInfo)
             val convertedBMP = prevBitmapFilePathStr?.let {
                 fileHelperUtilitiesInstance.openBitmapFromInternalStorage(
                     it
@@ -40,11 +34,11 @@ fun CanvasActivity.savePrevOrientationInfo() {
             }
 
             if (convertedBMP?.isEmpty() == false && viewModel.bitmapActionData.isNotEmpty()) {
-                viewTemp.viewTreeObserver.addOnGlobalLayoutListener( object : ViewTreeObserver.OnGlobalLayoutListener {
+                viewTemp.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
                     override fun onGlobalLayout() {
                         if (replacedBMP)
                         {
-                            pixelGridViewInstance.replaceBitmap(convertedBMP)
+                            binding.activityCanvasPixelGridView.replaceBitmap(convertedBMP)
                             fileHelperUtilitiesInstance.deleteBitmapFromInternalStorage(
                                 prevBitmapFilePathStr!!
                             )

@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 

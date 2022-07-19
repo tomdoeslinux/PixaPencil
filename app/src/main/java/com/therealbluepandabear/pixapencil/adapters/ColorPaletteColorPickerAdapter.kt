@@ -32,7 +32,7 @@ class ColorPaletteColorPickerAdapter(
                 if (isPlusIndicatorItemPosition) {
                     caller.onColorAdded(colorPalette)
                 } else {
-                    caller.onColorTapped(colorData[position], it)
+                    caller.onColorTapped(colorData[position])
                 }
             }
 

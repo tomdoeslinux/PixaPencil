@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.replacePixelsByColor
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, colorToReplace: Int) {
@@ -10,12 +9,12 @@ fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, c
 
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
-    pixelGridViewInstance.pixelGridViewBitmap.replacePixelsByColor(colorToFind, colorToReplace) {
+    baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.replacePixelsByColor(colorToFind, colorToReplace) {
         overrideSetPixel(it, colorToReplace, true, ignoreSymmetry = true, ignoreDither = true, ignoreShadingMap = true)
     }
 
     baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
-    pixelGridViewInstance.invalidate()
+    baseReference.binding.activityCanvasPixelGridView.invalidate()
 }

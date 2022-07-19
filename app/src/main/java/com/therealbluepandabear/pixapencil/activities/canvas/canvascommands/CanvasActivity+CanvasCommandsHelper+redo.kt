@@ -5,23 +5,22 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onactioncompleted.onRedoActionCompleted
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.CanvasCommandsHelper.redo() {
-    if (baseReference.viewModel.undoStack.size > 0) {
+    if (baseReference.viewModel.redoStack.size > 0) {
         baseReference.menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
 
-        for (obj in baseReference.viewModel.undoStack.last().actionData.distinctBy {
+        for (obj in baseReference.viewModel.redoStack.last().actionData.distinctBy {
             it.coordinates
         }) {
-            pixelGridViewInstance.pixelGridViewBitmap.setPixel(obj.coordinates, obj.colorSet)
+            baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(obj.coordinates, obj.colorSet)
         }
 
-        pixelGridViewInstance.invalidate()
+        baseReference.binding.activityCanvasPixelGridView.invalidate()
 
-        baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.undoStack.last())
-        baseReference.viewModel.undoStack.removeLast()
+        baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.redoStack.last())
+        baseReference.viewModel.redoStack.removeLast()
 
-        baseReference.onRedoActionCompleted(baseReference.viewModel.undoStack)
+        baseReference.onRedoActionCompleted(baseReference.viewModel.redoStack)
     }
 }

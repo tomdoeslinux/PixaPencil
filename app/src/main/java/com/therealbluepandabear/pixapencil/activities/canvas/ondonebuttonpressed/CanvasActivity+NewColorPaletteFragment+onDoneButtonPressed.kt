@@ -2,12 +2,10 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpresse
 
 import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.extensions.getColors
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +21,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(palette)
         } else {
-            val data = pixelGridViewInstance.pixelGridViewBitmap.getColors().toMutableList()
+            val data = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))

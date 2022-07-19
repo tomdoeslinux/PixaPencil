@@ -1,11 +1,10 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 
 fun CanvasActivity.onResetZoomOptionsItemSelected() {
-    outerCanvasInstance.cardViewParent.scaleX = 1f
-    outerCanvasInstance.cardViewParent.scaleY = 1f
+    binding.activityCanvasCardView.scaleX = 1f
+    binding.activityCanvasCardView.scaleY = 1f
 
-    pixelGridViewInstance.invalidate()
+    binding.activityCanvasPixelGridView.invalidate()
 }

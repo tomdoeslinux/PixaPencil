@@ -105,7 +105,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     inner class ColorsToFindCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(colorTapped: Int, view: View) {
+        override fun onColorTapped(colorTapped: Int) {
             colorToFind = colorTapped
 
             if (colorToReplace != null) {
@@ -115,7 +115,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     inner class ColorsToReplaceCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
-        override fun onColorTapped(colorTapped: Int, view: View) {
+        override fun onColorTapped(colorTapped: Int) {
             colorToReplace = colorTapped
 
             if (colorToFind != null && colorToReplace != null) {

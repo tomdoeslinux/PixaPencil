@@ -68,7 +68,6 @@ data class Coordinates(val x: Int, val y: Int) {
             return Coordinates(x, y)
         }
 
-        // thanks to PapaBread for this solution ;)
         fun fromIndex(index: Int, bitmapWidth: Int): Coordinates {
             return Coordinates(
                 x = (index.toDouble() % bitmapWidth.toDouble()).toInt(),

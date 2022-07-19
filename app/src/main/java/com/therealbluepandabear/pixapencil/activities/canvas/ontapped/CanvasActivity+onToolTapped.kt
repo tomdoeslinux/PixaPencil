@@ -3,6 +3,8 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.removeOnTouchListener
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.setOnTouchListener
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showDitherToolTip
@@ -11,7 +13,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showSprayT
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.dithertoolsettings.DitherToolSettingsFragment
 import com.therealbluepandabear.pixapencil.fragments.spraytoolsettings.SprayToolSettingsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
@@ -19,7 +20,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     if (viewModel.currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER) {
-        pixelGridViewInstance.shadingMode = false
+        binding.activityCanvasPixelGridView.shadingMode = false
     }
 
     if (viewModel.currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER) {
@@ -87,7 +88,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
             }
         }
 
-        binding.clayout?.showSnackbar(snackbarText, SnackbarDuration.Short)
+        binding.activityCanvasCoordinatorLayout.showSnackbar(snackbarText, SnackbarDuration.Short)
     }
 
     if (toolName == StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER && viewModel.currentTool == Tool.PolygonTool) {
@@ -98,9 +99,9 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     }
 
     if (toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER) {
-        outerCanvasInstance.setOnTouchListener()
+        setOnTouchListener()
     } else {
-        outerCanvasInstance.removeOnTouchListener()
+        removeOnTouchListener()
     }
 
     viewModel.currentTool = Tool.values().firstOrNull {

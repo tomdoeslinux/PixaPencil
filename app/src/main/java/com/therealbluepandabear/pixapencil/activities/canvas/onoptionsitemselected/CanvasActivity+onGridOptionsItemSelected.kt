@@ -2,18 +2,17 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.onGridOptionsItemSelected() {
-    pixelGridViewInstance.gridEnabled = !pixelGridViewInstance.gridEnabled
+    binding.activityCanvasPixelGridView.gridEnabled = !binding.activityCanvasPixelGridView.gridEnabled
 
-    menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = pixelGridViewInstance.gridEnabled
+    menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = binding.activityCanvasPixelGridView.gridEnabled
 
     with (sharedPreferenceObject.edit()) {
-        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, pixelGridViewInstance.gridEnabled)
+        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, binding.activityCanvasPixelGridView.gridEnabled)
         apply()
     }
 
-    pixelGridViewInstance.invalidate()
+    binding.activityCanvasPixelGridView.invalidate()
 }

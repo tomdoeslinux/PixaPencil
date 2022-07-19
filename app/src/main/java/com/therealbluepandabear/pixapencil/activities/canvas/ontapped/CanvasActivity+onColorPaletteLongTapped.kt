@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog
@@ -25,6 +24,6 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
                 } }, getString(R.string.generic_cancel_in_code_str), null
         )
     } else {
-        binding.clayout?.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
+        binding.activityCanvasCoordinatorLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
     }
 }

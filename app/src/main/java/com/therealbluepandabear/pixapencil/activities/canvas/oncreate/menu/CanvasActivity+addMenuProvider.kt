@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.addMenuProvider
+package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
 import android.view.Menu
 import android.view.MenuInflater

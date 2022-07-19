@@ -3,76 +3,53 @@ package com.therealbluepandabear.pixapencil.customviews.transparentbackgroundvie
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.customviews.interface_.PixelatedView
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
-import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
+import com.therealbluepandabear.pixapencil.extensions.drawTransparent
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
-import com.therealbluepandabear.pixapencil.utility.ScaleFactorWHCalculator
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
-class TransparentBackgroundView : View, PixelatedView {
+
+/** This view is crucial in giving the user the indication that the bitmap is transparent -- not white.
+ * We do this by simply drawing a checkerboard pattern */
+class TransparentBackgroundView(context: Context, attributeSet: AttributeSet): View(context, attributeSet) {
     private lateinit var transparentBackgroundViewCanvas: Canvas
     lateinit var transparentBackgroundViewBitmap: Bitmap
 
-    override var scaleWidth = 0f
-    override var scaleHeight = 0f
+    private var bitmapWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    private var bitmapHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
 
-    var color = ContextCompat.getColor(context, R.color.pixelGridViewCheckerboardColor)
+    private var viewWidth: Int = bitmapWidth        // this will change at runtime
+    private var viewHeight: Int = bitmapHeight      // this will change at runtime
 
-    override var currentIndex: Int = -1
+    fun setBitmapWidth(bitmapWidth: Int) {
+        this.bitmapWidth = bitmapWidth
+        invalidate()
+        requestLayout()
+    }
 
-    override var st = false
+    fun setBitmapHeight(bitmapHeight: Int) {
+        this.bitmapHeight = bitmapHeight
+        invalidate()
+        requestLayout()
+    }
 
-    override var dimenCW = 0
-    override var dimenCH = 0
+    fun setViewWidth(viewWidth: Int) {
+        this.viewWidth = viewWidth
+        invalidate()
+        requestLayout()
+    }
 
-    override var canvasWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-    override var canvasHeight: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
-    constructor(
-        context: Context,
-        canvasWidth: Int,
-        canvasHeight: Int,
-        currentIndex: Int
-    ) : super(context) {
-        this.canvasWidth = canvasWidth
-        this.canvasHeight = canvasHeight
-        this.currentIndex = currentIndex
+    fun setViewHeight(viewHeight: Int) {
+        this.viewHeight = viewHeight
+        invalidate()
+        requestLayout()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        if (dimenCW != 0 && dimenCH != 0) {
-            setMeasuredDimension(
-                dimenCW,
-                dimenCH
-            )
-        } else {
-            if (currentIndex != -1) {
-                val currentPixelArtObj = getCurrentPixelArtObj()
-
-                setMeasuredDimension(
-                    currentPixelArtObj.dimenCW,
-                    currentPixelArtObj.dimenCH
-                )
-
-                invalidate()
-            } else {
-                setMeasuredDimension(
-                    widthMeasureSpec,
-                    heightMeasureSpec
-                )
-            }
-        }
+        setMeasuredDimension(viewWidth, viewHeight)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -82,70 +59,16 @@ class TransparentBackgroundView : View, PixelatedView {
             transparentBackgroundViewBitmap.recycle()
         }
 
-        if (currentIndex == -1) {
-            transparentBackgroundViewBitmap =
-                Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
-            transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
-        } else {
-            val currentBitmap = getCurrentBitmap(context)
-
-            canvasWidth = currentBitmap.width
-            canvasHeight = currentBitmap.height
-
-            transparentBackgroundViewBitmap = Bitmap.createBitmap(canvasWidth, canvasHeight, Bitmap.Config.ARGB_8888)
-            transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
-
-            transparentBackgroundViewCanvas.drawBitmap(currentBitmap, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
-
-            postInvalidate()
-        }
-
+        transparentBackgroundViewBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
+        transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
     }
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
-            val (scaleFactorW, scaleFactorH) = ScaleFactorWHCalculator.calculate(canvasWidth, canvasHeight, resources.configuration.orientation, resources)
-
-            val (matrix, scaleWidth, scaleHeight) = transparentBackgroundViewBitmap.calculateMatrix(scaleFactorW.toFloat(), scaleFactorH.toFloat())
-
-            this.scaleWidth = scaleWidth
-            this.scaleHeight = scaleHeight
-
+            val (matrix, _, _) = transparentBackgroundViewBitmap.calculateMatrix(viewWidth.toFloat(), viewHeight.toFloat())
             canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
 
-            dimenCW = scaleFactorW
-            dimenCH = scaleFactorH
-
-            if (!st) {
-                requestLayout()
-                postInvalidate()
-                invalidate()
-                st = true
-            }
-
-            for (i_1 in 0 until canvasWidth) {
-                for (i_2 in 0 until canvasHeight) {
-                    val coordinates = Coordinates.staticSet(i_1, i_2)
-
-                    if (i_1 % 2 == 0) {
-                        if (i_1 % 2 == 0
-                            &&
-                            i_2 % 2 == 0) {
-                            transparentBackgroundViewBitmap.setPixel(coordinates, color)
-                        } else {
-                            transparentBackgroundViewBitmap.setPixel(coordinates, Color.WHITE)
-                        }
-                    } else {
-                        if (i_1 % 2 != 0
-                            &&
-                            i_2 % 2 != 0) {
-                            transparentBackgroundViewBitmap.setPixel(coordinates, color)
-                        } else {
-                            transparentBackgroundViewBitmap.setPixel(coordinates, Color.WHITE)
-                        }
-                    }
-                }
-            }
+            transparentBackgroundViewBitmap.drawTransparent()
         }
     }
 }

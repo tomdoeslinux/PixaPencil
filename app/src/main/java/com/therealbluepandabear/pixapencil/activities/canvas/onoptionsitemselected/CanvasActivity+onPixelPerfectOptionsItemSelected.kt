@@ -2,16 +2,15 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.onPixelPerfectOptionsItemSelected() {
-    pixelGridViewInstance.pixelPerfectMode = !pixelGridViewInstance.pixelPerfectMode
+    binding.activityCanvasPixelGridView.pixelPerfectMode = !binding.activityCanvasPixelGridView.pixelPerfectMode
 
-    menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = pixelGridViewInstance.pixelPerfectMode
+    menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = binding.activityCanvasPixelGridView.pixelPerfectMode
 
     with (sharedPreferenceObject.edit()) {
-        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER, pixelGridViewInstance.pixelPerfectMode)
+        putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER, binding.activityCanvasPixelGridView.pixelPerfectMode)
         apply()
     }
 }

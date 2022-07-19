@@ -1,27 +1,25 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import android.graphics.Color
-import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
-    baseReference.viewModel.undoStack.clear()
+    baseReference.viewModel.redoStack.clear()
 
-    val colorAtCoordinates = pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinates)
+    val colorAtCoordinates = baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates)
 
-    if ((saveToBitmapAction && !pixelGridViewInstance.shadingMode) || (pixelGridViewInstance.shadingMode && ignoreShadingMap)) {
+    if ((saveToBitmapAction && !baseReference.binding.activityCanvasPixelGridView.shadingMode) || (baseReference.binding.activityCanvasPixelGridView.shadingMode && ignoreShadingMap)) {
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
-        pixelGridViewInstance.pixelGridViewBitmap.setPixel(coordinates, color)
-    } else if (pixelGridViewInstance.shadingMode && !pixelGridViewInstance.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
+        baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(coordinates, color)
+    } else if (baseReference.binding.activityCanvasPixelGridView.shadingMode && !baseReference.binding.activityCanvasPixelGridView.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
         val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE) {
             Color.WHITE
         } else {
@@ -30,8 +28,8 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
 
         val newColor = ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, newColor))
-        pixelGridViewInstance.pixelGridViewBitmap.setPixel(coordinates, newColor)
-        pixelGridViewInstance.shadingMap.add(coordinates)
+        baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(coordinates, newColor)
+        baseReference.binding.activityCanvasPixelGridView.shadingMap.add(coordinates)
     }
 }
 
@@ -44,12 +42,11 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreDither: Boolean = false,
     ignoreShadingMap: Boolean = false,
 ) {
-    with(pixelGridViewInstance) {
+    with(baseReference.binding.activityCanvasPixelGridView) {
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()
         var octalMirroredCoordinates = listOf<Coordinates>()
-
 
         when {
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {

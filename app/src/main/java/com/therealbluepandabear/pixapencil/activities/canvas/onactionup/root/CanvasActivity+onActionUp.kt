@@ -1,24 +1,27 @@
-package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
+package com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.undo
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
+import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.circleToolOnActionUp
+import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.ellipseToolOnActionUp
+import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.lineToolOnActionUp
+import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.rectangleToolOnActionUp
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 
-fun resetPreviousCoordinates() {
-    pixelGridViewInstance.prevX = null
-    pixelGridViewInstance.prevY = null
+fun CanvasActivity.resetPreviousCoordinates() {
+    binding.activityCanvasPixelGridView.prevX = null
+    binding.activityCanvasPixelGridView.prevY = null
 }
 
 fun CanvasActivity.extendedOnActionUp() {
     if (viewModel.currentTool == Tool.ShadingTool) {
-        pixelGridViewInstance.shadingMap.clear()
+        binding.activityCanvasPixelGridView.shadingMap.clear()
     }
 
     when {
@@ -57,7 +60,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         else -> {
-            val isPxPerfect = (pixelGridViewInstance.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
+            val isPxPerfect = (binding.activityCanvasPixelGridView.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
             viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()
@@ -90,7 +93,7 @@ fun CanvasActivity.extendedOnActionUp() {
                 }
 
                 for (value in data) {
-                    pixelGridViewInstance.pixelGridViewBitmap.setPixel(
+                    binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(
                         value.coordinates.x,
                         value.coordinates.y,
                         getSelectedColor()
