@@ -10,6 +10,11 @@ fun CanvasActivity.onMoveViewTouchListener(): View.OnTouchListener {
     return View.OnTouchListener { _, event ->
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
+                if (originalX == null && originalY == null) {
+                    originalX = binding.activityCanvasCardView.x
+                    originalY = binding.activityCanvasCardView.y
+                }
+
                 dX = binding.activityCanvasCardView.x - event.rawX
                 dY = binding.activityCanvasCardView.y - event.rawY
             }

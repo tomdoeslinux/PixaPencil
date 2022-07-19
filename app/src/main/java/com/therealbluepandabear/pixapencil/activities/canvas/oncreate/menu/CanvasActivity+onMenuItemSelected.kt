@@ -140,7 +140,9 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_reset_position_subItem -> {
-            resetPosition()
+            if (originalX != null && originalY != null) {
+                resetPosition()
+            }
         }
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {

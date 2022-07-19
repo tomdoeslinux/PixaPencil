@@ -3,14 +3,16 @@ package com.therealbluepandabear.pixapencil.customviews.transparentbackgroundvie
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.extensions.drawTransparent
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
-
+import kotlin.system.measureTimeMillis
 
 /** This view is crucial in giving the user the indication that the bitmap is transparent -- not white.
  * We do this by simply drawing a checkerboard pattern */
@@ -68,7 +70,10 @@ class TransparentBackgroundView(context: Context, attributeSet: AttributeSet): V
             val (matrix, _, _) = transparentBackgroundViewBitmap.calculateMatrix(viewWidth.toFloat(), viewHeight.toFloat())
             canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
 
-            transparentBackgroundViewBitmap.drawTransparent()
+            val time = measureTimeMillis {
+                transparentBackgroundViewBitmap.drawTransparent()
+            }
+
         }
     }
 }

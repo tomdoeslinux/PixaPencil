@@ -1,5 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root
 
+import android.R.attr.x
+import android.R.attr.y
 import androidx.core.view.doOnNextLayout
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +17,7 @@ import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 
 fun CanvasActivity.onCreate() {
     prevOrientation = resources.configuration.orientation
@@ -33,9 +36,10 @@ fun CanvasActivity.onCreate() {
         observeColorPaletteColorPickerData()
     }
 
-    binding.root.post {
-        setOriginalCoordinates()
+    originalX = null
+    originalY = null
 
+    binding.root.post {
         binding.activityCanvasColorSwitcherView.setPrimaryColor(viewModel.primaryColor)
         binding.activityCanvasColorSwitcherView.setSecondaryColor(viewModel.secondaryColor)
 
