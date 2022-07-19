@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.app.Activity
+import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawPixelGridViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
@@ -22,14 +23,16 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBitmapFilePath, coverBitmap)
 
+    Log.d("ABCDEFG", "${drawPixelGridViewBitmap().width} ${drawPixelGridViewBitmap().height}")
+
     if (index == -1) {
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.dao().insert(
                 PixelArt(
                     coverBitmapFilePath,
                     BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap()),
-                    width,
-                    height,
+                    drawPixelGridViewBitmap().width,
+                    drawPixelGridViewBitmap().height,
                     binding.activityCanvasPixelGridView.width,
                     binding.activityCanvasPixelGridView.height,
                     title.toString(),
@@ -41,6 +44,8 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
         val pixelArt = AppData.pixelArtDB.dao().getAllNoLiveData()[index]
         pixelArt.coverBitmapFilePath = coverBitmapFilePath
         pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap())
+        pixelArt.width = drawPixelGridViewBitmap().width
+        pixelArt.height = drawPixelGridViewBitmap().height
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.dao().update(pixelArt)

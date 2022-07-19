@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.core.view.OneShotPreDrawListener
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
@@ -14,11 +15,13 @@ fun CanvasActivity.calcCrucialViewDimensions() {
 
     // To avoid duplication throughout each 'when' block
     OneShotPreDrawListener.add(binding.activityCanvasTransparentBackgroundView) {
+        Log.d("ABCDEFG", "$width $height")
         binding.activityCanvasTransparentBackgroundView.setBitmapWidth(width)
         binding.activityCanvasTransparentBackgroundView.setBitmapHeight(height)
     }
 
     OneShotPreDrawListener.add(binding.activityCanvasPixelGridView) {
+        Log.d("ABCDEFG", "$width $height")
         binding.activityCanvasPixelGridView.setBitmapWidth(width)
         binding.activityCanvasPixelGridView.setBitmapHeight(height)
     }
