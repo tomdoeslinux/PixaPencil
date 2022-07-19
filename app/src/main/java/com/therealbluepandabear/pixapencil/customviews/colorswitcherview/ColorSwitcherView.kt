@@ -33,6 +33,10 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         style = Paint.Style.FILL
     }
 
+    private val transparentPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+    }
+
     /** Gradient paints (landscape false) **/
     private val gradientPaintShaderColors = intArrayOf(
         Color.parseColor("#ff0100"),
@@ -159,8 +163,41 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         canvas.apply {
             primaryPaint.color = primaryColor
             secondaryPaint.color = secondaryColor
+            transparentPaint.color = Color.parseColor("#d9d9d9")
 
             if (!orientationLandscape) {
+                drawRect(
+                    0f,
+                    0f,
+                    toDp(25),
+                    toDp(25),
+                    transparentPaint)
+                drawRect(
+                    toDp(25),
+                    toDp(25),
+                    toDp(50),
+                    toDp(50),
+                    transparentPaint)
+
+                drawRect(
+                    toDp(50),
+                    0f,
+                    toDp(75),
+                    toDp(25),
+                    transparentPaint)
+                drawRect(
+                    toDp(75),
+                    toDp(25),
+                    toDp(100),
+                    toDp(50),
+                    transparentPaint)
+
+                drawRect(
+                    0f,
+                    0f,
+                    toDp(50),
+                    toDp(50),
+                    primaryPaint)
                 drawRect(
                     0f,
                     0f,
