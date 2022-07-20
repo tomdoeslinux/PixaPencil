@@ -53,7 +53,7 @@
     <string name="fragment_find_and_replace_replace_preview_content_description">אַחֲרֵי</string>
 
     <string name="fragment_new_project_title_in_code_str">פרויקט חדש</string>
-    <string name="fragment_find_and_replace_title_in_code_str">תמצא ותחליף צבעים</string>
+    <string name="fragment_replace_color_title_in_code_str">תמצא ותחליף צבעים</string>
     <string name="fragment_color_picker_title_in_code_str">בחר צבע</string>
     <string name="fragment_new_color_palette_title_in_code_str">פלטת צבעים חדשה</string>
     <string name="fragment_spray_tool_settings_title_in_code_str">הגדרות כלי ספריי צבע</string>
@@ -114,7 +114,7 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">התרחק מהקנבס</string>
     <string name="activityCanvasTopAppMenu_save_text_str">תשמור</string>
     <string name="activityCanvasTopAppMenu_grid_str">הצג רשת פיקסלים</string>
-    <string name="activityCanvasTopAppMenu_find_and_replace_str">תמצא ותחליף צבעים</string>
+    <string name="activityCanvasTopAppMenu_replace_color_str">תמצא ותחליף צבעים</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">הסר את תוכן הקנבס</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">אופקי</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical_str">אֲנָכִי</string>

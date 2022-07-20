@@ -10,7 +10,7 @@ import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.getColors
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 //import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
-import com.therealbluepandabear.pixapencil.fragments.findandreplace.FindAndReplaceFragment
+import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
     val uniqueColors = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors()
@@ -18,7 +18,7 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
     if (uniqueColors.isNotEmpty()) {
         supportFragmentManager.commit {
             replace(
-                R.id.activityCanvas_primaryFragmentHost, FindAndReplaceFragment.newInstance(
+                R.id.activityCanvas_primaryFragmentHost, ReplaceColorFragment.newInstance(
                     paramCanvasColors = uniqueColors,
                     paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
                     paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),

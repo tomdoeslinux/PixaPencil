@@ -19,7 +19,7 @@
     <string name="generic_ok_in_code_str">OK</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Remplacer l\'aperçu</string>
     <string name="fragment_new_project_title_in_code_str">Nouveau projet</string>
-    <string name="fragment_find_and_replace_title_in_code_str">Rechercher et remplacer</string>
+    <string name="fragment_replace_color_title_in_code_str">Rechercher et remplacer</string>
     <string name="fragmentTools_fill_tool_content_description">Outil de remplissage</string>
     <string name="fragmentNewCanvas_project_name_str">Nom</string>
     <string name="activityCanvasTopAppMenu_rotate_str">Pivoter</string>
@@ -32,7 +32,6 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">Réduire</string>
     <string name="activityCanvasTopAppMenu_save_text_str">Enregistrer</string>
     <string name="activityCanvasTopAppMenu_grid_str">Grille</string>
-    <string name="activityCanvasTopAppMenu_find_and_replace_str">Trouver et remplacer</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">Effacer le canevas</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
     <string name="activityCanvasTopAppMenu_symmetry_str">Symétrie</string>

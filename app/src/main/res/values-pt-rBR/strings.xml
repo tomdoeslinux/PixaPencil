@@ -72,7 +72,6 @@
     <string name="colorPalettesLayout_color_palette_item_str">Item da Paleta de Cores</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Substituir Previsualização</string>
     <string name="fragment_new_project_title_in_code_str">Novo Projeto</string>
-    <string name="fragment_find_and_replace_title_in_code_str">Localizar e Substituir</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect_str">Píxeis Perfeitos</string>
     <string name="activityCanvasTopAppMenu_zoom_in_str">Mais Zoom</string>
     <string name="activityCanvasTopAppMenu_symmetry_quad_str">Quadrilátera</string>
@@ -86,7 +85,6 @@
     <string name="pencil_tool_info_title_in_code_str">Lápis</string>
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise_str">Girar 90° (anti-horário)</string>
     <string name="activityCanvasTopAppMenu_reset_position_str">Redefinir Posição</string>
-    <string name="activityCanvasTopAppMenu_find_and_replace_str">Localizar e Substituir</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>
     <string name="activityCanvasTopAppMenu_rotate_90_clockwise_str">Girar 90° (sentido horário)</string>
     <string name="activityCanvasTopAppMenu_rotate_180_str">Girar 180°</string>

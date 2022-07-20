@@ -48,7 +48,7 @@
     <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
     <string name="fragment_new_project_title_in_code_str">New Project</string>
-    <string name="fragment_find_and_replace_title_in_code_str">Find and Replace</string>
+    <string name="fragment_replace_color_title_in_code_str">Find and Replace</string>
     <string name="fragment_color_picker_title_in_code_str">Select Colour</string>
     <string name="fragment_new_color_palette_title_in_code_str">New Colour Palette</string>
     <string name="fragment_spray_tool_settings_title_in_code_str">Spray Tool Settings</string>
@@ -102,7 +102,7 @@
     <string name="activityCanvasTopAppMenu_zoom_out_str">Zoom out</string>
     <string name="activityCanvasTopAppMenu_save_text_str">Save</string>
     <string name="activityCanvasTopAppMenu_grid_str">Grid</string>
-    <string name="activityCanvasTopAppMenu_find_and_replace_str">Find and Replace</string>
+    <string name="activityCanvasTopAppMenu_replace_color_str">Find and Replace</string>
     <string name="activityCanvasTopAppMenu_clear_canvas_str">Clear Canvas</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal_str">Horizontal</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical_str">Vertical</string>

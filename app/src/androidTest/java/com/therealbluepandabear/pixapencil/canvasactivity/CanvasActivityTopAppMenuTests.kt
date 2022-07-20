@@ -35,10 +35,6 @@ class CanvasActivityTopAppMenuTests {
         onView(withText(R.string.activityCanvasTopAppMenu_clear_canvas_str)).check(matches(isDisplayed()))
     }
 
-    @Test
-    fun checkFindAndReplaceItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_find_and_replace_str)).check(matches(isDisplayed()))
-    }
 
     @Test
     fun checkNewColorPaletteItemIsDisplayed() {

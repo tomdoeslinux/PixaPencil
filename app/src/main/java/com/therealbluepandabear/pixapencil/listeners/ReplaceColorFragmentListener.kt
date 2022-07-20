@@ -1,5 +1,5 @@
 package com.therealbluepandabear.pixapencil.listeners
 
-interface FindAndReplaceFragmentListener {
+interface ReplaceColorFragmentListener {
     fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?)
 }

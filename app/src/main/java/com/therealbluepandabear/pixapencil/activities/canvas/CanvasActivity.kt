@@ -28,7 +28,7 @@ class CanvasActivity :
     CanvasFragmentListener,
     ColorPaletteColorPickerListener,
     ColorPickerFragmentListener,
-    FindAndReplaceFragmentListener,
+    ReplaceColorFragmentListener,
     ToolsFragmentListener,
     FiltersFragmentListener,
     ColorPalettesFragmentListener,

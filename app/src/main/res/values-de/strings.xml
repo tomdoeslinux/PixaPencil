@@ -18,7 +18,6 @@
     <string name="fragment_find_and_replace_find_preview_content_description">Vorschau finden</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Ersetze die Vorschau</string>
     <string name="fragment_new_project_title_in_code_str">Neues Projekt</string>
-    <string name="fragment_find_and_replace_title_in_code_str">Suchen und Ersetzen</string>
     <string name="fragment_color_picker_title_in_code_str">Farbe wählen</string>
     <string name="fragment_new_color_palette_title_in_code_str">Neue Farbpalette</string>
     <string name="fragment_spray_tool_settings_title_in_code_str">Sprühdosen-Einstellungen</string>
@@ -171,7 +170,6 @@
     <string name="spot_light_activity_main_in_code_str">Tippen um ein
 \nneues Projekt zu erstellen</string>
     <string name="activityCanvasTopAppMenu_grid_str">Gitter</string>
-    <string name="activityCanvasTopAppMenu_find_and_replace_str">Suchen und ersetzen</string>
     <string name="square_tool_info_title_in_code_str">Quadrat-Tool-Info</string>
     <string name="activityCanvasTopAppMenu_symmetry_str">Symmetrie</string>
     <string name="dither_tool_info_title_in_code_str">Verschmieren-Tool-Info</string>

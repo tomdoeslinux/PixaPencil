@@ -1,4 +1,4 @@
-package com.therealbluepandabear.pixapencil.fragments.findandreplace
+package com.therealbluepandabear.pixapencil.fragments.replacecolor
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -13,24 +13,24 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.adapters.ColorPickerAdapter
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.databinding.FragmentFindAndReplaceBinding
+import com.therealbluepandabear.pixapencil.databinding.FragmentReplaceColorBinding
 import com.therealbluepandabear.pixapencil.extensions.*
 import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.ColorPickerListener
-import com.therealbluepandabear.pixapencil.listeners.FindAndReplaceFragmentListener
+import com.therealbluepandabear.pixapencil.listeners.ReplaceColorFragmentListener
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import java.util.ArrayList
 
-class FindAndReplaceFragment : Fragment(), ActivityFragment {
-    private var _binding: FragmentFindAndReplaceBinding? = null
+class ReplaceColorFragment : Fragment(), ActivityFragment {
+    private var _binding: FragmentReplaceColorBinding? = null
 
-    private val binding get(): FragmentFindAndReplaceBinding {
+    private val binding get(): FragmentReplaceColorBinding {
         return _binding!!
     }
 
-    private lateinit var caller: FindAndReplaceFragmentListener
+    private lateinit var caller: ReplaceColorFragmentListener
 
-    override val title: String by lazy { getString(R.string.fragment_find_and_replace_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_replace_color_title_in_code_str) }
 
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
@@ -72,7 +72,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
     private fun setupCanvasColorsRecyclerView() {
         binding.fragmentFindAndReplaceCanvasColorsRecyclerView.layoutManager =
-            LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
+            LinearLayoutManager(this@ReplaceColorFragment.requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
 
@@ -89,7 +89,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
     private fun setupAvailableColorsRecyclerView() {
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.layoutManager =
-            LinearLayoutManager(this@FindAndReplaceFragment.requireContext()).apply {
+            LinearLayoutManager(this@ReplaceColorFragment.requireContext()).apply {
                 orientation = LinearLayoutManager.HORIZONTAL
             }
         binding.fragmentFindAndReplaceAvailableColorsRecyclerView.adapter = ColorPickerAdapter(
@@ -104,7 +104,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
-    inner class ColorsToFindCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+    inner class ColorsToFindCaller(val binding: FragmentReplaceColorBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int) {
             colorToFind = colorTapped
 
@@ -114,7 +114,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
         }
     }
 
-    inner class ColorsToReplaceCaller(val binding: FragmentFindAndReplaceBinding) : ColorPickerListener {
+    inner class ColorsToReplaceCaller(val binding: FragmentReplaceColorBinding) : ColorPickerListener {
         override fun onColorTapped(colorTapped: Int) {
             colorToReplace = colorTapped
 
@@ -131,8 +131,8 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
             paramPixelGridViewBitmapSource: Bitmap,
             paramSelectedColorPaletteIndex: Int,
             paramScaledWidth: Int,
-            paramScaledHeight: Int): FindAndReplaceFragment {
-            val fragment = FindAndReplaceFragment()
+            paramScaledHeight: Int): ReplaceColorFragment {
+            val fragment = ReplaceColorFragment()
             fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex, paramScaledWidth, paramScaledHeight)
 
             return fragment
@@ -141,7 +141,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FindAndReplaceFragmentListener) caller = context
+        if (context is ReplaceColorFragmentListener) caller = context
         requireActivity().title = title
     }
 
@@ -151,7 +151,7 @@ class FindAndReplaceFragment : Fragment(), ActivityFragment {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentFindAndReplaceBinding.inflate(inflater, container, false)
+        _binding = FragmentReplaceColorBinding.inflate(inflater, container, false)
 
         setup()
 
