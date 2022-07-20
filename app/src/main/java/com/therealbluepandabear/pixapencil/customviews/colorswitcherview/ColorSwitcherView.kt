@@ -122,6 +122,14 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         invalidate()
     }
 
+    fun getPrimaryColor(): Int {
+        return primaryColor
+    }
+
+    fun getSecondaryColor(): Int {
+        return secondaryColor
+    }
+
     // To be safe: we define the init block after all functions and variables
     init {
         context.theme.obtainStyledAttributes(

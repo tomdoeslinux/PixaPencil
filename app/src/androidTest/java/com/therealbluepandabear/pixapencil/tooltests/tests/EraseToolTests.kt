@@ -8,7 +8,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.algorithms.FloodFillAlgorithm
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.getPixel
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.tooltests.helper.ToolTestsHelper
 import org.junit.Rule
@@ -18,9 +17,9 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class EraseToolTests {
-    private fun iterate(func: (Coordinates) -> Unit) {
-        for (i_1 in 0 until pixelGridViewInstance.pixelGridViewBitmap.width) {
-            for (i_2 in 0 until pixelGridViewInstance.pixelGridViewBitmap.height) {
+    private fun iterate(activity: CanvasActivity, func: (Coordinates) -> Unit) {
+        for (i_1 in 0 until activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.width) {
+            for (i_2 in 0 until activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.height) {
                 func.invoke(Coordinates(i_1, i_2))
             }
         }
@@ -37,15 +36,15 @@ class EraseToolTests {
             val floodFillAlgorithm = FloodFillAlgorithm(it.primaryAlgorithmInfoParameter)
             floodFillAlgorithm.compute(Coordinates(0,0))
 
-            iterate { coordinates ->
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinates) == Color.BLACK)
+            iterate(it) { coordinates ->
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates) == Color.BLACK)
             }
 
             it.viewModel.currentTool = Tool.EraseTool
 
-            iterate { coordinates ->
+            iterate(it) { coordinates ->
                 it.onPixelTapped(coordinates)
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinates) == Color.TRANSPARENT)
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates) == Color.TRANSPARENT)
             }
         }
     }

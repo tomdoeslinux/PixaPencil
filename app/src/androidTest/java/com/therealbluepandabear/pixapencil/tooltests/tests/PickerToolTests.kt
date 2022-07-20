@@ -1,12 +1,10 @@
 package com.therealbluepandabear.pixapencil.tooltests.tests
 
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.binding
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.enums.Tool
@@ -32,8 +30,9 @@ class PickerToolTests {
             it.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(0,0), Color.BLUE)
             it.onPixelTapped(Coordinates(0, 0))
 
-            assert((binding.activityCanvasColorPrimaryView.background as ColorDrawable).color == Color.BLUE)
+            assert(it.binding.activityCanvasColorSwitcherView.getPrimaryColor() == Color.BLUE)
             assert(it.getSelectedColor() == Color.BLUE)
+            assert(it.viewModel.primaryColor == Color.BLUE)
         }
     }
 
@@ -43,13 +42,14 @@ class PickerToolTests {
             ToolTestsHelper.prepare(it)
 
             it.viewModel.currentTool = Tool.ColorPickerTool
-            binding.activityCanvasColorSecondaryView.performClick()
+            it.binding.activityCanvasColorSwitcherView.setIsPrimarySelected(false)
 
             it.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(0,0), Color.GREEN)
             it.onPixelTapped(Coordinates(0, 0))
 
-            assert((binding.activityCanvasColorSecondaryView.background as ColorDrawable).color == Color.GREEN)
+            assert(it.binding.activityCanvasColorSwitcherView.getSecondaryColor() == Color.GREEN)
             assert(it.getSelectedColor() == Color.GREEN)
+            assert(it.viewModel.secondaryColor == Color.GREEN)
         }
     }
 }

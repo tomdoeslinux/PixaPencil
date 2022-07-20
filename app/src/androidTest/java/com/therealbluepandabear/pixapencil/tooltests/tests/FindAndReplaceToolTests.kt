@@ -7,7 +7,6 @@ import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.tooltests.helper.ToolTestsHelper
 import org.junit.Rule
@@ -25,7 +24,7 @@ class FindAndReplaceToolTests {
             val randomCoordinate = Coordinates(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
             randomCoordinates.add(randomCoordinate)
 
-            pixelGridViewInstance.pixelGridViewBitmap.setPixel(randomCoordinate, color)
+            activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(randomCoordinate, color)
         }
 
         return randomCoordinates
@@ -46,7 +45,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.BLACK, Color.YELLOW)
 
             for (coordinate in randomCoordinates) {
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.YELLOW)
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.YELLOW)
             }
         }
     }
@@ -62,7 +61,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
 
             for (coordinate in randomCoordinates) {
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
             }
         }
     }
@@ -78,7 +77,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.RED, Color.BLACK)
 
             for (coordinate in randomCoordinates1) {
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.BLACK)
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.BLACK)
             }
 
             val iterations2 = 500
@@ -87,7 +86,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.LTGRAY, Color.MAGENTA)
 
             for (coordinate in randomCoordinates2) {
-                assert(pixelGridViewInstance.pixelGridViewBitmap.getPixel(coordinate) == Color.MAGENTA)
+                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.MAGENTA)
             }
         }
     }
