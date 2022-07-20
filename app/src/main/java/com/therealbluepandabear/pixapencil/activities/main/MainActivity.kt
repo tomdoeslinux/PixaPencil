@@ -1,13 +1,11 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
-import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.children
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R

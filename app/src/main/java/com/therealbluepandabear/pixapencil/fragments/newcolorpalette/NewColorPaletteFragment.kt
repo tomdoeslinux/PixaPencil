@@ -2,10 +2,10 @@ package com.therealbluepandabear.pixapencil.fragments.newcolorpalette
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
-import androidx.core.view.children
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle

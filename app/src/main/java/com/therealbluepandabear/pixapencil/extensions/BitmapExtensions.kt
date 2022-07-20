@@ -4,8 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
-import androidx.core.content.ContextCompat
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
@@ -145,10 +143,6 @@ fun Bitmap.overlay(bmp2: Bitmap, overlayType: OverlayType = OverlayType.Regular)
     bmp2.recycle()
 
     return bitmapOverlay
-}
-
-fun Bitmap.isEmpty(): Boolean {
-    return Bitmap.createBitmap(width, height, config).sameAs(this)
 }
 
 fun Bitmap.clear() {

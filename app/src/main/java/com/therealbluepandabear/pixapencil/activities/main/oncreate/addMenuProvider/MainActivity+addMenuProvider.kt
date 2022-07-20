@@ -4,7 +4,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.view.MenuProvider
-import androidx.core.view.children
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 
 fun MainActivity.addMenuProvider() {

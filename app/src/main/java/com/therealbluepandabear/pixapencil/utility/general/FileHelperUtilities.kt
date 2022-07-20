@@ -217,17 +217,4 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    fun openBitmapFromInternalStorage(fileName: String): Bitmap {
-        val directory = context.filesDir
-        val file = File(directory, fileName)
-
-        return BitmapFactory.decodeStream(FileInputStream(file))
-    }
-
-    fun deleteBitmapFromInternalStorage(fileName: String): Boolean {
-        val directory = context.filesDir
-        val file = File(directory, fileName)
-
-        return file.delete()
-    }
 }

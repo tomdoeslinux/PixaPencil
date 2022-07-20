@@ -1,7 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root
 
-import android.R.attr.x
-import android.R.attr.y
 import androidx.core.view.doOnNextLayout
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope

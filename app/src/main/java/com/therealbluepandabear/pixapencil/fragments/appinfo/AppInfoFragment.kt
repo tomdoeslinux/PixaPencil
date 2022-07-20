@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.therealbluepandabear.pixapencil.BuildConfig
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.databinding.FragmentAppInfoBinding
-import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 
 class AppInfoFragment : Fragment() {
     private var _binding: FragmentAppInfoBinding? = null

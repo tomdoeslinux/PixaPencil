@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.models.Coordinates

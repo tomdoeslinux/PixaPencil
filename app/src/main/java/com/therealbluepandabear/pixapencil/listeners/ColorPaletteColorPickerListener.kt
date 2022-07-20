@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.listeners
 
-import android.view.View
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 interface ColorPaletteColorPickerListener {

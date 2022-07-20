@@ -1,24 +1,16 @@
 package com.therealbluepandabear.pixapencil.data.local.pixelartcreationsdaotests
 
-import android.graphics.Bitmap
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
-import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.dao.PixelArtCreationsDao
 import com.therealbluepandabear.pixapencil.database.PixelArtDatabase
-import com.therealbluepandabear.pixapencil.getOrAwaitValue
-import com.therealbluepandabear.pixapencil.models.PixelArt
-import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
 
 @OptIn(ExperimentalCoroutinesApi::class)

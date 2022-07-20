@@ -7,16 +7,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.therealbluepandabear.pixapencil.dao.ColorPalettesDao
 import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
-import com.therealbluepandabear.pixapencil.getOrAwaitValue
-import com.therealbluepandabear.pixapencil.models.ColorPalette
-import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
 
 @OptIn(ExperimentalCoroutinesApi::class)

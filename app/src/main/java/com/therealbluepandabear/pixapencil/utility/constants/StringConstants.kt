@@ -49,7 +49,6 @@ object StringConstants {
         const val SHARED_PREFERENCE_SHOW_DITHER_TOOLTIP_IDENTIFIER = "show_dither_tooltip_shared_pref"
 
         const val PREV_ORIENTATION_BUNDLE_IDENTIFIER = "prev_orientation_bundle_identifier"
-        const val PREV_BITMAP_FILE_PATH_BUNDLE_IDENTIFIER = "prev_bitmap_file_path_bundle_identifier"
         const val PREV_ROTATION_BUNDLE_IDENTIFIER = "prev_rotation_bundle_identifier"
         const val PREV_COLOR_PICKER_TAB_BUNDLE_IDENTIFIER = "prev_color_picker_tab_bundle_identifier"
         const val PREV_COLORS_TO_FIND_BUNDLE_IDENTIFIER = "prev_colors_to_find_bundle_identifier"

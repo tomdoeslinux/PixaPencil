@@ -115,10 +115,6 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         return extendedOnTouchEvent(event)
     }
 
-    fun replaceBitmap(newBitmap: Bitmap) {
-        extendedReplaceBitmap(newBitmap)
-    }
-
     fun saveAsImage(format: BitmapCompressFormat, coordinatorLayout: CoordinatorLayout, projectTitle: String) {
         extendedSaveAsImage(format, coordinatorLayout, projectTitle)
     }

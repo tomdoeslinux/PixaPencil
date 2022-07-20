@@ -2,16 +2,13 @@ package com.therealbluepandabear.pixapencil.canvasactivity
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.*
-import org.hamcrest.core.IsNot.not
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
@@ -20,14 +17,7 @@ class CanvasActivityTabTests {
     @get:Rule
     val activityRule = ActivityScenarioRule(CanvasActivity::class.java)
 
-    private fun notDisplayedSetup() {
-        onView(withText(R.string.activityCanvas_tab_tools_str)).perform(click())
-        onView(withText(R.string.activityCanvas_tab_color_palettes_str)).perform(click())
-        onView(withText(R.string.activityCanvas_tab_filters_str)).perform(click())
-        onView(withText(R.string.activityCanvas_tab_brushes_str)).perform(click())
-    }
-
-//    @Test
+    //    @Test
 //    fun checkFragmentToolsRootLayoutIsDisplayedByDefault() {
 //        onView(withId(R.id.fragmentTools_rootLayout)).check(matches(isDisplayed()))
 //    }
