@@ -33,8 +33,6 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
                     BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap()),
                     drawPixelGridViewBitmap().width,
                     drawPixelGridViewBitmap().height,
-                    binding.activityCanvasPixelGridView.width,
-                    binding.activityCanvasPixelGridView.height,
                     title.toString(),
                     false
                 )

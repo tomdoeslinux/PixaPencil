@@ -10,8 +10,6 @@ fun MainActivity.extendedOnDuplicateTapped(pixelArt: PixelArt, bottomSheetDialog
         pixelArt.bitmap,
         pixelArt.width,
         pixelArt.height,
-        pixelArt.dimenCW,
-        pixelArt.dimenCH,
         pixelArt.title,
         pixelArt.starred
     )

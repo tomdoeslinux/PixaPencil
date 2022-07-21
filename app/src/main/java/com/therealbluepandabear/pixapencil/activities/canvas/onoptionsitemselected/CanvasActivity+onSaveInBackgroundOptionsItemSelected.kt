@@ -27,8 +27,6 @@ fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
             BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap()),
             width,
             height,
-            binding.activityCanvasPixelGridView.width,
-            binding.activityCanvasPixelGridView.height,
             title.toString(),
             false
         )
