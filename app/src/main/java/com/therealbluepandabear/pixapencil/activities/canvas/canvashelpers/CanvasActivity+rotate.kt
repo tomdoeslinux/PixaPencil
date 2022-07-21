@@ -21,4 +21,6 @@ fun CanvasActivity.rotate(degrees: Int, clockwise: Boolean = true, animate: Bool
     } else {
         binding.activityCanvasCardView.rotation = rotationAmount
     }
+
+    viewModel.currentRotation = rotationAmount.toInt()
 }

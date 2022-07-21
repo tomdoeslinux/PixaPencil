@@ -90,22 +90,11 @@ class CanvasActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
-        configureSavedInstanceState(savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        savePrevOrientationInfo()
     }
 
     override fun onPause() {
         extendedOnPause()
         super.onPause()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        extendedOnSaveInstanceState(outState)
-        super.onSaveInstanceState(outState)
     }
 
     override fun onViewLoaded() {

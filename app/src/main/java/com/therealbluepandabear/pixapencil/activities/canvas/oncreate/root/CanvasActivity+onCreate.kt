@@ -5,11 +5,13 @@ import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotate
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.setOnTouchListener
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
 import com.therealbluepandabear.pixapencil.activities.canvas.startSpotLight
+import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -38,6 +40,7 @@ fun CanvasActivity.onCreate() {
     originalY = null
 
     binding.root.post {
+        rotate(viewModel.currentRotation, animate = false)
         binding.activityCanvasColorSwitcherView.setPrimaryColor(viewModel.primaryColor)
         binding.activityCanvasColorSwitcherView.setSecondaryColor(viewModel.secondaryColor)
 
