@@ -45,10 +45,6 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
             caller.onViewDetailsTapped(pixelArt)
         }
 
-        binding.activityMainBottomSheetRename.setOnClickListener {
-            caller.onRenameTapped(pixelArt, this)
-        }
-
         binding.activityMainBottomSheetDelete.setOnClickListener {
             caller.onDeleteTapped(pixelArt, this)
         }

@@ -11,7 +11,6 @@ import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDeleteTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDuplicateTapped
-import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnRenameTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnViewDetailsTapped
 import com.therealbluepandabear.pixapencil.activities.main.oncreate.root.extendedOnCreate
 import com.therealbluepandabear.pixapencil.activities.main.viewmodel.PixelArtViewModel
@@ -76,10 +75,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     override fun onViewDetailsTapped(pixelArt: PixelArt) {
         extendedOnViewDetailsTapped(pixelArt)
-    }
-
-    override fun onRenameTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
-        extendedOnRenameTapped(pixelArt, bottomSheetDialog)
     }
 
     override fun onDeleteTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {
