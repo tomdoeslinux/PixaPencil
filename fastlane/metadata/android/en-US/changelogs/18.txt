@@ -1,0 +1,8 @@
+Improvements Added
+- App is now more adaptable with phones that have smaller screens, larger user interface sizes, and tablets
+- Renamed 'Find and Replace' to 'Replace Color'
+- 'Reset Position' and 'Save in Background' are now more stable
+
+Other Changes
+- Removed 'Rename' functionality due to high amount of bugs
+- Changed F-Droid description and cover images

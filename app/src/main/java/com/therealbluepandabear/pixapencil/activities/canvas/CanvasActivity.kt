@@ -1,11 +1,18 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.view.MotionEvent
+import android.view.View
+import android.widget.LinearLayout
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
@@ -20,6 +27,7 @@ import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.*
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+
 
 var selectedColorPaletteIndex: Int = 0
 
@@ -87,9 +95,20 @@ class CanvasActivity :
     var dX = 0f
     var dY = 0f
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
+
+        binding.root.setOnTouchListener { _, motionEvent ->
+            val hitRect = Rect()
+            binding.activityCanvasCardView.getHitRect(hitRect)
+
+            if (hitRect.contains(motionEvent.rawX.toInt(), motionEvent.rawY.toInt())) {
+                binding.activityCanvasPixelGridView.onTouchEvent(motionEvent)
+            }
+            true
+        }
     }
 
     override fun onPause() {
