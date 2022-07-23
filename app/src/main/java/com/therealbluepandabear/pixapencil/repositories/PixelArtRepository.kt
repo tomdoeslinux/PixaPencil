@@ -28,7 +28,9 @@ class PixelArtRepository(application: Application) {
         DeleteAsync(dao).execute(pixelArt)
     }
 
-    // TODO: Add delete all
+    fun deleteAll() {
+        dao.deleteAll()
+    }
 
     fun getAll(): LiveData<List<PixelArt>> {
         return allCreations

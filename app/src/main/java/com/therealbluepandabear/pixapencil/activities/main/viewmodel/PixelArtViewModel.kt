@@ -22,6 +22,10 @@ class PixelArtViewModel(application: Application) : AndroidViewModel(application
         repository.delete(pixelArt)
     }
 
+    fun deleteAll() {
+        repository.deleteAll()
+    }
+
     fun getAll(): LiveData<List<PixelArt>> {
         return all
     }
