@@ -214,4 +214,6 @@
     <string name="spot_light_activity_canvas_8_in_code_str">PixaPencil ima pet kistova koje možeš isprobati</string>
     <string name="exception_empty_color_palette_name_in_code_str">Ime palete boja ne smije biti prazno</string>
     <string name="dialog_delete_pixel_art_project_deleted_text_in_code_str">%1$s izbrisan</string>
+    <string name="fragment_replace_color_title_in_code_str">Zamijeni boju</string>
+    <string name="activityCanvasTopAppMenu_replace_color_str">Zamijeni boju</string>
 </resources>
