@@ -16,7 +16,7 @@ import com.therealbluepandabear.pixapencil.fragments.base.ActivityFragment
 import com.therealbluepandabear.pixapencil.listeners.NewColorPaletteFragmentListener
 
 class NewColorPaletteFragment : Fragment(), ActivityFragment {
-    override val title: String by lazy { getString(R.string.fragment_new_color_palette_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_new_color_palette_title) }
 
     private var _binding: FragmentNewColorPaletteBinding? = null
 

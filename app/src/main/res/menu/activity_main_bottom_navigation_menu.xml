@@ -4,11 +4,11 @@
         android:id="@+id/activityMainBottomNavigationMenu_home_tab"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/bottomNavigationMenu_home_str"/>
+        android:title="@string/bottomNavigationMenu_home"/>
 
     <item
         android:id="@+id/activityMainBottomNavigationMenu_starred_tab"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_star_border_24"
-        android:title="@string/bottomNavigationMenu_starred_str"/>
+        android:title="@string/bottomNavigationMenu_starred"/>
 </menu>

@@ -24,7 +24,7 @@ class NewProjectFragment : Fragment(), ActivityFragment {
 
     lateinit var caller: NewProjectFragmentListener
 
-    override val title: String by lazy { getString(R.string.fragment_new_project_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_new_project_title) }
 
     var paramSpotLightInProgress: Boolean = false
 

@@ -7,7 +7,7 @@ fun NewColorPaletteFragment.setOnClickListeners() {
         val extractColorPaletteFromCanvasCheckboxState = binding.fragmentNewColorPaletteExtractFromCanvasCheckBox.isChecked
 
         if (binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString().isEmpty()) {
-            binding.fragmentNewColorPaletteColorPaletteNameTextInputLayout.error = getString(R.string.exception_empty_color_palette_name_in_code_str)
+            binding.fragmentNewColorPaletteColorPaletteNameTextInputLayout.error = getString(R.string.exception_empty_color_palette_name)
         } else {
             caller.onDoneButtonPressed(binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString(), extractColorPaletteFromCanvasCheckboxState)
         }

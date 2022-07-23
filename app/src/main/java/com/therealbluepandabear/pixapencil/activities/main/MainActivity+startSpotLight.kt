@@ -27,7 +27,7 @@ fun MainActivity.startSpotLight() {
         .setAnimation(DecelerateInterpolator(2f))
         .setOnSpotlightListener(object : OnSpotlightListener {
             override fun onStarted() {
-                lyt.findViewById<TextView>(R.id.layoutTarget_text).text = getString(R.string.spot_light_activity_main_in_code_str)
+                lyt.findViewById<TextView>(R.id.layoutTarget_text).text = getString(R.string.spot_light_activity_main)
             }
 
             override fun onEnded() { }

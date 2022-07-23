@@ -32,119 +32,119 @@ class CanvasActivityTopAppMenuTests {
 
     @Test
     fun checkClearCanvasItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_clear_canvas_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_clear_canvas)).check(matches(isDisplayed()))
     }
 
 
     @Test
     fun checkNewColorPaletteItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_new_color_palette_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_new_color_palette)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkGridItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_grid_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_grid)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkPixelPerfectItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_pixel_perfect_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_pixel_perfect)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkResetZoomItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_reset_zoom_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_reset_zoom)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkSymmetryItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkSaveToPNGItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_save_as_png_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_save_as_png)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkSaveToJPGItemIsDisplayed() {
-        onView(withText(R.string.activityCanvasTopAppMenu_save_as_jpg_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_save_as_jpg)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkRotate90DegreesClockwiseSubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise)).check(doesNotExist())
     }
 
     @Test
     fun checkRotate90DegreesAntiClockwiseSubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise)).check(doesNotExist())
     }
 
     @Test
     fun checkRotate180DegreesSubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180)).check(doesNotExist())
     }
 
     @Test
     fun checkHorizontalSymmetrySubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal)).check(doesNotExist())
     }
 
     @Test
     fun checkVerticalSymmetrySubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical)).check(doesNotExist())
     }
 
     @Test
     fun checkQuadSymmetrySubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad)).check(doesNotExist())
     }
 
     @Test
     fun checkOctalSymmetrySubItemDoesNotExist() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal_str)).check(doesNotExist())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal)).check(doesNotExist())
     }
 
     @Test
     fun checkRotate90DegreesClockwiseSubItemIsDisplayedWhenRotateItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_clockwise)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkRotate90DegreesAntiClockwiseSubItemIsDisplayedWhenRotateItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_90_anti_clockwise)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkRotate180DegreesSubItemIsDisplayedWhenRotateItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_rotate_180)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkHorizontalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_horizontal)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkVerticalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_vertical)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkQuadSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_quad)).check(matches(isDisplayed()))
     }
 
     @Test
     fun checkOctalSymmetrySubItemIsDisplayedWhenSymmetryItemClicked() {
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_str)).perform(click())
-        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal_str)).check(matches(isDisplayed()))
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry)).perform(click())
+        onView(withText(R.string.activityCanvasTopAppMenu_symmetry_octal)).check(matches(isDisplayed()))
     }
 }

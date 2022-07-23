@@ -19,17 +19,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentColorPicker_tab_color_picker_str" />
+            android:text="@string/fragmentColorPicker_tab_color_picker" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentColorPicker_tab_rgb_str" />
+            android:text="@string/fragmentColorPicker_tab_rgb" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentColorPicker_tab_hex_str" />
+            android:text="@string/fragmentColorPicker_tab_hex" />
     </com.google.android.material.tabs.TabLayout>
 
     <FrameLayout

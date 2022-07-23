@@ -23,7 +23,7 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_activity_canvas_1_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_1)
             }
 
         })
@@ -40,7 +40,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y -= 400
-                text.text = getString(R.string.spot_light_activity_canvas_2_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_2)
             }
 
         })
@@ -57,7 +57,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_3_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_3)
             }
 
         })
@@ -74,7 +74,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_4_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_4)
             }
 
         })
@@ -91,7 +91,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_5_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_5)
             }
 
         })
@@ -108,7 +108,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_6_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_6)
             }
 
         })
@@ -125,7 +125,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_7_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_7)
             }
 
         })
@@ -142,7 +142,7 @@ fun CanvasActivity.startSpotLight() {
 
             override fun onStarted() {
                 lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_8_in_code_str)
+                text.text = getString(R.string.spot_light_activity_canvas_8)
             }
 
         })

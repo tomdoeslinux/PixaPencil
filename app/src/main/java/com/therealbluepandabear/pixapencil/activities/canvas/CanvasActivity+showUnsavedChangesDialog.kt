@@ -9,18 +9,18 @@ import com.therealbluepandabear.pixapencil.extensions.showDialogWithNeutralButto
 
 fun CanvasActivity.showUnsavedChangesDialog() {
     showDialogWithNeutralButtonAndOnCancelListener(
-        getString(R.string.dialog_unsaved_changes_title_in_code_str),
-        getString(R.string.dialog_unsaved_changes_message_in_code_str, projectTitle),
-        getString(R.string.generic_cancel_in_code_str),
+        getString(R.string.dialog_unsaved_changes_title),
+        getString(R.string.dialog_unsaved_changes_message, projectTitle),
+        getString(R.string.generic_cancel),
         { _, _ ->
             viewModel.unsavedChangesDialogShown = false
         },
-        getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str),
+        getString(R.string.dialog_unsaved_changes_negative_button_text),
         { _, _ ->
             startActivity(Intent(this, MainActivity::class.java))
             finishAffinity()
         },
-        getString(R.string.activityCanvasTopAppMenu_save_text_str),
+        getString(R.string.activityCanvasTopAppMenu_save_text),
         { _, _ ->
             onSaveProjectOptionsItemSelected()
             startActivity(Intent(this, MainActivity::class.java))

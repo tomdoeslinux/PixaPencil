@@ -35,26 +35,26 @@ fun PixelGridView.extendedSaveAsImage(format: BitmapCompressFormat, coordinatorL
         if (outputCode == OutputCode.Success) {
             file = _file
 
-            coordinatorLayout.showSnackbarWithAction(context.getString(R.string.snackbar_image_successfully_saved_in_code_str, projectTitle, formatName), SnackbarDuration.Medium, context.getString(R.string.snackbar_view_exception_info_button_text_in_code_str)) {
+            coordinatorLayout.showSnackbarWithAction(context.getString(R.string.snackbar_image_successfully_saved, projectTitle, formatName), SnackbarDuration.Medium, context.getString(R.string.snackbar_view_exception_info_button_text)) {
                 fileHelperUtilitiesInstance.openImageFromUri(Uri.fromFile(file)) { outputCode, exceptionMessage_2 ->
                     if (outputCode == OutputCode.Failure) {
                         if (exceptionMessage_2 != null) {
-                            coordinatorLayout.showSnackbarWithAction(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
-                                (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_2)
+                            coordinatorLayout.showSnackbarWithAction(context.getString(R.string.dialog_view_file_error_title), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title)) {
+                                (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title), exceptionMessage_2)
                             }
                         } else {
-                            coordinatorLayout.showSnackbar(context.getString(R.string.dialog_view_file_error_title_in_code_str), SnackbarDuration.Default)
+                            coordinatorLayout.showSnackbar(context.getString(R.string.dialog_view_file_error_title), SnackbarDuration.Default)
                         }
                     }
                 }
             }
         } else {
             if (exceptionMessage_1 != null) {
-                coordinatorLayout.showSnackbarWithAction(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title_in_code_str)) {
-                    (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title_in_code_str), exceptionMessage_1)
+                coordinatorLayout.showSnackbarWithAction(context.getString(R.string.dialog_image_exception_when_saving_title, projectTitle, formatName), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title)) {
+                    (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title), exceptionMessage_1)
                 }
             } else {
-                coordinatorLayout.showSnackbar(context.getString(R.string.dialog_image_exception_when_saving_title_in_code_str, projectTitle, formatName), SnackbarDuration.Default)
+                coordinatorLayout.showSnackbar(context.getString(R.string.dialog_image_exception_when_saving_title, projectTitle, formatName), SnackbarDuration.Default)
             }
         }
     }

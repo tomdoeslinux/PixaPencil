@@ -48,5 +48,5 @@ fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
     }
 
     viewModel.saved = true
-    Toast.makeText(this, getString(R.string.generic_saved_in_code_str), Toast.LENGTH_LONG).show()
+    Toast.makeText(this, getString(R.string.generic_saved), Toast.LENGTH_LONG).show()
 }

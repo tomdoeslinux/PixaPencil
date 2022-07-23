@@ -19,17 +19,17 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
         }
 
         showDialog(
-            getString(R.string.dialog_welcome_title_in_code_str),
-            getString(R.string.dialog_welcome_text_in_code_str),
-            getString(R.string.generic_ok_in_code_str),
+            getString(R.string.dialog_welcome_title),
+            getString(R.string.dialog_welcome_text),
+            getString(R.string.generic_ok),
             { _, _ ->
                 startSpotLight()
-            }, getString(R.string.generic_no_thanks_in_code_str), { _, _ -> })
+            }, getString(R.string.generic_no_thanks), { _, _ -> })
 
         if (this@showWelcomeScreenIfApplicable.getScreenWidth() < 600 && this@showWelcomeScreenIfApplicable.getScreenHeight() < 850) {
             showSimpleInfoDialog(
-                getString(R.string.generic_warning_in_code_str),
-                getString(R.string.dialog_small_screen_warning_text_in_code_str)
+                getString(R.string.generic_warning),
+                getString(R.string.dialog_small_screen_warning_text)
             )
         }
     }

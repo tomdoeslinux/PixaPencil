@@ -17,12 +17,12 @@ fun HexadecimalColorPickerFragment.setOnClickListeners() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             if (code == OutputCode.Success) {
                 binding.fragmentHexadecimalColorPickerCoordinatorLayout.showSnackbar(
-                    getString(R.string.fragmentHexadecimalColorPicker_successfully_copied_to_clipboard_in_code_str),
+                    getString(R.string.fragmentHexadecimalColorPicker_successfully_copied_to_clipboard),
                     SnackbarDuration.Short
                 )
             } else {
                 binding.fragmentHexadecimalColorPickerCoordinatorLayout.showSnackbar(
-                    getString(R.string.fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard_in_code_str),
+                    getString(R.string.fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard),
                     SnackbarDuration.Short
                 )
             }

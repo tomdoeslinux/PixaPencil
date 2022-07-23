@@ -28,7 +28,7 @@ class SprayToolSettingsFragment : Fragment(), ActivityFragment {
 
     lateinit var caller: SprayToolSettingsFragmentListener
 
-    override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_spray_tool_settings_title) }
 
     fun setParams(paramSharedPreferenceObject: SharedPreferences) {
         this.paramSharedPreferenceObject = paramSharedPreferenceObject

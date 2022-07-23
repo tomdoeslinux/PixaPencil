@@ -13,10 +13,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.os.ParcelFileDescriptor
-import androidx.core.app.ActivityCompat.startActivityForResult
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.customviews.pixelgridview.file
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
@@ -138,11 +136,11 @@ class FileHelperUtilities(private val context: Context) {
                 else -> {
                     BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
                         override fun onCreateFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file_in_code_str))
+                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file))
                         }
 
                         override fun onCompressFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_compress_file_in_code_str))
+                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_compress_file))
                         }
 
                         override fun onFileExists(isDirectory: Boolean) {
@@ -165,23 +163,23 @@ class FileHelperUtilities(private val context: Context) {
 
         if (file.exists()) {
             context.activity()?.showDialog(
-                context.getString(R.string.dialog_file_exists_title_in_code_str),
-                context.getString(R.string.dialog_file_exists_message_in_code_str, outputName),
-                context.getString(R.string.dialog_file_exists_positive_button_text_in_code_str), { _, _ ->
+                context.getString(R.string.dialog_file_exists_title),
+                context.getString(R.string.dialog_file_exists_message, outputName),
+                context.getString(R.string.dialog_file_exists_positive_button_text), { _, _ ->
                     createNewFile(file)
                 },
-                context.getString(R.string.dialog_file_exists_negative_button_text_in_code_str), { _, _ ->
+                context.getString(R.string.dialog_file_exists_negative_button_text), { _, _ ->
                 context.activity()?.showDialog(
-                    context.getString(R.string.dialog_save_under_new_name_title_in_code_str),
-                    context.getString(R.string.dialog_save_under_new_name_text_in_code_str),
-                    context.getString(R.string.generic_ok_in_code_str),
+                    context.getString(R.string.dialog_save_under_new_name_title),
+                    context.getString(R.string.dialog_save_under_new_name_text),
+                    context.getString(R.string.generic_ok),
                     { _, _ ->
                         val input: String = textInput.editText?.text.toString()
                         outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
                         file = File(directory, outputName)
                         createNewFile(file)
                     },
-                    context.getString(R.string.generic_cancel_in_code_str), { _, _ -> },
+                    context.getString(R.string.generic_cancel), { _, _ -> },
                     textInput)
                 })
         } else {

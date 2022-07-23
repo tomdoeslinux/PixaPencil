@@ -23,7 +23,7 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_1_in_code_str)
+                text.text = getString(R.string.spot_light_new_project_fragment_1)
             }
         })
         .setShape(RoundedRectangle((binding.fragmentNewCanvasProjectTitleTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth ).toFloat(), 20f))
@@ -38,7 +38,7 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_2_in_code_str)
+                text.text = getString(R.string.spot_light_new_project_fragment_2)
             }
 
         })
@@ -54,7 +54,7 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_3_in_code_str)
+                text.text = getString(R.string.spot_light_new_project_fragment_3)
             }
 
         })
@@ -70,7 +70,7 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_4_in_code_str)
+                text.text = getString(R.string.spot_light_new_project_fragment_4)
             }
 
         })

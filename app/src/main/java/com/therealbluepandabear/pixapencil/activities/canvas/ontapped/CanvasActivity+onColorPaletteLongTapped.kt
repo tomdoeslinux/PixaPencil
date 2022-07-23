@@ -16,14 +16,14 @@ fun CanvasActivity.extendedOnColorPaletteLongTapped(selectedColorPalette: ColorP
 
     if (!selectedColorPalette.isPrimaryColorPalette) {
         showDialog(
-            getString(R.string.dialog_delete_pixel_art_project_title_in_code_str, name),
-            getString(R.string.dialog_delete_pixel_art_project_text_in_code_str, name),
-            getString(R.string.generic_ok_in_code_str),  { _, _ ->
+            getString(R.string.dialog_delete_pixel_art_project_title, name),
+            getString(R.string.dialog_delete_pixel_art_project_text, name),
+            getString(R.string.generic_ok),  { _, _ ->
                 CoroutineScope(Dispatchers.IO).launch {
                     AppData.colorPalettesDB.colorPalettesDao().deleteColorPalette(selectedColorPalette)
-                } }, getString(R.string.generic_cancel_in_code_str), null
+                } }, getString(R.string.generic_cancel), null
         )
     } else {
-        binding.activityCanvasCoordinatorLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text_in_code_str), SnackbarDuration.Default)
+        binding.activityCanvasCoordinatorLayout.showSnackbar(getString(R.string.snackbar_cannot_delete_primary_color_palette_text), SnackbarDuration.Default)
     }
 }

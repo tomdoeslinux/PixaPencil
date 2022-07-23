@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.core.view.MenuHost
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -23,7 +22,7 @@ class ColorPickerFragment : Fragment(), ActivityFragment {
     private var paramOldColor: Int? = null
     private var paramColorPalette: ColorPalette? = null
 
-    override val title: String by lazy { getString(R.string.fragment_color_picker_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_color_picker_title) }
 
     fun setParams(paramOldColor: Int, paramColorPalette: ColorPalette?) {
         this.paramOldColor = paramOldColor

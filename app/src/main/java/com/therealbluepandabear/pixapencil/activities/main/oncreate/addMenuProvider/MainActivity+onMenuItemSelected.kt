@@ -1,18 +1,13 @@
 package com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider
 
-import android.content.Intent
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
-import com.therealbluepandabear.pixapencil.activities.main.extendedOnDoneButtonPressed
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
-import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.fragments.appinfo.AppInfoFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
@@ -43,14 +38,14 @@ fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
         R.id.activityMainTopAppMenu_delete_all_item -> {
             showDialog(
-                getString(R.string.generic_warning_in_code_str),
-                getString(R.string.dialog_delete_all_projects_str),
-                getString(R.string.generic_ok_in_code_str), { _, _ ->
+                getString(R.string.generic_warning),
+                getString(R.string.dialog_delete_all_projects),
+                getString(R.string.generic_ok), { _, _ ->
                     val size = pixelArtData.size
 
                     pixelArtViewModel.deleteAll()
-                    binding.activityMainCoordinatorLayout.showSnackbar(getString(R.string.snackbar_deleted_projects_str, size.toString()), SnackbarDuration.Medium)
-                },  getString(R.string.generic_cancel_in_code_str), null)
+                    binding.activityMainCoordinatorLayout.showSnackbar(getString(R.string.snackbar_deleted_projects, size.toString()), SnackbarDuration.Medium)
+                },  getString(R.string.generic_cancel), null)
         }
 
         R.id.activityMainTopAppMenu_open_image_item -> {

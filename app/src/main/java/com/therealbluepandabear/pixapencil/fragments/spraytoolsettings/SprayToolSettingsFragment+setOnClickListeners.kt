@@ -11,12 +11,12 @@ var invalidStrength = false
 private fun SprayToolSettingsFragment.checkForRadiusError() {
     when (binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_empty_spray_radius_in_code_str)
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_empty_spray_radius)
             invalidRadius = true
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius_in_code_str)
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius)
             invalidRadius = true
         }
 
@@ -30,12 +30,12 @@ private fun SprayToolSettingsFragment.checkForRadiusError() {
 private fun SprayToolSettingsFragment.checkForStrengthError() {
     when (binding.fragmentSprayToolSettingsStrengthTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_empty_spray_strength_in_code_str)
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_empty_spray_strength)
             invalidStrength = true
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength_in_code_str)
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength)
             invalidStrength = true
         }
 

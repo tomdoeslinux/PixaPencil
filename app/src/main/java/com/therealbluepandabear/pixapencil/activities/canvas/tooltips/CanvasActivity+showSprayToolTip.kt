@@ -9,9 +9,9 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.showSprayToolTip() {
     binding.activityCanvasCoordinatorLayout.showSnackbarWithActionAndCallback(
-        getString(R.string.spray_tool_tip_in_code_str),
+        getString(R.string.tool_tip_spray),
         SnackbarDuration.Medium,
-        getString(R.string.tool_tip_dont_show_again_in_code_str),
+        getString(R.string.tool_tip_dont_show_again),
         {
             with(sharedPreferenceObject.edit()) {
                 putBoolean(

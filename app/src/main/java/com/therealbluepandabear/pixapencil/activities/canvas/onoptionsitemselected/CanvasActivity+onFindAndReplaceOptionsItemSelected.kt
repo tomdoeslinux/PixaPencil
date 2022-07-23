@@ -30,7 +30,7 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
         }
     } else {
         binding.activityCanvasCoordinatorLayout.showSnackbar(
-            getString(R.string.snackbar_find_and_replace_warning_in_code_str),
+            getString(R.string.snackbar_find_and_replace_warning),
             SnackbarDuration.Default)
     }
 }

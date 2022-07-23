@@ -8,7 +8,7 @@
     <com.google.android.material.checkbox.MaterialCheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tool_tip_dont_show_again_in_code_str">
+        android:text="@string/tool_tip_dont_show_again">
 
     </com.google.android.material.checkbox.MaterialCheckBox>
 </FrameLayout>

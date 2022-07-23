@@ -17,7 +17,7 @@ import com.therealbluepandabear.pixapencil.listeners.DitherToolSettingsFragmentL
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 class DitherToolSettingsFragment : Fragment(), ActivityFragment, DitherBrushesListener {
-    override val title: String by lazy { getString(R.string.fragment_dither_tool_settings_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_dither_tool_settings_title) }
 
     private var _binding: FragmentDitherToolSettingsBinding? = null
 

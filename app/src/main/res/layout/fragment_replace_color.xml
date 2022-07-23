@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/fragmentFindAndReplace_find_str"
+        android:text="@string/fragmentFindAndReplace_find"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="@string/fragmentFindAndReplace_replace_with_str"
+        android:text="@string/fragmentFindAndReplace_replace_with"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_canvasColorsRecyclerView" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/fragmentFindAndReplace_colors_in_your_canvas_str"
+        android:text="@string/fragmentFindAndReplace_colors_in_your_canvas"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_findTextView" />
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/fragmentFindAndReplace_not_enough_colors_str"
+        android:text="@string/fragmentFindAndReplace_not_enough_colors"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentFindAndReplace_replaceWithTextView" />
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/fragmentNewColorPalette_done_str"
+        android:text="@string/fragmentNewColorPalette_done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

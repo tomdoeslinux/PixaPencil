@@ -8,11 +8,11 @@ import com.therealbluepandabear.pixapencil.extensions.showDialog
 
 fun CanvasActivity.onClearCanvasOptionsItemSelected() {
     showDialog(
-        getString(R.string.dialog_clear_canvas_title_in_code_str),
-        getString(R.string.dialog_clear_canvas_message_in_code_str),
-        getString(R.string.generic_ok_in_code_str),
+        getString(R.string.dialog_clear_canvas_title),
+        getString(R.string.dialog_clear_canvas_message),
+        getString(R.string.generic_ok),
         { _, _ ->
             canvasCommandsHelperInstance.clearCanvas()
             judgeUndoRedoStacks()
-        }, getString(R.string.generic_cancel_in_code_str), { _, _ -> })
+        }, getString(R.string.generic_cancel), { _, _ -> })
 }

@@ -27,7 +27,7 @@ abstract class ColorPalettesDatabase: RoomDatabase() {
                             super.onCreate(db)
                             Executors.newSingleThreadExecutor().execute {
                                 CoroutineScope(Dispatchers.IO).launch {
-                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette(context.getString(R.string.defaultColorPalette_str), JsonConverter.convertListToJsonString(ColorDatabase.toList()), true))
+                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette(context.getString(R.string.defaultColorPalette), JsonConverter.convertListToJsonString(ColorDatabase.toList()), true))
                                 }
                             }
                         }

@@ -21,9 +21,9 @@ fun MainActivity.extendedOnViewDetailsTapped(pixelArt: PixelArt) {
     details.findViewById<TextView>(R.id.projectDetailsAlertBox_created).text = pixelArt.dateCreated
 
     showDialog(
-        getString(R.string.dialog_project_details_title_in_code_str),
+        getString(R.string.dialog_project_details_title),
         null,
-        getString(R.string.generic_ok_in_code_str), { _, _ ->
+        getString(R.string.generic_ok), { _, _ ->
         }, null, null, view = details, dimBackground = false
     )
 }

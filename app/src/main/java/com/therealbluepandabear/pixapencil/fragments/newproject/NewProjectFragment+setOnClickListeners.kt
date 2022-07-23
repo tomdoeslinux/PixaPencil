@@ -18,7 +18,7 @@ private fun NewProjectFragment.checkForTitleError() {
     val title = binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
 
     if (title.isBlank()) {
-        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_project_name_in_code_str)
+        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_project_name)
         invalidTitle = true
     } else {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = null
@@ -29,12 +29,12 @@ private fun NewProjectFragment.checkForTitleError() {
 private fun NewProjectFragment.checkForWidthError() {
     when (binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width_in_code_str)
+            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width)
             invalidWidth = true
         }
 
         !in IntConstants.WIDTH_HEIGHT_MIN..IntConstants.WIDTH_HEIGHT_MAX -> {
-            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width_in_code_str)
+            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width)
             invalidWidth = true
         }
 
@@ -48,12 +48,12 @@ private fun NewProjectFragment.checkForWidthError() {
 private fun NewProjectFragment.checkForHeightError() {
     when (binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height_in_code_str)
+            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height)
             invalidHeight = true
         }
 
         !in IntConstants.WIDTH_HEIGHT_MIN..IntConstants.WIDTH_HEIGHT_MAX -> {
-            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height_in_code_str)
+            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_invalid_height)
             invalidHeight = true
         }
 
@@ -103,9 +103,9 @@ fun NewProjectFragment.setOnClickListeners() {
                         val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
                         requireActivity().showDialog(
-                            getString(R.string.generic_warning_in_code_str),
-                            getString(R.string.dialog_large_canvas_warning_text_in_code_str),
-                            getString(R.string.dialog_large_canvas_warning_positive_button_text_in_code_str),
+                            getString(R.string.generic_warning),
+                            getString(R.string.dialog_large_canvas_warning_text),
+                            getString(R.string.dialog_large_canvas_warning_positive_button_text),
                             { _, _ ->
                                 if (checkBox.isChecked) {
                                     (requireActivity() as MainActivity).showLargeCanvasSizeWarning =
@@ -127,7 +127,7 @@ fun NewProjectFragment.setOnClickListeners() {
                                     paramSpotLightInProgress
                                 )
                             },
-                            getString(R.string.dialog_unsaved_changes_negative_button_text_in_code_str),
+                            getString(R.string.dialog_unsaved_changes_negative_button_text),
                             { _, _ ->
                             },
                             frameLayout

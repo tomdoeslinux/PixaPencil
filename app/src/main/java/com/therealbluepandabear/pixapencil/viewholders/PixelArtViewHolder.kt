@@ -65,7 +65,7 @@ class PixelArtViewHolder(val binding: RecentCreationsLayoutBinding, private val 
 
     fun bind(pixelArt: PixelArt){
         loadPixelArtCoverImage(pixelArt)
-        binding.recentCreationsLayoutSubtitle.text = context.getString(R.string.recentCreationsLayoutSubtitle_str, pixelArt.width, pixelArt.height)
+        binding.recentCreationsLayoutSubtitle.text = context.getString(R.string.recentCreationsLayout_subtitle, pixelArt.width, pixelArt.height)
         loadPixelArtStarred(pixelArt)
         loadPixelArtTitle(pixelArt)
     }

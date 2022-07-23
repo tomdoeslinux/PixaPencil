@@ -60,12 +60,12 @@ class PixelArtAdapter(
     }
 
     private fun favouriteRecentCreation(contextView: View, pixelArt: PixelArt) { // move to listener
-        contextView.showSnackbar(contextView.context.getString(R.string.snackbar_pixel_art_project_saved_to_starred_items_in_code_str, pixelArt.title), SnackbarDuration.Default)
+        contextView.showSnackbar(contextView.context.getString(R.string.snackbar_pixel_art_project_saved_to_starred_items, pixelArt.title), SnackbarDuration.Default)
         pixelArt.starred = true
     }
 
     private fun unFavouriteRecentCreation(contextView: View, pixelArt: PixelArt) {
-        contextView.showSnackbar(contextView.context.getString(R.string.snackbar_pixel_art_project_removed_from_starred_items_in_code_str, pixelArt.title), SnackbarDuration.Default)
+        contextView.showSnackbar(contextView.context.getString(R.string.snackbar_pixel_art_project_removed_from_starred_items, pixelArt.title), SnackbarDuration.Default)
         pixelArt.starred = false
     }
 

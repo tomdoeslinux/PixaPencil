@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/fragmentNewColorPalette_done_str"
+        android:text="@string/fragmentNewColorPalette_done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -92,7 +92,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +110,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +128,7 @@
             android:maxLength="3"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/fragmentRGBColorPicker_defaultRGBValue_str"
+            android:text="@string/fragmentRGBColorPicker_defaultRGBValue"
             android:textAlignment="center" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

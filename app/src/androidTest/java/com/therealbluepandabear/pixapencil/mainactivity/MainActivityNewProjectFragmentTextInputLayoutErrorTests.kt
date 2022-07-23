@@ -29,7 +29,7 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_projectTitleTextInputLayout)).check(matches(hasDescendant(withText(
-            R.string.exception_invalid_project_name_in_code_str
+            R.string.exception_invalid_project_name
         ))))
     }
 
@@ -40,7 +40,7 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         onView(withId(R.id.fragmentNewCanvas_heightTextInputEditText)).perform(typeText("1500"))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).check(matches(hasDescendant(withText(
-            R.string.exception_empty_width_in_code_str
+            R.string.exception_empty_width
         ))))
     }
 
@@ -51,7 +51,7 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("500"))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).check(matches(hasDescendant(withText(
-            R.string.exception_empty_height_in_code_str
+            R.string.exception_empty_height
         ))))
     }
 
@@ -63,7 +63,7 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("50000"))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_widthTextInputLayout)).check(matches(hasDescendant(withText(
-            R.string.exception_invalid_width_in_code_str
+            R.string.exception_invalid_width
         ))))
     }
 
@@ -75,7 +75,7 @@ class MainActivityNewProjectFragmentTextInputLayoutErrorTests {
         onView(withId(R.id.fragmentNewCanvas_widthTextInputEditText)).perform(typeText("1500"))
         onView(withId(R.id.fragmentNewCanvas_doneButton)).perform(click())
         onView(withId(R.id.fragmentNewCanvas_heightTextInputLayout)).check(matches(hasDescendant(withText(
-            R.string.exception_invalid_height_in_code_str
+            R.string.exception_invalid_height
         ))))
     }
 }

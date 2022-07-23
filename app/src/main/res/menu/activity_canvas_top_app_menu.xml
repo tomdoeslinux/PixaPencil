@@ -5,74 +5,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/activityCanvasTopAppMenu_clear_canvas_item"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_clear_canvas_str" />
+        android:title="@string/activityCanvasTopAppMenu_clear_canvas" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_replace_color_item"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_replace_color_str" />
+        android:title="@string/activityCanvasTopAppMenu_replace_color" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_import_lospec_palette_item"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_import_lospec_palette_str" />
+        android:title="@string/activityCanvasTopAppMenu_import_lospec_palette" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_new_color_palette_item"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_new_color_palette_str" />
+        android:title="@string/activityCanvasTopAppMenu_new_color_palette" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_grid_item"
         app:showAsAction="ifRoom"
         android:checkable="true"
-        android:title="@string/activityCanvasTopAppMenu_grid_str" />
+        android:title="@string/activityCanvasTopAppMenu_grid" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_pixel_perfect_item"
         app:showAsAction="ifRoom"
         android:checkable="true"
-        android:title="@string/activityCanvasTopAppMenu_pixel_perfect_str" />
+        android:title="@string/activityCanvasTopAppMenu_pixel_perfect" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_reset_zoom_subItem"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_reset_zoom_str" />
+        android:title="@string/activityCanvasTopAppMenu_reset_zoom" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_reset_position_subItem"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_reset_position_str" />
+        android:title="@string/activityCanvasTopAppMenu_reset_position" />
 
     <item app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_rotate_str" >
+        android:title="@string/activityCanvasTopAppMenu_rotate" >
         <menu>
             <item android:id="@+id/appMenu_rotate_90_degrees_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/activityCanvasTopAppMenu_rotate_90_clockwise_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_90_clockwise" />
 
             <item android:id="@+id/appMenu_rotate_90_degrees_anti_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/activityCanvasTopAppMenu_rotate_90_anti_clockwise_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_90_anti_clockwise" />
 
             <item android:id="@+id/appMenu_rotate_180_degrees_clockwise_subItem"
                 app:showAsAction="ifRoom"
-                android:title="@string/activityCanvasTopAppMenu_rotate_180_str" />
+                android:title="@string/activityCanvasTopAppMenu_rotate_180" />
         </menu>
     </item>
 
     <item app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_symmetry_str" >
+        android:title="@string/activityCanvasTopAppMenu_symmetry" >
         <menu>
             <group android:checkableBehavior="single">
                 <item android:id="@+id/appMenu_symmetry_none_subItem"
-                    android:title="@string/activityCanvasTopAppMenu_symmetry_none_str"/>
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_none"/>
 
                 <item android:id="@+id/appMenu_symmetry_horizontal_subItem"
-                    android:title="@string/activityCanvasTopAppMenu_symmetry_horizontal_str"/>
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_horizontal"/>
 
                 <item android:id="@+id/appMenu_symmetry_vertical_subItem"
-                      android:title="@string/activityCanvasTopAppMenu_symmetry_vertical_str"/>
+                      android:title="@string/activityCanvasTopAppMenu_symmetry_vertical"/>
 
                 <item android:id="@+id/appMenu_symmetry_quad_subItem"
-                    android:title="@string/activityCanvasTopAppMenu_symmetry_quad_str"/>
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_quad"/>
 
 
                 <item android:id="@+id/appMenu_symmetry_octal_subItem"
-                    android:title="@string/activityCanvasTopAppMenu_symmetry_octal_str"/>
+                    android:title="@string/activityCanvasTopAppMenu_symmetry_octal"/>
             </group>
         </menu>
     </item>
@@ -80,53 +80,53 @@
     <item android:id="@+id/activityCanvasTopAppMenu_undo"
         android:icon="@drawable/ic_baseline_undo_24"
         app:showAsAction="always"
-        android:title="@string/activityCanvasTopAppMenu_undo_str"
+        android:title="@string/activityCanvasTopAppMenu_undo"
         tools:ignore="AlwaysShowAction" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_redo_item"
         android:icon="@drawable/ic_baseline_redo_24"
         app:showAsAction="always"
-        android:title="@string/activityCanvasTopAppMenu_redo_str" />
+        android:title="@string/activityCanvasTopAppMenu_redo" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_zoom_in_item"
         android:icon="@drawable/ic_baseline_zoom_in_24"
         app:showAsAction="always"
-        android:title="@string/activityCanvasTopAppMenu_zoom_in_str" />
+        android:title="@string/activityCanvasTopAppMenu_zoom_in" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_zoom_out_item"
         android:icon="@drawable/ic_baseline_zoom_out_24"
         app:showAsAction="always"
-        android:title="@string/activityCanvasTopAppMenu_zoom_out_str" />
+        android:title="@string/activityCanvasTopAppMenu_zoom_out" />
 
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
         android:icon="@drawable/ic_baseline_save_24"
         app:showAsAction="always"
-        android:title="@string/activityCanvasTopAppMenu_save_text_str" />
+        android:title="@string/activityCanvasTopAppMenu_save_text" />
 
     <item android:id="@+id/activityCanvasTopAppMenu_save_in_background_item"
-        android:title="@string/activityCanvasTopAppMenu_save_in_background_str" />
+        android:title="@string/activityCanvasTopAppMenu_save_in_background" />
     <item app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_save_as_str">
+        android:title="@string/activityCanvasTopAppMenu_save_as">
         <menu>
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_png_item"
                 app:showAsAction="ifRoom"
-                android:title="@string/generic_png_str" />
+                android:title="@string/generic_png" />
 
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_jpg_item"
                 app:showAsAction="ifRoom"
-                android:title="@string/generic_jpg_str" />
+                android:title="@string/generic_jpg" />
 
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_webp_item"
                 app:showAsAction="ifRoom"
-                android:title="@string/generic_webp_str" />
+                android:title="@string/generic_webp" />
 
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_tiff_item"
                 app:showAsAction="ifRoom"
-                android:title="@string/generic_tif_str" />
+                android:title="@string/generic_tif" />
 
             <item android:id="@+id/activityCanvasTopAppMenu_export_to_bmp_item"
                 app:showAsAction="ifRoom"
-                android:title="@string/generic_bmp_str" />
+                android:title="@string/generic_bmp" />
         </menu>
     </item>
 </menu>

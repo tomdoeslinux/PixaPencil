@@ -155,9 +155,9 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                         as ConstraintLayout
 
             showDialog(
-                getString(R.string.activityCanvasTopAppMenu_import_lospec_palette_str),
+                getString(R.string.activityCanvasTopAppMenu_import_lospec_palette),
                 null,
-                getString(R.string.generic_ok_in_code_str), { _, _ ->
+                getString(R.string.generic_ok), { _, _ ->
                     val queue = Volley.newRequestQueue(this)
                     val url = "https://lospec.com/palette-list/${details.findViewById<TextInputEditText>(R.id.importLospecPaletteAlert_palette_url_identifier_textInputEditText).text.toString()}.json"
 
@@ -180,7 +180,7 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                             }
 
                             binding.root.post {
-                                binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette_in_code_str, colorPaletteTitle), SnackbarDuration.Medium, getString(R.string.generic_switch_in_code_str)) {
+                                binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette, colorPaletteTitle), SnackbarDuration.Medium, getString(R.string.generic_switch)) {
                                     AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
                                         selectedColorPaletteIndex = it.size - 1
                                     }

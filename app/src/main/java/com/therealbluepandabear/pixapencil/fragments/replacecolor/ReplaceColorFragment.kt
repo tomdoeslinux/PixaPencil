@@ -30,7 +30,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
 
     private lateinit var caller: ReplaceColorFragmentListener
 
-    override val title: String by lazy { getString(R.string.fragment_replace_color_title_in_code_str) }
+    override val title: String by lazy { getString(R.string.fragment_replace_color_title) }
 
     private var colorToFind: Int? = null
     private var colorToReplace: Int? = null
