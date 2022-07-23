@@ -11,7 +11,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
 import com.therealbluepandabear.pixapencil.activities.canvas.startSpotLight
-import com.therealbluepandabear.pixapencil.enums.RotationValue
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -20,7 +19,6 @@ import kotlinx.coroutines.launch
 
 
 fun CanvasActivity.onCreate() {
-    prevOrientation = resources.configuration.orientation
     viewModel.currentBitmapAction = null
     initColorPalettesDBIfNotInitialized()
     getExtras()

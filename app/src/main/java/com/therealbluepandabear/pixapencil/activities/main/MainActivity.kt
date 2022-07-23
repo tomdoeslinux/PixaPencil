@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
 
     val pixelArtViewModel: PixelArtViewModel by viewModels()
     lateinit var pixelArtData: List<PixelArt>
+
+    lateinit var galleryActivityLauncher: ActivityResultLauncher<Array<String>>
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         initSharedPreferencesObject()

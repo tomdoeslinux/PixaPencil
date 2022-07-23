@@ -7,6 +7,7 @@ import android.graphics.Matrix
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
+import java.io.ByteArrayOutputStream
 
 fun Bitmap.size(): Int {
     return width * height
@@ -171,4 +172,11 @@ fun Bitmap.drawTransparent() {
             }
         }
     }
+}
+
+fun Bitmap.toByteArray(): ByteArray {
+    val stream = ByteArrayOutputStream()
+    compress(Bitmap.CompressFormat.PNG, 90, stream)
+
+    return stream.toByteArray()
 }

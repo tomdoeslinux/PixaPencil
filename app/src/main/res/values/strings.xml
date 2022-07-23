@@ -133,6 +133,7 @@
     <string name="bottomNavigationMenu_starred_str">Starred</string>
     <string name="bottomNavigationMenu_home_str">Home</string>
     <string name="activityMainTopAppMenu_delete_all_str">Delete All</string>
+    <string name="activityMainTopAppMenu_open_image_str">Open Image</string>
     <!--Pencil tool information strings-->
     <string name="pencil_tool_info_title_in_code_str">Pencil Tool Info</string>
     <string name="pencil_tool_info_text_in_code_str">Draw freehand, pixelated paths.</string>

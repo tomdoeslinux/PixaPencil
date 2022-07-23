@@ -17,5 +17,6 @@ fun MainActivity.extendedOnCreate() {
     setupRecyclerView()
     observePixelArtData()
     addMenuProvider()
+    initActivityResultLauncher()
     selectedColorPaletteIndex = 0
 }

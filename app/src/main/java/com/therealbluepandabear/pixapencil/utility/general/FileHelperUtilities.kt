@@ -12,8 +12,11 @@ import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
+import android.os.ParcelFileDescriptor
+import androidx.core.app.ActivityCompat.startActivityForResult
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.customviews.pixelgridview.file
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
@@ -22,10 +25,7 @@ import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
 import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
+import java.io.*
 
 
 class FileHelperUtilities(private val context: Context) {
@@ -217,4 +217,15 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
+    @Throws(IOException::class)
+    fun getBitmapFromUri(uri: Uri): Bitmap {
+        val contentResolver = context.applicationContext.contentResolver
+        val parcelFileDescriptor: ParcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")!!
+        val fileDescriptor: FileDescriptor = parcelFileDescriptor.fileDescriptor
+
+        val bmp: Bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+        parcelFileDescriptor.close()
+
+        return bmp
+    }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -47,14 +48,14 @@ class CanvasActivity :
 
     lateinit var binding: ActivityCanvasBinding
 
-    var projectTitle: String? = null
-
     val viewModel: CanvasActivityViewModel by viewModels()
 
     var index: Int = -1
 
-    var width = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-    var height = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    var projectTitle: String = ""
+    var width: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    var height: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    var uri: Uri? = null
 
     var background: Drawable? = null
 
@@ -68,9 +69,6 @@ class CanvasActivity :
 
     lateinit var sprayAlgorithmInstance: SprayAlgorithm
     var sprayAlgorithmInstanceInitialized = ::sprayAlgorithmInstance.isInitialized
-
-    var prevOrientation: Int = 0
-    var prevRotation: Int = 0
 
     lateinit var primaryAlgorithmInfoParameter: AlgorithmInfoParameter
     val primaryAlgorithmInfoParameterInitialized = ::primaryAlgorithmInfoParameter.isInitialized

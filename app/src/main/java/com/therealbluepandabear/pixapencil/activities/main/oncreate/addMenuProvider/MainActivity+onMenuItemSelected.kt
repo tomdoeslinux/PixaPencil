@@ -1,10 +1,14 @@
 package com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider
 
+import android.content.Intent
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.activities.main.extendedOnDoneButtonPressed
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
@@ -47,6 +51,10 @@ fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
                     pixelArtViewModel.deleteAll()
                     binding.activityMainCoordinatorLayout.showSnackbar(getString(R.string.snackbar_deleted_projects_str, size.toString()), SnackbarDuration.Medium)
                 },  getString(R.string.generic_cancel_in_code_str), null)
+        }
+
+        R.id.activityMainTopAppMenu_open_image_item -> {
+            galleryActivityLauncher.launch(arrayOf ("image/*"))
         }
     }
 

@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_baseline_info_24"
         app:showAsAction="ifRoom"
         android:title="@string/activityMainTopAppMenu_about_str" />
+    <item android:id="@+id/activityMainTopAppMenu_open_image_item"
+        android:icon="@drawable/ic_baseline_info_24"
+        app:showAsAction="never"
+        android:title="@string/activityMainTopAppMenu_open_image_str" />
     <item android:id="@+id/activityMainTopAppMenu_delete_all_item"
         android:icon="@drawable/ic_baseline_info_24"
         app:showAsAction="never"

@@ -1,12 +1,15 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
 import android.content.res.Configuration
-import android.util.Log
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.core.view.OneShotPreDrawListener
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
+import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
+import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
+
 
 fun CanvasActivity.calcCrucialViewDimensions() {
     /** We are using a OneShotPreDrawListener to ensure that the view is
@@ -15,13 +18,11 @@ fun CanvasActivity.calcCrucialViewDimensions() {
 
     // To avoid duplication throughout each 'when' block
     OneShotPreDrawListener.add(binding.activityCanvasTransparentBackgroundView) {
-        Log.d("ABCDEFG", "$width $height")
         binding.activityCanvasTransparentBackgroundView.setBitmapWidth(width)
         binding.activityCanvasTransparentBackgroundView.setBitmapHeight(height)
     }
 
     OneShotPreDrawListener.add(binding.activityCanvasPixelGridView) {
-        Log.d("ABCDEFG", "$width $height")
         binding.activityCanvasPixelGridView.setBitmapWidth(width)
         binding.activityCanvasPixelGridView.setBitmapHeight(height)
     }
@@ -32,6 +33,16 @@ fun CanvasActivity.calcCrucialViewDimensions() {
 
     if (index != -1 && viewModel.currentBitmap == null) {
         binding.activityCanvasPixelGridView.setExistingBitmap(BitmapConverter.convertStringToBitmap(AppData.pixelArtDB.dao().getAllNoLiveData()[index].bitmap)!!)
+    } else if (uri != null && viewModel.currentBitmap == null) {
+        val uri = Uri.parse(intent.getStringExtra(StringConstants.Extras.BITMAP_URI_EXTRA))
+        val fileHelperUtilities = FileHelperUtilities.createInstance(this)
+
+        try {
+            val bmp: Bitmap = fileHelperUtilities.getBitmapFromUri(uri)
+            width = bmp.width
+            height = bmp.height
+            binding.activityCanvasPixelGridView.setExistingBitmap(bmp)
+        } catch (exception: Exception) { }
     } else if (viewModel.currentBitmap != null) {
         binding.activityCanvasPixelGridView.setExistingBitmap(viewModel.currentBitmap!!)
     }
