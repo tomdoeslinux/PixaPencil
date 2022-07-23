@@ -217,15 +217,25 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    @Throws(IOException::class)
-    fun getBitmapFromUri(uri: Uri): Bitmap {
-        val contentResolver = context.applicationContext.contentResolver
-        val parcelFileDescriptor: ParcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")!!
-        val fileDescriptor: FileDescriptor = parcelFileDescriptor.fileDescriptor
+    fun getBitmapFromUri(
+        uri: Uri,
+        onTaskFinished: (OutputCode, Bitmap?, String?) -> Unit) {
+        var outputCode = OutputCode.Success
+        var bitmap: Bitmap? = null
+        var exceptionMessage: String? = null
 
-        val bmp: Bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
-        parcelFileDescriptor.close()
+        try {
+            val contentResolver = context.applicationContext.contentResolver
+            val parcelFileDescriptor: ParcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")!!
+            val fileDescriptor: FileDescriptor = parcelFileDescriptor.fileDescriptor
 
-        return bmp
+            bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+            parcelFileDescriptor.close()
+        } catch (ioException: IOException) {
+            exceptionMessage = ioException.message
+            outputCode = OutputCode.Failure
+        } finally {
+            onTaskFinished(outputCode, bitmap, exceptionMessage)
+        }
     }
 }

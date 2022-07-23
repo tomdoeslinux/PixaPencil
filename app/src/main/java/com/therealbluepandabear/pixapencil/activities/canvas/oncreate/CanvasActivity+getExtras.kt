@@ -1,8 +1,8 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 
-import android.net.Uri
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.extensions.getUriExtra
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.getExtras() {
@@ -13,10 +13,10 @@ fun CanvasActivity.getExtras() {
     spotLightInProgress = intent.getBooleanExtra(StringConstants.Extras.SPOTLIGHT_IN_PROGRESS_EXTRA, false)
     projectTitle = title?.toString() ?: projectTitle
 
-    val uriStr = intent.getStringExtra(StringConstants.Extras.BITMAP_URI_EXTRA)
+    val uriStr = intent.getUriExtra(StringConstants.Extras.BITMAP_URI_EXTRA)
 
     if (uriStr != null) {
-        uri = Uri.parse(uriStr)
+        uri = uriStr
     }
 
     if (index == -1) {
