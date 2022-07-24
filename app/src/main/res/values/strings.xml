@@ -254,6 +254,7 @@
     <string name="spot_light_new_project_fragment_2">Now, type in your desired width</string>
     <string name="spot_light_new_project_fragment_3">Finally, set your project\'s height</string>
     <string name="spot_light_new_project_fragment_4">Tap to create your project</string>
+    <string name="spot_light_new_project_fragment_input_value">Please input a value for %1$s</string>
 
     <string name="spot_light_activity_canvas_1">Long tap on either your primary or secondary color to get to the color picker</string>
     <string name="spot_light_activity_canvas_2">Here you will find your tools</string>
