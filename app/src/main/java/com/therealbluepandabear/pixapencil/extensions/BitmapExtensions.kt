@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
+import android.util.Log
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
@@ -81,6 +82,7 @@ fun Bitmap.getColors(): MutableList<Int> {
         }
     }
 
+    Log.d("JOEBIDEN", colors.size.toString())
     return colors
 }
 
@@ -172,11 +174,4 @@ fun Bitmap.drawTransparent() {
             }
         }
     }
-}
-
-fun Bitmap.toByteArray(): ByteArray {
-    val stream = ByteArrayOutputStream()
-    compress(Bitmap.CompressFormat.PNG, 90, stream)
-
-    return stream.toByteArray()
 }
