@@ -63,27 +63,27 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
             if (Build.VERSION.SDK_INT >= 30) {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle)
             } else {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle)
             }
         }
 
         R.id.activityCanvasTopAppMenu_export_to_tiff_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_bmp_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle ?: "")
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
