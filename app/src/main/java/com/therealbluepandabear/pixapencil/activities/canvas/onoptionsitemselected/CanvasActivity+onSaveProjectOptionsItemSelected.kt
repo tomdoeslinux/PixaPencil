@@ -18,7 +18,7 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     viewModel.saved = true
 
     val coverBitmap = getCoverImageBitmap()
-    val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle!!)
+    val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle)
 
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBitmapFilePath, coverBitmap)

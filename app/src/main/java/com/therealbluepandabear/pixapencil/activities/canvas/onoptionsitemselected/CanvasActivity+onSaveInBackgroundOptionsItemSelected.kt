@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 
 fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
     val coverBitmap = getCoverImageBitmap()
-    val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle!!)
+    val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle)
 
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
     fileHelperInstance.storeBitmapToInternalStorage(coverBitmapFilePath, coverBitmap)
