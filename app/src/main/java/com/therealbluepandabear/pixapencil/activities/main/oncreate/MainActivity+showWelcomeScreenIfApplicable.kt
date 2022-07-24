@@ -25,12 +25,5 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
             { _, _ ->
                 startSpotLight()
             }, getString(R.string.generic_no_thanks), { _, _ -> })
-
-        if (this@showWelcomeScreenIfApplicable.getScreenWidth() < 600 && this@showWelcomeScreenIfApplicable.getScreenHeight() < 850) {
-            showSimpleInfoDialog(
-                getString(R.string.generic_warning),
-                getString(R.string.dialog_small_screen_warning_text)
-            )
-        }
     }
 }
