@@ -82,7 +82,6 @@ fun Bitmap.getColors(): MutableList<Int> {
         }
     }
 
-    Log.d("JOEBIDEN", colors.size.toString())
     return colors
 }
 
