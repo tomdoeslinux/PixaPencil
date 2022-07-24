@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.appinfo.AppInfoFragment"
     style="@style/defaultFragmentStyle">
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="150dp"

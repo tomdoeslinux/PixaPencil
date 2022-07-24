@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.therealbluepandabear.pixapencil.BuildConfig
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.databinding.FragmentAppInfoBinding
 
 class AppInfoFragment : Fragment() {
@@ -27,6 +28,8 @@ class AppInfoFragment : Fragment() {
         binding.fragmentAppInfoCommunityText.movementMethod = LinkMovementMethod.getInstance()
         binding.fragmentAppInfoCreatedByText.movementMethod = LinkMovementMethod.getInstance()
         binding.fragmentAppInfoAboutText.movementMethod = LinkMovementMethod.getInstance()
+
+        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     companion object {

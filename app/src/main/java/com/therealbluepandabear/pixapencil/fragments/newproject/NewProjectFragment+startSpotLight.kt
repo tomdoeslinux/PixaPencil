@@ -90,14 +90,19 @@ fun NewProjectFragment.startSpotLight() {
     var current = 1
 
     lyt.findViewById<Button>(R.id.layoutTarget_nextButton).setOnClickListener {
-        if (current == 1 && binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString().isNotBlank()) {
+        if (current == 1 && binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString().isNotBlank()) {7
+            lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
             current++
             spotlight.next()
         } else if (current == 2 && binding.fragmentNewCanvasWidthTextInputEditText.text.toString().isNotBlank()) {
+            lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
             current++
             spotlight.next()
         } else if (current == 3 && binding.fragmentNewCanvasHeightTextInputEditText.text.toString().isNotBlank()) {
+            lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
             spotlight.next()
+        } else {
+            lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = "Please input a value"
         }
     }
 
