@@ -234,6 +234,8 @@
     <string name="dialog_large_canvas_warning_text">You are about to create a large canvas, keep in mind that your phone might not be able to support bitmaps of these sizes.</string>
     <string name="dialog_large_canvas_warning_positive_button_text">I understand, create the project</string>
     <string name="dialog_delete_all_projects">Are you sure you want to delete all of your projects? This cannot be undone.</string>
+    <string name="dialog_open_image_enter_name_title">Enter name</string>
+    <string name="dialog_open_image_enter_name_text">Enter a name for your project</string>
 
     <!-- Snackbar strings -->
     <string name="snackbar_view_exception_info_button_text">View</string>
