@@ -25,10 +25,12 @@
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
     <string name="colorPalettesLayout_color_palette_item">Color Palette Item</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name">New name</string>
+
     <string name="activityMainBottomSheet_duplicate">Duplicate</string>
     <string name="activityMainBottomSheet_view_details">View Details</string>
     <string name="activityMainBottomSheet_rename">Rename</string>
     <string name="activityMainBottomSheet_delete">Delete</string>
+
     <string name="projectDetailsAlertBox_width">Width</string>
     <string name="projectDetailsAlertBox_height">Height</string>
     <string name="projectDetailsAlertBox_created">Created</string>
@@ -155,41 +157,41 @@
 
     <!-- Tool information strings -->
     <string name="pencil_tool_info_title">Pencil Tool Info</string>
-    <string name="pencil_tool_info_text">Draw freehand, pixelated paths.</string>
+    <string name="pencil_tool_info_text">Draw freehand, pixelated paths</string>
     <string name="erase_tool_info_title">Erase Tool Info</string>
-    <string name="erase_tool_info_text">Erase pixels.</string>
+    <string name="erase_tool_info_text">Erase pixels</string>
     <string name="move_tool_info_title">Move Tool Info</string>
-    <string name="move_tool_info_text">Move around the canvas by holding your finger on the screen and dragging.</string>
+    <string name="move_tool_info_text">Move around the canvas by holding your finger on the screen and dragging</string>
     <string name="color_picker_tool_info_title">Color Picker Tool Info</string>
-    <string name="color_picker_tool_info_text">Get the color at the specified pixel.</string>
+    <string name="color_picker_tool_info_text">Get the color at the specified pixel</string>
     <string name="fill_tool_info_title">Fill Tool Info</string>
-    <string name="fill_tool_info_text">Fill adjacent pixels which are similar in color value.</string>
+    <string name="fill_tool_info_text">Fill adjacent pixels which are similar in color value</string>
     <string name="line_tool_info_title">Line Tool Info</string>
-    <string name="line_tool_info_text">Draw pixelated lines.</string>
+    <string name="line_tool_info_text">Draw pixelated lines</string>
     <string name="rectangle_tool_info_title">Rectangle Tool Info</string>
-    <string name="rectangle_tool_info_text">Draw filled, pixelated rectangles.</string>
+    <string name="rectangle_tool_info_text">Draw filled, pixelated rectangles</string>
     <string name="outlined_rectangle_tool_info_title">Outlined Rectangle Tool Info</string>
-    <string name="outlined_rectangle_tool_info_text">Draw outlined, pixelated rectangles.</string>
+    <string name="outlined_rectangle_tool_info_text">Draw outlined, pixelated rectangles</string>
     <string name="square_tool_info_title">Square Tool Info</string>
-    <string name="square_tool_info_text">Draw filled, pixelated squares.</string>
+    <string name="square_tool_info_text">Draw filled, pixelated squares</string>
     <string name="outlined_square_tool_info_title">Outlined Square Tool Info</string>
-    <string name="outlined_square_tool_info_text">Draw outlined, pixelated squares.</string>
+    <string name="outlined_square_tool_info_text">Draw outlined, pixelated squares</string>
     <string name="ellipse_tool_info_title">Ellipse Tool Info</string>
-    <string name="ellipse_tool_info_text">Draw filled, pixelated ellipses.</string>
+    <string name="ellipse_tool_info_text">Draw filled, pixelated ellipses</string>
     <string name="outlined_ellipse_tool_info_title">Outlined Ellipse Tool Info</string>
-    <string name="outlined_ellipse_tool_info_text">Draw outlined, pixelated ellipses.</string>
+    <string name="outlined_ellipse_tool_info_text">Draw outlined, pixelated ellipses</string>
     <string name="circle_tool_info_title">Circle Tool Info</string>
-    <string name="circle_tool_info_text">Draw filled, pixelated circles.</string>
+    <string name="circle_tool_info_text">Draw filled, pixelated circles</string>
     <string name="outlined_circle_tool_info_title">Outlined Circle Tool Info</string>
-    <string name="outlined_circle_tool_info_text">Draw outlined, pixelated circles.</string>
+    <string name="outlined_circle_tool_info_text">Draw outlined, pixelated circles</string>
     <string name="spray_tool_info_title">Spray Tool Info</string>
-    <string name="spray_tool_info_text">Simulate real-life spray paint.</string>
+    <string name="spray_tool_info_text">Simulate real-life spray paint</string>
     <string name="polygon_tool_info_title">Polygon Tool Info</string>
-    <string name="polygon_tool_info_text">Draw polygonal paths.</string>
+    <string name="polygon_tool_info_text">Draw polygonal paths</string>
     <string name="dither_tool_info_title">Dither Tool Info</string>
-    <string name="dither_tool_info_text">Draw checkerboard patterns, good for shading.</string>
+    <string name="dither_tool_info_text">Draw checkerboard patterns, good for shading</string>
     <string name="shading_tool_info_title">Shading Tool Info</string>
-    <string name="shading_tool_info_text">Lighten/darken pixels on your canvas.</string>
+    <string name="shading_tool_info_text">Lighten/darken pixels on your canvas</string>
 
     <!-- Exception strings -->
     <string name="exception_invalid_project_name">Name cannot be empty</string>
@@ -231,7 +233,6 @@
     <string name="dialog_welcome_text">Welcome to PixaPencil! Would you like to start an interactive tutorial?</string>
     <string name="dialog_large_canvas_warning_text">You are about to create a large canvas, keep in mind that your phone might not be able to support bitmaps of these sizes.</string>
     <string name="dialog_large_canvas_warning_positive_button_text">I understand, create the project</string>
-    <string name="dialog_small_screen_warning_text">You seem to have a small screen size, PixaPencil is currently incompatible with screens of your size.</string>
     <string name="dialog_delete_all_projects">Are you sure you want to delete all of your projects? This cannot be undone.</string>
 
     <!-- Snackbar strings -->
