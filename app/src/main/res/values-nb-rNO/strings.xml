@@ -17,8 +17,8 @@
     <string name="fragmentSprayToolSettings_strength">Styrke</string>
     <string name="fragmentSprayToolSettings_radius">Radius</string>
     <string name="fragmentSprayToolSettings_done">Ferdig</string>
-    <string name="fragmentNewColorPalette_width">Bredde</string>
-    <string name="fragmentNewColorPalette_height">Høyde</string>
+    <string name="fragmentNewProject_width">Bredde</string>
+    <string name="fragmentNewProject_height">Høyde</string>
     <string name="fragment_new_project_title">Nytt prosjekt</string>
     <string name="fragment_color_picker_title">Velg farge</string>
     <string name="fragment_new_color_palette_title">Ny fargepalett</string>
@@ -110,7 +110,7 @@
     <string name="spot_light_activity_canvas_6">Du har kun forvalgspaletten, men du kan alltids lage en ny ved å trykke på utelatelsestegnet øverst til høyre på skjermen din</string>
     <string name="activityCanvasTopAppMenu_redo">Gjenta</string>
     <string name="fragmentTools_spray_tool_content_description">Sprayboksverktøy</string>
-    <string name="fragmentNewCanvas_project_name">Navn</string>
+    <string name="fragmentNewProject_name">Navn</string>
     <string name="activityCanvas_tab_tools">Verktøy</string>
     <string name="activityCanvas_tab_color_palettes">Paletter</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Kopiert til utklippstavlen</string>

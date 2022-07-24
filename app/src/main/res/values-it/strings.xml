@@ -22,8 +22,8 @@
     <string name="fragmentSprayToolSettings_strength">Forza</string>
     <string name="fragmentSprayToolSettings_radius">Raggio</string>
     <string name="fragmentSprayToolSettings_done">Fatto</string>
-    <string name="fragmentNewColorPalette_width">Larghezza</string>
-    <string name="fragmentNewColorPalette_height">Altezza</string>
+    <string name="fragmentNewProject_width">Larghezza</string>
+    <string name="fragmentNewProject_height">Altezza</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Trova Anteprima</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Rimpiazza Anteprima</string>
     <string name="fragment_new_project_title">Nuovo Progetto</string>
@@ -49,7 +49,7 @@
     <string name="fragmentTools_polygon_tool_content_description">Strumento Poligono</string>
     <string name="fragmentTools_dither_tool_content_description">Strumento Dither</string>
     <string name="fragmentTools_shading_tool_content_description">Strumento Ombreggiatura</string>
-    <string name="fragmentNewCanvas_project_name">Nome</string>
+    <string name="fragmentNewProject_name">Nome</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Valore esadecimale</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Copiato correttamente negli appunti</string>
     <string name="activityCanvas_tab_filters">Filtri</string>

@@ -43,8 +43,8 @@
     <string name="fragmentSprayToolSettings_strength">Strength</string>
     <string name="fragmentSprayToolSettings_radius">Radius</string>
     <string name="fragmentSprayToolSettings_done">Done</string>
-    <string name="fragmentNewColorPalette_width">Width</string>
-    <string name="fragmentNewColorPalette_height">Height</string>
+    <string name="fragmentNewProject_width">Width</string>
+    <string name="fragmentNewProject_height">Height</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Find Preview</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Replace Preview</string>
     <string name="fragment_new_project_title">New Project</string>
@@ -71,7 +71,7 @@
     <string name="fragmentTools_polygon_tool_content_description">Polygon Tool</string>
     <string name="fragmentTools_dither_tool_content_description">Dither Tool</string>
     <string name="fragmentTools_shading_tool_content_description">Shading Tool</string>
-    <string name="fragmentNewCanvas_project_name">Name</string>
+    <string name="fragmentNewProject_name">Name</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Hexadecimal value</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Successfully copied to clipboard</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Failed to copy text clipboard</string>

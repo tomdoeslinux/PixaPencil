@@ -2,10 +2,10 @@
 <resources>
     <string name="generic_ok">OK</string>
     <string name="fragmentFilters_darken">Gelapkan</string>
-    <string name="fragmentNewColorPalette_height">Tinggi</string>
+    <string name="fragmentNewProject_height">Tinggi</string>
     <string name="fragmentFindAndReplace_find">Cari</string>
     <string name="fragment_spray_tool_settings_title">Pengaturan Alat Semprot</string>
-    <string name="fragmentNewColorPalette_width">Lebar</string>
+    <string name="fragmentNewProject_width">Lebar</string>
     <string name="generic_no_thanks">Tidak, terima kasih</string>
     <string name="fragment_new_project_title">Proyek Baru</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Favoritkan</string>

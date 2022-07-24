@@ -23,7 +23,7 @@
     <string name="fragmentFindAndReplace_colors_in_your_canvas">Cores no seu canvas:</string>
     <string name="fragmentFindAndReplace_not_enough_colors">Cores insuficientes\? Altere a paleta de cores selecionada.</string>
     <string name="fragmentSprayToolSettings_strength">Intensidade</string>
-    <string name="fragmentNewColorPalette_height">Altura</string>
+    <string name="fragmentNewProject_height">Altura</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Procurar pré-visualização</string>
     <string name="fragment_color_picker_title">Selecionar cor</string>
     <string name="fragment_new_color_palette_title">Nova Paleta de Cores</string>
@@ -47,7 +47,7 @@
     <string name="fragmentTools_polygon_tool_content_description">Polígono</string>
     <string name="fragmentTools_dither_tool_content_description">Dither</string>
     <string name="fragmentTools_shading_tool_content_description">Sombreamento</string>
-    <string name="fragmentNewCanvas_project_name">Nome</string>
+    <string name="fragmentNewProject_name">Nome</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Valor Hexadecimal</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Copiado para a Área de transferência com sucesso</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Erro ao copiar para a Área de transferência</string>
@@ -64,7 +64,7 @@
     <string name="activityCanvasTopAppMenu_rotate">Girar</string>
     <string name="fragmentSprayToolSettings_radius">Raio</string>
     <string name="fragmentSprayToolSettings_done">Feito</string>
-    <string name="fragmentNewColorPalette_width">Largura</string>
+    <string name="fragmentNewProject_width">Largura</string>
     <string name="activityCanvasTopAppMenu_undo">Desfazer</string>
     <string name="generic_cancel">Cancelar</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorito</string>

@@ -44,8 +44,8 @@
     <string name="fragmentSprayToolSettings_strength">Količina sprejanja</string>
     <string name="fragmentSprayToolSettings_radius">Radijus sprejanja</string>
     <string name="fragmentSprayToolSettings_done">Gotovo</string>
-    <string name="fragmentNewColorPalette_width">Širina</string>
-    <string name="fragmentNewColorPalette_height">Visina</string>
+    <string name="fragmentNewProject_width">Širina</string>
+    <string name="fragmentNewProject_height">Visina</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Pregled pretrage</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Pregled zamjene</string>
     <string name="fragment_new_project_title">Novi projekt</string>
@@ -71,7 +71,7 @@
     <string name="fragmentTools_polygon_tool_content_description">Poligon</string>
     <string name="fragmentTools_dither_tool_content_description">Točkanje</string>
     <string name="fragmentTools_shading_tool_content_description">Sjenčanje</string>
-    <string name="fragmentNewCanvas_project_name">Ime</string>
+    <string name="fragmentNewProject_name">Ime</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Heksadecimalna vrijednost</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Uspješno kopirano u međuspremnik</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Neuspjelo kopiranje teksta u međuspremnik</string>

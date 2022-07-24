@@ -21,7 +21,7 @@
     <string name="fragment_new_project_title">Nouveau projet</string>
     <string name="fragment_replace_color_title">Rechercher et remplacer</string>
     <string name="fragmentTools_fill_tool_content_description">Outil de remplissage</string>
-    <string name="fragmentNewCanvas_project_name">Nom</string>
+    <string name="fragmentNewProject_name">Nom</string>
     <string name="activityCanvasTopAppMenu_rotate">Pivoter</string>
     <string name="activityCanvasTopAppMenu_rotate_90_clockwise">Pivoter 90° (horaire)</string>
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">Rotation de 90° (anti-horaire</string>
@@ -36,8 +36,8 @@
     <string name="activityCanvasTopAppMenu_symmetry_horizontal">Horizontal</string>
     <string name="activityCanvasTopAppMenu_symmetry">Symétrie</string>
     <string name="fragmentTools_outlined_square_button_content_description">Outil carré souligné</string>
-    <string name="fragmentNewColorPalette_width">Largeur</string>
-    <string name="fragmentNewColorPalette_height">Hauteur</string>
+    <string name="fragmentNewProject_width">Largeur</string>
+    <string name="fragmentNewProject_height">Hauteur</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas">Les couleurs de votre canevas :</string>
     <string name="fragmentNewColorPalette_done">Terminé</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Extraire du canevas</string>

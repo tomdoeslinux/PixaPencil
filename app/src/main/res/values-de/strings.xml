@@ -13,8 +13,8 @@
     <string name="fragmentFilters_darken">Verdunkeln</string>
     <string name="fragmentFilters_invert">Invertieren</string>
     <string name="fragmentFilters_grayscale">Graustufen</string>
-    <string name="fragmentNewColorPalette_width">Breite</string>
-    <string name="fragmentNewColorPalette_height">Höhe</string>
+    <string name="fragmentNewProject_width">Breite</string>
+    <string name="fragmentNewProject_height">Höhe</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Vorschau finden</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Ersetze die Vorschau</string>
     <string name="fragment_new_project_title">Neues Projekt</string>
@@ -55,7 +55,7 @@
     <string name="fragmentTools_ellipse_tool_content_description">Ellipsen-Tool</string>
     <string name="fragmentTools_dither_tool_content_description">Verschmieren-Tool</string>
     <string name="fragmentTools_shading_tool_content_description">Schattierungs-Tool</string>
-    <string name="fragmentNewCanvas_project_name">Name</string>
+    <string name="fragmentNewProject_name">Name</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Hexadezimalzahl</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Erfolgreich kopiert</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Kopieren fehlgeschlagen</string>

@@ -47,8 +47,8 @@
     <string name="fragmentSprayToolSettings_strength">כוח</string>
     <string name="fragmentSprayToolSettings_radius">רַדִיוּס</string>
     <string name="fragmentSprayToolSettings_done">לְאַשֵׁר</string>
-    <string name="fragmentNewColorPalette_width">רוֹחַב</string>
-    <string name="fragmentNewColorPalette_height">גוֹבַה</string>
+    <string name="fragmentNewProject_width">רוֹחַב</string>
+    <string name="fragmentNewProject_height">גוֹבַה</string>
     <string name="fragment_find_and_replace_find_preview_content_description">לפני</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">אַחֲרֵי</string>
 
@@ -78,7 +78,7 @@
     <string name="fragmentTools_dither_tool_content_description">כלי דיטר</string>
     <string name="fragmentTools_shading_tool_content_description">כלי הצללה</string>
 
-    <string name="fragmentNewCanvas_project_name">שֵׁם</string>
+    <string name="fragmentNewProject_name">שֵׁם</string>
 
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">ערך הקסדצימלי</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">הקוד הועתק בהצלחה ללוח</string>

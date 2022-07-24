@@ -98,7 +98,7 @@ fun NewProjectFragment.startSpotLight() {
                     spotlight.next()
                 } else {
                     lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
-                        getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewCanvas_project_name)}'")
+                        getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewProject_name)}'")
                 }
             }
 
@@ -109,7 +109,7 @@ fun NewProjectFragment.startSpotLight() {
                     spotlight.next()
                 } else {
                     lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
-                        getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewColorPalette_width)}'")
+                        getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewProject_width)}'")
                 }
             }
 
@@ -120,7 +120,7 @@ fun NewProjectFragment.startSpotLight() {
                     spotlight.next()
                 } else {
                     lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
-                        getString(R.string.spot_light_new_project_fragment_input_value,"'${getString(R.string.fragmentNewColorPalette_height)}'")
+                        getString(R.string.spot_light_new_project_fragment_input_value,"'${getString(R.string.fragmentNewProject_height)}'")
                 }
             }
         }
