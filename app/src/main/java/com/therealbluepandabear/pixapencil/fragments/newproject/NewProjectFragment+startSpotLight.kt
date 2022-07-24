@@ -87,8 +87,18 @@ fun NewProjectFragment.startSpotLight() {
         .setAnimation(DecelerateInterpolator(2f))
         .build()
 
+    var current = 1
+
     lyt.findViewById<Button>(R.id.layoutTarget_nextButton).setOnClickListener {
-        spotlight.next()
+        if (current == 1 && binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString().isNotBlank()) {
+            current++
+            spotlight.next()
+        } else if (current == 2 && binding.fragmentNewCanvasWidthTextInputEditText.text.toString().isNotBlank()) {
+            current++
+            spotlight.next()
+        } else if (current == 3 && binding.fragmentNewCanvasHeightTextInputEditText.text.toString().isNotBlank()) {
+            spotlight.next()
+        }
     }
 
     lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
