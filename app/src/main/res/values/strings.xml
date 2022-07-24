@@ -263,4 +263,7 @@
     <string name="spot_light_activity_canvas_6">You only have the default palette, but you can always create a new one by tapping the three dots at the top right of your screen</string>
     <string name="spot_light_activity_canvas_7">Tap on \'Brushes\' to view your brushes</string>
     <string name="spot_light_activity_canvas_8">PixaPencil has five brushes you can try out</string>
+
+    <string name="spot_light_next">Next</string>
+    <string name="spot_light_close">Close</string>
 </resources>
