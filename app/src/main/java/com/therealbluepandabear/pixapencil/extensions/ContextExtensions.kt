@@ -28,11 +28,3 @@ fun Context.copyToClipboard(label: String, text: String): OutputCode {
         OutputCode.Failure
     }
 }
-
-fun Context.getScreenWidth(): Int {
-    return resources.displayMetrics.widthPixels
-}
-
-fun Context.getScreenHeight(): Int {
-    return resources.displayMetrics.heightPixels
-}
