@@ -3,10 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.main.oncreate
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.activities.main.startSpotLight
-import com.therealbluepandabear.pixapencil.extensions.getScreenHeight
-import com.therealbluepandabear.pixapencil.extensions.getScreenWidth
 import com.therealbluepandabear.pixapencil.extensions.showDialog
-import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.showWelcomeScreenIfApplicable() {
