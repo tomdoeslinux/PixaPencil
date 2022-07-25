@@ -14,7 +14,7 @@ fun MainActivity.initActivityResultLauncher() {
     galleryActivityLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) {
         if (it != null) {
             val textInput: TextInputLayout =
-                layoutInflater.inflate(R.layout.save_file_under_new_name_alert, findViewById(android.R.id.content),false) as TextInputLayout
+                layoutInflater.inflate(R.layout.name_project_alert, findViewById(android.R.id.content),false) as TextInputLayout
             val text = textInput.editText?.text
 
             showDialog(
