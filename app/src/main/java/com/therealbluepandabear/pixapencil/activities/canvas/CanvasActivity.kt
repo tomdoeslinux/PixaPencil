@@ -97,16 +97,6 @@ class CanvasActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
-
-        binding.root.setOnTouchListener { _, motionEvent ->
-            val hitRect = Rect()
-            binding.activityCanvasCardView.getHitRect(hitRect)
-
-            if (hitRect.contains(motionEvent.rawX.toInt(), motionEvent.rawY.toInt())) {
-                binding.activityCanvasPixelGridView.onTouchEvent(motionEvent)
-            }
-            true
-        }
     }
 
     override fun onPause() {
