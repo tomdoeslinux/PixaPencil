@@ -180,7 +180,6 @@
     <string name="outlined_rectangle_tool_info_text">Tegn omriss av pikselerte rektangler.</string>
     <string name="outlined_square_tool_info_title">Kvadratomrissverktøyinfo</string>
     <string name="dialog_save_under_new_name_text">Forsikre deg om at det nye navnet ikke finnes fra før.</string>
-    <string name="dialog_small_screen_warning_text">PixaPencil trenger større skjermoppløsning for å fungere.</string>
     <string name="dialog_large_canvas_warning_text">Du er i ferd med å opprette et stort lerret. Det kan hende at enheten din ikke støtter bitmap-bilder av denne størrelsen.</string>
     <string name="exception_accessing_negative_index_message">Får ikke tilgang til pikselkunstobjekt med negativ indeks i liste.</string>
     <string name="dialog_file_exists_message">%1$s finnes allerede. Erstatt det eller lagre med nytt navn\?</string>

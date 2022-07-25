@@ -156,7 +156,6 @@
     <string name="dialog_welcome_text">Ciao da PixaPencil! Vuoi iniziare con una guida interattiva\?</string>
     <string name="dialog_large_canvas_warning_text">Stai per creare una tela grande, tieni presente che il tuo telefono potrebbe non supportare bitmap di queste dimensioni.</string>
     <string name="dialog_large_canvas_warning_positive_button_text">Capisco, crea il progetto</string>
-    <string name="dialog_small_screen_warning_text">Pare che tua abbia uno schermo piccolo, al momento PixaPencil non supporta schermi della tua misura.</string>
     <string name="snackbar_view_exception_info_button_text">Vista</string>
     <string name="snackbar_on_color_long_tapped">Colore rimosso da %1$s</string>
     <string name="snackbar_image_successfully_saved">%1$s salvato correttamente come %2$s</string>

@@ -195,7 +195,6 @@
     <string name="dialog_welcome_title">Pozdrav</string>
     <string name="dialog_welcome_text">Pozdrav u PixaPencilu! Želiš li pokrenuti interaktivnu vježbu\?</string>
     <string name="dialog_large_canvas_warning_text">Stvorit ćeš veliko platno. Imaj na umu da tvoj mobitel možda nije u stanju podržati bitmape ovih veličina.</string>
-    <string name="dialog_small_screen_warning_text">Čini se da imaš mali ekran. PixaPencil trenutačno nije kompatibilan s ekranima tvoje veličine.</string>
     <string name="snackbar_view_exception_info_button_text">Prikaz</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text">Nije moguće izbrisati standardnu paletu boja</string>
     <string name="tool_tip_dont_show_again">Nemoj ponovo prikazati</string>

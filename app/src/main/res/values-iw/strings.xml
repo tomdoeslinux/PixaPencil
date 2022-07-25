@@ -241,7 +241,6 @@
     <string name="dialog_welcome_text">ברוך הבא ל-PixaPencil! האם תרצה להתחיל הדרכה אינטראקטיבית?</string>
     <string name="dialog_large_canvas_warning_text">אתה יוצר קנבס גדול, אתה עלול להיתקל בבעיות ביצועים מכיוון שטלפונים מסוימים אינם יכולים לתמוך ביקנבס בגודל זה.</string>
     <string name="dialog_large_canvas_warning_positive_button_text">אני מבין, תיצור את הפרויקט</string>
-    <string name="dialog_small_screen_warning_text">PixaPencil אינו תואם כרגע למסכי טלפון בגודל שלך</string>
 
     <!--Snackbar strings-->
     <string name="snackbar_view_exception_info_button_text">פתח את הקובץ</string>

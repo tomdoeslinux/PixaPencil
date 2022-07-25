@@ -182,7 +182,6 @@
     <string name="exception_invalid_project_name">Name kann nicht leer sein</string>
     <string name="exception_invalid_spray_strength">Wert muss zwischen 1 und 20.000 liegen</string>
     <string name="dialog_welcome_text">Willkommen! Möchtest du mit einem interaktiven Tutorial starten\?</string>
-    <string name="dialog_small_screen_warning_text">Sie scheinen eine kleine Bildschirmgröße zu haben, PixaPencil ist derzeit nicht kompatibel mit Bildschirmen Ihrer Größe.</string>
     <string name="dialog_file_exists_message">%1$s existiert bereits, ersetzen oder unter neuem Namen speichern\?</string>
     <string name="dialog_save_under_new_name_text">Stelle sicher dass der neue Name einzigartig ist!</string>
     <string name="spot_light_activity_canvas_3">Tippen Sie auf \'Filter\', um einige Projektfilter auszuprobieren</string>
