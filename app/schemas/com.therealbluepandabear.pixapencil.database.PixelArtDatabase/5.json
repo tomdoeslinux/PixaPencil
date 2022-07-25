@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "1b3b9c5c60dcb0b0b499546664fcbb9a",
+    "entities": [
+      {
+        "tableName": "PixelArt",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_cover_bitmap_file_path` TEXT NOT NULL, `item_bitmap` TEXT NOT NULL, `item_width` INTEGER NOT NULL, `item_height` INTEGER NOT NULL, `item_title` TEXT NOT NULL, `item_starred` INTEGER NOT NULL, `item_date_created` TEXT NOT NULL, `objId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "coverBitmapFilePath",
+            "columnName": "item_cover_bitmap_file_path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bitmap",
+            "columnName": "item_bitmap",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "item_width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "item_height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "item_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "starred",
+            "columnName": "item_starred",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateCreated",
+            "columnName": "item_date_created",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "objId",
+            "columnName": "objId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "objId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1b3b9c5c60dcb0b0b499546664fcbb9a')"
+    ]
+  }
+}

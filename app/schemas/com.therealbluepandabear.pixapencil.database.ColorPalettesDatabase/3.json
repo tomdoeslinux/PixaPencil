@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "6b82903268fd744794792bd0b2c86a28",
+    "entities": [
+      {
+        "tableName": "ColorPalette",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_color_palette_name` TEXT, `item_color_palette_color_data` TEXT NOT NULL, `item_is_primary_color_palette` INTEGER NOT NULL, `objId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "colorPaletteName",
+            "columnName": "item_color_palette_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "colorPaletteColorData",
+            "columnName": "item_color_palette_color_data",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isPrimaryColorPalette",
+            "columnName": "item_is_primary_color_palette",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "objId",
+            "columnName": "objId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "objId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6b82903268fd744794792bd0b2c86a28')"
+    ]
+  }
+}
