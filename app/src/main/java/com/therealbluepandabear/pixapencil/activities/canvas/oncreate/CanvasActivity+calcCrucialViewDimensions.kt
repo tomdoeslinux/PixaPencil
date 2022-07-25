@@ -36,13 +36,19 @@ fun CanvasActivity.calcCrucialViewDimensions() {
 
     if (index != -1 && viewModel.currentBitmap == null) {
         binding.activityCanvasPixelGridView.setExistingBitmap(BitmapConverter.convertStringToBitmap(AppData.pixelArtDB.dao().getAllNoLiveData()[index].bitmap)!!)
-    } else if (uri != null && viewModel.currentBitmap == null) {
+    } else if (uri != null) {
         val fileHelperUtilities = FileHelperUtilities.createInstance(this)
         fileHelperUtilities.getBitmapFromUri(uri!!) { outputCode, bitmap, exceptionMessage ->
             if (outputCode == OutputCode.Success && bitmap != null) {
                 width = bitmap.width
                 height = bitmap.height
-                binding.activityCanvasPixelGridView.setExistingBitmap(bitmap)
+
+                if (viewModel.currentBitmap == null) {
+                    binding.activityCanvasPixelGridView.setExistingBitmap(bitmap)
+                    viewModel.currentBitmap = bitmap
+                } else {
+                    binding.activityCanvasPixelGridView.setExistingBitmap(viewModel.currentBitmap!!)
+                }
             } else {
                 if (exceptionMessage != null) {
                     binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.dialog_error_opening_image), SnackbarDuration.Long, getString(

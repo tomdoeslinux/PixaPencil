@@ -26,7 +26,7 @@ fun NewProjectFragment.startSpotLight() {
                 text.text = getString(R.string.spot_light_new_project_fragment_1)
             }
         })
-        .setShape(RoundedRectangle((binding.fragmentNewCanvasProjectTitleTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth ).toFloat(), 20f))
+        .setShape(RoundedRectangle((binding.fragmentNewCanvasProjectTitleTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
         .setOverlay(lyt)
         .build()
 
