@@ -15,7 +15,7 @@ import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 class PixelGridView(context: Context, attributeSet: AttributeSet): View(context, attributeSet){
-    lateinit var pixelGridViewCanvas: Canvas
+    private lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
     private var bitmapWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
