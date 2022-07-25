@@ -93,7 +93,6 @@ class CanvasActivity :
     var dX = 0f
     var dY = 0f
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
