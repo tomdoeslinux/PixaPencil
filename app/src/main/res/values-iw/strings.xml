@@ -105,9 +105,9 @@
     <string name="activityCanvasTopAppMenu_new_color_palette">פלטת צבעים חדשה</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">פיקסל פרפקט</string>
     <string name="activityCanvasTopAppMenu_rotate">סובב את הקנבס</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">סובב את הקנבס ב-90 מעלות (בכיוון השעון)</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">סובב את הקנבס ב-90 מעלות (נגד כיוון השעון)</string>
-    <string name="activityCanvasTopAppMenu_rotate_180">סובב את הקנבס ב-180 מעלות</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (כיוון השעון)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (נֶגֶד כִּווּן הַשַׁעוֹן)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_reset_zoom">היפטר מהגדרות זום</string>
     <string name="activityCanvasTopAppMenu_reset_position">החזר את המיקום ל-0,0</string>
     <string name="activityCanvasTopAppMenu_zoom_in">התקרב לקנבס</string>
