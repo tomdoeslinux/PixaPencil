@@ -26,7 +26,7 @@ class CanvasActivityViewModel : ViewModel() {
     var currentBrush: Brush = BrushesDatabase.toList().first()
     var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
     var currentTool: Tool = Tool.defaultTool
-    var currentRotation: Int = 0
+    var currentRotation: Float = 0f
 
     var saved = true
     var unsavedChangesDialogShown = false

@@ -7,7 +7,7 @@ fun CanvasActivity.rotate(rotationValue: RotationValue, animate: Boolean = false
     rotate(rotationValue.degrees, rotationValue.clockwise, animate)
 }
 
-fun CanvasActivity.rotate(degrees: Int, clockwise: Boolean = true, animate: Boolean = false) {
+fun CanvasActivity.rotate(degrees: Float, clockwise: Boolean = true, animate: Boolean = false) {
     val rotationAmount = if (clockwise) {
         (binding.activityCanvasCardView.rotation + degrees)
     } else {
@@ -22,5 +22,5 @@ fun CanvasActivity.rotate(degrees: Int, clockwise: Boolean = true, animate: Bool
         binding.activityCanvasCardView.rotation = rotationAmount
     }
 
-    viewModel.currentRotation = rotationAmount.toInt()
+    viewModel.currentRotation = rotationAmount
 }
