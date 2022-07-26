@@ -61,9 +61,9 @@
     <string name="activityCanvasTopAppMenu_save_as_png">Salva come PNG</string>
     <string name="activityCanvasTopAppMenu_save_as_jpg">Salva come JPG</string>
     <string name="activityCanvasTopAppMenu_rotate">Ruota</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">Ruota 90° (senso orario)</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">Ruota 90° (senso anti-orario)</string>
-    <string name="activityCanvasTopAppMenu_rotate_180">Ruota 180°</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (senso orario)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (senso anti-orario)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="generic_saved">Salvato</string>
     <string name="generic_ok">OK</string>
     <string name="generic_cancel">Annulla</string>

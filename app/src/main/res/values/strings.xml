@@ -132,9 +132,9 @@
     <string name="activityCanvasTopAppMenu_new_color_palette">New Color Palette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Pixel Perfect</string>
     <string name="activityCanvasTopAppMenu_rotate">Rotate</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">Rotate 90° (clockwise)</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">Rotate 90° (anti-clockwise)</string>
-    <string name="activityCanvasTopAppMenu_rotate_180">Rotate 180°</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (anti-clockwise)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_reset_zoom">Reset Zoom</string>
     <string name="activityCanvasTopAppMenu_reset_position">Reset Position</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Zoom in</string>

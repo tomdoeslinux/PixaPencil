@@ -51,9 +51,9 @@
     <string name="fragmentTools_fill_tool_content_description">Fyll-verktøy</string>
     <string name="fragmentTools_polygon_tool_content_description">Polygonverktøy</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Klarte ikke å kopiere tekst til utklippstavlen</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">Roter 90° (med klokken)</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">Roter 90° (mot klokken)</string>
-    <string name="activityCanvasTopAppMenu_rotate_180">Roter 180°</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (med klokken)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (mot klokken)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_reset_zoom">Tilbakestill forestørrelse</string>
     <string name="activityCanvasTopAppMenu_reset_position">Tilbakestill posisjon</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Forstørr</string>

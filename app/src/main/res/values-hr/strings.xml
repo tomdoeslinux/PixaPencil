@@ -102,9 +102,9 @@
     <string name="activityCanvasTopAppMenu_new_color_palette">Nova paleta boja</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Savršeni piksli</string>
     <string name="activityCanvasTopAppMenu_rotate">Okreni</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">Okreni za 90 ° (nadesno)</string>
-    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">Okreni za 90 ° (nalijevo)</string>
-    <string name="activityCanvasTopAppMenu_rotate_180">Okreni za 180 °</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90 ° (nadesno)</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90 ° (nalijevo)</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180 °</string>
     <string name="activityCanvasTopAppMenu_reset_zoom">Obnovi uvećanje</string>
     <string name="activityCanvasTopAppMenu_reset_position">Obnovi položaj</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Uvećaj prikaz</string>
