@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
+import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.MatrixInfo
@@ -109,9 +110,19 @@ fun Bitmap.isRect(): Boolean {
     return width != height
 }
 
-fun Bitmap.rotate(degrees: Int): Bitmap {
+fun Bitmap.rotate(degrees: Int, flipMatrix: List<FlipValue>? = null): Bitmap {
     val matrix = Matrix()
     matrix.setRotate(degrees.toFloat())
+
+    if (flipMatrix != null) {
+        for (flipValue in flipMatrix) {
+            if (flipValue == FlipValue.Horizontal) {
+                matrix.postScale(-1f, 1f, width / 2f, height / 2f)
+            } else if (flipValue == FlipValue.Vertical) {
+                matrix.postScale(1f, -1f, width / 2f, height / 2f)
+            }
+        }
+    }
 
     return Bitmap.createBitmap(this, 0, 0, width, height, matrix, false)
 }

@@ -12,12 +12,14 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.flip
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.resetPosition
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.*
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
+import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.activity
@@ -63,27 +65,27 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
             if (Build.VERSION.SDK_INT >= 30) {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle)
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
             } else {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle)
+                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
             }
         }
 
         R.id.activityCanvasTopAppMenu_export_to_tiff_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
         }
 
         R.id.activityCanvasTopAppMenu_export_to_bmp_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle)
+            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
@@ -195,6 +197,14 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
                 }, null, null, view = details
             )
+        }
+
+        R.id.appMenu_flip_horizontal_subItem -> {
+            flip(FlipValue.Horizontal)
+        }
+
+        R.id.appMenu_flip_vertical_subItem -> {
+            flip(FlipValue.Vertical)
         }
     }
     return true

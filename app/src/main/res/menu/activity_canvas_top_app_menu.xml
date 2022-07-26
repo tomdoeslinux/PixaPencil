@@ -55,6 +55,19 @@
     </item>
 
     <item app:showAsAction="ifRoom"
+        android:title="Flip" >
+        <menu>
+            <item android:id="@+id/appMenu_flip_horizontal_subItem"
+                app:showAsAction="ifRoom"
+                android:title="Horizontal" />
+
+            <item android:id="@+id/appMenu_flip_vertical_subItem"
+                app:showAsAction="ifRoom"
+                android:title="Vertical" />
+        </menu>
+    </item>
+
+    <item app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_symmetry" >
         <menu>
             <group android:checkableBehavior="single">

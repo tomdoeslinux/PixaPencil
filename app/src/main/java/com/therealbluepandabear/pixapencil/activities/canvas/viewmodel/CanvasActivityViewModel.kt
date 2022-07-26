@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.database.DitherBrushDatabase
+import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.models.BitmapAction
@@ -27,6 +28,7 @@ class CanvasActivityViewModel : ViewModel() {
     var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
     var currentTool: Tool = Tool.defaultTool
     var currentRotation: Float = 0f
+    var flipMatrix = mutableListOf<FlipValue>()
 
     var saved = true
     var unsavedChangesDialogShown = false

@@ -57,7 +57,7 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     }
 
     val bmps: Bitmap?
-    bmps = coverBitmap.rotate(ceil(abs(binding.activityCanvasCardView.rotation)).toInt())
+    bmps = coverBitmap.rotate(ceil(abs(binding.activityCanvasCardView.rotation)).toInt(), viewModel.flipMatrix)
 
     enableGridIfNeeded()
 
