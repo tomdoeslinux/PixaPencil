@@ -8,6 +8,8 @@ import com.therealbluepandabear.pixapencil.extensions.isRect
 import com.therealbluepandabear.pixapencil.extensions.isWidthLarger
 import com.therealbluepandabear.pixapencil.extensions.overlay
 import com.therealbluepandabear.pixapencil.extensions.rotate
+import kotlin.math.abs
+import kotlin.math.ceil
 
 var gridWasEnabled = false
 
@@ -55,7 +57,7 @@ fun CanvasActivity.getCoverImageBitmap(): Bitmap {
     }
 
     val bmps: Bitmap?
-    bmps = coverBitmap.rotate(binding.activityCanvasCardView.rotation.toInt())
+    bmps = coverBitmap.rotate(ceil(abs(binding.activityCanvasCardView.rotation)).toInt())
 
     enableGridIfNeeded()
 
