@@ -55,14 +55,18 @@
     </item>
 
     <item app:showAsAction="ifRoom"
+        app:icon="@android:drawable/ic_menu_save"
+        android:icon="@android:drawable/ic_menu_save"
         android:title="Flip" >
         <menu>
             <item android:id="@+id/appMenu_flip_horizontal_subItem"
                 app:showAsAction="ifRoom"
+                android:icon="@drawable/ic_flip_horizontal"
                 android:title="Horizontal" />
 
             <item android:id="@+id/appMenu_flip_vertical_subItem"
                 app:showAsAction="ifRoom"
+                android:icon="@drawable/ic_flip_vertical"
                 android:title="Vertical" />
         </menu>
     </item>
