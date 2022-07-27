@@ -45,6 +45,7 @@ fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
                     pixelArtViewModel.deleteAll()
                     binding.activityMainCoordinatorLayout.showSnackbar(getString(R.string.snackbar_deleted_projects, size.toString()), SnackbarDuration.Medium)
+                    binding.activityMainNewProjectButton.show()
                 },  getString(R.string.generic_cancel), null)
         }
 
