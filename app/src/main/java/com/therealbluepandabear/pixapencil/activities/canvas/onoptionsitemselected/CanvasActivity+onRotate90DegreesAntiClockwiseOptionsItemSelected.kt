@@ -5,5 +5,5 @@ import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotat
 import com.therealbluepandabear.pixapencil.enums.RotationValue
 
 fun CanvasActivity.onRotate90DegreesAntiClockwiseOptionsItemSelected() {
-    rotate(RotationValue.NinetyAntiClockwise, animate = true)
+    rotate(RotationValue.NinetyAntiClockwise)
 }

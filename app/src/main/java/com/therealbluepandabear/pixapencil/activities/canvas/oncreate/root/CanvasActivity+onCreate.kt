@@ -38,7 +38,7 @@ fun CanvasActivity.onCreate() {
     originalY = null
 
     binding.root.post {
-        rotate(viewModel.currentRotation, animate = false)
+        rotate(viewModel.currentRotation)
         binding.activityCanvasColorSwitcherView.setPrimaryColor(viewModel.primaryColor)
         binding.activityCanvasColorSwitcherView.setSecondaryColor(viewModel.secondaryColor)
 
