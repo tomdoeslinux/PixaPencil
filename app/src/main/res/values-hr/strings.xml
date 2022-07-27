@@ -81,10 +81,12 @@
 \nnašem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
     <string name="fragmentAppInfo_description_text"> PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
-\nPreporučujemo da instaliraš program s <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ili <a href="https://github. com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica. </string>
-    <string name="fragmentAppInfo_description_text_land">PixaPencil je uređivač pikselastih slika &lt;a href=„https://github.com/therealbluepandabear/PixaPencil”&gt;otvorenog koda&lt;/a&gt;, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
+\n Preporučujemo da
+\ninstaliraš program s <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica. </string>
+    <string name="fragmentAppInfo_description_text_land">PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
-\nPreporučujemo da instaliraš program s &lt;a href=„https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/„&gt;F-Droid&lt;/a&gt; ili &lt;a href=„https://github. com/therealbluepandabear/PixaPencil/releases/latest”&gt;GitHub&lt;/a&gt; stranica.</string>
+\nPreporučujemo da
+\ninstaliraš program s <a href="https://github.com/therealbluepandabear/PixaPencil">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica.</string>
     <string name="fragmentAppInfo_community_text_land">Radujemo se ako se pridužiš
 \nnašem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
     <string name="activityMain_newProjectButton_contentDescription">Novi projekt</string>
@@ -123,41 +125,41 @@
     <string name="bottomNavigationMenu_starred">Označeno</string>
     <string name="bottomNavigationMenu_home">Početak</string>
     <string name="pencil_tool_info_title">Informacije olovke</string>
-    <string name="pencil_tool_info_text">Crtaj slobodoručne, pikselaste staze.</string>
+    <string name="pencil_tool_info_text">Crtaj slobodoručne, pikselaste staze</string>
     <string name="erase_tool_info_title">Informacije gumice</string>
-    <string name="erase_tool_info_text">Izbriši piksele.</string>
+    <string name="erase_tool_info_text">Izbriši piksele</string>
     <string name="move_tool_info_title">Informacije premještanja</string>
-    <string name="move_tool_info_text">Kreći se po platnu držeći i povlačeći prst na ekranu.</string>
+    <string name="move_tool_info_text">Kreći se po platnu držeći i povlačeći prst na ekranu</string>
     <string name="color_picker_tool_info_title">Informacije kapaljke</string>
-    <string name="color_picker_tool_info_text">Preuzmi boju određenog piksela.</string>
+    <string name="color_picker_tool_info_text">Preuzmi boju određenog piksela</string>
     <string name="fill_tool_info_title">Informacije ispune</string>
-    <string name="fill_tool_info_text">Ispuni susjedne piksele sa sličnom vrijednosti boje.</string>
+    <string name="fill_tool_info_text">Ispuni susjedne piksele sa sličnom vrijednosti boje</string>
     <string name="line_tool_info_title">Informacije crte</string>
-    <string name="line_tool_info_text">Crtaj pikselaste crte.</string>
+    <string name="line_tool_info_text">Crtaj pikselaste crte</string>
     <string name="rectangle_tool_info_title">Informacije pravokutnika</string>
-    <string name="rectangle_tool_info_text">Crtaj ispunjene, pikselaste pravokutnike.</string>
+    <string name="rectangle_tool_info_text">Crtaj ispunjene, pikselaste pravokutnike</string>
     <string name="outlined_rectangle_tool_info_title">Informacije konture pravokutnika</string>
-    <string name="outlined_rectangle_tool_info_text">Crtaj konturirane, pikselaste pravokutnike.</string>
+    <string name="outlined_rectangle_tool_info_text">Crtaj konturirane, pikselaste pravokutnike</string>
     <string name="square_tool_info_title">Informacije kvadrata</string>
-    <string name="square_tool_info_text">Crtaj ispunjene, pikselaste kvadrate.</string>
+    <string name="square_tool_info_text">Crtaj ispunjene, pikselaste kvadrate</string>
     <string name="outlined_square_tool_info_title">Informacije konture kvadrata</string>
-    <string name="outlined_square_tool_info_text">Crtaj konturirane, pikselaste kvadrate.</string>
+    <string name="outlined_square_tool_info_text">Crtaj konturirane, pikselaste kvadrate</string>
     <string name="ellipse_tool_info_title">Informacije elipse</string>
-    <string name="ellipse_tool_info_text">Crtaj ispunjene, pikselaste elipse.</string>
+    <string name="ellipse_tool_info_text">Crtaj ispunjene, pikselaste elipse</string>
     <string name="outlined_ellipse_tool_info_title">Informacije konture elipse</string>
-    <string name="outlined_ellipse_tool_info_text">Crtaj konturirane, pikselaste elipse.</string>
+    <string name="outlined_ellipse_tool_info_text">Crtaj konturirane, pikselaste elipse</string>
     <string name="circle_tool_info_title">Informacije kružnice</string>
-    <string name="circle_tool_info_text">Crtaj ispunjene, pikselaste kružnice.</string>
+    <string name="circle_tool_info_text">Crtaj ispunjene, pikselaste kružnice</string>
     <string name="outlined_circle_tool_info_title">Informacije konture kružnice</string>
-    <string name="outlined_circle_tool_info_text">Crtaj konturirane, pikselaste kružnice.</string>
+    <string name="outlined_circle_tool_info_text">Crtaj konturirane, pikselaste kružnice</string>
     <string name="spray_tool_info_title">Informacije spreja</string>
-    <string name="spray_tool_info_text">Simuliraj sprejanje.</string>
+    <string name="spray_tool_info_text">Simuliraj sprejanje uživo</string>
     <string name="polygon_tool_info_title">Informacije poligona</string>
-    <string name="polygon_tool_info_text">Crtaj poligonalne staze.</string>
+    <string name="polygon_tool_info_text">Crtaj poligonalne staze</string>
     <string name="dither_tool_info_title">Informacije točkanja</string>
-    <string name="dither_tool_info_text">Crtaj karirane uzorke, dobro za sjenčanje.</string>
+    <string name="dither_tool_info_text">Crtaj karirane uzorke, dobro za sjenčanje</string>
     <string name="shading_tool_info_title">Informacije sjenjčanja</string>
-    <string name="shading_tool_info_text">Potamni/posvijetli pixele na platnu.</string>
+    <string name="shading_tool_info_text">Potamni/posvijetli piksele na platnu</string>
     <string name="exception_invalid_project_name">Ime ne smije biti prazno</string>
     <string name="dialog_file_exists_message">Datoteka %1$s već postoji. Želiš li je zamijeniti ili spremiti pod novim imenom\?</string>
     <string name="dialog_file_exists_positive_button_text">Zamijeni</string>
@@ -215,4 +217,16 @@
     <string name="dialog_delete_pixel_art_project_deleted_text">%1$s izbrisan</string>
     <string name="fragment_replace_color_title">Zamijeni boju</string>
     <string name="activityCanvasTopAppMenu_replace_color">Zamijeni boju</string>
+    <string name="activityCanvasTopAppMenu_flip">Preokreni</string>
+    <string name="dialog_open_image_enter_name_text">Upiši ime za tvoj projekt</string>
+    <string name="dialog_delete_all_projects">Stvarno želiš izbrisati sve svoje projekte\? To se ne može poništiti.</string>
+    <string name="snackbar_deleted_projects">Izbrisani projekti: %1$s</string>
+    <string name="dialog_open_image_enter_name_title">Upiši ime</string>
+    <string name="spot_light_new_project_fragment_input_value">Unesi vrijednost za %1$s</string>
+    <string name="defaultColorPalette">Standardna paleta boja</string>
+    <string name="activityMainTopAppMenu_delete_all">Izbriši sve</string>
+    <string name="activityMainTopAppMenu_open_image">Otvori sliku</string>
+    <string name="dialog_error_opening_image">Greška prilikom otvaranja slike</string>
+    <string name="spot_light_next">Dalje</string>
+    <string name="spot_light_close">Zatvori</string>
 </resources>
