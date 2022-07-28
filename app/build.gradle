@@ -15,8 +15,8 @@ android {
         applicationId "com.therealbluepandabear.pixapencil"
         minSdk 26
         targetSdk 31
-        versionCode 19
-        versionName "0.1.7-beta3"
+        versionCode 20
+        versionName "0.1.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
