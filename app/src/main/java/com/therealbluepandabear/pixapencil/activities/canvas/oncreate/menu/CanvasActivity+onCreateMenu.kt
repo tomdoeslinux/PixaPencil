@@ -13,8 +13,8 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
 
     if (_menu != null) {
         menu = _menu
-//        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = binding.activityCanvasPixelGridView.pixelPerfectMode
-//        menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = binding.activityCanvasPixelGridView.gridEnabled
+        menu.findItem(R.id.activityCanvasTopAppMenu_pixel_perfect_item).isChecked = binding.activityCanvasPixelGridView.pixelPerfectMode
+        menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = binding.activityCanvasPixelGridView.gridEnabled
         menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
 
         if (binding.activityCanvasPixelGridView.pixelGridViewBitmap.width != binding.activityCanvasPixelGridView.pixelGridViewBitmap.width) {
@@ -25,7 +25,7 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isEnabled = false
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
 
-//            binding.activityCanvasPixelGridView.gridEnabled = false
+            binding.activityCanvasPixelGridView.gridEnabled = false
             binding.activityCanvasPixelGridView.invalidate()
 
             Flags.DisableGridSharedPreferenceChanges = true
