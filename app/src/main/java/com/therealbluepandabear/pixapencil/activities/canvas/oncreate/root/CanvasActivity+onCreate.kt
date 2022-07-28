@@ -5,6 +5,7 @@ import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.flip
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotate
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.setOnTouchListener
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
@@ -39,6 +40,10 @@ fun CanvasActivity.onCreate() {
 
     binding.root.post {
         rotate(viewModel.currentRotation)
+        for (i in viewModel.flipMatrix) {
+            flip(i)
+        }
+
         binding.activityCanvasColorSwitcherView.setPrimaryColor(viewModel.primaryColor)
         binding.activityCanvasColorSwitcherView.setSecondaryColor(viewModel.secondaryColor)
 
