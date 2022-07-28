@@ -228,4 +228,5 @@
     <string name="spot_light_activity_canvas_3">Toque sobre \'Filtros\' para experimentar alguns</string>
     <string name="spot_light_activity_canvas_4">Aqui você pode experimentar filtros diferentes para a tela</string>
     <string name="spot_light_activity_canvas_5">Toque em \'Paletas\' para visualizar suas paletas</string>
+    <string name="activityCanvasTopAppMenu_flip">Virar</string>
 </resources>
