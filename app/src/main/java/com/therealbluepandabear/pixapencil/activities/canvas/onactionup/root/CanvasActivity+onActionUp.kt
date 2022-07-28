@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.undo
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
@@ -13,6 +14,7 @@ import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
+import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.resetPreviousCoordinates() {
     binding.activityCanvasPixelGridView.prevX = null
@@ -93,9 +95,11 @@ fun CanvasActivity.extendedOnActionUp() {
                 }
 
                 for (value in data) {
-                    binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(
-                        value.coordinates.x,
-                        value.coordinates.y,
+                    canvasCommandsHelperInstance.overrideSetPixel(
+                        Coordinates(
+                            value.coordinates.x,
+                            value.coordinates.y,
+                        ),
                         getSelectedColor()
                     )
                 }
