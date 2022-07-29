@@ -13,7 +13,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(AndroidJUnit4::class)
 @SmallTest
 

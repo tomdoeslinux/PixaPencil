@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.util.Log
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.extensions.isRect

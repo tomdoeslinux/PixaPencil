@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers
 
 import android.graphics.Bitmap
-import android.util.Log
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import kotlin.math.abs
