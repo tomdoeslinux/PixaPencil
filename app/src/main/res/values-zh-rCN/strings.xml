@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="generic_cancel">取消</string>
+    <string name="generic_no_thanks">不，谢谢</string>
+    <string name="generic_warning">警告</string>
+    <string name="generic_switch">开关</string>
+    <string name="colorPalettesLayout_color_palette_item">调色板栏</string>
+    <string name="generic_error_while_saving">保存%1$s时出现错误</string>
+    <string name="defaultColorPalette">默认调色盘</string>
+    <string name="generic_ok">确定</string>
+    <string name="generic_saved">已保存</string>
+    <string name="generic_lighten_mode_tooltip">日间模式</string>
+    <string name="generic_darken_mode_tooltip">夜间模式</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">收藏夹</string>
+    <string name="recentCreationsLayout_imageView_content_description">像素图预览</string>
+</resources>
