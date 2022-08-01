@@ -77,7 +77,7 @@
     <string name="activityCanvasTopAppMenu_symmetry_quad">Quadrilátera</string>
     <string name="activityCanvasTopAppMenu_symmetry">Simetria</string>
     <string name="activityCanvasTopAppMenu_symmetry_none">Nenhuma</string>
-    <string name="activityCanvasTopAppMenu_symmetry_octal">Octagonal</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal">Octogonal</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Salvar em Segundo Plano</string>
     <string name="activityCanvasTopAppMenu_save_as">Salvar como</string>
     <string name="bottomNavigationMenu_starred">Favoritado</string>
@@ -127,8 +127,8 @@
     <string name="pencil_tool_info_text">Desenhe linhas à mão livre tocando e arrastando sobre a tela ou um único pixel com um toque</string>
     <string name="erase_tool_info_text">Apaga pixels individuais tocando sobre eles ou vários pixels segurando e arrastando sobre a tela</string>
     <string name="color_picker_tool_info_text">Obtenha a cor de um pixel específico tocando sobre ele ou tocando e arrastando sobre a tela até encontrar a cor desejada</string>
-    <string name="dialog_unsaved_changes_title">Mudanças não salvas</string>
-    <string name="dialog_unsaved_changes_message">Salvar mudanças em %1$s\?</string>
+    <string name="dialog_unsaved_changes_title">Alterações não salvas</string>
+    <string name="dialog_unsaved_changes_message">Salvar alterações em %1$s\?</string>
     <string name="outlined_square_tool_info_title">Quadrado Perfeito</string>
     <string name="outlined_square_tool_info_text">Desenhe um quadrado sem preenchimento clicando e arrastando sobre a tela</string>
     <string name="ellipse_tool_info_title">Elipse Preenchida</string>
