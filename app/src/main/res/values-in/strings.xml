@@ -25,7 +25,6 @@
     <string name="fragmentNewColorPalette_done">Selesai</string>
     <string name="fragmentTools_move_tool_content_description">Alat Pemindah</string>
     <string name="fragmentTools_line_tool_content_description">Alat Garis</string>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_warning">Peringatan</string>
     <string name="generic_saved">Disimpan</string>
     <string name="generic_error_while_saving">Gagal menyimpan %1$s</string>

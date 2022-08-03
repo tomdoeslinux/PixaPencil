@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_no_thanks">Nein, danke</string>
     <string name="generic_saved">Gespeichert</string>
     <string name="generic_error_while_saving">Fehler während des Speicherns von %1$s</string>

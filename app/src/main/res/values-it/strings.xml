@@ -2,7 +2,6 @@
 <resources>
     <string name="generic_warning">Avvertimento</string>
     <string name="generic_no_thanks">No, grazie</string>
-    <string name="app_name">PixaPencil</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name">Nuovo nome</string>
     <string name="generic_darken_mode_tooltip">Modalità scura</string>
     <string name="generic_lighten_mode_tooltip">Modalità chiara</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_ok">לְאַשֵׁר</string>
     <string name="generic_cancel">לְבַטֵל</string>
     <string name="generic_no_thanks">לא תודה</string>

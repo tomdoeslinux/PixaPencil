@@ -15,7 +15,6 @@
     <string name="fragmentFilters_darken">Assombrir</string>
     <string name="fragmentFilters_invert">Inverser</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name">Nouveau nom</string>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_ok">OK</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Remplacer l\'aperçu</string>
     <string name="fragment_new_project_title">Nouveau projet</string>

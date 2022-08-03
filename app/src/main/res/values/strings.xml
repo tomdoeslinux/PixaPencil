@@ -2,7 +2,6 @@
 <resources
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
-    <string name="app_name">PixaPencil</string>
     <string name="fragmentRGBColorPicker_defaultRGBValue" translatable="false">0</string>
     <string name="defaultColorPalette">Default color palette</string>
     <string name="generic_ok">OK</string>
@@ -12,13 +11,17 @@
     <string name="generic_saved">Saved</string>
     <string name="generic_error_while_saving">Error while saving %1$s</string>
     <string name="generic_switch">Switch</string>
+    <string name="generic_darken_mode_tooltip">Darken mode</string>
+    <string name="generic_lighten_mode_tooltip">Lighten mode</string>
+
+    <!--Non-translatable strings-->
+    <string name="app_name" translatable="false">PixaPencil</string>
     <string name="generic_png" translatable="false">PNG</string>
     <string name="generic_jpg" translatable="false">JPG</string>
     <string name="generic_webp" translatable="false">WEBP</string>
     <string name="generic_tif" translatable="false">TIF</string>
     <string name="generic_bmp" translatable="false">BMP</string>
-    <string name="generic_darken_mode_tooltip">Darken mode</string>
-    <string name="generic_lighten_mode_tooltip">Lighten mode</string>
+
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
