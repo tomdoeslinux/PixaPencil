@@ -164,7 +164,7 @@
     <string name="color_picker_tool_info_title">拾色器</string>
     <string name="color_picker_tool_info_text">获取指定像素处的颜色</string>
     <string name="fill_tool_info_title">填充工具</string>
-    <string name="fill_tool_info_text">填充颜​​色值相似的相邻像素</string>
+    <string name="fill_tool_info_text">填充颜色值相似的相邻像素</string>
     <string name="line_tool_info_title">线条工具</string>
     <string name="line_tool_info_text">绘制像素直线</string>
     <string name="rectangle_tool_info_title">实心矩形工具</string>
@@ -274,6 +274,4 @@
 
     <string name="spot_light_next">继续</string>
     <string name="spot_light_close">关闭</string>
-
-
 </resources>
