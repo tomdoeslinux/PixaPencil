@@ -7,29 +7,29 @@
     <string name="generic_error_while_saving">Erro ao salvar %1$s</string>
     <string name="generic_darken_mode_tooltip">Modo escuro</string>
     <string name="generic_lighten_mode_tooltip">Modo claro</string>
-    <string name="recentCreationsLayout_imageView_content_description">Pré-visualizar Pixel Art</string>
+    <string name="recentCreationsLayout_imageView_content_description">Pré-visualização de Pixel Art</string>
     <string name="saveFileUnderNewNameAlertLayout_new_name">Novo nome</string>
-    <string name="fragmentFilters_color_filter">Filtro de cor</string>
+    <string name="fragmentFilters_color_filter">Filtro de Cor</string>
     <string name="fragmentFilters_lighten">Clarear</string>
     <string name="fragmentFilters_darken">Escurecer</string>
     <string name="fragmentFilters_invert">Inverter</string>
-    <string name="fragmentFilters_grayscale">Escala de cinza</string>
-    <string name="fragmentNewColorPalette_done">Feito</string>
-    <string name="fragmentNewColorPalette_extract_from_canvas">Extrair do Canvas</string>
+    <string name="fragmentFilters_grayscale">Tons de Cinza</string>
+    <string name="fragmentNewColorPalette_done">Pronto</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas">Extrair da Tela de Desenho</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nome da Paleta de Cores</string>
     <string name="fragmentFindAndReplace_find">Procurar</string>
     <string name="fragmentFindAndReplace_replace_with">Substituir por</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Cores no seu canvas:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">São poucas cores\? Altere a paleta de cores selecionada.</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas">Cores na sua tela de desenho:</string>
+    <string name="fragmentFindAndReplace_not_enough_colors">São poucas opções de cor\? Altere a paleta de cores no menu de paletas.</string>
     <string name="fragmentSprayToolSettings_strength">Intensidade</string>
     <string name="fragmentNewProject_height">Altura</string>
-    <string name="fragment_find_and_replace_find_preview_content_description">Procurar pré-visualização</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">Pré-visualização da Busca</string>
     <string name="fragment_color_picker_title">Selecionar cor</string>
     <string name="fragment_new_color_palette_title">Nova Paleta de Cores</string>
     <string name="fragment_spray_tool_settings_title">Configurações do Spray</string>
-    <string name="fragment_dither_tool_settings_title">Ajustes de ferramentas Dither</string>
+    <string name="fragment_dither_tool_settings_title">Ajustes da Ferramenta Pontilhado</string>
     <string name="fragmentTools_pencil_tool_content_description">Lápis</string>
-    <string name="fragmentTools_eraser_tool_content_description">Apagador</string>
+    <string name="fragmentTools_eraser_tool_content_description">Borracha</string>
     <string name="fragmentTools_move_tool_content_description">Mover</string>
     <string name="fragmentTools_color_picker_tool_content_description">Seletor de Cores</string>
     <string name="fragmentTools_fill_tool_content_description">Preencher</string>
@@ -39,17 +39,17 @@
     <string name="fragmentTools_outlined_rectangle_tool_content_description">Retângulo Delineado</string>
     <string name="fragmentTools_outlined_square_button_content_description">Quadrado Delineado</string>
     <string name="fragmentTools_ellipse_tool_content_description">Elipse</string>
-    <string name="fragmentTools_outlined_ellipse_button_content_description">Elioe Delineada</string>
+    <string name="fragmentTools_outlined_ellipse_button_content_description">Elipse Delineada</string>
     <string name="fragmentTools_circle_tool_content_description">Círculo</string>
     <string name="fragmentTools_outlined_circle_tool_content_description">Círculo Delineado</string>
     <string name="fragmentTools_spray_tool_content_description">Spray</string>
     <string name="fragmentTools_polygon_tool_content_description">Polígono</string>
-    <string name="fragmentTools_dither_tool_content_description">Dither</string>
+    <string name="fragmentTools_dither_tool_content_description">Pontilhado</string>
     <string name="fragmentTools_shading_tool_content_description">Sombreamento</string>
     <string name="fragmentNewProject_name">Nome</string>
     <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Valor Hexadecimal</string>
-    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Copiado para a Área de transferência com sucesso</string>
-    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Erro ao copiar para a Área de transferência</string>
+    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Copiado para a área de transferência com sucesso</string>
+    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Erro ao copiar para a área de transferência</string>
     <string name="fragmentColorPicker_tab_color_picker">Seletor de Cores</string>
     <string name="activityMain_newProjectButton_contentDescription">Novo Projeto</string>
     <string name="activityCanvas_tab_brushes">Pincéis</string>
@@ -62,18 +62,18 @@
     <string name="activityCanvasTopAppMenu_new_color_palette">Nova Paleta de Cores</string>
     <string name="activityCanvasTopAppMenu_rotate">Girar</string>
     <string name="fragmentSprayToolSettings_radius">Raio</string>
-    <string name="fragmentSprayToolSettings_done">Feito</string>
+    <string name="fragmentSprayToolSettings_done">Pronto</string>
     <string name="fragmentNewProject_width">Largura</string>
     <string name="activityCanvasTopAppMenu_undo">Desfazer</string>
     <string name="generic_cancel">Cancelar</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorito</string>
     <string name="activityMainTopAppMenu_dark_light_mode">Modo Claro/Escuro</string>
     <string name="colorPalettesLayout_color_palette_item">Item da Paleta de Cores</string>
-    <string name="fragment_find_and_replace_replace_preview_content_description">Substituir Previsualização</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">Pré-visualização da Substituição</string>
     <string name="fragment_new_project_title">Novo Projeto</string>
-    <string name="activityCanvasTopAppMenu_pixel_perfect">Píxeis Perfeitos</string>
+    <string name="activityCanvasTopAppMenu_pixel_perfect">Pixel Perfeito</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Mais Zoom</string>
-    <string name="activityCanvasTopAppMenu_symmetry_quad">Quadrilátera</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad">Quadrilateral</string>
     <string name="activityCanvasTopAppMenu_symmetry">Simetria</string>
     <string name="activityCanvasTopAppMenu_symmetry_none">Nenhuma</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octogonal</string>
@@ -93,7 +93,7 @@
     <string name="activityCanvasTopAppMenu_grid">Grade</string>
     <string name="activityCanvasTopAppMenu_clear_canvas">Limpar Tela</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal">Horizontal</string>
-    <string name="dither_tool_info_text">Desenhe padrões em xadrez clicando e arrastando sobre a tela, bom para sombreamento</string>
+    <string name="dither_tool_info_text">Desenhe padrões clicando e arrastando sobre a tela, bom para sombreamento e texturização</string>
     <string name="exception_accessing_negative_index_message">Não é possível acessar o objeto de pixel art com um índice negativo na lista!</string>
     <string name="spray_tool_info_text">Pinte simulando tinta spray tocando e arrastando sobre a tela</string>
     <string name="exception_invalid_spray_radius">O valor deve estar entre 1 e 20,000</string>
@@ -119,7 +119,7 @@
     <string name="exception_empty_height">A altura não pode estar vazia</string>
     <string name="polygon_tool_info_text">Desenhe polígonos clicando sobre a tela. Cada clique forma um vértice</string>
     <string name="dither_tool_info_title">Pontilhado</string>
-    <string name="exception_empty_color_palette_name">O nome da paleta de corea não pode estar vazia</string>
+    <string name="exception_empty_color_palette_name">O nome da paleta de cores não pode estar vazio</string>
     <string name="exception_invalid_spray_strength">O valor deve estar entre 1 e 20,000</string>
     <string name="color_picker_tool_info_title">Seletor de Cores</string>
     <string name="erase_tool_info_title">Borracha</string>
@@ -141,22 +141,22 @@
     <string name="line_tool_info_text">Desenhe linhas retas tocando e arrastando sobre a tela</string>
     <string name="rectangle_tool_info_title">Retângulo Preenchido</string>
     <string name="rectangle_tool_info_text">Desenhe retângulos preenchidos com a cor selecionada tocando e arrastando sobre a tela</string>
-    <string name="dialog_view_file_error_title">Erro tentando visualizar o arquivo</string>
+    <string name="dialog_view_file_error_title">Erro ao tentar visualizar o arquivo</string>
     <string name="dialog_clear_canvas_title">Limpar a tela</string>
     <string name="dialog_clear_canvas_message">Você tem certeza de que você quer limpar a tela\?</string>
     <string name="dialog_file_exists_title">Esse arquivo já existe</string>
-    <string name="dialog_file_exists_message">%1$s já existe, quer substituir ou salvar como um novo nome\?</string>
+    <string name="dialog_file_exists_message">%1$s já existe, quer substituir ou salvar com um novo nome\?</string>
     <string name="dialog_file_exists_positive_button_text">Substituir</string>
     <string name="dialog_file_exists_negative_button_text">Salvar com um novo nome</string>
     <string name="dialog_save_under_new_name_title">Salvar com um novo nome</string>
-    <string name="dialog_save_under_new_name_text">Escolha um nome único!</string>
-    <string name="exception_failed_to_create_file">Falhamos em criar o arquivo</string>
-    <string name="exception_failed_to_compress_file">Falhamos ao comprimir o arquivo</string>
+    <string name="dialog_save_under_new_name_text">Escolha um novo nome único!</string>
+    <string name="exception_failed_to_create_file">Falha ao criar o arquivo</string>
+    <string name="exception_failed_to_compress_file">Falha ao comprimir o arquivo</string>
     <string name="dialog_unsaved_changes_negative_button_text">Não salvar</string>
     <string name="dialog_exception_info_title">Informações de exceção</string>
     <string name="fragmentAppInfo_description_text"> O PixaPencil é um editor de pixel art <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a>, 100% livre da política de privacidade intrusiva do Google Play service e sem aqueles anúncios chatos.
 \n
-\nPara garantir isso é recomendadoque você
+\nPara garantir isso é recomendável que você
 \ninstale o APP via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ou <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest"> GitHub</a>. </string>
     <string name="activityMainTopAppMenu_delete_all">Deletar Tudo</string>
     <string name="activityMainBottomSheet_duplicate">Fazer uma cópia</string>
@@ -165,19 +165,19 @@
     <string name="activityMainBottomSheet_delete">Deletar</string>
     <string name="projectDetailsAlertBox_width">Largura</string>
     <string name="projectDetailsAlertBox_height">Altura</string>
-    <string name="projectDetailsAlertBox_created">Criado</string>
+    <string name="projectDetailsAlertBox_created">Criado em</string>
     <string name="defaultColorPalette">Paleta de cores padrão</string>
-    <string name="projectDetailsAlertBox_colors">Cores</string>
+    <string name="projectDetailsAlertBox_colors">Número de Cores</string>
     <string name="fragment_replace_color_title">Substituir Cor</string>
     <string name="fragmentAppInfo_created_by_text">Criado por <a href="https://github.com/therealbluepandabear"> thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">Adoraríamos ter você em nossa sala
-\nna <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="fragmentAppInfo_community_text">Adoraríamos ter você em nossa salana <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>
+\nou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="fragmentAppInfo_description_text_land">O PixaPencil é um editor de pixel art <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a>, 100% livre da política de privacidade intrusiva do Google Play service e sem aqueles anúncios chatos.
 \n
-\nPara garantir isso é recomendadoque você
+\nPara garantir isso é recomendável que você
 \ninstale o APP via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ou <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest"> GitHub</a>.</string>
-    <string name="fragmentAppInfo_community_text_land">Adoraríamos ter você em nossa sala
-\n na <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="fragmentAppInfo_community_text_land">Adoraríamos ter você em nossa sala na <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>
+\nou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="activityMainTopAppMenu_about">Sobre</string>
     <string name="activityMainTopAppMenu_open_image">Abrir Imagem</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Importar Paleta do Lospec</string>
@@ -190,25 +190,25 @@
     <string name="dialog_rename_title">Renomear</string>
     <string name="dialog_welcome_title">Boas-vindas</string>
     <string name="dialog_welcome_text">Boas-vindas ao PixaPencil! Você gostaria de iniciar um tutorial interativo\?</string>
-    <string name="dialog_large_canvas_warning_text">Você vai criar uma tela de desenho grande, saiba que talvez o seu aparelho não suporte bitmaps com esse tamanho.</string>
-    <string name="snackbar_successfully_imported_lospec_palette">Importamos %1$s</string>
+    <string name="dialog_large_canvas_warning_text">Você vai criar uma tela de desenho muito grande, saiba que talvez o seu aparelho não suporte bitmaps com esse tamanho.</string>
+    <string name="snackbar_successfully_imported_lospec_palette">%1$s foi importado</string>
     <string name="dialog_large_canvas_warning_positive_button_text">Entendido, criando o projeto</string>
     <string name="dialog_delete_all_projects">Tem certeza de que você quer deletar todos os seus projetos\? Isso não poderá ser desfeito.</string>
     <string name="snackbar_view_exception_info_button_text">Visualizar</string>
     <string name="snackbar_deleted_projects">%1$s projetos deletados</string>
-    <string name="snackbar_cannot_delete_primary_color_palette_text">Não se pode deletar a paleta de cores padrão</string>
+    <string name="snackbar_cannot_delete_primary_color_palette_text">A paleta de cores padrão não pode ser deletada</string>
     <string name="snackbar_find_and_replace_warning">Você precisa ter ao menos uma cor em sua tela de desenho para usar essa ferramenta</string>
     <string name="snackbar_on_color_long_tapped">Cor removida de %1$s</string>
     <string name="snackbar_image_successfully_saved">%1$s salvo com sucesso como %2$s</string>
-    <string name="snackbar_pixel_art_project_saved_to_starred_items">%1$s foi salvo nos ítens favoritados</string>
-    <string name="snackbar_pixel_art_project_removed_from_starred_items">%1$s foi removido dos ítens favoritados</string>
+    <string name="snackbar_pixel_art_project_saved_to_starred_items">%1$s foi salvo nos itens favoritados</string>
+    <string name="snackbar_pixel_art_project_removed_from_starred_items">%1$s foi removido dos itens favoritados</string>
     <string name="tool_tip_shading">Dica: toque no ícone para mudar o modo de sombreamento</string>
     <string name="tool_tip_spray">Dica: toque sobre o ícone para mudar as definições de spray</string>
     <string name="tool_tip_dither">Dica: toque para mudar o pincel pontilhado</string>
     <string name="tool_tip_dont_show_again">Não exibir novamente</string>
     <string name="spot_light_activity_main">Toque para criar um
 \nnovo projeto</string>
-    <string name="spot_light_new_project_fragment_1">Digite o nome que você quer para seu projeto</string>
+    <string name="spot_light_new_project_fragment_1">Digite o nome que você deseja para seu projeto</string>
     <string name="spot_light_new_project_fragment_2">Agora digite a largura desejada</string>
     <string name="spot_light_new_project_fragment_3">E, finalmente, digite a altura desejada</string>
     <string name="spot_light_new_project_fragment_4">Toque para criar seu projeto</string>
@@ -216,13 +216,13 @@
     <string name="spot_light_next">Próximo</string>
     <string name="spot_light_close">Fechar</string>
     <string name="move_tool_info_text">Navegue pela sua arte tocando e arrastando sobre a tela</string>
-    <string name="spot_light_activity_canvas_6">Você só possui a paleta padrão, mas você sempre pode criar uma nova tocando sobre os três pontos na lateral superior direita de sua tela</string>
+    <string name="spot_light_activity_canvas_6">Você só possui a paleta padrão, mas você sempre pode criar uma nova paleta tocando sobre os três pontos na lateral superior direita de sua tela</string>
     <string name="spot_light_activity_canvas_7">Toque em \'Pincéis\' para visualizar seus pincéis</string>
     <string name="spot_light_activity_canvas_8">PixaPencil tem cinco pincéis para você usar</string>
     <string name="dialog_open_image_enter_name_title">Inserir nome</string>
     <string name="dialog_open_image_enter_name_text">Insira um nome para o seu projeto</string>
     <string name="spot_light_new_project_fragment_input_value">Por favor insira um valor para %1$s</string>
-    <string name="spot_light_activity_canvas_1">Toque longo em qualquer das suas cores, primária ou secundária, para ir ao selecionador de cores</string>
+    <string name="spot_light_activity_canvas_1">Dê um toque longo em uma das suas cores, primária ou secundária, para ir ao selecionador de cores</string>
     <string name="spot_light_activity_canvas_2">Aqui você encontra suas ferramentas</string>
     <string name="spot_light_activity_canvas_3">Toque sobre \'Filtros\' para experimentar alguns</string>
     <string name="spot_light_activity_canvas_4">Aqui você pode experimentar filtros diferentes para a tela</string>
