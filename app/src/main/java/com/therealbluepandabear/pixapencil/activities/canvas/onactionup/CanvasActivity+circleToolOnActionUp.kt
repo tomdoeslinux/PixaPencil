@@ -19,5 +19,6 @@ fun CanvasActivity.circleToolOnActionUp() {
 
     shapeOrigin = null
     firstShapeDrawn = false
+    coordinates = null
     viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
 }
