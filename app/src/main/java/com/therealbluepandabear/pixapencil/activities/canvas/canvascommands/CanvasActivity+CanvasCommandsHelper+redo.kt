@@ -18,8 +18,8 @@ fun CanvasActivity.CanvasCommandsHelper.redo() {
 
         baseReference.binding.activityCanvasPixelGridView.invalidate()
 
-        baseReference.viewModel.undoStack.add(baseReference.viewModel.redoStack.last())
-        baseReference.viewModel.redoStack.removeLast()
+        baseReference.viewModel.undoStack.push(baseReference.viewModel.redoStack.peek())
+        baseReference.viewModel.redoStack.pop()
 
         baseReference.onRedoActionCompleted(baseReference.viewModel.redoStack)
     }

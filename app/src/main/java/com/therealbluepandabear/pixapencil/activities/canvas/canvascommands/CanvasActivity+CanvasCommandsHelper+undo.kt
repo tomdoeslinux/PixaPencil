@@ -7,16 +7,16 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.CanvasCommandsHelper.undo() {
     if (baseReference.viewModel.undoStack.size > 0) {
-        for ((key, value) in baseReference.viewModel.undoStack.last().actionData.distinctBy {
+        for ((key, value) in baseReference.viewModel.undoStack.peek().actionData.distinctBy {
             it.coordinates
         }) {
             baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(Coordinates(key.x, key.y), value)
         }
 
-        baseReference.viewModel.redoStack.add(baseReference.viewModel.undoStack.last())
+        baseReference.viewModel.redoStack.push(baseReference.viewModel.undoStack.peek())
 
         baseReference.binding.activityCanvasPixelGridView.invalidate()
-        baseReference.viewModel.undoStack.removeLast()
+        baseReference.viewModel.undoStack.pop()
     }
 
     baseReference.extendedOnUndoActionCompleted(baseReference.viewModel.redoStack, baseReference.viewModel.undoStack)

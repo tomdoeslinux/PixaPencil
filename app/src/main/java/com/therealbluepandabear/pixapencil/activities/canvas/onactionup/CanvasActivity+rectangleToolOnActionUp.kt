@@ -15,5 +15,5 @@ fun CanvasActivity.rectangleToolOnActionUp() {
     shapeOrigin = null
     firstShapeDrawn = false
     coordinates = null
-    viewModel.undoStack.add(viewModel.currentBitmapAction!!)
+    viewModel.undoStack.push(viewModel.currentBitmapAction!!)
 }

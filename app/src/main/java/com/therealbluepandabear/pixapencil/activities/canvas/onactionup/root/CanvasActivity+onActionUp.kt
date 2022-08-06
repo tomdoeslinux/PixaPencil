@@ -36,9 +36,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         viewModel.currentTool == Tool.PolygonTool -> {
-            viewModel.undoStack.add(
-                viewModel.currentBitmapAction!!
-            )
+            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
         }
 
         viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.CircleTool || viewModel.currentTool == Tool.OutlinedCircleTool) -> {
@@ -50,7 +48,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         viewModel.currentTool == Tool.EraseTool -> {
-            viewModel.undoStack.add(viewModel.currentBitmapAction!!)
+            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
 
@@ -64,7 +62,7 @@ fun CanvasActivity.extendedOnActionUp() {
         else -> {
             val isPxPerfect = (binding.activityCanvasPixelGridView.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
-            viewModel.undoStack.add(viewModel.currentBitmapAction!!)
+            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()
 
             if (isPxPerfect) {
@@ -104,7 +102,7 @@ fun CanvasActivity.extendedOnActionUp() {
                     )
                 }
 
-                viewModel.undoStack.add(BitmapAction(data))
+                viewModel.undoStack.push(BitmapAction(data))
             }
         }
     }

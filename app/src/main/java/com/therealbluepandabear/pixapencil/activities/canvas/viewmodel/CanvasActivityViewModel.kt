@@ -11,10 +11,11 @@ import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
+import java.util.*
 
 class CanvasActivityViewModel : ViewModel() {
-    var undoStack: MutableList<BitmapAction> = mutableListOf()
-    var redoStack: MutableList<BitmapAction> = mutableListOf()
+    var undoStack: Stack<BitmapAction> = Stack()
+    var redoStack: Stack<BitmapAction> = Stack()
 
     var currentBitmapAction: BitmapAction? = null
 
