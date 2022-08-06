@@ -9,7 +9,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPalett
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
 import com.therealbluepandabear.pixapencil.extensions.getColors
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
-//import com.therealbluepandabear.pixapencil.fragments.canvas.pixelGridViewInstance
 import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
@@ -23,8 +22,8 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
                     paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
                     paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
                     paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
-                    paramScaledWidth = binding.activityCanvasPixelGridView.measuredWidth,
-                    paramScaledHeight = binding.activityCanvasPixelGridView.measuredHeight
+                    paramScaledWidth = drawPixelGridViewBitmap().width,
+                    paramScaledHeight = drawPixelGridViewBitmap().height
                 ))
             addToBackStack(null)
         }
