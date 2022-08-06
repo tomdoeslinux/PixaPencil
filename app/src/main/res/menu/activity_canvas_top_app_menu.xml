@@ -61,11 +61,13 @@
         <menu>
             <item android:id="@+id/appMenu_flip_horizontal_subItem"
                 app:showAsAction="ifRoom"
+                app:iconTint="@color/black_color_daynight"
                 android:icon="@drawable/ic_flip_horizontal"
                 android:title="@string/activityCanvasTopAppMenu_symmetry_horizontal" />
 
             <item android:id="@+id/appMenu_flip_vertical_subItem"
                 app:showAsAction="ifRoom"
+                app:iconTint="@color/black_color_daynight"
                 android:icon="@drawable/ic_flip_vertical"
                 android:title="@string/activityCanvasTopAppMenu_symmetry_vertical" />
         </menu>
@@ -86,7 +88,6 @@
 
                 <item android:id="@+id/appMenu_symmetry_quad_subItem"
                     android:title="@string/activityCanvasTopAppMenu_symmetry_quad"/>
-
 
                 <item android:id="@+id/appMenu_symmetry_octal_subItem"
                     android:title="@string/activityCanvasTopAppMenu_symmetry_octal"/>
