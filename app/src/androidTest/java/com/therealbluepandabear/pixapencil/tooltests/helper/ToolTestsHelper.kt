@@ -8,7 +8,7 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 object ToolTestsHelper {
     fun prepare(activity: CanvasActivity) {
         activity.viewModel.currentTool = Tool.CircleTool
-        activity.viewModel.bitmapActionData = mutableListOf()
+        activity.viewModel.undoStack = mutableListOf()
         activity.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
         activity.initPrimaryAlgorithmInfoParameter()
     }

@@ -13,7 +13,7 @@ fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, c
         overrideSetPixel(it, colorToReplace, true, ignoreSymmetry = true, ignoreDither = true, ignoreShadingMap = true)
     }
 
-    baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.currentBitmapAction!!)
+    baseReference.viewModel.undoStack.add(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
     baseReference.binding.activityCanvasPixelGridView.invalidate()

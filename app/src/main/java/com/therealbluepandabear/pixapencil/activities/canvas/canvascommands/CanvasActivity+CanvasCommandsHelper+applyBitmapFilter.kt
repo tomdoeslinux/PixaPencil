@@ -13,7 +13,7 @@ fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) ->
         overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true, ignoreDither = true)
     }
 
-    baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.currentBitmapAction!!)
+    baseReference.viewModel.undoStack.add(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
     baseReference.binding.activityCanvasPixelGridView.invalidate()
