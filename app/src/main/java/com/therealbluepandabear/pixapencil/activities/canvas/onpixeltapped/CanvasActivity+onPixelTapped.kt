@@ -36,19 +36,19 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         }
 
         Tool.RectangleTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped, false)
+            rectangleToolOnPixelTapped(coordinatesTapped)
         }
 
         Tool.OutlinedRectangleTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped, true)
+            rectangleToolOnPixelTapped(coordinatesTapped)
         }
 
         Tool.SquareTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped, false)
+            rectangleToolOnPixelTapped(coordinatesTapped)
         }
 
         Tool.OutlinedSquareTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped, true)
+            rectangleToolOnPixelTapped(coordinatesTapped)
         }
 
         Tool.EllipseTool -> {

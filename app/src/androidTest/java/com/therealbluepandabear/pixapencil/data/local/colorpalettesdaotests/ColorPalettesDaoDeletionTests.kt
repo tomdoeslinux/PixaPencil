@@ -7,7 +7,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.therealbluepandabear.pixapencil.dao.ColorPalettesDao
 import com.therealbluepandabear.pixapencil.database.ColorPalettesDatabase
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule

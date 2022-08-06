@@ -14,8 +14,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.exten
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.algorithms.AlgorithmInfoParameter
-import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
+import com.therealbluepandabear.pixapencil.algorithms.*
 import com.therealbluepandabear.pixapencil.databinding.ActivityCanvasBinding
 import com.therealbluepandabear.pixapencil.listeners.*
 import com.therealbluepandabear.pixapencil.models.*
@@ -39,12 +38,27 @@ class CanvasActivity :
     SprayToolSettingsFragmentListener,
     DitherToolSettingsFragmentListener {
 
+    // Algorithm instances:
+    lateinit var lineAlgorithm: LineAlgorithm
+    lateinit var circleAlgorithm: CircleAlgorithm
+    lateinit var filledCircleAlgorithm: CircleAlgorithm
+    lateinit var ellipseAlgorithm: EllipseAlgorithm
+    lateinit var filledEllipseAlgorithm: EllipseAlgorithm
+    lateinit var rectangleAlgorithm: RectangleAlgorithm
+    lateinit var filledRectangleAlgorithm: RectangleAlgorithm
+    lateinit var visibleRectanglePreviewAlgorithm: RectanglePreviewAlgorithm
+    lateinit var visibleSquarePreviewAlgorithm: SquarePreviewAlgorithm
+    lateinit var invisibleRectanglePreviewAlgorithm: RectanglePreviewAlgorithm
+    lateinit var invisibleSquarePreviewAlgorithm: SquarePreviewAlgorithm
+
+    // Binding:
     lateinit var binding: ActivityCanvasBinding
 
+    // View model:
     val viewModel: CanvasActivityViewModel by viewModels()
 
+    // Intent info:
     var index: Int = -1
-
     var projectTitle: String = ""
     var width: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
     var height: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
@@ -55,7 +69,7 @@ class CanvasActivity :
     lateinit var menu: Menu
 
     var shapeOrigin: Coordinates? = null
-    var shapeHasLetGo = false
+    var coordinates: Coordinates? = null
     var firstShapeDrawn = false
 
     lateinit var sharedPreferenceObject: SharedPreferences
@@ -85,6 +99,20 @@ class CanvasActivity :
 
     var dX = 0f
     var dY = 0f
+
+    var shapePreviewCache: List<BitmapActionData> = listOf()
+
+    fun clearPreviousShapePreview() {
+        for (actionData in shapePreviewCache.distinctBy { it.coordinates }) {
+            binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(
+                actionData.coordinates.x,
+                actionData.coordinates.y,
+                actionData.colorAtPosition)
+        }
+
+        shapePreviewCache = listOf()
+        viewModel.currentBitmapAction?.actionData?.clear()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
