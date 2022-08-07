@@ -13,24 +13,31 @@ import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
-    val uniqueColors = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors()
-
-    if (uniqueColors.isNotEmpty()) {
-        supportFragmentManager.commit {
-            replace(
-                R.id.activityCanvas_primaryFragmentHost, ReplaceColorFragment.newInstance(
-                    paramCanvasColors = uniqueColors,
-                    paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
-                    paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
-                    paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
-                    paramScaledWidth = drawPixelGridViewBitmap().width * (binding.activityCanvasPixelGridView.drawToBitmap().width / drawPixelGridViewBitmap().width),
-                    paramScaledHeight = drawPixelGridViewBitmap().height * (binding.activityCanvasPixelGridView.drawToBitmap().height / drawPixelGridViewBitmap().height)
-                ))
-            addToBackStack(null)
+    val paramScaledWidth =
+        if (binding.activityCanvasPixelGridView.drawToBitmap().width <= drawPixelGridViewBitmap().width) {
+            drawPixelGridViewBitmap().width * (drawPixelGridViewBitmap().width / binding.activityCanvasPixelGridView.drawToBitmap().width)
+        } else {
+            drawPixelGridViewBitmap().width * (binding.activityCanvasPixelGridView.drawToBitmap().width / drawPixelGridViewBitmap().width)
         }
-    } else {
-        binding.activityCanvasCoordinatorLayout.showSnackbar(
-            getString(R.string.snackbar_find_and_replace_warning),
-            SnackbarDuration.Default)
+
+    val paramScaledHeight =
+        if (binding.activityCanvasPixelGridView.drawToBitmap().height <= drawPixelGridViewBitmap().height) {
+            drawPixelGridViewBitmap().height * (drawPixelGridViewBitmap().height / binding.activityCanvasPixelGridView.drawToBitmap().height)
+        } else {
+            drawPixelGridViewBitmap().height * (binding.activityCanvasPixelGridView.drawToBitmap().height / drawPixelGridViewBitmap().height)
+        }
+
+    supportFragmentManager.commit {
+        replace(
+            R.id.activityCanvas_primaryFragmentHost, ReplaceColorFragment.newInstance(
+                paramCanvasColors = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors(),
+                paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
+                paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
+                paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
+                paramScaledWidth = paramScaledWidth,
+                paramScaledHeight = paramScaledHeight
+            )
+        )
+        addToBackStack(null)
     }
 }
