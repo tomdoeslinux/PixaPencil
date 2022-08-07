@@ -19,7 +19,7 @@
         android:theme="@style/Theme.PixaPencil">
         <activity
             android:name="com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustUnspecified"
             android:hardwareAccelerated="true"
             android:exported="false" />
         <activity
