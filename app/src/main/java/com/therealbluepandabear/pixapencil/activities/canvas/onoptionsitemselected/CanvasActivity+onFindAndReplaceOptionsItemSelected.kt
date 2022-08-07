@@ -1,5 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
@@ -22,8 +23,8 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
                     paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
                     paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
                     paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
-                    paramScaledWidth = drawPixelGridViewBitmap().width,
-                    paramScaledHeight = drawPixelGridViewBitmap().height
+                    paramScaledWidth = drawPixelGridViewBitmap().width * (binding.activityCanvasPixelGridView.drawToBitmap().width / drawPixelGridViewBitmap().width),
+                    paramScaledHeight = drawPixelGridViewBitmap().height * (binding.activityCanvasPixelGridView.drawToBitmap().height / drawPixelGridViewBitmap().height)
                 ))
             addToBackStack(null)
         }
