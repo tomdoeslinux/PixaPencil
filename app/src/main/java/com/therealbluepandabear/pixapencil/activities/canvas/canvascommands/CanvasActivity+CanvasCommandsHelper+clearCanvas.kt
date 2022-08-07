@@ -6,4 +6,5 @@ import com.therealbluepandabear.pixapencil.extensions.clear
 fun CanvasActivity.CanvasCommandsHelper.clearCanvas() {
     baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.clear()
     baseReference.viewModel.undoStack.clear()
+    baseReference.viewModel.redoStack.clear()
 }
