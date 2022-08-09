@@ -21,7 +21,7 @@ private fun NewProjectFragment.checkForTitleError() {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_project_name)
         invalidTitle = true
     } else {
-        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = null
+        binding.fragmentNewCanvasProjectTitleTextInputLayout.isErrorEnabled = false
         invalidTitle = false
     }
 }
@@ -39,7 +39,7 @@ private fun NewProjectFragment.checkForWidthError() {
         }
 
         else -> {
-            binding.fragmentNewCanvasWidthTextInputLayout.error = null
+            binding.fragmentNewCanvasWidthTextInputLayout.isErrorEnabled = false
             invalidWidth = false
         }
     }
@@ -58,7 +58,7 @@ private fun NewProjectFragment.checkForHeightError() {
         }
 
         else -> {
-            binding.fragmentNewCanvasHeightTextInputLayout.error = null
+            binding.fragmentNewCanvasHeightTextInputLayout.isErrorEnabled = false
             invalidHeight = false
         }
     }

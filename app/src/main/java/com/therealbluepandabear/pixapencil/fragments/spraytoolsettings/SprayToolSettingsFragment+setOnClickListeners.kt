@@ -21,7 +21,7 @@ private fun SprayToolSettingsFragment.checkForRadiusError() {
         }
 
         else -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = null
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.isErrorEnabled = false
             invalidRadius = false
         }
     }
@@ -40,7 +40,7 @@ private fun SprayToolSettingsFragment.checkForStrengthError() {
         }
 
         else -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = null
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.isErrorEnabled = false
             invalidStrength = false
         }
     }

@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.RadioGroup
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doAfterTextChanged
 import com.android.volley.Request
@@ -78,9 +77,6 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             val fileNameTextInputLayout =
                 exportRootLayout.findViewById<TextInputLayout>(R.id.exportProjectDialogLayout_fileNameTextInputLayout)
 
-            val fileTypeTextView = exportRootLayout.findViewById<TextView>(R.id.textView2)
-            val defaultFileTypeTextViewTopMargin = (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin
-
             exportRootLayout.post {
                 // We do this so that there is no default top margin, which I personally find it ugly
                 (exportRootLayout.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
@@ -88,12 +84,9 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                 fileNameTextInputEditText.setText(projectTitle)
                 fileNameTextInputEditText.doAfterTextChanged {
                     if (it.toString().isNotBlank()) {
-                        fileNameTextInputLayout.error = ""
-                        (fileNameTextInputLayout.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = 0
-                        (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
+                        fileNameTextInputLayout.isErrorEnabled = false
                     } else {
                         fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
-                        (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = defaultFileTypeTextViewTopMargin
                     }
                 }
             }
@@ -164,7 +157,6 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                     alertDialog.cancel()
                 } else {
                     fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
-                    (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = defaultFileTypeTextViewTopMargin
                 }
             }
         }

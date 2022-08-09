@@ -39,6 +39,10 @@
     <string name="projectDetailsAlertBox_created">Created</string>
     <string name="projectDetailsAlertBox_colors">Colors</string>
 
+    <string name="exportProjectDialogLayout_file_name_str">File Name</string>
+    <string name="exportProjectDialogLayout_file_type_str">File Type</string>
+    <string name="exportProjectDialogLayout_resolution_str">File Type</string>
+
     <!--Other strings-->
     <string name="recentCreationsLayout_subtitle" translatable="false">%1$dx%2$d</string>
 

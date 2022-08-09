@@ -50,7 +50,7 @@ class NewColorPaletteFragment : Fragment(), ActivityFragment {
 
         binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.doAfterTextChanged {
             if (binding.fragmentNewColorPaletteColorPaletteNameTextInputEditText.text.toString().isNotBlank()) {
-                binding.fragmentNewColorPaletteColorPaletteNameTextInputLayout.error = null
+                binding.fragmentNewColorPaletteColorPaletteNameTextInputLayout.isErrorEnabled = false
             }
         }
 
