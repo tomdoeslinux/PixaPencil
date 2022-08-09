@@ -135,7 +135,7 @@
             android:background="@drawable/radiobuttonselector"
             android:button="@android:color/transparent"
             android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
-            android:text="Raw"
+            android:text="@string/exportProjectDialogLayout_raw_str"
             android:textStyle="bold"
             android:textColor="@drawable/radiobuttontextselector"
             android:textAlignment="center" />
@@ -147,7 +147,7 @@
             android:width="90dp"
             android:background="@drawable/radiobuttonselectorlast"
             android:button="@android:color/transparent"
-            android:text="Scaled"
+            android:text="@string/exportProjectDialogLayout_scaled_str"
             android:textStyle="bold"
             android:textColor="@drawable/radiobuttontextselector"
             android:textAlignment="center" />
