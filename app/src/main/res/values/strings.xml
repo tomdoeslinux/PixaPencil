@@ -209,6 +209,7 @@
     <string name="exception_empty_spray_strength">Strength cannot be empty</string>
     <string name="exception_failed_to_create_file">Failed to create file</string>
     <string name="exception_failed_to_compress_file">Failed to compress file</string>
+    <string name="exception_invalid_file_name">File name cannot be empty</string>
 
     <!-- Dialog strings -->
     <string name="dialog_unsaved_changes_negative_button_text">Don\'t save</string>

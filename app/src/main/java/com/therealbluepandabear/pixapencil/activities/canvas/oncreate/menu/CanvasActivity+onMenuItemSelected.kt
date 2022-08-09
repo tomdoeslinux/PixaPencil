@@ -1,19 +1,17 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
+import android.app.AlertDialog
 import android.graphics.Color
-import android.util.Log
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.doOnLayout
-import androidx.core.view.doOnPreDraw
-import androidx.core.view.marginTop
+import androidx.core.widget.doAfterTextChanged
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
@@ -74,74 +72,101 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                 layoutInflater.inflate(R.layout.export_project_dialog_layout, findViewById(android.R.id.content),false)
                         as ConstraintLayout
 
+            val fileNameTextInputEditText =
+                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText)
+
+            val fileNameTextInputLayout =
+                exportRootLayout.findViewById<TextInputLayout>(R.id.exportProjectDialogLayout_fileName_textInputLayout)
+
+            val fileTypeTextView = exportRootLayout.findViewById<TextView>(R.id.textView2)
+            val defaultFileTypeTextViewTopMargin = (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin
+
             exportRootLayout.post {
                 // We do this so that there is no default top margin, which I personally find it ugly
                 (exportRootLayout.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
 
-                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).setText(projectTitle)
+                fileNameTextInputEditText.setText(projectTitle)
+                fileNameTextInputEditText.doAfterTextChanged {
+                    if (it.toString().isNotBlank()) {
+                        fileNameTextInputLayout.error = ""
+                        (fileNameTextInputLayout.layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = 0
+                        (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
+                    } else {
+                        fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
+                        (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = defaultFileTypeTextViewTopMargin
+                    }
+                }
             }
 
-            showDialog(
-                getString(R.string.activityCanvasTopAppMenu_export),
-                null,
-                getString(R.string.generic_ok),
-                { _, _ ->
-                    val title = exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString()
+            val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(getString(R.string.activityCanvasTopAppMenu_export))
+                .setView(exportRootLayout)
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.generic_ok), null)
+                .setNegativeButton(getString(R.string.generic_cancel), null)
+                .setView(exportRootLayout)
+                .show()
 
-                    if (title.isNotBlank()) {
-                        val format: BitmapCompressFormat =
-                            when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
-                                R.id.exportProjectDialogLayout_radioButton_PNG -> {
-                                    BitmapCompressFormat.PNG
-                                }
+            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                val title = fileNameTextInputEditText.text.toString()
 
-                                R.id.exportProjectDialogLayout_radioButton_JPG -> {
-                                    BitmapCompressFormat.JPEG
-                                }
-
-                                R.id.exportProjectDialogLayout_radioButton_WEBP -> {
-                                    BitmapCompressFormat.WEBP
-                                }
-
-                                R.id.exportProjectDialogLayout_radioButton_TIF -> {
-                                    BitmapCompressFormat.TIFF
-                                }
-
-                                R.id.exportProjectDialogLayout_radioButton_BMP -> {
-                                    BitmapCompressFormat.BMP
-                                }
-
-                                else -> {
-                                    BitmapCompressFormat.PNG
-                                }
+                if (title.isNotBlank()) {
+                    val format: BitmapCompressFormat =
+                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
+                            R.id.exportProjectDialogLayout_radioButton_PNG -> {
+                                BitmapCompressFormat.PNG
                             }
 
-                        val resolution: BitmapResolution =
-                            when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
-                                R.id.exportProjectDialogLayout_radioButton_Raw -> {
-                                    BitmapResolution.Raw
-                                }
-
-                                R.id.exportProjectDialogLayout_radioButton_Scaled -> {
-                                    BitmapResolution.Scaled
-                                }
-
-                                else -> {
-                                    BitmapResolution.Raw
-                                }
+                            R.id.exportProjectDialogLayout_radioButton_JPG -> {
+                                BitmapCompressFormat.JPEG
                             }
 
-                        binding.activityCanvasPixelGridView.saveAsImage(
-                            format,
-                            resolution,
-                            binding.activityCanvasCoordinatorLayout,
-                            exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString(),
-                            viewModel.flipMatrix
-                        )
-                    }
-                },
-                getString(R.string.generic_cancel), { _, _ -> },
-                exportRootLayout)
+                            R.id.exportProjectDialogLayout_radioButton_WEBP -> {
+                                BitmapCompressFormat.WEBP
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_TIF -> {
+                                BitmapCompressFormat.TIFF
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_BMP -> {
+                                BitmapCompressFormat.BMP
+                            }
+
+                            else -> {
+                                BitmapCompressFormat.PNG
+                            }
+                        }
+
+                    val resolution: BitmapResolution =
+                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
+                            R.id.exportProjectDialogLayout_radioButton_Raw -> {
+                                BitmapResolution.Raw
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_Scaled -> {
+                                BitmapResolution.Scaled
+                            }
+
+                            else -> {
+                                BitmapResolution.Raw
+                            }
+                        }
+
+                    binding.activityCanvasPixelGridView.saveAsImage(
+                        format,
+                        resolution,
+                        binding.activityCanvasCoordinatorLayout,
+                        exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString(),
+                        viewModel.flipMatrix
+                    )
+
+                    alertDialog.cancel()
+                } else {
+                    fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
+                    (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin = defaultFileTypeTextViewTopMargin
+                }
+            }
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {
