@@ -225,4 +225,11 @@
     <string name="spot_light_activity_canvas_4">Aqui você pode experimentar filtros diferentes para a tela</string>
     <string name="spot_light_activity_canvas_5">Toque em \'Paletas\' para visualizar suas paletas</string>
     <string name="activityCanvasTopAppMenu_flip">Virar</string>
+    <string name="activityCanvasTopAppMenu_export">Exportar</string>
+    <string name="exception_invalid_file_name">O nome do arquivo não pode estar vazio</string>
+    <string name="exportProjectDialogLayout_file_name_str">Nome do Arquivo</string>
+    <string name="exportProjectDialogLayout_file_type_str">Tipo de Arquivo</string>
+    <string name="exportProjectDialogLayout_resolution_str">Resolução</string>
+    <string name="exportProjectDialogLayout_raw_str">Inalterado</string>
+    <string name="exportProjectDialogLayout_scaled_str">Redimensionado</string>
 </resources>
