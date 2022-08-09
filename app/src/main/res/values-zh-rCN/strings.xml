@@ -122,8 +122,6 @@
 
     <string name="activityCanvasTopAppMenu_undo">撤销</string>
     <string name="activityCanvasTopAppMenu_redo">恢复</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">另存为PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">另存为JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">导入Lospec调色板</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">新建调色板</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">完美像素</string>
@@ -147,7 +145,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">原始</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">八角对称</string>
     <string name="activityCanvasTopAppMenu_save_in_background">后台保存</string>
-    <string name="activityCanvasTopAppMenu_save_as">另存为</string>
 
     <string name="bottomNavigationMenu_starred">星标</string>
     <string name="bottomNavigationMenu_home">首页</string>

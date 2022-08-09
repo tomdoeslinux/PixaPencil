@@ -57,8 +57,6 @@
     <string name="activityCanvas_tab_tools">Ferramentas</string>
     <string name="activityCanvas_tab_color_palettes">Paletas</string>
     <string name="activityCanvasTopAppMenu_redo">Refazer</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Salvar como PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Salvar como JPG</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Nova Paleta de Cores</string>
     <string name="activityCanvasTopAppMenu_rotate">Girar</string>
     <string name="fragmentSprayToolSettings_radius">Raio</string>
@@ -78,7 +76,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">Nenhuma</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octogonal</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Salvar em Segundo Plano</string>
-    <string name="activityCanvasTopAppMenu_save_as">Salvar como</string>
     <string name="bottomNavigationMenu_starred">Favoritado</string>
     <string name="bottomNavigationMenu_home">Início</string>
     <string name="pencil_tool_info_title">Lápis</string>

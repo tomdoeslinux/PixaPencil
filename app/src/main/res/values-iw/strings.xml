@@ -98,8 +98,6 @@
 
     <string name="activityCanvasTopAppMenu_undo">בטל פעולה</string>
     <string name="activityCanvasTopAppMenu_redo">בצע מחדש את הפעולה</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">שמור את הקובץ ל-PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">שמור את הקובץ ל-JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">הוסף פלטת Lospec</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">פלטת צבעים חדשה</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">פיקסל פרפקט</string>
@@ -122,7 +120,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">בלי סימטריה</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">אוקטל</string>
     <string name="activityCanvasTopAppMenu_save_in_background">תשמור ברקע</string>
-    <string name="activityCanvasTopAppMenu_save_as">תשמור</string>
 
     <string name="bottomNavigationMenu_starred">פרויקטים מועדפים</string>
     <string name="bottomNavigationMenu_home">כל הפרויקטים</string>

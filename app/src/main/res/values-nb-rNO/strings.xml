@@ -66,7 +66,6 @@
     <string name="activityMainTopAppMenu_dark_light_mode">Mørkt/lyst modus</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Pikselperfekt</string>
     <string name="activityCanvasTopAppMenu_clear_canvas">Tøm lerret</string>
-    <string name="activityCanvasTopAppMenu_save_as">Lagre som</string>
     <string name="pencil_tool_info_title">Blyantverktøyinfo</string>
     <string name="erase_tool_info_text">Fjern piksler.</string>
     <string name="pencil_tool_info_text">Tegn pikselerte stier på frihånd.</string>
@@ -113,8 +112,6 @@
     <string name="activityCanvas_tab_tools">Verktøy</string>
     <string name="activityCanvas_tab_color_palettes">Paletter</string>
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Kopiert til utklippstavlen</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Lagre som PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Lagre som JPG</string>
     <string name="exception_invalid_height">Verdien må være mellom 1 og 10000</string>
     <string name="activityMain_newProjectButton_contentDescription">Nytt prosjekt</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Lagre i bakgrunnen</string>

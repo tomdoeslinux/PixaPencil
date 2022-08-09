@@ -66,8 +66,6 @@
     <string name="activityMainTopAppMenu_dark_light_mode">Hell-/Dunkelmodus</string>
     <string name="activityCanvasTopAppMenu_undo">Rückgängig</string>
     <string name="activityCanvasTopAppMenu_redo">Wiederherstellen</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Als PNG speichern</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Als JPG speichern</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Neue Farbpalette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Perfekter Pixel</string>
     <string name="activityCanvasTopAppMenu_rotate">Drehen</string>
@@ -87,7 +85,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">Keiner</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Achteck</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Im Vordergrund speichern</string>
-    <string name="activityCanvasTopAppMenu_save_as">Speichern als</string>
     <string name="bottomNavigationMenu_starred">Favorisiert</string>
     <string name="bottomNavigationMenu_home">Startseite</string>
     <string name="pencil_tool_info_title">Stift-Info-Tool</string>

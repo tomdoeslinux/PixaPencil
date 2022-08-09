@@ -129,8 +129,6 @@
 
     <string name="activityCanvasTopAppMenu_undo">Undo</string>
     <string name="activityCanvasTopAppMenu_redo">Redo</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Save as PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Save as JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Import Lospec Palette</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">New Color Palette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Pixel Perfect</string>
@@ -154,7 +152,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">None</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octal</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Save in Background</string>
-    <string name="activityCanvasTopAppMenu_save_as">Save as</string>
 
     <string name="bottomNavigationMenu_starred">Starred</string>
     <string name="bottomNavigationMenu_home">Home</string>

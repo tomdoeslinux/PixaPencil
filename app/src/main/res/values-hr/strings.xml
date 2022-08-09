@@ -97,8 +97,6 @@
     <string name="activityMainTopAppMenu_about">Informacije</string>
     <string name="activityCanvasTopAppMenu_undo">Poništi</string>
     <string name="activityCanvasTopAppMenu_redo">Ponovi</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Spremi kao PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Spremi kao JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Uvezi Lospec paletu</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Nova paleta boja</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Savršeni piksli</string>
@@ -120,7 +118,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">Ništa</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Oktalno</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Spremi u pozadinu</string>
-    <string name="activityCanvasTopAppMenu_save_as">Spremi kao</string>
     <string name="bottomNavigationMenu_starred">Označeno</string>
     <string name="bottomNavigationMenu_home">Početak</string>
     <string name="pencil_tool_info_title">Informacije olovke</string>
