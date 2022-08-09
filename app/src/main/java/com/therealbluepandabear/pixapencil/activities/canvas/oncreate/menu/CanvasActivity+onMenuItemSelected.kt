@@ -1,13 +1,21 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
 import android.graphics.Color
-import android.os.Build
+import android.util.Log
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.doOnLayout
+import androidx.core.view.doOnPreDraw
+import androidx.core.view.marginTop
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
@@ -18,10 +26,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
-import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
-import com.therealbluepandabear.pixapencil.enums.FlipValue
-import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.enums.SymmetryMode
+import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
@@ -64,28 +69,74 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             onPixelPerfectOptionsItemSelected()
         }
 
-        R.id.activityCanvasTopAppMenu_export_to_png_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.PNG, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
-        }
+        R.id.activityCanvasTopAppMenu_export_item -> {
+            val exportRootLayout: ConstraintLayout =
+                layoutInflater.inflate(R.layout.export_project_dialog_layout, findViewById(android.R.id.content),false)
+                        as ConstraintLayout
 
-        R.id.activityCanvasTopAppMenu_export_to_jpg_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.JPEG, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
-        }
+            exportRootLayout.post {
+                // We do this so that there is no default top margin, which I personally find it ugly
+                (exportRootLayout.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
 
-        R.id.activityCanvasTopAppMenu_export_to_webp_item -> {
-            if (Build.VERSION.SDK_INT >= 30) {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP_LOSSLESS, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
-            } else {
-                binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.WEBP, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
+                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).setText(projectTitle)
             }
-        }
 
-        R.id.activityCanvasTopAppMenu_export_to_tiff_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.TIFF, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
-        }
+            showDialog(
+                "Export",
+                null,
+                getString(R.string.generic_ok),
+                { _, _ ->
+                    val format: BitmapCompressFormat =
+                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
+                            R.id.exportProjectDialogLayout_radioButton_PNG -> {
+                                BitmapCompressFormat.PNG
+                            }
 
-        R.id.activityCanvasTopAppMenu_export_to_bmp_item -> {
-            binding.activityCanvasPixelGridView.saveAsImage(BitmapCompressFormat.BMP, binding.activityCanvasCoordinatorLayout, projectTitle, viewModel.flipMatrix)
+                            R.id.exportProjectDialogLayout_radioButton_JPG -> {
+                                BitmapCompressFormat.JPEG
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_WEBP -> {
+                                BitmapCompressFormat.WEBP
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_TIF -> {
+                                BitmapCompressFormat.TIFF
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_BMP -> {
+                                BitmapCompressFormat.BMP
+                            }
+
+                            else -> {
+                                BitmapCompressFormat.PNG
+                            }
+                        }
+
+                    val resolution: BitmapResolution =
+                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
+                            R.id.exportProjectDialogLayout_radioButton_Raw -> {
+                                BitmapResolution.Raw
+                            }
+
+                            R.id.exportProjectDialogLayout_radioButton_Scaled -> {
+                                BitmapResolution.Scaled
+                            }
+
+                            else -> {
+                                BitmapResolution.Raw
+                            }
+                        }
+
+                    binding.activityCanvasPixelGridView.saveAsImage(
+                        format,
+                        resolution,
+                        binding.activityCanvasCoordinatorLayout,
+                        "Hijk",
+                        viewModel.flipMatrix)
+                },
+                getString(R.string.generic_cancel), { _, _ -> },
+                exportRootLayout)
         }
 
         R.id.appMenu_rotate_90_degrees_clockwise_subItem -> {

@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
+import com.therealbluepandabear.pixapencil.enums.BitmapResolution
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
@@ -116,8 +117,13 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         return extendedOnTouchEvent(event)
     }
 
-    fun saveAsImage(format: BitmapCompressFormat, coordinatorLayout: CoordinatorLayout, projectTitle: String, flipMatrix: List<FlipValue>) {
-        extendedSaveAsImage(format, coordinatorLayout, projectTitle, flipMatrix)
+    fun saveAsImage(
+        format: BitmapCompressFormat,
+        resolution: BitmapResolution,
+        coordinatorLayout: CoordinatorLayout,
+        projectTitle: String,
+        flipMatrix: List<FlipValue>) {
+        extendedSaveAsImage(format, resolution, coordinatorLayout, projectTitle, flipMatrix)
     }
 
     /** Use this code only in onMeasure **/

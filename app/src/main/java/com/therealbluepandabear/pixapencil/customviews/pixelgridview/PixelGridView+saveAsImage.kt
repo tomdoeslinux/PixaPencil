@@ -6,10 +6,7 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.drawToBitmap
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
-import com.therealbluepandabear.pixapencil.enums.FlipValue
-import com.therealbluepandabear.pixapencil.enums.OutputCode
-import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
+import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
@@ -20,10 +17,20 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsImage(format: BitmapCompressFormat, coordinatorLayout: CoordinatorLayout, projectTitle: String, flipMatrix: List<FlipValue>) {
+fun PixelGridView.extendedSaveAsImage(
+    format: BitmapCompressFormat,
+    resolution: BitmapResolution,
+    coordinatorLayout: CoordinatorLayout,
+    projectTitle: String,
+    flipMatrix: List<FlipValue>) {
     val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
-    val bitmap = this.drawToBitmap().rotate((parent as View).rotation.toInt(), flipMatrix)
+    val bitmap = if (resolution == BitmapResolution.Scaled) {
+        this.drawToBitmap().rotate((parent as View).rotation.toInt(), flipMatrix)
+    } else {
+        pixelGridViewBitmap
+    }
+
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)
 
     fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format) { outputCode, _file, exceptionMessage_1 ->

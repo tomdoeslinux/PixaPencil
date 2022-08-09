@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="File Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exportProjectDialogLayout_fileName_textInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="File Type"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_fileName_textInputLayout" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <RadioGroup
+            android:id="@+id/exportProjectDialogLayout_radioGroup_fileType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/exportProjectDialogLayout_radioButton_PNG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="90dp"
+                android:background="@drawable/radiobuttonselector"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/radiobuttontextselector"
+                android:text="@string/generic_png"
+                android:textAlignment="center" />
+
+            <RadioButton
+                android:id="@+id/exportProjectDialogLayout_radioButton_JPG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="90dp"
+                android:background="@drawable/radiobuttonselector"
+                android:textColor="@drawable/radiobuttontextselector"
+                android:button="@android:color/transparent"
+                android:text="@string/generic_jpg"
+                android:textAlignment="center" />
+
+            <RadioButton
+                android:id="@+id/exportProjectDialogLayout_radioButton_WEBP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="90dp"
+                android:background="@drawable/radiobuttonselector"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/radiobuttontextselector"
+                android:text="@string/generic_webp"
+                android:textAlignment="center" />
+
+            <RadioButton
+                android:id="@+id/exportProjectDialogLayout_radioButton_TIF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="90dp"
+                android:background="@drawable/radiobuttonselector"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/radiobuttontextselector"
+                android:text="@string/generic_tif"
+                android:textAlignment="center" />
+
+            <RadioButton
+                android:id="@+id/exportProjectDialogLayout_radioButton_BMP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="90dp"
+                android:background="@drawable/radiobuttonselectorlast"
+                android:button="@android:color/transparent"
+                android:textColor="@drawable/radiobuttontextselector"
+                android:text="@string/generic_bmp"
+                android:textAlignment="center" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Resolution"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <RadioGroup
+        android:id="@+id/exportProjectDialogLayout_radioGroup_resolutionType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="90dp"
+            android:background="@drawable/radiobuttonselector"
+            android:button="@android:color/transparent"
+            android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
+            android:text="Raw"
+            android:textColor="@drawable/radiobuttontextselector"
+            android:textAlignment="center" />
+
+        <RadioButton
+            android:id="@+id/exportProjectDialogLayout_radioButton_Scaled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="90dp"
+            android:background="@drawable/radiobuttonselectorlast"
+            android:button="@android:color/transparent"
+            android:text="Scaled"
+            android:textColor="@drawable/radiobuttontextselector"
+            android:textAlignment="center" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
