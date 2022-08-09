@@ -41,7 +41,7 @@
 
     <string name="exportProjectDialogLayout_file_name_str">File Name</string>
     <string name="exportProjectDialogLayout_file_type_str">File Type</string>
-    <string name="exportProjectDialogLayout_resolution_str">File Type</string>
+    <string name="exportProjectDialogLayout_resolution_str">Resolution</string>
 
     <!--Other strings-->
     <string name="recentCreationsLayout_subtitle" translatable="false">%1$dx%2$d</string>
