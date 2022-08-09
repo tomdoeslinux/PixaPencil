@@ -152,6 +152,7 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">None</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octal</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Save in Background</string>
+    <string name="activityCanvasTopAppMenu_export">Export</string>
 
     <string name="bottomNavigationMenu_starred">Starred</string>
     <string name="bottomNavigationMenu_home">Home</string>

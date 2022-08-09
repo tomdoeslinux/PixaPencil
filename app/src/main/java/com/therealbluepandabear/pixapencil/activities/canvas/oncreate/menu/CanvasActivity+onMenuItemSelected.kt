@@ -82,58 +82,63 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             }
 
             showDialog(
-                "Export",
+                getString(R.string.activityCanvasTopAppMenu_export),
                 null,
                 getString(R.string.generic_ok),
                 { _, _ ->
-                    val format: BitmapCompressFormat =
-                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
-                            R.id.exportProjectDialogLayout_radioButton_PNG -> {
-                                BitmapCompressFormat.PNG
+                    val title = exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString()
+
+                    if (title.isNotBlank()) {
+                        val format: BitmapCompressFormat =
+                            when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
+                                R.id.exportProjectDialogLayout_radioButton_PNG -> {
+                                    BitmapCompressFormat.PNG
+                                }
+
+                                R.id.exportProjectDialogLayout_radioButton_JPG -> {
+                                    BitmapCompressFormat.JPEG
+                                }
+
+                                R.id.exportProjectDialogLayout_radioButton_WEBP -> {
+                                    BitmapCompressFormat.WEBP
+                                }
+
+                                R.id.exportProjectDialogLayout_radioButton_TIF -> {
+                                    BitmapCompressFormat.TIFF
+                                }
+
+                                R.id.exportProjectDialogLayout_radioButton_BMP -> {
+                                    BitmapCompressFormat.BMP
+                                }
+
+                                else -> {
+                                    BitmapCompressFormat.PNG
+                                }
                             }
 
-                            R.id.exportProjectDialogLayout_radioButton_JPG -> {
-                                BitmapCompressFormat.JPEG
+                        val resolution: BitmapResolution =
+                            when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
+                                R.id.exportProjectDialogLayout_radioButton_Raw -> {
+                                    BitmapResolution.Raw
+                                }
+
+                                R.id.exportProjectDialogLayout_radioButton_Scaled -> {
+                                    BitmapResolution.Scaled
+                                }
+
+                                else -> {
+                                    BitmapResolution.Raw
+                                }
                             }
 
-                            R.id.exportProjectDialogLayout_radioButton_WEBP -> {
-                                BitmapCompressFormat.WEBP
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_TIF -> {
-                                BitmapCompressFormat.TIFF
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_BMP -> {
-                                BitmapCompressFormat.BMP
-                            }
-
-                            else -> {
-                                BitmapCompressFormat.PNG
-                            }
-                        }
-
-                    val resolution: BitmapResolution =
-                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
-                            R.id.exportProjectDialogLayout_radioButton_Raw -> {
-                                BitmapResolution.Raw
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_Scaled -> {
-                                BitmapResolution.Scaled
-                            }
-
-                            else -> {
-                                BitmapResolution.Raw
-                            }
-                        }
-
-                    binding.activityCanvasPixelGridView.saveAsImage(
-                        format,
-                        resolution,
-                        binding.activityCanvasCoordinatorLayout,
-                        "Hijk",
-                        viewModel.flipMatrix)
+                        binding.activityCanvasPixelGridView.saveAsImage(
+                            format,
+                            resolution,
+                            binding.activityCanvasCoordinatorLayout,
+                            exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString(),
+                            viewModel.flipMatrix
+                        )
+                    }
                 },
                 getString(R.string.generic_cancel), { _, _ -> },
                 exportRootLayout)

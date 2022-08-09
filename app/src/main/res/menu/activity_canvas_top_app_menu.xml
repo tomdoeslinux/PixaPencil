@@ -45,7 +45,8 @@
         app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_reset_position" />
 
-    <item app:showAsAction="ifRoom"
+    <item
+        app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_rotate" >
         <menu>
             <item
@@ -65,9 +66,8 @@
         </menu>
     </item>
 
-    <item app:showAsAction="ifRoom"
-        app:icon="@android:drawable/ic_menu_save"
-        android:icon="@android:drawable/ic_menu_save"
+    <item
+        app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_flip" >
         <menu>
             <item
@@ -86,7 +86,8 @@
         </menu>
     </item>
 
-    <item app:showAsAction="ifRoom"
+    <item
+        app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_symmetry" >
         <menu>
             <group android:checkableBehavior="single">
@@ -146,9 +147,11 @@
 
     <item
         android:id="@+id/activityCanvasTopAppMenu_save_in_background_item"
+        app:showAsAction="ifRoom"
         android:title="@string/activityCanvasTopAppMenu_save_in_background" />
 
     <item
         android:id="@+id/activityCanvasTopAppMenu_export_item"
-        android:title="Export"/>
+        app:showAsAction="ifRoom"
+        android:title="@string/activityCanvasTopAppMenu_export"/>
 </menu>
