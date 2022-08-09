@@ -56,6 +56,7 @@
                 android:button="@android:color/transparent"
                 android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_png"
+                android:textStyle="bold"
                 android:textAlignment="center" />
 
             <RadioButton
@@ -67,6 +68,7 @@
                 android:textColor="@drawable/radiobuttontextselector"
                 android:button="@android:color/transparent"
                 android:text="@string/generic_jpg"
+                android:textStyle="bold"
                 android:textAlignment="center" />
 
             <RadioButton
@@ -78,6 +80,7 @@
                 android:button="@android:color/transparent"
                 android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_webp"
+                android:textStyle="bold"
                 android:textAlignment="center" />
 
             <RadioButton
@@ -89,6 +92,7 @@
                 android:button="@android:color/transparent"
                 android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_tif"
+                android:textStyle="bold"
                 android:textAlignment="center" />
 
             <RadioButton
@@ -100,6 +104,7 @@
                 android:button="@android:color/transparent"
                 android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_bmp"
+                android:textStyle="bold"
                 android:textAlignment="center" />
         </RadioGroup>
     </HorizontalScrollView>
@@ -131,6 +136,7 @@
             android:button="@android:color/transparent"
             android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
             android:text="Raw"
+            android:textStyle="bold"
             android:textColor="@drawable/radiobuttontextselector"
             android:textAlignment="center" />
 
@@ -142,6 +148,7 @@
             android:background="@drawable/radiobuttonselectorlast"
             android:button="@android:color/transparent"
             android:text="Scaled"
+            android:textStyle="bold"
             android:textColor="@drawable/radiobuttontextselector"
             android:textAlignment="center" />
     </RadioGroup>
