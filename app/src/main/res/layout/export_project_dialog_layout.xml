@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        android:id="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/exportProjectDialogLayout_fileName_textInputEditText"
+            android:id="@+id/exportProjectDialogLayout_fileNameTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="File Type"
-        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_fileName_textInputLayout" />
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioGroup
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Resolution"
-        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <RadioGroup
@@ -124,8 +124,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileName_textInputLayout"
+        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton

@@ -73,10 +73,10 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                         as ConstraintLayout
 
             val fileNameTextInputEditText =
-                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText)
+                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileNameTextInputEditText)
 
             val fileNameTextInputLayout =
-                exportRootLayout.findViewById<TextInputLayout>(R.id.exportProjectDialogLayout_fileName_textInputLayout)
+                exportRootLayout.findViewById<TextInputLayout>(R.id.exportProjectDialogLayout_fileNameTextInputLayout)
 
             val fileTypeTextView = exportRootLayout.findViewById<TextView>(R.id.textView2)
             val defaultFileTypeTextViewTopMargin = (fileTypeTextView.layoutParams as ViewGroup.MarginLayoutParams).topMargin
@@ -157,7 +157,7 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                         format,
                         resolution,
                         binding.activityCanvasCoordinatorLayout,
-                        exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileName_textInputEditText).text.toString(),
+                        exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileNameTextInputEditText).text.toString(),
                         viewModel.flipMatrix
                     )
 
