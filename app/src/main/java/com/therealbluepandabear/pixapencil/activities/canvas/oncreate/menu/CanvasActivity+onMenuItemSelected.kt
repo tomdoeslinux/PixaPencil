@@ -31,7 +31,6 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.*
 
 const val ZOOM_INCREMENT = 0.2f
 
