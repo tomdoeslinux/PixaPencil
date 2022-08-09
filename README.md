@@ -20,16 +20,11 @@ PixaPencil is the number one open source pixel art editor for Android.
 Why you should try out PixaPencil:
 
 - Contains over 33+ useful features (see 'Features' section below)
-- 100% free of Google Play (tracking) services
+- 100% free of Google Play (tracking?) services
 - 100% free of advertisements
 - 100% commitment to open source
 
-PixaPencil only runs on Android 8.0 or higher with a decently-sized screen.
-
-## Permissions
-The app uses the file permission to make it possible to export your creations to PNG.
-
-The app uses the internet permission for Lospec palette support -- nothing else :)
+PixaPencil only runs on Android 8.0 or higher.
 
 ## 🖼️ Showcase
 
@@ -42,7 +37,7 @@ The app uses the internet permission for Lospec palette support -- nothing else 
 
 **If you want to showcase an image of your own please send me an email at therealbluepandabear@protonmail.com.**
 
-## 📝 Features (as of June 24, 2022)
+## 📝 Features (as of August 10, 2022)
 - Pencil tool
 - Move tool
 - Fill tool 
@@ -66,12 +61,14 @@ The app uses the internet permission for Lospec palette support -- nothing else 
 - Canvas filters (color filter, lighten, darken, invert, grayscale)
 - Color palette support
 - Brushes
+- Ability to import images from your file system into the app
 - Ability to import Lospec palettes
-- Ability to duplicate and rename projects
+- Ability to duplicate projects
 - Ability to select custom colors using a color picker, RGB sliders, or HEX code
 - Ability to unfavorite/favorite projects
 - Ability to export projects to PNG/JPG/WEBP/TIFF/BMP
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
+- Ability to flip your projects horizontally or vertically
 - Ability to save projects in background
 
 New features are always being added.
@@ -91,9 +88,3 @@ Thanks to these people who helped create the libraries used in the app:
 - bumptech (https://github.com/bumptech) - Glide (https://github.com/bumptech/glide)
 - Tianscar (https://github.com/Tianscar) - Quick Image (https://github.com/Tianscar/quickimage) 
 - Takusemba (https://github.com/TakuSemba) - Spotlight (https://github.com/TakuSemba/Spotlight)
-
-## Mirror Repo (in case of censorship)
-
-(On hold as it's not working properly.)
-
-https://bitbucket.org/thebluepandabear/pixapencil/src/master/
