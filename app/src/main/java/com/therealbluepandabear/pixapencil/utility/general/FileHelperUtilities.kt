@@ -13,12 +13,13 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.os.ParcelFileDescriptor
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider.onMenuItemSelected
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
@@ -161,27 +162,30 @@ class FileHelperUtilities(private val context: Context) {
             MediaScannerConnection.scanFile(context, arrayOf(file_.path), arrayOf(pathData), null)
         }
 
-        if (file.exists()) {
-            context.activity()?.showDialog(
-                context.getString(R.string.dialog_file_exists_title),
-                context.getString(R.string.dialog_file_exists_message, outputName),
-                context.getString(R.string.dialog_file_exists_positive_button_text), { _, _ ->
+        if (file.exists() && context.activity() != null) {
+            val alertDialog = MaterialAlertDialogBuilder(context.activity()!!, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.dialog_file_exists_title)
+                .setMessage(context.getString(R.string.dialog_file_exists_message, outputName))
+                .setPositiveButton(R.string.dialog_file_exists_positive_button_text) { _, _ ->
                     createNewFile(file)
-                },
-                context.getString(R.string.dialog_file_exists_negative_button_text), { _, _ ->
-                context.activity()?.showDialog(
-                    context.getString(R.string.dialog_save_under_new_name_title),
-                    context.getString(R.string.dialog_save_under_new_name_text),
-                    context.getString(R.string.generic_ok),
-                    { _, _ ->
-                        val input: String = textInput.editText?.text.toString()
-                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
-                        file = File(directory, outputName)
-                        createNewFile(file)
-                    },
-                    context.getString(R.string.generic_cancel), { _, _ -> },
-                    textInput)
-                })
+                }
+                .setNegativeButton(R.string.dialog_file_exists_negative_button_text) { _, _ ->
+                    val innerAlertDialog = MaterialAlertDialogBuilder(context.activity()!!, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                        .setTitle(R.string.dialog_save_under_new_name_title)
+                        .setView(textInput)
+                        .setMessage(R.string.dialog_save_under_new_name_text)
+                        .setPositiveButton(R.string.generic_ok) { _, _ ->
+                            val input: String = textInput.editText?.text.toString()
+                            outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+                            file = File(directory, outputName)
+                            createNewFile(file)
+                        }
+                        .setNegativeButton(R.string.generic_cancel, null)
+
+                    innerAlertDialog.show()
+                }
+
+            alertDialog.show()
         } else {
             createNewFile(file)
         }

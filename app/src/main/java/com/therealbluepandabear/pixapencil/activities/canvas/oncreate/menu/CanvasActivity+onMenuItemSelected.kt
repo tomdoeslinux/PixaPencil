@@ -25,7 +25,6 @@ import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.activity
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
@@ -91,11 +90,11 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             }
 
             val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
-                .setTitle(getString(R.string.activityCanvasTopAppMenu_export))
+                .setTitle(R.string.activityCanvasTopAppMenu_export)
                 .setView(exportRootLayout)
                 .setCancelable(false)
-                .setPositiveButton(getString(R.string.generic_ok), null)
-                .setNegativeButton(getString(R.string.generic_cancel), null)
+                .setPositiveButton(R.string.generic_ok, null)
+                .setNegativeButton(R.string.generic_cancel, null)
                 .setView(exportRootLayout)
                 .show()
 
@@ -228,10 +227,10 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                 activity()?.layoutInflater?.inflate(R.layout.import_lospec_palette_alert, activity()?.findViewById(android.R.id.content),false)
                         as ConstraintLayout
 
-            showDialog(
-                getString(R.string.activityCanvasTopAppMenu_import_lospec_palette),
-                null,
-                getString(R.string.generic_ok), { _, _ ->
+            val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.activityCanvasTopAppMenu_import_lospec_palette)
+                .setView(details)
+                .setPositiveButton(R.string.generic_ok) { _, _ ->
                     val queue = Volley.newRequestQueue(this)
                     val url = "https://lospec.com/palette-list/${details.findViewById<TextInputEditText>(R.id.importLospecPaletteAlert_palette_url_identifier_textInputEditText).text.toString()}.json"
 
@@ -266,9 +265,10 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                         })
 
                     queue.add(stringRequest)
+                }
+                .setNegativeButton(R.string.generic_cancel, null)
 
-                }, null, null, view = details
-            )
+            alertDialog.show()
         }
 
         R.id.appMenu_flip_horizontal_subItem -> {

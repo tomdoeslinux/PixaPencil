@@ -1,9 +1,9 @@
 package com.therealbluepandabear.pixapencil.activities.main.oncreate
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.activities.main.startSpotLight
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun MainActivity.showWelcomeScreenIfApplicable() {
@@ -15,12 +15,14 @@ fun MainActivity.showWelcomeScreenIfApplicable() {
             apply()
         }
 
-        showDialog(
-            getString(R.string.dialog_welcome_title),
-            getString(R.string.dialog_welcome_text),
-            getString(R.string.generic_ok),
-            { _, _ ->
+        val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+            .setTitle(R.string.dialog_welcome_title)
+            .setMessage(R.string.dialog_welcome_text)
+            .setPositiveButton(R.string.generic_ok) { _, _ ->
                 startSpotLight()
-            }, getString(R.string.generic_no_thanks), { _, _ -> })
+            }
+            .setNegativeButton(R.string.generic_no_thanks, null)
+
+        alertDialog.show()
     }
 }
