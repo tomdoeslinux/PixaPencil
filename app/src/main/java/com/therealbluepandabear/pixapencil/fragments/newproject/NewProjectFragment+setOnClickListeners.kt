@@ -6,6 +6,7 @@ import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.extensions.hideSoftInput
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -85,6 +86,10 @@ fun NewProjectFragment.setOnClickListeners() {
 
             if (!invalidTitle && !invalidWidth && !invalidHeight) {
                 try {
+                    binding.fragmentNewCanvasProjectTitleTextInputEditText.hideSoftInput()
+                    binding.fragmentNewCanvasWidthTextInputEditText.hideSoftInput()
+                    binding.fragmentNewCanvasHeightTextInputEditText.hideSoftInput()
+
                     val title =
                         binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
                     val widthValue: Int =

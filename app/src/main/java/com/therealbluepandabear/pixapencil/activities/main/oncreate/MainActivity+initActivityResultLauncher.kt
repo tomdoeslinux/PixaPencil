@@ -11,6 +11,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
+import com.therealbluepandabear.pixapencil.extensions.hideSoftInput
 import com.therealbluepandabear.pixapencil.extensions.putUriExtra
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
@@ -26,10 +27,7 @@ fun MainActivity.initActivityResultLauncher() {
                 .setView(textInput)
                 .setMessage(R.string.dialog_open_image_enter_name_text)
                 .setPositiveButton(R.string.generic_ok) { _, _ ->
-//                        textInput.clearFocus()
-//                        val imm = textInput.context?.getSystemService(Context.INPUT_METHOD_SERVICE)
-//                                as InputMethodManager
-//                        imm.hideSoftInputFromWindow(textInput.windowToken, 0)
+                    textInput.editText?.hideSoftInput()
 
                     if (text?.isNotEmpty() == true) {
                         startActivity(
