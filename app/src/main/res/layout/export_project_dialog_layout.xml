@@ -121,26 +121,25 @@
 
     <RadioGroup
         android:id="@+id/exportProjectDialogLayout_radioGroup_resolutionType"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
+            android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="90dp"
             android:background="@drawable/radiobuttonselector"
             android:button="@android:color/transparent"
-            android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
-            android:text="@string/exportProjectDialogLayout_raw_str"
             android:checked="true"
-            android:textStyle="bold"
+            android:text="@string/exportProjectDialogLayout_raw_str"
+            android:textAlignment="center"
             android:textColor="@drawable/radiobuttontextselector"
-            android:textAlignment="center" />
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/exportProjectDialogLayout_radioButton_Scaled"
@@ -150,8 +149,28 @@
             android:background="@drawable/radiobuttonselectorlast"
             android:button="@android:color/transparent"
             android:text="@string/exportProjectDialogLayout_scaled_str"
-            android:textStyle="bold"
+            android:textAlignment="center"
             android:textColor="@drawable/radiobuttontextselector"
-            android:textAlignment="center" />
+            android:textStyle="bold" />
     </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragmentNewCanvas_compressionQualityTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:hint="Compression Quality"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_radioGroup_resolutionType">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragmentNewCanvas_compressionQualityTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

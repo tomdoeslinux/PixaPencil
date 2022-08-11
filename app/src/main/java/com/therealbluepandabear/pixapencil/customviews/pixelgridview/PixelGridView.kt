@@ -122,8 +122,9 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         resolution: BitmapResolution,
         coordinatorLayout: CoordinatorLayout,
         projectTitle: String,
-        flipMatrix: List<FlipValue>) {
-        extendedSaveAsImage(format, resolution, coordinatorLayout, projectTitle, flipMatrix)
+        flipMatrix: List<FlipValue>,
+        compressionOutputQuality: Int = 100) {
+        extendedSaveAsImage(format, resolution, coordinatorLayout, projectTitle, flipMatrix, compressionOutputQuality)
     }
 
     /** Use this code only in onMeasure **/

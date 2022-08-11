@@ -22,7 +22,8 @@ fun PixelGridView.extendedSaveAsImage(
     resolution: BitmapResolution,
     coordinatorLayout: CoordinatorLayout,
     projectTitle: String,
-    flipMatrix: List<FlipValue>) {
+    flipMatrix: List<FlipValue>,
+    compressionOutputQuality: Int = 100) {
     val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
     val bitmap = if (resolution == BitmapResolution.Scaled) {
@@ -33,7 +34,7 @@ fun PixelGridView.extendedSaveAsImage(
 
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)
 
-    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,90, format) { outputCode, _file, exceptionMessage_1 ->
+    fileHelperUtilitiesInstance.saveBitmapAsImage(bitmap, projectTitle,compressionOutputQuality, format) { outputCode, _file, exceptionMessage_1 ->
         if (outputCode == OutputCode.Success) {
             file = _file
 

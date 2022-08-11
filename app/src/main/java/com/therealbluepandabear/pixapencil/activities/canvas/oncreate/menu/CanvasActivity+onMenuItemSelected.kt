@@ -2,9 +2,10 @@ package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.doAfterTextChanged
 import com.android.volley.Request
@@ -12,7 +13,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
@@ -23,10 +23,12 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
+import com.therealbluepandabear.pixapencil.databinding.ExportProjectDialogLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.models.ColorPalette
+import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -65,72 +67,74 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityCanvasTopAppMenu_export_item -> {
-            val exportRootLayout: ConstraintLayout =
-                layoutInflater.inflate(R.layout.export_project_dialog_layout, findViewById(android.R.id.content),false)
-                        as ConstraintLayout
+            val exportLayoutBinding = ExportProjectDialogLayoutBinding.inflate(LayoutInflater.from(this))
+            var selectedFileType: BitmapCompressFormat = BitmapCompressFormat.PNG
 
-            val fileNameTextInputEditText =
-                exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileNameTextInputEditText)
-
-            val fileNameTextInputLayout =
-                exportRootLayout.findViewById<TextInputLayout>(R.id.exportProjectDialogLayout_fileNameTextInputLayout)
-
-            exportRootLayout.post {
+            exportLayoutBinding.root.post {
                 // We do this so that there is no default top margin, which I personally find it ugly
-                (exportRootLayout.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
+                (exportLayoutBinding.root.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
 
-                fileNameTextInputEditText.setText(projectTitle)
-                fileNameTextInputEditText.doAfterTextChanged {
+                exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.setText(projectTitle)
+                exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.setText(100.toString())
+                exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.doAfterTextChanged {
                     if (it.toString().isNotBlank()) {
-                        fileNameTextInputLayout.isErrorEnabled = false
+                        exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputLayout.isErrorEnabled = false
                     } else {
-                        fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
+                        exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
+                    }
+                }
+
+                exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.filters = arrayOf(InputFilterMinMax(0, 100))
+
+                exportLayoutBinding.exportProjectDialogLayoutRadioGroupFileType.setOnCheckedChangeListener { _, optionId ->
+                    if (optionId != R.id.exportProjectDialogLayout_radioButton_JPG) {
+                        exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputLayout.visibility = View.GONE
+                    } else {
+                        exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputLayout.visibility = View.VISIBLE
+                    }
+
+                    when (optionId) {
+                        R.id.exportProjectDialogLayout_radioButton_PNG -> {
+                            selectedFileType = BitmapCompressFormat.PNG
+                        }
+
+                        R.id.exportProjectDialogLayout_radioButton_JPG -> {
+                            selectedFileType = BitmapCompressFormat.JPEG
+                        }
+
+                        R.id.exportProjectDialogLayout_radioButton_WEBP -> {
+                            selectedFileType = BitmapCompressFormat.WEBP
+                        }
+
+                        R.id.exportProjectDialogLayout_radioButton_TIF -> {
+                            selectedFileType = BitmapCompressFormat.TIFF
+                        }
+
+                        R.id.exportProjectDialogLayout_radioButton_BMP -> {
+                            selectedFileType = BitmapCompressFormat.BMP
+                        }
+
+                        else -> {
+                            selectedFileType = BitmapCompressFormat.PNG
+                        }
                     }
                 }
             }
 
             val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
                 .setTitle(R.string.activityCanvasTopAppMenu_export)
-                .setView(exportRootLayout)
+                .setView(exportLayoutBinding.root)
                 .setCancelable(false)
                 .setPositiveButton(R.string.generic_ok, null)
                 .setNegativeButton(R.string.generic_cancel, null)
-                .setView(exportRootLayout)
                 .show()
 
             alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val title = fileNameTextInputEditText.text.toString()
+                val title = exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.text.toString()
 
                 if (title.isNotBlank()) {
-                    val format: BitmapCompressFormat =
-                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_fileType).checkedRadioButtonId) {
-                            R.id.exportProjectDialogLayout_radioButton_PNG -> {
-                                BitmapCompressFormat.PNG
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_JPG -> {
-                                BitmapCompressFormat.JPEG
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_WEBP -> {
-                                BitmapCompressFormat.WEBP
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_TIF -> {
-                                BitmapCompressFormat.TIFF
-                            }
-
-                            R.id.exportProjectDialogLayout_radioButton_BMP -> {
-                                BitmapCompressFormat.BMP
-                            }
-
-                            else -> {
-                                BitmapCompressFormat.PNG
-                            }
-                        }
-
                     val resolution: BitmapResolution =
-                        when (exportRootLayout.findViewById<RadioGroup>(R.id.exportProjectDialogLayout_radioGroup_resolutionType).checkedRadioButtonId) {
+                        when (exportLayoutBinding.exportProjectDialogLayoutRadioGroupResolutionType.checkedRadioButtonId) {
                             R.id.exportProjectDialogLayout_radioButton_Raw -> {
                                 BitmapResolution.Raw
                             }
@@ -145,16 +149,17 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
                         }
 
                     binding.activityCanvasPixelGridView.saveAsImage(
-                        format,
+                        selectedFileType,
                         resolution,
                         binding.activityCanvasCoordinatorLayout,
-                        exportRootLayout.findViewById<TextInputEditText>(R.id.exportProjectDialogLayout_fileNameTextInputEditText).text.toString(),
-                        viewModel.flipMatrix
+                        exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.text.toString(),
+                        viewModel.flipMatrix,
+                        compressionOutputQuality = exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.text.toString().toIntOrNull() ?: 100
                     )
 
                     alertDialog.cancel()
                 } else {
-                    fileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
+                    exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
                 }
             }
         }

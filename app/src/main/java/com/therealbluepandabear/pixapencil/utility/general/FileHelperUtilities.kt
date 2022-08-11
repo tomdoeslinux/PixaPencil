@@ -16,7 +16,6 @@ import android.os.ParcelFileDescriptor
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider.onMenuItemSelected
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
@@ -135,7 +134,7 @@ class FileHelperUtilities(private val context: Context) {
                 }
 
                 else -> {
-                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
+                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 100, object : BitmapEncoder.Callback {
                         override fun onCreateFailure() {
                             onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file))
                         }
@@ -212,7 +211,7 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = 90) {
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = 100) {
         context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
             bitmap.compress(compressFormat, compressionOutputQuality, it)
             it.close()
