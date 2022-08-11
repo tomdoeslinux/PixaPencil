@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
 import com.therealbluepandabear.pixapencil.algorithms.*
-import com.therealbluepandabear.pixapencil.utility.constants.ObjectConstants
 
 fun CanvasActivity.initPrimaryAlgorithmInfoParameter() {
     primaryAlgorithmInfoParameter = AlgorithmInfoParameter.create(
@@ -10,8 +9,6 @@ fun CanvasActivity.initPrimaryAlgorithmInfoParameter() {
         viewModel.currentBitmapAction!!,
         getSelectedColor()
     )
-
-    ObjectConstants.PrimaryAlgorithmInfoParameter = primaryAlgorithmInfoParameter
 
     lineAlgorithm = LineAlgorithm(primaryAlgorithmInfoParameter)
     circleAlgorithm = CircleAlgorithm(primaryAlgorithmInfoParameter)
