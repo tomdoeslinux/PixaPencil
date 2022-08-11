@@ -123,7 +123,7 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         coordinatorLayout: CoordinatorLayout,
         projectTitle: String,
         flipMatrix: List<FlipValue>,
-        compressionOutputQuality: Int = 100) {
+        compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
         extendedSaveAsImage(format, resolution, coordinatorLayout, projectTitle, flipMatrix, compressionOutputQuality)
     }
 

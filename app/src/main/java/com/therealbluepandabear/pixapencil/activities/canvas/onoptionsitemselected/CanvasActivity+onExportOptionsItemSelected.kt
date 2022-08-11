@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.databinding.ExportProjectDialogLayout
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.BitmapResolution
 import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 fun CanvasActivity.onExportOptionsItemSelected() {
     val exportLayoutBinding = ExportProjectDialogLayoutBinding.inflate(LayoutInflater.from(this))
@@ -22,7 +23,7 @@ fun CanvasActivity.onExportOptionsItemSelected() {
         (exportLayoutBinding.root.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 0
 
         exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.setText(projectTitle)
-        exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.setText(100.toString())
+        exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.setText(IntConstants.COMPRESSION_QUALITY_MAX.toString())
         exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.doAfterTextChanged {
             if (it.toString().isNotBlank()) {
                 exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputLayout.isErrorEnabled = false
@@ -33,7 +34,7 @@ fun CanvasActivity.onExportOptionsItemSelected() {
         }
 
         exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.filters = arrayOf(
-            InputFilterMinMax(0, 100)
+            InputFilterMinMax(IntConstants.COMPRESSION_QUALITY_MIN, IntConstants.COMPRESSION_QUALITY_MAX)
         )
 
         exportLayoutBinding.exportProjectDialogLayoutRadioGroupFileType.setOnCheckedChangeListener { _, optionId ->
@@ -104,7 +105,7 @@ fun CanvasActivity.onExportOptionsItemSelected() {
                 binding.activityCanvasCoordinatorLayout,
                 exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.text.toString(),
                 viewModel.flipMatrix,
-                compressionOutputQuality = exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.text.toString().toIntOrNull() ?: 100
+                compressionOutputQuality = exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.text.toString().toIntOrNull() ?: IntConstants.COMPRESSION_QUALITY_MAX
             )
 
             alertDialog.cancel()

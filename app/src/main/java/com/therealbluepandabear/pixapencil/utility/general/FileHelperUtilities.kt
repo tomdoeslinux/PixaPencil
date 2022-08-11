@@ -19,6 +19,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
@@ -134,7 +135,7 @@ class FileHelperUtilities(private val context: Context) {
                 }
 
                 else -> {
-                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 100, object : BitmapEncoder.Callback {
+                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, IntConstants.COMPRESSION_QUALITY_MAX, object : BitmapEncoder.Callback {
                         override fun onCreateFailure() {
                             onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file))
                         }
@@ -211,7 +212,7 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = 100) {
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
         context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
             bitmap.compress(compressFormat, compressionOutputQuality, it)
             it.close()

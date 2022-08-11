@@ -11,6 +11,7 @@ import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.general.BitmapCompressFormatUtilities
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import java.io.File
@@ -23,7 +24,7 @@ fun PixelGridView.extendedSaveAsImage(
     coordinatorLayout: CoordinatorLayout,
     projectTitle: String,
     flipMatrix: List<FlipValue>,
-    compressionOutputQuality: Int = 100) {
+    compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
     val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
     val bitmap = if (resolution == BitmapResolution.Scaled) {
