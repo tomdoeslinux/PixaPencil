@@ -5,7 +5,7 @@ object IntConstants {
     const val WIDTH_HEIGHT_MAX = 10000
 
     const val SPRAY_OPTIONS_MIN = 2
-    const val SPRAY_OPTIONS_MAX = 20000
+    const val SPRAY_OPTIONS_MAX = 10000
 
     const val DEFAULT_CANVAS_WIDTH_HEIGHT = 50
 

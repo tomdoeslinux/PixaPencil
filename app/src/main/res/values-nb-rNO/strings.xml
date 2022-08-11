@@ -73,8 +73,6 @@
     <string name="fill_tool_info_text">Fyll nærliggende piksler som har lignende fargeverdi.</string>
     <string name="square_tool_info_title">Rektangelverktøyinfo</string>
     <string name="polygon_tool_info_title">Polygonverktøyinfo</string>
-    <string name="exception_invalid_spray_radius">Verdien må være mellom 1 og 20000</string>
-    <string name="exception_invalid_spray_strength">Verdien må være mellom 1 og 20000</string>
     <string name="exception_empty_spray_strength">Styrke kan ikke være tom</string>
     <string name="exception_failed_to_create_file">Klarte ikke å opprette fil</string>
     <string name="exception_failed_to_compress_file">Klarte ikke å sammenpakke fil</string>

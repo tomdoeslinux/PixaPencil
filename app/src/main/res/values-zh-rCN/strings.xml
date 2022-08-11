@@ -195,8 +195,6 @@
     <string name="exception_empty_height">高度不能为空值</string>
     <string name="exception_empty_color_palette_name">调色板名称不能为空</string>
     <string name="exception_accessing_negative_index_message">无法访问列表中具有负索引的像素艺术对象！</string>
-    <string name="exception_invalid_spray_radius">值必须介于1和20,000之间</string>
-    <string name="exception_invalid_spray_strength">值必须介于1和20,000之间</string>
     <string name="exception_empty_spray_radius">半径值不能为空</string>
     <string name="exception_empty_spray_strength">强度值不能为空</string>
     <string name="exception_failed_to_create_file">创建文件失败</string>

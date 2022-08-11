@@ -120,7 +120,6 @@
     <string name="exception_empty_height">Höhe kann nicht leer sein</string>
     <string name="exception_empty_color_palette_name">Farbpalette kann nicht leer sein</string>
     <string name="exception_accessing_negative_index_message">Kann Pixel-Art mit negativem Listen-Index nicht erreichen!</string>
-    <string name="exception_invalid_spray_radius">Wert muss zwischen 1 und 20.000 liegen</string>
     <string name="exception_empty_spray_radius">Radius kann nicht leer sein</string>
     <string name="exception_empty_spray_strength">Dicke kann nicht leer sein</string>
     <string name="exception_failed_to_create_file">Dateierstellung fehlgeschlagen</string>
@@ -176,7 +175,6 @@
     <string name="polygon_tool_info_title">Polygon-Tool-Info</string>
     <string name="shading_tool_info_title">Schattierungs-Tool-Info</string>
     <string name="exception_invalid_project_name">Name kann nicht leer sein</string>
-    <string name="exception_invalid_spray_strength">Wert muss zwischen 1 und 20.000 liegen</string>
     <string name="dialog_welcome_text">Willkommen! Möchtest du mit einem interaktiven Tutorial starten\?</string>
     <string name="dialog_file_exists_message">%1$s existiert bereits, ersetzen oder unter neuem Namen speichern\?</string>
     <string name="dialog_save_under_new_name_text">Stelle sicher dass der neue Name einzigartig ist!</string>

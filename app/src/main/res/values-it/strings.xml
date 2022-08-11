@@ -128,8 +128,6 @@
     <string name="exception_empty_height">Altezza vuota non valida</string>
     <string name="exception_empty_color_palette_name">Nome tavolozza non valida</string>
     <string name="exception_accessing_negative_index_message">Impossibile accedere ad oggetto pixel art con indice negativo!</string>
-    <string name="exception_invalid_spray_radius">Il valore dev\'essere fra 1 e 20,000</string>
-    <string name="exception_invalid_spray_strength">Il valore dev\'essere fra 1 e 20,000</string>
     <string name="exception_empty_spray_radius">Raggio vuoto non valido</string>
     <string name="exception_empty_spray_strength">Forza vuota non valida</string>
     <string name="exception_failed_to_create_file">Fallimento creazione file</string>

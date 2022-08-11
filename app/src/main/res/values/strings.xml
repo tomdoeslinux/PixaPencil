@@ -209,8 +209,6 @@
     <string name="exception_empty_height">Height cannot be empty</string>
     <string name="exception_empty_color_palette_name">Color palette name cannot be empty</string>
     <string name="exception_accessing_negative_index_message">Cannot access pixel art object with a negative index in list!</string>
-    <string name="exception_invalid_spray_radius">Value must be between 1 and 20,000</string>
-    <string name="exception_invalid_spray_strength">Value must be between 1 and 20,000</string>
     <string name="exception_empty_spray_radius">Radius cannot be empty</string>
     <string name="exception_empty_spray_strength">Strength cannot be empty</string>
     <string name="exception_failed_to_create_file">Failed to create file</string>

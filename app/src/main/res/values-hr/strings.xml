@@ -11,7 +11,6 @@
     <string name="fragmentFilters_color_filter">Filtar boja</string>
     <string name="fragmentFilters_lighten">Posvijetli</string>
     <string name="fragmentFilters_darken">Potamni</string>
-    <string name="exception_invalid_spray_strength">Vrijednost mora biti između 1 i 20.000</string>
     <string name="exception_empty_spray_radius">Radijus sprejanja ne smije biti prazno</string>
     <string name="dialog_exception_info_title">Informacije iznimke</string>
     <string name="dialog_large_canvas_warning_positive_button_text">Razumijem, stvori projekt</string>
@@ -167,7 +166,6 @@
     <string name="exception_empty_width">Širina ne smije biti prazna</string>
     <string name="exception_empty_height">Visina ne smije biti prazna</string>
     <string name="exception_accessing_negative_index_message">Nije moguće pristupiti objektu pikselaste slike s negativnim indeksom u popisu!</string>
-    <string name="exception_invalid_spray_radius">Vrijednost mora biti između 1 i 20.000</string>
     <string name="exception_empty_spray_strength">Količina sprejanja ne smije biti prazna</string>
     <string name="exception_failed_to_create_file">Neuspjelo stvaranje datoteke</string>
     <string name="exception_failed_to_compress_file">Neuspjelo komprimiranje datoteke</string>

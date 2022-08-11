@@ -204,8 +204,6 @@
     <string name="exception_empty_height">גובה לא יכול להיות ריק</string>
     <string name="exception_empty_color_palette_name">השם של לוח הצבעים לא יכול להיות ריק</string>
     <string name="exception_accessing_negative_index_message">לא ניתן לגשת לאובייקט פיקסל עם אינדקס שלילי ברשימה!</string>
-    <string name="exception_invalid_spray_radius">ערך רדיוס הריסוס חייב להיות בין 1 ל-20,000</string>
-    <string name="exception_invalid_spray_strength">ערך חוזק הריסוס חייב להיות בין 1 ל-20,000</string>
     <string name="exception_empty_spray_radius">רדיוס הריסוס לא יכול להיות ריק</string>
     <string name="exception_empty_spray_strength">חוזק הריסוס לא יכול להיות ריק</string>
     <string name="exception_failed_to_create_file">יצירת הקובץ נכשלה</string>

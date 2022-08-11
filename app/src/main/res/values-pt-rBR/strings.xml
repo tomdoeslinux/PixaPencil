@@ -93,7 +93,6 @@
     <string name="dither_tool_info_text">Desenhe padrões clicando e arrastando sobre a tela, bom para sombreamento e texturização</string>
     <string name="exception_accessing_negative_index_message">Não é possível acessar o objeto de pixel art com um índice negativo na lista!</string>
     <string name="spray_tool_info_text">Pinte simulando tinta spray tocando e arrastando sobre a tela</string>
-    <string name="exception_invalid_spray_radius">O valor deve estar entre 1 e 20,000</string>
     <string name="exception_empty_spray_radius">O raio não pode estar vazio</string>
     <string name="exception_empty_spray_strength">A força não pode estar vazia</string>
     <string name="generic_switch">Mudar</string>
@@ -117,7 +116,6 @@
     <string name="polygon_tool_info_text">Desenhe polígonos clicando sobre a tela. Cada clique forma um vértice</string>
     <string name="dither_tool_info_title">Pontilhado</string>
     <string name="exception_empty_color_palette_name">O nome da paleta de cores não pode estar vazio</string>
-    <string name="exception_invalid_spray_strength">O valor deve estar entre 1 e 20,000</string>
     <string name="color_picker_tool_info_title">Seletor de Cores</string>
     <string name="erase_tool_info_title">Borracha</string>
     <string name="pencil_tool_info_text">Desenhe linhas à mão livre tocando e arrastando sobre a tela ou um único pixel com um toque</string>
