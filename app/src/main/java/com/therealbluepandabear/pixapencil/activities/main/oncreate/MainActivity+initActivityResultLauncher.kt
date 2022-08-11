@@ -1,11 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.main.oncreate
 
-import android.content.Context
 import android.content.Intent
-import android.view.inputmethod.InputMethodManager
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R

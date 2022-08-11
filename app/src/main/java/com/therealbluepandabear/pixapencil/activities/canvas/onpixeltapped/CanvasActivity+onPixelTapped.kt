@@ -6,7 +6,6 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 
 var polygonCoordinates = mutableListOf<Coordinates>()
 var cindx = 0
-var first = true
 
 fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     if (!primaryAlgorithmInfoParameterInitialized) {
