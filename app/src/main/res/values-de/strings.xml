@@ -176,7 +176,6 @@
     <string name="shading_tool_info_title">Schattierungs-Tool-Info</string>
     <string name="exception_invalid_project_name">Name kann nicht leer sein</string>
     <string name="dialog_welcome_text">Willkommen! Möchtest du mit einem interaktiven Tutorial starten\?</string>
-    <string name="dialog_file_exists_message">%1$s existiert bereits, ersetzen oder unter neuem Namen speichern\?</string>
     <string name="dialog_save_under_new_name_text">Stelle sicher dass der neue Name einzigartig ist!</string>
     <string name="spot_light_activity_canvas_3">Tippen Sie auf \'Filter\', um einige Projektfilter auszuprobieren</string>
     <string name="spot_light_activity_canvas_6">Sie haben nur die Standard-Palette, aber Sie können immer eine neue erstellen, indem Sie die drei Punkte oben rechts auf Ihrem Bildschirm tippen</string>

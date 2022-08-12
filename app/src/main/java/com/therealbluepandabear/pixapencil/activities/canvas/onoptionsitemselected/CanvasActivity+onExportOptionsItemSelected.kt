@@ -11,6 +11,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.ExportProjectDialogLayoutBinding
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.BitmapResolution
+import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
@@ -78,9 +79,10 @@ fun CanvasActivity.onExportOptionsItemSelected() {
         .setCancelable(false)
         .setPositiveButton(R.string.generic_ok, null)
         .setNegativeButton(R.string.generic_cancel, null)
-        .show()
 
-    alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+    val dialog = alertDialog.show()
+
+    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
         val title = exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.text.toString()
 
         if (title.isNotBlank()) {
@@ -105,10 +107,14 @@ fun CanvasActivity.onExportOptionsItemSelected() {
                 binding.activityCanvasCoordinatorLayout,
                 exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputEditText.text.toString(),
                 viewModel.flipMatrix,
-                compressionOutputQuality = exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.text.toString().toIntOrNull() ?: IntConstants.COMPRESSION_QUALITY_MAX
-            )
+                compressionOutputQuality = exportLayoutBinding.fragmentNewCanvasCompressionQualityTextInputEditText.text.toString().toIntOrNull() ?: IntConstants.COMPRESSION_QUALITY_MAX,
+            ) {
+                if (it == OutputCode.Cancelled) {
+                    dialog.show()
+                }
+            }
 
-            alertDialog.cancel()
+            dialog.cancel()
         } else {
             exportLayoutBinding.exportProjectDialogLayoutFileNameTextInputLayout.error = getString(R.string.exception_invalid_file_name)
         }

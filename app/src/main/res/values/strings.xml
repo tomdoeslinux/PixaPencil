@@ -224,7 +224,7 @@
     <string name="dialog_unsaved_changes_title">Unsaved changes</string>
     <string name="dialog_unsaved_changes_message">Save changes to %1$s?</string>
     <string name="dialog_file_exists_title">File already exists</string>
-    <string name="dialog_file_exists_message">%1$s already exists, replace it or save under a new name?</string>
+    <string name="dialog_file_exists_message">%1$s already exists, would you like to replace it?</string>
     <string name="dialog_file_exists_positive_button_text">Replace</string>
     <string name="dialog_file_exists_negative_button_text">Save under new name</string>
     <string name="dialog_save_under_new_name_title">Save under a new name</string>

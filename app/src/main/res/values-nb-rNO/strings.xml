@@ -176,7 +176,6 @@
     <string name="dialog_save_under_new_name_text">Forsikre deg om at det nye navnet ikke finnes fra før.</string>
     <string name="dialog_large_canvas_warning_text">Du er i ferd med å opprette et stort lerret. Det kan hende at enheten din ikke støtter bitmap-bilder av denne størrelsen.</string>
     <string name="exception_accessing_negative_index_message">Får ikke tilgang til pikselkunstobjekt med negativ indeks i liste.</string>
-    <string name="dialog_file_exists_message">%1$s finnes allerede. Erstatt det eller lagre med nytt navn\?</string>
     <string name="tool_tip_dither">Tips: Trykk på ikonet for å endre utjevningspensel.</string>
     <string name="fragmentAppInfo_community_text">Vi ser deg gjerne på
 \nvår <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>

@@ -10,6 +10,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.BitmapResolution
 import com.therealbluepandabear.pixapencil.enums.FlipValue
+import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -123,8 +124,16 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         coordinatorLayout: CoordinatorLayout,
         projectTitle: String,
         flipMatrix: List<FlipValue>,
-        compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
-        extendedSaveAsImage(format, resolution, coordinatorLayout, projectTitle, flipMatrix, compressionOutputQuality)
+        compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX,
+        onTaskFinished: (OutputCode) -> Unit) {
+        extendedSaveAsImage(
+            format,
+            resolution,
+            coordinatorLayout,
+            projectTitle,
+            flipMatrix,
+            compressionOutputQuality,
+            onTaskFinished)
     }
 
     /** Use this code only in onMeasure **/

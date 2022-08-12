@@ -140,7 +140,6 @@
     <string name="dialog_clear_canvas_title">Limpar a tela</string>
     <string name="dialog_clear_canvas_message">Você tem certeza de que você quer limpar a tela\?</string>
     <string name="dialog_file_exists_title">Esse arquivo já existe</string>
-    <string name="dialog_file_exists_message">%1$s já existe, quer substituir ou salvar com um novo nome\?</string>
     <string name="dialog_file_exists_positive_button_text">Substituir</string>
     <string name="dialog_file_exists_negative_button_text">Salvar com um novo nome</string>
     <string name="dialog_save_under_new_name_title">Salvar com um novo nome</string>

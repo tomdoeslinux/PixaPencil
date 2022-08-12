@@ -72,7 +72,7 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+        val outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
@@ -82,11 +82,7 @@ class FileHelperUtilities(private val context: Context) {
 
         directory?.mkdirs()
 
-        var file = File(directory, outputName)
-
-        val textInput: TextInputLayout =
-            context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, context.activity()?.findViewById(android.R.id.content),false)
-                as TextInputLayout
+        val file = File(directory, outputName)
 
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             var bitmap2 = bitmap_
@@ -169,20 +165,8 @@ class FileHelperUtilities(private val context: Context) {
                 .setPositiveButton(R.string.dialog_file_exists_positive_button_text) { _, _ ->
                     createNewFile(file)
                 }
-                .setNegativeButton(R.string.dialog_file_exists_negative_button_text) { _, _ ->
-                    val innerAlertDialog = MaterialAlertDialogBuilder(context.activity()!!, R.style.ThemeOverlay_App_MaterialAlertDialog)
-                        .setTitle(R.string.dialog_save_under_new_name_title)
-                        .setView(textInput)
-                        .setMessage(R.string.dialog_save_under_new_name_text)
-                        .setPositiveButton(R.string.generic_ok) { _, _ ->
-                            val input: String = textInput.editText?.text.toString()
-                            outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
-                            file = File(directory, outputName)
-                            createNewFile(file)
-                        }
-                        .setNegativeButton(R.string.generic_cancel, null)
-
-                    innerAlertDialog.show()
+                .setNegativeButton(R.string.generic_cancel) { _, _ ->
+                    onTaskFinished(OutputCode.Cancelled, file, null)
                 }
 
             alertDialog.show()

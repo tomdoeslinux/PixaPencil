@@ -209,7 +209,6 @@
     <string name="dialog_unsaved_changes_title">更改未保存</string>
     <string name="dialog_unsaved_changes_message">保存更改到%1$s?</string>
     <string name="dialog_file_exists_title">文件已存在</string>
-    <string name="dialog_file_exists_message">文件%1$s已经存在,覆盖原文件还是使用新文件名保存?</string>
     <string name="dialog_file_exists_positive_button_text">覆盖原文件</string>
     <string name="dialog_file_exists_negative_button_text">以新文件名保存</string>
     <string name="dialog_save_under_new_name_title">以新文件名保存</string>

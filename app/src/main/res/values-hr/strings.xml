@@ -156,7 +156,6 @@
     <string name="shading_tool_info_title">Informacije sjenjčanja</string>
     <string name="shading_tool_info_text">Potamni/posvijetli piksele na platnu</string>
     <string name="exception_invalid_project_name">Ime ne smije biti prazno</string>
-    <string name="dialog_file_exists_message">Datoteka %1$s već postoji. Želiš li je zamijeniti ili spremiti pod novim imenom\?</string>
     <string name="dialog_file_exists_positive_button_text">Zamijeni</string>
     <string name="dialog_file_exists_negative_button_text">Spremi pod novim imenom</string>
     <string name="dialog_save_under_new_name_title">Spremi pod novim imenom</string>

@@ -24,7 +24,8 @@ fun PixelGridView.extendedSaveAsImage(
     coordinatorLayout: CoordinatorLayout,
     projectTitle: String,
     flipMatrix: List<FlipValue>,
-    compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
+    compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX,
+    onTaskFinished: (OutputCode) -> Unit) {
     val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
 
     val bitmap = if (resolution == BitmapResolution.Scaled) {
@@ -52,7 +53,7 @@ fun PixelGridView.extendedSaveAsImage(
                     }
                 }
             }
-        } else {
+        } else if (outputCode == OutputCode.Failure) {
             if (exceptionMessage_1 != null) {
                 coordinatorLayout.showSnackbarWithAction(context.getString(R.string.dialog_image_exception_when_saving_title, projectTitle, formatName), SnackbarDuration.Default, context.getString(R.string.dialog_exception_info_title)) {
                     (context as Activity).showSimpleInfoDialog(context.getString(R.string.dialog_exception_info_title), exceptionMessage_1)
@@ -60,6 +61,8 @@ fun PixelGridView.extendedSaveAsImage(
             } else {
                 coordinatorLayout.showSnackbar(context.getString(R.string.dialog_image_exception_when_saving_title, projectTitle, formatName), SnackbarDuration.Default)
             }
+        } else {
+            onTaskFinished(OutputCode.Cancelled)
         }
     }
 }

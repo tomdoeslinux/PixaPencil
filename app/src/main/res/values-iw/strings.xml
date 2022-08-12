@@ -218,7 +218,6 @@
     <string name="dialog_unsaved_changes_title">בקובץ הזה יש שינויים שלא נשמרו</string>
     <string name="dialog_unsaved_changes_message">האם לשמור שינויים עבור %1$s?</string>
     <string name="dialog_file_exists_title">קובץ בשם זה כבר קיים</string>
-    <string name="dialog_file_exists_message">תמונה בשם %1$s כבר קיימת, להחליף אותה או לשמור בשם חדש?</string>
     <string name="dialog_file_exists_positive_button_text">החלף את הקובץ</string>
     <string name="dialog_file_exists_negative_button_text">תשמור תחת שם חדש</string>
     <string name="dialog_save_under_new_name_title">תשמור תחת שם חדש</string>

@@ -139,7 +139,6 @@
     <string name="dialog_clear_canvas_message">Ripulire la tela\?</string>
     <string name="dialog_unsaved_changes_title">Cambiamenti non salvati</string>
     <string name="dialog_file_exists_title">File esistente</string>
-    <string name="dialog_file_exists_message">%1$s esistente, rimpiazzare o salvare con nuovo nome\?</string>
     <string name="dialog_file_exists_positive_button_text">Rimpiazza</string>
     <string name="dialog_file_exists_negative_button_text">Salva con nuovo nome</string>
     <string name="dialog_save_under_new_name_title">Salva con un nuovo nome</string>
