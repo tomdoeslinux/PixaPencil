@@ -364,7 +364,7 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
             onColorPickerTapped.invoke()
         }
 
-        if (event.action == MotionEvent.ACTION_UP) {
+        if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_MOVE) {
             handler.removeCallbacks(longPressedRunnable)
         }
 
