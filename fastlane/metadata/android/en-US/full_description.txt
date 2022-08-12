@@ -1,4 +1,4 @@
-PixaPencil is the number one open source pixel art editor for Android.
+﻿PixaPencil is the number one open source pixel art editor for Android.
 
 Why you should try out PixaPencil:
 
@@ -6,3 +6,39 @@ Why you should try out PixaPencil:
 - 100% free of Google Play services
 - 100% free of advertisements
 - 100% commitment to open source
+
+Features
+    • Pencil tool
+    • Move tool
+    • Fill tool
+    • Line tool
+    • Rectangle tool/Outlined rectangle tool
+    • Square tool/Outlined square tool
+    • Ellipse Tool/Outlined Ellipse Tool
+    • Circle Tool/Outlined Circle Tool
+    • Spray tool
+    • Polygon tool
+    • Dither tool/dither brushes
+    • Shading tool
+    • Picker tool
+    • Find and replace by color tool
+    • Erase tool
+    • Pixel grid
+    • Pixel perfect mode
+    • 4 symmetry options (horizontal, vertical, quad, octal)
+    • Undo/Redo
+    • Zoom in/Zoom out
+    • Canvas filters (color filter, lighten, darken, invert, grayscale)
+    • Color palette support
+    • Brushes
+    • Ability to import images from your file system into the app
+    • Ability to import Lospec palettes
+    • Ability to duplicate projects
+    • Ability to select custom colors using a color picker, RGB sliders, or HEX code
+    • Ability to unfavorite/favorite projects
+    • Ability to export projects to PNG/JPG/WEBP/TIFF/BMP
+    • Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
+    • Ability to flip your projects horizontally or vertically
+    • Ability to save projects in background
+New features are always being added.
+
