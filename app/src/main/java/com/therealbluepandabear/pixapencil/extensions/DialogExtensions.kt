@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.extensions
 import android.app.Activity
 import android.content.DialogInterface
 import android.view.View
-import android.view.WindowManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 

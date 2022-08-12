@@ -14,7 +14,6 @@ import android.os.Build
 import android.os.Environment
 import android.os.ParcelFileDescriptor
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.TextInputLayout
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
@@ -24,7 +23,10 @@ import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
 import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
-import java.io.*
+import java.io.File
+import java.io.FileDescriptor
+import java.io.FileOutputStream
+import java.io.IOException
 
 
 class FileHelperUtilities(private val context: Context) {

@@ -1,18 +1,12 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.annotation.SuppressLint
 import android.content.SharedPreferences
-import android.graphics.Point
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import android.view.MotionEvent
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.doOnNextLayout
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
