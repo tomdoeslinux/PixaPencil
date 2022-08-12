@@ -229,4 +229,5 @@
     <string name="exportProjectDialogLayout_resolution_str">Resolução</string>
     <string name="exportProjectDialogLayout_raw_str">Inalterado</string>
     <string name="exportProjectDialogLayout_scaled_str">Redimensionado</string>
+    <string name="dialog_file_exists_message">%1$s já existe, gostaria de substituí-lo\?</string>
 </resources>
