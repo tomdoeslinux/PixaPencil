@@ -3,10 +3,7 @@ package com.therealbluepandabear.pixapencil.algorithms
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.models.CoordinatesDouble
 
-class CircleAlgorithm(algorithmInfo: AlgorithmInfoParameter, filledMode: Boolean = false) {
-    private val filledMp = MidpointCircleAlgorithm(algorithmInfo, filledMode = filledMode)
-    private val filledMpEvenDiameterMode = MidpointCircleAlgorithm(algorithmInfo, true, filledMode = filledMode)
-
+class CircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val filledMode: Boolean = false) {
     fun compute(p1: Coordinates, p2: Coordinates) {
         val p1Double = p1.convertToCoordinatesDouble()
         val p2Double = p2.convertToCoordinatesDouble()
@@ -24,7 +21,9 @@ class CircleAlgorithm(algorithmInfo: AlgorithmInfoParameter, filledMode: Boolean
 
         if (mx % 1.0 == 0.0 || my % 1.0 == 0.0) {
             val radius = (p2.x - mx.toInt())
-            filledMp.compute(Coordinates(mx.toInt(), my.toInt()), radius)
+
+            val mp = MidpointCircleAlgorithm(algorithmInfo, filledMode = filledMode)
+            mp.compute(Coordinates(mx.toInt(), my.toInt()), radius)
         } else {
             x2d--
             y2d--
@@ -32,9 +31,11 @@ class CircleAlgorithm(algorithmInfo: AlgorithmInfoParameter, filledMode: Boolean
             midpoint = CoordinatesDouble(((x1d + x2d) / 2), (y1d + y2d) / 2)
 
             val mxN = midpoint.x
+
             val radius = (p2.x - mxN.toInt()) - 1
 
-            filledMpEvenDiameterMode.compute(Coordinates(mx.toInt(), my.toInt()), radius)
+            val mp = MidpointCircleAlgorithm(algorithmInfo, true, filledMode = filledMode)
+            mp.compute(Coordinates(mx.toInt(), my.toInt()), radius)
         }
     }
 }

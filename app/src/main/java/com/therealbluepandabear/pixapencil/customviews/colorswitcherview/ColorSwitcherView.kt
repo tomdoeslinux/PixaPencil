@@ -5,13 +5,11 @@ import android.content.Context
 import android.graphics.*
 import android.graphics.Shader.TileMode
 import android.util.AttributeSet
-import android.view.Display
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.extensions.interceptsWithCoordinates
 
 class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
     private var isPrimarySelected: Boolean = true
@@ -31,12 +29,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
     private val primaryPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
     }
-
-    private val portraitPrimaryColorRectF: RectF = RectF(0f, 0f, toDp(50), toDp(50))
-    private val portraitSecondaryColorRectF: RectF = RectF(toDp(100), 0f, toDp(50), toDp(50))
-
-    private val landscapePrimaryColorRectF: RectF = RectF(0f, 0f, toDp(50), toDp(50))
-    private val landscapeSecondaryColorRectF: RectF = RectF( 0f, toDp(100), toDp(50), toDp(50))
 
     private val secondaryPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
@@ -221,8 +213,18 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     toDp(50),
                     transparentPaint)
 
-                drawRect(portraitPrimaryColorRectF, primaryPaint)
-                drawRect(portraitSecondaryColorRectF, secondaryPaint)
+                drawRect(
+                    0f,
+                    0f,
+                    toDp(50),
+                    toDp(50),
+                    primaryPaint)
+                drawRect(
+                    toDp(100),
+                    0f,
+                    toDp(50),
+                    toDp(50),
+                    secondaryPaint)
 
                 drawRoundRect(
                     gradientPaintLandscapeFalseRectF,
@@ -272,8 +274,18 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     toDp(100),
                     transparentPaint)
 
-                drawRect(landscapePrimaryColorRectF, primaryPaint)
-                drawRect(landscapeSecondaryColorRectF, secondaryPaint)
+                drawRect(
+                    0f,
+                    0f,
+                    toDp(50),
+                    toDp(50),
+                    primaryPaint)
+                drawRect(
+                    0f,
+                    toDp(100),
+                    toDp(50),
+                    toDp(50),
+                    secondaryPaint)
 
                 drawRoundRect(
                     gradientPaintLandscapeTrueRectF,
@@ -308,10 +320,26 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
+    val primaryColorHitRect: Rect = Rect()
+    val secondaryColorHitRect: Rect = Rect()
 
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (portraitSecondaryColorRectF.interceptsWithCoordinates(event.x, event.y) || landscapeSecondaryColorRectF.interceptsWithCoordinates(event.x, event.y)) {
+
+        val xOrY = if (!orientationLandscape) {
+            event.x
+        } else {
+            event.y
+        }
+
+        val inverse = if (xOrY == event.x) {
+            event.y
+        } else {
+            event.x
+        }
+
+        if ((xOrY in toDp(50)..toDp(100) - insetStroke)
+            && inverse !in toDp(50)..toDp(70)) {
             // secondary color has been selected
             handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
 
@@ -319,7 +347,8 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                 isPrimarySelected = false
                 invalidate()
             }
-        } else if (portraitPrimaryColorRectF.contains(event.x / width, event.y / height) || landscapePrimaryColorRectF.contains(event.x, event.y)) {
+        } else if ((xOrY !in toDp(50)..toDp(100) - insetStroke)
+                    && inverse !in toDp(50)..toDp(70)) {
             // primary color has been selected
             handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
 
@@ -327,7 +356,9 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                 isPrimarySelected = true
                 invalidate()
             }
-        } else {
+        } else if ((inverse in toDp(55)..toDp(70))) {
+            // color picker has been selected
+
             onColorPickerTapped.invoke()
         }
 
