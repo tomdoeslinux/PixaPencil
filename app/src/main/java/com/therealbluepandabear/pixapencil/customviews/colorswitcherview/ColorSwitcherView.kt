@@ -220,12 +220,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     toDp(50),
                     primaryPaint)
                 drawRect(
-                    0f,
-                    0f,
-                    toDp(50),
-                    toDp(50),
-                    primaryPaint)
-                drawRect(
                     toDp(100),
                     0f,
                     toDp(50),
@@ -326,8 +320,12 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
+    val primaryColorHitRect: Rect = Rect()
+    val secondaryColorHitRect: Rect = Rect()
+
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
+
         val xOrY = if (!orientationLandscape) {
             event.x
         } else {
