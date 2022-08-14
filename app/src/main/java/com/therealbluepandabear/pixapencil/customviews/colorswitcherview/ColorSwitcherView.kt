@@ -320,9 +320,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
-    val primaryColorHitRect: Rect = Rect()
-    val secondaryColorHitRect: Rect = Rect()
-
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
