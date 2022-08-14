@@ -6,6 +6,8 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 import java.util.*
 
 class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
+    private val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
+
     fun compute(seed: Coordinates) {
         val colorAtSeed = algorithmInfo.bitmap.getPixel(seed)
 
@@ -22,7 +24,6 @@ class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
 
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(current, algorithmInfo.color, true)
 
-            val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
             for (index in expandToNeighborsAlgorithmInstance.compute(current)) {
                 queue.offer(index)
             }
