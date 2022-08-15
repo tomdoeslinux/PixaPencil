@@ -222,4 +222,12 @@
     <string name="dialog_error_opening_image">Greška prilikom otvaranja slike</string>
     <string name="spot_light_next">Dalje</string>
     <string name="spot_light_close">Zatvori</string>
+    <string name="activityCanvasTopAppMenu_export">Izvezi</string>
+    <string name="exportProjectDialogLayout_file_name_str">Ime datoteke</string>
+    <string name="exportProjectDialogLayout_file_type_str">Vrsta datoteke</string>
+    <string name="exportProjectDialogLayout_resolution_str">Rezolucija</string>
+    <string name="exportProjectDialogLayout_raw_str">Neobrađeno</string>
+    <string name="exportProjectDialogLayout_scaled_str">Skalirano</string>
+    <string name="exception_invalid_file_name">Ime datoteke ne može biti prazno</string>
+    <string name="dialog_file_exists_message">%1$s već postoji, želiš li je zamijeniti\?</string>
 </resources>
