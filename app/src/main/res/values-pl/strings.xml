@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="defaultColorPalette">Domyślna paleta kolorów</string>
+    <string name="generic_cancel">Anuluj</string>
+    <string name="generic_ok">Ok</string>
+    <string name="generic_warning">Uwaga</string>
+    <string name="generic_saved">Zapisano</string>
+</resources>
