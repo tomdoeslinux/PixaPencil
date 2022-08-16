@@ -12,10 +12,11 @@ import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 import java.util.*
+import kotlin.collections.ArrayDeque
 
 class CanvasActivityViewModel : ViewModel() {
-    var undoStack: Stack<BitmapAction> = Stack()
-    var redoStack: Stack<BitmapAction> = Stack()
+    var undoStack = ArrayDeque<BitmapAction>(listOf())
+    var redoStack = ArrayDeque<BitmapAction>(listOf())
 
     var currentBitmapAction: BitmapAction? = null
 

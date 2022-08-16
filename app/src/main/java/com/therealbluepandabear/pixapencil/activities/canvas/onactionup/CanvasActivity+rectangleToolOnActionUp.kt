@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.extensions.doAddLast
 
 fun CanvasActivity.rectangleToolOnActionUp() {
     if (
@@ -15,5 +16,5 @@ fun CanvasActivity.rectangleToolOnActionUp() {
     shapeOrigin = null
     firstShapeDrawn = false
     coordinates = null
-    viewModel.undoStack.push(viewModel.currentBitmapAction!!)
+    viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }

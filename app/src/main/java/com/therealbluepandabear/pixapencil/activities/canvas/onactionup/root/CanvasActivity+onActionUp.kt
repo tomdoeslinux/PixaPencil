@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.rectangl
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.extensions.doAddLast
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
@@ -36,7 +37,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         viewModel.currentTool == Tool.PolygonTool -> {
-            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
+            viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
         }
 
         viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.CircleTool || viewModel.currentTool == Tool.OutlinedCircleTool) -> {
@@ -48,7 +49,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         viewModel.currentTool == Tool.EraseTool -> {
-            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
+            viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 
             primaryAlgorithmInfoParameter.color = getSelectedColor()
 
@@ -62,7 +63,7 @@ fun CanvasActivity.extendedOnActionUp() {
         else -> {
             val isPxPerfect = (binding.activityCanvasPixelGridView.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
-            viewModel.undoStack.push(viewModel.currentBitmapAction!!)
+            viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()
 
             if (isPxPerfect) {
@@ -102,7 +103,7 @@ fun CanvasActivity.extendedOnActionUp() {
                     )
                 }
 
-                viewModel.undoStack.push(BitmapAction(data))
+                viewModel.undoStack.doAddLast(BitmapAction(data))
             }
         }
     }

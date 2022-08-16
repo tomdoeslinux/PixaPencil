@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.Tool
+import com.therealbluepandabear.pixapencil.extensions.doAddLast
 
 fun CanvasActivity.ellipseToolOnActionUp() {
     if (
@@ -20,5 +21,5 @@ fun CanvasActivity.ellipseToolOnActionUp() {
     shapeOrigin = null
     firstShapeDrawn = false
     coordinates = null
-    viewModel.undoStack.push(viewModel.currentBitmapAction!!)
+    viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }
