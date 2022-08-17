@@ -1,7 +1,6 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.graphics.Color
-import android.util.JsonReader
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -22,7 +21,6 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.StringReader
 
 fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
     val details: ConstraintLayout =

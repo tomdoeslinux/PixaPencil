@@ -11,8 +11,6 @@ import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
-import java.util.*
-import kotlin.collections.ArrayDeque
 
 class CanvasActivityViewModel : ViewModel() {
     var undoStack = ArrayDeque<BitmapAction>(listOf())
