@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import android.graphics.Color
+import android.util.JsonReader
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -21,6 +22,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.StringReader
 
 fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
     val details: ConstraintLayout =
@@ -31,6 +33,7 @@ fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
         .setTitle(R.string.activityCanvasTopAppMenu_import_lospec_palette)
         .setView(details)
         .setPositiveButton(R.string.generic_ok) { _, _ ->
+            if (details.findViewById<TextInputEditText>(R.id.importLospecPaletteAlert_palette_url_identifier_textInputEditText).text!!.isNotEmpty()) {
             val queue = Volley.newRequestQueue(this)
             val url = "https://lospec.com/palette-list/${details.findViewById<TextInputEditText>(R.id.importLospecPaletteAlert_palette_url_identifier_textInputEditText).text.toString()}.json"
 
@@ -66,7 +69,8 @@ fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
 
                 })
 
-            queue.add(stringRequest)
+                queue.add(stringRequest)
+            }
         }
         .setNegativeButton(R.string.generic_cancel, null)
 
