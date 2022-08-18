@@ -216,7 +216,6 @@
     <string name="dialog_open_image_enter_name_title">Inserir nome</string>
     <string name="dialog_open_image_enter_name_text">Insira um nome para o seu projeto</string>
     <string name="spot_light_new_project_fragment_input_value">Por favor insira um valor para %1$s</string>
-    <string name="spot_light_activity_canvas_1">Dê um toque longo em uma das suas cores, primária ou secundária, para ir ao selecionador de cores</string>
     <string name="spot_light_activity_canvas_2">Aqui você encontra suas ferramentas</string>
     <string name="spot_light_activity_canvas_3">Toque sobre \'Filtros\' para experimentar alguns</string>
     <string name="spot_light_activity_canvas_4">Aqui você pode experimentar filtros diferentes para a tela</string>

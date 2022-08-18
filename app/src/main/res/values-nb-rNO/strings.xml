@@ -162,7 +162,6 @@
     <string name="exception_empty_color_palette_name">Fargepalettnavn kan ikke være tomt</string>
     <string name="snackbar_find_and_replace_warning">Du må ha minst én farge på lerretet for å bruke dette verktøyet</string>
     <string name="spot_light_activity_canvas_3">Trykk på «Filter» for å prøve noen prosjektfiltre</string>
-    <string name="spot_light_activity_canvas_1">Trykk lenge på enten primær eller sekundærfarge for å bruke fargevelgeren</string>
     <string name="spot_light_new_project_fragment_3">Til slutt setter du prosjektets høyde</string>
     <string name="dither_tool_info_text">Tegn sjakkmønster. Nyttig for skyggelegging.</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Utled fra lerret</string>

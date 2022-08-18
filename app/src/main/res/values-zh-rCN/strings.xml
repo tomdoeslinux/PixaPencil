@@ -255,7 +255,6 @@
     <string name="spot_light_new_project_fragment_4">点击完成创建项目</string>
     <string name="spot_light_new_project_fragment_input_value">请输入%1$s的值</string>
 
-    <string name="spot_light_activity_canvas_1">长按并下拖设置主次颜色</string>
     <string name="spot_light_activity_canvas_2">这里是工具栏，选择你需要的工具</string>
     <string name="spot_light_activity_canvas_3">点击\'滤色器\'尝试过滤项目</string>
     <string name="spot_light_activity_canvas_4">这里是滤镜栏，可以给画布加滤镜</string>

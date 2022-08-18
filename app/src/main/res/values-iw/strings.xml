@@ -259,7 +259,6 @@
 
     <string name="spot_light_activity_main">הקש כדי ליצור\nפרויקט חדש</string>
 
-    <string name="spot_light_activity_canvas_1">הקש במשך כ-2 שניות על הצבע הראשי או המשני כדי להגיע לבורר הצבעים</string>
     <string name="spot_light_activity_canvas_2">כאן תמצא את הכלים שלך</string>
     <string name="spot_light_activity_canvas_3">הקש על \'שכבות צבע\' כדי לנסות כמה שכבות צבע עבור הפרויקט שלך</string>
     <string name="spot_light_activity_canvas_4">כאן אתה יכול לנסות שכבות צבע שונות</string>
