@@ -1,20 +1,17 @@
 package com.therealbluepandabear.pixapencil.fragments.newproject
 
+import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 import com.takusemba.spotlight.OnTargetListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.shape.Circle
 import com.takusemba.spotlight.shape.RoundedRectangle
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.databinding.LayoutTargetBinding
 
 fun NewProjectFragment.startSpotLight() {
-    val firstRoot = FrameLayout(this.requireContext())
-    val lyt = layoutInflater.inflate(R.layout.layout_target, firstRoot)
-    val text = lyt.findViewById<TextView>(R.id.layoutTarget_text)
+    val layoutTargetBinding = LayoutTargetBinding.inflate(LayoutInflater.from(this.context))
     val targets = ArrayList<Target>()
 
     val firstTarget = Target.Builder()
@@ -23,11 +20,11 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_1)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_new_project_fragment_1)
             }
         })
         .setShape(RoundedRectangle((binding.fragmentNewCanvasProjectTitleTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(firstTarget)
@@ -38,12 +35,12 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_2)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_new_project_fragment_2)
             }
 
         })
         .setShape(RoundedRectangle((binding.fragmentNewCanvasWidthTextInputLayout.measuredHeight + 100).toFloat(), (binding.root.measuredWidth).toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(secondTarget)
@@ -54,12 +51,12 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_3)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_new_project_fragment_3)
             }
 
         })
         .setShape(RoundedRectangle(300f, 1400f, 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(thirdTarget)
@@ -70,12 +67,12 @@ fun NewProjectFragment.startSpotLight() {
             override fun onEnded() { }
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_new_project_fragment_4)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_new_project_fragment_4)
             }
 
         })
         .setShape(Circle((binding.fragmentNewCanvasDoneButton.measuredWidth).toFloat()))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(fourthTarget)
@@ -89,44 +86,44 @@ fun NewProjectFragment.startSpotLight() {
 
     var current = 1
 
-    lyt.findViewById<Button>(R.id.layoutTarget_nextButton).setOnClickListener {
+    layoutTargetBinding.layoutTargetNextButton.setOnClickListener {
         when (current) {
             1 -> {
                 if (binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString().isNotBlank()) {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
+                    layoutTargetBinding.layoutTargetErrorText.text = ""
                     current++
                     spotlight.next()
                 } else {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
+                    layoutTargetBinding.layoutTargetErrorText.text =
                         getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewProject_name)}'")
                 }
             }
 
             2 -> {
                 if (binding.fragmentNewCanvasWidthTextInputEditText.text.toString().isNotBlank()) {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
+                    layoutTargetBinding.layoutTargetErrorText.text = ""
                     current++
                     spotlight.next()
                 } else {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
+                    layoutTargetBinding.layoutTargetErrorText.text =
                         getString(R.string.spot_light_new_project_fragment_input_value, "'${getString(R.string.fragmentNewProject_width)}'")
                 }
             }
 
             3 -> {
                 if (binding.fragmentNewCanvasHeightTextInputEditText.text.toString().isNotBlank()) {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text = ""
+                    layoutTargetBinding.layoutTargetErrorText.text = ""
                     current++
                     spotlight.next()
                 } else {
-                    lyt.findViewById<TextView>(R.id.layoutTarget_errorText).text =
+                    layoutTargetBinding.layoutTargetErrorText.text =
                         getString(R.string.spot_light_new_project_fragment_input_value,"'${getString(R.string.fragmentNewProject_height)}'")
                 }
             }
         }
     }
 
-    lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
+    layoutTargetBinding.layoutTargetCloseButton.setOnClickListener {
         spotlight.finish()
         paramSpotLightInProgress = false
     }

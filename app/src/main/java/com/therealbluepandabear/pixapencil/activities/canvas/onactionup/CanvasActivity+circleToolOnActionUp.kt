@@ -1,30 +1,25 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onactionup
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.first
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.squareAlgorithmInstance
-import com.therealbluepandabear.pixapencil.algorithms.CircleAlgorithm
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
+import com.therealbluepandabear.pixapencil.extensions.doAddLast
 
 fun CanvasActivity.circleToolOnActionUp() {
-    if (viewModel.currentTool.toolFamily == ToolFamily.Ellipse && viewModel.currentTool.outlined == false) {
-        val circleAlgorithmInstance = CircleAlgorithm(primaryAlgorithmInfoParameter, true)
+    if (
+        viewModel.currentTool.toolFamily == ToolFamily.Ellipse &&
+        viewModel.currentTool.outlined == false &&
+        coordinates != null &&
+        shapeOrigin != null) {
 
-        if (shapeOrigin != null && coordinates != null) {
-            if (shapeOrigin!!.x > coordinates!!.x) {
-                circleAlgorithmInstance.compute(coordinates!!, shapeOrigin!!)
-            } else {
-                circleAlgorithmInstance.compute(shapeOrigin!!, coordinates!!)
-            }
+        if (shapeOrigin!!.x > coordinates!!.x) {
+            filledCircleAlgorithm.compute(coordinates!!, shapeOrigin!!)
+        } else {
+            filledCircleAlgorithm.compute(shapeOrigin!!, coordinates!!)
         }
     }
 
-    viewModel.bitmapActionData.add(viewModel.currentBitmapAction!!)
-
-    coordinates = null
     shapeOrigin = null
-    squareAlgorithmInstance = null
-    shapeHasLetGo = false
-    first = true
+    firstShapeDrawn = false
+    coordinates = null
+    viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }

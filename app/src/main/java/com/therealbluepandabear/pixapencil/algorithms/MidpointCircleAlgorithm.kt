@@ -13,6 +13,8 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val evenDiameterMode: Boolean = false, private val filledMode: Boolean = false) {
     private val shouldLineIgnoreBrush = true
 
+    private val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
+
     private fun putPixel(p1: Coordinates, p2: Coordinates) {
         val xc = p1.x
         val yc = p1.y
@@ -55,8 +57,6 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             )
 
             if (filledMode) {
-                val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
-
                 lineAlgorithmInstance.compute(
                     Coordinates(xc + x, yc - y),
                     Coordinates(xc - x, yc - y)
@@ -113,8 +113,6 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
             )
 
             if (filledMode) {
-                val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
-
                 lineAlgorithmInstance.compute(
                     Coordinates((xc + x) + 1, yc - y),
                     Coordinates(xc - x, yc - y)

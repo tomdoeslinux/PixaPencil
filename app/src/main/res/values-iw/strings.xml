@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_ok">לְאַשֵׁר</string>
     <string name="generic_cancel">לְבַטֵל</string>
     <string name="generic_no_thanks">לא תודה</string>
@@ -99,8 +98,6 @@
 
     <string name="activityCanvasTopAppMenu_undo">בטל פעולה</string>
     <string name="activityCanvasTopAppMenu_redo">בצע מחדש את הפעולה</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">שמור את הקובץ ל-PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">שמור את הקובץ ל-JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">הוסף פלטת Lospec</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">פלטת צבעים חדשה</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">פיקסל פרפקט</string>
@@ -123,7 +120,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">בלי סימטריה</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">אוקטל</string>
     <string name="activityCanvasTopAppMenu_save_in_background">תשמור ברקע</string>
-    <string name="activityCanvasTopAppMenu_save_as">תשמור</string>
 
     <string name="bottomNavigationMenu_starred">פרויקטים מועדפים</string>
     <string name="bottomNavigationMenu_home">כל הפרויקטים</string>
@@ -208,8 +204,6 @@
     <string name="exception_empty_height">גובה לא יכול להיות ריק</string>
     <string name="exception_empty_color_palette_name">השם של לוח הצבעים לא יכול להיות ריק</string>
     <string name="exception_accessing_negative_index_message">לא ניתן לגשת לאובייקט פיקסל עם אינדקס שלילי ברשימה!</string>
-    <string name="exception_invalid_spray_radius">ערך רדיוס הריסוס חייב להיות בין 1 ל-20,000</string>
-    <string name="exception_invalid_spray_strength">ערך חוזק הריסוס חייב להיות בין 1 ל-20,000</string>
     <string name="exception_empty_spray_radius">רדיוס הריסוס לא יכול להיות ריק</string>
     <string name="exception_empty_spray_strength">חוזק הריסוס לא יכול להיות ריק</string>
     <string name="exception_failed_to_create_file">יצירת הקובץ נכשלה</string>
@@ -224,15 +218,11 @@
     <string name="dialog_unsaved_changes_title">בקובץ הזה יש שינויים שלא נשמרו</string>
     <string name="dialog_unsaved_changes_message">האם לשמור שינויים עבור %1$s?</string>
     <string name="dialog_file_exists_title">קובץ בשם זה כבר קיים</string>
-    <string name="dialog_file_exists_message">תמונה בשם %1$s כבר קיימת, להחליף אותה או לשמור בשם חדש?</string>
     <string name="dialog_file_exists_positive_button_text">החלף את הקובץ</string>
     <string name="dialog_file_exists_negative_button_text">תשמור תחת שם חדש</string>
     <string name="dialog_save_under_new_name_title">תשמור תחת שם חדש</string>
     <string name="dialog_save_under_new_name_text">ודא שהשם החדש הוא ייחודי!</string>
     <string name="dialog_image_exception_when_saving_title">שגיאה בשמירת %1$s בתור %2$s</string>
-    <string name="fragmentAppInfo_community_text">אתה יכול להצטרף לקהילה שלנו בְּ-:
-         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>.
-    </string>
     <string name="dialog_delete_pixel_art_project_title">למחוק את %1$s?</string>
     <string name="dialog_delete_pixel_art_project_text">האם אתה בטוח שברצונך למחוק את %1$s? אי אפשר לבטל את זה.</string>
     <string name="dialog_project_details_title">פרטים</string>
@@ -266,7 +256,6 @@
 
     <string name="spot_light_activity_main">הקש כדי ליצור\nפרויקט חדש</string>
 
-    <string name="spot_light_activity_canvas_1">הקש במשך כ-2 שניות על הצבע הראשי או המשני כדי להגיע לבורר הצבעים</string>
     <string name="spot_light_activity_canvas_2">כאן תמצא את הכלים שלך</string>
     <string name="spot_light_activity_canvas_3">הקש על \'שכבות צבע\' כדי לנסות כמה שכבות צבע עבור הפרויקט שלך</string>
     <string name="spot_light_activity_canvas_4">כאן אתה יכול לנסות שכבות צבע שונות</string>

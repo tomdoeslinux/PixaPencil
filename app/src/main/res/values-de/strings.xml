@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_no_thanks">Nein, danke</string>
     <string name="generic_saved">Gespeichert</string>
     <string name="generic_error_while_saving">Fehler während des Speicherns von %1$s</string>
@@ -67,8 +66,6 @@
     <string name="activityMainTopAppMenu_dark_light_mode">Hell-/Dunkelmodus</string>
     <string name="activityCanvasTopAppMenu_undo">Rückgängig</string>
     <string name="activityCanvasTopAppMenu_redo">Wiederherstellen</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Als PNG speichern</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Als JPG speichern</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Neue Farbpalette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Perfekter Pixel</string>
     <string name="activityCanvasTopAppMenu_rotate">Drehen</string>
@@ -88,7 +85,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">Keiner</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Achteck</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Im Vordergrund speichern</string>
-    <string name="activityCanvasTopAppMenu_save_as">Speichern als</string>
     <string name="bottomNavigationMenu_starred">Favorisiert</string>
     <string name="bottomNavigationMenu_home">Startseite</string>
     <string name="pencil_tool_info_title">Stift-Info-Tool</string>
@@ -124,7 +120,6 @@
     <string name="exception_empty_height">Höhe kann nicht leer sein</string>
     <string name="exception_empty_color_palette_name">Farbpalette kann nicht leer sein</string>
     <string name="exception_accessing_negative_index_message">Kann Pixel-Art mit negativem Listen-Index nicht erreichen!</string>
-    <string name="exception_invalid_spray_radius">Wert muss zwischen 1 und 20.000 liegen</string>
     <string name="exception_empty_spray_radius">Radius kann nicht leer sein</string>
     <string name="exception_empty_spray_strength">Dicke kann nicht leer sein</string>
     <string name="exception_failed_to_create_file">Dateierstellung fehlgeschlagen</string>
@@ -140,8 +135,6 @@
     <string name="dialog_file_exists_negative_button_text">Unter neuem Name speichern</string>
     <string name="dialog_save_under_new_name_title">Unter neuem Name speichern</string>
     <string name="dialog_image_exception_when_saving_title">Fehler beim Speichern von %1$s als %2$s</string>
-    <string name="fragmentAppInfo_community_text">Wir würden uns freuen dich auf
-\n<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> oder <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> begrüßen zu können. </string>
     <string name="dialog_delete_pixel_art_project_title">%1$s löschen\?</string>
     <string name="dialog_welcome_title">Willkommen</string>
     <string name="dialog_large_canvas_warning_text">Sie sind dabei, eine große Leinwand zu erstellen, denken Sie daran, dass Ihr Telefon möglicherweise nicht in der Lage sein, Bitmaps dieser Größen zu unterstützen.</string>
@@ -161,7 +154,6 @@
     <string name="spot_light_new_project_fragment_2">Nun gebe die gewünschte Breite ein</string>
     <string name="spot_light_new_project_fragment_3">Setze anschließend die Höhe des Projekts</string>
     <string name="spot_light_new_project_fragment_4">Tippen um das Projekt zu erstellen</string>
-    <string name="spot_light_activity_canvas_1">Halt deine Primär- oder Sekundärfarbe gedrückt um die Farbauswahl zu erhalten</string>
     <string name="spot_light_activity_canvas_2">Hier findest du die Werkzeuge</string>
     <string name="spot_light_activity_canvas_4">Hier kannst du verschiedene Leinwand-Filter ausprobieren</string>
     <string name="spot_light_activity_canvas_5">Tippe auf \'Farbpaletten\' um deine Paletten zu sehen</string>
@@ -180,9 +172,7 @@
     <string name="polygon_tool_info_title">Polygon-Tool-Info</string>
     <string name="shading_tool_info_title">Schattierungs-Tool-Info</string>
     <string name="exception_invalid_project_name">Name kann nicht leer sein</string>
-    <string name="exception_invalid_spray_strength">Wert muss zwischen 1 und 20.000 liegen</string>
     <string name="dialog_welcome_text">Willkommen! Möchtest du mit einem interaktiven Tutorial starten\?</string>
-    <string name="dialog_file_exists_message">%1$s existiert bereits, ersetzen oder unter neuem Namen speichern\?</string>
     <string name="dialog_save_under_new_name_text">Stelle sicher dass der neue Name einzigartig ist!</string>
     <string name="spot_light_activity_canvas_3">Tippen Sie auf \'Filter\', um einige Projektfilter auszuprobieren</string>
     <string name="spot_light_activity_canvas_6">Sie haben nur die Standard-Palette, aber Sie können immer eine neue erstellen, indem Sie die drei Punkte oben rechts auf Ihrem Bildschirm tippen</string>
@@ -210,6 +200,5 @@
 \n
 \n Um dies sicherzustellen, ist es empfehlenswert, die App
 \n via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> oder via <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> zu installieren.</string>
-    <string name="fragmentAppInfo_community_text_land">Wir begrüßen dich auch gerne in unserem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>-Raum oder auf unserem <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-Server. </string>
     <string name="move_tool_info_title">Werkzeug-Info bewegen</string>
 </resources>

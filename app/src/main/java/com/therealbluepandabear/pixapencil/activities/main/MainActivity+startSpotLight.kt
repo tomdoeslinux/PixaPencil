@@ -1,23 +1,21 @@
 package com.therealbluepandabear.pixapencil.activities.main
 
+import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 import com.takusemba.spotlight.OnSpotlightListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.shape.Circle
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.databinding.LayoutTargetBinding
 
 fun MainActivity.startSpotLight() {
-    val firstRoot = FrameLayout(this)
-    val lyt = layoutInflater.inflate(R.layout.layout_target, firstRoot)
+    val layoutTargetBinding = LayoutTargetBinding.inflate(LayoutInflater.from(this))
 
     val firstTarget = Target.Builder()
         .setAnchor(binding.activityMainNewProjectButton)
         .setShape(Circle((binding.activityMainNewProjectButton.measuredWidth + 20).toFloat()))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     val spotlight = Spotlight.Builder(this)
@@ -27,19 +25,19 @@ fun MainActivity.startSpotLight() {
         .setAnimation(DecelerateInterpolator(2f))
         .setOnSpotlightListener(object : OnSpotlightListener {
             override fun onStarted() {
-                lyt.findViewById<TextView>(R.id.layoutTarget_text).text = getString(R.string.spot_light_activity_main)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_main)
             }
 
             override fun onEnded() { }
         })
         .build()
 
-    lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
+    layoutTargetBinding.layoutTargetCloseButton.setOnClickListener {
         spotlight.finish()
         mainSpotlight = null
     }
 
-    lyt.findViewById<Button>(R.id.layoutTarget_nextButton).isEnabled = false
+    layoutTargetBinding.layoutTargetNextButton.isEnabled = false
 
     spotlight.start()
     this.mainSpotlight = spotlight

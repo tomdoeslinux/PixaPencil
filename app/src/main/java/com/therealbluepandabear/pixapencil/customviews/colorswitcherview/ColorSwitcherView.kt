@@ -7,6 +7,7 @@ import android.graphics.Shader.TileMode
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
 
@@ -95,6 +96,10 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
 
     private var onColorPickerTapped: () -> Unit = { }
 
+    private var onPrimaryColorLongTapped: () -> Unit = { }
+
+    private var onSecondaryColorLongTapped: () -> Unit = { }
+
     private fun toDp(px: Int): Float {
         return px * resources.displayMetrics.density
     }
@@ -115,6 +120,14 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
 
     fun setOnColorPickerTapped(onColorPickerTapped: () -> Unit) {
         this.onColorPickerTapped = onColorPickerTapped
+    }
+
+    fun setOnPrimaryColorLongTapped(onPrimaryColorLongTapped: () -> Unit) {
+        this.onPrimaryColorLongTapped = onPrimaryColorLongTapped
+    }
+
+    fun setOnSecondaryColorLongTapped(onSecondaryColorLongTapped: () -> Unit) {
+        this.onSecondaryColorLongTapped = onSecondaryColorLongTapped
     }
 
     fun setIsPrimarySelected(isPrimarySelected: Boolean) {
@@ -200,12 +213,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     toDp(50),
                     transparentPaint)
 
-                drawRect(
-                    0f,
-                    0f,
-                    toDp(50),
-                    toDp(50),
-                    primaryPaint)
                 drawRect(
                     0f,
                     0f,
@@ -305,8 +312,17 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
+    private val longPressedRunnable = Runnable {
+        if (isPrimarySelected) {
+            onPrimaryColorLongTapped.invoke()
+        } else {
+            onSecondaryColorLongTapped.invoke()
+        }
+    }
+
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
+
         val xOrY = if (!orientationLandscape) {
             event.x
         } else {
@@ -319,16 +335,32 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
             event.x
         }
 
-        if ((xOrY in toDp(50)..toDp(100) - insetStroke) && isPrimarySelected
+        if ((xOrY in toDp(50)..toDp(100) - insetStroke)
             && inverse !in toDp(50)..toDp(70)) {
-            isPrimarySelected = false
-            invalidate()
-        } else if ((xOrY !in toDp(50)..toDp(100) - insetStroke) && !isPrimarySelected
+            // secondary color has been selected
+            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
+
+            if (isPrimarySelected) {
+                isPrimarySelected = false
+                invalidate()
+            }
+        } else if ((xOrY !in toDp(50)..toDp(100) - insetStroke)
                     && inverse !in toDp(50)..toDp(70)) {
-            isPrimarySelected = true
-            invalidate()
+            // primary color has been selected
+            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
+
+            if (!isPrimarySelected) {
+                isPrimarySelected = true
+                invalidate()
+            }
         } else if ((inverse in toDp(55)..toDp(70))) {
+            // color picker has been selected
+
             onColorPickerTapped.invoke()
+        }
+
+        if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_MOVE) {
+            handler.removeCallbacks(longPressedRunnable)
         }
 
         return true

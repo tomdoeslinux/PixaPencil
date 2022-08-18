@@ -17,7 +17,7 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
         menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = binding.activityCanvasPixelGridView.gridEnabled
         menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
 
-        if (binding.activityCanvasPixelGridView.pixelGridViewBitmap.width != binding.activityCanvasPixelGridView.pixelGridViewBitmap.width) {
+        if (width != height) {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isEnabled = false
         }
 

@@ -13,17 +13,20 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.os.ParcelFileDescriptor
-import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
-import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.tianscar.quickbitmap.BitmapEncoder
 import org.beyka.tiffbitmapfactory.CompressionScheme
 import org.beyka.tiffbitmapfactory.TiffSaver
 import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
-import java.io.*
+import java.io.File
+import java.io.FileDescriptor
+import java.io.FileOutputStream
+import java.io.IOException
 
 
 class FileHelperUtilities(private val context: Context) {
@@ -71,7 +74,7 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        var outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+        val outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
@@ -81,11 +84,7 @@ class FileHelperUtilities(private val context: Context) {
 
         directory?.mkdirs()
 
-        var file = File(directory, outputName)
-
-        val textInput: TextInputLayout =
-            context.activity()?.layoutInflater?.inflate(R.layout.save_file_under_new_name_alert, context.activity()?.findViewById(android.R.id.content),false)
-                as TextInputLayout
+        val file = File(directory, outputName)
 
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             var bitmap2 = bitmap_
@@ -134,7 +133,7 @@ class FileHelperUtilities(private val context: Context) {
                 }
 
                 else -> {
-                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, 90, object : BitmapEncoder.Callback {
+                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, IntConstants.COMPRESSION_QUALITY_MAX, object : BitmapEncoder.Callback {
                         override fun onCreateFailure() {
                             onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file))
                         }
@@ -161,27 +160,18 @@ class FileHelperUtilities(private val context: Context) {
             MediaScannerConnection.scanFile(context, arrayOf(file_.path), arrayOf(pathData), null)
         }
 
-        if (file.exists()) {
-            context.activity()?.showDialog(
-                context.getString(R.string.dialog_file_exists_title),
-                context.getString(R.string.dialog_file_exists_message, outputName),
-                context.getString(R.string.dialog_file_exists_positive_button_text), { _, _ ->
+        if (file.exists() && context.activity() != null) {
+            val alertDialog = MaterialAlertDialogBuilder(context.activity()!!, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.dialog_file_exists_title)
+                .setMessage(context.getString(R.string.dialog_file_exists_message, outputName))
+                .setPositiveButton(R.string.dialog_file_exists_positive_button_text) { _, _ ->
                     createNewFile(file)
-                },
-                context.getString(R.string.dialog_file_exists_negative_button_text), { _, _ ->
-                context.activity()?.showDialog(
-                    context.getString(R.string.dialog_save_under_new_name_title),
-                    context.getString(R.string.dialog_save_under_new_name_text),
-                    context.getString(R.string.generic_ok),
-                    { _, _ ->
-                        val input: String = textInput.editText?.text.toString()
-                        outputName = "$input.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
-                        file = File(directory, outputName)
-                        createNewFile(file)
-                    },
-                    context.getString(R.string.generic_cancel), { _, _ -> },
-                    textInput)
-                })
+                }
+                .setNegativeButton(R.string.generic_cancel) { _, _ ->
+                    onTaskFinished(OutputCode.Cancelled, file, null)
+                }
+
+            alertDialog.show()
         } else {
             createNewFile(file)
         }
@@ -208,7 +198,7 @@ class FileHelperUtilities(private val context: Context) {
         }
     }
 
-    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = 90) {
+    fun storeBitmapToInternalStorage(fileName: String, bitmap: Bitmap, compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG, compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX) {
         context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
             bitmap.compress(compressFormat, compressionOutputQuality, it)
             it.close()

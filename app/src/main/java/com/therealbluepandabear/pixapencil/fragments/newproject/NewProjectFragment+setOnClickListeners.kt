@@ -3,9 +3,10 @@ package com.therealbluepandabear.pixapencil.fragments.newproject
 import android.widget.FrameLayout
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.checkbox.MaterialCheckBox
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
-import com.therealbluepandabear.pixapencil.extensions.showDialog
+import com.therealbluepandabear.pixapencil.extensions.hideSoftInput
 import com.therealbluepandabear.pixapencil.utility.HapticFeedbackWrapper
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -21,7 +22,7 @@ private fun NewProjectFragment.checkForTitleError() {
         binding.fragmentNewCanvasProjectTitleTextInputLayout.error = getString(R.string.exception_invalid_project_name)
         invalidTitle = true
     } else {
-        binding.fragmentNewCanvasProjectTitleTextInputLayout.error = null
+        binding.fragmentNewCanvasProjectTitleTextInputLayout.isErrorEnabled = false
         invalidTitle = false
     }
 }
@@ -39,7 +40,7 @@ private fun NewProjectFragment.checkForWidthError() {
         }
 
         else -> {
-            binding.fragmentNewCanvasWidthTextInputLayout.error = null
+            binding.fragmentNewCanvasWidthTextInputLayout.isErrorEnabled = false
             invalidWidth = false
         }
     }
@@ -58,7 +59,7 @@ private fun NewProjectFragment.checkForHeightError() {
         }
 
         else -> {
-            binding.fragmentNewCanvasHeightTextInputLayout.error = null
+            binding.fragmentNewCanvasHeightTextInputLayout.isErrorEnabled = false
             invalidHeight = false
         }
     }
@@ -85,6 +86,10 @@ fun NewProjectFragment.setOnClickListeners() {
 
             if (!invalidTitle && !invalidWidth && !invalidHeight) {
                 try {
+                    binding.fragmentNewCanvasProjectTitleTextInputEditText.hideSoftInput()
+                    binding.fragmentNewCanvasWidthTextInputEditText.hideSoftInput()
+                    binding.fragmentNewCanvasHeightTextInputEditText.hideSoftInput()
+
                     val title =
                         binding.fragmentNewCanvasProjectTitleTextInputEditText.text.toString()
                     val widthValue: Int =
@@ -102,11 +107,11 @@ fun NewProjectFragment.setOnClickListeners() {
                                     as FrameLayout
                         val checkBox = frameLayout.getChildAt(0) as MaterialCheckBox
 
-                        requireActivity().showDialog(
-                            getString(R.string.generic_warning),
-                            getString(R.string.dialog_large_canvas_warning_text),
-                            getString(R.string.dialog_large_canvas_warning_positive_button_text),
-                            { _, _ ->
+                        val alertDialog = MaterialAlertDialogBuilder(this.requireContext(), R.style.ThemeOverlay_App_MaterialAlertDialog)
+                            .setTitle(R.string.generic_warning)
+                            .setView(frameLayout)
+                            .setMessage(R.string.dialog_large_canvas_warning_text)
+                            .setPositiveButton(R.string.dialog_large_canvas_warning_positive_button_text) { _, _ ->
                                 if (checkBox.isChecked) {
                                     (requireActivity() as MainActivity).showLargeCanvasSizeWarning =
                                         false
@@ -126,12 +131,10 @@ fun NewProjectFragment.setOnClickListeners() {
                                     heightValue,
                                     paramSpotLightInProgress
                                 )
-                            },
-                            getString(R.string.dialog_unsaved_changes_negative_button_text),
-                            { _, _ ->
-                            },
-                            frameLayout
-                        )
+                            }
+                            .setNegativeButton(R.string.generic_cancel, null)
+
+                        alertDialog.show()
                     } else {
                         caller.onDoneButtonPressed(
                             title,

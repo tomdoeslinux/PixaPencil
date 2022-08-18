@@ -1,11 +1,13 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.coordinates
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
-class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private var endCoordinates: Coordinates? = null, private val invisibleMode: Boolean = false) {
+class SquarePreviewAlgorithm(algorithmInfo: AlgorithmInfoParameter, private val invisibleMode: Boolean = false) {
+    private val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, ignoreBrush = false)
 
-    private fun setsqc1(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
+    private var endCoordinates: Coordinates? = null
+
+    private fun setsqc1(from: Coordinates, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
             lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
@@ -22,7 +24,7 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
         endCoordinates = Coordinates(from.x + size, from.y + size)
     }
 
-    private fun setsqc2(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
+    private fun setsqc2(from: Coordinates, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
                 compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
@@ -41,7 +43,7 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
         endCoordinates = Coordinates(from.x + size, from.y + size)
     }
 
-    private fun setsqc3(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, size: Int) {
+    private fun setsqc3(from: Coordinates, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
                 compute(Coordinates(from.x, from.y), Coordinates(from.x - size, from.y))
@@ -60,7 +62,7 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
         endCoordinates = Coordinates(from.x - size, from.y + size)
     }
 
-    private fun setsqc4(lineAlgorithmInstance: LineAlgorithm, from: Coordinates, to: Coordinates) {
+    private fun setsqc4(from: Coordinates, to: Coordinates) {
         val size = (from.x - to.x)
 
         if (!invisibleMode) {
@@ -80,9 +82,8 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
 
         endCoordinates = Coordinates(from.x - size, from.y + size)
     }
-    fun compute(from: Coordinates, to: Coordinates) {
-        val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, ignoreBrush = false)
 
+    fun compute(from: Coordinates, to: Coordinates): Coordinates? {
         val fromDouble = from.convertToCoordinatesDouble()
         val toDouble = to.convertToCoordinatesDouble()
 
@@ -95,15 +96,15 @@ class SquarePreviewAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, 
         }
 
         if (gradient in 0.0..1.0) {
-            setsqc1(lineAlgorithmInstance, from, size)
+            setsqc1(from, size)
         } else if (gradient > 1.0 && gradient > 0){
-            setsqc2(lineAlgorithmInstance, from, size)
+            setsqc2(from, size)
         } else if (gradient < 0 && gradient > -1.0) {
-            setsqc3(lineAlgorithmInstance, from, size)
+            setsqc3(from, size)
         } else {
-            setsqc4(lineAlgorithmInstance, from, to)
+            setsqc4(from, to)
         }
 
-        coordinates = endCoordinates
+        return endCoordinates
     }
 }

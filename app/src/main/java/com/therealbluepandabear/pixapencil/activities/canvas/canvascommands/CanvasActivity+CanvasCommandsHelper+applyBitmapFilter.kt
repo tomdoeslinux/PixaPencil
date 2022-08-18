@@ -1,6 +1,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
+import com.therealbluepandabear.pixapencil.extensions.doAddLast
 import com.therealbluepandabear.pixapencil.extensions.filterBitmap
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
@@ -13,7 +14,7 @@ fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) ->
         overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true, ignoreDither = true)
     }
 
-    baseReference.viewModel.bitmapActionData.add(baseReference.viewModel.currentBitmapAction!!)
+    baseReference.viewModel.undoStack.doAddLast(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
     baseReference.binding.activityCanvasPixelGridView.invalidate()

@@ -13,8 +13,8 @@ import com.therealbluepandabear.pixapencil.models.Brush
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 class CanvasActivityViewModel : ViewModel() {
-    var bitmapActionData: MutableList<BitmapAction> = mutableListOf()
-    var redoStack: MutableList<BitmapAction> = mutableListOf()
+    var undoStack = ArrayDeque<BitmapAction>(listOf())
+    var redoStack = ArrayDeque<BitmapAction>(listOf())
 
     var currentBitmapAction: BitmapAction? = null
 

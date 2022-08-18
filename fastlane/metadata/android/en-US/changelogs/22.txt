@@ -1,0 +1,13 @@
+Features Added
+- Added the option of exporting your project under its raw dimensions (along with scaled dimensions, which used to be the only option)
+
+Improvements Added
+- 'Save as' (with multiple submenus) has transitioned into a single menu titled 'Export'
+- Minor margin adjustment in the 'New Color Palette' screen
+- Translation updates
+
+Bugs Fixed
+- Fixed bug in which input errors (such as an invalid or empty width/height) would leave permanent margin changes
+
+Other Changes
+- Moved Lospec palette support out of beta

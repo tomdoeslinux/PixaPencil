@@ -3,10 +3,10 @@ package com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProv
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.commit
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.fragments.appinfo.AppInfoFragment
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
@@ -37,16 +37,19 @@ fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.activityMainTopAppMenu_delete_all_item -> {
-            showDialog(
-                getString(R.string.generic_warning),
-                getString(R.string.dialog_delete_all_projects),
-                getString(R.string.generic_ok), { _, _ ->
+            val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+                .setTitle(R.string.generic_warning)
+                .setMessage(R.string.dialog_delete_all_projects)
+                .setPositiveButton(R.string.generic_ok) { _, _ ->
                     val size = pixelArtData.size
 
                     pixelArtViewModel.deleteAll()
                     binding.activityMainCoordinatorLayout.showSnackbar(getString(R.string.snackbar_deleted_projects, size.toString()), SnackbarDuration.Medium)
                     binding.activityMainNewProjectButton.show()
-                },  getString(R.string.generic_cancel), null)
+                }
+                .setNegativeButton(R.string.generic_cancel, null)
+
+            alertDialog.show()
         }
 
         R.id.activityMainTopAppMenu_open_image_item -> {

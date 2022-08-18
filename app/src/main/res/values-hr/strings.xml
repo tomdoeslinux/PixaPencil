@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PixaPencil</string>
     <string name="generic_ok">U redu</string>
     <string name="generic_cancel">Odustani</string>
     <string name="generic_no_thanks">Ne, hvala</string>
@@ -12,7 +11,6 @@
     <string name="fragmentFilters_color_filter">Filtar boja</string>
     <string name="fragmentFilters_lighten">Posvijetli</string>
     <string name="fragmentFilters_darken">Potamni</string>
-    <string name="exception_invalid_spray_strength">Vrijednost mora biti između 1 i 20.000</string>
     <string name="exception_empty_spray_radius">Radijus sprejanja ne smije biti prazno</string>
     <string name="dialog_exception_info_title">Informacije iznimke</string>
     <string name="dialog_large_canvas_warning_positive_button_text">Razumijem, stvori projekt</string>
@@ -77,8 +75,6 @@
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Neuspjelo kopiranje teksta u međuspremnik</string>
     <string name="fragmentColorPicker_tab_color_picker">Kapaljka</string>
     <string name="fragmentAppInfo_created_by_text">Stvoreno od <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">Radujemo se ako se pridužiš
-\nnašem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
     <string name="fragmentAppInfo_description_text"> PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
 \n Preporučujemo da
@@ -98,8 +94,6 @@
     <string name="activityMainTopAppMenu_about">Informacije</string>
     <string name="activityCanvasTopAppMenu_undo">Poništi</string>
     <string name="activityCanvasTopAppMenu_redo">Ponovi</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Spremi kao PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Spremi kao JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Uvezi Lospec paletu</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Nova paleta boja</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Savršeni piksli</string>
@@ -121,7 +115,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">Ništa</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Oktalno</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Spremi u pozadinu</string>
-    <string name="activityCanvasTopAppMenu_save_as">Spremi kao</string>
     <string name="bottomNavigationMenu_starred">Označeno</string>
     <string name="bottomNavigationMenu_home">Početak</string>
     <string name="pencil_tool_info_title">Informacije olovke</string>
@@ -161,7 +154,6 @@
     <string name="shading_tool_info_title">Informacije sjenjčanja</string>
     <string name="shading_tool_info_text">Potamni/posvijetli piksele na platnu</string>
     <string name="exception_invalid_project_name">Ime ne smije biti prazno</string>
-    <string name="dialog_file_exists_message">Datoteka %1$s već postoji. Želiš li je zamijeniti ili spremiti pod novim imenom\?</string>
     <string name="dialog_file_exists_positive_button_text">Zamijeni</string>
     <string name="dialog_file_exists_negative_button_text">Spremi pod novim imenom</string>
     <string name="dialog_save_under_new_name_title">Spremi pod novim imenom</string>
@@ -171,7 +163,6 @@
     <string name="exception_empty_width">Širina ne smije biti prazna</string>
     <string name="exception_empty_height">Visina ne smije biti prazna</string>
     <string name="exception_accessing_negative_index_message">Nije moguće pristupiti objektu pikselaste slike s negativnim indeksom u popisu!</string>
-    <string name="exception_invalid_spray_radius">Vrijednost mora biti između 1 i 20.000</string>
     <string name="exception_empty_spray_strength">Količina sprejanja ne smije biti prazna</string>
     <string name="exception_failed_to_create_file">Neuspjelo stvaranje datoteke</string>
     <string name="exception_failed_to_compress_file">Neuspjelo komprimiranje datoteke</string>
@@ -205,7 +196,6 @@
     <string name="spot_light_new_project_fragment_4">Dodirni za stvaranje tvog projekta</string>
     <string name="spot_light_activity_main">Dodirni za stvaranje
 \nnovog projekta</string>
-    <string name="spot_light_activity_canvas_1">Dodirni primarnu ili sekundarnu boju dugo za prebacivanje na kapaljku</string>
     <string name="spot_light_activity_canvas_2">Ovdje ćeš pronaći svoje alate</string>
     <string name="spot_light_activity_canvas_3">Za isprobavanje filtera, dodirni „Filtri”</string>
     <string name="spot_light_activity_canvas_4">Ovdje možeš isprobati različite filtre platna</string>
@@ -229,4 +219,12 @@
     <string name="dialog_error_opening_image">Greška prilikom otvaranja slike</string>
     <string name="spot_light_next">Dalje</string>
     <string name="spot_light_close">Zatvori</string>
+    <string name="activityCanvasTopAppMenu_export">Izvezi</string>
+    <string name="exportProjectDialogLayout_file_name_str">Ime datoteke</string>
+    <string name="exportProjectDialogLayout_file_type_str">Vrsta datoteke</string>
+    <string name="exportProjectDialogLayout_resolution_str">Rezolucija</string>
+    <string name="exportProjectDialogLayout_raw_str">Neobrađeno</string>
+    <string name="exportProjectDialogLayout_scaled_str">Skalirano</string>
+    <string name="exception_invalid_file_name">Ime datoteke ne može biti prazno</string>
+    <string name="dialog_file_exists_message">%1$s već postoji, želiš li je zamijeniti\?</string>
 </resources>

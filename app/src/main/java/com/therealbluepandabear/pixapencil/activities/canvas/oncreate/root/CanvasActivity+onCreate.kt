@@ -51,7 +51,7 @@ fun CanvasActivity.onCreate() {
 
         lifecycleScope.launch {
             delay(400)
-            if (viewModel.bitmapActionData.isNotEmpty() && menu.findItem(R.id.activityCanvasTopAppMenu_undo) != null) {
+            if (viewModel.undoStack.isNotEmpty() && menu.findItem(R.id.activityCanvasTopAppMenu_undo) != null) {
                 menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
             }
 

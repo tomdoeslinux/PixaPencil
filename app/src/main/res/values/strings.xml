@@ -2,7 +2,6 @@
 <resources
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
-    <string name="app_name">PixaPencil</string>
     <string name="fragmentRGBColorPicker_defaultRGBValue" translatable="false">0</string>
     <string name="defaultColorPalette">Default color palette</string>
     <string name="generic_ok">OK</string>
@@ -12,13 +11,17 @@
     <string name="generic_saved">Saved</string>
     <string name="generic_error_while_saving">Error while saving %1$s</string>
     <string name="generic_switch">Switch</string>
+    <string name="generic_darken_mode_tooltip">Darken mode</string>
+    <string name="generic_lighten_mode_tooltip">Lighten mode</string>
+
+    <!--Non-translatable strings-->
+    <string name="app_name" translatable="false">PixaPencil</string>
     <string name="generic_png" translatable="false">PNG</string>
     <string name="generic_jpg" translatable="false">JPG</string>
     <string name="generic_webp" translatable="false">WEBP</string>
     <string name="generic_tif" translatable="false">TIF</string>
     <string name="generic_bmp" translatable="false">BMP</string>
-    <string name="generic_darken_mode_tooltip">Darken mode</string>
-    <string name="generic_lighten_mode_tooltip">Lighten mode</string>
+
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
@@ -35,6 +38,12 @@
     <string name="projectDetailsAlertBox_height">Height</string>
     <string name="projectDetailsAlertBox_created">Created</string>
     <string name="projectDetailsAlertBox_colors">Colors</string>
+
+    <string name="exportProjectDialogLayout_file_name_str">File Name</string>
+    <string name="exportProjectDialogLayout_file_type_str">File Type</string>
+    <string name="exportProjectDialogLayout_resolution_str">Resolution</string>
+    <string name="exportProjectDialogLayout_raw_str">Raw</string>
+    <string name="exportProjectDialogLayout_scaled_str">Scaled</string>
 
     <!--Other strings-->
     <string name="recentCreationsLayout_subtitle" translatable="false">%1$dx%2$d</string>
@@ -100,14 +109,14 @@
     <string name="fragmentColorPicker_tab_hex" translatable="false">Hex</string>
 
     <string name="fragmentAppInfo_created_by_text">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">We would love to have you on\nour
+    <string name="fragmentAppInfo_community_text">Join the official
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
     <string name="fragmentAppInfo_description_text">
         PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\n To ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.
     </string>
     <string name="fragmentAppInfo_description_text_land">PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\nTo ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
-    <string name="fragmentAppInfo_community_text_land">We would love to have you on\nour
+    <string name="fragmentAppInfo_community_text_land">Join the official
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
 
@@ -126,8 +135,6 @@
 
     <string name="activityCanvasTopAppMenu_undo">Undo</string>
     <string name="activityCanvasTopAppMenu_redo">Redo</string>
-    <string name="activityCanvasTopAppMenu_save_as_png">Save as PNG</string>
-    <string name="activityCanvasTopAppMenu_save_as_jpg">Save as JPG</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Import Lospec Palette</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">New Color Palette</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Pixel Perfect</string>
@@ -151,7 +158,7 @@
     <string name="activityCanvasTopAppMenu_symmetry_none">None</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octal</string>
     <string name="activityCanvasTopAppMenu_save_in_background">Save in Background</string>
-    <string name="activityCanvasTopAppMenu_save_as">Save as</string>
+    <string name="activityCanvasTopAppMenu_export">Export</string>
 
     <string name="bottomNavigationMenu_starred">Starred</string>
     <string name="bottomNavigationMenu_home">Home</string>
@@ -202,12 +209,11 @@
     <string name="exception_empty_height">Height cannot be empty</string>
     <string name="exception_empty_color_palette_name">Color palette name cannot be empty</string>
     <string name="exception_accessing_negative_index_message">Cannot access pixel art object with a negative index in list!</string>
-    <string name="exception_invalid_spray_radius">Value must be between 1 and 20,000</string>
-    <string name="exception_invalid_spray_strength">Value must be between 1 and 20,000</string>
     <string name="exception_empty_spray_radius">Radius cannot be empty</string>
     <string name="exception_empty_spray_strength">Strength cannot be empty</string>
     <string name="exception_failed_to_create_file">Failed to create file</string>
     <string name="exception_failed_to_compress_file">Failed to compress file</string>
+    <string name="exception_invalid_file_name">File name cannot be empty</string>
 
     <!-- Dialog strings -->
     <string name="dialog_unsaved_changes_negative_button_text">Don\'t save</string>
@@ -218,7 +224,7 @@
     <string name="dialog_unsaved_changes_title">Unsaved changes</string>
     <string name="dialog_unsaved_changes_message">Save changes to %1$s?</string>
     <string name="dialog_file_exists_title">File already exists</string>
-    <string name="dialog_file_exists_message">%1$s already exists, replace it or save under a new name?</string>
+    <string name="dialog_file_exists_message">%1$s already exists, would you like to replace it?</string>
     <string name="dialog_file_exists_positive_button_text">Replace</string>
     <string name="dialog_file_exists_negative_button_text">Save under new name</string>
     <string name="dialog_save_under_new_name_title">Save under a new name</string>
@@ -264,7 +270,7 @@
     <string name="spot_light_new_project_fragment_4">Tap to create your project</string>
     <string name="spot_light_new_project_fragment_input_value">Please input a value for %1$s</string>
 
-    <string name="spot_light_activity_canvas_1">Long tap on either your primary or secondary color to get to the color picker</string>
+    <string name="spot_light_activity_canvas_1">Tap on the rainbow colored rectangle to get to the color picker</string>
     <string name="spot_light_activity_canvas_2">Here you will find your tools</string>
     <string name="spot_light_activity_canvas_3">Tap on \'Filters\' to try out some project filters</string>
     <string name="spot_light_activity_canvas_4">Here you can try different canvas filters</string>

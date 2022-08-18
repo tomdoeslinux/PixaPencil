@@ -1,0 +1,13 @@
+Warning: Beta releases are not production ready, subject to major changes, and haven't gone through a great deal of testing to ensure feature stability.
+
+Features Added
+- You can now input a compression quality value when exporting your images to JPG
+
+Improvements Added
+- You can now long tap on your primary/secondary color to open the color picker; this used to be a feature, but was removed -- now it has been re-added
+- The maximum value for spray radius/strength has been lowered from 20k to 10k
+- Replaced 'Save under new name' with 'Cancel'
+- Translation updates
+
+Bugs Fixed
+- Fixed bug in which occasionally, the keyboard from a previous fragment/activity wouldn't hide/close quickly enough when creating a new project or importing an image -- causing incorrect canvas view dimensions to be set

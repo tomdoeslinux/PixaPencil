@@ -16,12 +16,12 @@ private fun SprayToolSettingsFragment.checkForRadiusError() {
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius)
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_width)
             invalidRadius = true
         }
 
         else -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = null
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.isErrorEnabled = false
             invalidRadius = false
         }
     }
@@ -35,12 +35,12 @@ private fun SprayToolSettingsFragment.checkForStrengthError() {
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength)
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_width)
             invalidStrength = true
         }
 
         else -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = null
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.isErrorEnabled = false
             invalidStrength = false
         }
     }

@@ -1,49 +1,40 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.algorithms.EllipseAlgorithm
-import com.therealbluepandabear.pixapencil.algorithms.RectanglePreviewAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.utility.BinaryPreviewStateSwitcher
 
 fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    val rectanglePreviewAlgorithmInstance = RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter, true)
-    val ellipseAlgorithmInstance = EllipseAlgorithm(primaryAlgorithmInfoParameter)
-
-    if (!shapeHasLetGo) {
-        if (!first) {
-            BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
-            BinaryPreviewStateSwitcher.switch()
-        }
-        BinaryPreviewStateSwitcher.feedState(viewModel.currentBitmapAction!!)
-        first = false
-
-        if (firstShapeDrawn) {
-            viewModel.currentBitmapAction!!.actionData.clear()
-        }
-    } else {
-        viewModel.currentBitmapAction = null
-        shapeHasLetGo = false
-        first = true
-    }
-
     if (shapeOrigin == null) {
         shapeOrigin = coordinatesTapped
     } else {
-        coordinates = coordinatesTapped
+        if (firstShapeDrawn) {
+            clearPreviousShapePreview()
+        }
 
-        rectanglePreviewAlgorithmInstance.compute(shapeOrigin!!, coordinatesTapped)
+        val coordinates = invisibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
+        this.coordinates = coordinates
 
-        if (shapeOrigin!!.y == coordinates!!.y || shapeOrigin!!.y + 1 == coordinatesTapped.y || shapeOrigin!!.y - 1 == coordinatesTapped.y ) {
-            val ra = RectanglePreviewAlgorithm(primaryAlgorithmInfoParameter)
-            ra.compute(shapeOrigin!!, coordinatesTapped)
+        if (
+            shapeOrigin!!.y == coordinates.y ||
+            shapeOrigin!!.y + 1 == coordinatesTapped.y ||
+            shapeOrigin!!.y - 1 == coordinatesTapped.y ) {
+
+            visibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
         } else {
-            if (shapeOrigin!!.x > coordinates!!.x) {
-                ellipseAlgorithmInstance.compute(coordinates!!, shapeOrigin!!)
+            if (shapeOrigin!!.x > coordinates.x) {
+                ellipseAlgorithm.compute(coordinates, shapeOrigin!!)
             } else {
-                ellipseAlgorithmInstance.compute(shapeOrigin!!, coordinates!!)
+                ellipseAlgorithm.compute(shapeOrigin!!, coordinates)
             }
 
+            firstShapeDrawn = true
+        }
+
+        viewModel.currentBitmapAction?.actionData?.let {
+            shapePreviewCache = it
+        }
+
+        if (!firstShapeDrawn) {
             firstShapeDrawn = true
         }
     }

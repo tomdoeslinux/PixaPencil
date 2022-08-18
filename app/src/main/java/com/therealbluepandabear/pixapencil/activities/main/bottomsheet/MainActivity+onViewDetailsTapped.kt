@@ -2,12 +2,12 @@ package com.therealbluepandabear.pixapencil.activities.main.bottomsheet
 
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.extensions.getNumberOfUniqueColors
-import com.therealbluepandabear.pixapencil.extensions.showDialog
 import com.therealbluepandabear.pixapencil.models.PixelArt
 
 fun MainActivity.extendedOnViewDetailsTapped(pixelArt: PixelArt) {
@@ -20,10 +20,10 @@ fun MainActivity.extendedOnViewDetailsTapped(pixelArt: PixelArt) {
     details.findViewById<TextView>(R.id.projectDetailsAlertBox_colors).text = BitmapConverter.convertStringToBitmap(pixelArt.bitmap)?.getNumberOfUniqueColors().toString()
     details.findViewById<TextView>(R.id.projectDetailsAlertBox_created).text = pixelArt.dateCreated
 
-    showDialog(
-        getString(R.string.dialog_project_details_title),
-        null,
-        getString(R.string.generic_ok), { _, _ ->
-        }, null, null, view = details, dimBackground = false
-    )
+    val alertDialog = MaterialAlertDialogBuilder(this, R.style.ThemeOverlay_App_MaterialAlertDialog)
+        .setTitle(R.string.dialog_project_details_title)
+        .setView(details)
+        .setPositiveButton(R.string.generic_ok, null)
+
+    alertDialog.show()
 }
