@@ -2,7 +2,6 @@ package com.therealbluepandabear.pixapencil.fragments.newproject
 
 import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
-import android.widget.Button
 import com.takusemba.spotlight.OnTargetListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
