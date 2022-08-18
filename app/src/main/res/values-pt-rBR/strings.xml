@@ -164,14 +164,10 @@
     <string name="projectDetailsAlertBox_colors">Número de Cores</string>
     <string name="fragment_replace_color_title">Substituir Cor</string>
     <string name="fragmentAppInfo_created_by_text">Criado por <a href="https://github.com/therealbluepandabear"> thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">Adoraríamos ter você em nossa sala na <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>
-\nou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="fragmentAppInfo_description_text_land">O PixaPencil é um editor de pixel art <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a>, 100% livre da política de privacidade intrusiva do Google Play service e sem aqueles anúncios chatos.
 \n
 \nPara garantir isso é recomendável que você
 \ninstale o APP via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ou <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest"> GitHub</a>.</string>
-    <string name="fragmentAppInfo_community_text_land">Adoraríamos ter você em nossa sala na <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>
-\nou em nosso servidor no <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
     <string name="activityMainTopAppMenu_about">Sobre</string>
     <string name="activityMainTopAppMenu_open_image">Abrir Imagem</string>
     <string name="activityCanvasTopAppMenu_import_lospec_palette">Importar Paleta do Lospec</string>

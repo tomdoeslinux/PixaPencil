@@ -223,9 +223,6 @@
     <string name="dialog_save_under_new_name_title">תשמור תחת שם חדש</string>
     <string name="dialog_save_under_new_name_text">ודא שהשם החדש הוא ייחודי!</string>
     <string name="dialog_image_exception_when_saving_title">שגיאה בשמירת %1$s בתור %2$s</string>
-    <string name="fragmentAppInfo_community_text">אתה יכול להצטרף לקהילה שלנו בְּ-:
-         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>.
-    </string>
     <string name="dialog_delete_pixel_art_project_title">למחוק את %1$s?</string>
     <string name="dialog_delete_pixel_art_project_text">האם אתה בטוח שברצונך למחוק את %1$s? אי אפשר לבטל את זה.</string>
     <string name="dialog_project_details_title">פרטים</string>

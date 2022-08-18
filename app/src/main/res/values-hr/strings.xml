@@ -75,8 +75,6 @@
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Neuspjelo kopiranje teksta u međuspremnik</string>
     <string name="fragmentColorPicker_tab_color_picker">Kapaljka</string>
     <string name="fragmentAppInfo_created_by_text">Stvoreno od <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">Radujemo se ako se pridužiš
-\nnašem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
     <string name="fragmentAppInfo_description_text"> PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
 \n Preporučujemo da

@@ -96,9 +96,6 @@
     <string name="fragmentColorPicker_tab_hex" translatable="false">Hex</string>
 
     <string name="fragmentAppInfo_created_by_text">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">欢迎加入我们\n通过
-         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>或者<a href="https://discord.gg/Ytm7WBMNz9">Discord</a>.
-    </string>
     <string name="fragmentAppInfo_description_text">
         PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a>PixaPencil是一款开源像素编辑器,100%没有侵犯隐私的Google Play服务和烦人的广告\n为了确保这一点\n我们建议你通过<a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a>或者<a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>安装本应用.
     </string>

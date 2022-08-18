@@ -109,14 +109,14 @@
     <string name="fragmentColorPicker_tab_hex" translatable="false">Hex</string>
 
     <string name="fragmentAppInfo_created_by_text">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_community_text">We would love to have you on\nour
+    <string name="fragmentAppInfo_community_text">Join the official
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
     <string name="fragmentAppInfo_description_text">
         PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\n To ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.
     </string>
     <string name="fragmentAppInfo_description_text_land">PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a> pixel art editor, 100% free of privacy-intrusive Google Play services and annoying advertisements. \n\nTo ensure this, it is recommended you\ninstall the app via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> or <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
-    <string name="fragmentAppInfo_community_text_land">We would love to have you on\nour
+    <string name="fragmentAppInfo_community_text_land">Join the official
          <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> or <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> server.
     </string>
 

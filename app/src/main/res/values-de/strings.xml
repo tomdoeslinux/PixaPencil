@@ -135,8 +135,6 @@
     <string name="dialog_file_exists_negative_button_text">Unter neuem Name speichern</string>
     <string name="dialog_save_under_new_name_title">Unter neuem Name speichern</string>
     <string name="dialog_image_exception_when_saving_title">Fehler beim Speichern von %1$s als %2$s</string>
-    <string name="fragmentAppInfo_community_text">Wir würden uns freuen dich auf
-\n<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> oder <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> begrüßen zu können. </string>
     <string name="dialog_delete_pixel_art_project_title">%1$s löschen\?</string>
     <string name="dialog_welcome_title">Willkommen</string>
     <string name="dialog_large_canvas_warning_text">Sie sind dabei, eine große Leinwand zu erstellen, denken Sie daran, dass Ihr Telefon möglicherweise nicht in der Lage sein, Bitmaps dieser Größen zu unterstützen.</string>
@@ -202,6 +200,5 @@
 \n
 \n Um dies sicherzustellen, ist es empfehlenswert, die App
 \n via <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> oder via <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> zu installieren.</string>
-    <string name="fragmentAppInfo_community_text_land">Wir begrüßen dich auch gerne in unserem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>-Raum oder auf unserem <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-Server. </string>
     <string name="move_tool_info_title">Werkzeug-Info bewegen</string>
 </resources>

@@ -176,8 +176,6 @@
     <string name="dialog_large_canvas_warning_text">Du er i ferd med å opprette et stort lerret. Det kan hende at enheten din ikke støtter bitmap-bilder av denne størrelsen.</string>
     <string name="exception_accessing_negative_index_message">Får ikke tilgang til pikselkunstobjekt med negativ indeks i liste.</string>
     <string name="tool_tip_dither">Tips: Trykk på ikonet for å endre utjevningspensel.</string>
-    <string name="fragmentAppInfo_community_text">Vi ser deg gjerne på
-\nvår <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> eller <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>-tjener. </string>
     <string name="fragmentAppInfo_description_text"> PixaPencil er et <a href="https://github.com/therealbluepandabear/PixaPencil">fritt</a> program for pikselredigering, 100% uten personvernshemmende Google Play-tjenester og irriterende reklame.
 \n
 \n For å ivareta dette anbefales det at du

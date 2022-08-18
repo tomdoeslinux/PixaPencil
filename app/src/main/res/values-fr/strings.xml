@@ -87,8 +87,6 @@
     <string name="activityCanvasTopAppMenu_symmetry_octal">Octal</string>
     <string name="activityCanvasTopAppMenu_symmetry_quad">Quadrant</string>
     <string name="activityCanvasTopAppMenu_symmetry_none">Aucun</string>
-    <string name="fragmentAppInfo_community_text">Nous serions ravis de vous avoir sur
-\nnotre <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> serveur. </string>
     <string name="fragmentAppInfo_created_by_text">Créé par <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
     <string name="fragmentFilters_grayscale">Niveaux de gris</string>
 </resources>
