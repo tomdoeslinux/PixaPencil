@@ -1,20 +1,17 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.view.LayoutInflater
 import android.view.animation.DecelerateInterpolator
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
 import com.takusemba.spotlight.OnTargetListener
 import com.takusemba.spotlight.Spotlight
 import com.takusemba.spotlight.Target
 import com.takusemba.spotlight.shape.Circle
 import com.takusemba.spotlight.shape.RoundedRectangle
 import com.therealbluepandabear.pixapencil.R
+import com.therealbluepandabear.pixapencil.databinding.LayoutTargetBinding
 
 fun CanvasActivity.startSpotLight() {
-    val firstRoot = FrameLayout(this)
-    val lyt = layoutInflater.inflate(R.layout.layout_target, firstRoot)
-    val text = lyt.findViewById<TextView>(R.id.layoutTarget_text)
+    val layoutTargetBinding = LayoutTargetBinding.inflate(LayoutInflater.from(this))
     val targets = ArrayList<Target>()
 
     val firstTarget = Target.Builder()
@@ -23,12 +20,12 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                text.text = getString(R.string.spot_light_activity_canvas_1)
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_1)
             }
 
         })
         .setShape(Circle(300f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(firstTarget)
@@ -39,13 +36,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y -= 400
-                text.text = getString(R.string.spot_light_activity_canvas_2)
+                layoutTargetBinding.root.y -= 400
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_2)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat(), binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(secondTarget)
@@ -56,13 +53,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_3)
+                layoutTargetBinding.root.y -= 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_3)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(thirdTarget)
@@ -73,13 +70,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_4)
+                layoutTargetBinding.root.y += 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_4)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat(), binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(fourthTarget)
@@ -90,13 +87,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_5)
+                layoutTargetBinding.root.y -= 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_5)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(fifthTarget)
@@ -107,13 +104,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_6)
+                layoutTargetBinding.root.y += 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_6)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat(), binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(sixthTarget)
@@ -124,13 +121,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y -= 200
-                text.text = getString(R.string.spot_light_activity_canvas_7)
+                layoutTargetBinding.root.y -= 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_7)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat() + 300, binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(seventhTarget)
@@ -141,13 +138,13 @@ fun CanvasActivity.startSpotLight() {
             override fun onEnded() {}
 
             override fun onStarted() {
-                lyt.y += 200
-                text.text = getString(R.string.spot_light_activity_canvas_8)
+                layoutTargetBinding.root.y += 200
+                layoutTargetBinding.layoutTargetText.text = getString(R.string.spot_light_activity_canvas_8)
             }
 
         })
         .setShape(RoundedRectangle(binding.activityCanvasViewPager2.measuredHeight.toFloat(), binding.activityCanvasViewPager2.measuredWidth.toFloat(), 20f))
-        .setOverlay(lyt)
+        .setOverlay(layoutTargetBinding.root)
         .build()
 
     targets.add(eighthTarget)
@@ -159,11 +156,11 @@ fun CanvasActivity.startSpotLight() {
         .setAnimation(DecelerateInterpolator(2f))
         .build()
 
-    lyt.findViewById<Button>(R.id.layoutTarget_nextButton).setOnClickListener {
+    layoutTargetBinding.layoutTargetNextButton.setOnClickListener {
         spotlight.next()
     }
 
-    lyt.findViewById<Button>(R.id.layoutTarget_closeButton).setOnClickListener {
+    layoutTargetBinding.layoutTargetCloseButton.setOnClickListener {
         spotlight.finish()
     }
 
