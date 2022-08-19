@@ -26,7 +26,17 @@ Why you should try out PixaPencil:
 
 PixaPencil only runs on Android 8.0 or higher.
 
+## ⚠️ Permissions
+
+The app uses the following two permissions:
+
+- `android.permission.WRITE_EXTERNAL_STORAGE` (Android 10 and below) - this is for saving your creation as an image file in your system
+- `android.permission.INTERNET` - this is for the 'Import Lospec Palette' functionality
+
+
 ## 🖼️ Showcase
+
+![image](https://user-images.githubusercontent.com/50536495/185532689-9dda1172-8214-467f-8616-e9e1fe890c1b.jpg)
 
 ![image](https://user-images.githubusercontent.com/50536495/174204673-71da804b-3d83-4d96-91f5-821583aa7543.png)
 
