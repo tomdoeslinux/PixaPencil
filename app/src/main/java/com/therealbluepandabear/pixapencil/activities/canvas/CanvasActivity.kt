@@ -1,10 +1,15 @@
 package com.therealbluepandabear.pixapencil.activities.canvas
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.graphics.Matrix
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
+import android.view.MotionEvent
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
@@ -100,7 +105,46 @@ class CanvasActivity :
     var dX = 0f
     var dY = 0f
 
+    /**
+     * _ATTRIBUTION_:
+     *
+     * Thanks to [Sergei Kozelko](https://stackoverflow.com/users/3169238/sergei-kozelko) from StackOverflow
+     * for this solution. The question can be found [here](https://stackoverflow.com/questions/73257043/hitrect-returning-wrong-y-value-for-unknown-reason).
+     *
+     * I created a question of my own on StackOverflow as to how I would go about detecting touch events outside
+     * the canvas, and it was Sergei who helped come up with a solution to my annoying problem.
+     */
+
     var shapePreviewCache: List<BitmapActionData> = listOf()
+
+    private fun transformToChild(parent: View, child: View, event: MotionEvent) {
+        val offsetX = parent.scrollX - child.left;
+        val offsetY = parent.scrollY - child.top;
+        event.offsetLocation(offsetX.toFloat(), offsetY.toFloat());
+        if (!child.matrix.isIdentity) {
+            val inverse = Matrix()
+            child.matrix.invert(inverse)
+            event.transform(inverse);
+        }
+    }
+
+    private fun transformToDescendant(parent: View, descendant: View, event: MotionEvent) {
+        if (parent == descendant) {
+            return
+        }
+
+        var currentDescendant = descendant
+        val stack = mutableListOf<View>()
+        while (currentDescendant != parent) {
+            stack.add(currentDescendant)
+            // safe to cast to View as parent function argument is View
+            currentDescendant = currentDescendant.parent as View
+        }
+
+        for (view in stack.asReversed()) {
+            transformToChild(view.parent as View, view, event)
+        }
+    }
 
     fun clearPreviousShapePreview() {
         for (actionData in shapePreviewCache.distinctBy { it.coordinates }) {
@@ -114,9 +158,21 @@ class CanvasActivity :
         viewModel.currentBitmapAction?.actionData?.clear()
     }
 
+    /**
+     * _End of attribution_
+     */
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
+
+        binding.root.setOnTouchListener { _, motionEvent ->
+            transformToDescendant(binding.root, binding.activityCanvasPixelGridView, motionEvent)
+            binding.activityCanvasPixelGridView.onTouchEvent(motionEvent)
+
+            true
+        }
     }
 
     override fun onPause() {

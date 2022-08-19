@@ -13,21 +13,12 @@ fun PixelGridView.extendedOnTouchEvent(event: MotionEvent): Boolean {
     when (event.action) {
         MotionEvent.ACTION_MOVE -> {
             if (!Flags.DisableActionMove) {
-                if (coordinateX in 0 until pixelGridViewBitmap.width && coordinateY in 0 until pixelGridViewBitmap.height) {
                     caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
-                } else {
-                    prevX = null
-                    prevY = null
-                }
             }
         }
         MotionEvent.ACTION_DOWN -> {
-            if (coordinateX in 0 until pixelGridViewBitmap.width && coordinateY in 0 until pixelGridViewBitmap.height) {
                 caller.onPixelTapped(Coordinates(coordinateX, coordinateY))
-            } else {
-                prevX = null
-                prevY = null
-            }
+
         }
         MotionEvent.ACTION_UP -> {
             caller.onActionUp()
