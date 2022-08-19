@@ -105,6 +105,8 @@ class CanvasActivity :
     var dX = 0f
     var dY = 0f
 
+    var shapePreviewCache: List<BitmapActionData> = listOf()
+
     /**
      * _ATTRIBUTION_:
      *
@@ -114,8 +116,6 @@ class CanvasActivity :
      * I created a question of my own on StackOverflow as to how I would go about detecting touch events outside
      * the canvas, and it was Sergei who helped come up with a solution to my annoying problem.
      */
-
-    var shapePreviewCache: List<BitmapActionData> = listOf()
 
     private fun transformToChild(parent: View, child: View, event: MotionEvent) {
         val offsetX = parent.scrollX - child.left;
@@ -146,6 +146,10 @@ class CanvasActivity :
         }
     }
 
+    /**
+     * _End of attribution_
+     */
+
     fun clearPreviousShapePreview() {
         for (actionData in shapePreviewCache.distinctBy { it.coordinates }) {
             binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(
@@ -157,10 +161,6 @@ class CanvasActivity :
         shapePreviewCache = listOf()
         viewModel.currentBitmapAction?.actionData?.clear()
     }
-
-    /**
-     * _End of attribution_
-     */
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
