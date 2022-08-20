@@ -21,7 +21,7 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isEnabled = false
         }
 
-        if (binding.activityCanvasPixelGridView.pixelGridViewBitmap.width > 500 || binding.activityCanvasPixelGridView.pixelGridViewBitmap.width > 500) {
+        if (width > 500 || height > 500) {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isEnabled = false
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
 
