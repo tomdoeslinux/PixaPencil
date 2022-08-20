@@ -3,7 +3,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.graphics.Matrix
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -118,13 +117,13 @@ class CanvasActivity :
      */
 
     private fun transformToChild(parent: View, child: View, event: MotionEvent) {
-        val offsetX = parent.scrollX - child.left;
-        val offsetY = parent.scrollY - child.top;
-        event.offsetLocation(offsetX.toFloat(), offsetY.toFloat());
+        val offsetX = parent.scrollX - child.left
+        val offsetY = parent.scrollY - child.top
+        event.offsetLocation(offsetX.toFloat(), offsetY.toFloat())
         if (!child.matrix.isIdentity) {
             val inverse = Matrix()
             child.matrix.invert(inverse)
-            event.transform(inverse);
+            event.transform(inverse)
         }
     }
 
