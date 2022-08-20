@@ -312,14 +312,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
-    private val longPressedRunnable = Runnable {
-        if (isPrimarySelected) {
-            onPrimaryColorLongTapped.invoke()
-        } else {
-            onSecondaryColorLongTapped.invoke()
-        }
-    }
-
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
@@ -337,18 +329,12 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
 
         if ((xOrY in toDp(50)..toDp(100) - insetStroke)
             && inverse !in toDp(50)..toDp(70)) {
-            // secondary color has been selected
-            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
-
             if (isPrimarySelected) {
                 isPrimarySelected = false
                 invalidate()
             }
         } else if ((xOrY !in toDp(50)..toDp(100) - insetStroke)
                     && inverse !in toDp(50)..toDp(70)) {
-            // primary color has been selected
-            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
-
             if (!isPrimarySelected) {
                 isPrimarySelected = true
                 invalidate()
@@ -357,10 +343,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
             // color picker has been selected
 
             onColorPickerTapped.invoke()
-        }
-
-        if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_MOVE) {
-            handler.removeCallbacks(longPressedRunnable)
         }
 
         return true
