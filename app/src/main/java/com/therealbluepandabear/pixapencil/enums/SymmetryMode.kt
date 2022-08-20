@@ -5,9 +5,5 @@ enum class SymmetryMode {
     Horizontal,
     Vertical,
     Quad,
-    Octal;
-
-    companion object {
-        val defaultSymmetryMode: SymmetryMode = None
-    }
+    Octal
 }
