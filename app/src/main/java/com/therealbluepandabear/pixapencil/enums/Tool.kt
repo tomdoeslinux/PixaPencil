@@ -99,9 +99,5 @@ enum class Tool(val toolName: String, val toolFamily: ToolFamily, val outlined: 
     ShadingTool(
         StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER,
         ToolFamily.Shader,
-    );
-
-    companion object {
-        val defaultTool: Tool = PencilTool
-    }
+    )
 }

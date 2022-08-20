@@ -106,5 +106,5 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
 
     viewModel.currentTool = Tool.values().firstOrNull {
         it.toolName == toolName
-    } ?: Tool.defaultTool
+    } ?: Tool.PencilTool
 }
