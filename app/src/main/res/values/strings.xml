@@ -205,6 +205,8 @@
     <string name="exception_invalid_project_name">Name cannot be empty</string>
     <string name="exception_invalid_width">Value must be between 1 and 10,000</string>
     <string name="exception_invalid_height">Value must be between 1 and 10,000</string>
+    <string name="exception_invalid_spray_radius">Value must be between 2 and 10,000</string>
+    <string name="exception_invalid_spray_strength">Value must be between 2 and 10,000</string>
     <string name="exception_empty_width">Width cannot be empty</string>
     <string name="exception_empty_height">Height cannot be empty</string>
     <string name="exception_empty_color_palette_name">Color palette name cannot be empty</string>

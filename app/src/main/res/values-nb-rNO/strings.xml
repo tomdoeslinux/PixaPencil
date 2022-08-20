@@ -122,6 +122,8 @@
     <string name="bottomNavigationMenu_starred">Stjernemerket</string>
     <string name="circle_tool_info_text">Tegn innfylte, pikselerte sirkler.</string>
     <string name="exception_invalid_width">Verdien må være mellom 1 og 10000</string>
+    <string name="exception_invalid_spray_radius">Verdien må være mellom 2 og 10000</string>
+    <string name="exception_invalid_spray_strength">Verdien må være mellom 2 og 10000</string>
     <string name="exception_empty_width">Bredden kan ikke være tom</string>
     <string name="exception_empty_height">Høyden kan ikke være tom</string>
     <string name="exception_empty_spray_radius">Radius kan ikke være tom</string>

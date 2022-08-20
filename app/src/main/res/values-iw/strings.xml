@@ -200,6 +200,8 @@
     <string name="exception_invalid_project_name">השם לא יכול להיות ריק</string>
     <string name="exception_invalid_width">ערך הרוחב חייב להיות בין 1 ל-10,000</string>
     <string name="exception_invalid_height">ערך הגובה חייב להיות בין 1 ל-10,000</string>
+    <string name="exception_invalid_spray_radius">ערך הרוחב חייב להיות בין 2 ל-10,000</string>
+    <string name="exception_invalid_spray_strength">ערך הרוחב חייב להיות בין 2 ל-10,000</string>
     <string name="exception_empty_width">רוחב לא יכול להיות ריק</string>
     <string name="exception_empty_height">גובה לא יכול להיות ריק</string>
     <string name="exception_empty_color_palette_name">השם של לוח הצבעים לא יכול להיות ריק</string>

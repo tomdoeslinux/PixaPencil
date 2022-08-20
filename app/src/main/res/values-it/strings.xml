@@ -124,6 +124,8 @@
     <string name="exception_invalid_project_name">Nome vuoto non valido</string>
     <string name="exception_invalid_width">Il valore dev\'essere fra 1 e 10,000</string>
     <string name="exception_invalid_height">Il valore dev\'essere fra 1 e 10,000</string>
+    <string name="exception_invalid_spray_radius">Il valore dev\'essere fra 2 e 10,000</string>
+    <string name="exception_invalid_spray_strength">Il valore dev\'essere fra 2 e 10,000</string>
     <string name="exception_empty_width">Larghezza vuota non valida</string>
     <string name="exception_empty_height">Altezza vuota non valida</string>
     <string name="exception_empty_color_palette_name">Nome tavolozza non valida</string>

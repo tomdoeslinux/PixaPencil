@@ -14,14 +14,14 @@ private fun SprayToolSettingsFragment.checkForRadiusError() {
             if (binding.fragmentSprayToolSettingsRadiusTextInputEditText.text.toString().isEmpty()) {
                 binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_empty_spray_radius)
             } else {
-                binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_width)
+                binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius)
             }
 
             invalidRadius = true
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_width)
+            binding.fragmentSprayToolSettingsRadiusTextInputLayout.error = getString(R.string.exception_invalid_spray_radius)
             invalidRadius = true
         }
 
@@ -38,14 +38,14 @@ private fun SprayToolSettingsFragment.checkForStrengthError() {
             if (binding.fragmentSprayToolSettingsStrengthTextInputEditText.text.toString().isEmpty()) {
                 binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_empty_spray_strength)
             } else {
-                binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_width)
+                binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength)
             }
 
             invalidStrength = true
         }
 
         !in IntConstants.SPRAY_OPTIONS_MIN..IntConstants.SPRAY_OPTIONS_MAX -> {
-            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_width)
+            binding.fragmentSprayToolSettingsStrengthTextInputLayout.error = getString(R.string.exception_invalid_spray_strength)
             invalidStrength = true
         }
 
