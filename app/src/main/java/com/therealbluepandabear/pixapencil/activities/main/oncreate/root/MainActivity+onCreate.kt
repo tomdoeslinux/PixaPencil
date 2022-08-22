@@ -18,6 +18,6 @@ fun MainActivity.extendedOnCreate() {
     observePixelArtData()
     addMenuProvider()
     initActivityResultLauncher()
-    registerOnBackInvokedCallback()
+    registerOnBackPressedDispatcherCallback()
     selectedColorPaletteIndex = 0
 }

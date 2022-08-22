@@ -3,7 +3,7 @@ package com.therealbluepandabear.pixapencil.activities.main
 import android.view.View
 import androidx.activity.OnBackPressedCallback
 
-fun MainActivity.registerOnBackInvokedCallback() {
+fun MainActivity.registerOnBackPressedDispatcherCallback() {
     onBackPressedDispatcher.addCallback(
         this,
         object : OnBackPressedCallback(true) {
