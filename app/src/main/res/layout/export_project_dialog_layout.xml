@@ -160,7 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:hint="Compression Quality"
+        android:hint="@string/compression_quality"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintStart_toStartOf="parent"

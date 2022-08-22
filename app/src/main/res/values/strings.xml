@@ -22,7 +22,6 @@
     <string name="generic_tif" translatable="false">TIF</string>
     <string name="generic_bmp" translatable="false">BMP</string>
 
-
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel Art Preview</string>
@@ -44,6 +43,9 @@
     <string name="exportProjectDialogLayout_resolution_str">Resolution</string>
     <string name="exportProjectDialogLayout_raw_str">Raw</string>
     <string name="exportProjectDialogLayout_scaled_str">Scaled</string>
+
+    <string name="compression_quality">Compression Quality</string>
+    <string name="palette_url_identifier">Palette URL identifier</string>
 
     <!--Other strings-->
     <string name="recentCreationsLayout_subtitle" translatable="false">%1$dx%2$d</string>
