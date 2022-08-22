@@ -30,7 +30,12 @@ private fun NewProjectFragment.checkForTitleError() {
 private fun NewProjectFragment.checkForWidthError() {
     when (binding.fragmentNewCanvasWidthTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width)
+            if (binding.fragmentNewCanvasWidthTextInputEditText.text.toString().isEmpty()) {
+                binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_empty_width)
+            } else {
+                binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width)
+            }
+
             invalidWidth = true
         }
 
@@ -49,7 +54,12 @@ private fun NewProjectFragment.checkForWidthError() {
 private fun NewProjectFragment.checkForHeightError() {
     when (binding.fragmentNewCanvasHeightTextInputEditText.text.toString().toIntOrNull()) {
         null -> {
-            binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height)
+            if (binding.fragmentNewCanvasHeightTextInputEditText.text.toString().isEmpty()) {
+                binding.fragmentNewCanvasHeightTextInputLayout.error = getString(R.string.exception_empty_height)
+            } else {
+                binding.fragmentNewCanvasWidthTextInputLayout.error = getString(R.string.exception_invalid_width)
+            }
+
             invalidHeight = true
         }
 

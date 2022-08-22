@@ -25,8 +25,8 @@ class CanvasActivityViewModel : ViewModel() {
 
     var currentDitherBrush: DitherBrush = DitherBrushDatabase.toList().first()
     var currentBrush: Brush = BrushesDatabase.toList().first()
-    var currentSymmetryMode: SymmetryMode = SymmetryMode.defaultSymmetryMode
-    var currentTool: Tool = Tool.defaultTool
+    var currentSymmetryMode: SymmetryMode = SymmetryMode.None
+    var currentTool: Tool = Tool.PencilTool
     var currentRotation: Float = 0f
     var flipMatrix = mutableListOf<FlipValue>()
 

@@ -108,6 +108,8 @@
     <string name="exception_invalid_project_name">O nome não pode estar vazio</string>
     <string name="exception_invalid_width">O valor deve estar entre 1 e 10,000</string>
     <string name="exception_invalid_height">O valor deve estar entre 1 e 10,000</string>
+    <string name="exception_invalid_spray_radius">O valor deve estar entre 2 e 10,000</string>
+    <string name="exception_invalid_spray_strength">O valor deve estar entre 2 e 10,000</string>
     <string name="exception_empty_width">A largura não pode estar vazia</string>
     <string name="dialog_image_exception_when_saving_title">Erro salvando %1$s como %2$s</string>
     <string name="outlined_rectangle_tool_info_title">Retângulo</string>
@@ -225,4 +227,7 @@
     <string name="exportProjectDialogLayout_raw_str">Inalterado</string>
     <string name="exportProjectDialogLayout_scaled_str">Redimensionado</string>
     <string name="dialog_file_exists_message">%1$s já existe, gostaria de substituí-lo\?</string>
+    <string name="spot_light_activity_canvas_1">Toque no retângulo com as cores do arco-íris para obter o seletor de cores</string>
+    <string name="fragmentAppInfo_community_text">Junte-se ao servidores oficiais <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="fragmentAppInfo_community_text_land">Junte-se ao servidores oficiais <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
 </resources>

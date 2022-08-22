@@ -160,6 +160,8 @@
     <string name="dialog_save_under_new_name_text">Osiguraj da je novo ime jedinstveno!</string>
     <string name="exception_invalid_width">Vrijednost mora biti između 1 i 10.000</string>
     <string name="exception_invalid_height">Vrijednost mora biti između 1 i 10.000</string>
+    <string name="exception_invalid_spray_radius">Vrijednost mora biti između 2 i 10.000</string>
+    <string name="exception_invalid_spray_strength">Vrijednost mora biti između 2 i 10.000</string>
     <string name="exception_empty_width">Širina ne smije biti prazna</string>
     <string name="exception_empty_height">Visina ne smije biti prazna</string>
     <string name="exception_accessing_negative_index_message">Nije moguće pristupiti objektu pikselaste slike s negativnim indeksom u popisu!</string>

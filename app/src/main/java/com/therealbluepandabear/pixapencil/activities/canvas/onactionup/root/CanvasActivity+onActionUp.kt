@@ -10,6 +10,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.ellipseT
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.lineToolOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.rectangleToolOnActionUp
 import com.therealbluepandabear.pixapencil.database.BrushesDatabase
+import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.extensions.doAddLast
@@ -66,7 +67,7 @@ fun CanvasActivity.extendedOnActionUp() {
             viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()
 
-            if (isPxPerfect) {
+            if (isPxPerfect && viewModel.currentSymmetryMode == SymmetryMode.None) {
                 var distinct = viewModel.currentBitmapAction!!.actionData.distinctBy { it.coordinates }
                 val data = mutableListOf<BitmapActionData>()
 

@@ -1,0 +1,16 @@
+Improvements Added
+- App can finally properly register touch events when their start/end is outside canvas bounds (all credits go to Sergie Kozelko from StackOverflow)
+- Translation updates
+- The maximum undo/redo stack size is now 100 items instead of unlimited
+- Updated in-app tutorial
+- Improved the UI for the 'Input Name' dialog
+- Changed 'We would love you to join our Matrix or Discord server' to 'Join the official Matrix or Discord server' -- this is more appropriate
+
+Bugs Fixed
+- Fixed bug where inputting a blank value for the 'Palette URL Identifier' `EditText` in the 'Import Lospec Palette' dialog would cause the app to crash
+- Fixed bug where octal symmetry was being enabled when the bitmap was not a square
+- Fixed bug where the grid would become enabled when it shouldn't have
+- Fixed bug where 'XXX cannot be empty' errors were showing when the value wasn't empty, but simply greater than the maximum `Int` value
+
+Deprecated Changes Since 0.1.8 Beta 2
+- Due to serious bugs, you can no longer long tap on your primary/secondary color to get to the color picker

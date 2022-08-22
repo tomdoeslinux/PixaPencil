@@ -7,7 +7,6 @@ import android.graphics.Shader.TileMode
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewConfiguration
 import androidx.core.content.ContextCompat
 import com.therealbluepandabear.pixapencil.R
 
@@ -34,10 +33,13 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         style = Paint.Style.FILL
     }
 
-    private val transparentPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    private val transparentPaint1: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
     }
 
+    private val transparentPaint2: Paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.FILL
+    }
     /** Gradient paints (landscape false) **/
     private val gradientPaintShaderColors = intArrayOf(
         Color.parseColor("#ff0100"),
@@ -184,7 +186,9 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         canvas.apply {
             primaryPaint.color = primaryColor
             secondaryPaint.color = secondaryColor
-            transparentPaint.color = Color.parseColor("#d9d9d9")
+
+            transparentPaint1.color = Color.parseColor("#d9d9d9")
+            transparentPaint2.color = Color.WHITE
 
             if (!orientationLandscape) {
                 drawRect(
@@ -192,26 +196,50 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     0f,
                     toDp(25),
                     toDp(25),
-                    transparentPaint)
+                    transparentPaint1)
                 drawRect(
                     toDp(25),
                     toDp(25),
                     toDp(50),
                     toDp(50),
-                    transparentPaint)
-
+                    transparentPaint1)
                 drawRect(
                     toDp(50),
                     0f,
                     toDp(75),
                     toDp(25),
-                    transparentPaint)
+                    transparentPaint1)
                 drawRect(
                     toDp(75),
                     toDp(25),
                     toDp(100),
                     toDp(50),
-                    transparentPaint)
+                    transparentPaint1)
+
+                drawRect(
+                    toDp(0),
+                    toDp(25),
+                    toDp(25),
+                    toDp(50),
+                    transparentPaint2)
+                drawRect(
+                    toDp(25),
+                    toDp(0),
+                    toDp(50),
+                    toDp(25),
+                    transparentPaint2)
+                drawRect(
+                    toDp(75),
+                    toDp(0),
+                    toDp(100),
+                    toDp(25),
+                    transparentPaint2)
+                drawRect(
+                    toDp(50),
+                    toDp(25),
+                    toDp(75),
+                    toDp(50),
+                    transparentPaint2)
 
                 drawRect(
                     0f,
@@ -253,26 +281,50 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                     0f,
                     toDp(25),
                     toDp(25),
-                    transparentPaint)
+                    transparentPaint1)
                 drawRect(
                     toDp(25),
                     toDp(25),
                     toDp(50),
                     toDp(50),
-                    transparentPaint)
-
+                    transparentPaint1)
                 drawRect(
                     0f,
                     toDp(50),
                     toDp(25),
                     toDp(75),
-                    transparentPaint)
+                    transparentPaint1)
                 drawRect(
                     toDp(25),
                     toDp(75),
                     toDp(50),
                     toDp(100),
-                    transparentPaint)
+                    transparentPaint1)
+
+                drawRect(
+                    toDp(25),
+                    toDp(0),
+                    toDp(50),
+                    toDp(25),
+                    transparentPaint2)
+                drawRect(
+                    toDp(0),
+                    toDp(25),
+                    toDp(25),
+                    toDp(50),
+                    transparentPaint2)
+                drawRect(
+                    toDp(0),
+                    toDp(75),
+                    toDp(25),
+                    toDp(100),
+                    transparentPaint2)
+                drawRect(
+                    toDp(25),
+                    toDp(50),
+                    toDp(50),
+                    toDp(75),
+                    transparentPaint2)
 
                 drawRect(
                     0f,
@@ -312,14 +364,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
-    private val longPressedRunnable = Runnable {
-        if (isPrimarySelected) {
-            onPrimaryColorLongTapped.invoke()
-        } else {
-            onSecondaryColorLongTapped.invoke()
-        }
-    }
-
     @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
@@ -337,18 +381,12 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
 
         if ((xOrY in toDp(50)..toDp(100) - insetStroke)
             && inverse !in toDp(50)..toDp(70)) {
-            // secondary color has been selected
-            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
-
             if (isPrimarySelected) {
                 isPrimarySelected = false
                 invalidate()
             }
         } else if ((xOrY !in toDp(50)..toDp(100) - insetStroke)
                     && inverse !in toDp(50)..toDp(70)) {
-            // primary color has been selected
-            handler.postDelayed(longPressedRunnable, ViewConfiguration.getLongPressTimeout().toLong())
-
             if (!isPrimarySelected) {
                 isPrimarySelected = true
                 invalidate()
@@ -357,10 +395,6 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
             // color picker has been selected
 
             onColorPickerTapped.invoke()
-        }
-
-        if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_MOVE) {
-            handler.removeCallbacks(longPressedRunnable)
         }
 
         return true

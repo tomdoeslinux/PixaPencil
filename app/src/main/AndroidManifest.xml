@@ -25,7 +25,6 @@
         <activity
             android:name="com.therealbluepandabear.pixapencil.activities.main.MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:hardwareAccelerated="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

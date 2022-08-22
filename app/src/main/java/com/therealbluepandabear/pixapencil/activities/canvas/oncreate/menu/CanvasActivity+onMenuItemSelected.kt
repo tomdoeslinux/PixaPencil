@@ -76,7 +76,7 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
         R.id.appMenu_symmetry_none_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_none_subItem).isChecked = true
-            viewModel.currentSymmetryMode = SymmetryMode.defaultSymmetryMode
+            viewModel.currentSymmetryMode = SymmetryMode.None
         }
 
         R.id.appMenu_symmetry_horizontal_subItem -> {
