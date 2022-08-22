@@ -4,10 +4,10 @@ import android.view.MenuItem
 
 fun MenuItem.enable() {
     isEnabled = true
-    icon.alpha = 255
+    icon?.alpha = 255
 }
 
 fun MenuItem.disable() {
     isEnabled = false
-    icon.alpha = 180
+    icon?.alpha = 180
 }

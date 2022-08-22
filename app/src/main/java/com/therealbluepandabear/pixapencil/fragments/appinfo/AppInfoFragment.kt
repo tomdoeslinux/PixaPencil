@@ -16,6 +16,8 @@ import com.therealbluepandabear.pixapencil.databinding.FragmentAppInfoBinding
 class AppInfoFragment : Fragment() {
     private var _binding: FragmentAppInfoBinding? = null
 
+    private var logoTapCount = 0
+
     val binding get(): FragmentAppInfoBinding {
         return _binding!!
     }
@@ -27,6 +29,14 @@ class AppInfoFragment : Fragment() {
         binding.fragmentAppInfoCommunityText.movementMethod = LinkMovementMethod.getInstance()
         binding.fragmentAppInfoCreatedByText.movementMethod = LinkMovementMethod.getInstance()
         binding.fragmentAppInfoAboutText.movementMethod = LinkMovementMethod.getInstance()
+
+        binding.imageView.setOnClickListener {
+            logoTapCount++
+
+            if (logoTapCount == 5) {
+                logoTapCount = 0
+            }
+        }
     }
 
     companion object {
