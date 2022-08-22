@@ -35,6 +35,8 @@ fun HexadecimalColorPickerFragment.setOnClickListeners() {
                 (binding.fragmentHexadecimalColorPickerColorPreview.background as ColorDrawable).color,
                 colorPalette
             )
-        } catch (exception: Exception) { }
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+        }
     }
 }

@@ -30,7 +30,9 @@ class HexadecimalColorPickerFragment : Fragment() {
                 val text = binding.fragmentHexadecimalColorPickerHexadecimalValueTextInputEditText.text.toString().replace("#", "")
                 val color = Color.parseColor("#$text")
                 binding.fragmentHexadecimalColorPickerColorPreview.setBackgroundColor(color)
-            } catch (ex: Exception) { }
+            } catch (exception: Exception) {
+                exception.printStackTrace()
+            }
         }
     }
 

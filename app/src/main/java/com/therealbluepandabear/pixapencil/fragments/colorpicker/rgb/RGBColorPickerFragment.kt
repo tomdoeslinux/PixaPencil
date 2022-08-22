@@ -87,7 +87,9 @@ class RGBColorPickerFragment : Fragment() {
                     valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
-                } catch (exception: Exception) { }
+                } catch (exception: Exception) {
+                    exception.printStackTrace()
+                }
             }
 
             binding.fragmentRGBColorPickerValueR.setOnFocusChangeListener{ _, hasFocus ->
@@ -96,7 +98,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
                 }
             }
 
@@ -106,7 +110,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
 
                     return@setOnEditorActionListener true
                 }
@@ -120,7 +126,9 @@ class RGBColorPickerFragment : Fragment() {
                     valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
-                } catch (exception: Exception) { }
+                } catch (exception: Exception) {
+                    exception.printStackTrace()
+                }
             }
 
             binding.fragmentRGBColorPickerValueG.setOnFocusChangeListener{ _, hasFocus ->
@@ -129,7 +137,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
                 }
             }
 
@@ -139,7 +149,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
 
                     return@setOnEditorActionListener true
                 }
@@ -153,7 +165,9 @@ class RGBColorPickerFragment : Fragment() {
                     valueB = binding.fragmentRGBColorPickerValueB.text.toString().toFloat()
 
                     updateColorPickerColorPreview()
-                } catch (exception: Exception) { }
+                } catch (exception: Exception) {
+                    exception.printStackTrace()
+                }
             }
 
             binding.fragmentRGBColorPickerValueB.setOnFocusChangeListener{ _, hasFocus ->
@@ -162,7 +176,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
                 }
             }
 
@@ -172,7 +188,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
 
                     return@setOnEditorActionListener true
                 }
@@ -187,7 +205,9 @@ class RGBColorPickerFragment : Fragment() {
                         binding.fragmentRGBColorPickerRedProgressBar.value = valueR
                         binding.fragmentRGBColorPickerGreenProgressBar.value = valueG
                         binding.fragmentRGBColorPickerBlueProgressBar.value = valueB
-                    } catch (exception: Exception) { }
+                    } catch (exception: Exception) {
+                        exception.printStackTrace()
+                    }
                 }
             })
     }
