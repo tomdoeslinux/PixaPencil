@@ -9,7 +9,6 @@
     <string name="generic_no_thanks">Tidak, terima kasih</string>
     <string name="fragment_new_project_title">Proyek Baru</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Favoritkan</string>
-    <string name="saveFileUnderNewNameAlertLayout_new_name">Nama baru</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nama Palet Warna</string>
     <string name="fragmentSprayToolSettings_radius">Radius</string>
     <string name="fragmentSprayToolSettings_done">Selesai</string>
@@ -27,6 +26,5 @@
     <string name="fragmentTools_line_tool_content_description">Alat Garis</string>
     <string name="generic_warning">Peringatan</string>
     <string name="generic_saved">Disimpan</string>
-    <string name="generic_error_while_saving">Gagal menyimpan %1$s</string>
     <string name="generic_cancel">Batal</string>
 </resources>

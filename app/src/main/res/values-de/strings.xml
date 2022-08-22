@@ -2,12 +2,10 @@
 <resources>
     <string name="generic_no_thanks">Nein, danke</string>
     <string name="generic_saved">Gespeichert</string>
-    <string name="generic_error_while_saving">Fehler während des Speicherns von %1$s</string>
     <string name="generic_darken_mode_tooltip">Dunkel</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorit</string>
     <string name="recentCreationsLayout_imageView_content_description">Pixel-Art-Vorschau</string>
     <string name="colorPalettesLayout_color_palette_item">Farbpaletten-Gegenstand</string>
-    <string name="saveFileUnderNewNameAlertLayout_new_name">Neuer Name</string>
     <string name="fragmentFilters_lighten">Belichten</string>
     <string name="fragmentFilters_darken">Verdunkeln</string>
     <string name="fragmentFilters_invert">Invertieren</string>
@@ -121,7 +119,6 @@
     <string name="exception_empty_width">Breite kann nicht leer sein</string>
     <string name="exception_empty_height">Höhe kann nicht leer sein</string>
     <string name="exception_empty_color_palette_name">Farbpalette kann nicht leer sein</string>
-    <string name="exception_accessing_negative_index_message">Kann Pixel-Art mit negativem Listen-Index nicht erreichen!</string>
     <string name="exception_empty_spray_radius">Radius kann nicht leer sein</string>
     <string name="exception_empty_spray_strength">Dicke kann nicht leer sein</string>
     <string name="exception_failed_to_create_file">Dateierstellung fehlgeschlagen</string>
@@ -134,8 +131,6 @@
     <string name="dialog_unsaved_changes_message">Änderungrn zu %1$s speichern\?</string>
     <string name="dialog_file_exists_title">Datei existiert bereits</string>
     <string name="dialog_file_exists_positive_button_text">Ersetzen</string>
-    <string name="dialog_file_exists_negative_button_text">Unter neuem Name speichern</string>
-    <string name="dialog_save_under_new_name_title">Unter neuem Name speichern</string>
     <string name="dialog_image_exception_when_saving_title">Fehler beim Speichern von %1$s als %2$s</string>
     <string name="dialog_delete_pixel_art_project_title">%1$s löschen\?</string>
     <string name="dialog_welcome_title">Willkommen</string>
@@ -143,7 +138,6 @@
     <string name="dialog_large_canvas_warning_positive_button_text">Ich verstehe, Projekt erzeugen</string>
     <string name="snackbar_view_exception_info_button_text">Ansicht</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text">Kann Standardpalette nicht löschen</string>
-    <string name="snackbar_find_and_replace_warning">Sie müssen mindestens eine Farbe auf Ihrer Leinwand haben, um dieses Tool zu verwenden</string>
     <string name="snackbar_on_color_long_tapped">Farbe von %1$s entfernt</string>
     <string name="snackbar_image_successfully_saved">Erfolgreich %1$s als %2$s gespeichert</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items">%1$s zu Favoriten hinzugefügt</string>
@@ -175,13 +169,10 @@
     <string name="shading_tool_info_title">Schattierungs-Tool-Info</string>
     <string name="exception_invalid_project_name">Name kann nicht leer sein</string>
     <string name="dialog_welcome_text">Willkommen! Möchtest du mit einem interaktiven Tutorial starten\?</string>
-    <string name="dialog_save_under_new_name_text">Stelle sicher dass der neue Name einzigartig ist!</string>
     <string name="spot_light_activity_canvas_3">Tippen Sie auf \'Filter\', um einige Projektfilter auszuprobieren</string>
     <string name="spot_light_activity_canvas_6">Sie haben nur die Standard-Palette, aber Sie können immer eine neue erstellen, indem Sie die drei Punkte oben rechts auf Ihrem Bildschirm tippen</string>
     <string name="dialog_delete_pixel_art_project_text">Bist du sicher, dass du %1$s speichern möchtest\? Dies kann nicht rückgängig gemacht werden.</string>
     <string name="dialog_project_details_title">Details</string>
-    <string name="dialog_rename_title">Umbenennen</string>
-    <string name="activityMainBottomSheet_rename">Umbenennen</string>
     <string name="activityMainBottomSheet_delete">Löschen</string>
     <string name="activityMainBottomSheet_view_details">Details ansehen</string>
     <string name="generic_switch">Schalter</string>

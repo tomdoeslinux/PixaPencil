@@ -21,7 +21,6 @@
     <string name="fill_tool_info_text">Fill adjacent pixels which are similar in colour value</string>
     <string name="exception_empty_color_palette_name">Colour palette name cannot be empty</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text">Cannot delete default colour palette</string>
-    <string name="snackbar_find_and_replace_warning">You must have at least one colour on your canvas to use this tool</string>
     <string name="snackbar_on_color_long_tapped">Removed colour from %1$s</string>
     <string name="spot_light_activity_canvas_1">Tap on the rainbow coloured rectangle to get to the colour picker</string>
 </resources>

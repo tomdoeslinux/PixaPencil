@@ -6,7 +6,6 @@
     <string name="generic_no_thanks">不用，谢谢</string>
     <string name="generic_warning">警告</string>
     <string name="generic_saved">已保存</string>
-    <string name="generic_error_while_saving">保存%1$s时出错</string>
     <string name="generic_switch">开关</string>
     <string name="generic_png" translatable="false">PNG</string>
     <string name="generic_jpg" translatable="false">JPG</string>
@@ -20,11 +19,9 @@
     <string name="recentCreationsLayout_favoriteButton_content_description">收藏夹</string>
     <string name="recentCreationsLayout_imageView_content_description">像素画预览</string>
     <string name="colorPalettesLayout_color_palette_item">调色板栏</string>
-    <string name="saveFileUnderNewNameAlertLayout_new_name">新建项目名称</string>
 
     <string name="activityMainBottomSheet_duplicate">复刻</string>
     <string name="activityMainBottomSheet_view_details">查看详情</string>
-    <string name="activityMainBottomSheet_rename">重命名</string>
     <string name="activityMainBottomSheet_delete">删除</string>
 
     <string name="projectDetailsAlertBox_width">宽度</string>
@@ -100,9 +97,6 @@
         PixaPencil is an <a href="https://github.com/therealbluepandabear/PixaPencil">open source</a>PixaPencil是一款开源像素编辑器,100%没有侵犯隐私的Google Play服务和烦人的广告\n为了确保这一点\n我们建议你通过<a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a>或者<a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>安装本应用.
     </string>
     <string name="fragmentAppInfo_description_text_land">PixaPencil是一款<a href="https://github.com/therealbluepandabear/PixaPencil">开源</a>像素编辑器,100%没有侵犯隐私的Google Play服务和烦人的广告\n为了确保这一点\n我们建议你通过<a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a>或者<a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>安装本应用.</string>
-    <string name="fragmentAppInfo_community_text_land">欢迎加入我们在\n通过
-         <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a>或者<a href="https://discord.gg/Ytm7WBMNz9">Discord</a>!
-    </string>
 
     <!-- Activity strings -->
     <string name="activityMain_newProjectButton_contentDescription">新项目</string>
@@ -191,7 +185,6 @@
     <string name="exception_empty_width">宽度不能为空值</string>
     <string name="exception_empty_height">高度不能为空值</string>
     <string name="exception_empty_color_palette_name">调色板名称不能为空</string>
-    <string name="exception_accessing_negative_index_message">无法访问列表中具有负索引的像素艺术对象！</string>
     <string name="exception_empty_spray_radius">半径值不能为空</string>
     <string name="exception_empty_spray_strength">强度值不能为空</string>
     <string name="exception_failed_to_create_file">创建文件失败</string>
@@ -207,28 +200,22 @@
     <string name="dialog_unsaved_changes_message">保存更改到%1$s?</string>
     <string name="dialog_file_exists_title">文件已存在</string>
     <string name="dialog_file_exists_positive_button_text">覆盖原文件</string>
-    <string name="dialog_file_exists_negative_button_text">以新文件名保存</string>
-    <string name="dialog_save_under_new_name_title">以新文件名保存</string>
-    <string name="dialog_save_under_new_name_text">请确保你的文件名唯一!</string>
     <string name="dialog_image_exception_when_saving_title">保存%1$s为%2$s时出现错误</string>
     <string name="dialog_error_opening_image">打开图像时出错</string>
     <string name="dialog_delete_pixel_art_project_title">确定删除%1$s?"</string>
     <string name="dialog_delete_pixel_art_project_text">确定删除%1$s?这将无法撤销"</string>
     <string name="dialog_delete_pixel_art_project_deleted_text">删除%1$s</string>
     <string name="dialog_project_details_title">详情</string>
-    <string name="dialog_rename_title">重命名</string>
     <string name="dialog_welcome_title">欢迎</string>
     <string name="dialog_welcome_text">欢迎来到PixaPencil！需要介绍教程吗？</string>
     <string name="dialog_large_canvas_warning_text">即将创建一个大画布，你的手机可能无法支持这么大的位图</string>
     <string name="dialog_large_canvas_warning_positive_button_text">了解，创建新项目</string>
     <string name="dialog_delete_all_projects">确定删除所有项目？这将无法撤销</string>
     <string name="dialog_open_image_enter_name_title">输入名称</string>
-    <string name="dialog_open_image_enter_name_text">输入项目名称</string>
 
     <!-- Snackbar strings -->
     <string name="snackbar_view_exception_info_button_text">查看</string>
     <string name="snackbar_cannot_delete_primary_color_palette_text">无法删除默认调色板</string>
-    <string name="snackbar_find_and_replace_warning">您的画布上必须至少有一种颜色才能使用此工具</string>
     <string name="snackbar_on_color_long_tapped">从%1$s移除颜色</string>
     <string name="snackbar_image_successfully_saved">成功将%1$s保存为%2$s</string>
     <string name="snackbar_pixel_art_project_saved_to_starred_items">保存%1$s到星标栏</string>

@@ -4,7 +4,6 @@
     <string name="generic_warning">Attention</string>
     <string name="generic_no_thanks">Non, merci</string>
     <string name="generic_saved">Enregistré</string>
-    <string name="generic_error_while_saving">Erreur lors de la sauvegarde de %1$s</string>
     <string name="generic_lighten_mode_tooltip">Mode d\'éclaircissement</string>
     <string name="generic_darken_mode_tooltip">Mode d\'assombrissement</string>
     <string name="fragmentFilters_color_filter">Filtre de couleur</string>
@@ -14,7 +13,6 @@
     <string name="fragmentFilters_lighten">Éclaircir</string>
     <string name="fragmentFilters_darken">Assombrir</string>
     <string name="fragmentFilters_invert">Inverser</string>
-    <string name="saveFileUnderNewNameAlertLayout_new_name">Nouveau nom</string>
     <string name="generic_ok">OK</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Remplacer l\'aperçu</string>
     <string name="fragment_new_project_title">Nouveau projet</string>

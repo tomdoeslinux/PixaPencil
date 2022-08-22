@@ -3,7 +3,6 @@
     <string name="generic_ok">U redu</string>
     <string name="generic_cancel">Odustani</string>
     <string name="generic_no_thanks">Ne, hvala</string>
-    <string name="generic_error_while_saving">Greška prilikom spremanja %1$s</string>
     <string name="generic_switch">Promijeni</string>
     <string name="generic_darken_mode_tooltip">Zatamni modus</string>
     <string name="generic_lighten_mode_tooltip">Posvijetli modus</string>
@@ -21,10 +20,8 @@
     <string name="generic_saved">Spremljeno</string>
     <string name="recentCreationsLayout_imageView_content_description">Pregled pikselaste slike</string>
     <string name="colorPalettesLayout_color_palette_item">Element palete boja</string>
-    <string name="saveFileUnderNewNameAlertLayout_new_name">Novo ime</string>
     <string name="activityMainBottomSheet_duplicate">Dupliciraj</string>
     <string name="activityMainBottomSheet_view_details">Prikaz detalja</string>
-    <string name="activityMainBottomSheet_rename">Preimenuj</string>
     <string name="activityMainBottomSheet_delete">Izbriši</string>
     <string name="projectDetailsAlertBox_width">Širina</string>
     <string name="projectDetailsAlertBox_height">Visina</string>
@@ -83,8 +80,6 @@
 \n
 \nPreporučujemo da
 \ninstaliraš program s <a href="https://github.com/therealbluepandabear/PixaPencil">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica.</string>
-    <string name="fragmentAppInfo_community_text_land">Radujemo se ako se pridužiš
-\nnašem <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
     <string name="activityMain_newProjectButton_contentDescription">Novi projekt</string>
     <string name="activityCanvas_tab_brushes">Kistovi</string>
     <string name="activityCanvas_tab_filters">Filtri</string>
@@ -155,16 +150,12 @@
     <string name="shading_tool_info_text">Potamni/posvijetli piksele na platnu</string>
     <string name="exception_invalid_project_name">Ime ne smije biti prazno</string>
     <string name="dialog_file_exists_positive_button_text">Zamijeni</string>
-    <string name="dialog_file_exists_negative_button_text">Spremi pod novim imenom</string>
-    <string name="dialog_save_under_new_name_title">Spremi pod novim imenom</string>
-    <string name="dialog_save_under_new_name_text">Osiguraj da je novo ime jedinstveno!</string>
     <string name="exception_invalid_width">Vrijednost mora biti između 1 i 10.000</string>
     <string name="exception_invalid_height">Vrijednost mora biti između 1 i 10.000</string>
     <string name="exception_invalid_spray_radius">Vrijednost mora biti između 2 i 10.000</string>
     <string name="exception_invalid_spray_strength">Vrijednost mora biti između 2 i 10.000</string>
     <string name="exception_empty_width">Širina ne smije biti prazna</string>
     <string name="exception_empty_height">Visina ne smije biti prazna</string>
-    <string name="exception_accessing_negative_index_message">Nije moguće pristupiti objektu pikselaste slike s negativnim indeksom u popisu!</string>
     <string name="exception_empty_spray_strength">Količina sprejanja ne smije biti prazna</string>
     <string name="exception_failed_to_create_file">Neuspjelo stvaranje datoteke</string>
     <string name="exception_failed_to_compress_file">Neuspjelo komprimiranje datoteke</string>
@@ -176,7 +167,6 @@
     <string name="dialog_unsaved_changes_message">Spremiti promjene u %1$s\?</string>
     <string name="dialog_file_exists_title">Datoteka već postoji</string>
     <string name="dialog_image_exception_when_saving_title">Greška u spremanju naslova %1$s kao %2$s</string>
-    <string name="snackbar_find_and_replace_warning">Za korištenje ovog alata moraš imati barem jednu boju na platnu</string>
     <string name="snackbar_on_color_long_tapped">Boja je uklonjena iz %1$s</string>
     <string name="snackbar_pixel_art_project_removed_from_starred_items">Slika %1$s uklonjena iz označenih stavki</string>
     <string name="snackbar_successfully_imported_lospec_palette">Paleta %1$s uvezena</string>
@@ -186,7 +176,6 @@
     <string name="dialog_delete_pixel_art_project_title">Izbrisati %1$s\?</string>
     <string name="dialog_delete_pixel_art_project_text">Stvarno želiš izbrisati %1$s\? Ova radnja je nepovratna.</string>
     <string name="dialog_project_details_title">Detalji</string>
-    <string name="dialog_rename_title">Preimenuj</string>
     <string name="dialog_welcome_title">Pozdrav</string>
     <string name="dialog_welcome_text">Pozdrav u PixaPencilu! Želiš li pokrenuti interaktivnu vježbu\?</string>
     <string name="dialog_large_canvas_warning_text">Stvorit ćeš veliko platno. Imaj na umu da tvoj mobitel možda nije u stanju podržati bitmape ovih veličina.</string>
@@ -210,7 +199,6 @@
     <string name="fragment_replace_color_title">Zamijeni boju</string>
     <string name="activityCanvasTopAppMenu_replace_color">Zamijeni boju</string>
     <string name="activityCanvasTopAppMenu_flip">Preokreni</string>
-    <string name="dialog_open_image_enter_name_text">Upiši ime za tvoj projekt</string>
     <string name="dialog_delete_all_projects">Stvarno želiš izbrisati sve svoje projekte\? To se ne može poništiti.</string>
     <string name="snackbar_deleted_projects">Izbrisani projekti: %1$s</string>
     <string name="dialog_open_image_enter_name_title">Upiši ime</string>

@@ -95,19 +95,6 @@
         <item name="android:ellipsize">marquee</item>
     </style>
 
-    <style name="activityCanvas_bottomNavigationView_style_constraints" parent="Widget.Material3.BottomNavigationView">
-        <item name="layout_constraintStart_toStartOf">parent</item>
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
-    </style>
-
-    <style name="activityCanvas_bottomNavigationView_style" parent="activityCanvas_bottomNavigationView_style_constraints">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="itemIconTint">@android:color/black</item>
-        <item name="menu">@menu/activity_main_bottom_navigation_menu</item>
-    </style>
-
     <style name="recentCreationsLayout_imageView_style_constraints">
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
