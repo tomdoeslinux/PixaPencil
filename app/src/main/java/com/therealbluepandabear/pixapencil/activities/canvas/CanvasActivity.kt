@@ -217,10 +217,6 @@ class CanvasActivity :
         extendedOnDoneButtonPressed(colorToFind, colorToReplace)
     }
 
-    override fun onBackPressed() {
-        extendedOnBackPressed()
-    }
-
     override fun onToolTapped(toolName: String) {
         extendedOnToolTapped(toolName)
     }

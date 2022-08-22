@@ -24,6 +24,7 @@ fun CanvasActivity.onCreate() {
     initColorPalettesDBIfNotInitialized()
     getExtras()
     setupBindings()
+    registerOnBackPressedDispatcherCallback()
     setupRecyclerView()
     setupEventListeners()
     setupSharedPreferenceObject()
