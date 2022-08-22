@@ -1,0 +1,13 @@
+﻿Aviso: Os lançamentos Beta não estão completamente prontos, estão sujeitos a grandes mudanças e não foram testados massivamente para garantir estabilidade.
+
+Recursos Adicionados
+- Agora você pode inserir o valor da qualidade de compressão ao exportar suas imagens para JPG
+
+Melhorias Adicionadas
+- Agora você pode dar um toque longo nas cores selecionadas (primária ou secundária) para abrir o seletor de cores.
+- O valor máximo para o valor do raio/força do spray foi baixado de 20.000 para 10.000
+- Substituído o ‘Salvar com um novo nome’ com ‘Cancelar
+- Atualizações de Tradução
+
+Erros Corrigidos
+- Corrigido o erro em que, ocasionalmente, o teclado de um fragmento/atividade anterior não se ocultava/fechava com rapidez suficiente ao criar um novo projeto ou importar uma imagem - fazendo com que as dimensões incorretas da visualização da tela fossem definidas

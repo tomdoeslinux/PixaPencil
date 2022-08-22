@@ -1,0 +1,14 @@
+﻿Melhorias Adicionadas
+- Grande atualização nas traduções
+
+Erros Corrigidos:
+- Corrigido o erro em que quando o usuário aplicava um filtro com a ferramenta de pontilhamento selecionada, aplicava o filtro dentro dos limites de pontilhamento
+- Prevenir o aumento de zoom – o limite máximo de zoom agora é de um milhão
+- Corrigido o erro em que a visualização no fragmento EncontrarESubstituir não estava salvando o estado de rotação/inversão corretamente na visualização
+- Foi corrigida a coloração do ícone virar que mantinha a cor preta no modo escuro
+- Corrigido o erro em que a fila de refazer não estava sendo limpa quando o usuário tocava em 'Limpar tela'
+- Corrigido erro onde alguns controles não estavam redimensionando corretamente no CanvasActivity
+- Corrigido o erro principal em que depois que o usuário limpava a tela e, em seguida, alterava sua orientação, o bitmap retornaria ao seu estado antes de ser limpo
+
+Outras Alterações
+- Limpeza do código de pré-visualização de forma – isso melhora a estabilidade geral do app
