@@ -22,7 +22,7 @@ abstract class ColorPalettesDatabase: RoomDatabase() {
         fun getDatabase(context: Context): ColorPalettesDatabase {
             if (instance == null) {
                 synchronized(ColorPalettesDatabase::class) {
-                    if (instance == null) instance = Room.databaseBuilder(context.applicationContext, ColorPalettesDatabase::class.java, AppData.colorPalettesDBFileName).fallbackToDestructiveMigration().addCallback(object : RoomDatabase.Callback() {
+                    if (instance == null) instance = Room.databaseBuilder(context.applicationContext, ColorPalettesDatabase::class.java, AppData.colorPalettesDBFileName).fallbackToDestructiveMigration().addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             Executors.newSingleThreadExecutor().execute {

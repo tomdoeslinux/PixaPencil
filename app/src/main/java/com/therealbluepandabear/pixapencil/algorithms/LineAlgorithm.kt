@@ -80,7 +80,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
             } else {
                 drawLineY(p1, p2)
             }
-        } else if (differenceX < differenceY) {
+        } else {
             if (abs(differenceX) > differenceY) {
                 drawLineY(p2, p1)
             } else {

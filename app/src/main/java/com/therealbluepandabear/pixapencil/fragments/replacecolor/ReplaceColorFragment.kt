@@ -118,7 +118,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
         override fun onColorTapped(colorTapped: Int) {
             colorToReplace = colorTapped
 
-            if (colorToFind != null && colorToReplace != null) {
+            if (colorToFind != null) {
                 findAndReplace()
             }
         }

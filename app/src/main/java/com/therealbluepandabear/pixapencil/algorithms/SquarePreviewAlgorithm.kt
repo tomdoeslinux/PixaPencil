@@ -97,7 +97,7 @@ class SquarePreviewAlgorithm(algorithmInfo: AlgorithmInfoParameter, private val 
 
         if (gradient in 0.0..1.0) {
             setsqc1(from, size)
-        } else if (gradient > 1.0 && gradient > 0){
+        } else if (gradient > 1.0){
             setsqc2(from, size)
         } else if (gradient < 0 && gradient > -1.0) {
             setsqc3(from, size)

@@ -283,4 +283,8 @@
 
     <string name="spot_light_next">Next</string>
     <string name="spot_light_close">Close</string>
+
+    <!--New content descriptions-->
+    <string name="color_cdesc">Color</string>
+    <string name="logo_cdesc">Logo</string>
 </resources>

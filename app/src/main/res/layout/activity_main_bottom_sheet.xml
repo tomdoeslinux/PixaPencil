@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/activityMainBottomSheet_root"
@@ -14,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_content_copy_24"
+        android:contentDescription="@string/activityMainBottomSheet_duplicate"
         app:tint="@color/black_color_daynight" />
 
     <ImageView
@@ -24,6 +24,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
         app:srcCompat="@drawable/ic_baseline_image_24"
+        android:contentDescription="@string/activityMainBottomSheet_view_details"
         app:tint="@color/black_color_daynight" />
 
     <TextView
@@ -69,6 +70,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/ic_baseline_delete_24"
+        android:contentDescription="@string/activityMainBottomSheet_delete"
         app:tint="@color/black_color_daynight" />
 
     <View

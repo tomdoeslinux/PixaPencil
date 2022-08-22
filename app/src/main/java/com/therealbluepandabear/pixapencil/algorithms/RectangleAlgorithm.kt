@@ -39,7 +39,7 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
 
                 cx++
             }
-        } else if (p1.x <= p2.x && p1.y >= p2.y) {
+        } else if (p1.x <= p2.x) {
             while (cx <= p2.x) {
                 for (i in p2.y..cy) {
                     algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)
@@ -49,7 +49,7 @@ class RectangleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, priv
 
                 cx++
             }
-        } else if (p1.x >= p2.x && p1.y >= p2.y) {
+        } else {
             while (cx >= p2.x) {
                 for (i in p2.y..cy) {
                     algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(cx, i), algorithmInfo.color, true)

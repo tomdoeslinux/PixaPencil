@@ -267,7 +267,7 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                         toDp(50) - insetStroke,
                         toDp(50) - insetStroke,
                         borderPaint)
-                } else if (!isPrimarySelected) {
+                } else {
                     drawRect(
                         toDp(50) + insetStroke,
                         0f + insetStroke,
@@ -352,7 +352,7 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
                         toDp(50) - insetStroke,
                         toDp(50) - insetStroke,
                         borderPaint)
-                } else if (!isPrimarySelected) {
+                } else {
                     drawRect(
                         0f + insetStroke,
                         toDp(100) - insetStroke,

@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
+        android:contentDescription="@string/color_cdesc"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="centerCrop"

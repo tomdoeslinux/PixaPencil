@@ -79,7 +79,7 @@ class MidpointEllipseAlgorithm(private val algorithmInfo: AlgorithmInfoParameter
                     Coordinates(xc - x, yc + y),
                 )
             }
-        } else if (!xDEC && yDEC) {
+        } else if (!xDEC) {
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
                 Coordinates(xc + x, (yc + y) + 1),
                 algorithmInfo.color
