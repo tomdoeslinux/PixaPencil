@@ -7,11 +7,6 @@
     <string name="generic_warning">警告</string>
     <string name="generic_saved">已保存</string>
     <string name="generic_switch">开关</string>
-    <string name="generic_png" translatable="false">PNG</string>
-    <string name="generic_jpg" translatable="false">JPG</string>
-    <string name="generic_webp" translatable="false">WEBP</string>
-    <string name="generic_tif" translatable="false">TIF</string>
-    <string name="generic_bmp" translatable="false">BMP</string>
     <string name="generic_darken_mode_tooltip">夜间模式</string>
     <string name="generic_lighten_mode_tooltip">日间模式</string>
 
@@ -30,7 +25,6 @@
     <string name="projectDetailsAlertBox_colors">颜色</string>
 
     <!--Other strings-->
-    <string name="recentCreationsLayout_subtitle" translatable="false">%1$dx%2$d</string>
 
     <!--Fragment strings-->
     <string name="fragmentFilters_color_filter">滤色器</string>
@@ -89,8 +83,6 @@
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">复制文本剪贴板失败</string>
 
     <string name="fragmentColorPicker_tab_color_picker">取色盘</string>
-    <string name="fragmentColorPicker_tab_rgb" translatable="false">RGB</string>
-    <string name="fragmentColorPicker_tab_hex" translatable="false">Hex</string>
 
     <string name="fragmentAppInfo_created_by_text">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
     <string name="fragmentAppInfo_description_text">

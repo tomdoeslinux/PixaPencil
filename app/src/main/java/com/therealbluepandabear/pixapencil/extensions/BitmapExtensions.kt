@@ -168,13 +168,13 @@ fun Bitmap.drawTransparent() {
             val coordinates = Coordinates.staticSet(i_1, i_2)
 
             if (i_1 % 2 == 0) {
-                if ((i_1 % 2 == 0) && (i_2 % 2 == 0)) {
+                if (i_2 % 2 == 0) {
                     setPixel(coordinates, color)
                 } else {
                     setPixel(coordinates, Color.WHITE)
                 }
             } else {
-                if ((i_1 % 2 != 0) && (i_2 % 2 != 0)) {
+                if (i_2 % 2 != 0) {
                     setPixel(coordinates, color)
                 } else {
                     setPixel(coordinates, Color.WHITE)
