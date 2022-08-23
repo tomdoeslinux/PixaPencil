@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
         <item name="android:fontFamily">@font/manrope_medium</item>
     </style>
-
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@android:color/holo_blue_dark</item>
@@ -148,5 +146,19 @@
     <style name="defaultFragmentStyle">
         <item name="android:background">@color/fragment_background_color_daynight</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <style name="exportProjectDialogLayout_radioButton_style">
+        <item name="android:width">90dp</item>
+        <item name="android:background">@drawable/radiobuttonselector</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:textColor">@drawable/radiobuttontextselector</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">90dp</item>
+    </style>
+
+    <style name="exportProjectDialogLayout_radioButtonEnd_style" parent="exportProjectDialogLayout_radioButton_style">
+        <item name="android:background">@drawable/radiobuttonselectorlast</item>
     </style>
 </resources>

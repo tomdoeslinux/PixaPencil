@@ -49,64 +49,34 @@
 
             <RadioButton
                 android:id="@+id/exportProjectDialogLayout_radioButton_PNG"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="90dp"
-                android:background="@drawable/radiobuttonselector"
-                android:button="@android:color/transparent"
-                android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_png"
                 android:checked="true"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                style="@style/exportProjectDialogLayout_radioButton_style"/>
 
             <RadioButton
                 android:id="@+id/exportProjectDialogLayout_radioButton_JPG"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="90dp"
-                android:background="@drawable/radiobuttonselector"
-                android:textColor="@drawable/radiobuttontextselector"
-                android:button="@android:color/transparent"
                 android:text="@string/generic_jpg"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                style="@style/exportProjectDialogLayout_radioButton_style" />
 
             <RadioButton
                 android:id="@+id/exportProjectDialogLayout_radioButton_WEBP"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="90dp"
-                android:background="@drawable/radiobuttonselector"
-                android:button="@android:color/transparent"
-                android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_webp"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                style="@style/exportProjectDialogLayout_radioButton_style" />
 
             <RadioButton
                 android:id="@+id/exportProjectDialogLayout_radioButton_TIF"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="90dp"
-                android:background="@drawable/radiobuttonselector"
-                android:button="@android:color/transparent"
-                android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_tif"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                style="@style/exportProjectDialogLayout_radioButton_style" />
 
             <RadioButton
                 android:id="@+id/exportProjectDialogLayout_radioButton_BMP"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="90dp"
-                android:background="@drawable/radiobuttonselectorlast"
-                android:button="@android:color/transparent"
-                android:textColor="@drawable/radiobuttontextselector"
                 android:text="@string/generic_bmp"
-                android:textStyle="bold"
-                android:textAlignment="center" />
+                style="@style/exportProjectDialogLayout_radioButtonEnd_style" />
         </RadioGroup>
     </HorizontalScrollView>
 
@@ -130,28 +100,16 @@
 
         <RadioButton
             android:id="@+id/exportProjectDialogLayout_radioButton_Raw"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="90dp"
-            android:background="@drawable/radiobuttonselector"
-            android:button="@android:color/transparent"
-            android:checked="true"
             android:text="@string/exportProjectDialogLayout_raw_str"
-            android:textAlignment="center"
-            android:textColor="@drawable/radiobuttontextselector"
-            android:textStyle="bold" />
+            android:checked="true"
+            style="@style/exportProjectDialogLayout_radioButton_style" />
 
         <RadioButton
             android:id="@+id/exportProjectDialogLayout_radioButton_Scaled"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="90dp"
-            android:background="@drawable/radiobuttonselectorlast"
-            android:button="@android:color/transparent"
             android:text="@string/exportProjectDialogLayout_scaled_str"
-            android:textAlignment="center"
-            android:textColor="@drawable/radiobuttontextselector"
-            android:textStyle="bold" />
+            style="@style/exportProjectDialogLayout_radioButtonEnd_style" />
     </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
