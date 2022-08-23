@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import android.app.Activity
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawPixelGridViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
@@ -47,5 +46,5 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
         }
     }
 
-    (this as Activity).onBackPressed()
+    onBackPressedDispatcher.onBackPressed()
 }
