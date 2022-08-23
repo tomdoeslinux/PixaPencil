@@ -39,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:scrollbars="none"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
@@ -52,34 +53,34 @@
 
                 <RadioButton
                     android:id="@+id/exportProjectDialogLayout_radioButton_PNG"
+                    style="@style/exportProjectDialogLayout_radioButton_style"
                     android:layout_height="wrap_content"
-                    android:text="@string/generic_png"
                     android:checked="true"
-                    style="@style/exportProjectDialogLayout_radioButton_style" />
+                    android:text="@string/generic_png" />
 
                 <RadioButton
                     android:id="@+id/exportProjectDialogLayout_radioButton_JPG"
+                    style="@style/exportProjectDialogLayout_radioButton_style"
                     android:layout_height="wrap_content"
-                    android:text="@string/generic_jpg"
-                    style="@style/exportProjectDialogLayout_radioButton_style" />
+                    android:text="@string/generic_jpg" />
 
                 <RadioButton
                     android:id="@+id/exportProjectDialogLayout_radioButton_WEBP"
+                    style="@style/exportProjectDialogLayout_radioButton_style"
                     android:layout_height="wrap_content"
-                    android:text="@string/generic_webp"
-                    style="@style/exportProjectDialogLayout_radioButton_style" />
+                    android:text="@string/generic_webp" />
 
                 <RadioButton
                     android:id="@+id/exportProjectDialogLayout_radioButton_TIF"
+                    style="@style/exportProjectDialogLayout_radioButton_style"
                     android:layout_height="wrap_content"
-                    android:text="@string/generic_tif"
-                    style="@style/exportProjectDialogLayout_radioButton_style" />
+                    android:text="@string/generic_tif" />
 
                 <RadioButton
                     android:id="@+id/exportProjectDialogLayout_radioButton_BMP"
+                    style="@style/exportProjectDialogLayout_radioButtonEnd_style"
                     android:layout_height="wrap_content"
-                    android:text="@string/generic_bmp"
-                    style="@style/exportProjectDialogLayout_radioButtonEnd_style" />
+                    android:text="@string/generic_bmp" />
             </RadioGroup>
         </HorizontalScrollView>
 
@@ -87,7 +88,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text="@string/exportProjectDialogLayout_resolution_str"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/textView2" />
