@@ -219,4 +219,8 @@
     <string name="dialog_file_exists_message">%1$s já existe, gostaria de substituí-lo\?</string>
     <string name="spot_light_activity_canvas_1">Toque no retângulo com as cores do arco-íris para obter o seletor de cores</string>
     <string name="fragmentAppInfo_community_text">Junte-se ao servidores oficiais <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ou <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="color_cdesc">Cor</string>
+    <string name="logo_cdesc">Logo</string>
+    <string name="palette_url_identifier">Identificador de URL da paleta</string>
+    <string name="compression_quality">Qualidade de Compressão</string>
 </resources>
