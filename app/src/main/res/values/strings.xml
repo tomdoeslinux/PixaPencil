@@ -20,6 +20,7 @@
     <string name="generic_webp" translatable="false">WEBP</string>
     <string name="generic_tif" translatable="false">TIF</string>
     <string name="generic_bmp" translatable="false">BMP</string>
+    <string name="fragmentAppInfo_placeholder_version_number" translatable="false">X.X.X</string>
 
     <!--Layout strings-->
     <string name="recentCreationsLayout_favoriteButton_content_description">Favorite</string>
