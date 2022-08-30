@@ -26,16 +26,53 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-                <View
-                    android:id="@+id/colorPalettesLayout_firstColor"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/black"/>
-                <View
-                    android:id="@+id/colorPalettesLayout_secondColor"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@color/white"/>
+                <FrameLayout
+                    android:id="@+id/colorPalettesLayout_firstColorRoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+                    <View
+                        android:contentDescription="@string/color_cdesc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="#d9d9d9" />
+                    <View
+                        android:contentDescription="@string/color_cdesc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="25dp"
+                        android:background="#d9d9d9" />
+                    <View
+                        android:id="@+id/colorPalettesLayout_firstColor"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/black"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/colorPalettesLayout_secondColorRoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+                    <View
+                        android:contentDescription="@string/color_cdesc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="#d9d9d9" />
+                    <View
+                        android:contentDescription="@string/color_cdesc"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="25dp"
+                        android:background="#d9d9d9" />
+                    <View
+                        android:id="@+id/colorPalettesLayout_secondColor"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@color/white"/>
+                </FrameLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
