@@ -6,4 +6,126 @@
     <string name="generic_warning">Uwaga</string>
     <string name="generic_saved">Zapisano</string>
     <string name="generic_no_thanks">Nie, dziękuję</string>
+    <string name="color_cdesc">Kolor</string>
+    <string name="logo_cdesc">Logo</string>
+    <string name="fragmentFilters_color_filter">Koloryzuj</string>
+    <string name="fragmentNewProject_height">Wysokość</string>
+    <string name="fragmentNewProject_width">Szerokość</string>
+    <string name="fragment_replace_color_title">Zamień kolor</string>
+    <string name="fragment_new_color_palette_title">Nowa paleta kolorów</string>
+    <string name="fragmentTools_color_picker_tool_content_description">Narzędzie \"Selektor kolorów\"</string>
+    <string name="fragmentTools_eraser_tool_content_description">Narzędzie \"Gumka\"</string>
+    <string name="fragmentTools_move_tool_content_description">Narzędzie \"Przesuń\"</string>
+    <string name="fragmentTools_outlined_square_button_content_description">Narzędzie \"Kwadrat\"</string>
+    <string name="fragmentTools_ellipse_tool_content_description">Narzędzie \"Wypełniona elipsa\"</string>
+    <string name="fragmentTools_outlined_ellipse_button_content_description">Narzędzie \"Elipsa\"</string>
+    <string name="fragmentTools_square_tool_content_description">Narzędzie \"Wypełniony kwadrat\"</string>
+    <string name="activityMainTopAppMenu_open_image">Otwórz obraz</string>
+    <string name="activityCanvasTopAppMenu_undo">Cofnij</string>
+    <string name="activityCanvasTopAppMenu_redo">Powtórz</string>
+    <string name="activityCanvasTopAppMenu_symmetry_horizontal">Poziomo</string>
+    <string name="activityCanvasTopAppMenu_symmetry_vertical">Pionowo</string>
+    <string name="activityCanvasTopAppMenu_symmetry_quad">Dwie osie</string>
+    <string name="activityCanvasTopAppMenu_symmetry">Symetria</string>
+    <string name="activityCanvasTopAppMenu_symmetry_none">Brak</string>
+    <string name="activityCanvasTopAppMenu_symmetry_octal">Cztery osie</string>
+    <string name="activityCanvasTopAppMenu_save_in_background">Zapisz w tle</string>
+    <string name="erase_tool_info_title">Informacje o narzędziu \"Gumka\"</string>
+    <string name="erase_tool_info_text">Wymazywanie pikseli</string>
+    <string name="move_tool_info_text">Poruszaj się po obszarze roboczym, przytrzymując palec na ekranie i przeciągając</string>
+    <string name="fragmentNewColorPalette_done">Gotowe</string>
+    <string name="fragmentSprayToolSettings_done">Gotowe</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">Narzędzie \"Prostokąt\"</string>
+    <string name="fragmentTools_rectangle_tool_content_description">Narzędzie \"Wypełniony prostokąt\"</string>
+    <string name="fragment_new_project_title">Nowy projekt</string>
+    <string name="fragmentTools_pencil_tool_content_description">Narzędzie \"Ołówek\"</string>
+    <string name="fragmentTools_fill_tool_content_description">Narzędzie \"Wypełnij\"</string>
+    <string name="fragmentTools_line_tool_content_description">Narzędzie \"Linia\"</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">Narzędzie \"Okrąg\"</string>
+    <string name="fragmentTools_polygon_tool_content_description">Narzędzie \"Wielokąt\"</string>
+    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Pomyślnie skopiowano do schowka</string>
+    <string name="fragmentTools_circle_tool_content_description">Narzędzie \"Koło\"</string>
+    <string name="fragmentColorPicker_tab_color_picker">Selektor kolorów</string>
+    <string name="fragmentAppInfo_created_by_text">Autorstwa <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
+    <string name="fragmentAppInfo_description_text"> PixaPencil jest <a href="https://github.com/therealbluepandabear/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
+\n
+\n Aby to zagwarantować, zalecamy,
+\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHuba</a>. </string>
+    <string name="activityCanvas_tab_brushes">Pędzle</string>
+    <string name="activityCanvas_tab_filters">Filtry</string>
+    <string name="activityCanvas_tab_tools">Narzędzia</string>
+    <string name="activityCanvas_tab_color_palettes">Palety</string>
+    <string name="activityMainTopAppMenu_dark_light_mode">Jasny/Ciemny motyw</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (w lewo)</string>
+    <string name="activityMainTopAppMenu_delete_all">Usuń wszystko</string>
+    <string name="activityMainTopAppMenu_about">O aplikacji</string>
+    <string name="activityCanvasTopAppMenu_import_lospec_palette">Importuj paletę z Lospec</string>
+    <string name="activityCanvasTopAppMenu_new_color_palette">Nowa paleta kolorów</string>
+    <string name="activityCanvasTopAppMenu_rotate">Obróć</string>
+    <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (w prawo)</string>
+    <string name="activityCanvasTopAppMenu_grid">Siatka</string>
+    <string name="activityCanvasTopAppMenu_replace_color">Zamień kolor</string>
+    <string name="projectDetailsAlertBox_width">Szerokość</string>
+    <string name="projectDetailsAlertBox_height">Wysokość</string>
+    <string name="exportProjectDialogLayout_resolution_str">Rozdzielczość</string>
+    <string name="activityMainBottomSheet_delete">Usuń</string>
+    <string name="exportProjectDialogLayout_raw_str">Oryginalna</string>
+    <string name="exportProjectDialogLayout_file_name_str">Nazwa pliku</string>
+    <string name="exportProjectDialogLayout_file_type_str">Typ pliku</string>
+    <string name="exportProjectDialogLayout_scaled_str">Skalowana</string>
+    <string name="fragmentFilters_darken">Przyciemnij</string>
+    <string name="fragmentFilters_invert">Odwróć</string>
+    <string name="fragment_color_picker_title">Wybierz kolor</string>
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value">Wartość heksadecymalna</string>
+    <string name="fragmentTools_shading_tool_content_description">Narzędzie \"Cieniowanie\"</string>
+    <string name="activityCanvasTopAppMenu_export">Eksportuj</string>
+    <string name="bottomNavigationMenu_starred">Wyróżnione</string>
+    <string name="bottomNavigationMenu_home">Ekran główny</string>
+    <string name="pencil_tool_info_title">Informacje o narzędziu \"Ołówek\"</string>
+    <string name="pencil_tool_info_text">Rysowanie odręcznych, pikselowanych ścieżek</string>
+    <string name="move_tool_info_title">Informacje o narzędziu \"Przesuń\"</string>
+    <string name="dialog_unsaved_changes_negative_button_text">Nie zapisuj</string>
+    <string name="dialog_unsaved_changes_title">Niezapisane zmiany</string>
+    <string name="dialog_unsaved_changes_message">Zapisać zmiany w %1$s\?</string>
+    <string name="dialog_file_exists_positive_button_text">Zamień</string>
+    <string name="dialog_file_exists_message">%1$s już istnieje, zastąpić plik\?</string>
+    <string name="dialog_delete_pixel_art_project_title">Usunąć %1$s\?</string>
+    <string name="dialog_delete_pixel_art_project_deleted_text">Usunięto %1$s</string>
+    <string name="dialog_welcome_title">Witamy</string>
+    <string name="dialog_large_canvas_warning_positive_button_text">Rozumiem, utwórz projekt</string>
+    <string name="dialog_open_image_enter_name_title">Wprowadź nazwę</string>
+    <string name="snackbar_cannot_delete_primary_color_palette_text">Nie można usunąć domyślnej palety kolorów</string>
+    <string name="snackbar_on_color_long_tapped">Usunięto kolor z %1$s</string>
+    <string name="snackbar_pixel_art_project_saved_to_starred_items">Wyróżniono %1$s</string>
+    <string name="snackbar_pixel_art_project_removed_from_starred_items">Usunięto %1$s z wyróżnionych</string>
+    <string name="snackbar_successfully_imported_lospec_palette">Zaimportowano %1$s</string>
+    <string name="spot_light_next">Dalej</string>
+    <string name="spot_light_close">Zamknij</string>
+    <string name="compression_quality">Jakość kompresji</string>
+    <string name="fragmentFilters_lighten">Rozjaśnij</string>
+    <string name="fragmentFilters_grayscale">Skala szarości</string>
+    <string name="fragmentFindAndReplace_find">Znajdź</string>
+    <string name="fragmentFindAndReplace_replace_with">Zamień na</string>
+    <string name="fragmentNewProject_name">Nazwa</string>
+    <string name="activityMain_newProjectButton_contentDescription">Nowy projekt</string>
+    <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
+    <string name="activityCanvasTopAppMenu_flip">Odbij</string>
+    <string name="activityCanvasTopAppMenu_zoom_in">Powiększ</string>
+    <string name="activityCanvasTopAppMenu_zoom_out">Pomniejsz</string>
+    <string name="activityCanvasTopAppMenu_save_text">Zapisz</string>
+    <string name="outlined_circle_tool_info_text">Rysowanie pikselowych okręgów</string>
+    <string name="polygon_tool_info_title">Informacje o narzędziu \"Wielokąt\"</string>
+    <string name="polygon_tool_info_text">Rysowanie wielokątnych ścieżek</string>
+    <string name="shading_tool_info_title">Informacje o narzędziu \"Cieniowanie\"</string>
+    <string name="shading_tool_info_text">Rozjaśnij/przyciemnij piksele na obszarze roboczym</string>
+    <string name="dialog_file_exists_title">Plik już istnieje</string>
+    <string name="tool_tip_dont_show_again">Nie pokazuj ponownie</string>
+    <string name="spot_light_activity_main">Kliknij aby utworzyć
+\nnowy projekt</string>
+    <string name="fragmentNewColorPalette_color_palette_name">Nazwa palety kolorów</string>
+    <string name="fragmentAppInfo_community_text">Dołącz do oficjalnych kanałów<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> lub <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
+    <string name="fragmentAppInfo_description_text_land">PixaPencil jest <a href="https://github.com/therealbluepandabear/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
+\n
+\nAby to zagwarantować, zalecamy,
+\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHuba</a>.</string>
 </resources>
