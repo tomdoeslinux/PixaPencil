@@ -2,17 +2,19 @@
 <FrameLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
+    android:background="@color/white">
+    <View
         android:contentDescription="@string/color_cdesc"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/activityCanvas_colorPickerRecyclerView"
-        app:layout_constraintEnd_toStartOf="@+id/activityCanvas_colorSecondaryView"
-        app:layout_constraintTop_toTopOf="@+id/activityCanvas_colorPickerRecyclerView"
-        app:layout_constraintVertical_bias="0.0"/>
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="#d9d9d9" />
+    <View
+        android:contentDescription="@string/color_cdesc"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="#d9d9d9" />
     <View android:id="@+id/colorView"
         android:layout_width="50dp"
         android:layout_height="50dp"
