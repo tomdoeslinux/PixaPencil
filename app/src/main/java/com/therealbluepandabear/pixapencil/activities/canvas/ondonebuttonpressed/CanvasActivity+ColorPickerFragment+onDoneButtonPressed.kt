@@ -1,6 +1,5 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed
 
-import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
@@ -32,7 +31,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPalette:
         binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 
         val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
-        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.indexOf(Color.TRANSPARENT))
+        binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.size - 1)
     }
 
     binding.root.post {
