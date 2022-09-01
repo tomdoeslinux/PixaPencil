@@ -8,6 +8,6 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 fun CanvasActivity.extendedOnColorPaletteTapped(selectedColorPalette: ColorPalette) {
     selectedColorPaletteIndex = AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData().indexOf(selectedColorPalette)
-    adapter = ColorPaletteColorPickerAdapter(AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettesNoLiveData()[selectedColorPaletteIndex], this)
+    adapter = ColorPaletteColorPickerAdapter(selectedColorPalette, this)
     binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 }
