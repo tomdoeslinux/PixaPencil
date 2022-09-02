@@ -11,7 +11,7 @@ fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) ->
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
     baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.filterBitmap(filterLambda) { coordinates, color ->
-        overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true, ignoreDither = true)
+        overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true, ignoreDither = true, ignoreShadingMap = true)
     }
 
     baseReference.viewModel.undoStack.doAddLast(baseReference.viewModel.currentBitmapAction!!)
