@@ -2,6 +2,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.RotationValue
+import kotlin.math.ceil
 
 fun CanvasActivity.rotate(rotationValue: RotationValue) {
     rotate(rotationValue.degrees, rotationValue.clockwise)
@@ -14,7 +15,8 @@ fun CanvasActivity.rotate(degrees: Float, clockwise: Boolean = true) {
         (binding.activityCanvasCardView.rotation - degrees)
     }
 
-    binding.activityCanvasCardView.rotation = rotationAmount
+    val nR = ceil(rotationAmount) - 0.1f
 
-    viewModel.currentRotation = rotationAmount
+    binding.activityCanvasCardView.rotation = nR
+    viewModel.currentRotation = nR
 }

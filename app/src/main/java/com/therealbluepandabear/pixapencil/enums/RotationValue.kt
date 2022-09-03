@@ -10,5 +10,5 @@ package com.therealbluepandabear.pixapencil.enums
 enum class RotationValue(val degrees: Float, val clockwise: Boolean = false) {
     NinetyAntiClockwise(90f),
     NinetyClockwise(90f, true),
-    OneEighty(179.9f),
+    OneEighty(180f),
 }
