@@ -19,4 +19,7 @@ fun CanvasActivity.rotate(degrees: Float, clockwise: Boolean = true) {
 
     binding.activityCanvasCardView.rotation = nR
     viewModel.currentRotation = nR
+
+    val tR = ceil(rotationAmount)
+    viewModel.trueRotation = tR
 }
