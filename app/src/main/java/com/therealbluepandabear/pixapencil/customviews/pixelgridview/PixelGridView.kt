@@ -19,7 +19,6 @@ import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 class PixelGridView(context: Context, attributeSet: AttributeSet): View(context, attributeSet){
-    private lateinit var pixelGridViewCanvas: Canvas
     lateinit var pixelGridViewBitmap: Bitmap
 
     private var bitmapWidth: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
@@ -104,7 +103,6 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         }
 
         pixelGridViewBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
-        pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
         if (existingBitmap != null) {
             pixelGridViewBitmap = existingBitmap!!.createMutableClone()
