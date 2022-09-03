@@ -12,6 +12,7 @@ import com.therealbluepandabear.pixapencil.enums.BitmapResolution
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.calculateMatrix
+import com.therealbluepandabear.pixapencil.extensions.createMutableClone
 import com.therealbluepandabear.pixapencil.listeners.CanvasFragmentListener
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
@@ -106,7 +107,7 @@ class PixelGridView(context: Context, attributeSet: AttributeSet): View(context,
         pixelGridViewCanvas = Canvas(pixelGridViewBitmap)
 
         if (existingBitmap != null) {
-            pixelGridViewCanvas.drawBitmap(existingBitmap!!, 0f, 0f, PaintCompat.getSDK28PaintOrNull())
+            pixelGridViewBitmap = existingBitmap!!.createMutableClone()
         }
 
         caller.onViewLoaded()
