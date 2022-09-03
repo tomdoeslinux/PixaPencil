@@ -8,7 +8,7 @@ fun CanvasActivity.rotate(rotationValue: RotationValue) {
 }
 
 fun CanvasActivity.rotate(degrees: Float, clockwise: Boolean = true) {
-    val rotationAmount = if (clockwise) {
+    val rotationAmount = if (clockwise || degrees == RotationValue.OneEighty.degrees) {
         (binding.activityCanvasCardView.rotation + degrees)
     } else {
         (binding.activityCanvasCardView.rotation - degrees)
