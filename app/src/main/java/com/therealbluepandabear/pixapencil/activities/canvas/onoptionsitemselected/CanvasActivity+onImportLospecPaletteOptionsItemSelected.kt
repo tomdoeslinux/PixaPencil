@@ -10,7 +10,6 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.converters.JsonConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ImportLospecPaletteAlertBinding
@@ -54,9 +53,6 @@ fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
                     binding.root.post {
                         binding.activityCanvasCoordinatorLayout.showSnackbarWithAction(getString(R.string.snackbar_successfully_imported_lospec_palette, colorPaletteTitle), SnackbarDuration.Medium, getString(
                             R.string.generic_switch)) {
-                            AppData.colorPalettesDB.colorPalettesDao().getAllColorPalettes().observe(this) {
-                                selectedColorPaletteIndex = it.size - 1
-                            }
                             onColorPaletteTapped(colorPalette)
                         }
                     }
