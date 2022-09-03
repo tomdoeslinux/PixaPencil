@@ -59,14 +59,14 @@ class TransparentBackgroundView(context: Context, attributeSet: AttributeSet): V
 
         transparentBackgroundViewBitmap = Bitmap.createBitmap(bitmapWidth, bitmapHeight, Bitmap.Config.ARGB_8888)
         transparentBackgroundViewCanvas = Canvas(transparentBackgroundViewBitmap)
+
+        transparentBackgroundViewBitmap.drawTransparent()
     }
 
     override fun onDraw(canvas: Canvas) {
         if (::transparentBackgroundViewBitmap.isInitialized) {
             val (matrix, _, _) = transparentBackgroundViewBitmap.calculateMatrix(viewWidth.toFloat(), viewHeight.toFloat())
             canvas.drawBitmap(transparentBackgroundViewBitmap, matrix, PaintCompat.getSDK28PaintOrNull())
-
-            transparentBackgroundViewBitmap.drawTransparent()
         }
     }
 }
