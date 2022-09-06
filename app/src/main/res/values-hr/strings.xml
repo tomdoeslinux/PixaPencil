@@ -217,4 +217,10 @@
     <string name="exportProjectDialogLayout_scaled_str">Skalirano</string>
     <string name="exception_invalid_file_name">Ime datoteke ne može biti prazno</string>
     <string name="dialog_file_exists_message">%1$s već postoji, želiš li je zamijeniti\?</string>
+    <string name="spot_light_activity_canvas_1">Dodirni pravokutnik s duginim bojama korištenje birača boja</string>
+    <string name="compression_quality">Kvaliteta kompresije</string>
+    <string name="palette_url_identifier">URL identifikator palete</string>
+    <string name="logo_cdesc">Logotip</string>
+    <string name="fragmentAppInfo_community_text">Pridruži se službenom <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> ili <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> poslužitelju. </string>
+    <string name="color_cdesc">Boja</string>
 </resources>
