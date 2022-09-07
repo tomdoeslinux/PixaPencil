@@ -28,8 +28,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPalett
 import com.therealbluepandabear.pixapencil.extensions.getColors
 import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
-import kotlin.math.abs
-import kotlin.math.ceil
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
     supportFragmentManager.commit {

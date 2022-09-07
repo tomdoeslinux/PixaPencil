@@ -20,7 +20,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.RotationValue
-import kotlin.math.ceil
 
 fun CanvasActivity.rotate(rotationValue: RotationValue) {
     rotate(rotationValue.degrees, rotationValue.clockwise)
