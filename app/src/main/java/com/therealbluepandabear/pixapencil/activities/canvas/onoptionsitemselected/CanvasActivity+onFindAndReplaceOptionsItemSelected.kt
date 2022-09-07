@@ -39,8 +39,8 @@ fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
                 paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
                 paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
                 paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
-                paramScaledWidth = binding.activityCanvasPixelGridView.drawToBitmap().rotate(ceil(abs(binding.activityCanvasCardView.rotation)).toInt(), viewModel.flipMatrix).width,
-                paramScaledHeight =  binding.activityCanvasPixelGridView.drawToBitmap().rotate(ceil(abs(binding.activityCanvasCardView.rotation)).toInt(), viewModel.flipMatrix).height
+                paramScaledWidth = binding.activityCanvasPixelGridView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).width,
+                paramScaledHeight =  binding.activityCanvasPixelGridView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).height
             )
         )
         addToBackStack(null)
