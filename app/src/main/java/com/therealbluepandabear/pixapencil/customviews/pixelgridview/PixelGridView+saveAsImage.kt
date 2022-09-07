@@ -49,7 +49,7 @@ fun PixelGridView.extendedSaveAsImage(
     val bitmap = if (resolution == BitmapResolution.Scaled) {
         this.drawToBitmap().rotate((parent as View).rotation.toInt(), flipMatrix)
     } else {
-        pixelGridViewBitmap
+        pixelGridViewBitmap.rotate((parent as View).rotation.toInt(), flipMatrix)
     }
 
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)
