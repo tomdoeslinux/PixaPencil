@@ -1,0 +1,40 @@
+Features Added
+- There is now a dialog dedicated to helping you export your pixel art, along with the added feature of exporting your pixel art as raw dimensions (as well as scaled). This was a heavily-needed feature which has now finally been added. Moreover, you can now also input custom compression quality values if you are exporting your image as a JPG.
+
+Improvements Added
+- Translation updates
+- App can finally properly register touch events when their start/end is outside canvas bounds (all credits go to [Sergie Kozelko](https://stackoverflow.com/users/3169238/sergei-kozelko) from StackOverflow for finding a solution to my question which you can find [here](https://stackoverflow.com/questions/73257043/hitrect-returning-wrong-y-value-for-unknown-reason/73388180?noredirect=1#comment129626786_73388180) -- if you are reading this, Sergie, thank you very much for your brilliant solution to a complex problem!)
+- 'Save as' (with multiple submenus) has transitioned into a single menu titled 'Export'
+- Minor margin adjustment in the 'New Color Palette' screen
+- The maximum value for spray radius/strength has been lowered from 20k to 10k
+- Replaced 'Save under new name' with 'Cancel'
+- Spray tool now generates points within a circle, instead of within a square
+- The maximum undo/redo stack size is now 100 items instead of unlimited
+- Updated in-app tutorial
+- Improved the UI for the 'Input Name' dialog
+- Changed 'We would love you to join our Matrix or Discord server' to 'Join the official Matrix or Discord server' -- this is more appropriate
+- The transparent background for colors in the color list (as well as the ones in the 'Find and Replace' fragment) now have the same appearance as those in the primary/secondary color switcher
+
+Bugs Fixed
+- Fixed bug where the 'About' fragment could become cut off if the user set a large default text size in their settings
+- Fixed bug in which input errors (such as an invalid or empty width/height) would leave permanent margin changes
+- Fixed bug in which occasionally, the keyboard from a previous fragment/activity wouldn't hide/close quickly enough when creating a new project or importing an image -- causing incorrect canvas view dimensions to be set
+- Fixed bug where inputting a blank value for the 'Palette URL Identifier' `EditText` in the 'Import Lospec Palette' dialog would cause the app to crash
+- Fixed bug where octal symmetry was being enabled when the bitmap was not a square
+- Fixed bug where the grid would become enabled when it shouldn't have
+- Fixed bug where 'XXX cannot be empty' errors were showing when the value wasn't empty, but simply greater than the maximum `Int` value
+- Fixed bug in which the input filter would sometimes cause the app to crash in the RGB section of the color picker
+- Fixed bug where the user could use pixel perfect mode with a symmetry option selected which would then cause bugs
+- Fixed bug where the transparent primary/secondary color would have a partial black background (instead of white) in dark mode
+- Fixed bug where the transparent color indicator not visible in color palette preview
+- Fixed bug in which when the user had an existing transparent color in their palette and added a new color it would scroll to the transparent color instead of the '+' icon
+- [PROBABLE as the bug was quite rare] Fixed bug in which tapping 'Extract From Canvas' in 'New Color Palette' screen would cause the app to crash (SOMETIMES) on certain (predominantly large) canvases
+- Fixed bug where all filters would lighten when the user had the shading tool selected
+- Fixed bug in which changing display size while project is open and then returning to the app would cause a strange canvas glitch
+- Fixed minor rotation state bug
+- Fixed bug in which rotating the canvas 180 degrees over and over again would cause the canvas to slowly become skewed - this occurred because of this internal Skia/AOSP bug workaround. To fix the issue I had to get rid of the workaround and just accept the bug, which is if you rotate the canvas 180 degrees, the shadow won't show.
+
+Other Changes
+- License has now changed from MIT to GNU GPL v3, copyright headers/license notices have also now been added to all Kotlin files
+- Moved Lospec support out of beta
+- Haptic feedback may not occur in the app if it's disabled on your device due to SDK updates
