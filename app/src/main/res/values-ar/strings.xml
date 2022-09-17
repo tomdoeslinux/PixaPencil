@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="fragmentFindAndReplace_find">إبحث</string>
+    <string name="projectDetailsAlertBox_height">الارتفاع</string>
+    <string name="exportProjectDialogLayout_raw_str">خام</string>
+    <string name="compression_quality">جودة الضغط</string>
+    <string name="generic_no_thanks">لا، شكرا</string>
+    <string name="activityMainBottomSheet_delete">حذف</string>
+    <string name="projectDetailsAlertBox_created">أضيفت</string>
+    <string name="projectDetailsAlertBox_colors">الألوان</string>
+    <string name="exportProjectDialogLayout_file_name_str">اسم الملف</string>
+    <string name="exportProjectDialogLayout_file_type_str">نوع الملف</string>
+    <string name="fragmentFilters_color_filter">فلتر اللون</string>
+    <string name="fragmentFilters_invert">إعكس</string>
+    <string name="fragmentNewColorPalette_done">تم</string>
+    <string name="fragmentNewProject_name">إسم</string>
+    <string name="fragmentNewProject_width">عرض</string>
+    <string name="fragmentNewProject_height">ارتفاع</string>
+    <string name="fragment_new_project_title">مشروع جديد</string>
+    <string name="generic_warning">تنبيه</string>
+    <string name="exportProjectDialogLayout_resolution_str">الدقة</string>
+    <string name="fragmentSprayToolSettings_strength">القوة</string>
+    <string name="fragment_spray_tool_settings_title">إعدادات أداة الرش</string>
+    <string name="activityMainBottomSheet_duplicate">كرر</string>
+    <string name="activityMainBottomSheet_view_details">إعرض التفاصيل</string>
+    <string name="projectDetailsAlertBox_width">العرض</string>
+    <string name="generic_ok">حسنا</string>
+    <string name="generic_cancel">الغاء</string>
+    <string name="generic_saved">تم الحفظ</string>
+    <string name="generic_switch">غير</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">المفضلة</string>
+    <string name="fragmentFindAndReplace_replace_with">إستبدل ب</string>
+    <string name="fragmentSprayToolSettings_radius">نصف القطر</string>
+    <string name="fragmentSprayToolSettings_done">تم</string>
+    <string name="fragment_replace_color_title">إستبدل اللون</string>
+    <string name="fragment_color_picker_title">إختر اللون</string>
+</resources>
