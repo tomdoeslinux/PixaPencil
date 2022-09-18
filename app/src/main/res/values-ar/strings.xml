@@ -1,2 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="fragmentFindAndReplace_find">إبحث</string>
+    <string name="projectDetailsAlertBox_height">الارتفاع</string>
+    <string name="exportProjectDialogLayout_raw_str">خام</string>
+    <string name="compression_quality">جودة الضغط</string>
+    <string name="generic_no_thanks">لا، شكرا</string>
+    <string name="activityMainBottomSheet_delete">حذف</string>
+    <string name="projectDetailsAlertBox_created">أضيفت</string>
+    <string name="projectDetailsAlertBox_colors">الألوان</string>
+    <string name="exportProjectDialogLayout_file_name_str">اسم الملف</string>
+    <string name="exportProjectDialogLayout_file_type_str">نوع الملف</string>
+    <string name="fragmentFilters_color_filter">فلتر اللون</string>
+    <string name="fragmentFilters_invert">إعكس</string>
+    <string name="fragmentNewColorPalette_done">تم</string>
+    <string name="fragmentNewProject_name">إسم</string>
+    <string name="fragmentNewProject_width">عرض</string>
+    <string name="fragmentNewProject_height">ارتفاع</string>
+    <string name="fragment_new_project_title">مشروع جديد</string>
+    <string name="generic_warning">تنبيه</string>
+    <string name="exportProjectDialogLayout_resolution_str">الدقة</string>
+    <string name="fragmentSprayToolSettings_strength">القوة</string>
+    <string name="fragment_spray_tool_settings_title">إعدادات أداة الرش</string>
+    <string name="activityMainBottomSheet_duplicate">كرر</string>
+    <string name="activityMainBottomSheet_view_details">إعرض التفاصيل</string>
+    <string name="projectDetailsAlertBox_width">العرض</string>
+    <string name="generic_ok">حسنا</string>
+    <string name="generic_cancel">الغاء</string>
+    <string name="generic_saved">تم الحفظ</string>
+    <string name="generic_switch">غير</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">المفضلة</string>
+    <string name="fragmentFindAndReplace_replace_with">إستبدل ب</string>
+    <string name="fragmentSprayToolSettings_radius">نصف القطر</string>
+    <string name="fragmentSprayToolSettings_done">تم</string>
+    <string name="fragment_replace_color_title">إستبدل اللون</string>
+    <string name="fragment_color_picker_title">إختر اللون</string>
+    <string name="fragmentFilters_lighten">تفتيح</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">معاينة البحث</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">معاينة الاستبدال</string>
+    <string name="fragmentTools_outlined_square_button_content_description">آداة المربع المخطط</string>
+    <string name="fragmentTools_ellipse_tool_content_description">آداة الشكل البيضاوي</string>
+    <string name="fragmentTools_outlined_ellipse_button_content_description">آداة الشكل البيضاوي المخطط</string>
+    <string name="fragmentTools_circle_tool_content_description">آداة الدائرة</string>
+    <string name="fragmentTools_outlined_circle_tool_content_description">آداة الدائرة المخططة</string>
+    <string name="generic_darken_mode_tooltip">وضع التعتيم</string>
+    <string name="recentCreationsLayout_imageView_content_description">معاينة Pixel Art</string>
+    <string name="exportProjectDialogLayout_scaled_str">مقاسة</string>
+    <string name="palette_url_identifier">معرف URL للوحة</string>
+    <string name="fragmentFilters_darken">تعتيم</string>
+    <string name="generic_lighten_mode_tooltip">وضع التفتيح</string>
+    <string name="fragmentFilters_grayscale">تدرج الرمادي</string>
+    <string name="fragmentNewColorPalette_color_palette_name">إسم لوحة الألوان</string>
+    <string name="fragmentFindAndReplace_colors_in_your_canvas">الألوان في لوحتك:</string>
+    <string name="fragmentTools_line_tool_content_description">آداة التسطير</string>
+    <string name="defaultColorPalette">لوحة الألوان الافتراضية</string>
+    <string name="fragmentNewColorPalette_extract_from_canvas">استخرج من اللوحة</string>
+    <string name="fragment_dither_tool_settings_title">إعدادات آداة ثبات الألوان</string>
+    <string name="fragmentTools_fill_tool_content_description">آداة الملئ</string>
+    <string name="fragmentTools_rectangle_tool_content_description">آداة المستطيل</string>
+    <string name="colorPalettesLayout_color_palette_item">عنصر لوحة الألوان</string>
+    <string name="fragmentFindAndReplace_not_enough_colors">ألوان غير كافية؟ غير لوحة الألوان الحالية.</string>
+    <string name="fragment_new_color_palette_title">لوحة ألوان جديدة</string>
+    <string name="fragmentTools_move_tool_content_description">آداة التحريك</string>
+    <string name="fragmentTools_pencil_tool_content_description">آداة القلم</string>
+    <string name="fragmentTools_eraser_tool_content_description">آداة الممحاة</string>
+    <string name="fragmentTools_outlined_rectangle_tool_content_description">آداة المستطيل المخطط</string>
+    <string name="fragmentTools_polygon_tool_content_description">آداة المضلع</string>
+    <string name="fragmentAppInfo_description_text_land">PixaPencil هو محرر Pixel Art <a href="https://github.com/therealbluepandabear/PixaPencil">مفتوح المصدر</a>، خالي 100% من الإعلانات المزعجة ومن خدمات Google Play المتطفلة على الخصوصية.
+\n
+\nللتأكد من هذا، من المستحسن
+\nأن تثبت التطبيق عبر <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> أو عبر <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>.</string>
+    <string name="activityCanvas_tab_brushes">الفرش</string>
+    <string name="activityCanvas_tab_color_palettes">لوحات الألوان</string>
+    <string name="fragmentTools_color_picker_tool_content_description">آداة انتقاء الألوان</string>
+    <string name="fragmentTools_square_tool_content_description">آداة المربع</string>
+    <string name="fragmentTools_shading_tool_content_description">آداة التظليل</string>
+    <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">تم النسخ إلى الحافظة</string>
+    <string name="fragmentTools_spray_tool_content_description">آداة الرش</string>
+    <string name="fragmentTools_dither_tool_content_description">آداة ثبات الألوان</string>
+    <string name="fragmentHexadecimalColorPicker_hexadecimal_value">قيمة HEX</string>
+    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">فشل النسخ إلى الحافظة</string>
+    <string name="fragmentColorPicker_tab_color_picker">منتقي الألوان</string>
+    <string name="fragmentAppInfo_created_by_text">تم إنشاؤه بواسطة <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
+    <string name="fragmentAppInfo_community_text">إنضم إلى خادم <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> أو <a href="https://discord.gg/Ytm7WBMNz9">Discord</a> الرسمي. </string>
+    <string name="fragmentAppInfo_description_text"> PixaPencil هو محرر Pixel Art <a href="https://github.com/therealbluepandabear/PixaPencil">مفتوح المصدر</a>، خالي 100% من الإعلانات المزعجة ومن خدمات Google Play المتطفلة على الخصوصية.
+\n
+\nللتأكد من هذا، من المستحسن
+\nأن تثبت التطبيق عبر <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> أو عبر <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a>. </string>
+    <string name="activityMain_newProjectButton_contentDescription">مشروع جديد</string>
+    <string name="activityCanvas_tab_filters">الفلاتر</string>
+    <string name="activityCanvas_tab_tools">الأدوات</string>
+</resources>
