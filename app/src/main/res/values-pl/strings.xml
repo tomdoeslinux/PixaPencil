@@ -128,4 +128,37 @@
 \n
 \nAby to zagwarantować, zalecamy,
 \nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHuba</a>.</string>
+    <string name="color_picker_tool_info_title">Informacje o narzędziu \"Selektor kolorów\"</string>
+    <string name="color_picker_tool_info_text">Uzyskanie koloru określonego piksela</string>
+    <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Nie udało się skopiować</string>
+    <string name="fill_tool_info_title">Informacje o narzędziu \"Wypełnij\"</string>
+    <string name="line_tool_info_title">Informacje o narzędziu \"Linia\"</string>
+    <string name="fill_tool_info_text">Wypełnianie sąsiednich pikseli o podobnej wartości koloru</string>
+    <string name="rectangle_tool_info_title">Informacje o narzędziu \"Wypełniony prostokąt\"</string>
+    <string name="outlined_rectangle_tool_info_title">Informacje o narzędziu \"Prostokąt\"</string>
+    <string name="outlined_ellipse_tool_info_title">Informacje o narzędziu \"Elipsa\"</string>
+    <string name="square_tool_info_title">Informacje o narzędziu \"Wypełniony kwadrat\"</string>
+    <string name="generic_darken_mode_tooltip">Tryb przyciemniania</string>
+    <string name="generic_lighten_mode_tooltip">Tryb rozjaśniania</string>
+    <string name="activityMainBottomSheet_duplicate">Duplikuj</string>
+    <string name="activityMainBottomSheet_view_details">Szczegóły</string>
+    <string name="projectDetailsAlertBox_created">Utworzono</string>
+    <string name="projectDetailsAlertBox_colors">Kolory</string>
+    <string name="exception_invalid_height">Wartość musi być między 1 a 10 000</string>
+    <string name="exception_failed_to_compress_file">Nie udało się skompresować pliku</string>
+    <string name="exception_empty_width">Szerokość nie może być pusta</string>
+    <string name="exception_empty_height">Wysokość nie może być pusta</string>
+    <string name="exception_empty_color_palette_name">Nazwa palety kolorów nie może być pusta</string>
+    <string name="exception_failed_to_create_file">Nie udało się utworzyć pliku</string>
+    <string name="exception_invalid_file_name">Nazwa pliku nie może być pusta</string>
+    <string name="line_tool_info_text">Rysowanie pikselowanych linii</string>
+    <string name="rectangle_tool_info_text">Rysowanie wypełnionych, pikselowanych prostokątów</string>
+    <string name="outlined_square_tool_info_title">Informacje o narzędziu \"Kwadrat\"</string>
+    <string name="ellipse_tool_info_title">Informacje o narzędziu \"Wypełniona elipsa\"</string>
+    <string name="circle_tool_info_title">Informacje o narzędziu \"Koło\"</string>
+    <string name="outlined_circle_tool_info_title">Informacje o narzędziu \"Okrąg\"</string>
+    <string name="exception_invalid_project_name">Nazwa nie może być pusta</string>
+    <string name="exception_invalid_width">Wartość musi być między 1 a 10 000</string>
+    <string name="exception_invalid_spray_radius">Wartość musi być pomiędzy 2 a 10 000</string>
+    <string name="exception_invalid_spray_strength">Wartość musi być pomiędzy 2 a 10 000</string>
 </resources>
