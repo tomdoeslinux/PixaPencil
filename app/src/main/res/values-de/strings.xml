@@ -70,8 +70,7 @@
     <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (Uhrzeigersinn)</string>
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (gegen den Uhrzeigersinn)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Zoom zurücksetzen</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Position zurücksetzen</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Zoom zurücksetzen/Position zurücksetzen</string> <!--//-->
     <string name="activityCanvasTopAppMenu_zoom_in">Zoomen</string>
     <string name="activityCanvasTopAppMenu_zoom_out">Raus zoomen</string>
     <string name="activityCanvasTopAppMenu_save_text">Speichern</string>

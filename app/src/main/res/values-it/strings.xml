@@ -70,7 +70,6 @@
     <string name="fragmentColorPicker_tab_color_picker">Selettore Colore</string>
     <string name="activityCanvas_tab_brushes">Pennelli</string>
     <string name="activityCanvasTopAppMenu_new_color_palette">Nuova Tavolozza Colori</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Posizione Iniziale</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Ingrandisci</string>
     <string name="activityCanvasTopAppMenu_zoom_out">Diminuisci</string>
     <string name="activityCanvasTopAppMenu_save_text">Salva</string>
@@ -86,7 +85,7 @@
     <string name="color_picker_tool_info_title">Info Strumento Prendi Colore</string>
     <string name="color_picker_tool_info_text">Prendi il colore del pixel specifico.</string>
     <string name="fill_tool_info_title">Info Strumento Riempi</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Dimensione Originale</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Dimensione Originale/Posizione Iniziale</string>
     <string name="activityCanvasTopAppMenu_symmetry_quad">Quadruplo</string>
     <string name="activityCanvasTopAppMenu_symmetry_none">Nessuno</string>
     <string name="activityCanvasTopAppMenu_symmetry_octal">Ottale</string>

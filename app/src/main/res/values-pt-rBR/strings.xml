@@ -78,11 +78,10 @@
     <string name="bottomNavigationMenu_home">Início</string>
     <string name="pencil_tool_info_title">Lápis</string>
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (anti-horário)</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Redefinir Posição</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical">Vertical</string>
     <string name="activityCanvasTopAppMenu_rotate_90_clockwise">90° (sentido horário)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Redefinir Zoom</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Redefinir Zoom/Redefinir Posição</string>
     <string name="activityCanvasTopAppMenu_zoom_out">Menos Zoom</string>
     <string name="activityCanvasTopAppMenu_save_text">Salvar</string>
     <string name="activityCanvasTopAppMenu_grid">Grade</string>

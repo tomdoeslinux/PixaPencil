@@ -100,8 +100,7 @@
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90°(逆时针)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_flip">翻转</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">重置缩放</string>
-    <string name="activityCanvasTopAppMenu_reset_position">重置位置</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">重置缩放/重置位置</string> <!---->
     <string name="activityCanvasTopAppMenu_zoom_in">放大</string>
     <string name="activityCanvasTopAppMenu_zoom_out">缩小</string>
     <string name="activityCanvasTopAppMenu_save_text">保存</string>

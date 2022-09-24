@@ -140,8 +140,7 @@
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (anti-clockwise)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_flip">Flip</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Reset Zoom</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Reset Position</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Reset Zoom &amp; Position</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Zoom in</string>
     <string name="activityCanvasTopAppMenu_zoom_out">Zoom out</string>
     <string name="activityCanvasTopAppMenu_save_text">Save</string>

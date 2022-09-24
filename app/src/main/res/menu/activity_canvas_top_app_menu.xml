@@ -36,14 +36,9 @@
         android:title="@string/activityCanvasTopAppMenu_pixel_perfect" />
 
     <item
-        android:id="@+id/activityCanvasTopAppMenu_reset_zoom_subItem"
+        android:id="@+id/activityCanvasTopAppMenu_reset_zoom_and_pos_subItem"
         app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_reset_zoom" />
-
-    <item
-        android:id="@+id/activityCanvasTopAppMenu_reset_position_subItem"
-        app:showAsAction="ifRoom"
-        android:title="@string/activityCanvasTopAppMenu_reset_position" />
+        android:title="@string/activityCanvasTopAppMenu_reset_zoom_and_pos" />
 
     <item
         app:showAsAction="ifRoom"

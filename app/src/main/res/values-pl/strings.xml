@@ -188,8 +188,7 @@
     <string name="palette_url_identifier">Identyfikator URL palety</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Wyodrębnij z obszaru roboczego</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas">Kolory na obszarze roboczym:</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Resetuj powiększenie</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Resetuj pozycję</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Resetuj powiększenie/Resetuj pozycję</string>
     <string name="spray_tool_info_title">Informacje o narzędziu \"Sprej\"</string>
     <string name="outlined_rectangle_tool_info_text">Rysowanie pikselowanych prostokątów</string>
     <string name="outlined_square_tool_info_text">Rysowanie pikselowanych kwadratów</string>

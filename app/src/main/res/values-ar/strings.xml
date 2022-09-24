@@ -105,12 +105,11 @@
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (عكس اتجاه عقارب الساعة)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_flip">قلب</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">إعادة تعيين التكبير</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">إعادة تعيين التكبير/إعادة تعيين الموضع</string> <!---->
     <string name="activityCanvasTopAppMenu_zoom_in">تكبير</string>
     <string name="activityCanvasTopAppMenu_replace_color">استبدال اللون</string>
     <string name="activityCanvasTopAppMenu_symmetry_horizontal">أفقي</string>
     <string name="activityCanvasTopAppMenu_symmetry_vertical">عمودي</string>
-    <string name="activityCanvasTopAppMenu_reset_position">إعادة تعيين الموضع</string>
     <string name="activityCanvasTopAppMenu_zoom_out">تصغير</string>
     <string name="activityCanvasTopAppMenu_save_text">حفظ</string>
     <string name="activityCanvasTopAppMenu_grid">شبكة</string>

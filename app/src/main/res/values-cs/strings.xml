@@ -44,8 +44,7 @@
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90° (v levo)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_flip">Obrátit</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom">Vrátit Přiblížení</string>
-    <string name="activityCanvasTopAppMenu_reset_position">Resetovat Pozici</string>
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Vrátit Přiblížení/Resetovat Pozici</string>
     <string name="activityCanvasTopAppMenu_zoom_in">Přiblížit</string>
     <string name="activityCanvasTopAppMenu_zoom_out">Oddálit</string>
     <string name="activityCanvasTopAppMenu_save_text">Uložit</string>

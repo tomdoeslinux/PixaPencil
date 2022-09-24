@@ -76,8 +76,11 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             onRotate90DegreesAntiClockwiseOptionsItemSelected()
         }
 
-        R.id.activityCanvasTopAppMenu_reset_zoom_subItem -> {
+        R.id.activityCanvasTopAppMenu_reset_zoom_and_pos_subItem -> {
             onResetZoomOptionsItemSelected()
+            if (originalX != null && originalY != null) {
+                resetPosition()
+            }
         }
 
         R.id.activityCanvasTopAppMenu_clear_canvas_item -> {
@@ -115,12 +118,6 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         R.id.appMenu_symmetry_octal_subItem -> {
             menu.findItem(R.id.appMenu_symmetry_octal_subItem).isChecked = true
             viewModel.currentSymmetryMode = SymmetryMode.Octal
-        }
-
-        R.id.activityCanvasTopAppMenu_reset_position_subItem -> {
-            if (originalX != null && originalY != null) {
-                resetPosition()
-            }
         }
 
         R.id.activityCanvasTopAppMenu_save_in_background_item -> {
