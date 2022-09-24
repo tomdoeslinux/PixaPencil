@@ -108,7 +108,7 @@ fun CanvasActivity.calcCrucialViewDimensions() {
             }
 
             width > height && orientationPortrait -> {
-                val ratio = height.toDouble() / width.toDouble()
+                var ratio = height.toDouble() / width.toDouble()
 
                 var width = binding.activityCanvasDistanceContainer.width
                 var height = (width * ratio).toInt()
@@ -116,9 +116,10 @@ fun CanvasActivity.calcCrucialViewDimensions() {
                 // We have this 'if' statement to ensure that there is no overlap
                 if (height >= binding.activityCanvasDistanceContainer.measuredHeight) {
                     val inset = 0.95
+                    ratio = (height * inset) / (width * inset)
 
-                    width = (binding.activityCanvasDistanceContainer.measuredHeight * inset).toInt()
-                    height = ((binding.activityCanvasDistanceContainer.measuredHeight * inset) * ratio).toInt()
+                    width = (binding.activityCanvasDistanceContainer.measuredHeight)
+                    height = ((binding.activityCanvasDistanceContainer.measuredHeight) * ratio).toInt()
                 }
 
                 binding.activityCanvasTransparentBackgroundView.setViewWidth(width)
@@ -130,10 +131,10 @@ fun CanvasActivity.calcCrucialViewDimensions() {
 
             width < height && orientationPortrait -> {
                 val inset = 0.95
-                val ratio = width.toDouble() / height.toDouble()
+                val ratio = (width * inset) / (height * inset)
 
-                val height = (binding.activityCanvasDistanceContainer.height * inset).toInt()
-                val width = ((height * ratio) * inset).toInt()
+                val height = (binding.activityCanvasDistanceContainer.height)
+                val width = (height * ratio).toInt()
 
                 // We do not need to check for overlaps in this scenario
 

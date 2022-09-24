@@ -39,11 +39,11 @@ fun PixelGridView.extendedDrawGrid(canvas: Canvas) {
 
     for (i in 0 until dvr) {
         if (pixelGridViewBitmap.width >= pixelGridViewBitmap.height) {
-            path1.lineTo(xm, width.toFloat())
-            path2.lineTo(width.toFloat(), xm)
+            path1.lineTo(xm, measuredWidth.toFloat())
+            path2.lineTo(measuredWidth.toFloat(), xm)
         } else {
-            path1.lineTo(xm, height.toFloat())
-            path2.lineTo(width.toFloat(), xm)
+            path1.lineTo(xm, measuredHeight.toFloat())
+            path2.lineTo(measuredWidth.toFloat(), xm)
         }
 
         xm += scaleWidth
