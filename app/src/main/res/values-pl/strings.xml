@@ -198,4 +198,5 @@
     <string name="spot_light_new_project_fragment_1">Wpisz nazwę projektu</string>
     <string name="spot_light_new_project_fragment_3">Na koniec ustaw wysokość projektu</string>
     <string name="spot_light_activity_canvas_2">Tutaj znajdziesz dostępne narzędzia</string>
+    <string name="recentCreationsLayout_favoriteButton_content_description">Wyróżniony</string>
 </resources>
