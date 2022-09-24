@@ -64,8 +64,8 @@ android {
 
 dependencies {
     // Implementations ==> [AndroidX]
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.room:room-runtime:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
@@ -87,8 +87,8 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.1'
 
     // Implementations ==> [JetBrains]
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3'
-    runtimeOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.3'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    runtimeOnly 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     // Test Implementations ==> [JUnit]
     testImplementation 'junit:junit:4.13.2'
@@ -114,7 +114,7 @@ dependencies {
     // Android Test Implementations ==> [Core Android Test Implementations]
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
     androidTestImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test:1.6.20"
