@@ -167,12 +167,11 @@ fun CanvasActivity.calcCrucialViewDimensions() {
             }
 
             width > height && orientationLandscape -> {
-                val ratio = height.toDouble() / width.toDouble()
-
                 val inset = 0.95
+                val ratio = (height * inset) / (width * inset)
 
-                val width = (binding.activityCanvasDistanceContainer.width * inset).toInt()
-                val height = ((width * ratio) * inset).toInt()
+                val width = (binding.activityCanvasDistanceContainer.width)
+                val height = (width * ratio).toInt()
 
                 binding.activityCanvasTransparentBackgroundView.setViewWidth(width)
                 binding.activityCanvasTransparentBackgroundView.setViewHeight(height)
