@@ -199,4 +199,8 @@
     <string name="spot_light_new_project_fragment_3">Na koniec ustaw wysokość projektu</string>
     <string name="spot_light_activity_canvas_2">Tutaj znajdziesz dostępne narzędzia</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">Wyróżniony</string>
+    <string name="fragmentSprayToolSettings_radius">Rozmiar</string>
+    <string name="exception_empty_spray_radius">Rozmiar nie może być pusty</string>
+    <string name="dialog_exception_info_title">Informacje o wyjątkach</string>
+    <string name="spray_tool_info_text">Symulacja malowania farbą w spreju</string>
 </resources>
