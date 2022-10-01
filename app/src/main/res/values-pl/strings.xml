@@ -120,7 +120,7 @@
     <string name="shading_tool_info_text">Rozjaśnij/przyciemnij piksele na obszarze roboczym</string>
     <string name="dialog_file_exists_title">Plik już istnieje</string>
     <string name="tool_tip_dont_show_again">Nie pokazuj ponownie</string>
-    <string name="spot_light_activity_main">Kliknij aby utworzyć
+    <string name="spot_light_activity_main">Dotknij, aby utworzyć
 \nnowy projekt</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nazwa palety kolorów</string>
     <string name="fragmentAppInfo_community_text">Dołącz do oficjalnych serwerów: <a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> lub <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
@@ -184,7 +184,7 @@
     <string name="snackbar_view_exception_info_button_text">Wyświetl</string>
     <string name="snackbar_image_successfully_saved">Pomyślnie zapisano %1$s jako %2$s</string>
     <string name="snackbar_deleted_projects">Usunięto %1$s projektów</string>
-    <string name="spot_light_new_project_fragment_input_value">Proszę wprowadzić wartość dla %1$s</string>
+    <string name="spot_light_new_project_fragment_input_value">Wpisz wartość w pole %1$s</string>
     <string name="palette_url_identifier">Identyfikator URL palety</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Wyodrębnij z obszaru roboczego</string>
     <string name="fragmentFindAndReplace_colors_in_your_canvas">Kolory na obszarze roboczym:</string>
@@ -218,4 +218,8 @@
     <string name="dither_tool_info_title">Informacje o narzędziu Dithering</string>
     <string name="tool_tip_dither">Wskazówka: Dotknij ikony, aby zmienić pędzel do ditheringu</string>
     <string name="tool_tip_spray">Wskazówka: Dotknij ikony, aby zmienić ustawienia narzędzia Sprej</string>
+    <string name="fragment_find_and_replace_replace_preview_content_description">Widok po</string>
+    <string name="colorPalettesLayout_color_palette_item">Element palety kolorów</string>
+    <string name="spot_light_activity_canvas_6">Dostępna jest domyślna paleta, ale zawsze możesz utworzyć nową dotykając trzech kropek w prawym górnym rogu ekranu</string>
+    <string name="fragment_find_and_replace_find_preview_content_description">Widok przed</string>
 </resources>
