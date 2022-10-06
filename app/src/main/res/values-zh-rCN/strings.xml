@@ -100,7 +100,8 @@
     <string name="activityCanvasTopAppMenu_rotate_90_anti_clockwise">90°(逆时针)</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
     <string name="activityCanvasTopAppMenu_flip">翻转</string>
-    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">重置缩放/重置位置</string> <!---->
+    <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">重置缩放/重置位置</string>
+    <!---->
     <string name="activityCanvasTopAppMenu_zoom_in">放大</string>
     <string name="activityCanvasTopAppMenu_zoom_out">缩小</string>
     <string name="activityCanvasTopAppMenu_save_text">保存</string>
@@ -177,7 +178,7 @@
     <string name="dialog_image_exception_when_saving_title">保存%1$s为%2$s时出现错误</string>
     <string name="dialog_error_opening_image">打开图像时出错</string>
     <string name="dialog_delete_pixel_art_project_title">确定删除%1$s?"</string>
-    <string name="dialog_delete_pixel_art_project_text">确定删除%1$s?这将无法撤销"</string>
+    <string name="dialog_delete_pixel_art_project_text">确定要删除 %1$s？- 这无法撤销。</string>
     <string name="dialog_delete_pixel_art_project_deleted_text">删除%1$s</string>
     <string name="dialog_project_details_title">详情</string>
     <string name="dialog_welcome_title">欢迎</string>
@@ -201,7 +202,8 @@
     <string name="tool_tip_dither">提示：点击图标更改抖动画笔</string>
     <string name="tool_tip_dont_show_again">不再显示</string>
     <!-- Spotlight strings -->
-    <string name="spot_light_activity_main">点按创建新项目</string>
+    <string name="spot_light_activity_main">点按创建
+\n新项目</string>
     <string name="spot_light_new_project_fragment_1">输入新建项目的名称</string>
     <string name="spot_light_new_project_fragment_2">接着，设置项目图片宽度</string>
     <string name="spot_light_new_project_fragment_3">最后，设置项目图片高度</string>
