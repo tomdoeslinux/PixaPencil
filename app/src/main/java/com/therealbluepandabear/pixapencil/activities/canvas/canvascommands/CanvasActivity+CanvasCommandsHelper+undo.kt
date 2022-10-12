@@ -29,12 +29,12 @@ fun CanvasActivity.CanvasCommandsHelper.undo() {
         for ((key, value) in baseReference.viewModel.undoStack.last().actionData.distinctBy {
             it.coordinates
         }) {
-            baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(Coordinates(key.x, key.y), value)
+            baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(Coordinates(key.x, key.y), value)
         }
 
         baseReference.viewModel.redoStack.doAddLast(baseReference.viewModel.undoStack.last())
 
-        baseReference.binding.activityCanvasPixelGridView.invalidate()
+        baseReference.binding.activityCanvasDrawingView.invalidate()
         baseReference.viewModel.undoStack.removeLast()
     }
 

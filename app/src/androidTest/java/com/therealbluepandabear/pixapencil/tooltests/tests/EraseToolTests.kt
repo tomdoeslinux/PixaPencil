@@ -36,8 +36,8 @@ import org.junit.runner.RunWith
 @LargeTest
 class EraseToolTests {
     private fun iterate(activity: CanvasActivity, func: (Coordinates) -> Unit) {
-        for (i_1 in 0 until activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.width) {
-            for (i_2 in 0 until activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.height) {
+        for (i_1 in 0 until activity.binding.activityCanvasDrawingView.drawingViewBitmap.width) {
+            for (i_2 in 0 until activity.binding.activityCanvasDrawingView.drawingViewBitmap.height) {
                 func.invoke(Coordinates(i_1, i_2))
             }
         }
@@ -55,14 +55,14 @@ class EraseToolTests {
             floodFillAlgorithm.compute(Coordinates(0,0))
 
             iterate(it) { coordinates ->
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates) == Color.BLACK)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinates) == Color.BLACK)
             }
 
             it.viewModel.currentTool = Tool.EraseTool
 
             iterate(it) { coordinates ->
                 it.onPixelTapped(coordinates)
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates) == Color.TRANSPARENT)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinates) == Color.TRANSPARENT)
             }
         }
     }

@@ -19,7 +19,7 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawPixelGridViewBitmap
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -44,9 +44,9 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
             AppData.pixelArtDB.dao().insert(
                 PixelArt(
                     coverBitmapFilePath,
-                    BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap()),
-                    drawPixelGridViewBitmap().width,
-                    drawPixelGridViewBitmap().height,
+                    BitmapConverter.convertBitmapToString(drawdrawingViewBitmap()),
+                    drawdrawingViewBitmap().width,
+                    drawdrawingViewBitmap().height,
                     title.toString(),
                     false
                 )
@@ -55,9 +55,9 @@ fun CanvasActivity.onSaveProjectOptionsItemSelected() {
     } else {
         val pixelArt = AppData.pixelArtDB.dao().getAllNoLiveData()[index]
         pixelArt.coverBitmapFilePath = coverBitmapFilePath
-        pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap())
-        pixelArt.width = drawPixelGridViewBitmap().width
-        pixelArt.height = drawPixelGridViewBitmap().height
+        pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawdrawingViewBitmap())
+        pixelArt.width = drawdrawingViewBitmap().width
+        pixelArt.height = drawdrawingViewBitmap().height
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.dao().update(pixelArt)

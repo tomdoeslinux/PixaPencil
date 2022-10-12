@@ -102,30 +102,12 @@ fun Bitmap.getColors(): MutableList<Int> {
     return colors
 }
 
-fun Bitmap.calculateMatrix(newWidth: Float, newHeight: Float): MatrixInfo {
-    val scaleWidth = newWidth / width
-    val scaleHeight = newHeight / height
-
-    val matrix = Matrix()
-    matrix.postScale(scaleWidth, scaleHeight)
-
-    return MatrixInfo(matrix, scaleWidth, scaleHeight)
-}
-
 fun Bitmap.setPixel(coordinates: Coordinates, color: Int) {
     return setPixel(coordinates.x, coordinates.y, color)
 }
 
 fun Bitmap.getPixel(coordinates: Coordinates): Int {
     return getPixel(coordinates.x, coordinates.y)
-}
-
-fun Bitmap.isWidthLarger(): Boolean {
-    return width > height
-}
-
-fun Bitmap.isRect(): Boolean {
-    return width != height
 }
 
 fun Bitmap.rotate(degrees: Int, flipMatrix: List<FlipValue>? = null): Bitmap {

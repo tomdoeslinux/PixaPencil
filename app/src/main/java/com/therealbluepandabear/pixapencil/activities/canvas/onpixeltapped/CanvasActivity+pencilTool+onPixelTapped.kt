@@ -25,14 +25,14 @@ import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    if (binding.activityCanvasPixelGridView.prevX != null && binding.activityCanvasPixelGridView.prevY != null) {
+    if (binding.activityCanvasDrawingView.prevX != null && binding.activityCanvasDrawingView.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-        lineAlgorithmInstance.compute(Coordinates(binding.activityCanvasPixelGridView.prevX!!, binding.activityCanvasPixelGridView.prevY!!), coordinatesTapped)
+        lineAlgorithmInstance.compute(Coordinates(binding.activityCanvasDrawingView.prevX!!, binding.activityCanvasDrawingView.prevY!!), coordinatesTapped)
     }
 
     canvasCommandsHelperInstance.overrideSetPixel(coordinatesTapped, getSelectedColor())
 
-    binding.activityCanvasPixelGridView.prevX = coordinatesTapped.x
-    binding.activityCanvasPixelGridView.prevY = coordinatesTapped.y
+    binding.activityCanvasDrawingView.prevX = coordinatesTapped.x
+    binding.activityCanvasDrawingView.prevY = coordinatesTapped.y
 }

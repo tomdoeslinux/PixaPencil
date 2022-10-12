@@ -24,16 +24,16 @@ import com.therealbluepandabear.pixapencil.extensions.filterBitmap
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun CanvasActivity.CanvasCommandsHelper.applyBitmapFilter(filterLambda: (Int) -> Int) {
-    baseReference.binding.activityCanvasPixelGridView.shadingMap.clear()
+    baseReference.binding.activityCanvasDrawingView.shadingMap.clear()
     baseReference.viewModel.saved = false
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
-    baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.filterBitmap(filterLambda) { coordinates, color ->
+    baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.filterBitmap(filterLambda) { coordinates, color ->
         overrideSetPixel(coordinates, color, ignoreBrush = true, ignoreSymmetry = true, ignoreDither = true, ignoreShadingMap = true)
     }
 
     baseReference.viewModel.undoStack.doAddLast(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
-    baseReference.binding.activityCanvasPixelGridView.invalidate()
+    baseReference.binding.activityCanvasDrawingView.invalidate()
 }

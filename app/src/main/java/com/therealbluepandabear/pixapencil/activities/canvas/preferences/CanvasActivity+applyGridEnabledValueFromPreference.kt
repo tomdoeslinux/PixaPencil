@@ -24,6 +24,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.applyGridEnabledValueFromPreference() {
     if (sharedPreferenceObject.contains(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER) && !Flags.DisableGridSharedPreferenceChanges) {
-        binding.activityCanvasPixelGridView.gridEnabled = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, false)
+        binding.activityCanvasDrawingView.gridEnabled = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, false)
     }
 }

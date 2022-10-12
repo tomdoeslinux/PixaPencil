@@ -27,8 +27,6 @@ import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselect
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 
-const val ZOOM_INCREMENT = 0.2f
-
 fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
     when (item.itemId) {
@@ -78,9 +76,7 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_reset_zoom_and_pos_subItem -> {
             onResetZoomOptionsItemSelected()
-            if (originalX != null && originalY != null) {
-                resetPosition()
-            }
+            resetPosition()
         }
 
         R.id.activityCanvasTopAppMenu_clear_canvas_item -> {

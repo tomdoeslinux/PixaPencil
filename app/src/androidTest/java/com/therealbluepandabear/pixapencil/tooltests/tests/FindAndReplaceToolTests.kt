@@ -42,7 +42,7 @@ class FindAndReplaceToolTests {
             val randomCoordinate = Coordinates(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
             randomCoordinates.add(randomCoordinate)
 
-            activity.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(randomCoordinate, color)
+            activity.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(randomCoordinate, color)
         }
 
         return randomCoordinates
@@ -63,7 +63,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.BLACK, Color.YELLOW)
 
             for (coordinate in randomCoordinates) {
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.YELLOW)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.YELLOW)
             }
         }
     }
@@ -79,7 +79,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
 
             for (coordinate in randomCoordinates) {
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.CYAN)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.CYAN)
             }
         }
     }
@@ -95,7 +95,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.RED, Color.BLACK)
 
             for (coordinate in randomCoordinates1) {
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.BLACK)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.BLACK)
             }
 
             val iterations2 = 500
@@ -104,7 +104,7 @@ class FindAndReplaceToolTests {
             it.onDoneButtonPressed(Color.LTGRAY, Color.MAGENTA)
 
             for (coordinate in randomCoordinates2) {
-                assert(it.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinate) == Color.MAGENTA)
+                assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.MAGENTA)
             }
         }
     }

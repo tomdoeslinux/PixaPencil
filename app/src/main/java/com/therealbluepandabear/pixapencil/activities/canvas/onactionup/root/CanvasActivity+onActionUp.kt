@@ -37,13 +37,13 @@ import com.therealbluepandabear.pixapencil.models.BitmapActionData
 import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.resetPreviousCoordinates() {
-    binding.activityCanvasPixelGridView.prevX = null
-    binding.activityCanvasPixelGridView.prevY = null
+    binding.activityCanvasDrawingView.prevX = null
+    binding.activityCanvasDrawingView.prevY = null
 }
 
 fun CanvasActivity.extendedOnActionUp() {
     if (viewModel.currentTool == Tool.ShadingTool) {
-        binding.activityCanvasPixelGridView.shadingMap.clear()
+        binding.activityCanvasDrawingView.shadingMap.clear()
     }
 
     when {
@@ -80,7 +80,7 @@ fun CanvasActivity.extendedOnActionUp() {
         }
 
         else -> {
-            val isPxPerfect = (binding.activityCanvasPixelGridView.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
+            val isPxPerfect = (binding.activityCanvasDrawingView.pixelPerfectMode && viewModel.currentTool == Tool.PencilTool && (viewModel.currentBrush == BrushesDatabase.toList().first()))
 
             viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
             resetPreviousCoordinates()

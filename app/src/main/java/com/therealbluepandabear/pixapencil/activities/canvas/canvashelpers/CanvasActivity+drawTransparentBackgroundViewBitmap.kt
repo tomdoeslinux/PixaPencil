@@ -23,6 +23,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.rotate
 
 fun CanvasActivity.drawTransparentBackgroundViewBitmap(): Bitmap {
-    return binding.activityCanvasTransparentBackgroundView.transparentBackgroundViewBitmap
-        .rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix)
+//    return binding.activityCanvasTransparentBackgroundView.transparentBackgroundViewBitmap
+//        .rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix)
+    return Bitmap.createBitmap(55, 55, Bitmap.Config.ARGB_8888)
 }

@@ -39,7 +39,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(colorPaletteTitle: String, extrac
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(listOf(Color.TRANSPARENT)))
             AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(palette)
         } else {
-            val data = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors().toMutableList()
+            val data = binding.activityCanvasDrawingView.drawingViewBitmap.getColors().toMutableList()
             data.add(Color.TRANSPARENT)
 
             palette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(data))

@@ -97,7 +97,7 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
         }
 
         Tool.ShadingTool -> {
-            binding.activityCanvasPixelGridView.shadingMode = true
+            binding.activityCanvasDrawingView.shadingMode = true
             pencilToolOnPixelTapped(coordinatesTapped)
         }
 

@@ -22,7 +22,7 @@ import androidx.core.view.drawToBitmap
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawPixelGridViewBitmap
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawTransparentBackgroundViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
 import com.therealbluepandabear.pixapencil.extensions.getColors
@@ -30,17 +30,17 @@ import com.therealbluepandabear.pixapencil.extensions.rotate
 import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
-    supportFragmentManager.commit {
-        replace(
-            R.id.activityCanvas_primaryFragmentHost, ReplaceColorFragment.newInstance(
-                paramCanvasColors = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getColors(),
-                paramPixelGridViewBitmapSource = drawPixelGridViewBitmap(),
-                paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
-                paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
-                paramScaledWidth = binding.activityCanvasPixelGridView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).width,
-                paramScaledHeight =  binding.activityCanvasPixelGridView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).height
-            )
-        )
-        addToBackStack(null)
-    }
+//    supportFragmentManager.commit {
+//        replace(
+//            R.id.activityCanvas_primaryFragmentHost, ReplaceColorFragment.newInstance(
+//                paramCanvasColors = binding.activityCanvasDrawingView.drawingViewBitmap.getColors(),
+//                paramdrawingViewBitmapSource = drawdrawingViewBitmap(),
+//                paramTransparentBitmapSource = drawTransparentBackgroundViewBitmap(),
+//                paramSelectedColorPaletteIndex = selectedColorPaletteIndex,
+//                paramScaledWidth = binding.activityCanvasDrawingView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).width,
+//                paramScaledHeight =  binding.activityCanvasDrawingView.drawToBitmap().rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix).height
+//            )
+//        )
+//        addToBackStack(null)
+//    }
 }

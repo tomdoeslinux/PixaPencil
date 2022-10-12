@@ -28,12 +28,12 @@ fun CanvasActivity.CanvasCommandsHelper.replacePixelsByColor(colorToFind: Int, c
 
     baseReference.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
 
-    baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.replacePixelsByColor(colorToFind, colorToReplace) {
+    baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.replacePixelsByColor(colorToFind, colorToReplace) {
         overrideSetPixel(it, colorToReplace, true, ignoreSymmetry = true, ignoreDither = true, ignoreShadingMap = true)
     }
 
     baseReference.viewModel.undoStack.doAddLast(baseReference.viewModel.currentBitmapAction!!)
     baseReference.viewModel.currentBitmapAction = null
 
-    baseReference.binding.activityCanvasPixelGridView.invalidate()
+    baseReference.binding.activityCanvasDrawingView.invalidate()
 }

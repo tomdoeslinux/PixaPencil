@@ -32,12 +32,13 @@ import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
 fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
     baseReference.viewModel.redoStack.clear()
 
-    val colorAtCoordinates = baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinates)
+    val colorAtCoordinates = baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinates)
 
-    if ((saveToBitmapAction && !baseReference.binding.activityCanvasPixelGridView.shadingMode) || (baseReference.binding.activityCanvasPixelGridView.shadingMode && ignoreShadingMap)) {
+    if ((saveToBitmapAction && !baseReference.binding.activityCanvasDrawingView.shadingMode) || (baseReference.binding.activityCanvasDrawingView.shadingMode && ignoreShadingMap)) {
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
-        baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(coordinates, color)
-    } else if (baseReference.binding.activityCanvasPixelGridView.shadingMode && !baseReference.binding.activityCanvasPixelGridView.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
+        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinates, color)
+    }
+    else if (baseReference.binding.activityCanvasDrawingView.shadingMode && !baseReference.binding.activityCanvasDrawingView.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
         val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE) {
             Color.WHITE
         } else {
@@ -46,11 +47,11 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
 
         val newColor = ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
         baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, newColor))
-        baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(coordinates, newColor)
-        baseReference.binding.activityCanvasPixelGridView.shadingMap.add(coordinates)
+        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinates, newColor)
+        baseReference.binding.activityCanvasDrawingView.shadingMap.add(coordinates)
     }
 
-    baseReference.viewModel.currentBitmap = baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap
+    baseReference.viewModel.currentBitmap = baseReference.binding.activityCanvasDrawingView.drawingViewBitmap
 }
 
 fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
@@ -62,7 +63,7 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreDither: Boolean = false,
     ignoreShadingMap: Boolean = false,
 ) {
-    with(baseReference.binding.activityCanvasPixelGridView) {
+    with(baseReference.binding.activityCanvasDrawingView) {
         var horizontallyReflectedCoordinates: Coordinates? = null
         var verticallyReflectedCoordinates: Coordinates? = null
         var quadMirroredCoordinates = listOf<Coordinates>()
@@ -71,25 +72,25 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
         when {
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
                 horizontallyReflectedCoordinates =
-                    coordinates.getHorizontallyReflectedCoordinates(pixelGridViewBitmap.height)
+                    coordinates.getHorizontallyReflectedCoordinates(drawingViewBitmap.height)
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
                 verticallyReflectedCoordinates =
-                    coordinates.getVerticallyReflectedCoordinates(pixelGridViewBitmap.width)
+                    coordinates.getVerticallyReflectedCoordinates(drawingViewBitmap.width)
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
                 quadMirroredCoordinates = coordinates.getQuadReflectedCoordinateSet(
-                    pixelGridViewBitmap.width,
-                    pixelGridViewBitmap.height
+                    drawingViewBitmap.width,
+                    drawingViewBitmap.height
                 )
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
                 octalMirroredCoordinates = coordinates.getOctalReflectedCoordinateSet(
-                    pixelGridViewBitmap.width,
-                    pixelGridViewBitmap.height
+                    drawingViewBitmap.width,
+                    drawingViewBitmap.height
                 )
             }
 

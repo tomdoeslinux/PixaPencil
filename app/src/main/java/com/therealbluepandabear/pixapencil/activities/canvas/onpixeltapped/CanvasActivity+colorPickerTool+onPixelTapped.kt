@@ -27,7 +27,7 @@ import com.therealbluepandabear.pixapencil.models.Coordinates
 
 fun CanvasActivity.colorPickerToolOnPixelTapped(coordinatesTapped: Coordinates) {
     if (canvasCommandsHelperInstance.coordinatesInCanvasBounds(coordinatesTapped, Tool.ColorPickerTool)) {
-        val color = binding.activityCanvasPixelGridView.pixelGridViewBitmap.getPixel(coordinatesTapped)
+        val color = binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinatesTapped)
         setPixelColor(color)
     }
 }

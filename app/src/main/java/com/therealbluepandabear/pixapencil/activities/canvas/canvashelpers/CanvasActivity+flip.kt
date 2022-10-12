@@ -22,23 +22,23 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 
 fun CanvasActivity.flip(flipValue: FlipValue) {
-    if (viewModel.flipMatrix.isEmpty() || viewModel.flipMatrix.last() != flipValue) {
-        viewModel.flipMatrix.add(flipValue)
-    }
-
-    if (flipValue == FlipValue.Horizontal) {
-        if (binding.activityCanvasCardView.rotationY == 180f) {
-            binding.activityCanvasCardView.rotationY = 0f
-            viewModel.flipMatrix.removeLast()
-        } else {
-            binding.activityCanvasCardView.rotationY = 180f
-        }
-    } else {
-        if (binding.activityCanvasCardView.rotationX == 180f) {
-            binding.activityCanvasCardView.rotationX = 0f
-            viewModel.flipMatrix.removeLast()
-        } else {
-            binding.activityCanvasCardView.rotationX = 180f
-        }
-    }
+//    if (viewModel.flipMatrix.isEmpty() || viewModel.flipMatrix.last() != flipValue) {
+//        viewModel.flipMatrix.add(flipValue)
+//    }
+//
+//    if (flipValue == FlipValue.Horizontal) {
+//        if (binding.activityCanvasCardView.rotationY == 180f) {
+//            binding.activityCanvasCardView.rotationY = 0f
+//            viewModel.flipMatrix.removeLast()
+//        } else {
+//            binding.activityCanvasCardView.rotationY = 180f
+//        }
+//    } else {
+//        if (binding.activityCanvasCardView.rotationX == 180f) {
+//            binding.activityCanvasCardView.rotationX = 0f
+//            viewModel.flipMatrix.removeLast()
+//        } else {
+//            binding.activityCanvasCardView.rotationX = 180f
+//        }
+//    }
 }

@@ -22,7 +22,8 @@ import android.graphics.Bitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.rotate
 
-fun CanvasActivity.drawPixelGridViewBitmap(): Bitmap {
-    return binding.activityCanvasPixelGridView.pixelGridViewBitmap
-        .rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix)
+fun CanvasActivity.drawdrawingViewBitmap(): Bitmap {
+//    return binding.activityCanvasDrawingView.drawingViewBitmap
+//        .rotate(binding.activityCanvasCardView.rotation.toInt(), viewModel.flipMatrix)
+    return Bitmap.createBitmap(55, 55, Bitmap.Config.ARGB_8888)
 }

@@ -23,7 +23,7 @@ import com.therealbluepandabear.pixapencil.algorithms.*
 fun CanvasActivity.initPrimaryAlgorithmInfoParameter() {
     primaryAlgorithmInfoParameter = AlgorithmInfoParameter.create(
         canvasCommandsHelperInstance,
-        binding.activityCanvasPixelGridView.pixelGridViewBitmap,
+        binding.activityCanvasDrawingView.drawingViewBitmap,
         viewModel.currentBitmapAction!!,
         getSelectedColor()
     )

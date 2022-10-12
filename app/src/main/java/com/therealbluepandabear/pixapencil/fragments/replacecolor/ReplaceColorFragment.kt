@@ -55,7 +55,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
 
     private lateinit var paramCanvasColors: List<Int>
     private lateinit var paramTransparentBitmapSource: Bitmap
-    private lateinit var paramPixelGridViewBitmapSource: Bitmap
+    private lateinit var paramdrawingViewBitmapSource: Bitmap
     private var paramSelectedColorPaletteIndex: Int = 0
     private var paramScaledWidth: Int = 500
     private var paramScaledHeight: Int = 500
@@ -63,13 +63,13 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
     fun setParams(
         paramCanvasColors: List<Int>,
         paramTransparentBitmapSource: Bitmap,
-        paramPixelGridViewBitmapSource: Bitmap,
+        paramdrawingViewBitmapSource: Bitmap,
         paramSelectedColorPaletteIndex: Int,
         paramScaledWidth: Int,
         paramScaledHeight: Int) {
         this.paramCanvasColors = paramCanvasColors
         this.paramTransparentBitmapSource = paramTransparentBitmapSource
-        this.paramPixelGridViewBitmapSource = paramPixelGridViewBitmapSource
+        this.paramdrawingViewBitmapSource = paramdrawingViewBitmapSource
         this.paramSelectedColorPaletteIndex = paramSelectedColorPaletteIndex
         this.paramScaledWidth = paramScaledWidth
         this.paramScaledHeight = paramScaledHeight
@@ -83,7 +83,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
     }
 
     private fun setupPreview() {
-        val bitmap = Bitmap.createScaledBitmap(paramTransparentBitmapSource.clone().overlay(paramPixelGridViewBitmapSource.clone()), paramScaledWidth, paramScaledHeight, false)
+        val bitmap = Bitmap.createScaledBitmap(paramTransparentBitmapSource.clone().overlay(paramdrawingViewBitmapSource.clone()), paramScaledWidth, paramScaledHeight, false)
         binding.fragmentFindAndReplaceOldPreview.setImageBitmap(bitmap)
         binding.fragmentFindAndReplaceNewPreview.setImageBitmap(bitmap)
     }
@@ -98,7 +98,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
     }
 
     private fun findAndReplace() {
-        val bitmap = paramPixelGridViewBitmapSource.clone()
+        val bitmap = paramdrawingViewBitmapSource.clone()
         bitmap.replacePixelsByColor(colorToFind!!, colorToReplace!!)
 
         val finalBitmap = Bitmap.createScaledBitmap(paramTransparentBitmapSource.clone().overlay(bitmap), paramScaledWidth, paramScaledHeight, false)
@@ -146,12 +146,12 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
         fun newInstance(
             paramCanvasColors: List<Int>,
             paramTransparentBitmapSource: Bitmap,
-            paramPixelGridViewBitmapSource: Bitmap,
+            paramdrawingViewBitmapSource: Bitmap,
             paramSelectedColorPaletteIndex: Int,
             paramScaledWidth: Int,
             paramScaledHeight: Int): ReplaceColorFragment {
             val fragment = ReplaceColorFragment()
-            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramPixelGridViewBitmapSource, paramSelectedColorPaletteIndex, paramScaledWidth, paramScaledHeight)
+            fragment.setParams(paramCanvasColors, paramTransparentBitmapSource, paramdrawingViewBitmapSource, paramSelectedColorPaletteIndex, paramScaledWidth, paramScaledHeight)
 
             return fragment
         }
@@ -183,7 +183,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
             paramCanvasColors = savedInstanceState.getIntegerArrayList(StringConstants.Identifiers.PREV_COLORS_TO_FIND_BUNDLE_IDENTIFIER)!!.toList()
             paramTransparentBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
                 StringConstants.Identifiers.PREV_TRANSPARENT_BITMAP_SOURCE_BUNDLE_IDENTIFIER)!!)!!.createMutableClone()
-            paramPixelGridViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
+            paramdrawingViewBitmapSource = BitmapConverter.convertStringToBitmap(savedInstanceState.getString(
                 StringConstants.Identifiers.PREV_PIXEL_GRID_VIEW_BITMAP_SOURCE_BUNDLE_IDENTIFIER)!!)!!.createMutableClone()
         }
     }
@@ -199,7 +199,7 @@ class ReplaceColorFragment : Fragment(), ActivityFragment {
             BitmapConverter.convertBitmapToString(paramTransparentBitmapSource))
         outState.putString(
             StringConstants.Identifiers.PREV_PIXEL_GRID_VIEW_BITMAP_SOURCE_BUNDLE_IDENTIFIER,
-            BitmapConverter.convertBitmapToString(paramPixelGridViewBitmapSource))
+            BitmapConverter.convertBitmapToString(paramdrawingViewBitmapSource))
 
         super.onSaveInstanceState(outState)
     }

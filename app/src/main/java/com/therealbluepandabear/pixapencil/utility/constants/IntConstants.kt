@@ -28,7 +28,7 @@ object IntConstants {
     const val COMPRESSION_QUALITY_MIN = 0
     const val COMPRESSION_QUALITY_MAX = 100
 
-    const val DEFAULT_CANVAS_WIDTH_HEIGHT = 50
+    const val DEFAULT_BITMAP_DIMEN = 50
 
     var SprayRadius = 10
     var SprayStrength = 10

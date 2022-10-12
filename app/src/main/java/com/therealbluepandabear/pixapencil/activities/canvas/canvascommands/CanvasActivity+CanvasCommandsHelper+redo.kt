@@ -32,10 +32,10 @@ fun CanvasActivity.CanvasCommandsHelper.redo() {
         for (obj in baseReference.viewModel.redoStack.last().actionData.distinctBy {
             it.coordinates
         }) {
-            baseReference.binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(obj.coordinates, obj.colorSet)
+            baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(obj.coordinates, obj.colorSet)
         }
 
-        baseReference.binding.activityCanvasPixelGridView.invalidate()
+        baseReference.binding.activityCanvasDrawingView.invalidate()
 
         baseReference.viewModel.undoStack.doAddLast(baseReference.viewModel.redoStack.last())
         baseReference.viewModel.redoStack.removeLast()

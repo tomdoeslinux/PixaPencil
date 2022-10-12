@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.therealbluepandabear.pixapencil.customviews.pixelgridview
+package com.therealbluepandabear.pixapencil.customviews.drawingview
 
 import android.app.Activity
 import android.net.Uri
@@ -36,7 +36,7 @@ import java.io.File
 
 lateinit var file: File
 
-fun PixelGridView.extendedSaveAsImage(
+fun DrawingView.extendedSaveAsImage(
     format: BitmapCompressFormat,
     resolution: BitmapResolution,
     coordinatorLayout: CoordinatorLayout,
@@ -49,7 +49,7 @@ fun PixelGridView.extendedSaveAsImage(
     val bitmap = if (resolution == BitmapResolution.Scaled) {
         this.drawToBitmap().rotate((parent as View).rotation.toInt(), flipMatrix)
     } else {
-        pixelGridViewBitmap.rotate((parent as View).rotation.toInt(), flipMatrix)
+        drawingViewBitmap.rotate((parent as View).rotation.toInt(), flipMatrix)
     }
 
     val fileHelperUtilitiesInstance = FileHelperUtilities.createInstance(context)

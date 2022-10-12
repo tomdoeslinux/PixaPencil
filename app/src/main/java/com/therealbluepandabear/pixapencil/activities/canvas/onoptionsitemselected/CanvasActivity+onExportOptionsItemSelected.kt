@@ -127,7 +127,7 @@ fun CanvasActivity.onExportOptionsItemSelected() {
                     }
                 }
 
-            binding.activityCanvasPixelGridView.saveAsImage(
+            binding.activityCanvasDrawingView.saveAsImage(
                 selectedFileType,
                 resolution,
                 binding.activityCanvasCoordinatorLayout,

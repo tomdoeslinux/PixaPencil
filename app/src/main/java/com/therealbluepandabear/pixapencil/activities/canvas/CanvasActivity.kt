@@ -18,15 +18,11 @@
 
 package com.therealbluepandabear.pixapencil.activities.canvas
 
-import android.annotation.SuppressLint
 import android.content.SharedPreferences
-import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
-import android.view.MotionEvent
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
@@ -48,7 +44,6 @@ var selectedColorPaletteIndex: Int = 0
 
 class CanvasActivity :
     AppCompatActivity(),
-    CanvasFragmentListener,
     ColorPaletteColorPickerListener,
     ColorPickerFragmentListener,
     ReplaceColorFragmentListener,
@@ -82,8 +77,8 @@ class CanvasActivity :
     // Intent info:
     var index: Int = -1
     var projectTitle: String = ""
-    var width: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
-    var height: Int = IntConstants.DEFAULT_CANVAS_WIDTH_HEIGHT
+    var width: Int = IntConstants.DEFAULT_BITMAP_DIMEN
+    var height: Int = IntConstants.DEFAULT_BITMAP_DIMEN
     var uri: Uri? = null
 
     var background: Drawable? = null
@@ -124,52 +119,9 @@ class CanvasActivity :
 
     var shapePreviewCache: List<BitmapActionData> = listOf()
 
-    /**
-     * _ATTRIBUTION_:
-     *
-     * Thanks to [Sergei Kozelko](https://stackoverflow.com/users/3169238/sergei-kozelko) from StackOverflow
-     * for this solution. The question can be found [here](https://stackoverflow.com/questions/73257043/hitrect-returning-wrong-y-value-for-unknown-reason).
-     *
-     * I created a question of my own on StackOverflow as to how I would go about detecting touch events outside
-     * the canvas, and it was Sergei who helped come up with a solution to my annoying problem.
-     */
-
-    private fun transformToChild(parent: View, child: View, event: MotionEvent) {
-        val offsetX = parent.scrollX - child.left
-        val offsetY = parent.scrollY - child.top
-        event.offsetLocation(offsetX.toFloat(), offsetY.toFloat())
-        if (!child.matrix.isIdentity) {
-            val inverse = Matrix()
-            child.matrix.invert(inverse)
-            event.transform(inverse)
-        }
-    }
-
-    private fun transformToDescendant(parent: View, descendant: View, event: MotionEvent) {
-        if (parent == descendant) {
-            return
-        }
-
-        var currentDescendant = descendant
-        val stack = mutableListOf<View>()
-        while (currentDescendant != parent) {
-            stack.add(currentDescendant)
-            // safe to cast to View as parent function argument is View
-            currentDescendant = currentDescendant.parent as View
-        }
-
-        for (view in stack.asReversed()) {
-            transformToChild(view.parent as View, view, event)
-        }
-    }
-
-    /**
-     * _End of attribution_
-     */
-
     fun clearPreviousShapePreview() {
         for (actionData in shapePreviewCache.distinctBy { it.coordinates }) {
-            binding.activityCanvasPixelGridView.pixelGridViewBitmap.setPixel(
+            binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(
                 actionData.coordinates.x,
                 actionData.coordinates.y,
                 actionData.colorAtPosition)
@@ -179,40 +131,14 @@ class CanvasActivity :
         viewModel.currentBitmapAction?.actionData?.clear()
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onCreate()
-
-        binding.root.setOnTouchListener { _, motionEvent ->
-            transformToDescendant(binding.root, binding.activityCanvasPixelGridView, motionEvent)
-            binding.activityCanvasPixelGridView.onTouchEvent(motionEvent)
-
-            true
-        }
     }
 
     override fun onPause() {
         extendedOnPause()
         super.onPause()
-    }
-
-    override fun onViewLoaded() {
-        extendedOnViewLoaded()
-    }
-
-    override fun onPixelTapped(coordinatesTapped: Coordinates) {
-        extendedOnPixelTapped(coordinatesTapped)
-    }
-
-    override fun onActionUp() {
-        extendedOnActionUp()
-    }
-
-    override fun dispatchTouchEvent() {
-        if (viewModel.currentBitmapAction == null) {
-            viewModel.currentBitmapAction = BitmapAction(mutableListOf())
-        }
     }
 
     override fun onColorTapped(colorTapped: Int) {

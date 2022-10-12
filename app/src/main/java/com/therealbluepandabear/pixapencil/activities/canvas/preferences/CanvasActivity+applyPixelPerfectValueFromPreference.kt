@@ -23,6 +23,6 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.applyPixelPerfectValueFromPreference() {
     if (sharedPreferenceObject.contains(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER)) {
-        binding.activityCanvasPixelGridView.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER, false)
+        binding.activityCanvasDrawingView.pixelPerfectMode = sharedPreferenceObject.getBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_PIXEL_PERFECT_IDENTIFIER, false)
     }
 }

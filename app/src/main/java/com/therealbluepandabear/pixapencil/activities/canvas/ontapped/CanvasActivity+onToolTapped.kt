@@ -21,8 +21,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.ontapped
 import androidx.fragment.app.commit
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.*
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.removeOnTouchListener
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.setOnTouchListener
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.cindx
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.polygonCoordinates
 import com.therealbluepandabear.pixapencil.activities.canvas.tooltips.showDitherToolTip
@@ -38,7 +36,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
 fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     if (viewModel.currentTool == Tool.ShadingTool && toolName != StringConstants.Identifiers.SHADING_TOOL_IDENTIFIER) {
-        binding.activityCanvasPixelGridView.shadingMode = false
+        binding.activityCanvasDrawingView.shadingMode = false
     }
 
     if (viewModel.currentTool == Tool.PolygonTool && toolName != StringConstants.Identifiers.POLYGON_TOOL_IDENTIFIER) {
@@ -116,11 +114,7 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
         cindx = 0
     }
 
-    if (toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER) {
-        setOnTouchListener()
-    } else {
-        removeOnTouchListener()
-    }
+    binding.activityCanvasDrawingView.moveMode = toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER
 
     viewModel.currentTool = Tool.values().firstOrNull {
         it.toolName == toolName

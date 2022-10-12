@@ -25,7 +25,6 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.flip
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotate
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.setOnTouchListener
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
@@ -42,13 +41,13 @@ fun CanvasActivity.onCreate() {
     initColorPalettesDBIfNotInitialized()
     getExtras()
     setupBindings()
+    prepareDrawingView()
     registerOnBackPressedDispatcherCallback()
     setupRecyclerView()
     setupEventListeners()
     setupSharedPreferenceObject()
     setupViewPager()
     addMenuProvider()
-    calcCrucialViewDimensions()
 
     binding.activityCanvasColorPickerRecyclerView.doOnPreDraw {
         observeColorPaletteColorPickerData()
@@ -84,13 +83,6 @@ fun CanvasActivity.onCreate() {
         }
 
         binding.activityCanvasTabLayout.getTabAt(binding.activityCanvasViewPager2.currentItem)?.select()
-
-        if (viewModel.currentTool.toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER) {
-            lifecycleScope.launch {
-                delay(200)
-                setOnTouchListener()
-            }
-        }
 
         if (viewModel.unsavedChangesDialogShown) {
             showUnsavedChangesDialog()

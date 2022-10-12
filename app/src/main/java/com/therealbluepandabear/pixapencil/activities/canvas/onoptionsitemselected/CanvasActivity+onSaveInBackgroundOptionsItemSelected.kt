@@ -21,7 +21,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 import android.widget.Toast
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawPixelGridViewBitmap
+import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
 import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
@@ -42,7 +42,7 @@ fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
     if (index == -1) {
         val pixelArt = PixelArt(
             coverBitmapFilePath,
-            BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap()),
+            BitmapConverter.convertBitmapToString(drawdrawingViewBitmap()),
             width,
             height,
             title.toString(),
@@ -58,7 +58,7 @@ fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
     } else {
         val pixelArt = AppData.pixelArtDB.dao().getAllNoLiveData()[index]
         pixelArt.coverBitmapFilePath = coverBitmapFilePath
-        pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawPixelGridViewBitmap())
+        pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawdrawingViewBitmap())
 
         CoroutineScope(Dispatchers.IO).launch {
             AppData.pixelArtDB.dao().update(pixelArt)
