@@ -260,14 +260,14 @@ class DrawingView @JvmOverloads constructor(
             drawingViewBitmap,
             dimenW,
             dimenH,
-            true
+            false
         )
 
         val scaledTransparentBackgroundViewBitmap = Bitmap.createScaledBitmap(
             transparentBackgroundViewBitmap,
             dimenW,
             dimenH,
-            true
+            false
         )
 
         return scaledTransparentBackgroundViewBitmap.overlay(scaledDrawingViewBitmap)
