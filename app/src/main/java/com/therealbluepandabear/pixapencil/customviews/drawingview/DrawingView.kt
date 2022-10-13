@@ -270,7 +270,15 @@ class DrawingView @JvmOverloads constructor(
             false
         )
 
-        return scaledTransparentBackgroundViewBitmap.overlay(scaledDrawingViewBitmap)
+        val backgroundBitmap = if (drawingViewBitmap.width >= drawingViewBitmap.height) {
+            Bitmap.createBitmap(dimenW, dimenW, Bitmap.Config.RGB_565)
+        } else {
+            Bitmap.createBitmap(dimenH, dimenH, Bitmap.Config.RGB_565)
+        }
+
+        backgroundBitmap.eraseColor(Color.WHITE)
+
+        return backgroundBitmap.overlay(scaledTransparentBackgroundViewBitmap.overlay(scaledDrawingViewBitmap), OverlayType.CenterSecond)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
