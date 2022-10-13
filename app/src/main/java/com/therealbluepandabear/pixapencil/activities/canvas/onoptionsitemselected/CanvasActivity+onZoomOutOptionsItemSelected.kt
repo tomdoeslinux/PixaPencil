@@ -26,7 +26,7 @@ import com.therealbluepandabear.pixapencil.extensions.enable
 fun CanvasActivity.onZoomOutOptionsItemSelected() {
     binding.activityCanvasDrawingView.zoomOut()
 
-    if (binding.activityCanvasDrawingView.nextZoomOutOfBounds()) {
+    if (binding.activityCanvasDrawingView.isNextZoomOutOfBounds()) {
         menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).disable()
     } else if (!menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).isEnabled) {
         menu.findItem(R.id.activityCanvasTopAppMenu_zoom_out_item).enable()

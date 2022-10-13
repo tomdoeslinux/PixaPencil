@@ -32,6 +32,7 @@ import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import kotlin.math.roundToInt
 
 class DrawingView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -168,16 +169,16 @@ class DrawingView @JvmOverloads constructor(
 
         val coordinates = Coordinates(((x - boundingRect.left) / scaleWidth).toInt(), (((y - boundingRect.top) / scaleHeight).toInt()))
 
-            onPixelTapped.invoke(coordinates)
-            invalidate()
-    }
-
-    private fun isNextZoomOutOfBounds(): Boolean {
-        return zoomDecimalFormat.format(currentZoom - (2 * ZOOM_INCREMENT)).toFloat() < 0
+        onPixelTapped.invoke(coordinates)
+        invalidate()
     }
 
     private fun drawBitmap(bitmap: Bitmap, canvas: Canvas) {
         canvas.drawBitmap(bitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
+    }
+
+    fun isNextZoomOutOfBounds(): Boolean {
+        return zoomDecimalFormat.format(currentZoom - (2 * ZOOM_INCREMENT)).toFloat() < 0
     }
 
     fun zoomIn() {
@@ -248,6 +249,15 @@ class DrawingView @JvmOverloads constructor(
         }
 
         invalidate()
+    }
+
+    fun exportBitmap(): Bitmap {
+        return Bitmap.createScaledBitmap(
+            drawingViewBitmap,
+            boundingRect.width().roundToInt(),
+            boundingRect.height().roundToInt(),
+            true
+        )
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

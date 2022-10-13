@@ -22,7 +22,6 @@ import android.widget.Toast
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
-import com.therealbluepandabear.pixapencil.activities.canvas.getCoverImageBitmap
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.PixelArt
@@ -33,7 +32,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
-    val coverBitmap = getCoverImageBitmap()
+    val coverBitmap = binding.activityCanvasDrawingView.exportBitmap()
     val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle)
 
     val fileHelperInstance = FileHelperUtilities.createInstance(this)
