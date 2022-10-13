@@ -18,16 +18,7 @@
 
 package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected
 
-import androidx.core.view.drawToBitmap
-import androidx.fragment.app.commit
-import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawTransparentBackgroundViewBitmap
-import com.therealbluepandabear.pixapencil.activities.canvas.selectedColorPaletteIndex
-import com.therealbluepandabear.pixapencil.extensions.getColors
-import com.therealbluepandabear.pixapencil.extensions.rotate
-import com.therealbluepandabear.pixapencil.fragments.replacecolor.ReplaceColorFragment
 
 fun CanvasActivity.onFindAndReplaceOptionsItemSelected() {
 //    supportFragmentManager.commit {

@@ -25,7 +25,6 @@ import android.graphics.Matrix
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.OverlayType
 import com.therealbluepandabear.pixapencil.models.Coordinates
-import com.therealbluepandabear.pixapencil.models.MatrixInfo
 
 fun Bitmap.size(): Int {
     return width * height

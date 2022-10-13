@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     lateinit var menu: Menu
 
     var showLargeCanvasSizeWarning = true
-    var firstLaunch = false
     var darkMode = false
 
     val pixelArtViewModel: PixelArtViewModel by viewModels()

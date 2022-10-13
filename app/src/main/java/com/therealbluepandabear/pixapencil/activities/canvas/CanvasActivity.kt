@@ -107,12 +107,6 @@ class CanvasActivity :
 
     lateinit var adapter: ColorPaletteColorPickerAdapter
 
-    var originalX: Float? = null
-    var originalY: Float? = null
-
-    var dX = 0f
-    var dY = 0f
-
     var shapePreviewCache: List<BitmapActionData> = listOf()
 
     fun clearPreviousShapePreview() {

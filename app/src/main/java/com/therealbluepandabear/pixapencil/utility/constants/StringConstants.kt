@@ -53,7 +53,6 @@ object StringConstants {
         const val DITHER_TOOL_IDENTIFIER = "dither_tool"
         const val SHADING_TOOL_IDENTIFIER = "shading_tool"
 
-        const val SHARED_PREFERENCE_FIRST_LAUNCH_IDENTIFIER = "first_launch_identifier"
         const val SHARED_PREFERENCE_SHOW_LARGE_CANVAS_SIZE_WARNING_IDENTIFIER = "show_large_canvas_size_warning_identifier"
         const val SHARED_PREFERENCE_DARK_LIGHT_MODE_IDENTIFIER = "dark_light_mode_identifier"
         const val SHARED_PREFERENCE_DARK_LIGHT_MODE_CHANGED_IDENTIFIER = "dark_light_mode_changed_identifier"
