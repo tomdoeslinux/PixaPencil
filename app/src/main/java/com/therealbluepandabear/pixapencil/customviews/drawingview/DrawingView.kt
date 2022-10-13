@@ -172,8 +172,12 @@ class DrawingView @JvmOverloads constructor(
             invalidate()
     }
 
-    private fun nextZoomOutOfBounds(): Boolean {
+    private fun isNextZoomOutOfBounds(): Boolean {
         return zoomDecimalFormat.format(currentZoom - (2 * ZOOM_INCREMENT)).toFloat() < 0
+    }
+
+    private fun drawBitmap(bitmap: Bitmap, canvas: Canvas) {
+        canvas.drawBitmap(bitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
     }
 
     fun zoomIn() {
@@ -182,7 +186,7 @@ class DrawingView @JvmOverloads constructor(
     }
 
     fun zoomOut() {
-        if (!nextZoomOutOfBounds()) {
+        if (!isNextZoomOutOfBounds()) {
             currentZoom = zoomDecimalFormat.format(currentZoom - ZOOM_INCREMENT).toFloat()
             invalidate()
         }
@@ -292,10 +296,6 @@ class DrawingView @JvmOverloads constructor(
         }
 
         return true
-    }
-
-    private fun drawBitmap(bitmap: Bitmap, canvas: Canvas) {
-        canvas.drawBitmap(bitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
     }
 
     override fun onDraw(canvas: Canvas) {
