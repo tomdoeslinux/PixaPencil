@@ -333,8 +333,8 @@ class DrawingView @JvmOverloads constructor(
         if (::drawingViewBitmap.isInitialized && ::transparentBackgroundViewBitmap.isInitialized) {
             canvas.save()
 
-            canvas.rotate(currentRotation, centerX, centerY)
             canvas.translate(canvasX, canvasY)
+            canvas.rotate(currentRotation, centerX, centerY)
             canvas.scale(currentZoom, currentZoom, centerX, centerY)
             canvas.getClipBounds(clipBoundsRect)
             canvas.drawRect(boundingRect, PaintData.rectPaint)
