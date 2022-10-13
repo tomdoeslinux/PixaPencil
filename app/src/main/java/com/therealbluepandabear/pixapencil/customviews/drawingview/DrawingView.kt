@@ -294,15 +294,21 @@ class DrawingView @JvmOverloads constructor(
         return true
     }
 
+    private fun drawBitmap(bitmap: Bitmap, canvas: Canvas) {
+        canvas.drawBitmap(bitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
+    }
+
     override fun onDraw(canvas: Canvas) {
         if (::drawingViewBitmap.isInitialized && ::transparentBackgroundViewBitmap.isInitialized) {
             canvas.save()
+
             canvas.translate(canvasX, canvasY)
             canvas.scale(currentZoom, currentZoom, centerX, centerY)
             canvas.getClipBounds(clipBoundsRect)
             canvas.drawRect(boundingRect, PaintData.rectPaint)
-            canvas.drawBitmap(transparentBackgroundViewBitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
-            canvas.drawBitmap(drawingViewBitmap, null, boundingRect, PaintCompat.getSDK28PaintOrNull())
+
+            drawBitmap(transparentBackgroundViewBitmap, canvas)
+            drawBitmap(drawingViewBitmap, canvas)
 
             if (gridEnabled) {
                 drawGrid(canvas)
