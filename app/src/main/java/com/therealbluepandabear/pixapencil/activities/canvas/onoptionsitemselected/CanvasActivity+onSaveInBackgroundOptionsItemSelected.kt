@@ -21,7 +21,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 import android.widget.Toast
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.drawdrawingViewBitmap
 import com.therealbluepandabear.pixapencil.converters.BitmapConverter
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.PixelArt
@@ -32,38 +31,5 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 fun CanvasActivity.onSaveInBackgroundOptionsItemSelected() {
-    val coverBitmap = binding.activityCanvasDrawingView.exportBitmap()
-    val coverBitmapFilePath = InternalBitmapFileNameGenerator.generate(projectTitle)
 
-    val fileHelperInstance = FileHelperUtilities.createInstance(this)
-    fileHelperInstance.storeBitmapToInternalStorage(coverBitmapFilePath, coverBitmap)
-
-    if (index == -1) {
-        val pixelArt = PixelArt(
-            coverBitmapFilePath,
-            BitmapConverter.convertBitmapToString(drawdrawingViewBitmap()),
-            width,
-            height,
-            title.toString(),
-            false
-        )
-        CoroutineScope(Dispatchers.IO).launch {
-            AppData.pixelArtDB.dao().insert(pixelArt)
-        }
-
-        AppData.pixelArtDB.dao().getAll().observe(this) {
-            index = it.indexOf(pixelArt)
-        }
-    } else {
-        val pixelArt = AppData.pixelArtDB.dao().getAllNoLiveData()[index]
-        pixelArt.coverBitmapFilePath = coverBitmapFilePath
-        pixelArt.bitmap = BitmapConverter.convertBitmapToString(drawdrawingViewBitmap())
-
-        CoroutineScope(Dispatchers.IO).launch {
-            AppData.pixelArtDB.dao().update(pixelArt)
-        }
-    }
-
-    viewModel.saved = true
-    Toast.makeText(this, getString(R.string.generic_saved), Toast.LENGTH_LONG).show()
 }

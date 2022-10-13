@@ -22,8 +22,6 @@ import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.flip
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotate
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
@@ -50,15 +48,8 @@ fun CanvasActivity.onCreate() {
         observeColorPaletteColorPickerData()
     }
 
-    originalX = null
-    originalY = null
 
     binding.root.post {
-        rotate(viewModel.currentRotation)
-        for (i in viewModel.flipMatrix) {
-            flip(i)
-        }
-
         binding.activityCanvasColorSwitcherView.setPrimaryColor(viewModel.primaryColor)
         binding.activityCanvasColorSwitcherView.setSecondaryColor(viewModel.secondaryColor)
 

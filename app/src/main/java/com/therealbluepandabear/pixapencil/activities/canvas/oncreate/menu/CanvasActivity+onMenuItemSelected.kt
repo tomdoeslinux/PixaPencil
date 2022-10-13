@@ -21,8 +21,6 @@ package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu
 import android.view.MenuItem
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.flip
-import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.resetPosition
 import com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselected.*
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.SymmetryMode
@@ -76,7 +74,6 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
         R.id.activityCanvasTopAppMenu_reset_zoom_and_pos_subItem -> {
             onResetZoomOptionsItemSelected()
-            resetPosition()
         }
 
         R.id.activityCanvasTopAppMenu_clear_canvas_item -> {
@@ -125,11 +122,9 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
         }
 
         R.id.appMenu_flip_horizontal_subItem -> {
-            flip(FlipValue.Horizontal)
         }
 
         R.id.appMenu_flip_vertical_subItem -> {
-            flip(FlipValue.Vertical)
         }
     }
     return true
