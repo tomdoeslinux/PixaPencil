@@ -25,7 +25,6 @@ import com.therealbluepandabear.pixapencil.activities.main.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider.addMenuProvider
 
 fun MainActivity.extendedOnCreate() {
-    showWelcomeScreenIfApplicable()
     setVmPolicy()
     setBindings()
     setEventListeners()

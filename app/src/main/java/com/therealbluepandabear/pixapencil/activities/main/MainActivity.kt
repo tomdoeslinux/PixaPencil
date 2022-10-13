@@ -24,7 +24,6 @@ import android.view.Menu
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDeleteTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDuplicateTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnViewDetailsTapped
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
     var showLargeCanvasSizeWarning = true
     var firstLaunch = false
     var darkMode = false
-    var mainSpotlight: Spotlight? = null
 
     val pixelArtViewModel: PixelArtViewModel by viewModels()
     lateinit var pixelArtData: List<PixelArt>
@@ -78,8 +76,8 @@ class MainActivity : AppCompatActivity(), RecentCreationsListener, NewProjectFra
         pixelArtViewModel.update(pixelArt)
     }
 
-    override fun onDoneButtonPressed(projectName: String, width: Int, height: Int, spotLightInProgress: Boolean) {
-        extendedOnDoneButtonPressed(projectName, width, height, spotLightInProgress)
+    override fun onDoneButtonPressed(projectName: String, width: Int, height: Int) {
+        extendedOnDoneButtonPressed(projectName, width, height)
     }
 
     override fun onDuplicateTapped(pixelArt: PixelArt, bottomSheetDialog: BottomSheetDialog) {

@@ -28,7 +28,6 @@ fun CanvasActivity.getExtras() {
     title = intent.getStringExtra(StringConstants.Extras.PROJECT_TITLE_EXTRA)
     width = intent.getIntExtra(StringConstants.Extras.WIDTH_EXTRA, width)
     height = intent.getIntExtra(StringConstants.Extras.HEIGHT_EXTRA, height)
-    spotLightInProgress = intent.getBooleanExtra(StringConstants.Extras.SPOTLIGHT_IN_PROGRESS_EXTRA, false)
     projectTitle = title?.toString() ?: projectTitle
 
     val uriStr = intent.getUriExtra(StringConstants.Extras.BITMAP_URI_EXTRA)

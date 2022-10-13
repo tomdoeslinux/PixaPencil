@@ -18,7 +18,6 @@
 
 package com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root
 
-import androidx.core.view.doOnNextLayout
 import androidx.core.view.doOnPreDraw
 import androidx.lifecycle.lifecycleScope
 import com.therealbluepandabear.pixapencil.R
@@ -28,10 +27,8 @@ import com.therealbluepandabear.pixapencil.activities.canvas.canvashelpers.rotat
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.*
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.menu.addMenuProvider
 import com.therealbluepandabear.pixapencil.activities.canvas.showUnsavedChangesDialog
-import com.therealbluepandabear.pixapencil.activities.canvas.startSpotLight
 import com.therealbluepandabear.pixapencil.extensions.enable
 import com.therealbluepandabear.pixapencil.fragments.tools.ToolsFragment
-import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -86,12 +83,6 @@ fun CanvasActivity.onCreate() {
 
         if (viewModel.unsavedChangesDialogShown) {
             showUnsavedChangesDialog()
-        }
-    }
-
-    binding.root.doOnNextLayout {
-        if (spotLightInProgress) {
-            startSpotLight()
         }
     }
 }

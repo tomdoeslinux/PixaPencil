@@ -25,10 +25,8 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.oncreate.root.onCreate
 import com.therealbluepandabear.pixapencil.activities.canvas.ondonebuttonpressed.extendedOnDoneButtonPressed
-import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
 import com.therealbluepandabear.pixapencil.activities.canvas.ontapped.*
 import com.therealbluepandabear.pixapencil.activities.canvas.viewmodel.CanvasActivityViewModel
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
@@ -108,8 +106,6 @@ class CanvasActivity :
     val canvasCommandsHelperInstance: CanvasCommandsHelper = CanvasCommandsHelper()
 
     lateinit var adapter: ColorPaletteColorPickerAdapter
-
-    var spotLightInProgress: Boolean = false
 
     var originalX: Float? = null
     var originalY: Float? = null

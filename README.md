@@ -99,4 +99,3 @@ Thanks to these people who helped create the libraries used in the app:
 - Beyka (https://github.com/Beyka) - Android-TiffBitmapFactory (https://github.com/Beyka/Android-TiffBitmapFactory)
 - bumptech (https://github.com/bumptech) - Glide (https://github.com/bumptech/glide)
 - Tianscar (https://github.com/Tianscar) - Quick Image (https://github.com/Tianscar/quickimage) 
-- Takusemba (https://github.com/TakuSemba) - Spotlight (https://github.com/TakuSemba/Spotlight)

@@ -156,8 +156,7 @@ fun NewProjectFragment.setOnClickListeners() {
                                 caller.onDoneButtonPressed(
                                     title,
                                     widthValue,
-                                    heightValue,
-                                    paramSpotLightInProgress
+                                    heightValue
                                 )
                             }
                             .setNegativeButton(R.string.generic_cancel, null)
@@ -167,8 +166,7 @@ fun NewProjectFragment.setOnClickListeners() {
                         caller.onDoneButtonPressed(
                             title,
                             widthValue,
-                            heightValue,
-                            paramSpotLightInProgress
+                            heightValue
                         )
                     }
                 } catch (exception: Exception) {

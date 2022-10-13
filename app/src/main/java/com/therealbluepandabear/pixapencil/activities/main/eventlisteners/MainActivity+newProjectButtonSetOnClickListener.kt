@@ -25,11 +25,9 @@ import com.therealbluepandabear.pixapencil.fragments.newproject.NewProjectFragme
 
 fun MainActivity.newProjectButtonSetOnClickListener() {
     binding.activityMainNewProjectButton.setOnClickListener {
-        mainSpotlight?.finish()
-
         if (supportFragmentManager.backStackEntryCount == 0) {
             supportFragmentManager.commit {
-                replace(R.id.activityMain_primaryFragmentHost, NewProjectFragment.newInstance(mainSpotlight != null))
+                replace(R.id.activityMain_primaryFragmentHost, NewProjectFragment.newInstance())
                 addToBackStack(null)
             }
         }
