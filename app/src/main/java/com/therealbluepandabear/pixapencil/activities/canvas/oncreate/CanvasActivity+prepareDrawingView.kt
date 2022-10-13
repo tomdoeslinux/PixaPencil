@@ -21,6 +21,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.oncreate
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.onactionup.root.extendedOnActionUp
 import com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped.extendedOnPixelTapped
+import com.therealbluepandabear.pixapencil.activities.canvas.preferences.*
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 
 fun CanvasActivity.prepareDrawingView() {
@@ -39,5 +40,13 @@ fun CanvasActivity.prepareDrawingView() {
 
     binding.activityCanvasDrawingView.setOnActionUp {
         extendedOnActionUp()
+    }
+
+    binding.activityCanvasDrawingView.post {
+        applyPixelPerfectValueFromPreference()
+        applyGridEnabledValueFromPreference()
+        applyShowShadingToolTipValueFromPreference()
+        applyShowSprayToolTipValueFromPreference()
+        applyShowDitherToolTipFromPreference()
     }
 }
