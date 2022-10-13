@@ -20,6 +20,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 
-fun CanvasActivity.onResetZoomOptionsItemSelected() {
+fun CanvasActivity.onResetZoomAndPositionOptionsItemSelected() {
     binding.activityCanvasDrawingView.resetZoom()
+    binding.activityCanvasDrawingView.resetPosition()
 }
