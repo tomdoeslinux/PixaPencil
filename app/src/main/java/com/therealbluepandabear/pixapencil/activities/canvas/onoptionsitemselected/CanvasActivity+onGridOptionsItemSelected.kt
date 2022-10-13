@@ -31,6 +31,4 @@ fun CanvasActivity.onGridOptionsItemSelected() {
         putBoolean(StringConstants.Identifiers.SHARED_PREFERENCE_GRID_IDENTIFIER, binding.activityCanvasDrawingView.gridEnabled)
         apply()
     }
-
-    binding.activityCanvasDrawingView.invalidate()
 }

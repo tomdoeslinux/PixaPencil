@@ -44,7 +44,6 @@ fun CanvasActivity.onCreateMenu(_menu: Menu?): Boolean {
             menu.findItem(R.id.activityCanvasTopAppMenu_grid_item).isChecked = false
 
             binding.activityCanvasDrawingView.gridEnabled = false
-            binding.activityCanvasDrawingView.invalidate()
 
             Flags.DisableGridSharedPreferenceChanges = true
         }
