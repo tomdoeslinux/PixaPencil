@@ -27,6 +27,7 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.drawTransparent
+import com.therealbluepandabear.pixapencil.extensions.overlay
 import com.therealbluepandabear.pixapencil.models.Coordinates
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
@@ -252,12 +253,24 @@ class DrawingView @JvmOverloads constructor(
     }
 
     fun exportBitmap(): Bitmap {
-        return Bitmap.createScaledBitmap(
+        val dimenW = boundingRect.width().roundToInt()
+        val dimenH = boundingRect.height().roundToInt()
+
+        val scaledDrawingViewBitmap = Bitmap.createScaledBitmap(
             drawingViewBitmap,
-            boundingRect.width().roundToInt(),
-            boundingRect.height().roundToInt(),
+            dimenW,
+            dimenH,
             true
         )
+
+        val scaledTransparentBackgroundViewBitmap = Bitmap.createScaledBitmap(
+            transparentBackgroundViewBitmap,
+            dimenW,
+            dimenH,
+            true
+        )
+
+        return scaledTransparentBackgroundViewBitmap.overlay(scaledDrawingViewBitmap)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
