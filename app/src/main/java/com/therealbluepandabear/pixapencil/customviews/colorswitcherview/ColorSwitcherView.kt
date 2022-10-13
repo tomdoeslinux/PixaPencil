@@ -382,7 +382,7 @@ class ColorSwitcherView(context: Context, attributeSet: AttributeSet) : View(con
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility") /** I will un-suppress in future commits **/
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
         val xOrY = if (!orientationLandscape) {
