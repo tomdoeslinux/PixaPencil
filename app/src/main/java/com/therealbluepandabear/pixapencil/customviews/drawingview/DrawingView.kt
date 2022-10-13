@@ -172,7 +172,7 @@ class DrawingView @JvmOverloads constructor(
             invalidate()
     }
 
-    fun nextZoomOutOfBounds(): Boolean {
+    private fun nextZoomOutOfBounds(): Boolean {
         return zoomDecimalFormat.format(currentZoom - (2 * ZOOM_INCREMENT)).toFloat() < 0
     }
 
