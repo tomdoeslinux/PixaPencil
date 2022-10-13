@@ -65,7 +65,6 @@ fun MainActivity.initActivityResultLauncher() {
                     startActivity(
                         Intent(this, CanvasActivity::class.java)
                             .putExtra(StringConstants.Extras.PROJECT_TITLE_EXTRA, nameProjectAlertBinding.nameProjectAlertNameTextInputEditText.text.toString())
-                            .putExtra(StringConstants.Extras.SPOTLIGHT_IN_PROGRESS_EXTRA, false)
                             .putUriExtra(StringConstants.Extras.BITMAP_URI_EXTRA, uri)
                     )
 
