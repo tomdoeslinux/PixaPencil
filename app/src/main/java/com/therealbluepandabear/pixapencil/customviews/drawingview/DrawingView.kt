@@ -85,10 +85,10 @@ class DrawingView @JvmOverloads constructor(
     var moveMode = false
 
     companion object {
-        const val ZOOM_INCREMENT = 0.2f
+        private const val ZOOM_INCREMENT = 0.2f
     }
 
-    object PaintData {
+    private object PaintData {
         val rectPaint = Paint().apply {
             style = Paint.Style.FILL
             color = Color.WHITE
