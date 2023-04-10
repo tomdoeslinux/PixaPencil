@@ -45,7 +45,6 @@ class CanvasActivityViewModel : ViewModel() {
     var currentBrush: Brush = BrushesDatabase.toList().first()
     var currentSymmetryMode: SymmetryMode = SymmetryMode.None
     var currentTool: Tool = Tool.PencilTool
-    var currentRotation: Float = 0f
     var flipMatrix = mutableListOf<FlipValue>()
 
     var saved = true
