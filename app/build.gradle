@@ -64,14 +64,14 @@ android {
 
 dependencies {
     // Implementations ==> [AndroidX]
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.room:room-runtime:2.4.3"
-    implementation "androidx.room:room-ktx:2.4.3"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.room:room-runtime:2.5.1"
+    implementation "androidx.room:room-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-    implementation "androidx.fragment:fragment-ktx:1.5.3"
+    implementation "androidx.fragment:fragment-ktx:1.5.6"
 
     // Implementations ==> [External Libraries]
     implementation 'com.github.tianscar:quickbitmap:1.0.2.6'
@@ -81,7 +81,7 @@ dependencies {
     implementation 'com.github.duanhong169:colorpicker:1.1.6'
 
     // Implementations ==> [Google]
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'com.google.code.gson:gson:2.9.1'
     implementation 'com.android.volley:volley:1.2.1'
 
@@ -97,7 +97,7 @@ dependencies {
     testImplementation 'io.mockk:mockk-android:1.12.3'
 
     // Android Test Implementations ==> [JUnit]
-    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.5'
     androidTestImplementation 'junit:junit:4.13.2'
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.7.10"
 
@@ -106,23 +106,23 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-agent-jvm:1.12.3"
 
     // Android Test Implementations ==> [Espresso]
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
 
     // Android Test Implementations ==> [Core Android Test Implementations]
-    androidTestImplementation 'androidx.test:rules:1.4.0'
-    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
     androidTestImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
-    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test:1.7.10"
 
     // Android Test Util
-    androidTestUtil 'androidx.test:orchestrator:1.4.1'
+    androidTestUtil 'androidx.test:orchestrator:1.4.2'
 
     // Kapt
-    kapt "androidx.room:room-compiler:2.4.3"
+    kapt "androidx.room:room-compiler:2.5.1"
 
     // Annotation Proc
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
