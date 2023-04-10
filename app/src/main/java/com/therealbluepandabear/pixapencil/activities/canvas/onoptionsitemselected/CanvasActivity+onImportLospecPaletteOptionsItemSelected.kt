@@ -28,7 +28,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.converters.JSON
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.databinding.ImportLospecPaletteAlertBinding
 import com.therealbluepandabear.pixapencil.enums.SnackbarDuration
@@ -62,7 +62,7 @@ fun CanvasActivity.onImportLospecPaletteOptionsItemSelected() {
                         colorPaletteColorData2.add(Color.parseColor("#$i"))
                     }
 
-                    val colorPalette = ColorPalette(colorPaletteTitle, JsonConverter.convertListToJsonString(colorPaletteColorData2))
+                    val colorPalette = ColorPalette(colorPaletteTitle, JSON.listToString(colorPaletteColorData2))
 
                     CoroutineScope(Dispatchers.IO).launch {
                         AppData.colorPalettesDB.colorPalettesDao().insertColorPalette(colorPalette)

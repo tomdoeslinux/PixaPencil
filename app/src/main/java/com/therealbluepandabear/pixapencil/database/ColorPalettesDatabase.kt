@@ -24,7 +24,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.converters.JSON
 import com.therealbluepandabear.pixapencil.dao.ColorPalettesDao
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
@@ -45,7 +45,7 @@ abstract class ColorPalettesDatabase: RoomDatabase() {
                             super.onCreate(db)
                             Executors.newSingleThreadExecutor().execute {
                                 CoroutineScope(Dispatchers.IO).launch {
-                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette(context.getString(R.string.defaultColorPalette), JsonConverter.convertListToJsonString(ColorDatabase.toList()), true))
+                                    instance?.colorPalettesDao()?.insertColorPalette(ColorPalette(context.getString(R.string.defaultColorPalette), JSON.listToString(ColorDatabase.toList()), true))
                                 }
                             }
                         }

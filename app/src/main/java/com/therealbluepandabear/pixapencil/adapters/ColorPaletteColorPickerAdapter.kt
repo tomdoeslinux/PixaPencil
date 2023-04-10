@@ -22,7 +22,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.converters.JSON
 import com.therealbluepandabear.pixapencil.databinding.ColorPickerLayoutBinding
 import com.therealbluepandabear.pixapencil.extensions.setOnLongPressListener
 import com.therealbluepandabear.pixapencil.listeners.ColorPaletteColorPickerListener
@@ -41,7 +41,7 @@ class ColorPaletteColorPickerAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ColorPaletteColorPickerViewHolder) {
-            val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+            val colorData = JSON.stringToIntList(colorPalette.colorPaletteColorData).toMutableList()
             val isPlusIndicatorItemPosition = colorData[position] == Color.TRANSPARENT && position == colorData.size - 1
 
             holder.bind(colorData, position, isPlusIndicatorItemPosition)
@@ -67,7 +67,7 @@ class ColorPaletteColorPickerAdapter(
     }
 
     override fun getItemCount(): Int {
-        val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+        val colorData = JSON.stringToIntList(colorPalette.colorPaletteColorData).toMutableList()
         return colorData.size
     }
 

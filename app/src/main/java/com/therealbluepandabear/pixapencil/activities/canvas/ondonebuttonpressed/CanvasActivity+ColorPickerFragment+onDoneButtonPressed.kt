@@ -22,7 +22,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.judgeUndoRedoStacks
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.adapters.ColorPaletteColorPickerAdapter
-import com.therealbluepandabear.pixapencil.converters.JsonConverter
+import com.therealbluepandabear.pixapencil.converters.JSON
 import com.therealbluepandabear.pixapencil.database.AppData
 import com.therealbluepandabear.pixapencil.models.ColorPalette
 import kotlinx.coroutines.CoroutineScope
@@ -35,10 +35,10 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPalette:
     if (colorPalette == null) {
         setPixelColor(selectedColor)
     } else {
-        val newData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+        val newData = JSON.stringToIntList(colorPalette.colorPaletteColorData).toMutableList()
         newData.add(newData.size - 1, selectedColor)
 
-        colorPalette.colorPaletteColorData = JsonConverter.convertListToJsonString(newData.toList())
+        colorPalette.colorPaletteColorData = JSON.listToString(newData.toList())
 
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -48,7 +48,7 @@ fun CanvasActivity.extendedOnDoneButtonPressed(selectedColor: Int, colorPalette:
         adapter = ColorPaletteColorPickerAdapter(colorPalette, this@extendedOnDoneButtonPressed)
         binding.activityCanvasColorPickerRecyclerView.adapter = adapter
 
-        val colorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
+        val colorData = JSON.stringToIntList(colorPalette.colorPaletteColorData).toMutableList()
         binding.activityCanvasColorPickerRecyclerView.scrollToPosition(colorData.size - 1)
     }
 
