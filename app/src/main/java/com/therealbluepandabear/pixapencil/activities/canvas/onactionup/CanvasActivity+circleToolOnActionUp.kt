@@ -24,7 +24,7 @@ import com.therealbluepandabear.pixapencil.extensions.doAddLast
 
 fun CanvasActivity.circleToolOnActionUp() {
     if (
-        viewModel.currentTool.toolFamily == ToolFamily.Ellipse &&
+        viewModel.currentTool.family == ToolFamily.Ellipse &&
         viewModel.currentTool.outlined == false &&
         coordinates != null &&
         shapeOrigin != null) {

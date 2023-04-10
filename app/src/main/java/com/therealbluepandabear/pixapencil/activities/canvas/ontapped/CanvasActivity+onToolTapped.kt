@@ -117,6 +117,6 @@ fun CanvasActivity.extendedOnToolTapped(toolName: String) {
     binding.activityCanvasDrawingView.moveMode = toolName == StringConstants.Identifiers.MOVE_TOOL_IDENTIFIER
 
     viewModel.currentTool = Tool.values().firstOrNull {
-        it.toolName == toolName
+        it.identifier == toolName
     } ?: Tool.PencilTool
 }

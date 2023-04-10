@@ -51,7 +51,7 @@ fun CanvasActivity.extendedOnActionUp() {
             lineToolOnActionUp()
         }
 
-        viewModel.currentTool.toolFamily == ToolFamily.Rectangle -> {
+        viewModel.currentTool.family == ToolFamily.Rectangle -> {
             rectangleToolOnActionUp()
         }
 
@@ -59,11 +59,11 @@ fun CanvasActivity.extendedOnActionUp() {
             viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
         }
 
-        viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.CircleTool || viewModel.currentTool == Tool.OutlinedCircleTool) -> {
+        viewModel.currentTool.family == ToolFamily.Ellipse && (viewModel.currentTool == Tool.CircleTool || viewModel.currentTool == Tool.OutlinedCircleTool) -> {
             circleToolOnActionUp()
         }
 
-        viewModel.currentTool.toolFamily == ToolFamily.Ellipse && (viewModel.currentTool == Tool.EllipseTool || viewModel.currentTool == Tool.OutlinedEllipseTool) -> {
+        viewModel.currentTool.family == ToolFamily.Ellipse && (viewModel.currentTool == Tool.EllipseTool || viewModel.currentTool == Tool.OutlinedEllipseTool) -> {
             ellipseToolOnActionUp()
         }
 

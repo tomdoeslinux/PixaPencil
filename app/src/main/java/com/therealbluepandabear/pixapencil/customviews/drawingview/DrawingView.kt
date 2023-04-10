@@ -43,10 +43,8 @@ class DrawingView @JvmOverloads constructor(
 
     private lateinit var transparentBackgroundViewBitmap: Bitmap
 
-    private val centerX: Float
-        get() = width / 2f
-    private val centerY: Float
-        get() = height / 2f
+    private val centerX: Float = width / 2f
+    private val centerY: Float = height / 2f
 
     private var scaleWidth = 0f
     private var scaleHeight = 0f

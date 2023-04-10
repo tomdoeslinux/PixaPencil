@@ -67,7 +67,7 @@ fun CanvasActivity.onCreate() {
         }
 
         supportFragmentManager.findFragmentByTag("f" + 0)?.requireView()?.doOnPreDraw {
-            (supportFragmentManager.findFragmentByTag("f" + 0) as ToolsFragment).tapOnToolByName(viewModel.currentTool.toolName)
+            (supportFragmentManager.findFragmentByTag("f" + 0) as ToolsFragment).tapOnToolByName(viewModel.currentTool.identifier)
         }
 
         binding.activityCanvasTabLayout.getTabAt(binding.activityCanvasViewPager2.currentItem)?.select()

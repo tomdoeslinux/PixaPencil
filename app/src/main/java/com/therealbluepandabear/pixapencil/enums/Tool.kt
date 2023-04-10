@@ -20,7 +20,7 @@ package com.therealbluepandabear.pixapencil.enums
 
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-enum class Tool(val toolName: String, val toolFamily: ToolFamily, val outlined: Boolean? = null) {
+enum class Tool(val identifier: String, val family: ToolFamily, val outlined: Boolean? = null) {
     PencilTool(
         StringConstants.Identifiers.PENCIL_TOOL_IDENTIFIER,
         ToolFamily.None,

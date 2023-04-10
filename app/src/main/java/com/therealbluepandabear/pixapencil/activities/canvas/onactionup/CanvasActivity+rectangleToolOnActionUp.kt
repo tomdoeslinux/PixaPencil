@@ -24,7 +24,7 @@ import com.therealbluepandabear.pixapencil.extensions.doAddLast
 
 fun CanvasActivity.rectangleToolOnActionUp() {
     if (
-        viewModel.currentTool.toolFamily == ToolFamily.Rectangle &&
+        viewModel.currentTool.family == ToolFamily.Rectangle &&
         viewModel.currentTool.outlined == false &&
         coordinates != null &&
         shapeOrigin != null) {
