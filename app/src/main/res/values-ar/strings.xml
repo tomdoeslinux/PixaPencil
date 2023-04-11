@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="fragmentFindAndReplace_find">إبحث</string>
     <string name="projectDetailsAlertBox_height">الارتفاع</string>
     <string name="exportProjectDialogLayout_raw_str">خام</string>
     <string name="compression_quality">جودة الضغط</string>
@@ -29,7 +28,6 @@
     <string name="generic_saved">تم الحفظ</string>
     <string name="generic_switch">غير</string>
     <string name="recentCreationsLayout_favoriteButton_content_description">المفضلة</string>
-    <string name="fragmentFindAndReplace_replace_with">إستبدل ب</string>
     <string name="fragmentSprayToolSettings_radius">نصف القطر</string>
     <string name="fragmentSprayToolSettings_done">تم</string>
     <string name="fragment_replace_color_title">إستبدل اللون</string>
@@ -50,7 +48,6 @@
     <string name="generic_lighten_mode_tooltip">وضع التفتيح</string>
     <string name="fragmentFilters_grayscale">تدرج الرمادي</string>
     <string name="fragmentNewColorPalette_color_palette_name">إسم لوحة الألوان</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">الألوان في لوحتك:</string>
     <string name="fragmentTools_line_tool_content_description">آداة التسطير</string>
     <string name="defaultColorPalette">لوحة الألوان الافتراضية</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">استخرج من اللوحة</string>
@@ -58,7 +55,6 @@
     <string name="fragmentTools_fill_tool_content_description">آداة الملئ</string>
     <string name="fragmentTools_rectangle_tool_content_description">آداة المستطيل</string>
     <string name="colorPalettesLayout_color_palette_item">عنصر لوحة الألوان</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">ألوان غير كافية؟ غير لوحة الألوان الحالية.</string>
     <string name="fragment_new_color_palette_title">لوحة ألوان جديدة</string>
     <string name="fragmentTools_move_tool_content_description">آداة التحريك</string>
     <string name="fragmentTools_pencil_tool_content_description">آداة القلم</string>

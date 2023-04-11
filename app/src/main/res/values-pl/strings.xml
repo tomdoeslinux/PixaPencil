@@ -104,8 +104,6 @@
     <string name="compression_quality">Jakość kompresji</string>
     <string name="fragmentFilters_lighten">Rozjaśnij</string>
     <string name="fragmentFilters_grayscale">Skala szarości</string>
-    <string name="fragmentFindAndReplace_find">Znajdź</string>
-    <string name="fragmentFindAndReplace_replace_with">Zamień na</string>
     <string name="fragmentNewProject_name">Nazwa</string>
     <string name="activityMain_newProjectButton_contentDescription">Nowy projekt</string>
     <string name="activityCanvasTopAppMenu_rotate_180">180°</string>
@@ -165,7 +163,6 @@
     <string name="fragment_spray_tool_settings_title">Ustawienia narzędzia Sprej</string>
     <string name="activityCanvasTopAppMenu_clear_canvas">Wyczyść obszar roboczy</string>
     <string name="square_tool_info_text">Rysowanie wypełnionych, pikselowanych prostokątów</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Za mało kolorów\? Zmień wybraną paletę kolorów.</string>
     <string name="fragmentTools_spray_tool_content_description">Sprej</string>
     <string name="activityCanvasTopAppMenu_pixel_perfect">Pixel Perfect</string>
     <string name="spot_light_new_project_fragment_2">Teraz wpisz żądaną szerokość</string>
@@ -187,7 +184,6 @@
     <string name="spot_light_new_project_fragment_input_value">Wpisz wartość w pole %1$s</string>
     <string name="palette_url_identifier">Identyfikator URL palety</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Wyodrębnij z obszaru roboczego</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Kolory na obszarze roboczym:</string>
     <string name="activityCanvasTopAppMenu_reset_zoom_and_pos">Resetuj powiększenie/pozycję</string>
     <string name="spray_tool_info_title">Informacje o narzędziu Sprej</string>
     <string name="outlined_rectangle_tool_info_text">Rysowanie pikselowanych prostokątów</string>

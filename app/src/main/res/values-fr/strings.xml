@@ -34,14 +34,10 @@
     <string name="fragmentTools_outlined_square_button_content_description">Outil carré souligné</string>
     <string name="fragmentNewProject_width">Largeur</string>
     <string name="fragmentNewProject_height">Hauteur</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Les couleurs de votre canevas :</string>
     <string name="fragmentNewColorPalette_done">Terminé</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Extraire du canevas</string>
     <string name="fragment_color_picker_title">Sélectionnez la couleur</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nom de la palette de couleurs</string>
-    <string name="fragmentFindAndReplace_replace_with">Remplacer par</string>
-    <string name="fragmentFindAndReplace_find">Trouver</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Pas assez de couleurs \? Changez la palette de couleurs que vous avez sélectionnée.</string>
     <string name="fragmentSprayToolSettings_strength">Force</string>
     <string name="fragmentSprayToolSettings_radius">Rayon</string>
     <string name="fragmentSprayToolSettings_done">Terminé</string>

@@ -32,10 +32,6 @@
     <string name="fragmentNewColorPalette_done">Gotovo</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Izdvoji iz platna</string>
     <string name="fragmentNewColorPalette_color_palette_name">Ime palete boja</string>
-    <string name="fragmentFindAndReplace_find">Traži</string>
-    <string name="fragmentFindAndReplace_replace_with">Zamijeni s</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Boje u tvojem platnu:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Nemaš dovoljno boja\? Promijeni odabranu paletu boja.</string>
     <string name="fragmentSprayToolSettings_strength">Količina sprejanja</string>
     <string name="fragmentSprayToolSettings_radius">Radijus sprejanja</string>
     <string name="fragmentSprayToolSettings_done">Gotovo</string>

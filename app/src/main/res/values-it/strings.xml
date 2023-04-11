@@ -13,10 +13,8 @@
     <string name="fragmentFilters_invert">Inverti</string>
     <string name="fragmentFilters_grayscale">Ingrigisci</string>
     <string name="fragmentNewColorPalette_done">Fatto</string>
-    <string name="fragmentFindAndReplace_find">Trova</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nome Tavolozza Colori</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Estrai Da Tela</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Colori nella tua tela:</string>
     <string name="fragmentSprayToolSettings_strength">Forza</string>
     <string name="fragmentSprayToolSettings_radius">Raggio</string>
     <string name="fragmentSprayToolSettings_done">Fatto</string>
@@ -63,8 +61,6 @@
     <string name="generic_saved">Salvato</string>
     <string name="generic_ok">OK</string>
     <string name="generic_cancel">Annulla</string>
-    <string name="fragmentFindAndReplace_replace_with">Rimpiazza con</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Non hai abbastanza colori\? Cambia la tavolozza colori selezionata.</string>
     <string name="activityMain_newProjectButton_contentDescription">Nuovo Progetto</string>
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Copiatura testo negli appunti fallita</string>
     <string name="fragmentColorPicker_tab_color_picker">Selettore Colore</string>

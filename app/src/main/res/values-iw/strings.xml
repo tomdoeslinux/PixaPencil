@@ -35,11 +35,6 @@
     <string name="fragmentNewColorPalette_extract_from_canvas">חלץ את הצבעים מהקנבס שלך</string>
     <string name="fragmentNewColorPalette_color_palette_name">שם לוח הצבעים</string>
 
-    <string name="fragmentFindAndReplace_find">תמצא</string>
-    <string name="fragmentFindAndReplace_replace_with">צבע להחלפה</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">צבעים בקנבס שלך:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">אין מספיק צבעים? שנה את לוח הצבעים שנבחר.</string>
-
     <string name="fragmentSprayToolSettings_strength">כוח</string>
     <string name="fragmentSprayToolSettings_radius">רַדִיוּס</string>
     <string name="fragmentSprayToolSettings_done">לְאַשֵׁר</string>

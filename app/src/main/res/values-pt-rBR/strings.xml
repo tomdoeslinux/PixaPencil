@@ -15,10 +15,6 @@
     <string name="fragmentNewColorPalette_done">Pronto</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">Extrair da Tela de Desenho</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nome da Paleta de Cores</string>
-    <string name="fragmentFindAndReplace_find">Procurar</string>
-    <string name="fragmentFindAndReplace_replace_with">Substituir por</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Cores na sua tela de desenho:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">São poucas opções de cor\? Altere a paleta de cores no menu de paletas.</string>
     <string name="fragmentSprayToolSettings_strength">Intensidade</string>
     <string name="fragmentNewProject_height">Altura</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Pré-visualização da Busca</string>

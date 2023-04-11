@@ -8,9 +8,6 @@
     <string name="fragmentFilters_lighten">Lysne</string>
     <string name="fragmentNewColorPalette_done">Ferdig</string>
     <string name="fragmentNewColorPalette_color_palette_name">Fargepalett-navn</string>
-    <string name="fragmentFindAndReplace_find">Finn</string>
-    <string name="fragmentFindAndReplace_replace_with">Erstatt med</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Ikke nok farger\? Endre valgt fargepalett.</string>
     <string name="fragmentSprayToolSettings_strength">Styrke</string>
     <string name="fragmentSprayToolSettings_radius">Radius</string>
     <string name="fragmentSprayToolSettings_done">Ferdig</string>
@@ -34,7 +31,6 @@
     <string name="fragmentTools_eraser_tool_content_description">Viskelærsverktøy</string>
     <string name="fragmentTools_line_tool_content_description">Linjeverktøy</string>
     <string name="fragmentTools_move_tool_content_description">Flyttingsverktøy</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Farger på lerretet ditt.</string>
     <string name="fragment_find_and_replace_find_preview_content_description">Finn-forhåndsvisning</string>
     <string name="fragment_find_and_replace_replace_preview_content_description">Erstatt-forhåndsvisning</string>
     <string name="fragmentTools_rectangle_tool_content_description">Rektangelverktøy</string>

@@ -3,7 +3,6 @@
     <string name="generic_ok">OK</string>
     <string name="fragmentFilters_darken">Gelapkan</string>
     <string name="fragmentNewProject_height">Tinggi</string>
-    <string name="fragmentFindAndReplace_find">Cari</string>
     <string name="fragment_spray_tool_settings_title">Pengaturan Alat Semprot</string>
     <string name="fragmentNewProject_width">Lebar</string>
     <string name="generic_no_thanks">Tidak, terima kasih</string>
@@ -17,8 +16,6 @@
     <string name="fragmentTools_pencil_tool_content_description">Alat Pensil</string>
     <string name="fragmentTools_color_picker_tool_content_description">Alat Pemilih Warna</string>
     <string name="fragmentFilters_color_filter">Filter Warna</string>
-    <string name="fragmentFindAndReplace_replace_with">Ubah dengan</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Warna-warna pada kanvas:</string>
     <string name="fragmentTools_eraser_tool_content_description">Alat Penghapus</string>
     <string name="fragmentTools_rectangle_tool_content_description">Alat Persegi</string>
     <string name="fragmentNewColorPalette_done">Selesai</string>

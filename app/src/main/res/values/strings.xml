@@ -59,11 +59,6 @@
     <string name="fragmentNewColorPalette_extract_from_canvas">Extract From Canvas</string>
     <string name="fragmentNewColorPalette_color_palette_name">Color Palette Name</string>
 
-    <string name="fragmentFindAndReplace_find">Find</string>
-    <string name="fragmentFindAndReplace_replace_with">Replace with</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Colors in your canvas:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Not enough colors? Change your selected color palette.</string>
-
     <string name="fragmentSprayToolSettings_strength">Strength</string>
     <string name="fragmentSprayToolSettings_radius">Radius</string>
     <string name="fragmentSprayToolSettings_done">Done</string>

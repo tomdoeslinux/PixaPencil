@@ -30,10 +30,6 @@
     <string name="fragmentNewColorPalette_done">完成</string>
     <string name="fragmentNewColorPalette_extract_from_canvas">从画布中提取</string>
     <string name="fragmentNewColorPalette_color_palette_name">调色板名称</string>
-    <string name="fragmentFindAndReplace_find">查找</string>
-    <string name="fragmentFindAndReplace_replace_with">替换为</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">画布中的颜色:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">颜色不够用啦？可更改你选择的调色板。</string>
     <string name="fragmentSprayToolSettings_strength">强度</string>
     <string name="fragmentSprayToolSettings_radius">半径</string>
     <string name="fragmentSprayToolSettings_done">完成</string>

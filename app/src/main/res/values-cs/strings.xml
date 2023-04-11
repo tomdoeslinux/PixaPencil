@@ -15,14 +15,11 @@
     <string name="activityMainBottomSheet_delete">Smazat</string>
     <string name="exportProjectDialogLayout_file_name_str">Název Souboru</string>
     <string name="fragmentNewColorPalette_done">Hotovo</string>
-    <string name="fragmentFindAndReplace_find">Najít</string>
     <string name="fragmentFilters_color_filter">Filtr Barev</string>
     <string name="fragmentFilters_lighten">Zesvětlit</string>
     <string name="fragmentFilters_darken">Ztmavit</string>
     <string name="fragmentFilters_invert">Invertovat</string>
     <string name="fragmentFilters_grayscale">Stupně Šedi</string>
-    <string name="fragmentFindAndReplace_replace_with">Nahradit za</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Použité barvy:</string>
     <string name="compression_quality">Kvalita Komprese</string>
     <string name="fragmentNewColorPalette_color_palette_name">Název Barevné Palety</string>
     <string name="fragmentNewProject_height">Výška</string>
@@ -53,7 +50,6 @@
     <string name="fragmentNewProject_name">Název</string>
     <string name="generic_saved">Uloženo</string>
     <string name="projectDetailsAlertBox_colors">Barvy</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Nemáte dostatek barev\? Změňte vybranou barevnou paletu.</string>
     <string name="fragment_new_project_title">Nový Projekt</string>
     <string name="fragmentTools_circle_tool_content_description">Nástroj Kružnice</string>
     <string name="activityMain_newProjectButton_contentDescription">Nový Projekt</string>

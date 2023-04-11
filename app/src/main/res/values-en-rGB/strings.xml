@@ -7,8 +7,6 @@
     <string name="colorPalettesLayout_color_palette_item">Colour Palette Item</string>
     <string name="projectDetailsAlertBox_colors">Colours</string>
     <string name="fragmentNewColorPalette_color_palette_name">Colour Palette Name</string>
-    <string name="fragmentFindAndReplace_colors_in_your_canvas">Colours in your canvas:</string>
-    <string name="fragmentFindAndReplace_not_enough_colors">Not enough colours? Change your selected colour palette.</string>
     <string name="fragment_replace_color_title">Replace Colour</string>
     <string name="fragment_color_picker_title">Select Colour</string>
     <string name="fragment_new_color_palette_title">New Colour Palette</string>

@@ -44,7 +44,6 @@ class CanvasActivity :
     AppCompatActivity(),
     ColorPaletteColorPickerListener,
     ColorPickerFragmentListener,
-    ReplaceColorFragmentListener,
     ToolsFragmentListener,
     FiltersFragmentListener,
     ColorPalettesFragmentListener,
@@ -145,10 +144,6 @@ class CanvasActivity :
 
     override fun onDoneButtonPressed(selectedColor: Int, colorPalette: ColorPalette?) {
         extendedOnDoneButtonPressed(selectedColor, colorPalette)
-    }
-
-    override fun onDoneButtonPressed(colorToFind: Int?, colorToReplace: Int?) {
-        extendedOnDoneButtonPressed(colorToFind, colorToReplace)
     }
 
     override fun onToolTapped(toolName: String) {

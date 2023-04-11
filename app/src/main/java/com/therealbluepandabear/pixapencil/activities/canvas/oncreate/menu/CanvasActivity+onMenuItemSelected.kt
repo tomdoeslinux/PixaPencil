@@ -79,10 +79,6 @@ fun CanvasActivity.onMenuItemSelected(item: MenuItem): Boolean {
             onClearCanvasOptionsItemSelected()
         }
 
-        R.id.activityCanvasTopAppMenu_replace_color_item -> {
-            onFindAndReplaceOptionsItemSelected()
-        }
-
         R.id.activityCanvasTopAppMenu_grid_item -> {
             onGridOptionsItemSelected()
         }
