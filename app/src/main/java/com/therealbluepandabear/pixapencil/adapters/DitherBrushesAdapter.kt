@@ -35,6 +35,7 @@ class DitherBrushesAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = BrushesLayoutBinding.inflate(LayoutInflater.from(parent.context))
+
         return DitherBrushesViewHolder(binding, context)
     }
 

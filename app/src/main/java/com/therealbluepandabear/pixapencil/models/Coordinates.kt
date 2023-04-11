@@ -21,10 +21,6 @@ package com.therealbluepandabear.pixapencil.models
 import kotlin.math.floor
 
 data class Coordinates(val x: Int, val y: Int) {
-    private fun swap(): Coordinates {
-        return Coordinates(y, x)
-    }
-
     fun convertToCoordinatesDouble(): CoordinatesDouble {
         return CoordinatesDouble(x.toDouble(), y.toDouble())
     }
@@ -56,8 +52,8 @@ data class Coordinates(val x: Int, val y: Int) {
         val coordinates1 = Coordinates(y, getVerticallyReflectedCoordinates(bitmapWidth).x)
         val coordinates2 = Coordinates(getHorizontallyReflectedCoordinates(bitmapHeight).y, x)
 
-        octalReflectedCoordinateSet.add(coordinates1.swap())
-        octalReflectedCoordinateSet.add(coordinates2.swap())
+        octalReflectedCoordinateSet.add(Coordinates(coordinates1.y, coordinates1.x))
+        octalReflectedCoordinateSet.add(Coordinates(coordinates2.y, coordinates2.x))
 
         val coordinates3 = getVerticallyReflectedCoordinates(bitmapWidth)
         val coordinates4 = coordinates2.getVerticallyReflectedCoordinates(bitmapWidth)
