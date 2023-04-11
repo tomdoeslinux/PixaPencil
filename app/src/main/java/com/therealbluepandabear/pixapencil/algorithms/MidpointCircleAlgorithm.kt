@@ -19,7 +19,7 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 /**
  * The code is based off of the following:
@@ -33,7 +33,7 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
 
     private val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, shouldLineIgnoreBrush)
 
-    private fun putPixel(p1: Coordinates, p2: Coordinates) {
+    private fun putPixel(p1: Coordinate, p2: Coordinate) {
         val xc = p1.x
         val yc = p1.y
 
@@ -42,120 +42,120 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
 
         if (!evenDiameterMode) {
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc + x, yc - y),
+                Coordinate(xc + x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc + y, yc - x),
+                Coordinate(xc + y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc + x, yc + y),
+                Coordinate(xc + x, yc + y),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc + y, yc + x),
+                Coordinate(xc + y, yc + x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - x, yc - y),
+                Coordinate(xc - x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - y, yc - x),
+                Coordinate(xc - y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - y, yc + x),
+                Coordinate(xc - y, yc + x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - x, yc + y),
+                Coordinate(xc - x, yc + y),
                 algorithmInfo.color
             )
 
             if (filledMode) {
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc + x, yc - y),
-                    Coordinates(xc - x, yc - y)
+                    Coordinate(xc + x, yc - y),
+                    Coordinate(xc - x, yc - y)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - y, yc + x),
-                    Coordinates(xc + y, yc + x)
+                    Coordinate(xc - y, yc + x),
+                    Coordinate(xc + y, yc + x)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - x, yc + y),
-                    Coordinates(xc + x, yc + y)
+                    Coordinate(xc - x, yc + y),
+                    Coordinate(xc + x, yc + y)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - x, yc + y),
-                    Coordinates(xc + x, yc + y)
+                    Coordinate(xc - x, yc + y),
+                    Coordinate(xc + x, yc + y)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - y, yc - x),
-                    Coordinates(xc + y, yc - x)
+                    Coordinate(xc - y, yc - x),
+                    Coordinate(xc + y, yc - x)
                 )
             }
         } else {
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates((xc + x) + 1, yc - y),
+                Coordinate((xc + x) + 1, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates((xc + y) + 1, yc - x),
+                Coordinate((xc + y) + 1, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates((xc + x) + 1, (yc + y) + 1),
+                Coordinate((xc + x) + 1, (yc + y) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates((xc + y) + 1, (yc + x) + 1),
+                Coordinate((xc + y) + 1, (yc + x) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - x, yc - y),
+                Coordinate(xc - x, yc - y),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - y, yc - x),
+                Coordinate(xc - y, yc - x),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - y, (yc + x) + 1),
+                Coordinate(xc - y, (yc + x) + 1),
                 algorithmInfo.color
             )
             algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(
-                Coordinates(xc - x, (yc + y) + 1),
+                Coordinate(xc - x, (yc + y) + 1),
                 algorithmInfo.color
             )
 
             if (filledMode) {
                 lineAlgorithmInstance.compute(
-                    Coordinates((xc + x) + 1, yc - y),
-                    Coordinates(xc - x, yc - y)
+                    Coordinate((xc + x) + 1, yc - y),
+                    Coordinate(xc - x, yc - y)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - y, (yc + x) + 1),
-                    Coordinates((xc + y) + 1, (yc + x) + 1)
+                    Coordinate(xc - y, (yc + x) + 1),
+                    Coordinate((xc + y) + 1, (yc + x) + 1)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - x, (yc + y) + 1),
-                    Coordinates((xc + x) + 1, (yc + y) + 1)
+                    Coordinate(xc - x, (yc + y) + 1),
+                    Coordinate((xc + x) + 1, (yc + y) + 1)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - x, (yc + y) + 1),
-                    Coordinates((xc + x) + 1, (yc + y) + 1)
+                    Coordinate(xc - x, (yc + y) + 1),
+                    Coordinate((xc + x) + 1, (yc + y) + 1)
                 )
                 lineAlgorithmInstance.compute(
-                    Coordinates(xc - y, yc - x),
-                    Coordinates((xc + y) + 1, yc - x)
+                    Coordinate(xc - y, yc - x),
+                    Coordinate((xc + y) + 1, yc - x)
                 )
             }
         }
     }
 
-    fun compute(p1: Coordinates, radius: Int) {
+    fun compute(p1: Coordinate, radius: Int) {
         val xc = p1.x
         val yc = p1.y
 
@@ -164,7 +164,7 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
 
         var p = 1 - radius
 
-        putPixel(Coordinates(xc, yc), Coordinates(x, y))
+        putPixel(Coordinate(xc, yc), Coordinate(x, y))
 
         while (x < y) {
             p = if (p < 0) {
@@ -175,7 +175,7 @@ class MidpointCircleAlgorithm(private val algorithmInfo: AlgorithmInfoParameter,
                 y--
                 (p + 2 * (x - y) + 1)
             }
-            putPixel(Coordinates(xc, yc), Coordinates(x, y))
+            putPixel(Coordinate(xc, yc), Coordinate(x, y))
         }
     }
 }

@@ -22,17 +22,17 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.pencilToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.pencilToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (binding.activityCanvasDrawingView.prevX != null && binding.activityCanvasDrawingView.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-        lineAlgorithmInstance.compute(Coordinates(binding.activityCanvasDrawingView.prevX!!, binding.activityCanvasDrawingView.prevY!!), coordinatesTapped)
+        lineAlgorithmInstance.compute(Coordinate(binding.activityCanvasDrawingView.prevX!!, binding.activityCanvasDrawingView.prevY!!), coordinateTapped)
     }
 
-    canvasCommandsHelperInstance.overrideSetPixel(coordinatesTapped, getSelectedColor())
+    canvasCommandsHelperInstance.overrideSetPixel(coordinateTapped, getSelectedColor())
 
-    binding.activityCanvasDrawingView.prevX = coordinatesTapped.x
-    binding.activityCanvasDrawingView.prevY = coordinatesTapped.y
+    binding.activityCanvasDrawingView.prevX = coordinateTapped.x
+    binding.activityCanvasDrawingView.prevY = coordinateTapped.y
 }

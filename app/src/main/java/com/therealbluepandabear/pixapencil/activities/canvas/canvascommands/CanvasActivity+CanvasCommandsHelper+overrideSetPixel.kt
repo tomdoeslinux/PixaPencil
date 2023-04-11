@@ -25,20 +25,20 @@ import com.therealbluepandabear.pixapencil.enums.SymmetryMode
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 import com.therealbluepandabear.pixapencil.utility.general.ColorFilterUtilities
 
-fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinates: Coordinates, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
+fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(coordinate: Coordinate, color: Int, saveToBitmapAction: Boolean = true, ignoreShadingMap: Boolean = false) {
     baseReference.viewModel.redoStack.clear()
 
-    val colorAtCoordinates = baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinates)
+    val colorAtCoordinates = baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate)
 
     if ((saveToBitmapAction && !baseReference.binding.activityCanvasDrawingView.shadingMode) || (baseReference.binding.activityCanvasDrawingView.shadingMode && ignoreShadingMap)) {
-        baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, color))
-        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinates, color)
+        baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinate, colorAtCoordinates, color))
+        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinate, color)
     }
-    else if (baseReference.binding.activityCanvasDrawingView.shadingMode && !baseReference.binding.activityCanvasDrawingView.shadingMap.contains(coordinates) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
+    else if (baseReference.binding.activityCanvasDrawingView.shadingMode && !baseReference.binding.activityCanvasDrawingView.shadingMap.contains(coordinate) && colorAtCoordinates != Color.TRANSPARENT && !ignoreShadingMap) {
         val shadeColor = if (baseReference.shadingToolMode == StringConstants.ShadingToolModes.LIGHTEN_SHADING_TOOL_MODE) {
             Color.WHITE
         } else {
@@ -46,16 +46,16 @@ fun CanvasActivity.CanvasCommandsHelper.extendedSetPixelAndSaveToBitmapAction(co
         }
 
         val newColor = ColorFilterUtilities.blendColor(colorAtCoordinates, shadeColor, 0.2f)
-        baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinates, colorAtCoordinates, newColor))
-        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinates, newColor)
-        baseReference.binding.activityCanvasDrawingView.shadingMap.add(coordinates)
+        baseReference.viewModel.currentBitmapAction!!.actionData.add(BitmapActionData(coordinate, colorAtCoordinates, newColor))
+        baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(coordinate, newColor)
+        baseReference.binding.activityCanvasDrawingView.shadingMap.add(coordinate)
     }
 
     baseReference.viewModel.currentBitmap = baseReference.binding.activityCanvasDrawingView.drawingViewBitmap
 }
 
 fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
-    coordinates: Coordinates,
+    coordinate: Coordinate,
     color: Int,
     ignoreBrush: Boolean = false,
     saveToBitmapAction: Boolean = true,
@@ -64,31 +64,31 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
     ignoreShadingMap: Boolean = false,
 ) {
     with(baseReference.binding.activityCanvasDrawingView) {
-        var horizontallyReflectedCoordinates: Coordinates? = null
-        var verticallyReflectedCoordinates: Coordinates? = null
-        var quadMirroredCoordinates = listOf<Coordinates>()
-        var octalMirroredCoordinates = listOf<Coordinates>()
+        var horizontallyReflectedCoordinate: Coordinate? = null
+        var verticallyReflectedCoordinate: Coordinate? = null
+        var quadMirroredCoordinates = listOf<Coordinate>()
+        var octalMirroredCoordinates = listOf<Coordinate>()
 
         when {
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Horizontal && !ignoreSymmetry -> {
-                horizontallyReflectedCoordinates =
-                    coordinates.getHorizontallyReflectedCoordinates(drawingViewBitmap.height)
+                horizontallyReflectedCoordinate =
+                    coordinate.getHorizontallyReflectedCoordinates(drawingViewBitmap.height)
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Vertical && !ignoreSymmetry -> {
-                verticallyReflectedCoordinates =
-                    coordinates.getVerticallyReflectedCoordinates(drawingViewBitmap.width)
+                verticallyReflectedCoordinate =
+                    coordinate.getVerticallyReflectedCoordinates(drawingViewBitmap.width)
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Quad && !ignoreSymmetry -> {
-                quadMirroredCoordinates = coordinates.getQuadReflectedCoordinateSet(
+                quadMirroredCoordinates = coordinate.getQuadReflectedCoordinateSet(
                     drawingViewBitmap.width,
                     drawingViewBitmap.height
                 )
             }
 
             baseReference.viewModel.currentSymmetryMode == SymmetryMode.Octal && !ignoreSymmetry -> {
-                octalMirroredCoordinates = coordinates.getOctalReflectedCoordinateSet(
+                octalMirroredCoordinates = coordinate.getOctalReflectedCoordinateSet(
                     drawingViewBitmap.width,
                     drawingViewBitmap.height
                 )
@@ -97,15 +97,15 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             else -> {}
         }
 
-        if (coordinatesInCanvasBounds(coordinates, baseReference.viewModel.currentTool, ignoreDither)) {
-            extendedSetPixelAndSaveToBitmapAction(coordinates, color, ignoreShadingMap = ignoreShadingMap)
+        if (coordinatesInCanvasBounds(coordinate, baseReference.viewModel.currentTool, ignoreDither)) {
+            extendedSetPixelAndSaveToBitmapAction(coordinate, color, ignoreShadingMap = ignoreShadingMap)
 
-            if (horizontallyReflectedCoordinates != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinates, baseReference.viewModel.currentTool, ignoreDither)) {
-                extendedSetPixelAndSaveToBitmapAction(horizontallyReflectedCoordinates, color)
+            if (horizontallyReflectedCoordinate != null && coordinatesInCanvasBounds(horizontallyReflectedCoordinate, baseReference.viewModel.currentTool, ignoreDither)) {
+                extendedSetPixelAndSaveToBitmapAction(horizontallyReflectedCoordinate, color)
             }
 
-            if (verticallyReflectedCoordinates != null && coordinatesInCanvasBounds(verticallyReflectedCoordinates, baseReference.viewModel.currentTool, ignoreDither)) {
-                extendedSetPixelAndSaveToBitmapAction(verticallyReflectedCoordinates, color)
+            if (verticallyReflectedCoordinate != null && coordinatesInCanvasBounds(verticallyReflectedCoordinate, baseReference.viewModel.currentTool, ignoreDither)) {
+                extendedSetPixelAndSaveToBitmapAction(verticallyReflectedCoordinate, color)
             }
 
             if (quadMirroredCoordinates.isNotEmpty()) {
@@ -125,22 +125,22 @@ fun CanvasActivity.CanvasCommandsHelper.overrideSetPixel(
             }
 
             if (baseReference.viewModel.currentBrush != BrushesDatabase.toList().first() && !ignoreBrush) {
-                for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(coordinates)) {
+                for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(coordinate)) {
                     if (coordinatesInCanvasBounds(xyPosition_2,baseReference.viewModel.currentTool, ignoreDither)) {
                         extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                     }
                 }
 
-                if (horizontallyReflectedCoordinates != null) {
-                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinates)) {
+                if (horizontallyReflectedCoordinate != null) {
+                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(horizontallyReflectedCoordinate)) {
                         if (coordinatesInCanvasBounds(xyPosition_2, baseReference.viewModel.currentTool, ignoreDither)) {
                             extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                         }
                     }
                 }
 
-                if (verticallyReflectedCoordinates != null) {
-                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinates)) {
+                if (verticallyReflectedCoordinate != null) {
+                    for (xyPosition_2 in baseReference.viewModel.currentBrush.convertBrushInstructionDataToXYPositionData(verticallyReflectedCoordinate)) {
                         if (coordinatesInCanvasBounds(xyPosition_2, baseReference.viewModel.currentTool, ignoreDither)) {
                             extendedSetPixelAndSaveToBitmapAction(xyPosition_2, color, saveToBitmapAction)
                         }

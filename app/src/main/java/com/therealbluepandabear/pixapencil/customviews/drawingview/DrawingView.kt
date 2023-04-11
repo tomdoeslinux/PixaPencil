@@ -28,7 +28,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.therealbluepandabear.pixapencil.enums.*
 import com.therealbluepandabear.pixapencil.extensions.drawTransparent
 import com.therealbluepandabear.pixapencil.extensions.overlay
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.utility.compat.PaintCompat
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import java.math.RoundingMode
@@ -59,9 +59,9 @@ class DrawingView @JvmOverloads constructor(
     var prevX: Int? = null
     var prevY: Int? = null
 
-    val shadingMap = mutableListOf<Coordinates>()
+    val shadingMap = mutableListOf<Coordinate>()
 
-    private var onPixelTapped: (Coordinates) -> Unit = { }
+    private var onPixelTapped: (Coordinate) -> Unit = { }
     private var onTouchEvent: () -> Unit = { }
     private var onActionUp: () -> Unit = { }
 
@@ -166,9 +166,9 @@ class DrawingView @JvmOverloads constructor(
         val x: Float = event.x / currentZoom + clipBoundsRect.left
         val y: Float = event.y / currentZoom + clipBoundsRect.top
 
-        val coordinates = Coordinates(((x - boundingRect.left) / scaleWidth).toInt(), (((y - boundingRect.top) / scaleHeight).toInt()))
+        val coordinate = Coordinate(((x - boundingRect.left) / scaleWidth).toInt(), (((y - boundingRect.top) / scaleHeight).toInt()))
 
-        onPixelTapped.invoke(coordinates)
+        onPixelTapped.invoke(coordinate)
         invalidate()
     }
 
@@ -228,7 +228,7 @@ class DrawingView @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setOnPixelTapped(onPixelTapped: (Coordinates) -> Unit) {
+    fun setOnPixelTapped(onPixelTapped: (Coordinate) -> Unit) {
         this.onPixelTapped = onPixelTapped
     }
 

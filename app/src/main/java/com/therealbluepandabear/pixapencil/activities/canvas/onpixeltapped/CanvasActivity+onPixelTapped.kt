@@ -20,12 +20,12 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.*
 import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-var polygonCoordinates = mutableListOf<Coordinates>()
+var polygonCoordinates = mutableListOf<Coordinate>()
 var cindx = 0
 
-fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.extendedOnPixelTapped(coordinateTapped: Coordinate) {
     if (!primaryAlgorithmInfoParameterInitialized) {
         initPrimaryAlgorithmInfoParameter()
     }
@@ -33,76 +33,76 @@ fun CanvasActivity.extendedOnPixelTapped(coordinatesTapped: Coordinates) {
     viewModel.saved = false
     when (viewModel.currentTool) {
         Tool.PencilTool -> {
-            pencilToolOnPixelTapped(coordinatesTapped)
+            pencilToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.EraseTool -> {
-            eraseToolOnPixelTapped(coordinatesTapped)
+            eraseToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.ColorPickerTool -> {
-            colorPickerToolOnPixelTapped(coordinatesTapped)
+            colorPickerToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.FillTool -> {
-            fillToolOnPixelTapped(coordinatesTapped)
+            fillToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.LineTool -> {
-            lineToolOnPixelTapped(coordinatesTapped)
+            lineToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.RectangleTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped)
+            rectangleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.OutlinedRectangleTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped)
+            rectangleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.SquareTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped)
+            rectangleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.OutlinedSquareTool -> {
-            rectangleToolOnPixelTapped(coordinatesTapped)
+            rectangleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.EllipseTool -> {
-            ellipseToolOnPixelTapped(coordinatesTapped)
+            ellipseToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.OutlinedEllipseTool -> {
-            ellipseToolOnPixelTapped(coordinatesTapped)
+            ellipseToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.CircleTool -> {
-            circleToolOnPixelTapped(coordinatesTapped)
+            circleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.OutlinedCircleTool -> {
-            circleToolOnPixelTapped(coordinatesTapped)
+            circleToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.SprayTool -> {
-            sprayToolOnPixelTapped(coordinatesTapped)
+            sprayToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.PolygonTool -> {
-            polygonToolOnPixelTapped(coordinatesTapped)
+            polygonToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.DitherTool -> {
-            pencilToolOnPixelTapped(coordinatesTapped)
+            pencilToolOnPixelTapped(coordinateTapped)
         }
 
         Tool.ShadingTool -> {
             binding.activityCanvasDrawingView.shadingMode = true
-            pencilToolOnPixelTapped(coordinatesTapped)
+            pencilToolOnPixelTapped(coordinateTapped)
         }
 
         else -> {
-            pencilToolOnPixelTapped(coordinatesTapped)
+            pencilToolOnPixelTapped(coordinateTapped)
         }
     }
 }

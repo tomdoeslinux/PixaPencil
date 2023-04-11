@@ -18,4 +18,4 @@
 
 package com.therealbluepandabear.pixapencil.models
 
-data class BitmapActionData(val coordinates: Coordinates, val colorAtPosition: Int, val colorSet: Int)
+data class BitmapActionData(val coordinate: Coordinate, val colorAtPosition: Int, val colorSet: Int)

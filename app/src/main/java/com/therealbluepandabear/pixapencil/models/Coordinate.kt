@@ -20,43 +20,43 @@ package com.therealbluepandabear.pixapencil.models
 
 import kotlin.math.floor
 
-data class Coordinates(val x: Int, val y: Int) {
+data class Coordinate(val x: Int, val y: Int) {
     fun convertToCoordinatesDouble(): CoordinatesDouble {
         return CoordinatesDouble(x.toDouble(), y.toDouble())
     }
 
-    fun getHorizontallyReflectedCoordinates(bitmapHeight: Int): Coordinates {
-        return Coordinates(x, (bitmapHeight - y) - 1)
+    fun getHorizontallyReflectedCoordinates(bitmapHeight: Int): Coordinate {
+        return Coordinate(x, (bitmapHeight - y) - 1)
     }
 
-    fun getVerticallyReflectedCoordinates(bitmapWidth: Int): Coordinates {
-        return Coordinates((bitmapWidth - x) - 1, y)
+    fun getVerticallyReflectedCoordinates(bitmapWidth: Int): Coordinate {
+        return Coordinate((bitmapWidth - x) - 1, y)
     }
 
-    fun getQuadReflectedCoordinateSet(bitmapWidth: Int, bitmapHeight: Int): List<Coordinates> {
+    fun getQuadReflectedCoordinateSet(bitmapWidth: Int, bitmapHeight: Int): List<Coordinate> {
         val horizontallyReflectedCoordinates = getHorizontallyReflectedCoordinates(bitmapHeight)
         val verticallyReflectedCoordinates = getVerticallyReflectedCoordinates(bitmapWidth)
 
         return listOf(
             horizontallyReflectedCoordinates,
             verticallyReflectedCoordinates,
-            Coordinates(verticallyReflectedCoordinates.x, horizontallyReflectedCoordinates.y)
+            Coordinate(verticallyReflectedCoordinates.x, horizontallyReflectedCoordinates.y)
         )
     }
 
-    fun getOctalReflectedCoordinateSet(bitmapWidth: Int, bitmapHeight: Int): List<Coordinates> {
-        val octalReflectedCoordinateSet = mutableListOf<Coordinates>()
+    fun getOctalReflectedCoordinateSet(bitmapWidth: Int, bitmapHeight: Int): List<Coordinate> {
+        val octalReflectedCoordinateSet = mutableListOf<Coordinate>()
 
         octalReflectedCoordinateSet.addAll(getQuadReflectedCoordinateSet(bitmapWidth, bitmapHeight))
 
-        val coordinates1 = Coordinates(y, getVerticallyReflectedCoordinates(bitmapWidth).x)
-        val coordinates2 = Coordinates(getHorizontallyReflectedCoordinates(bitmapHeight).y, x)
+        val coordinate1 = Coordinate(y, getVerticallyReflectedCoordinates(bitmapWidth).x)
+        val coordinate2 = Coordinate(getHorizontallyReflectedCoordinates(bitmapHeight).y, x)
 
-        octalReflectedCoordinateSet.add(Coordinates(coordinates1.y, coordinates1.x))
-        octalReflectedCoordinateSet.add(Coordinates(coordinates2.y, coordinates2.x))
+        octalReflectedCoordinateSet.add(Coordinate(coordinate1.y, coordinate1.x))
+        octalReflectedCoordinateSet.add(Coordinate(coordinate2.y, coordinate2.x))
 
         val coordinates3 = getVerticallyReflectedCoordinates(bitmapWidth)
-        val coordinates4 = coordinates2.getVerticallyReflectedCoordinates(bitmapWidth)
+        val coordinates4 = coordinate2.getVerticallyReflectedCoordinates(bitmapWidth)
 
         octalReflectedCoordinateSet.add(coordinates3)
         octalReflectedCoordinateSet.add(coordinates4)
@@ -78,12 +78,12 @@ data class Coordinates(val x: Int, val y: Int) {
     }
 
     companion object {
-        fun staticSet(x: Int, y: Int): Coordinates {
-            return Coordinates(x, y)
+        fun staticSet(x: Int, y: Int): Coordinate {
+            return Coordinate(x, y)
         }
 
-        fun fromIndex(index: Int, bitmapWidth: Int): Coordinates {
-            return Coordinates(
+        fun fromIndex(index: Int, bitmapWidth: Int): Coordinate {
+            return Coordinate(
                 x = (index.toDouble() % bitmapWidth.toDouble()).toInt(),
                 y = floor(index.toDouble() / bitmapWidth).toInt()
             )

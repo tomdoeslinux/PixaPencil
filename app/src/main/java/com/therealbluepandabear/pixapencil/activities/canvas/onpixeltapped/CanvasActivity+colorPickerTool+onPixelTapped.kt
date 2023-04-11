@@ -23,11 +23,11 @@ import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.coor
 import com.therealbluepandabear.pixapencil.activities.canvas.setPixelColor
 import com.therealbluepandabear.pixapencil.enums.Tool
 import com.therealbluepandabear.pixapencil.extensions.getPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.colorPickerToolOnPixelTapped(coordinatesTapped: Coordinates) {
-    if (canvasCommandsHelperInstance.coordinatesInCanvasBounds(coordinatesTapped, Tool.ColorPickerTool)) {
-        val color = binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinatesTapped)
+fun CanvasActivity.colorPickerToolOnPixelTapped(coordinateTapped: Coordinate) {
+    if (canvasCommandsHelperInstance.coordinatesInCanvasBounds(coordinateTapped, Tool.ColorPickerTool)) {
+        val color = binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinateTapped)
         setPixelColor(color)
     }
 }

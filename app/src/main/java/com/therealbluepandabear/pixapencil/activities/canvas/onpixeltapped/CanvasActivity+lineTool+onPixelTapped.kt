@@ -19,17 +19,17 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.lineToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.lineToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (shapeOrigin == null) {
-        shapeOrigin = coordinatesTapped
+        shapeOrigin = coordinateTapped
     } else {
         if (firstShapeDrawn) {
             clearPreviousShapePreview()
         }
 
-        lineAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
+        lineAlgorithm.compute(shapeOrigin!!, coordinateTapped)
 
         viewModel.currentBitmapAction?.actionData?.let {
             shapePreviewCache = it

@@ -19,16 +19,16 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
 import android.graphics.Bitmap
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 class ExpandToNeighborsAlgorithm(private val bitmap: Bitmap) {
-    fun compute(seed: Coordinates): List<Coordinates> {
-        val toReturn = mutableListOf<Coordinates>()
+    fun compute(seed: Coordinate): List<Coordinate> {
+        val toReturn = mutableListOf<Coordinate>()
 
-        val ex1 = Coordinates(seed.x - 1, seed.y)
-        val ex2 = Coordinates(seed.x + 1, seed.y)
-        val ex3 = Coordinates(seed.x, seed.y - 1)
-        val ex4 = Coordinates(seed.x, seed.y + 1)
+        val ex1 = Coordinate(seed.x - 1, seed.y)
+        val ex2 = Coordinate(seed.x + 1, seed.y)
+        val ex3 = Coordinate(seed.x, seed.y - 1)
+        val ex4 = Coordinate(seed.x, seed.y + 1)
 
         if (seed.x > 0) {
             toReturn.add(ex1)

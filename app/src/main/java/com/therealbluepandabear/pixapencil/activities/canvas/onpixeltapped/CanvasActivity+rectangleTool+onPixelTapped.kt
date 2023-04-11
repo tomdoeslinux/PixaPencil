@@ -20,23 +20,23 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.rectangleToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.rectangleToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (shapeOrigin == null) {
-        shapeOrigin = coordinatesTapped
+        shapeOrigin = coordinateTapped
     } else {
         if (firstShapeDrawn) {
             clearPreviousShapePreview()
         }
 
-        this.coordinates = if (
+        this.coordinate = if (
             viewModel.currentTool == Tool.RectangleTool ||
             viewModel.currentTool == Tool.OutlinedRectangleTool) {
 
-            visibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
+            visibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinateTapped)
         } else {
-            visibleSquarePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
+            visibleSquarePreviewAlgorithm.compute(shapeOrigin!!, coordinateTapped)
         }
 
         viewModel.currentBitmapAction?.actionData?.let {

@@ -19,11 +19,11 @@
 package com.therealbluepandabear.pixapencil.algorithms
 
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import kotlin.math.abs
 
 class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private val ignoreBrush: Boolean = false) {
-    private fun drawLineY(from: Coordinates, to: Coordinates) {
+    private fun drawLineY(from: Coordinate, to: Coordinate) {
         var x = from.x
         var y = from.y
 
@@ -41,7 +41,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceY - differenceX
 
         while (x <= to.x) {
-            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush = ignoreBrush)
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinate(x, y), algorithmInfo.color, ignoreBrush = ignoreBrush)
             x++
 
             if (p < 0) {
@@ -56,7 +56,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         }
     }
 
-    private fun drawLineX(from: Coordinates, to: Coordinates) {
+    private fun drawLineX(from: Coordinate, to: Coordinate) {
         var x = from.x
         var y = from.y
 
@@ -73,7 +73,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         var p = 2 * differenceX - differenceY
 
         while (y <= to.y) {
-            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(x, y), algorithmInfo.color, ignoreBrush)
+            algorithmInfo.canvasCommandsHelperInstance.overrideSetPixel(Coordinate(x, y), algorithmInfo.color, ignoreBrush)
             y++
 
             if (p < 0) {
@@ -85,7 +85,7 @@ class LineAlgorithm(private val algorithmInfo: AlgorithmInfoParameter, private v
         }
     }
 
-    fun compute(p1: Coordinates, p2: Coordinates) {
+    fun compute(p1: Coordinate, p2: Coordinate) {
         val x = p1.x
         val y = p1.y
 

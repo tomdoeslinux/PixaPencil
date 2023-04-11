@@ -26,18 +26,18 @@ fun CanvasActivity.ellipseToolOnActionUp() {
     if (
         viewModel.currentTool == Tool.EllipseTool &&
         viewModel.currentTool.outlined == false &&
-        coordinates != null &&
+        coordinate != null &&
         shapeOrigin != null) {
 
-        if (shapeOrigin!!.x > coordinates!!.x) {
-            filledEllipseAlgorithm.compute(coordinates!!, shapeOrigin!!)
+        if (shapeOrigin!!.x > coordinate!!.x) {
+            filledEllipseAlgorithm.compute(coordinate!!, shapeOrigin!!)
         } else {
-            filledEllipseAlgorithm.compute(shapeOrigin!!, coordinates!!)
+            filledEllipseAlgorithm.compute(shapeOrigin!!, coordinate!!)
         }
     }
 
     shapeOrigin = null
     firstShapeDrawn = false
-    coordinates = null
+    coordinate = null
     viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }

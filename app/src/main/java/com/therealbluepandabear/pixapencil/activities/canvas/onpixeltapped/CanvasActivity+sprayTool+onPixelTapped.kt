@@ -20,11 +20,11 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.algorithms.SprayAlgorithm
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 import com.therealbluepandabear.pixapencil.utility.constants.StringConstants
 
-fun CanvasActivity.sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.sprayToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (!sprayAlgorithmInstanceInitialized) {
         val sprayRadiusSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_RADIUS_IDENTIFIER, IntConstants.SprayRadius)
         val sprayStrengthSharedPreference = sharedPreferenceObject.getInt(StringConstants.Identifiers.SHARED_PREFERENCE_SPRAY_STRENGTH_IDENTIFIER, IntConstants.SprayStrength)
@@ -33,5 +33,5 @@ fun CanvasActivity.sprayToolOnPixelTapped(coordinatesTapped: Coordinates) {
         sprayAlgorithmInstance = s1
     }
 
-    sprayAlgorithmInstance.compute(coordinatesTapped)
+    sprayAlgorithmInstance.compute(coordinateTapped)
 }

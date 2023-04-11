@@ -26,13 +26,13 @@ fun CanvasActivity.rectangleToolOnActionUp() {
     if (
         viewModel.currentTool.family == ToolFamily.Rectangle &&
         viewModel.currentTool.outlined == false &&
-        coordinates != null &&
+        coordinate != null &&
         shapeOrigin != null) {
-        filledRectangleAlgorithm.compute(shapeOrigin!!, coordinates!!)
+        filledRectangleAlgorithm.compute(shapeOrigin!!, coordinate!!)
     }
 
     shapeOrigin = null
     firstShapeDrawn = false
-    coordinates = null
+    coordinate = null
     viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }

@@ -21,15 +21,15 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.undo
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.utility.constants.Flags
 
-fun CanvasActivity.polygonToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.polygonToolOnPixelTapped(coordinateTapped: Coordinate) {
     Flags.DisableActionMove = true
 
     val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-    polygonCoordinates.add(coordinatesTapped)
+    polygonCoordinates.add(coordinateTapped)
 
     if (polygonCoordinates.size > 1) {
         canvasCommandsHelperInstance.undo()

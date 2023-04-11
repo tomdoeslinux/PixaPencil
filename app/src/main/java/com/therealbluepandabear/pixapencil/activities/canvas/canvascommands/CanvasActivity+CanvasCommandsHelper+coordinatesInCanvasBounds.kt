@@ -20,13 +20,13 @@ package com.therealbluepandabear.pixapencil.activities.canvas.canvascommands
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.CanvasCommandsHelper.coordinatesInCanvasBounds(coordinates: Coordinates, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
+fun CanvasActivity.CanvasCommandsHelper.coordinatesInCanvasBounds(coordinate: Coordinate, currentTool: Tool, ignoreDither: Boolean = false): Boolean {
     return if (currentTool == Tool.DitherTool && !ignoreDither) {
-        (coordinates.x in 0 until baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.width && coordinates.y in 0 until baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.height &&
-                baseReference.viewModel.currentDitherBrush.algorithm.invoke(coordinates))
+        (coordinate.x in 0 until baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.width && coordinate.y in 0 until baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.height &&
+                baseReference.viewModel.currentDitherBrush.algorithm.invoke(coordinate))
     } else {
-        (coordinates.x in 0 until  baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.width && coordinates.y in 0 until  baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.height)
+        (coordinate.x in 0 until  baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.width && coordinate.y in 0 until  baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.height)
     }
 }

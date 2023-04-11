@@ -18,7 +18,7 @@
 
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.models.CoordinatesDouble
 import kotlin.math.abs
 
@@ -28,7 +28,7 @@ class EllipseAlgorithm(algorithmInfo: AlgorithmInfoParameter, filledMode: Boolea
     private val mp3 = MidpointEllipseAlgorithm(algorithmInfo, xDEC = false, yDEC = true, filledMode = filledMode)
     private val mp4 = MidpointEllipseAlgorithm(algorithmInfo, xDEC = true, yDEC = true, filledMode = filledMode)
 
-    fun compute(p1: Coordinates, p2: Coordinates) {
+    fun compute(p1: Coordinate, p2: Coordinate) {
         val p1Double = p1.convertToCoordinatesDouble()
         val p2Double = p2.convertToCoordinatesDouble()
 
@@ -47,13 +47,13 @@ class EllipseAlgorithm(algorithmInfo: AlgorithmInfoParameter, filledMode: Boolea
         val rX = abs((p2.x - p1.x) / 2)
 
         if (mx % 1.0 == 0.0 && my % 1.0 == 0.0) {
-            mp1.compute(Coordinates(mx.toInt(), my.toInt()), rX, rY)
+            mp1.compute(Coordinate(mx.toInt(), my.toInt()), rX, rY)
         } else if (mx % 1.0 != 0.0 && my % 1.0 == 0.0) {
-            mp2.compute(Coordinates(mx.toInt(), my.toInt()), rX, rY)
+            mp2.compute(Coordinate(mx.toInt(), my.toInt()), rX, rY)
         } else if (mx % 1.0 == 0.0 && my % 1.0 != 0.0) {
-            mp3.compute(Coordinates(mx.toInt(), my.toInt()), rX, rY)
+            mp3.compute(Coordinate(mx.toInt(), my.toInt()), rX, rY)
         } else {
-            mp4.compute(Coordinates(mx.toInt(), my.toInt()), rX, rY)
+            mp4.compute(Coordinate(mx.toInt(), my.toInt()), rX, rY)
         }
     }
 }

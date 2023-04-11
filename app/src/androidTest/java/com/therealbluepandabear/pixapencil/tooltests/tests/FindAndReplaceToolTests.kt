@@ -25,7 +25,7 @@ import androidx.test.filters.LargeTest
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.extensions.getPixel
 import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.tooltests.helper.ToolTestsHelper
 import org.junit.Rule
 import org.junit.Test
@@ -35,11 +35,11 @@ import kotlin.random.Random
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class FindAndReplaceToolTests {
-    private fun setRandomPixels(activity: CanvasActivity, iterations: Int, color: Int = Color.BLACK): List<Coordinates> {
-        val randomCoordinates: MutableList<Coordinates> = mutableListOf()
+    private fun setRandomPixels(activity: CanvasActivity, iterations: Int, color: Int = Color.BLACK): List<Coordinate> {
+        val randomCoordinates: MutableList<Coordinate> = mutableListOf()
 
         for (i in 0..iterations) {
-            val randomCoordinate = Coordinates(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
+            val randomCoordinate = Coordinate(Random.nextInt(0, activity.width), Random.nextInt(0, activity.height))
             randomCoordinates.add(randomCoordinate)
 
             activity.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(randomCoordinate, color)
@@ -57,7 +57,7 @@ class FindAndReplaceToolTests {
             ToolTestsHelper.prepare(it)
 
             val iterations = 200
-            val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
+            val randomCoordinates: List<Coordinate> = setRandomPixels(it, iterations)
 
             // For all tests after this: this is the specific onDoneButtonPressed function for the 'Done' button in the 'Find and Replace' fragment.
             it.onDoneButtonPressed(Color.BLACK, Color.YELLOW)
@@ -74,7 +74,7 @@ class FindAndReplaceToolTests {
             ToolTestsHelper.prepare(it)
 
             val iterations = 2000
-            val randomCoordinates: List<Coordinates> = setRandomPixels(it, iterations)
+            val randomCoordinates: List<Coordinate> = setRandomPixels(it, iterations)
 
             it.onDoneButtonPressed(Color.BLACK, Color.CYAN)
 
@@ -90,20 +90,20 @@ class FindAndReplaceToolTests {
             ToolTestsHelper.prepare(it)
 
             val iterations1 = 3000
-            val randomCoordinates1: List<Coordinates> = setRandomPixels(it, iterations1, Color.RED)
+            val randomCoordinate1: List<Coordinate> = setRandomPixels(it, iterations1, Color.RED)
 
             it.onDoneButtonPressed(Color.RED, Color.BLACK)
 
-            for (coordinate in randomCoordinates1) {
+            for (coordinate in randomCoordinate1) {
                 assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.BLACK)
             }
 
             val iterations2 = 500
-            val randomCoordinates2: List<Coordinates> = setRandomPixels(it, iterations2, Color.LTGRAY)
+            val randomCoordinate2: List<Coordinate> = setRandomPixels(it, iterations2, Color.LTGRAY)
 
             it.onDoneButtonPressed(Color.LTGRAY, Color.MAGENTA)
 
-            for (coordinate in randomCoordinates2) {
+            for (coordinate in randomCoordinate2) {
                 assert(it.binding.activityCanvasDrawingView.drawingViewBitmap.getPixel(coordinate) == Color.MAGENTA)
             }
         }

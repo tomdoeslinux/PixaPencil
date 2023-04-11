@@ -19,18 +19,18 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.circleToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.circleToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (shapeOrigin == null) {
-        shapeOrigin = coordinatesTapped
+        shapeOrigin = coordinateTapped
     } else {
         if (firstShapeDrawn) {
             clearPreviousShapePreview()
         }
 
-        invisibleSquarePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)?.let {
-            coordinates = it
+        invisibleSquarePreviewAlgorithm.compute(shapeOrigin!!, coordinateTapped)?.let {
+            coordinate = it
 
             if (shapeOrigin!!.x > it.x) {
                 circleAlgorithm.compute(it, shapeOrigin!!)

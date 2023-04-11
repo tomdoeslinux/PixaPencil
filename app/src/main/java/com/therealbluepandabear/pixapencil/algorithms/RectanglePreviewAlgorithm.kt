@@ -18,19 +18,19 @@
 
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 class RectanglePreviewAlgorithm(algorithmInfo: AlgorithmInfoParameter, private val invisibleMode: Boolean = false)  {
     private val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, ignoreBrush = false)
 
-    fun compute(from: Coordinates, to: Coordinates): Coordinates {
+    fun compute(from: Coordinate, to: Coordinate): Coordinate {
         if (!invisibleMode) {
-            lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(to.x, from.y))
-            lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(to.x, from.y))
-            lineAlgorithmInstance.compute(Coordinates(from.x, to.y), Coordinates(from.x, from.y))
-            lineAlgorithmInstance.compute(Coordinates(to.x, to.y), Coordinates(from.x, to.y))
+            lineAlgorithmInstance.compute(Coordinate(from.x, from.y), Coordinate(to.x, from.y))
+            lineAlgorithmInstance.compute(Coordinate(to.x, to.y), Coordinate(to.x, from.y))
+            lineAlgorithmInstance.compute(Coordinate(from.x, to.y), Coordinate(from.x, from.y))
+            lineAlgorithmInstance.compute(Coordinate(to.x, to.y), Coordinate(from.x, to.y))
         }
 
-        return Coordinates(to.x, to.y)
+        return Coordinate(to.x, to.y)
     }
 }

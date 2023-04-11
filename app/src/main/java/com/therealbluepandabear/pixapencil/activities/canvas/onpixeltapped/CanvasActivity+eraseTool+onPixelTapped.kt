@@ -22,19 +22,19 @@ import android.graphics.Color
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.algorithms.LineAlgorithm
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.eraseToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.eraseToolOnPixelTapped(coordinateTapped: Coordinate) {
     primaryAlgorithmInfoParameter.color = Color.TRANSPARENT
 
     if (binding.activityCanvasDrawingView.prevX != null && binding.activityCanvasDrawingView.prevY != null) {
         val lineAlgorithmInstance = LineAlgorithm(primaryAlgorithmInfoParameter)
 
-        lineAlgorithmInstance.compute(Coordinates(binding.activityCanvasDrawingView.prevX!!, binding.activityCanvasDrawingView.prevY!!), coordinatesTapped)
+        lineAlgorithmInstance.compute(Coordinate(binding.activityCanvasDrawingView.prevX!!, binding.activityCanvasDrawingView.prevY!!), coordinateTapped)
     }
 
-    canvasCommandsHelperInstance.overrideSetPixel(coordinatesTapped, Color.TRANSPARENT)
+    canvasCommandsHelperInstance.overrideSetPixel(coordinateTapped, Color.TRANSPARENT)
 
-    binding.activityCanvasDrawingView.prevX = coordinatesTapped.x
-    binding.activityCanvasDrawingView.prevY = coordinatesTapped.y
+    binding.activityCanvasDrawingView.prevX = coordinateTapped.x
+    binding.activityCanvasDrawingView.prevY = coordinateTapped.y
 }

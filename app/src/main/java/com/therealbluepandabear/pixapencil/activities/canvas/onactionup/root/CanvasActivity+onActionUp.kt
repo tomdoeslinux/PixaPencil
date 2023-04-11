@@ -34,7 +34,7 @@ import com.therealbluepandabear.pixapencil.enums.ToolFamily
 import com.therealbluepandabear.pixapencil.extensions.doAddLast
 import com.therealbluepandabear.pixapencil.models.BitmapAction
 import com.therealbluepandabear.pixapencil.models.BitmapActionData
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 fun CanvasActivity.resetPreviousCoordinates() {
     binding.activityCanvasDrawingView.prevX = null
@@ -86,17 +86,17 @@ fun CanvasActivity.extendedOnActionUp() {
             resetPreviousCoordinates()
 
             if (isPxPerfect && viewModel.currentSymmetryMode == SymmetryMode.None) {
-                var distinct = viewModel.currentBitmapAction!!.actionData.distinctBy { it.coordinates }
+                var distinct = viewModel.currentBitmapAction!!.actionData.distinctBy { it.coordinate }
                 val data = mutableListOf<BitmapActionData>()
 
                 var c = 0
 
                 while (c < distinct.size) {
                     if (c > 0 && c + 1 < distinct.size
-                        && (distinct[c - 1].coordinates.x == distinct[c].coordinates.x || distinct[c - 1].coordinates.y == distinct[c].coordinates.y)
-                        && (distinct[c + 1].coordinates.x == distinct[c].coordinates.x || distinct[c + 1].coordinates.y == distinct[c].coordinates.y)
-                        && distinct[c - 1].coordinates.x != distinct[c + 1].coordinates.x
-                        && distinct[c - 1].coordinates.y != distinct[c + 1].coordinates.y
+                        && (distinct[c - 1].coordinate.x == distinct[c].coordinate.x || distinct[c - 1].coordinate.y == distinct[c].coordinate.y)
+                        && (distinct[c + 1].coordinate.x == distinct[c].coordinate.x || distinct[c + 1].coordinate.y == distinct[c].coordinate.y)
+                        && distinct[c - 1].coordinate.x != distinct[c + 1].coordinate.x
+                        && distinct[c - 1].coordinate.y != distinct[c + 1].coordinate.y
                     ) {
                         c += 1
                     }
@@ -114,9 +114,9 @@ fun CanvasActivity.extendedOnActionUp() {
 
                 for (value in data) {
                     canvasCommandsHelperInstance.overrideSetPixel(
-                        Coordinates(
-                            value.coordinates.x,
-                            value.coordinates.y,
+                        Coordinate(
+                            value.coordinate.x,
+                            value.coordinate.y,
                         ),
                         getSelectedColor()
                     )

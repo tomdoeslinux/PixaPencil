@@ -83,8 +83,8 @@ class CanvasActivity :
 
     lateinit var menu: Menu
 
-    var shapeOrigin: Coordinates? = null
-    var coordinates: Coordinates? = null
+    var shapeOrigin: Coordinate? = null
+    var coordinate: Coordinate? = null
     var firstShapeDrawn = false
 
     lateinit var sharedPreferenceObject: SharedPreferences
@@ -110,10 +110,10 @@ class CanvasActivity :
     var shapePreviewCache: List<BitmapActionData> = listOf()
 
     fun clearPreviousShapePreview() {
-        for (actionData in shapePreviewCache.distinctBy { it.coordinates }) {
+        for (actionData in shapePreviewCache.distinctBy { it.coordinate }) {
             binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(
-                actionData.coordinates.x,
-                actionData.coordinates.y,
+                actionData.coordinate.x,
+                actionData.coordinate.y,
                 actionData.colorAtPosition)
         }
 

@@ -24,7 +24,7 @@ import android.graphics.Color
 import android.graphics.Matrix
 import com.therealbluepandabear.pixapencil.enums.FlipValue
 import com.therealbluepandabear.pixapencil.enums.OverlayType
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 fun Bitmap.size(): Int {
     return width * height
@@ -36,7 +36,7 @@ fun Bitmap.size(): Int {
  * - [Original StackOverFlow post](https://stackoverflow.com/questions/7237915/replace-black-color-in-bitmap-with-red)
  * **/
 
-fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int, func: ((Coordinates) -> Unit)? = null) {
+fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int, func: ((Coordinate) -> Unit)? = null) {
     val array = IntArray(size())
 
     getPixels(array, 0, width, 0, 0, width, height)
@@ -45,7 +45,7 @@ fun Bitmap.replacePixelsByColor(colorToFind: Int, colorToReplace: Int, func: ((C
         if (array[i] == colorToFind) {
             array[i] = colorToReplace
 
-            func?.invoke(Coordinates.fromIndex(i, width))
+            func?.invoke(Coordinate.fromIndex(i, width))
         }
     }
 
@@ -69,7 +69,7 @@ fun Bitmap.getNumberOfUniqueColors(excludeTransparentPixels: Boolean = true): In
     return colors.size
 }
 
-fun Bitmap.filterBitmap(func: (Int) -> Int, func2: (Coordinates, Int) -> Unit) {
+fun Bitmap.filterBitmap(func: (Int) -> Int, func2: (Coordinate, Int) -> Unit) {
     val array = IntArray(size())
 
     getPixels(array, 0, width, 0, 0, width, height)
@@ -79,7 +79,7 @@ fun Bitmap.filterBitmap(func: (Int) -> Int, func2: (Coordinates, Int) -> Unit) {
 
         if (color != Color.TRANSPARENT) {
             val filteredColor = func(color)
-            func2.invoke(Coordinates.fromIndex(i, width), filteredColor)
+            func2.invoke(Coordinate.fromIndex(i, width), filteredColor)
         }
     }
 }
@@ -101,12 +101,12 @@ fun Bitmap.getColors(): MutableList<Int> {
     return colors
 }
 
-fun Bitmap.setPixel(coordinates: Coordinates, color: Int) {
-    return setPixel(coordinates.x, coordinates.y, color)
+fun Bitmap.setPixel(coordinate: Coordinate, color: Int) {
+    return setPixel(coordinate.x, coordinate.y, color)
 }
 
-fun Bitmap.getPixel(coordinates: Coordinates): Int {
-    return getPixel(coordinates.x, coordinates.y)
+fun Bitmap.getPixel(coordinate: Coordinate): Int {
+    return getPixel(coordinate.x, coordinate.y)
 }
 
 fun Bitmap.rotate(degrees: Int, flipMatrix: List<FlipValue>? = null): Bitmap {
@@ -164,19 +164,19 @@ fun Bitmap.drawTransparent() {
 
     for (i_1 in 0 until width) {
         for (i_2 in 0 until height) {
-            val coordinates = Coordinates.staticSet(i_1, i_2)
+            val coordinate = Coordinate.staticSet(i_1, i_2)
 
             if (i_1 % 2 == 0) {
                 if (i_2 % 2 == 0) {
-                    setPixel(coordinates, color)
+                    setPixel(coordinate, color)
                 } else {
-                    setPixel(coordinates, Color.WHITE)
+                    setPixel(coordinate, Color.WHITE)
                 }
             } else {
                 if (i_2 % 2 != 0) {
-                    setPixel(coordinates, color)
+                    setPixel(coordinate, color)
                 } else {
-                    setPixel(coordinates, Color.WHITE)
+                    setPixel(coordinate, Color.WHITE)
                 }
             }
         }

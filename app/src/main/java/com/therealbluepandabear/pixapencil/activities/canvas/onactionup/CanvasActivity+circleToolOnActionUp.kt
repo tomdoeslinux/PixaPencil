@@ -26,18 +26,18 @@ fun CanvasActivity.circleToolOnActionUp() {
     if (
         viewModel.currentTool.family == ToolFamily.Ellipse &&
         viewModel.currentTool.outlined == false &&
-        coordinates != null &&
+        coordinate != null &&
         shapeOrigin != null) {
 
-        if (shapeOrigin!!.x > coordinates!!.x) {
-            filledCircleAlgorithm.compute(coordinates!!, shapeOrigin!!)
+        if (shapeOrigin!!.x > coordinate!!.x) {
+            filledCircleAlgorithm.compute(coordinate!!, shapeOrigin!!)
         } else {
-            filledCircleAlgorithm.compute(shapeOrigin!!, coordinates!!)
+            filledCircleAlgorithm.compute(shapeOrigin!!, coordinate!!)
         }
     }
 
     shapeOrigin = null
     firstShapeDrawn = false
-    coordinates = null
+    coordinate = null
     viewModel.undoStack.doAddLast(viewModel.currentBitmapAction!!)
 }

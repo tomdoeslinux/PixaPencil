@@ -18,90 +18,90 @@
 
 package com.therealbluepandabear.pixapencil.algorithms
 
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
 class SquarePreviewAlgorithm(algorithmInfo: AlgorithmInfoParameter, private val invisibleMode: Boolean = false) {
     private val lineAlgorithmInstance = LineAlgorithm(algorithmInfo, ignoreBrush = false)
 
-    private var endCoordinates: Coordinates? = null
+    private var endCoordinate: Coordinate? = null
 
-    private fun setsqc1(from: Coordinates, size: Int) {
+    private fun setsqc1(from: Coordinate, size: Int) {
         if (!invisibleMode) {
-            lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
-            lineAlgorithmInstance.compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+            lineAlgorithmInstance.compute(Coordinate(from.x, from.y), Coordinate(from.x + size, from.y))
+            lineAlgorithmInstance.compute(Coordinate(from.x, from.y), Coordinate(from.x, from.y + size))
             lineAlgorithmInstance.compute(
-                Coordinates(from.x, from.y + size),
-                Coordinates(from.x + size, from.y + size)
+                Coordinate(from.x, from.y + size),
+                Coordinate(from.x + size, from.y + size)
             )
             lineAlgorithmInstance.compute(
-                Coordinates(from.x + size, from.y + size),
-                Coordinates(from.x + size, from.y)
+                Coordinate(from.x + size, from.y + size),
+                Coordinate(from.x + size, from.y)
             )
         }
 
-        endCoordinates = Coordinates(from.x + size, from.y + size)
+        endCoordinate = Coordinate(from.x + size, from.y + size)
     }
 
-    private fun setsqc2(from: Coordinates, size: Int) {
+    private fun setsqc2(from: Coordinate, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
-                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
-                compute(Coordinates(from.x, from.y), Coordinates(from.x + size, from.y))
+                compute(Coordinate(from.x, from.y), Coordinate(from.x, from.y + size))
+                compute(Coordinate(from.x, from.y), Coordinate(from.x + size, from.y))
                 compute(
-                    Coordinates(from.x + size, from.y),
-                    Coordinates(from.x + size, from.y + size)
+                    Coordinate(from.x + size, from.y),
+                    Coordinate(from.x + size, from.y + size)
                 )
                 compute(
-                    Coordinates(from.x + size, from.y + size),
-                    Coordinates(from.x, from.y + size)
+                    Coordinate(from.x + size, from.y + size),
+                    Coordinate(from.x, from.y + size)
                 )
             }
         }
 
-        endCoordinates = Coordinates(from.x + size, from.y + size)
+        endCoordinate = Coordinate(from.x + size, from.y + size)
     }
 
-    private fun setsqc3(from: Coordinates, size: Int) {
+    private fun setsqc3(from: Coordinate, size: Int) {
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
-                compute(Coordinates(from.x, from.y), Coordinates(from.x - size, from.y))
+                compute(Coordinate(from.x, from.y), Coordinate(from.x - size, from.y))
                 compute(
-                    Coordinates(from.x - size, from.y),
-                    Coordinates(from.x - size, from.y + size)
+                    Coordinate(from.x - size, from.y),
+                    Coordinate(from.x - size, from.y + size)
                 )
                 compute(
-                    Coordinates(from.x - size, from.y + size),
-                    Coordinates(from.x, from.y + size)
+                    Coordinate(from.x - size, from.y + size),
+                    Coordinate(from.x, from.y + size)
                 )
-                compute(Coordinates(from.x, from.y + size), Coordinates(from.x, from.y))
+                compute(Coordinate(from.x, from.y + size), Coordinate(from.x, from.y))
             }
         }
 
-        endCoordinates = Coordinates(from.x - size, from.y + size)
+        endCoordinate = Coordinate(from.x - size, from.y + size)
     }
 
-    private fun setsqc4(from: Coordinates, to: Coordinates) {
+    private fun setsqc4(from: Coordinate, to: Coordinate) {
         val size = (from.x - to.x)
 
         if (!invisibleMode) {
             lineAlgorithmInstance.apply {
-                compute(Coordinates(from.x, from.y), Coordinates(from.x, from.y + size))
+                compute(Coordinate(from.x, from.y), Coordinate(from.x, from.y + size))
                 compute(
-                    Coordinates(from.x, from.y + size),
-                    Coordinates(from.x - size, from.y + size)
+                    Coordinate(from.x, from.y + size),
+                    Coordinate(from.x - size, from.y + size)
                 )
                 compute(
-                    Coordinates(from.x - size, from.y + size),
-                    Coordinates(from.x - size, from.y)
+                    Coordinate(from.x - size, from.y + size),
+                    Coordinate(from.x - size, from.y)
                 )
-                compute(Coordinates(from.x - size, from.y), Coordinates(from.x, from.y))
+                compute(Coordinate(from.x - size, from.y), Coordinate(from.x, from.y))
             }
         }
 
-        endCoordinates = Coordinates(from.x - size, from.y + size)
+        endCoordinate = Coordinate(from.x - size, from.y + size)
     }
 
-    fun compute(from: Coordinates, to: Coordinates): Coordinates? {
+    fun compute(from: Coordinate, to: Coordinate): Coordinate? {
         val fromDouble = from.convertToCoordinatesDouble()
         val toDouble = to.convertToCoordinatesDouble()
 
@@ -123,6 +123,6 @@ class SquarePreviewAlgorithm(algorithmInfo: AlgorithmInfoParameter, private val 
             setsqc4(from, to)
         }
 
-        return endCoordinates
+        return endCoordinate
     }
 }

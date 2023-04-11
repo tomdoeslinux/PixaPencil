@@ -26,7 +26,7 @@ import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.activities.canvas.getSelectedColor
 import com.therealbluepandabear.pixapencil.enums.Tool
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.tooltests.helper.ToolTestsHelper
 import org.junit.Rule
 import org.junit.Test
@@ -45,8 +45,8 @@ class PickerToolTests {
 
             it.viewModel.currentTool = Tool.ColorPickerTool
 
-            it.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(0,0), Color.BLUE)
-            it.onPixelTapped(Coordinates(0, 0))
+            it.canvasCommandsHelperInstance.overrideSetPixel(Coordinate(0,0), Color.BLUE)
+            it.onPixelTapped(Coordinate(0, 0))
 
             assert(it.binding.activityCanvasColorSwitcherView.getPrimaryColor() == Color.BLUE)
             assert(it.getSelectedColor() == Color.BLUE)
@@ -62,8 +62,8 @@ class PickerToolTests {
             it.viewModel.currentTool = Tool.ColorPickerTool
             it.binding.activityCanvasColorSwitcherView.setIsPrimarySelected(false)
 
-            it.canvasCommandsHelperInstance.overrideSetPixel(Coordinates(0,0), Color.GREEN)
-            it.onPixelTapped(Coordinates(0, 0))
+            it.canvasCommandsHelperInstance.overrideSetPixel(Coordinate(0,0), Color.GREEN)
+            it.onPixelTapped(Coordinate(0, 0))
 
             assert(it.binding.activityCanvasColorSwitcherView.getSecondaryColor() == Color.GREEN)
             assert(it.getSelectedColor() == Color.GREEN)

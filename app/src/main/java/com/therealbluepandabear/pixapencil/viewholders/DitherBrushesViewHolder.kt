@@ -29,7 +29,7 @@ import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.database.ColorDatabase
 import com.therealbluepandabear.pixapencil.databinding.BrushesLayoutBinding
 import com.therealbluepandabear.pixapencil.extensions.setPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import com.therealbluepandabear.pixapencil.models.DitherBrush
 
 
@@ -43,10 +43,10 @@ class DitherBrushesViewHolder(val binding: BrushesLayoutBinding, private val con
 
         for (i_1 in 0..9) {
             for (i_2 in 0..9) {
-                if (ditherBrush.algorithm.invoke(Coordinates(i_1, i_2))) {
-                    ditherBrushPreviewBitmap.setPixel(Coordinates(i_1, i_2), ColorDatabase.toList().first())
+                if (ditherBrush.algorithm.invoke(Coordinate(i_1, i_2))) {
+                    ditherBrushPreviewBitmap.setPixel(Coordinate(i_1, i_2), ColorDatabase.toList().first())
                 } else {
-                    ditherBrushPreviewBitmap.setPixel(Coordinates(i_1, i_2), Color.WHITE)
+                    ditherBrushPreviewBitmap.setPixel(Coordinate(i_1, i_2), Color.WHITE)
                 }
             }
         }

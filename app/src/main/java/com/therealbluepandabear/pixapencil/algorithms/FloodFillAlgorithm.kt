@@ -20,16 +20,16 @@ package com.therealbluepandabear.pixapencil.algorithms
 
 import com.therealbluepandabear.pixapencil.activities.canvas.canvascommands.overrideSetPixel
 import com.therealbluepandabear.pixapencil.extensions.getPixel
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 import java.util.*
 
 class FloodFillAlgorithm(private val algorithmInfo: AlgorithmInfoParameter) {
     private val expandToNeighborsAlgorithmInstance = ExpandToNeighborsAlgorithm(algorithmInfo.bitmap)
 
-    fun compute(seed: Coordinates) {
+    fun compute(seed: Coordinate) {
         val colorAtSeed = algorithmInfo.bitmap.getPixel(seed)
 
-        val queue = LinkedList<Coordinates>()
+        val queue = LinkedList<Coordinate>()
 
         queue.offer(seed)
 

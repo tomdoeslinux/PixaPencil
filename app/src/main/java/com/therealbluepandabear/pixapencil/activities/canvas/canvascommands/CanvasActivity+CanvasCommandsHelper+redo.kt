@@ -30,9 +30,9 @@ fun CanvasActivity.CanvasCommandsHelper.redo() {
         baseReference.menu.findItem(R.id.activityCanvasTopAppMenu_undo).enable()
 
         for (obj in baseReference.viewModel.redoStack.last().actionData.distinctBy {
-            it.coordinates
+            it.coordinate
         }) {
-            baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(obj.coordinates, obj.colorSet)
+            baseReference.binding.activityCanvasDrawingView.drawingViewBitmap.setPixel(obj.coordinate, obj.colorSet)
         }
 
         baseReference.binding.activityCanvasDrawingView.invalidate()

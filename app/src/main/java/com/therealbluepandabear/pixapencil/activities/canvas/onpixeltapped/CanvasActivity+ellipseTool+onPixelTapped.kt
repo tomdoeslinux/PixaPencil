@@ -19,25 +19,25 @@
 package com.therealbluepandabear.pixapencil.activities.canvas.onpixeltapped
 
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
-import com.therealbluepandabear.pixapencil.models.Coordinates
+import com.therealbluepandabear.pixapencil.models.Coordinate
 
-fun CanvasActivity.ellipseToolOnPixelTapped(coordinatesTapped: Coordinates) {
+fun CanvasActivity.ellipseToolOnPixelTapped(coordinateTapped: Coordinate) {
     if (shapeOrigin == null) {
-        shapeOrigin = coordinatesTapped
+        shapeOrigin = coordinateTapped
     } else {
         if (firstShapeDrawn) {
             clearPreviousShapePreview()
         }
 
-        val coordinates = invisibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
-        this.coordinates = coordinates
+        val coordinates = invisibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinateTapped)
+        this.coordinate = coordinates
 
         if (
             shapeOrigin!!.y == coordinates.y ||
-            shapeOrigin!!.y + 1 == coordinatesTapped.y ||
-            shapeOrigin!!.y - 1 == coordinatesTapped.y ) {
+            shapeOrigin!!.y + 1 == coordinateTapped.y ||
+            shapeOrigin!!.y - 1 == coordinateTapped.y ) {
 
-            visibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinatesTapped)
+            visibleRectanglePreviewAlgorithm.compute(shapeOrigin!!, coordinateTapped)
         } else {
             if (shapeOrigin!!.x > coordinates.x) {
                 ellipseAlgorithm.compute(coordinates, shapeOrigin!!)
