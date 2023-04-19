@@ -31,36 +31,30 @@
         app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+
+    <RadioGroup
+        android:id="@+id/exportProjectDialogLayout_radioGroup_fileType"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
-        app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <RadioGroup
-            android:id="@+id/exportProjectDialogLayout_radioGroup_fileType"
-            android:layout_width="0dp"
+        <RadioButton
+            android:id="@+id/exportProjectDialogLayout_radioButton_PNG"
+            style="@style/exportProjectDialogLayout_radioButton_style"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:checked="true"
+            android:text="@string/generic_png" />
 
-            <RadioButton
-                android:id="@+id/exportProjectDialogLayout_radioButton_PNG"
-                android:layout_height="wrap_content"
-                android:text="@string/generic_png"
-                android:checked="true"
-                style="@style/exportProjectDialogLayout_radioButton_style"/>
-
-            <RadioButton
-                android:id="@+id/exportProjectDialogLayout_radioButton_JPG"
-                android:layout_height="wrap_content"
-                android:text="@string/generic_jpg"
-                style="@style/exportProjectDialogLayout_radioButton_style" />
-        </RadioGroup>
-    </HorizontalScrollView>
+        <RadioButton
+            android:id="@+id/exportProjectDialogLayout_radioButton_JPG"
+            style="@style/exportProjectDialogLayout_radioButtonEnd_style"
+            android:layout_height="wrap_content"
+            android:text="@string/generic_jpg" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView3"
@@ -69,7 +63,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/exportProjectDialogLayout_resolution_str"
         app:layout_constraintStart_toStartOf="@+id/exportProjectDialogLayout_fileNameTextInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/exportProjectDialogLayout_radioGroup_fileType" />
 
     <RadioGroup
         android:id="@+id/exportProjectDialogLayout_radioGroup_resolutionType"
