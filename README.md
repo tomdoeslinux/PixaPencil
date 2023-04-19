@@ -78,7 +78,7 @@ The app uses the following two permissions:
 - Ability to duplicate projects
 - Ability to select custom colors using a color picker, RGB sliders, or HEX code
 - Ability to unfavorite/favorite projects
-- Ability to export projects to PNG/JPG/WEBP/TIFF/BMP
+- Ability to export projects to PNG/JPG
 - Ability to rotate the canvas 90 degrees clockwise and anti-clockwise, as well as 180 degrees
 - Ability to flip your projects horizontally or vertically
 - Ability to save projects in background
@@ -96,6 +96,4 @@ New features are always being added.
 Thanks to these people who helped create the libraries used in the app:
 - duanhong169 (https://github.com/duanhong169) - ColorPicker (https://github.com/duanhong169/ColorPicker)
 - yshrsmz (https://github.com/yshrsmz) - KeyboardVisibilityEvent (https://github.com/yshrsmz/KeyboardVisibilityEvent) 
-- Beyka (https://github.com/Beyka) - Android-TiffBitmapFactory (https://github.com/Beyka/Android-TiffBitmapFactory)
 - bumptech (https://github.com/bumptech) - Glide (https://github.com/bumptech/glide)
-- Tianscar (https://github.com/Tianscar) - Quick Image (https://github.com/Tianscar/quickimage) 

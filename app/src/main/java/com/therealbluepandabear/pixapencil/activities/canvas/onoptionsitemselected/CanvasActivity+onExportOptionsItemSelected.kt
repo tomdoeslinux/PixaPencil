@@ -20,6 +20,7 @@ package com.therealbluepandabear.pixapencil.activities.canvas.onoptionsitemselec
 
 import android.app.AlertDialog
 import android.content.res.Configuration
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.canvas.CanvasActivity
 import com.therealbluepandabear.pixapencil.databinding.ExportProjectDialogLayoutBinding
-import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.BitmapResolution
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.utility.InputFilterMinMax
@@ -37,7 +37,7 @@ import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
 
 fun CanvasActivity.onExportOptionsItemSelected() {
     val exportLayoutBinding = ExportProjectDialogLayoutBinding.inflate(LayoutInflater.from(this))
-    var selectedFileType: BitmapCompressFormat = BitmapCompressFormat.PNG
+    var selectedFileType = Bitmap.CompressFormat.PNG
 
     exportLayoutBinding.root.post {
         // We do this so that there is no default top margin, which I personally find it ugly
@@ -67,33 +67,17 @@ fun CanvasActivity.onExportOptionsItemSelected() {
 
             when (optionId) {
                 R.id.exportProjectDialogLayout_radioButton_PNG -> {
-                    selectedFileType = BitmapCompressFormat.PNG
+                    selectedFileType = Bitmap.CompressFormat.PNG
                 }
 
                 R.id.exportProjectDialogLayout_radioButton_JPG -> {
-                    selectedFileType = BitmapCompressFormat.JPEG
+                    selectedFileType = Bitmap.CompressFormat.JPEG
 
                     if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && exportLayoutBinding.root is ScrollView) {
                         binding.root.post {
                             (exportLayoutBinding.root as ScrollView).scrollTo(0, binding.root.bottom)
                         }
                     }
-                }
-
-                R.id.exportProjectDialogLayout_radioButton_WEBP -> {
-                    selectedFileType = BitmapCompressFormat.WEBP
-                }
-
-                R.id.exportProjectDialogLayout_radioButton_TIF -> {
-                    selectedFileType = BitmapCompressFormat.TIFF
-                }
-
-                R.id.exportProjectDialogLayout_radioButton_BMP -> {
-                    selectedFileType = BitmapCompressFormat.BMP
-                }
-
-                else -> {
-                    selectedFileType = BitmapCompressFormat.PNG
                 }
             }
         }

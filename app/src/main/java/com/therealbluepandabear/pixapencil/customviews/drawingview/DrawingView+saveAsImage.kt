@@ -19,6 +19,7 @@
 package com.therealbluepandabear.pixapencil.customviews.drawingview
 
 import android.app.Activity
+import android.graphics.Bitmap
 import android.net.Uri
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -30,21 +31,25 @@ import com.therealbluepandabear.pixapencil.extensions.showSimpleInfoDialog
 import com.therealbluepandabear.pixapencil.extensions.showSnackbar
 import com.therealbluepandabear.pixapencil.extensions.showSnackbarWithAction
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
-import com.therealbluepandabear.pixapencil.utility.general.BitmapCompressFormatUtilities
 import com.therealbluepandabear.pixapencil.utility.general.FileHelperUtilities
 import java.io.File
 
 lateinit var file: File
 
 fun DrawingView.extendedSaveAsImage(
-    format: BitmapCompressFormat,
+    format: Bitmap.CompressFormat,
     resolution: BitmapResolution,
     coordinatorLayout: CoordinatorLayout,
     projectTitle: String,
     flipMatrix: List<FlipValue>,
     compressionOutputQuality: Int = IntConstants.COMPRESSION_QUALITY_MAX,
-    onTaskFinished: (OutputCode) -> Unit) {
-    val formatName = BitmapCompressFormatUtilities.getFormattedName(format)
+    onTaskFinished: (OutputCode) -> Unit
+) {
+    val formatName = if (format == Bitmap.CompressFormat.PNG) {
+        "PNG"
+    } else {
+        "JPG"
+    }
 
     val bitmap = if (resolution == BitmapResolution.Scaled) {
         this.drawToBitmap().rotate((parent as View).rotation.toInt(), flipMatrix)

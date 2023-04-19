@@ -35,7 +35,7 @@ Recursos (até 24 de junho 2022)
     • Habilidade de duplicar projetos
     • Habilidade de selecionar cores customizadas usando um seletor de cores, controles deslizantes RGB, ou códigos Hexadecimais
     • Habilidade de favoritar e remover dos favoritos
-    • Habilidade de exportar sua arte para PNG/JPG/WEBP/TIFF/BMP
+    • Habilidade de exportar sua arte para PNG/JPG
     • Habilidade de girar a tela de pintura 90 graus no sentido horário e anti-horário, assim como girar 180 graus
     • Habilidade de salvar o projeto em segundo plano
       Novos recursos serão adicionados.

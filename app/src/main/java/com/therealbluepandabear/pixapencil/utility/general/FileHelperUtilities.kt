@@ -33,14 +33,9 @@ import android.os.Environment
 import android.os.ParcelFileDescriptor
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.therealbluepandabear.pixapencil.R
-import com.therealbluepandabear.pixapencil.enums.BitmapCompressFormat
 import com.therealbluepandabear.pixapencil.enums.OutputCode
 import com.therealbluepandabear.pixapencil.extensions.activity
 import com.therealbluepandabear.pixapencil.utility.constants.IntConstants
-import com.tianscar.quickbitmap.BitmapEncoder
-import org.beyka.tiffbitmapfactory.CompressionScheme
-import org.beyka.tiffbitmapfactory.TiffSaver
-import org.beyka.tiffbitmapfactory.TiffSaver.SaveOptions
 import java.io.File
 import java.io.FileDescriptor
 import java.io.FileOutputStream
@@ -80,7 +75,7 @@ class FileHelperUtilities(private val context: Context) {
         bitmap: Bitmap,
         projectTitle: String?,
         compressionOutputQuality: Int,
-        compressionFormat: BitmapCompressFormat,
+        compressionFormat: Bitmap.CompressFormat,
         onTaskFinished: (OutputCode, File, String?) -> Unit) {
         /** Thank you to to javatar on StackOverflow - quite a bit of the code here is based off of their solution.
          *
@@ -92,7 +87,13 @@ class FileHelperUtilities(private val context: Context) {
         var outputCode = OutputCode.Success
         val pathData = "image/jpeg"
 
-        val outputName = "$projectTitle.${BitmapCompressFormatUtilities.getFormattedName(compressionFormat).lowercase()}"
+        val extension = if (compressionFormat == Bitmap.CompressFormat.PNG) {
+            "png"
+        } else {
+            "jpg"
+        }
+
+        val outputName = "$projectTitle.$extension"
 
         val directory: File? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             commonDocumentDirPath()
@@ -107,76 +108,36 @@ class FileHelperUtilities(private val context: Context) {
         fun createNewFile(file_: File, bitmap_: Bitmap = bitmap) {
             var bitmap2 = bitmap_
 
-            when (compressionFormat) {
-                BitmapCompressFormat.PNG, BitmapCompressFormat.JPEG, BitmapCompressFormat.WEBP, BitmapCompressFormat.WEBP_LOSSLESS -> {
-                    try {
-                        val outputStream = FileOutputStream(file_)
+            if (compressionFormat == Bitmap.CompressFormat.PNG || compressionFormat == Bitmap.CompressFormat.JPEG) {
+                try {
+                    val outputStream = FileOutputStream(file_)
 
-                        if (compressionFormat == BitmapCompressFormat.JPEG) {
-                            val newBitmap = Bitmap.createBitmap(
-                                bitmap2.width,
-                                bitmap2.height,
-                                bitmap2.config
-                            )
-                            val canvas = Canvas(newBitmap)
-                            canvas.drawColor(Color.WHITE)
-                            canvas.drawBitmap(bitmap2, 0f, 0f, null)
+                    if (compressionFormat == Bitmap.CompressFormat.JPEG) {
+                        val newBitmap = Bitmap.createBitmap(
+                            bitmap2.width,
+                            bitmap2.height,
+                            bitmap2.config
+                        )
+                        val canvas = Canvas(newBitmap)
+                        canvas.drawColor(Color.WHITE)
+                        canvas.drawBitmap(bitmap2, 0f, 0f, null)
 
-                            bitmap2 = newBitmap
-                        }
-
-                        bitmap2.compress(compressionFormat.correspondingEnum.invoke(), compressionOutputQuality, outputStream)
-                        outputStream.close()
-                    } catch (exception: Exception) {
-                        exceptionMessage = exception.message
-                        outputCode = OutputCode.Failure
-                    } finally {
-                        onTaskFinished(outputCode, file_, exceptionMessage)
+                        bitmap2 = newBitmap
                     }
-                }
 
-                BitmapCompressFormat.TIFF -> {
-                    val options = SaveOptions()
-                    options.inThrowException = true
-                    options.compressionScheme = CompressionScheme.LZW
-
-                    try {
-                        TiffSaver.saveBitmap(file_.absolutePath, bitmap, options)
-                    } catch (exception: Exception) {
-                        exceptionMessage = exception.message
-                        outputCode = OutputCode.Failure
-                    } finally {
-                        onTaskFinished(outputCode, file_, exceptionMessage)
-                    }
-                }
-
-                else -> {
-                    BitmapEncoder.encodeFile(file_, bitmap, true, BitmapEncoder.CompressFormat.BMP, IntConstants.COMPRESSION_QUALITY_MAX, object : BitmapEncoder.Callback {
-                        override fun onCreateFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_create_file))
-                        }
-
-                        override fun onCompressFailure() {
-                            onTaskFinished(OutputCode.Failure, file_, context.getString(R.string.exception_failed_to_compress_file))
-                        }
-
-                        override fun onFileExists(isDirectory: Boolean) {
-
-                        }
-
-                        override fun onIOException(e: IOException?) {
-                            onTaskFinished(OutputCode.Failure, file_, e?.message)
-                        }
-
-                        override fun onSuccess() {
-                            onTaskFinished(OutputCode.Success, file_, exceptionMessage)
-                        }
-                    })
+                    bitmap2.compress(compressionFormat, compressionOutputQuality, outputStream)
+                    outputStream.close()
+                } catch (exception: Exception) {
+                    exceptionMessage = exception.message
+                    outputCode = OutputCode.Failure
+                } finally {
+                    onTaskFinished(outputCode, file_, exceptionMessage)
                 }
             }
 
             MediaScannerConnection.scanFile(context, arrayOf(file_.path), arrayOf(pathData), null)
         }
+
 
         if (file.exists() && context.activity() != null) {
             val alertDialog = MaterialAlertDialogBuilder(context.activity()!!, R.style.ThemeOverlay_App_MaterialAlertDialog)

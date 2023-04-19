@@ -204,7 +204,7 @@ class DrawingView @JvmOverloads constructor(
     }
 
     fun saveAsImage(
-        format: BitmapCompressFormat,
+        format: Bitmap.CompressFormat,
         resolution: BitmapResolution,
         coordinatorLayout: CoordinatorLayout,
         projectTitle: String,

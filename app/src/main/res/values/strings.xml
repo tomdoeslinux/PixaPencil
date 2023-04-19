@@ -17,9 +17,6 @@
     <string name="app_name" translatable="false">PixaPencil</string>
     <string name="generic_png" translatable="false">PNG</string>
     <string name="generic_jpg" translatable="false">JPG</string>
-    <string name="generic_webp" translatable="false">WEBP</string>
-    <string name="generic_tif" translatable="false">TIF</string>
-    <string name="generic_bmp" translatable="false">BMP</string>
     <string name="fragmentAppInfo_placeholder_version_number" translatable="false">X.X.X</string>
 
     <!--Layout strings-->

@@ -59,24 +59,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/generic_jpg"
                 style="@style/exportProjectDialogLayout_radioButton_style" />
-
-            <RadioButton
-                android:id="@+id/exportProjectDialogLayout_radioButton_WEBP"
-                android:layout_height="wrap_content"
-                android:text="@string/generic_webp"
-                style="@style/exportProjectDialogLayout_radioButton_style" />
-
-            <RadioButton
-                android:id="@+id/exportProjectDialogLayout_radioButton_TIF"
-                android:layout_height="wrap_content"
-                android:text="@string/generic_tif"
-                style="@style/exportProjectDialogLayout_radioButton_style" />
-
-            <RadioButton
-                android:id="@+id/exportProjectDialogLayout_radioButton_BMP"
-                android:layout_height="wrap_content"
-                android:text="@string/generic_bmp"
-                style="@style/exportProjectDialogLayout_radioButtonEnd_style" />
         </RadioGroup>
     </HorizontalScrollView>
 
