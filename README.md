@@ -11,7 +11,7 @@
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/)
 </div>
 
-### Most work is being done on the 0.2.0 branch: https://github.com/therealbluepandabear/PixaPencil/commits/0.2.0
+### This app has been _abandoned_, no new features, bug fixes, or improvements will be added.
 
 ## 🗏 About
 
