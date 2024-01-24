@@ -2,9 +2,7 @@
 <img src="https://user-images.githubusercontent.com/50536495/170400421-0c3a1711-4484-42b1-995b-ee0095c3c7cb.png" width = "210" height = "210" alt="Get it on F-Droid"/>
   <h1>PixaPencil</h1>
 
-Join the [official community](https://discord.gg/rKSpNxDp).
-
-[![Discord](https://img.shields.io/badge/Discord-PixaPencil-blue.svg)]([https://discord.com/invite/Ytm7WBMNz9](https://discord.gg/rKSpNxDp))
+Join the [**official community**](https://discord.gg/rKSpNxDp).
 
 [<img src="https://github.com/machiav3lli/oandbackupx/blob/034b226cea5c1b30eb4f6a6f313e4dadcbb0ece4/badge_github.png" alt="Get it on GitHub" height="80">](https://github.com/therealbluepandabear/PixaPencil/releases/latest)
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/)
