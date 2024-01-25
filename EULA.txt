@@ -1,0 +1,57 @@
+END USER LICENSE AGREEMENT FOR PIXAPENCIL 
+PLEASE READ THIS DOCUMENT CAREFULLY BEFORE USING THIS SOFTWARE. 
+
+THIS LICENSE PROVIDES IMPORTANT INFORMATION CONCERNING THE SOFTWARE, PROVIDES YOU WITH A LICENSE TO USE THE SOFTWARE AND CONTAINS WARRANTY AND LIABILITY INFORMATION.
+BY USING THE SOFTWARE, YOU ARE ACCEPTING THE SOFTWARE "AS IS" AND AGREEING TO BE BOUND BY THE TERMS OF THIS LICENSE AGREEMENT.
+IN NO ENVENT WILL THE AUTHORS BE HELD LIABLE FOR ANY DAMAGES ARISING FROM THE USE OF THIS SOFTWARE.
+IF YOU DO NOT WISH TO DO SO, DO NOT USE THE SOFTWARE.
+
+---
+
+IMPORTANT NOTICE:
+
+If you are entering into this EULA agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity and its affiliates to these terms and conditions. 
+
+If you do not have such authority or if you do not agree with the terms and conditions of this EULA agreement, do not install or use the Software, and you must not accept this EULA agreement.
+
+---
+
+**Terms of License**
+
+This End User License Agreement (the "Agreement") is a legal agreement between you (either an individual or a single entity) and tomdoeslinux.
+
+This Agreement governs your use of tomdoeslinux's software product(s) identified above (the "Software"). 
+
+By viewing the source code on GitHub, installing, copying, or otherwise using the Software, you agree to be bound by the terms of this Agreement.
+
+**Restrictions on Use**
+
+You are not permitted to:
+
+* Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things
+* Reproduce, copy, distribute, resell this software, or use the Software for any commercial purpose
+* Allow any third party to use the Software on behalf of or for the benefit of any third party
+* Use the Software in any way which breaches any applicable local, national or international law
+* Use the Software for any purpose that tomdoeslinux considers is a breach of this EULA agreement
+
+**Ownership**
+
+This license provides you with limited rights to use the Software. The Owner retains all ownership, right, title and interest in, to and of the Software and all copies of it. 
+
+All rights not specifically granted in this license, including domestic and international copyrights, are reserved by the Owner.
+
+**Proprietary Markings**
+
+The Owner's logos, product names, manuals, documentation, and other support materials are either patented, copyrighted, trademarked, constitute valuable trade secrets (whether or not any portion of them may be copyrighted or patented) or are otherwise proprietary to the Owner. 
+
+You shall not remove or obscure the Owner's copyright, trade mark or other proprietary notices from any of the materials contained in this package or downloaded together with the Software.
+
+**Termination**
+
+Without prejudice to any other rights, the Licensor may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT in your possession.
+
+**Governing Law**
+
+This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of us.
+
+SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU. YOU MAY ALSO HAVE OTHER LEGAL RIGHTS WHICH VARY FROM JURISDICTION TO JURISDICTION.
