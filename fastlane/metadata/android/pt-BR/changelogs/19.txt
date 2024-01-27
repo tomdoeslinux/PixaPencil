@@ -1,7 +1,0 @@
-﻿Recursos adicionados
-- Deletar Tudo – agora você pode deletar todas suar artes se quiser recomeçar do zero
-- Abrir Imagem – agora você pode abri/importar imagens do seu aparelho
-
-Melhoras Adicionadas
-- Pequenas melhoras no tutorial interativo
-- Traduções atualizadas

@@ -8,21 +8,16 @@ Join the [**official community**](https://discord.gg/rKSpNxDp).
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/)
 </div>
 
-## 🗏 About
+## About
 
 PixaPencil is a sleek and user-friendly pixel art editor for Android, designed for both novice and expert artists. 
 
-## 🖼️ Showcase
+**In January 2024, PixaPencil transitioned to new leadership and is being rewritten in React Native, you can view the old native code in the `native-archive` branch.**
 
-![image](https://user-images.githubusercontent.com/50536495/185532689-9dda1172-8214-467f-8616-e9e1fe890c1b.jpg)
+## License Changes
 
-![image](https://user-images.githubusercontent.com/50536495/174204673-71da804b-3d83-4d96-91f5-821583aa7543.png)
+All source code,  binaries, and releases are distributed under [**PixaPencil's EULA**](https://github.com/tomdoeslinux/PixaPencil/blob/main/EULA.txt). 
 
-![image](https://user-images.githubusercontent.com/50536495/174204000-bf8a2b63-517f-40c4-ba96-4726061b9270.png)
+All source code prior to January 24, 2024 is distributed under the **GNU GPL v3**.
 
-![image](https://user-images.githubusercontent.com/50536495/174217529-14c05774-6829-42cf-8163-cd7da436d45c.png)
-
-
-**If you want to showcase an image of your own please send me an email at todoescode@gmail.com.**
-
-New features are always being added.
+All source code prior to Sept 6, 2022 is distributed under the **MIT license**.

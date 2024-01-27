@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="fragment_background_color_daynight">#121212</color>
-    <color name="recycler_view_item_tapped_color_daynight">#424242</color>
-    <color name="recycler_view_item_untapped_color_daynight">@android:color/black</color>
-    <color name="white_color_daynight">#212121</color>
-    <color name="black_color_daynight">@color/white</color>
-</resources>

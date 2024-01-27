@@ -1,7 +1,0 @@
-Features Added
-- Delete All - you can now delete all of your projects if you want a fresh start
-- Open Image - you can now open/import images from your phone into the app
-
-Improvements Added
-- Minor interactive app tutorial improvements
-- Translation updates
