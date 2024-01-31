@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PixaPencil.iml" filepath="$PROJECT_DIR$/PixaPencil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PixaPencil.iml" filepath="$PROJECT_DIR$/.idea/PixaPencil.iml" />
     </modules>
   </component>
 </project>
