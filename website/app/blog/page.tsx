@@ -21,11 +21,29 @@ function ArticleCard(props: ArticleCardProps) {
         <Image src='https://picsum.photos/600/300' transition='transform 0.2s' />
 
         <Flex flexDirection='column' padding='16px' gap='8px' background='white' overflow='clip'>
-          <Heading as='h2' fontWeight='600' fontSize='24px'>
+          <Heading
+            as='h2'
+            fontWeight='600'
+            fontSize='24px'
+            sx={{
+              '@media screen and (max-width: 1200px)': {
+                fontSize: '20px',
+              },
+            }}
+          >
             {props.title}
           </Heading>
 
-          <Text noOfLines={4}>{props.articleExcerpt}</Text>
+          <Text
+            noOfLines={4}
+            sx={{
+              '@media screen and (max-width: 1200px)': {
+                fontSize: '14px',
+              },
+            }}
+          >
+            {props.articleExcerpt}
+          </Text>
 
           <Flex gap='8px' alignItems='center' marginTop='10px'>
             <Box height='30px' borderRadius='999px' width='30px' background='gray' />
@@ -47,7 +65,15 @@ function ArticleCard(props: ArticleCardProps) {
 
 function FeaturedArticle(props: ArticleCardProps) {
   return (
-    <Flex gap='32px' flexDirection={{ base: 'column', lg: 'row' }}>
+    <Flex
+      gap='32px'
+      flexDirection={{ base: 'column', lg: 'row' }}
+      sx={{
+        '@media screen and (max-width: 1100px)': {
+          flexDirection: 'column',
+        },
+      }}
+    >
       <a href='google.com' style={{ overflow: 'clip', borderRadius: '12px' }}>
         <Image
           src='https://picsum.photos/600/300'
@@ -56,13 +82,53 @@ function FeaturedArticle(props: ArticleCardProps) {
         />
       </a>
 
-      <Flex flexDirection='column' justifyContent='space-evenly' maxWidth='560px' gap={{ base: '8px', lg: '0px' }}>
-        <Heading as='h1' fontWeight='600' fontSize='48px'>
-          {props.title}
-        </Heading>
-        <Text noOfLines={4}>{props.articleExcerpt}</Text>
+      <Flex
+        flexDirection='column'
+        justifyContent='space-evenly'
+        maxWidth='560px'
+        sx={{
+          '@media screen and (max-width: 1100px)': {
+            gap: '8px',
+            maxWidth: '100%',
+          },
+        }}
+      >
+        <a href='google.com'>
+          <Heading
+            as='h1'
+            fontWeight='600'
+            fontSize='48px'
+            sx={{
+              '@media screen and (max-width: 1200px)': {
+                fontSize: '28px',
+              },
+            }}
+          >
+            {props.title}
+          </Heading>
+        </a>
+        <Text
+          noOfLines={4}
+          fontSize='20px'
+          sx={{
+            '@media screen and (max-width: 1200px)': {
+              fontSize: '16px',
+            },
+          }}
+        >
+          {props.articleExcerpt}
+        </Text>
 
-        <Flex gap='8px' alignItems='center' marginTop={{ base: '10px', lg: '0px' }}>
+        <Flex
+          gap='8px'
+          alignItems='center'
+          marginTop='0px'
+          sx={{
+            '@media screen and (max-width: 1100px)': {
+              marginTop: '10px',
+            },
+          }}
+        >
           <Box height='30px' borderRadius='999px' width='30px' background='gray' />
 
           <Flex flexDirection='column'>

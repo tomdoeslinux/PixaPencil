@@ -42,7 +42,7 @@ function LandingPage() {
             Level up your Pixel Art
           </Heading>
 
-          <Text marginTop='16px' textAlign={{ base: 'center', lg: 'left' }}>
+          <Text marginTop='8px' textAlign={{ base: 'center', lg: 'left' }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
@@ -51,7 +51,7 @@ function LandingPage() {
 
           <Flex
             gap={{ base: '8px', lg: '14px' }}
-            marginTop={{ base: '16px', lg: '32px' }}
+            marginTop={{ base: '24px', lg: '32px' }}
             justifyContent={{ base: 'center', lg: 'flex-start' }}
           >
             <GetOnButton label='F-Droid' iconSrc='/fdroid.svg' />
