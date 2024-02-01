@@ -56,7 +56,7 @@ function FeaturedArticle(props: ArticleCardProps) {
         />
       </a>
 
-      <Flex flexDirection='column' justifyContent='space-evenly' width='560px' gap={{ base: '8px', lg: '0px' }}>
+      <Flex flexDirection='column' justifyContent='space-evenly' maxWidth='560px' gap={{ base: '8px', lg: '0px' }}>
         <Heading as='h1' fontWeight='600' fontSize='48px'>
           {props.title}
         </Heading>
