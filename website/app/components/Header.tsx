@@ -37,10 +37,14 @@ export default function Header(props: HeaderProps) {
           <Flex gap='32px' height='64px' alignItems='center' display={{ base: 'none', md: 'flex' }}>
             <Link href='/'>Docs</Link>
             <Link href='/blog'>Blog</Link>
-            <Link href='/'>Community</Link>
+            <Link href='https://discord.com/invite/cYtaTnuweW'>Community</Link>
           </Flex>
 
-          <Button colorScheme='messenger' marginLeft={{ base: 'auto', md: '32px' }}>
+          <Button
+            colorScheme='messenger'
+            marginLeft={{ base: 'auto', md: '32px' }}
+            onClick={() => window.location.replace('https://github.com/tomdoeslinux/PixaPencil')}
+          >
             Star on GitHub
           </Button>
         </Flex>

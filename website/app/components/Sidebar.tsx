@@ -46,6 +46,7 @@ export default function Sidebar(props: SidebarProps) {
     { href: '/', label: 'Home' },
     { href: '/docs', label: 'Docs' },
     { href: '/blog', label: 'Blog' },
+    { href: 'https://discord.com/invite/cYtaTnuweW', label: 'Community' },
   ]
 
   return (

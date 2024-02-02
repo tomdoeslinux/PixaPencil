@@ -1,4 +1,6 @@
-import { Box, Image, Text, Flex, Grid, Heading } from '@chakra-ui/react'
+import { Box, Image, Text, Flex, Grid, Heading, ChakraProps, FlexProps } from '@chakra-ui/react'
+import AuthorSnippet from '@/app/components/AuthorSnippet'
+
 interface ArticleCardProps {
   title: string
   articleExcerpt: string
@@ -45,18 +47,7 @@ function ArticleCard(props: ArticleCardProps) {
             {props.articleExcerpt}
           </Text>
 
-          <Flex gap='8px' alignItems='center' marginTop='10px'>
-            <Box height='30px' borderRadius='999px' width='30px' background='gray' />
-
-            <Flex flexDirection='column'>
-              <Text fontSize='12px' fontWeight='normal'>
-                {props.author}
-              </Text>
-              <Text as='time' fontSize='12px' fontWeight='normal'>
-                {props.publishedDate}
-              </Text>
-            </Flex>
-          </Flex>
+          <AuthorSnippet marginTop="10px" author={props.author} publishedDate={props.publishedDate} />
         </Flex>
       </a>
     </Flex>
@@ -119,7 +110,7 @@ function FeaturedArticle(props: ArticleCardProps) {
           {props.articleExcerpt}
         </Text>
 
-        <Flex
+        <AuthorSnippet
           gap='8px'
           alignItems='center'
           marginTop='0px'
@@ -128,18 +119,9 @@ function FeaturedArticle(props: ArticleCardProps) {
               marginTop: '10px',
             },
           }}
-        >
-          <Box height='30px' borderRadius='999px' width='30px' background='gray' />
-
-          <Flex flexDirection='column'>
-            <Text fontSize='12px' fontWeight='normal'>
-              {props.author}
-            </Text>
-            <Text as='time' fontSize='12px' fontWeight='normal'>
-              {props.publishedDate}
-            </Text>
-          </Flex>
-        </Flex>
+          author={props.author}
+          publishedDate={props.publishedDate}
+        />
       </Flex>
     </Flex>
   )
@@ -153,7 +135,7 @@ export default function BlogPage() {
     <Flex as='main' justifyContent='center' margin='32px'>
       <Flex width='1280px' flexDirection='column' gap='48px'>
         <FeaturedArticle
-          title='First Article'
+          title='First Page'
           author='tomdoeslinux'
           publishedDate='Jan 2, 2024'
           articleExcerpt={excerpt}
@@ -163,7 +145,7 @@ export default function BlogPage() {
           {[...Array(12)].map((num) => (
             <ArticleCard
               key={num}
-              title='First Article'
+              title='First Page'
               publishedDate='Jan 2, 2024'
               author='tomdoeslinux'
               articleExcerpt={excerpt}
