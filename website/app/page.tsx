@@ -28,14 +28,30 @@ function GetOnButton(props: GetOnButtonProps) {
 
 function LandingPage() {
   return (
-    <Flex as='main' flexGrow={1} justifyContent='center' alignItems='center' margin='32px'>
+    <Flex
+      as='main'
+      flexGrow={1}
+      justifyContent='center'
+      alignItems='center'
+      margin='32px'
+      sx={{
+        '@media screen and (max-width: 550px)': {
+          margin: '16px',
+        },
+      }}
+    >
       <Flex width='1280px' alignItems='center' flexDirection={{ base: 'column', lg: 'row' }}>
-        <Flex width='531px' flexDirection='column'>
+        <Flex maxWidth='531px' flexDirection='column'>
           <Heading
             marginTop={{ base: '54px', lg: undefined }}
             as='h1'
             size='3xl'
             fontSize={{ base: '40px', lg: '60px' }}
+            sx={{
+              '@media screen and (max-width: 550px)': {
+                fontSize: '34px',
+              },
+            }}
             textAlign={{ base: 'center', lg: 'left' }}
             lineHeight={{ base: undefined, lg: '65px' }}
           >

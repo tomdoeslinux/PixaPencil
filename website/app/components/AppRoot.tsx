@@ -6,9 +6,11 @@ import { theme } from '@/app/theme'
 import Sidebar from '@/app/components/Sidebar'
 import Header from '@/app/components/Header'
 import './AppRoot.css'
+import { usePathname } from 'next/navigation'
 
 export default function AppRoot(props: PropsWithChildren) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathName = usePathname()
 
   useEffect(() => {
     const element = document.querySelector('.hamburger-bg-overlay')
@@ -29,7 +31,7 @@ export default function AppRoot(props: PropsWithChildren) {
 
   return (
     <ChakraProvider theme={theme}>
-      <Flex flexDirection='column' height='100vh' /*overflow="clip"*/>
+      <Flex flexDirection='column' height='100vh' overflow={pathName === '/' ? 'clip' : 'visible'}>
         <Box
           display={{ base: 'block', md: 'none' }}
           transition='transform 0.3s ease-in-out'
