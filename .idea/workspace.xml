@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Cleanup." />
+    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Bitmap testing.">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +21,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="PixaPencil" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -51,10 +74,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "Errors",
     "ts.external.directory.path": "/home/tom/IdeaProjects/PixaPencil/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -67,7 +90,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="PixaPencil.app.main" />
       <option name="DEPLOY" value="true" />
@@ -140,13 +163,6 @@
       </method>
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-fd6de256fdba-JavaScript-IU-241.8102.112" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -165,6 +181,7 @@
       <workItem from="1706677322440" duration="41000" />
       <workItem from="1706677373177" duration="45000" />
       <workItem from="1706677437753" duration="238000" />
+      <workItem from="1707020433278" duration="3947000" />
     </task>
     <task id="LOCAL-00001" summary="All source code prior to now is available in Git branch titled `native-archive`.">
       <option name="closed" value="true" />
@@ -190,7 +207,31 @@
       <option name="project" value="LOCAL" />
       <updated>1706677605569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cleanup.">
+      <option name="closed" value="true" />
+      <created>1706952179561</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706952179561</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add `react-native-paper` dependency, add app header.">
+      <option name="closed" value="true" />
+      <created>1706954575133</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706954575133</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add FAB.">
+      <option name="closed" value="true" />
+      <created>1706955276634</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706955276634</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +241,13 @@
     <MESSAGE value="All source code prior to now is available in Git branch titled `native-archive`." />
     <MESSAGE value="Create new React Native project using Expo." />
     <MESSAGE value="Cleanup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup." />
+    <MESSAGE value="Add `react-native-paper` dependency, add app header." />
+    <MESSAGE value="Add FAB." />
+    <MESSAGE value="Bitmap testing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bitmap testing." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
