@@ -5,6 +5,10 @@
         android:icon="@drawable/ic_theme_light_dark"
         app:showAsAction="ifRoom"
         android:title="@string/activityMainTopAppMenu_dark_light_mode" />
+    <item android:id="@+id/activityMainTopAppMenu_discord_item"
+        android:icon="@drawable/discord_logo_dark"
+        app:showAsAction="always"
+        android:title="Discord" />
     <item android:id="@+id/activityMainTopAppMenu_save_project_item"
         android:icon="@drawable/ic_baseline_info_24"
         app:showAsAction="ifRoom"

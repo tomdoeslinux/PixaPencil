@@ -46,11 +46,11 @@
     <string name="fragmentHexadecimalColorPicker_successfully_copied_to_clipboard">Pomyślnie skopiowano do schowka</string>
     <string name="fragmentTools_circle_tool_content_description">Narzędzie \"Koło\"</string>
     <string name="fragmentColorPicker_tab_color_picker">Selektor kolorów</string>
-    <string name="fragmentAppInfo_created_by_text">Autorstwa <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_description_text"> PixaPencil jest <a href="https://github.com/therealbluepandabear/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
+    <string name="fragmentAppInfo_created_by_text">Autorstwa <a href="https://github.com/tomdoeslinux">tomdoeslinux</a>.</string>
+    <string name="fragmentAppInfo_description_text"> PixaPencil jest <a href="https://github.com/tomdoeslinux/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
 \n
 \n Aby to zagwarantować, zalecamy,
-\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHuba</a>. </string>
+\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/tomdoeslinux/PixaPencil/releases/latest">GitHuba</a>. </string>
     <string name="activityCanvas_tab_brushes">Pędzle</string>
     <string name="activityCanvas_tab_filters">Filtry</string>
     <string name="activityCanvas_tab_tools">Narzędzia</string>
@@ -124,8 +124,8 @@
 \nnowy projekt</string>
     <string name="fragmentNewColorPalette_color_palette_name">Nazwa palety kolorów</string>
     <string name="fragmentAppInfo_community_text">Dołącz do oficjalnych kanałów<a href="https://matrix.to/#/#pixapencil:matrix.org">Matrix</a> lub <a href="https://discord.gg/Ytm7WBMNz9">Discord</a>. </string>
-    <string name="fragmentAppInfo_description_text_land">PixaPencil jest <a href="https://github.com/therealbluepandabear/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
+    <string name="fragmentAppInfo_description_text_land">PixaPencil jest <a href="https://github.com/tomdoeslinux/PixaPencil">otwartoźródłowym</a> edytorem pixel artów, w 100% wolnym od naruszających prywatność Usług Google Play oraz irytujących reklam.
 \n
 \nAby to zagwarantować, zalecamy,
-\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHuba</a>.</string>
+\nżeby aplikację pobrać z repozytorium <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> lub z <a href="https://github.com/tomdoeslinux/PixaPencil/releases/latest">GitHuba</a>.</string>
 </resources>

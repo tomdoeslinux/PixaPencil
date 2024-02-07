@@ -71,14 +71,14 @@
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">复制文本剪贴板失败</string>
     <string name="fragmentColorPicker_tab_color_picker">取色盘</string>
     <string name="fragmentAppInfo_created_by_text">Created by <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_description_text"> PixaPencil 是一款<a href="https://github.com/therealbluepandabear/PixaPencil">开源</a>像素编辑器，100%没有侵犯隐私的 Google Play 服务和烦人的广告。
+    <string name="fragmentAppInfo_description_text"> PixaPencil 是一款<a href="https://github.com/tomdoeslinux/PixaPencil">开源</a>像素编辑器，100%没有侵犯隐私的 Google Play 服务和烦人的广告。
 \n
 \n为了确保这一点，
-\n我们建议你通过 <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> 或者 <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> 安装本应用。 </string>
-    <string name="fragmentAppInfo_description_text_land">PixaPencil 是一款<a href="https://github.com/therealbluepandabear/PixaPencil">开源</a>像素编辑器，100%没有侵犯隐私的 Google Play 服务和烦人的广告。
+\n我们建议你通过 <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> 或者 <a href="https://github.com/tomdoeslinux/PixaPencil/releases/latest">GitHub</a> 安装本应用。 </string>
+    <string name="fragmentAppInfo_description_text_land">PixaPencil 是一款<a href="https://github.com/tomdoeslinux/PixaPencil">开源</a>像素编辑器，100%没有侵犯隐私的 Google Play 服务和烦人的广告。
 \n
 \n为了确保这一点，
-\n我们建议你通过 <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> 或者 <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> 安装本应用。</string>
+\n我们建议你通过 <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> 或者 <a href="https://github.com/tomdoeslinux/PixaPencil/releases/latest">GitHub</a> 安装本应用。</string>
     <!-- Activity strings -->
     <string name="activityMain_newProjectButton_contentDescription">新项目</string>
     <string name="activityCanvas_tab_brushes">笔刷</string>

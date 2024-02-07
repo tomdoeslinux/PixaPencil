@@ -18,6 +18,8 @@
 
 package com.therealbluepandabear.pixapencil.activities.main.oncreate.addMenuProvider
 
+import android.content.Intent
+import android.net.Uri
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.commit
@@ -72,6 +74,11 @@ fun MainActivity.onMenuItemSelected(item: MenuItem): Boolean {
 
         R.id.activityMainTopAppMenu_open_image_item -> {
             galleryActivityLauncher.launch(arrayOf ("image/*"))
+        }
+
+        R.id.activityMainTopAppMenu_discord_item -> {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.com/invite/cYtaTnuweW"));
+            startActivity(browserIntent)
         }
     }
 

@@ -23,6 +23,16 @@ import android.view.Menu
 import com.therealbluepandabear.pixapencil.R
 import com.therealbluepandabear.pixapencil.activities.main.MainActivity
 import com.therealbluepandabear.pixapencil.extensions.changeColor
+import androidx.core.content.ContextCompat.startActivity
+
+import android.net.Uri
+
+import android.content.Intent
+import android.util.Log
+
+import android.view.MenuItem
+import androidx.core.content.ContextCompat
+
 
 fun MainActivity.onCreateMenu(_menu: Menu?): Boolean {
     val inflater = menuInflater

@@ -72,14 +72,14 @@
     <string name="fragmentHexadecimalColorPicker_failed_to_copy_to_clipboard">Neuspjelo kopiranje teksta u međuspremnik</string>
     <string name="fragmentColorPicker_tab_color_picker">Kapaljka</string>
     <string name="fragmentAppInfo_created_by_text">Stvoreno od <a href="https://github.com/therealbluepandabear">thebluepandabear</a>.</string>
-    <string name="fragmentAppInfo_description_text"> PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
+    <string name="fragmentAppInfo_description_text"> PixaPencil je uređivač pikselastih slika <a href="https://github.com/tomdoeslinux/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
 \n Preporučujemo da
-\ninstaliraš program s <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica. </string>
-    <string name="fragmentAppInfo_description_text_land">PixaPencil je uređivač pikselastih slika <a href="https://github.com/therealbluepandabear/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
+\ninstaliraš program s <a href="https://f-droid.org/en/packages/com.therealbluepandabear.pixapencil/">F-Droid</a> ili <a href="https://github.com/tomdoeslinux/PixaPencil/releases/latest">GitHub</a> stranica. </string>
+    <string name="fragmentAppInfo_description_text_land">PixaPencil je uređivač pikselastih slika <a href="https://github.com/tomdoeslinux/PixaPencil">otvorenog koda</a>, 100 % bez Google Play usluga koje ugrožavaju privatnost i dosadnih reklama.
 \n
 \nPreporučujemo da
-\ninstaliraš program s <a href="https://github.com/therealbluepandabear/PixaPencil">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica.</string>
+\ninstaliraš program s <a href="https://github.com/tomdoeslinux/PixaPencil">F-Droid</a> ili <a href="https://github.com/therealbluepandabear/PixaPencil/releases/latest">GitHub</a> stranica.</string>
     <string name="activityMain_newProjectButton_contentDescription">Novi projekt</string>
     <string name="activityCanvas_tab_brushes">Kistovi</string>
     <string name="activityCanvas_tab_filters">Filtri</string>

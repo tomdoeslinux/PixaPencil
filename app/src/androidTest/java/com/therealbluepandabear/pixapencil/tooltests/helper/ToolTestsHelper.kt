@@ -27,7 +27,7 @@ import java.util.*
 object ToolTestsHelper {
     fun prepare(activity: CanvasActivity) {
         activity.viewModel.currentTool = Tool.CircleTool
-        activity.viewModel.undoStack = Stack()
+//        activity.viewModel.undoStack = Stack()
         activity.viewModel.currentBitmapAction = BitmapAction(mutableListOf())
         activity.initPrimaryAlgorithmInfoParameter()
     }
