@@ -5,7 +5,7 @@ export interface Coordinate {
   y: number
 }
 
-function drawLineY(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
+function drawLineY(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
   let x = from.x
   let y = from.y
 
@@ -23,7 +23,7 @@ function drawLineY(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   let p = 2 * differenceY - differenceX
 
   while (x <= to.x) {
-    bitmap.setPixel(x, y)
+    callback({ x, y })
     x++
 
     if (p < 0) {
@@ -38,7 +38,7 @@ function drawLineY(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   }
 }
 
-function drawLineX(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
+function drawLineX(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
   let x = from.x
   let y = from.y
 
@@ -55,7 +55,7 @@ function drawLineX(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   let p = 2 * differenceX - differenceY
 
   while (y <= to.y) {
-    bitmap.setPixel(x, y)
+    callback({ x, y })
     y++
 
     if (p < 0) {
@@ -67,7 +67,7 @@ function drawLineX(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   }
 }
 
-export function drawLine(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
+function drawLine(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
   const x = from.x
   const y = from.y
 
@@ -76,15 +76,15 @@ export function drawLine(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
 
   if (differenceY <= differenceX) {
     if (Math.abs(differenceY) > differenceX) {
-      drawLineX(bitmap, to, from)
+      drawLineX(callback, to, from)
     } else {
-      drawLineY(bitmap, from, to)
+      drawLineY(callback, from, to)
     }
   } else {
     if (Math.abs(differenceX) > differenceY) {
-      drawLineY(bitmap, to, from)
+      drawLineY(callback, to, from)
     } else {
-      drawLineX(bitmap, from, to)
+      drawLineX(callback, from, to)
     }
   }
 }

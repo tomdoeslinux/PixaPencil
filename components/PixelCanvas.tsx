@@ -1,66 +1,192 @@
-import {useMemo, useRef, useState} from "react";
-import {Canvas, createPicture, Image, PointMode, Skia, SkImage, useCanvasRef} from "@shopify/react-native-skia";
-import {GestureResponderEvent, StyleSheet} from "react-native";
-import {Bitmap} from "../foundation/bitmap/bitmap";
+import {useEffect, useMemo, useRef, useState} from "react";
+import {
+  AlphaType,
+  Canvas, ColorType,
+  createPicture,
+  Image,
+  notifyChange,
+  PointMode,
+  Skia,
+  SkImage,
+  useCanvasRef
+} from "@shopify/react-native-skia";
+import {StyleSheet, View, useWindowDimensions, GestureResponderEvent} from "react-native";
+import Animated, {runOnJS, useAnimatedReaction, useDerivedValue, useSharedValue} from "react-native-reanimated";
+import {Button} from "react-native-paper";
+import {Gesture, GestureDetector, GestureHandlerRootView} from "react-native-gesture-handler";
 
-export default function PixelCanvas() {
-  const bitmapRef = useRef(new Bitmap(500, 500))
-  const [image, setImage] = useState<SkImage | null>(bitmapRef.current.getImage())
-  const prevX = useRef<number | null>(null);
-  const prevY = useRef<number | null>(null);
-  const canvasRef = useCanvasRef()
+const size = 50
 
-  const imageWidth = useMemo(() => bitmapRef.current.getWidth(), [])
-  const imageHeight = useMemo(() => bitmapRef.current.getHeight(), [])
+function newArr(): Uint8Array {
+  const arr = new Uint8Array(size * size * 4)
+  arr.fill(255)
 
-  const scaleX =  useMemo(() => imageWidth / bitmapRef.current.getWidth(), [])
-  const scaleY =  useMemo(() => imageHeight / bitmapRef.current.getHeight(), [])
+  return arr
+}
 
-  createPicture((c) => {
-    const paint = Skia.Paint();
-    paint.setColor(Skia.Color("cyan"))
-    c.drawPoints(PointMode.Points, [{ x: 0, y: 0 }], paint)
-  })
+export interface Coordinate {
+  x: number
+  y: number
+}
 
-  function touchHandler(e: GestureResponderEvent) {
-    const bitmap = bitmapRef.current
-    const x = Math.floor(e.nativeEvent.locationX / scaleX)
-    const y = Math.floor(e.nativeEvent.locationY / scaleY)
+function setPixel(pixels: Uint8Array, x: number, y: number) {
+  'worklet'
 
-    bitmap.setPixel(x, y)
-    setImage(bitmap.getImage())
-
-    prevX.current = x
-    prevY.current = y
-
-    bitmapRef.current.clear()
-    bitmapRef.current.drawLine({ x: 0, y: 0 }, { x: prevX.current ?? 0, y: prevY.current ?? 0 })
-    setImage(bitmapRef.current.getImage())
+  if (x >= size || y >= size || x < 0 || y < 0) {
+    return
   }
 
-  // useEffect(() => {
-  //   bitmapRef.current.clear()
-  //   bitmapRef.current.drawLine({ x: 0, y: 0 }, { x: prevX ?? 0, y: prevY ?? 0 })
-  //   setImage(bitmapRef.current.getImage())
-  // }, [prevX, prevY])
+  const index = (y * size + x) * 4;
+
+  pixels[index] = 0
+  pixels[index + 1] = 0
+  pixels[index + 2] = 0
+}
+
+function drawLineY(pixels: Uint8Array, from: Coordinate, to: Coordinate) {
+  'worklet'
+  let x = from.x
+  let y = from.y
+
+  const differenceX = to.x - x
+  let differenceY = to.y - y
+
+  let yi = 1
+  const xi = 1
+
+  if (differenceY < 0) {
+    differenceY = -differenceY
+    yi = -1
+  }
+
+  let p = 2 * differenceY - differenceX
+
+  while (x <= to.x) {
+    setPixel(pixels, x, y)
+    x++
+
+    if (p < 0) {
+      p += 2 * differenceY
+      if (differenceY > differenceX) {
+        x += xi
+      }
+    } else {
+      p = p + 2 * differenceY - 2 * differenceX
+      y += yi
+    }
+  }
+}
+
+function drawLineX(pixels: Uint8Array, from: Coordinate, to: Coordinate) {
+  'worklet'
+  let x = from.x
+  let y = from.y
+
+  let differenceX = to.x - x
+  const differenceY = to.y - y
+
+  let xi = 1
+
+  if (differenceX <= 0) {
+    differenceX = -differenceX
+    xi = -1
+  }
+
+  let p = 2 * differenceX - differenceY
+
+  while (y <= to.y) {
+    setPixel(pixels, x, y)
+    y++
+
+    if (p < 0) {
+      p += 2 * differenceX
+    } else {
+      p = p + 2 * differenceX - 2 * differenceY
+      x += xi
+    }
+  }
+}
+
+function drawLine(pixels: Uint8Array, from: Coordinate, to: Coordinate) {
+  'worklet'
+  const x = from.x
+  const y = from.y
+
+  const differenceX = to.x - x
+  const differenceY = to.y - y
+
+  if (differenceY <= differenceX) {
+    if (Math.abs(differenceY) > differenceX) {
+      drawLineX(pixels, to, from)
+    } else {
+      drawLineY(pixels, from, to)
+    }
+  } else {
+    if (Math.abs(differenceX) > differenceY) {
+      drawLineY(pixels, to, from)
+    } else {
+      drawLineX(pixels, from, to)
+    }
+  }
+}
+
+export default function PixelCanvas() {
+  const pixels = useSharedValue(newArr());
+  const coordinateTapped = useSharedValue<{ x: number, y: number } | null>(null)
+  const prevCoordinateTapped = useSharedValue<{ x: number, y: number } | null>(null)
+
+  const CANVAS_SIZE = 1000;
+
+  const img = useDerivedValue(() => {
+    // If we are not on the UI thread, don't do anything.
+    if (!_WORKLET) {
+      return
+    }
+
+    if (coordinateTapped.value) {
+      setPixel(pixels.value, coordinateTapped.value!.x, coordinateTapped.value!.y)
+
+      if (prevCoordinateTapped.value) {
+        drawLine(pixels.value, prevCoordinateTapped.value!, coordinateTapped.value!)
+      }
+
+      prevCoordinateTapped.value = coordinateTapped.value
+    }
+
+    const data = Skia.Data.fromBytes(pixels.value)
+
+    return Skia.Image.MakeImage(
+      {
+        width: size,
+        height: size,
+        alphaType: AlphaType.Opaque,
+        colorType: ColorType.RGBA_8888,
+      },
+      data,
+      size * 4
+    )!;
+  }, [coordinateTapped]);
+
+  function touchHandler(e: GestureResponderEvent) {
+    const x = Math.floor(e.nativeEvent.locationX / (300 / size))
+    const y = Math.floor(e.nativeEvent.locationY / (300 / size))
+
+    coordinateTapped.value = { x, y }
+  }
 
   return (
-    <Canvas
-      style={styles.canvas}
+    <GestureHandlerRootView
       onTouchMove={touchHandler}
       onTouchStart={touchHandler}
-      onTouchEnd={touchHandler}
+      onTouchEnd={() => coordinateTapped.value = null}
     >
-      <Image
-        image={image}
-        fit="contain"
-        x={0}
-        y={0}
-        width={imageWidth}
-        height={imageHeight}
-      />
-    </Canvas>
-  )
+      <Canvas
+        style={{ width: CANVAS_SIZE, height: CANVAS_SIZE }}
+      >
+        <Image image={img} x={0} y={0} width={300} height={300} fit="cover" />
+      </Canvas>
+    </GestureHandlerRootView>
+  );
 }
 
 const styles = StyleSheet.create({
