@@ -1,11 +1,7 @@
 import {Bitmap} from "../bitmap/bitmap";
+import {Coordinate} from "../types/coordinate";
 
-export interface Coordinate {
-  x: number
-  y: number
-}
-
-function drawLineY(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
+function drawLineY(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   let x = from.x
   let y = from.y
 
@@ -23,7 +19,7 @@ function drawLineY(callback: (coords: { x: number, y: number }) => void, from: C
   let p = 2 * differenceY - differenceX
 
   while (x <= to.x) {
-    callback({ x, y })
+    bitmap.setPixel({ x, y })
     x++
 
     if (p < 0) {
@@ -38,7 +34,7 @@ function drawLineY(callback: (coords: { x: number, y: number }) => void, from: C
   }
 }
 
-function drawLineX(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
+function drawLineX(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   let x = from.x
   let y = from.y
 
@@ -55,7 +51,7 @@ function drawLineX(callback: (coords: { x: number, y: number }) => void, from: C
   let p = 2 * differenceX - differenceY
 
   while (y <= to.y) {
-    callback({ x, y })
+    bitmap.setPixel({ x, y })
     y++
 
     if (p < 0) {
@@ -67,7 +63,7 @@ function drawLineX(callback: (coords: { x: number, y: number }) => void, from: C
   }
 }
 
-function drawLine(callback: (coords: { x: number, y: number }) => void, from: Coordinate, to: Coordinate) {
+export function drawLine(bitmap: Bitmap, from: Coordinate, to: Coordinate) {
   const x = from.x
   const y = from.y
 
@@ -76,15 +72,15 @@ function drawLine(callback: (coords: { x: number, y: number }) => void, from: Co
 
   if (differenceY <= differenceX) {
     if (Math.abs(differenceY) > differenceX) {
-      drawLineX(callback, to, from)
+      drawLineX(bitmap, to, from)
     } else {
-      drawLineY(callback, from, to)
+      drawLineY(bitmap, from, to)
     }
   } else {
     if (Math.abs(differenceX) > differenceY) {
-      drawLineY(callback, to, from)
+      drawLineY(bitmap, to, from)
     } else {
-      drawLineX(callback, from, to)
+      drawLineX(bitmap, from, to)
     }
   }
 }

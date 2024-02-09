@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Bitmap testing.">
+    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Add code for pixel canvas.">
+      <change afterPath="$PROJECT_DIR$/foundation/types/coordinate.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/PixelCanvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PixelCanvas.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/foundation/algorithms/line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/foundation/algorithms/line.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foundation/bitmap/bitmap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/foundation/bitmap/bitmap.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +192,9 @@
       <workItem from="1707344051156" duration="70000" />
       <workItem from="1707371350836" duration="6133000" />
       <workItem from="1707381987935" duration="4548000" />
-      <workItem from="1707394241836" duration="1694000" />
+      <workItem from="1707394241836" duration="2051000" />
+      <workItem from="1707423601072" duration="5721000" />
+      <workItem from="1707443349036" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="All source code prior to now is available in Git branch titled `native-archive`.">
       <option name="closed" value="true" />
@@ -249,7 +252,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707024584751</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add code for pixel canvas.">
+      <option name="closed" value="true" />
+      <created>1707396203271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707396203271</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +284,8 @@
     <MESSAGE value="Add `react-native-paper` dependency, add app header." />
     <MESSAGE value="Add FAB." />
     <MESSAGE value="Bitmap testing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bitmap testing." />
+    <MESSAGE value="Add code for pixel canvas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add code for pixel canvas." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
