@@ -74,8 +74,8 @@ class Bitmap {
 
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
-    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR)
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.NEAREST)
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.NEAREST)
   }
 
   public initUniforms() {
@@ -88,17 +88,25 @@ class Bitmap {
 
   public initAttributes() {
     const vertices = [
-      -this.width, -this.width,
-      this.width, -this.width,
-      -this.width,  this.width,
-      this.width,  this.width,
+      -this.canvasWidth, -this.canvasWidth,
+      this.canvasWidth, -this.canvasWidth,
+      -this.canvasWidth,  this.canvasWidth,
+      this.canvasWidth,  this.canvasWidth,
     ]
+
+    const textCoords = new Float32Array([
+      0.0, 0.0,
+      1.0, 0.0,
+      0.0, 1.0,
+      1.0, 1.0,
+    ])
 
     const vertexBuffer = this.gl.createBuffer()
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, vertexBuffer)
     this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(vertices), this.gl.STATIC_DRAW)
 
     const positionLocation = this.gl.getAttribLocation(this.program, 'position')
+
     this.gl.enableVertexAttribArray(positionLocation)
     this.gl.vertexAttribPointer(positionLocation, 2, this.gl.FLOAT, false, 0, 0)
   }
@@ -191,7 +199,7 @@ export default function PixelCanvas() {
         onTouchStart={touchHandler}
         onTouchEnd={touchHandler}
         onContextCreate={(gl) => {
-          bitmapRef.current = new Bitmap(gl, 300, 300, width, height)
+          bitmapRef.current = new Bitmap(gl, 100, 100, width, height)
         }}
       />
     </SafeAreaView>
