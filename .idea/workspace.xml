@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Add code for pixel canvas.">
-      <change afterPath="$PROJECT_DIR$/foundation/types/coordinate.ts" afterDir="false" />
+    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Add sample GLSL files.">
+      <change afterPath="$PROJECT_DIR$/foundation/shaders/grid_shader.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foundation/shaders/grid_vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foundation/webgl/WebGLUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/glsl.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/PixelCanvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PixelCanvas.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foundation/algorithms/line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/foundation/algorithms/line.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foundation/bitmap/bitmap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/foundation/bitmap/bitmap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foundation/shaders/fragment-shader-2d.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foundation/shaders/vertex-shader-2d.glsl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +93,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/foundation/shaders" />
       <recent name="$PROJECT_DIR$/foundation" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -195,6 +199,10 @@
       <workItem from="1707394241836" duration="2051000" />
       <workItem from="1707423601072" duration="5721000" />
       <workItem from="1707443349036" duration="7000" />
+      <workItem from="1707458579219" duration="856000" />
+      <workItem from="1707464606628" duration="9000" />
+      <workItem from="1707480881934" duration="2482000" />
+      <workItem from="1707520258847" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="All source code prior to now is available in Git branch titled `native-archive`.">
       <option name="closed" value="true" />
@@ -260,7 +268,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707396203271</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Remove `react-native-skia` and related packages; add WebGL support.">
+      <option name="closed" value="true" />
+      <created>1707458722131</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707458722131</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add sample GLSL files.">
+      <option name="closed" value="true" />
+      <created>1707458756701</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707458756701</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +309,9 @@
     <MESSAGE value="Add FAB." />
     <MESSAGE value="Bitmap testing." />
     <MESSAGE value="Add code for pixel canvas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add code for pixel canvas." />
+    <MESSAGE value="Remove `react-native-skia` and related packages; add WebGL support." />
+    <MESSAGE value="Add sample GLSL files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add sample GLSL files." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
