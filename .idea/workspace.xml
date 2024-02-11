@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Add sample GLSL files.">
-      <change afterPath="$PROJECT_DIR$/foundation/shaders/grid_shader.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foundation/shaders/grid_vertex.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/foundation/webgl/WebGLUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/glsl.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metro.config.js" afterDir="false" />
+    <list default="true" id="ef0fc971-884a-4d23-9f4f-5b18e9374054" name="Changes" comment="Basic pixel drawing.">
+      <change afterPath="$PROJECT_DIR$/components/ColorPicker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/PixelCanvas.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PixelCanvas.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foundation/shaders/fragment-shader-2d.glsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/foundation/shaders/vertex-shader-2d.glsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foundation/algorithms/line.ts" beforeDir="false" afterPath="$PROJECT_DIR$/foundation/algorithms/line.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +51,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -203,6 +202,8 @@
       <workItem from="1707464606628" duration="9000" />
       <workItem from="1707480881934" duration="2482000" />
       <workItem from="1707520258847" duration="7000" />
+      <workItem from="1707520755984" duration="40520000" />
+      <workItem from="1707607133697" duration="3387000" />
     </task>
     <task id="LOCAL-00001" summary="All source code prior to now is available in Git branch titled `native-archive`.">
       <option name="closed" value="true" />
@@ -284,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707458756701</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Testing.">
+      <option name="closed" value="true" />
+      <created>1707558013503</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707558013503</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Basic pixel drawing.">
+      <option name="closed" value="true" />
+      <created>1707569398947</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707569398947</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +328,9 @@
     <MESSAGE value="Add code for pixel canvas." />
     <MESSAGE value="Remove `react-native-skia` and related packages; add WebGL support." />
     <MESSAGE value="Add sample GLSL files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add sample GLSL files." />
+    <MESSAGE value="Testing." />
+    <MESSAGE value="Basic pixel drawing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic pixel drawing." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

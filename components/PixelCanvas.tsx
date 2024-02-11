@@ -3,18 +3,20 @@ import {useSafeAreaInsets, SafeAreaView} from "react-native-safe-area-context";
 import {ExpoWebGLRenderingContext, GLView} from "expo-gl";
 import {WebGLUtils} from "../foundation/webgl/WebGLUtils";
 import {useRef} from "react";
+import {drawLine} from "../foundation/algorithms/line";
 
 interface Coordinate {
   x: number
   y: number
 }
 
-class Bitmap {
+export class Bitmap {
   private readonly gl: ExpoWebGLRenderingContext
   private readonly width: number
   private readonly height: number
   private readonly canvasWidth: number
   private readonly canvasHeight: number
+  private prevCoordinates: Coordinate | null = null
   private readonly pixels: Uint8Array
   private program: WebGLProgram
   private texture: WebGLTexture;
@@ -94,13 +96,6 @@ class Bitmap {
       this.canvasWidth,  this.canvasWidth,
     ]
 
-    const textCoords = new Float32Array([
-      0.0, 0.0,
-      1.0, 0.0,
-      0.0, 1.0,
-      1.0, 1.0,
-    ])
-
     const vertexBuffer = this.gl.createBuffer()
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, vertexBuffer)
     this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(vertices), this.gl.STATIC_DRAW)
@@ -118,7 +113,19 @@ class Bitmap {
     this.pixels[index + 1] = 0
     this.pixels[index + 2] = 44
 
+    if (this.prevCoordinates) {
+      drawLine((coordinates) => {
+        const _index = (coordinates.y * this.width + coordinates.x) * Bitmap.RGBA_COMPONENTS;
+
+        this.pixels[_index] = 255
+        this.pixels[_index + 1] = 0
+        this.pixels[_index + 2] = 44
+      }, this.prevCoordinates, coordinate)
+    }
+
     this.draw()
+
+    this.prevCoordinates = coordinate
   }
 
   private draw() {
@@ -199,7 +206,7 @@ export default function PixelCanvas() {
         onTouchStart={touchHandler}
         onTouchEnd={touchHandler}
         onContextCreate={(gl) => {
-          bitmapRef.current = new Bitmap(gl, 100, 100, width, height)
+          bitmapRef.current = new Bitmap(gl, 200, 200, width, height)
         }}
       />
     </SafeAreaView>
