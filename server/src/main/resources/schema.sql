@@ -12,5 +12,6 @@ CREATE TABLE IF NOT EXISTS creation (
     description VARCHAR(5000),
     cover_image_url VARCHAR(255) NOT NULL,
     user_id BIGINT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
 )
