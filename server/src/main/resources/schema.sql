@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS user (
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
+    is_verified BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -14,4 +15,12 @@ CREATE TABLE IF NOT EXISTS creation (
     user_id BIGINT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
-)
+);
+
+CREATE TABLE IF NOT EXISTS verification_token (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    token TEXT NOT NULL,
+    user_id BIGINT NOT NULL,
+    expiry_date TIMESTAMP NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);

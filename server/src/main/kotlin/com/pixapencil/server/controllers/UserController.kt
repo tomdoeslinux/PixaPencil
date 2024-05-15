@@ -1,12 +1,16 @@
 package com.pixapencil.server.controllers
 
 import com.pixapencil.server.domain.User
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import com.pixapencil.server.services.UserService
+import org.springframework.web.bind.annotation.*
 
-@RestController("/api/users")
-class UserController {
+@RestController
+@RequestMapping("/api/users")
+class UserController(private val userService: UserService) {
 
+    @PostMapping("/register")
+    fun registerUser(@RequestBody user: User) = userService.registerUser(user)
 
+    @PostMapping("/verify")
+    fun verifyUser(@RequestParam token: String) = userService.verifyUser(token)
 }

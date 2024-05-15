@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
+    var id: Long? = null,
 
     @Column(unique = true, nullable = false)
     var username: String,
@@ -21,8 +21,11 @@ class User(
     var password: String,
 
     @CreationTimestamp
-    var createdAt: LocalDateTime,
+    var createdAt: LocalDateTime? = null,
 
-    @OneToMany(cascade = [(CascadeType.ALL)], mappedBy = "user")
+    @Column(nullable = false)
+    var isVerified: Boolean = false,
+
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
     var creations: List<Creation> = mutableListOf()
 )

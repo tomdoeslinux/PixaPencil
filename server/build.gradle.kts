@@ -10,6 +10,7 @@ plugins {
 
 group = "com.pixapencil"
 version = "0.0.1-SNAPSHOT"
+extra["springCloudVersion"] = "3.0.0-RC1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -25,9 +26,22 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+    implementation("org.springframework.boot:spring-boot-starter-freemarker")
+    implementation("io.awspring.cloud:spring-cloud-aws-starter-s3:3.0.0-RC2")
+    implementation("io.awspring.cloud:spring-cloud-starter-aws-ses:2.4.4")
+    implementation("jakarta.mail:jakarta.mail-api:2.1.3")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("io.awspring.cloud:spring-cloud-aws-dependencies:${extra["springCloudVersion"]}")
+    }
 }
 
 tasks.withType<KotlinCompile> {
