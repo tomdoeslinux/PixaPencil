@@ -19,9 +19,9 @@ class SecurityConfig {
             csrf { disable() }
 
             authorizeHttpRequests {
-                authorize(HttpMethod.POST,"/api/users/register", permitAll)
-                authorize(HttpMethod.POST,"/api/users/verify", permitAll)
-                authorize(anyRequest, authenticated)
+//                authorize(HttpMethod.POST,"/api/users/register", permitAll)
+//                authorize(HttpMethod.POST,"/api/users/verify", permitAll)
+                authorize(anyRequest, permitAll)
             }
 
             httpBasic { }

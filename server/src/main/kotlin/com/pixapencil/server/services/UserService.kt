@@ -5,6 +5,8 @@ import com.pixapencil.server.domain.VerificationToken
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
+import jakarta.persistence.EntityNotFoundException
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -28,17 +30,20 @@ class UserService(
 
         userRepository.save(user)
 
-        val token = createVerificationToken(user)
+        val (token, rawToken) = createVerificationToken(user)
         verificationTokenRepository.save(token)
 
-        emailService.sendVerificationMail(user.email, createVerificationLink(token.token))
+        emailService.sendVerificationMail(user.email, createVerificationLink(user, rawToken))
     }
 
-    fun verifyUser(token: String): Boolean {
-        val verifToken = verificationTokenRepository.findByToken(token)
+    fun verifyUser(userId: Long, token: String): Boolean {
+        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
+        val verifToken = verificationTokenRepository.findByUser(user)
 
         if (verifToken != null) {
-            verifToken.user.isVerified = true
+            user.isVerified = true
+
+            userRepository.save(user)
             verificationTokenRepository.delete(verifToken)
 
             return true
@@ -47,7 +52,7 @@ class UserService(
         return false
     }
 
-    private fun createVerificationToken(user: User): VerificationToken {
+    private fun createVerificationToken(user: User): Pair<VerificationToken, String> {
         val rawToken = UUID.randomUUID().toString()
         val token = passwordEncoder.encode(rawToken)
 
@@ -57,13 +62,14 @@ class UserService(
             user = user
         )
 
-        return verificationToken
+        return Pair(verificationToken, rawToken)
     }
 
-    private fun createVerificationLink(tokenValue: String): String {
+    private fun createVerificationLink(user: User, tokenValue: String): String {
         return ServletUriComponentsBuilder.fromCurrentContextPath()
-            .path("/users/verify")
+            .path("/api/users/verify")
             .queryParam("token", tokenValue)
+            .queryParam("userId", user.id)
             .build()
             .toUriString()
     }

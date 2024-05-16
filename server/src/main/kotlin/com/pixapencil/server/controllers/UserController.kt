@@ -11,6 +11,6 @@ class UserController(private val userService: UserService) {
     @PostMapping("/register")
     fun registerUser(@RequestBody user: User) = userService.registerUser(user)
 
-    @PostMapping("/verify")
-    fun verifyUser(@RequestParam token: String) = userService.verifyUser(token)
+    @GetMapping("/verify")
+    fun verifyUser(@RequestParam userId: Long, @RequestParam token: String) = userService.verifyUser(userId, token)
 }

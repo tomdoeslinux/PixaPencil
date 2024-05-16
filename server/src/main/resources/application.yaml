@@ -6,8 +6,8 @@ spring:
       mode: always
   datasource:
     url: 'jdbc:mysql://localhost:3306/pixapencil?serverTimezone=UTC'
-    username: root
-    password: password
+    username: ${DATA_SOURCE_USERNAME}
+    password: ${DATA_SOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:

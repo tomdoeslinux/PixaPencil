@@ -1,9 +1,10 @@
 package com.pixapencil.server.repos
 
+import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface VerificationTokenRepository : JpaRepository<VerificationToken, Long> {
 
-    fun findByToken(token: String): VerificationToken?
+    fun findByUser(user: User): VerificationToken?
 }
