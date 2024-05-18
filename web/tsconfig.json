@@ -23,7 +23,8 @@
     "baseUrl": ".",
 
     "paths": {
-      "models": ["src/models/index"]
+      "models": ["src/models/index"],
+      "store": ["src/store/index"],
     }
   },
   "include": ["src"],

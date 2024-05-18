@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS user (
     email VARCHAR(255) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     is_verified BOOLEAN NOT NULL DEFAULT FALSE,
+    profile_picture_url VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

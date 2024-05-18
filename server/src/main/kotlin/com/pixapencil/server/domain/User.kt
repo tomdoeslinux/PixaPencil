@@ -20,6 +20,9 @@ class User(
     @Lob
     var password: String,
 
+    @Column(nullable = false)
+    var profilePictureUrl: String,
+
     @CreationTimestamp
     var createdAt: LocalDateTime? = null,
 
