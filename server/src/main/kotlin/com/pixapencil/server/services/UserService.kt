@@ -1,7 +1,9 @@
 package com.pixapencil.server.services
 
+import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
+import com.pixapencil.server.dtos.AddCreationDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
@@ -20,7 +22,8 @@ class UserService(
     private val userRepository: UserRepository,
     private val verificationTokenRepository: VerificationTokenRepository,
     private val passwordEncoder: PasswordEncoder,
-    private val emailService: MailService
+    private val emailService: MailService,
+    private val s3Service: S3Service,
 ) {
 
     fun registerUser(user: User) {
@@ -50,6 +53,22 @@ class UserService(
         }
 
         return false
+    }
+
+    fun getCreationUploadUrl(mimeType: String) = s3Service.createSignedPutURL(mimeType)
+
+    fun addCreation(addCreation: AddCreationDTO, userId: Long) {
+        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
+
+        val creation = Creation(
+            title = addCreation.title,
+            description = addCreation.description,
+            coverImageUrl = addCreation.coverImageUrl,
+            user = user,
+        )
+
+        user.creations.add(creation)
+        userRepository.save(user)
     }
 
     private fun createVerificationToken(user: User): Pair<VerificationToken, String> {

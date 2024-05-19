@@ -2,6 +2,7 @@ package com.pixapencil.server.services
 
 import com.pixapencil.server.config.FreemarkerConfig
 import freemarker.template.Configuration
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
@@ -18,6 +19,8 @@ data class PxpMail(
     val body: String,
     val isHtml: Boolean
 )
+
+private val logger = KotlinLogging.logger {}
 
 @Service
 class MailService(

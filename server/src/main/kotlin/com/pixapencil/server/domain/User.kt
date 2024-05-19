@@ -30,5 +30,5 @@ class User(
     var isVerified: Boolean = false,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    var creations: List<Creation> = mutableListOf()
+    var creations: MutableList<Creation> = mutableListOf()
 )

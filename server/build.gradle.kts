@@ -30,6 +30,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-freemarker")
     implementation("io.awspring.cloud:spring-cloud-aws-starter-s3:3.0.0-RC2")
     implementation("io.awspring.cloud:spring-cloud-starter-aws-ses:2.4.4")
+    implementation("io.awspring.cloud:spring-cloud-aws-starter-s3:3.0.0-RC2")
+    implementation("io.github.oshai:kotlin-logging-jvm:5.1.0")
+
     implementation("jakarta.mail:jakarta.mail-api:2.1.3")
     implementation("org.springframework.boot:spring-boot-starter-mail")
 
