@@ -1,7 +1,7 @@
 package com.pixapencil.server.dtos
 
-data class AddCreationDTO(
+data class UploadCreationDTO(
     val title: String,
     val description: String,
-    val coverImageUrl: String,
+    val imageKey: String,
 )

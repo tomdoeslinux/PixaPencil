@@ -20,8 +20,6 @@ data class PxpMail(
     val isHtml: Boolean
 )
 
-private val logger = KotlinLogging.logger {}
-
 @Service
 class MailService(
     private val javaMailSender: JavaMailSender,

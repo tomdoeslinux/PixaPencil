@@ -17,7 +17,7 @@ class Creation(
     var description: String,
 
     @Column(nullable = false)
-    var coverImageUrl: String,
+    var imageKey: String,
 
     @CreationTimestamp
     var createdAt: LocalDateTime? = null,

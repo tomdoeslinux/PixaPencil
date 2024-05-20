@@ -7,7 +7,7 @@ data class Author(val username: String, val profilePictureUrl: String)
 data class GetCreationDTO(
     val title: String,
     val description: String,
-    val coverImageUrl: String,
+    val imageUrl: String,
     val createdAt: String,
     val author: Author,
 )
@@ -16,7 +16,7 @@ fun Creation.toGetCreationDTO(): GetCreationDTO {
     return GetCreationDTO(
         title = this.title,
         description = this.description,
-        coverImageUrl = "https://pixapencil-gallery.s3.ap-southeast-2.amazonaws.com/" + this.coverImageUrl,
+        imageUrl = "https://pixapencil-gallery.s3.ap-southeast-2.amazonaws.com/" + this.imageKey,
         createdAt = this.createdAt.toString(),
         author = Author(
             username = this.user.username,

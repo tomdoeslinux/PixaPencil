@@ -6,13 +6,13 @@ interface Author {
 export interface Creation {
   title: string
   description: string
-  coverImageUrl: string
+  imageUrl: string
   author: Author
   createdAt: string
 }
 
-export interface AddCreation {
+export interface UploadCreation {
   title: string
   description: string
-  coverImageUrl: string
+  file?: File
 }

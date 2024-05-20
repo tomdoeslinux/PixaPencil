@@ -3,7 +3,7 @@ package com.pixapencil.server.services
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
-import com.pixapencil.server.dtos.AddCreationDTO
+import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
@@ -55,15 +55,20 @@ class UserService(
         return false
     }
 
-    fun getCreationUploadUrl(mimeType: String) = s3Service.createSignedPutURL(mimeType)
+    fun getCreationUploadUrl(mimeType: String): Map<String, String> {
+        val key = s3Service.generateRandomKey(mimeType)
+        val uploadUrl = s3Service.createSignedPutURL(key)
 
-    fun addCreation(addCreation: AddCreationDTO, userId: Long) {
+        return mapOf("url" to uploadUrl, "key" to key)
+    }
+
+    fun uploadCreation(addCreation: UploadCreationDTO, userId: Long) {
         val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
 
         val creation = Creation(
             title = addCreation.title,
             description = addCreation.description,
-            coverImageUrl = addCreation.coverImageUrl,
+            imageKey = addCreation.imageKey,
             user = user,
         )
 
