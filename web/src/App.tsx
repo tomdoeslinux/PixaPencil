@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
-import { Box, Button, Flex, FormControl, FormLabel, Grid, IconButton, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Textarea } from '@chakra-ui/react'
+import { Box, Button, Flex, FormControl, FormLabel, Grid, IconButton, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, Text, Textarea, useToast } from '@chakra-ui/react'
 import { Creation } from 'models'
 import { MdCloudUpload, MdFavorite, MdFavoriteBorder, MdOutlineEdit } from 'react-icons/md'
 import { useGetCreationsQuery } from './store/creation/creation'
@@ -191,7 +191,8 @@ interface UploadCreationModalProps {
 
 function UploadCreationModal(props: UploadCreationModalProps) {
   const { register, setValue, handleSubmit } = useForm<UploadCreation>()
-  const [uploadCreation] = useUploadCreationMutation()
+  const [uploadCreation, { isLoading }] = useUploadCreationMutation()
+  const toast = useToast()
 
   return (
     <Modal isOpen={true} onClose={props.onClose}>
@@ -223,13 +224,20 @@ function UploadCreationModal(props: UploadCreationModalProps) {
             type="submit" 
             onClick={handleSubmit(async (formData) => {
               await uploadCreation({ userId: 1, uploadCreation: formData })
+              toast({
+                title: 'Success',
+                description: "Creation has been uploaded and added to your gallery.",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+              })
               props.onClose()
               props.onUploadSuccess()
             })}
           >
-            OK
+            {isLoading ? <Spinner /> : "OK"}
           </Button>
-          <Button variant='ghost'>Cancel</Button>
+          <Button variant='ghost' onClick={props.onClose}>Cancel</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
