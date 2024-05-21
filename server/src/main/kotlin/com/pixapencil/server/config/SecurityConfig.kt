@@ -23,9 +23,9 @@ class SecurityConfig {
             cors { }
 
             authorizeHttpRequests {
-                authorize(HttpMethod.POST,"/api/users/register", permitAll)
-                authorize(HttpMethod.POST,"/api/users/verify", permitAll)
-                authorize(HttpMethod.GET,"/api/creations", permitAll)
+//                authorize(HttpMethod.POST,"/api/users/register", permitAll)
+//                authorize(HttpMethod.POST,"/api/users/verify", permitAll)
+//                authorize(HttpMethod.GET,"/api/creations", permitAll)
                 authorize(anyRequest, permitAll)
             }
 

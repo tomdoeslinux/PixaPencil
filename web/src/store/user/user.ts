@@ -3,12 +3,13 @@ import { UploadCreation } from "src/models/Creation/Creation";
 
 const extendedApi = privateApi.injectEndpoints({
   endpoints: (builder) => ({
-    addCreation: builder.mutation<undefined, { userId: number, uploadCreation: UploadCreation }>({
+    uploadCreation: builder.mutation<undefined, { userId: number, uploadCreation: UploadCreation }>({
       queryFn: async ({ userId, uploadCreation }, _, __, fetchWithBQ) => {
+        console.log('okkk')
         const mimeType = uploadCreation.file!.type
         
         const getUploadUrlResponse = await fetchWithBQ({
-          url: 'creations/get-upload-url',
+          url: 'users/creations/get-upload-url',
           params: { mimeType },
           method: 'GET'
         })
@@ -30,9 +31,9 @@ const extendedApi = privateApi.injectEndpoints({
         delete uploadCreation.file
 
         const addCreationResponse = await fetchWithBQ({
-          url: `/${userId}/creations`,
-          params: { mimeType },
-          method: 'POST'
+          url: `/users/${userId}/creations`,
+          method: 'POST',
+          body: { ...uploadCreation, imageKey: getUploadUrlResponseData.key }
         })
 
         if (addCreationResponse.error) {
@@ -46,4 +47,4 @@ const extendedApi = privateApi.injectEndpoints({
 })
 
 
-export const { useAddCreationMutation } = extendedApi
+export const { useUploadCreationMutation } = extendedApi

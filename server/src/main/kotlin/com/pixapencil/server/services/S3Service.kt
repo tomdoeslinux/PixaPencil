@@ -21,7 +21,7 @@ class S3Service(private val s3Template: S3Template) {
             else -> throw IllegalArgumentException("Unsupported mime type")
         }
 
-        return "${System.currentTimeMillis()}-${UUID.randomUUID()}.$ext"
+        return "${UUID.randomUUID()}.$ext"
     }
 
     fun createSignedPutURL(key: String, bucketName: String = "pixapencil-gallery"): String =

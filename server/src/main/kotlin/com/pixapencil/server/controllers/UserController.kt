@@ -19,5 +19,5 @@ class UserController(private val userService: UserService) {
     fun getCreationUploadUrl(@RequestParam mimeType: String) = userService.getCreationUploadUrl(mimeType)
 
     @PostMapping("/{id}/creations")
-    fun uploadCreation(@PathVariable id: Long, addCreation: UploadCreationDTO) = userService.uploadCreation(addCreation, id)
+    fun uploadCreation(@PathVariable id: Long, @RequestBody uploadCreation: UploadCreationDTO) = userService.uploadCreation(uploadCreation, id)
 }

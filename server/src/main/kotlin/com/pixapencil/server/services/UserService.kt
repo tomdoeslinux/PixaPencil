@@ -62,13 +62,13 @@ class UserService(
         return mapOf("url" to uploadUrl, "key" to key)
     }
 
-    fun uploadCreation(addCreation: UploadCreationDTO, userId: Long) {
+    fun uploadCreation(uploadCreation: UploadCreationDTO, userId: Long) {
         val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
 
         val creation = Creation(
-            title = addCreation.title,
-            description = addCreation.description,
-            imageKey = addCreation.imageKey,
+            title = uploadCreation.title,
+            description = uploadCreation.description,
+            imageKey = uploadCreation.imageKey,
             user = user,
         )
 
