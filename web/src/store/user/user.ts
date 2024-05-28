@@ -5,7 +5,6 @@ const extendedApi = privateApi.injectEndpoints({
   endpoints: (builder) => ({
     uploadCreation: builder.mutation<undefined, { userId: number, uploadCreation: UploadCreation }>({
       queryFn: async ({ userId, uploadCreation }, _, __, fetchWithBQ) => {
-        console.log('okkk')
         const mimeType = uploadCreation.file!.type
         
         const getUploadUrlResponse = await fetchWithBQ({

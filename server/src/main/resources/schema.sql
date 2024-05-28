@@ -13,9 +13,29 @@ CREATE TABLE IF NOT EXISTS creation (
     title VARCHAR(255) NOT NULL,
     description VARCHAR(5000),
     image_key VARCHAR(255) NOT NULL,
+    like_count INT NOT NULL DEFAULT 0,
     user_id BIGINT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+CREATE TABLE IF NOT EXISTS creation_like (
+    user_id BIGINT NOT NULL,
+    creation_id BIGINT NOT NULL,
+    PRIMARY KEY (user_id, creation_id),
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (creation_id) REFERENCES creation(id)
+);
+
+CREATE TABLE IF NOT EXISTS comment (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    creation_id BIGINT NOT NULL,
+    text VARCHAR(1000) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id),
+    FOREIGN KEY (creation_id) REFERENCES creation(id)
 );
 
 CREATE TABLE IF NOT EXISTS verification_token (

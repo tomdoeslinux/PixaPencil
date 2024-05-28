@@ -19,10 +19,19 @@ class Creation(
     @Column(nullable = false)
     var imageKey: String,
 
+    @Column(nullable = false)
+    var likeCount: Int = 0,
+
     @CreationTimestamp
     var createdAt: LocalDateTime? = null,
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     var user: User,
+
+    @ManyToMany(mappedBy = "likedCreations")
+    val likedBy: MutableList<User> = mutableListOf(),
+
+    @OneToMany(mappedBy = "creation")
+    val comments: MutableList<Comment> = mutableListOf()
 )

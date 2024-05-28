@@ -30,5 +30,16 @@ class User(
     var isVerified: Boolean = false,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    var creations: MutableList<Creation> = mutableListOf()
+    var creations: MutableList<Creation> = mutableListOf(),
+
+    @ManyToMany(cascade = [CascadeType.ALL])
+    @JoinTable(
+        name = "creation_like",
+        joinColumns = [JoinColumn(name = "user_id")],
+        inverseJoinColumns = [JoinColumn(name = "creation_id")]
+    )
+    val likedCreations: MutableList<Creation> = mutableListOf(),
+
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
+    val userComments: MutableList<Comment> = mutableListOf()
 )

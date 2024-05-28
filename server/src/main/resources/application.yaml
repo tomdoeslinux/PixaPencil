@@ -5,7 +5,7 @@ spring:
     init:
       mode: always
   datasource:
-    url: 'jdbc:mysql://localhost:3306/pixapencil?serverTimezone=UTC'
+    url: 'jdbc:mysql://localhost:3306/pixapencil'
     username: ${DATA_SOURCE_USERNAME}
     password: ${DATA_SOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver

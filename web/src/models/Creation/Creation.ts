@@ -1,12 +1,12 @@
-interface Author {
-  username: string
-  profilePictureUrl: string
-}
+import { Author } from "../Author/Author"
 
 export interface Creation {
+  id: number,
   title: string
   description: string
   imageUrl: string
+  isLiked: boolean
+  likeCount: number
   author: Author
   createdAt: string
 }
