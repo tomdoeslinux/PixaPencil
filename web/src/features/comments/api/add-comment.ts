@@ -2,7 +2,6 @@ import { RootEndpointBulder } from "@/api/root-api"
 
 export interface AddComment {
   text: string
-  userId: number
   creationId: number
 }
 

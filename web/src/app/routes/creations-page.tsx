@@ -19,10 +19,12 @@ export default function CreationsPage() {
     useGetCreationsQuery()
   const creations = creationsResponse?.content
 
-  const { data: comments, refetch: refetchComments } = useGetCommentsQuery(
-    { creationId: selectedCreation?.id ?? 0 },
-    { skip: !selectedCreation },
-  )
+  const { data: commentsResponse, refetch: refetchComments } =
+    useGetCommentsQuery(
+      { creationId: selectedCreation?.id ?? 0 },
+      { skip: !selectedCreation },
+    )
+  const comments = commentsResponse?.content
 
   if (!creations) {
     return <Text>Loading...</Text>
@@ -59,8 +61,9 @@ export default function CreationsPage() {
           creation={selectedCreation}
           commentsSlot={
             <CommentsList
+              creationId={selectedCreation.id}
               refetchComments={refetchComments}
-              comments={comments ?? []}
+              comments={comments}
             />
           }
           onClose={() => setSelectedCreation(null)}

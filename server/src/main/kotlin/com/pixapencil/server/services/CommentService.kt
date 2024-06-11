@@ -32,6 +32,7 @@ class CommentService(
         addCommentDTO: AddCommentDTO,
         user: User,
     ) {
+        println("Comment add")
         val creation = creationRepository.findByIdOrNull(addCommentDTO.creationId) ?: throw EntityNotFoundException()
 
         val comment =

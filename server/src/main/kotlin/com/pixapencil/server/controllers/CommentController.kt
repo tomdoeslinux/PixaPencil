@@ -22,7 +22,7 @@ class CommentController(
     @PostMapping
     fun addComment(
         @RequestBody addCommentDTO: AddCommentDTO,
-        @AuthenticationPrincipal user: User,
+        @AuthenticationPrincipal(expression = "user") user: User,
     ) = commentService.addComment(addCommentDTO, user)
 
     @DeleteMapping("/{id}")

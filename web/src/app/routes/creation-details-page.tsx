@@ -1,6 +1,6 @@
 import { CommentsList, useGetCommentsQuery } from "@/features/comments"
 import { CreationDetails, useGetCreationQuery } from "@/features/creations"
-import { Box, Text } from "@chakra-ui/react"
+import { Text } from "@chakra-ui/react"
 
 interface CreationDetailsPageProps {
   creationId: number
@@ -25,7 +25,11 @@ export default function CreationDetailsPage(props: CreationDetailsPageProps) {
       creation={creation}
       onNavigation={(arg) => {}}
       commentsSlot={
-        <CommentsList refetchComments={refetchComments} comments={comments} />
+        <CommentsList
+          creationId={props.creationId}
+          refetchComments={refetchComments}
+          comments={comments}
+        />
       }
     />
   )

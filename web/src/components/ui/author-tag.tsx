@@ -8,10 +8,10 @@ interface AuthorTagProps {
 
 export default function AuthorTag(props: AuthorTagProps) {
   return (
-    <Flex 
-      width="100%" 
-      alignItems="center" 
-      borderBottom="1px solid" 
+    <Flex
+      width="100%"
+      alignItems="center"
+      borderBottom="1px solid"
       borderBottomColor="gray.200"
       padding="12px 16px"
     >
@@ -29,8 +29,8 @@ export default function AuthorTag(props: AuthorTagProps) {
           <>
             {typeof props.subheading === "object" ? (
               <Tooltip label={props.subheading.tooltip} fontSize="14px">
-              <Text fontSize="12px">{props.subheading.text}</Text>
-            </Tooltip>
+                <Text fontSize="12px">{props.subheading.text}</Text>
+              </Tooltip>
             ) : (
               <Text fontSize="12px">{props.subheading}</Text>
             )}
