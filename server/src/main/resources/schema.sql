@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS creation (
     description VARCHAR(5000),
     image_key VARCHAR(255) NOT NULL,
     like_count INT NOT NULL DEFAULT 0,
+    comment_count INT NOT NULL DEFAULT 0,
     user_id BIGINT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES user(id)

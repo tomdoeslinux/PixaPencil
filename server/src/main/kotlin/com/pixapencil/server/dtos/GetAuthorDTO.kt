@@ -7,6 +7,6 @@ data class GetAuthorDTO(val username: String, val profilePictureUrl: String)
 fun User.toGetAuthorDTO(): GetAuthorDTO {
     return GetAuthorDTO(
         username = this.username,
-        profilePictureUrl = this.profilePictureUrl
+        profilePictureUrl = "https://pixapencil-gallery.s3.ap-southeast-2.amazonaws.com/" + this.profilePictureUrl,
     )
 }

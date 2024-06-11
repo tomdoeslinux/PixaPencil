@@ -1,15 +1,14 @@
 package com.pixapencil.server.services
 
-import com.pixapencil.server.domain.Comment
-import com.pixapencil.server.dtos.GetCommentDTO
-import com.pixapencil.server.dtos.GetCreationDTO
-import com.pixapencil.server.dtos.toGetCommentDTO
-import com.pixapencil.server.dtos.toGetCreationDTO
-import com.pixapencil.server.repos.CommentRepository
+import com.pixapencil.server.domain.Creation
+import com.pixapencil.server.domain.User
+import com.pixapencil.server.dtos.*
 import com.pixapencil.server.repos.CreationRepository
 import com.pixapencil.server.repos.UserRepository
 import jakarta.persistence.EntityNotFoundException
 import jakarta.transaction.Transactional
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 
@@ -18,17 +17,27 @@ import org.springframework.stereotype.Service
 class CreationService(
     private val creationRepository: CreationRepository,
     private val userRepository: UserRepository,
-    private val commentRepository: CommentRepository,
+    private val s3Service: S3Service,
 ) {
-
-    fun getCreations(): List<GetCreationDTO> {
+    fun getCreations(pageable: Pageable): Page<GetCreationDTO> {
         val user = userRepository.findByIdOrNull(1) ?: throw EntityNotFoundException()
 
-        return creationRepository.findAll().map { it.toGetCreationDTO(user) }
+        return creationRepository.findAll(pageable).map { it.toGetCreationDTO(user) }
     }
 
-    fun likeCreation(creationId: Long, userId: Long) {
-        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
+    fun getCreation(
+        id: Long,
+        user: User,
+    ): GetCreationDTO {
+        val creation = creationRepository.findByIdOrNull(id) ?: throw EntityNotFoundException()
+
+        return creation.toGetCreationDTO(user)
+    }
+
+    fun likeCreation(
+        creationId: Long,
+        user: User,
+    ) {
         val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
         if (creation.likedBy.contains(user)) {
@@ -41,8 +50,17 @@ class CreationService(
         creationRepository.save(creation)
     }
 
-    fun unlikeCreation(creationId: Long, userId: Long) {
-        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
+    fun deleteCreation(id: Long) {
+        val toDelete = creationRepository.findByIdOrNull(id) ?: throw EntityNotFoundException()
+
+        creationRepository.delete(toDelete)
+        s3Service.deleteObject(toDelete.imageKey)
+    }
+
+    fun unlikeCreation(
+        creationId: Long,
+        user: User,
+    ) {
         val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
         if (!creation.likedBy.contains(user)) {
@@ -55,23 +73,27 @@ class CreationService(
         creationRepository.save(creation)
     }
 
-    fun addComment(creationId: Long, userId: Long, comment: Comment) {
+    fun getCreationUploadUrl(mimeType: String): Map<String, String> {
+        val key = s3Service.generateRandomKey(mimeType)
+        val uploadUrl = s3Service.createSignedPutURL(key)
+
+        return mapOf("url" to uploadUrl, "key" to key)
+    }
+
+    fun uploadCreation(
+        uploadCreation: UploadCreationDTO,
+        userId: Long,
+    ) {
         val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
-        val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
-        creation.comments.add(comment)
-        comment.user = user
+        val creation =
+            Creation(
+                title = uploadCreation.title,
+                description = uploadCreation.description,
+                imageKey = uploadCreation.imageKey,
+                user = user,
+            )
+
         creationRepository.save(creation)
-    }
-
-    fun deleteComment(commentId: Long) {
-        val comment = commentRepository.findByIdOrNull(commentId) ?: throw EntityNotFoundException()
-        commentRepository.delete(comment)
-    }
-
-    fun getComments(creationId: Long): List<GetCommentDTO> {
-        val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
-
-        return creation.comments.map { it.toGetCommentDTO() }
     }
 }

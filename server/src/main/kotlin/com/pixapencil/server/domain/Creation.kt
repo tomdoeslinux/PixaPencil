@@ -33,5 +33,8 @@ class Creation(
     val likedBy: MutableList<User> = mutableListOf(),
 
     @OneToMany(mappedBy = "creation")
-    val comments: MutableList<Comment> = mutableListOf()
+    val comments: MutableList<Comment> = mutableListOf(),
+
+    @Column(nullable = false)
+    var commentCount: Int = 0,
 )

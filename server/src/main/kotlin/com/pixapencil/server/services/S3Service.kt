@@ -7,7 +7,6 @@ import java.util.*
 
 @Service
 class S3Service(private val s3Template: S3Template) {
-
     fun generateRandomKey(mimeType: String): String {
         val supportedMimeTypes = setOf("image/jpeg", "image/png")
 
@@ -15,15 +14,23 @@ class S3Service(private val s3Template: S3Template) {
             throw IllegalArgumentException("Unsupported MIME type: $mimeType")
         }
 
-        val ext = when (mimeType) {
-            "image/jpeg" -> "jpg"
-            "image/png" -> "png"
-            else -> throw IllegalArgumentException("Unsupported mime type")
-        }
+        val ext =
+            when (mimeType) {
+                "image/jpeg" -> "jpg"
+                "image/png" -> "png"
+                else -> throw IllegalArgumentException("Unsupported mime type")
+            }
 
         return "${UUID.randomUUID()}.$ext"
     }
 
-    fun createSignedPutURL(key: String, bucketName: String = "pixapencil-gallery"): String =
-        s3Template.createSignedPutURL(bucketName, key, Duration.ofMinutes(1)).toString()
+    fun createSignedPutURL(
+        key: String,
+        bucketName: String = "pixapencil-gallery",
+    ): String = s3Template.createSignedPutURL(bucketName, key, Duration.ofMinutes(1)).toString()
+
+    fun deleteObject(
+        key: String,
+        bucketName: String = "pixapencil-gallery",
+    ) = s3Template.deleteObject(key, bucketName)
 }

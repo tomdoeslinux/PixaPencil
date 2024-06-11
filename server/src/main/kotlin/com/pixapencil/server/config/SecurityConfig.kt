@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.invoke
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.NoOpPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
 import org.springframework.web.cors.CorsConfiguration
 import org.springframework.web.cors.CorsConfigurationSource
@@ -15,7 +17,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @Configuration
 @EnableMethodSecurity
 class SecurityConfig {
-
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.invoke {
@@ -23,10 +24,10 @@ class SecurityConfig {
             cors { }
 
             authorizeHttpRequests {
-//                authorize(HttpMethod.POST,"/api/users/register", permitAll)
-//                authorize(HttpMethod.POST,"/api/users/verify", permitAll)
-//                authorize(HttpMethod.GET,"/api/creations", permitAll)
-                authorize(anyRequest, permitAll)
+                authorize(HttpMethod.POST, "/api/users/register", permitAll)
+                authorize(HttpMethod.POST, "/api/users/verify", permitAll)
+                authorize(HttpMethod.GET, "/api/creations/gallery", permitAll)
+                authorize(anyRequest, authenticated)
             }
 
             httpBasic { }
@@ -37,11 +38,11 @@ class SecurityConfig {
 
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource {
-        val configuration = CorsConfiguration().apply {
-            allowedOrigins = listOf("*")
-            allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE")
-            applyPermitDefaultValues()
-        }
+        val configuration =CorsConfiguration().apply {
+                allowedOrigins = listOf("*")
+                allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE")
+                applyPermitDefaultValues()
+            }
 
         val source = UrlBasedCorsConfigurationSource()
         source.registerCorsConfiguration("/api/**", configuration)
@@ -50,5 +51,5 @@ class SecurityConfig {
     }
 
     @Bean
-    fun passwordEncoder() = BCryptPasswordEncoder(12)
+    fun passwordEncoder(): PasswordEncoder = NoOpPasswordEncoder.getInstance()
 }

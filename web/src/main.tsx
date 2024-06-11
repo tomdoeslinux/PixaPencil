@@ -1,24 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { ApiProvider } from '@reduxjs/toolkit/query/react'
-import { privateApi } from './store/api/privateApi.ts'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import App from "./app"
+import { AppProvider } from "./app/app-provider"
 
-const chakraTheme = extendTheme({
-  fonts: {
-      body: 'Inter, sans-serif',
-      heading: 'Inter, sans-serif'
-  },
-})
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ChakraProvider theme={chakraTheme}>
-      <ApiProvider api={privateApi}>
-        <App />
-      </ApiProvider>
-    </ChakraProvider>
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>,
 )

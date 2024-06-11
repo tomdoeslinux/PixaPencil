@@ -23,9 +23,13 @@
     "baseUrl": ".",
 
     "paths": {
-      "models": ["src/models/index"],
-      "store": ["src/store/index"],
-    }
+      "@/components/*": ["src/components/*"],
+      "@/api/*": ["src/api/*"],
+      "@/features/*": ["src/features/*"],
+      "@/types/*": ["src/types/*"]
+    },
+
+    "types": ["vitest/importMeta"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

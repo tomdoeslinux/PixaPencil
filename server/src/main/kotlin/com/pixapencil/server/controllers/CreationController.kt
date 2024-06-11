@@ -1,29 +1,53 @@
 package com.pixapencil.server.controllers
 
+import com.pixapencil.server.domain.User
+import com.pixapencil.server.dtos.UploadCreationDTO
+import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
-import com.pixapencil.server.domain.Comment
-import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.data.domain.PageRequest
+import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/creations")
 class CreationController(private val creationService: CreationService) {
 
-    @GetMapping
-    fun getCreations() = creationService.getCreations()
+    @GetMapping("/gallery")
+    fun getCreations(
+        @RequestParam page: Int = 0,
+    ) = creationService.getCreations(PageRequest.of(page, 30))
+
+    @GetMapping("/{id}")
+    fun getCreation(
+        @PathVariable id: Long,
+        @AuthenticationPrincipal(expression = "user") user: User,
+    ) = creationService.getCreation(id, user)
 
     @PostMapping("/{id}/like")
-    fun likeCreation(@PathVariable id: Long, @RequestParam userId: Long) = creationService.likeCreation(id, userId)
+    fun likeCreation(
+        @PathVariable id: Long,
+        @AuthenticationPrincipal user: User,
+    ) = creationService.likeCreation(id, user)
 
     @PostMapping("/{id}/unlike")
-    fun unlikeCreation(@PathVariable id: Long, @RequestParam userId: Long) = creationService.unlikeCreation(id, userId)
+    fun unlikeCreation(
+        @PathVariable id: Long,
+        @AuthenticationPrincipal user: User,
+    ) = creationService.unlikeCreation(id, user)
 
-    @GetMapping("/{id}/comments")
-    fun getComments(@PathVariable id: Long) = creationService.getComments(id)
+    @DeleteMapping("/{id}")
+    fun deleteCreation(
+        @PathVariable id: Long,
+    ) = creationService.deleteCreation(id)
+
+    @GetMapping("/creations/get-upload-url")
+    fun getCreationUploadUrl(
+        @RequestParam mimeType: String,
+    ) = creationService.getCreationUploadUrl(mimeType)
+
+    @PostMapping("/creations/upload")
+    fun uploadCreation(
+        @RequestParam userId: Long,
+        @RequestBody uploadCreation: UploadCreationDTO,
+    ) = creationService.uploadCreation(uploadCreation, userId)
 }

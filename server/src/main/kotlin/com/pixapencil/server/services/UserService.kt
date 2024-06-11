@@ -1,9 +1,7 @@
 package com.pixapencil.server.services
 
-import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
-import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
@@ -23,9 +21,7 @@ class UserService(
     private val verificationTokenRepository: VerificationTokenRepository,
     private val passwordEncoder: PasswordEncoder,
     private val emailService: MailService,
-    private val s3Service: S3Service,
 ) {
-
     fun registerUser(user: User) {
         if (userRepository.findByEmail(user.email) != null) {
             throw EmailAlreadyInUseException()
@@ -39,7 +35,10 @@ class UserService(
         emailService.sendVerificationMail(user.email, createVerificationLink(user, rawToken))
     }
 
-    fun verifyUser(userId: Long, token: String): Boolean {
+    fun verifyUser(
+        userId: Long,
+        token: String,
+    ): Boolean {
         val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
         val verifToken = verificationTokenRepository.findByUser(user)
 
@@ -55,41 +54,24 @@ class UserService(
         return false
     }
 
-    fun getCreationUploadUrl(mimeType: String): Map<String, String> {
-        val key = s3Service.generateRandomKey(mimeType)
-        val uploadUrl = s3Service.createSignedPutURL(key)
-
-        return mapOf("url" to uploadUrl, "key" to key)
-    }
-
-    fun uploadCreation(uploadCreation: UploadCreationDTO, userId: Long) {
-        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
-
-        val creation = Creation(
-            title = uploadCreation.title,
-            description = uploadCreation.description,
-            imageKey = uploadCreation.imageKey,
-            user = user,
-        )
-
-        user.creations.add(creation)
-        userRepository.save(user)
-    }
-
     private fun createVerificationToken(user: User): Pair<VerificationToken, String> {
         val rawToken = UUID.randomUUID().toString()
         val token = passwordEncoder.encode(rawToken)
 
-        val verificationToken = VerificationToken(
-            token = token,
-            expiryDate = LocalDateTime.now().plusDays(1),
-            user = user
-        )
+        val verificationToken =
+            VerificationToken(
+                token = token,
+                expiryDate = LocalDateTime.now().plusDays(1),
+                user = user,
+            )
 
         return Pair(verificationToken, rawToken)
     }
 
-    private fun createVerificationLink(user: User, tokenValue: String): String {
+    private fun createVerificationLink(
+        user: User,
+        tokenValue: String,
+    ): String {
         return ServletUriComponentsBuilder.fromCurrentContextPath()
             .path("/api/users/verify")
             .queryParam("token", tokenValue)
