@@ -3,6 +3,7 @@ package com.pixapencil.server.domain
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
+@Table(name = "verification_tokens")
 @Entity
 class VerificationToken(
     @Id

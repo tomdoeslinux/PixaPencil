@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 
+@Table(name = "creations")
 @Entity
 class Creation(
     @Id
@@ -31,9 +32,6 @@ class Creation(
 
     @ManyToMany(mappedBy = "likedCreations")
     val likedBy: MutableList<User> = mutableListOf(),
-
-    @OneToMany(mappedBy = "creation")
-    val comments: MutableList<Comment> = mutableListOf(),
 
     @Column(nullable = false)
     var commentCount: Int = 0,

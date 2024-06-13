@@ -26,13 +26,13 @@ class CreationController(private val creationService: CreationService) {
     @PostMapping("/{id}/like")
     fun likeCreation(
         @PathVariable id: Long,
-        @AuthenticationPrincipal user: User,
+        @AuthenticationPrincipal(expression = "user") user: User,
     ) = creationService.likeCreation(id, user)
 
     @PostMapping("/{id}/unlike")
     fun unlikeCreation(
         @PathVariable id: Long,
-        @AuthenticationPrincipal user: User,
+        @AuthenticationPrincipal(expression = "user") user: User,
     ) = creationService.unlikeCreation(id, user)
 
     @DeleteMapping("/{id}")
@@ -40,14 +40,14 @@ class CreationController(private val creationService: CreationService) {
         @PathVariable id: Long,
     ) = creationService.deleteCreation(id)
 
-    @GetMapping("/creations/get-upload-url")
+    @GetMapping("/get-upload-url")
     fun getCreationUploadUrl(
         @RequestParam mimeType: String,
     ) = creationService.getCreationUploadUrl(mimeType)
 
-    @PostMapping("/creations/upload")
+    @PostMapping("/upload")
     fun uploadCreation(
-        @RequestParam userId: Long,
+        @AuthenticationPrincipal(expression = "user") user: User,
         @RequestBody uploadCreation: UploadCreationDTO,
-    ) = creationService.uploadCreation(uploadCreation, userId)
+    ) = creationService.uploadCreation(uploadCreation, user)
 }

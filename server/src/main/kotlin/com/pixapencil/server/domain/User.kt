@@ -4,6 +4,8 @@ import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 
+
+@Table(name = "users")
 @Entity
 class User(
     @Id
@@ -23,23 +25,14 @@ class User(
     @Column(nullable = false)
     var profilePictureUrl: String,
 
-    @CreationTimestamp
-    var createdAt: LocalDateTime? = null,
-
     @Column(nullable = false)
     var isVerified: Boolean = false,
 
-    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    var creations: MutableList<Creation> = mutableListOf(),
-
     @ManyToMany(cascade = [CascadeType.ALL])
     @JoinTable(
-        name = "creation_like",
+        name = "creation_likes",
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "creation_id")]
     )
     val likedCreations: MutableList<Creation> = mutableListOf(),
-
-    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "user")
-    val userComments: MutableList<Comment> = mutableListOf()
 )

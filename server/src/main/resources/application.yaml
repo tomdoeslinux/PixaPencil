@@ -9,10 +9,6 @@ spring:
     username: ${DATA_SOURCE_USERNAME}
     password: ${DATA_SOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
-  servlet:
-    multipart:
-      max-file-size: 2MB
-      max-request-size: 2MB
   cloud:
     aws:
       credentials:

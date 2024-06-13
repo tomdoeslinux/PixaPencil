@@ -37,8 +37,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-mail")
 
     runtimeOnly("com.mysql:mysql-connector-j")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(module = "mockito-core")
+    }
+    testImplementation("com.h2database:h2:2.2.224")
     testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("com.ninja-squad:springmockk:4.0.2")
 }
 
 dependencyManagement {

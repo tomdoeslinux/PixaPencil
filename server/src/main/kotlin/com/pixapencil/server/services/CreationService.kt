@@ -80,12 +80,7 @@ class CreationService(
         return mapOf("url" to uploadUrl, "key" to key)
     }
 
-    fun uploadCreation(
-        uploadCreation: UploadCreationDTO,
-        userId: Long,
-    ) {
-        val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
-
+    fun uploadCreation(uploadCreation: UploadCreationDTO, user: User) {
         val creation =
             Creation(
                 title = uploadCreation.title,

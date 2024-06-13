@@ -6,6 +6,7 @@ import org.hibernate.annotations.SQLInsert
 import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
 
+@Table(name = "comments")
 @Entity
 class Comment(
     @Id
@@ -25,7 +26,4 @@ class Comment(
 
     @CreationTimestamp
     var createdAt: LocalDateTime? = null,
-
-    @UpdateTimestamp
-    var updatedAt: LocalDateTime? = null,
 )
