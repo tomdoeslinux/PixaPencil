@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import java.time.ZoneId
 
 @Transactional
 @Service
@@ -25,14 +26,15 @@ class CommentService(
         creationId: Long,
         pageable: Pageable,
     ): Page<GetCommentDTO> {
-        return commentRepository.getCommentsByCreationId(creationId, pageable).map { it.toGetCommentDTO() }
+        return commentRepository.getCommentsByCreationId(creationId, pageable).map {
+            it.toGetCommentDTO()
+        }
     }
 
     fun addComment(
         addCommentDTO: AddCommentDTO,
         user: User,
     ) {
-        println("Comment add")
         val creation = creationRepository.findByIdOrNull(addCommentDTO.creationId) ?: throw EntityNotFoundException()
 
         val comment =

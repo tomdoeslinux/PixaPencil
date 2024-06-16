@@ -1,12 +1,13 @@
 import { Author } from "@/types/root-types"
-import { Box, Flex, Image, Text, Tooltip } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Text, Tooltip } from "@chakra-ui/react"
 
 interface AuthorTagProps {
   author: Author
-  subheading?: { text: string, tooltip?: string } | string
+  subheading?: { text: string; tooltip?: string } | string
 }
 
 export default function AuthorTag(props: AuthorTagProps) {
+  console.log((props.subheading as any).tooltip)
   return (
     <Flex
       width="100%"

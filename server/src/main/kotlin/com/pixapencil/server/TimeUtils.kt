@@ -2,13 +2,25 @@ package com.pixapencil.server
 
 import java.time.Duration
 import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-fun formatTimeSince(date: LocalDateTime): String {
-    val now = LocalDateTime.now()
+private fun convertLocalDateTimeToSpecifiedTZ(dateTime: LocalDateTime, timeZone: ZoneId) =
+    dateTime
+        .atZone(ZoneId.systemDefault())
+        .withZoneSameInstant(timeZone)
+        .toLocalDateTime()
 
-    val duration = Duration.between(date, now)
+/*
+In this method, we take a specific moment in time and format the duration that has elapsed since that moment.
+It is time zone agnostic, we convert both the date parameter and the current time to UTC.
+*/
+fun formatTimeSinceUTC(dateUTC: LocalDateTime): String {
+    val nowUTC = LocalDateTime.now(ZoneOffset.UTC)
+
+    val duration = Duration.between(dateUTC, nowUTC)
     val seconds = duration.seconds
 
     val intervals = mapOf(
@@ -31,7 +43,9 @@ fun formatTimeSince(date: LocalDateTime): String {
     return "just now"
 }
 
-fun formatUploadDate(dateTime: LocalDateTime): String {
+// Format the upload date in the user's specified time zone
+fun formatUploadDateTZ(dateTime: LocalDateTime, timeZone: ZoneId): String {
+    val dateTimeAtTZ = convertLocalDateTimeToSpecifiedTZ(dateTime, timeZone)
     val formatter = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy h:mm a", Locale.ENGLISH)
-    return dateTime.format(formatter)
+    return dateTimeAtTZ.format(formatter) + " (" + timeZone + ")"
 }

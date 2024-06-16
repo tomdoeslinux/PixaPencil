@@ -2,6 +2,7 @@ package com.pixapencil.server.services
 
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
+import com.pixapencil.server.dtos.RegisterUserDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
@@ -22,11 +23,17 @@ class UserService(
     private val passwordEncoder: PasswordEncoder,
     private val emailService: MailService,
 ) {
-    fun registerUser(user: User) {
-        if (userRepository.findByEmail(user.email) != null) {
+    fun registerUser(registerUser: RegisterUserDTO) {
+        if (userRepository.findByEmail(registerUser.email) != null) {
             throw EmailAlreadyInUseException()
         }
 
+        val user = User(
+            username = registerUser.username,
+            email = registerUser.email,
+            password = passwordEncoder.encode(registerUser.password),
+            profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
+        )
         userRepository.save(user)
 
         val (token, rawToken) = createVerificationToken(user)

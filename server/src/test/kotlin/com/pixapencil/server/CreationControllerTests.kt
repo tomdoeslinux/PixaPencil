@@ -1,5 +1,6 @@
 package com.pixapencil.server
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
@@ -16,13 +17,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
-import org.springframework.http.MediaType
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.delete
+import org.springframework.test.web.servlet.get
+import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.time.LocalDateTime
 import java.time.Month
 
@@ -41,6 +42,9 @@ class CreationControllerTests {
 
     @Autowired
     lateinit var mockMvc: MockMvc
+
+    @Autowired
+    lateinit var mapper: ObjectMapper
 
     @MockkBean
     lateinit var creationService: CreationService
@@ -177,22 +181,23 @@ class CreationControllerTests {
 
         every { creationService.getCreations(pageable) } returns page
 
-        val performAction = mockMvc.perform(get("/api/creations/gallery")
-            .param("page" , "0")
-            .accept(MediaType.APPLICATION_JSON))
+        val performAction = mockMvc.get("/api/creations/gallery") {
+            param("page", "0")
+        }
 
         creations.forEachIndexed { index, creation ->
-            performAction
-                .andExpect(jsonPath("$.content[$index].id").value(creation.id))
-                .andExpect(jsonPath("$.content[$index].title").value(creation.title))
-                .andExpect(jsonPath("$.content[$index].description").value(creation.description))
-                .andExpect(jsonPath("$.content[$index].imageUrl").value(creation.imageUrl))
-                .andExpect(jsonPath("$.content[$index].likeCount").value(creation.likeCount))
-                .andExpect(jsonPath("$.content[$index].isLiked").value(creation.isLiked))
-                .andExpect(jsonPath("$.content[$index].author.username").value(creation.author.username))
-                .andExpect(jsonPath("$.content[$index].author.profilePictureUrl").value(creation.author.profilePictureUrl))
-                .andExpect(jsonPath("$.content[$index].uploadDate").value(creation.uploadDate))
-                .andExpect(jsonPath("$.content[$index].timeSince").value(creation.timeSince))
+            performAction.andExpect {
+                jsonPath("$.content[$index].id").value(creation.id)
+                jsonPath("$.content[$index].title").value(creation.title)
+                jsonPath("$.content[$index].description").value(creation.description)
+                jsonPath("$.content[$index].imageUrl").value(creation.imageUrl)
+                jsonPath("$.content[$index].likeCount").value(creation.likeCount)
+                jsonPath("$.content[$index].isLiked").value(creation.isLiked)
+                jsonPath("$.content[$index].author.username").value(creation.author.username)
+                jsonPath("$.content[$index].author.profilePictureUrl").value(creation.author.profilePictureUrl)
+                jsonPath("$.content[$index].uploadDate").value(creation.uploadDate)
+                jsonPath("$.content[$index].timeSince").value(creation.timeSince)
+            }
         }
 
         verify { creationService.getCreations(pageable) }
@@ -203,19 +208,20 @@ class CreationControllerTests {
         val dummyCreation = getDummyCreations().first()
         every { creationService.getCreation(1, authContext.user) } returns getDummyCreations().first()
 
-        mockMvc.perform(get("/api/creations/1")
-            .with(user(authContext))
-            .accept(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(dummyCreation.id))
-                .andExpect(jsonPath("$.title").value(dummyCreation.title))
-                .andExpect(jsonPath("$.description").value(dummyCreation.description))
-                .andExpect(jsonPath("$.imageUrl").value(dummyCreation.imageUrl))
-                .andExpect(jsonPath("$.likeCount").value(dummyCreation.likeCount))
-                .andExpect(jsonPath("$.isLiked").value(dummyCreation.isLiked))
-                .andExpect(jsonPath("$.author.username").value(dummyCreation.author.username))
-                .andExpect(jsonPath("$.author.profilePictureUrl").value(dummyCreation.author.profilePictureUrl))
-                .andExpect(jsonPath("$.uploadDate").value(dummyCreation.uploadDate))
-                .andExpect(jsonPath("$.timeSince").value(dummyCreation.timeSince))
+        mockMvc.get("/api/creations/1") {
+            with(user(authContext))
+        }.andExpect {
+            jsonPath("$.id").value(dummyCreation.id)
+            jsonPath("$.title").value(dummyCreation.title)
+            jsonPath("$.description").value(dummyCreation.description)
+            jsonPath("$.imageUrl").value(dummyCreation.imageUrl)
+            jsonPath("$.likeCount").value(dummyCreation.likeCount)
+            jsonPath("$.isLiked").value(dummyCreation.isLiked)
+            jsonPath("$.author.username").value(dummyCreation.author.username)
+            jsonPath("$.author.profilePictureUrl").value(dummyCreation.author.profilePictureUrl)
+            jsonPath("$.uploadDate").value(dummyCreation.uploadDate)
+            jsonPath("$.timeSince").value(dummyCreation.timeSince)
+        }
 
         verify { creationService.getCreation(1, authContext.user) }
     }
@@ -224,10 +230,11 @@ class CreationControllerTests {
     fun `likes a creation without errors`() {
         every { creationService.likeCreation(1, authContext.user) } returns Unit
 
-        mockMvc.perform(post("/api/creations/1/like")
-            .with(user(authContext))
-            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk)
+        mockMvc.post("/api/creations/1/like") {
+            with(user(authContext))
+        }.andExpect {
+            status { isOk() }
+        }
 
         verify { creationService.likeCreation(1, authContext.user) }
     }
@@ -236,10 +243,11 @@ class CreationControllerTests {
     fun `unlikes a creation without errors`() {
         every { creationService.unlikeCreation(1, authContext.user) } returns Unit
 
-        mockMvc.perform(post("/api/creations/1/unlike")
-            .with(user(authContext))
-            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk)
+        mockMvc.post("/api/creations/1/unlike") {
+            with(user(authContext))
+        }.andExpect {
+            status { isOk() }
+        }
 
         verify { creationService.unlikeCreation(1, authContext.user) }
     }
@@ -248,10 +256,11 @@ class CreationControllerTests {
     fun `deletes a creation without errors`() {
         every { creationService.deleteCreation(1) } returns Unit
 
-        mockMvc.perform(delete("/api/creations/1")
-            .with(user(authContext))
-            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk)
+        mockMvc.delete("/api/creations/1") {
+            with(user(authContext))
+        }.andExpect {
+            status { isOk() }
+        }
 
         verify { creationService.deleteCreation(1) }
     }
@@ -262,13 +271,14 @@ class CreationControllerTests {
         val uploadUrlResponse = mapOf("url" to "https://upload.com", "key" to "123")
         every { creationService.getCreationUploadUrl(mimeType) } returns uploadUrlResponse
 
-        mockMvc.perform(get("/api/creations/get-upload-url")
-            .with(user(authContext))
-            .param("mimeType", mimeType)
-            .accept(MediaType.APPLICATION_JSON))
-            .andExpect(status().isOk)
-            .andExpect(jsonPath("$.url").value(uploadUrlResponse["url"]))
-            .andExpect(jsonPath("$.key").value(uploadUrlResponse["key"]))
+        mockMvc.get("/api/creations/get-upload-url") {
+            with(user(authContext))
+            param("mimeType", mimeType)
+        }.andExpect {
+            status { isOk() }
+            jsonPath("$.url").value(uploadUrlResponse["url"])
+            jsonPath("$.key").value(uploadUrlResponse["key"])
+        }
 
         verify { creationService.getCreationUploadUrl(mimeType) }
     }
@@ -282,17 +292,12 @@ class CreationControllerTests {
         )
         every { creationService.uploadCreation(uploadCreation, authContext.user) } returns Unit
 
-        mockMvc.perform(post("/api/creations/upload")
-            .with(user(authContext))
-            .contentType(MediaType.APPLICATION_JSON)
-            .content("""
-                {
-                    "title": "${uploadCreation.title}",
-                    "description": "${uploadCreation.description}",
-                    "imageKey": "${uploadCreation.imageKey}"
-                }
-            """.trimIndent()))
-            .andExpect(status().isOk)
+        mockMvc.post("/api/creations/upload") {
+            with(user(authContext))
+        }.andExpect {
+            content { json(mapper.writeValueAsString(uploadCreation)) }
+            status { isOk() }
+        }
 
         verify { creationService.uploadCreation(uploadCreation, authContext.user) }
     }
