@@ -21,7 +21,11 @@ data class GetCreationDTO(
     val timeSince: String,
 )
 
-fun Creation.toGetCreationDTO(context: User): GetCreationDTO {
+fun Creation.toGetCreationDTO(
+    context: User,
+    timeZone: ZoneId = ZoneId.of(RequestContextHolder.currentRequestAttributes()
+        .getAttribute(TIME_ZONE_REQUEST_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST) as String)
+): GetCreationDTO {
     return GetCreationDTO(
         id = this.id!!,
         title = this.title,
@@ -29,11 +33,7 @@ fun Creation.toGetCreationDTO(context: User): GetCreationDTO {
         imageUrl = "https://pixapencil-gallery.s3.ap-southeast-2.amazonaws.com/" + this.imageKey,
         likeCount = this.likeCount,
         isLiked = this.likedBy.contains(context),
-        uploadDate = formatUploadDateTZ(
-            this.createdAt!!,
-            ZoneId.of(RequestContextHolder.currentRequestAttributes()
-                .getAttribute(TIME_ZONE_REQUEST_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST) as String)
-        ),
+        uploadDate = formatUploadDateTZ(this.createdAt!!, timeZone),
         author = this.user.toGetAuthorDTO(),
         timeSince = formatTimeSinceUTC(this.createdAt!!)
     )

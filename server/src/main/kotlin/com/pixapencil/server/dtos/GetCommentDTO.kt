@@ -16,16 +16,15 @@ data class GetCommentDTO(
     val timeSince: String,
 )
 
-fun Comment.toGetCommentDTO(): GetCommentDTO {
+fun Comment.toGetCommentDTO(
+    timeZone: ZoneId = ZoneId.of(RequestContextHolder.currentRequestAttributes()
+        .getAttribute(TIME_ZONE_REQUEST_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST) as String)
+): GetCommentDTO {
     return GetCommentDTO(
         id = this.id!!,
         text = this.text,
         author = this.user.toGetAuthorDTO(),
-        uploadDate = formatUploadDateTZ(
-            this.createdAt!!,
-            ZoneId.of(
-                RequestContextHolder.currentRequestAttributes().getAttribute(TIME_ZONE_REQUEST_ATTRIBUTE, RequestAttributes.SCOPE_REQUEST) as String)
-        ),
+        uploadDate = formatUploadDateTZ(this.createdAt!!, timeZone),
         timeSince = formatTimeSinceUTC(this.createdAt!!)
     )
 }

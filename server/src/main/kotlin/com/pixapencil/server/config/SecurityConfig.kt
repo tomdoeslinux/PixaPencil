@@ -18,6 +18,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource
 @Configuration
 @EnableMethodSecurity
 class SecurityConfig {
+
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.invoke {
@@ -41,7 +42,7 @@ class SecurityConfig {
 
     @Bean
     fun corsConfigurationSource(): CorsConfigurationSource {
-        val configuration =CorsConfiguration().apply {
+        val configuration = CorsConfiguration().apply {
                 allowedOrigins = listOf("*")
                 allowedMethods = listOf("GET", "POST", "PUT", "PATCH", "DELETE")
                 applyPermitDefaultValues()

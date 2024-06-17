@@ -2,6 +2,7 @@ package com.pixapencil.server
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
+import com.pixapencil.server.config.TimeZoneFilter.Companion.TIME_ZONE_REQUEST_ATTRIBUTE
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.GetCreationDTO
@@ -11,21 +12,37 @@ import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
 import io.mockk.every
 import io.mockk.verify
+import jakarta.servlet.FilterChain
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletRequestWrapper
+import jakarta.servlet.http.HttpServletResponse
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
+import org.springframework.http.MediaType
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
+import org.springframework.test.web.servlet.request.RequestPostProcessor
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import org.springframework.test.web.servlet.setup.MockMvcBuilders
+import org.springframework.web.context.WebApplicationContext
+import org.springframework.web.context.request.RequestAttributes
+import org.springframework.web.context.request.RequestContextHolder
+import org.springframework.web.context.request.ServletRequestAttributes
+import org.springframework.web.filter.OncePerRequestFilter
 import java.time.LocalDateTime
 import java.time.Month
+import java.time.ZoneId
+import java.util.*
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -48,6 +65,11 @@ class CreationControllerTests {
 
     @MockkBean
     lateinit var creationService: CreationService
+
+    private fun timeZoneHeader(timeZone: String = "UTC") = RequestPostProcessor { request ->
+        request.addHeader("X-Time-Zone", timeZone)
+        request
+    }
 
     private fun getDummyCreations(): List<GetCreationDTO> {
         val dummyDate = LocalDateTime.of(2024, Month.AUGUST, 23, 15, 12)
@@ -170,18 +192,20 @@ class CreationControllerTests {
             )
         )
 
-        return dummyCreations.map { it.toGetCreationDTO(authContext.user) }
+        return dummyCreations.map { it.toGetCreationDTO(authContext.user, timeZone = ZoneId.of("UTC")) }
     }
 
     @Test
     fun `returns proper creations`() {
         val creations = getDummyCreations()
+
         val pageable = PageRequest.of(0, 30)
         val page = PageImpl(creations, pageable, creations.size.toLong())
 
         every { creationService.getCreations(pageable) } returns page
 
         val performAction = mockMvc.get("/api/creations/gallery") {
+            with(timeZoneHeader())
             param("page", "0")
         }
 
@@ -209,6 +233,7 @@ class CreationControllerTests {
         every { creationService.getCreation(1, authContext.user) } returns getDummyCreations().first()
 
         mockMvc.get("/api/creations/1") {
+            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             jsonPath("$.id").value(dummyCreation.id)
@@ -231,6 +256,7 @@ class CreationControllerTests {
         every { creationService.likeCreation(1, authContext.user) } returns Unit
 
         mockMvc.post("/api/creations/1/like") {
+            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -244,6 +270,7 @@ class CreationControllerTests {
         every { creationService.unlikeCreation(1, authContext.user) } returns Unit
 
         mockMvc.post("/api/creations/1/unlike") {
+            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -257,6 +284,7 @@ class CreationControllerTests {
         every { creationService.deleteCreation(1) } returns Unit
 
         mockMvc.delete("/api/creations/1") {
+            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -272,6 +300,7 @@ class CreationControllerTests {
         every { creationService.getCreationUploadUrl(mimeType) } returns uploadUrlResponse
 
         mockMvc.get("/api/creations/get-upload-url") {
+            with(timeZoneHeader())
             with(user(authContext))
             param("mimeType", mimeType)
         }.andExpect {
@@ -292,10 +321,14 @@ class CreationControllerTests {
         )
         every { creationService.uploadCreation(uploadCreation, authContext.user) } returns Unit
 
+        val jsonUploadCreation = mapper.writeValueAsString(uploadCreation)
+
         mockMvc.post("/api/creations/upload") {
+            with(timeZoneHeader())
             with(user(authContext))
+            contentType = MediaType.APPLICATION_JSON
+            content = jsonUploadCreation
         }.andExpect {
-            content { json(mapper.writeValueAsString(uploadCreation)) }
             status { isOk() }
         }
 

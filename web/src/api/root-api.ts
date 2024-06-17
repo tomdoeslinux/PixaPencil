@@ -8,6 +8,9 @@ const baseQuery = fetchBaseQuery({
     const basicAuth = btoa(`${username}:${password}`)
     headers.set("Authorization", `Basic ${basicAuth}`)
 
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    headers.set("X-Time-Zone", timeZone)
+
     return headers
   },
 })
