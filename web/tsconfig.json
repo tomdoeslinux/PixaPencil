@@ -29,8 +29,8 @@
       "@/types/*": ["src/types/*"]
     },
 
-    "types": ["vitest/importMeta"]
+    "types": ["vitest/importMeta", "vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src"],
+  "include": ["src", "src/setup-tests.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

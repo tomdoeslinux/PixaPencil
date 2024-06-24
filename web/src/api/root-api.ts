@@ -1,7 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+export const s3BaseUrl =
+  "https://pixapencil-gallery.s3.ap-southeast-2.amazonaws.com"
+export const baseUrl = "http://localhost:8080/api"
+
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:8080/api",
+  baseUrl,
   prepareHeaders: (headers) => {
     const username = "tomdoeslinux"
     const password = "password"

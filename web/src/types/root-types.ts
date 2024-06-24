@@ -7,6 +7,11 @@ export interface ListResponse<T> {
   content: T[]
 }
 
+export interface S3SignedUrlResponse {
+  url: string
+  key: string
+}
+
 export interface Comment {
   id: number
   text: string

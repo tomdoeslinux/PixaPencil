@@ -1,4 +1,5 @@
 import { RootEndpointBulder, RootFetchWithBQ } from "@/api/root-api"
+import { S3SignedUrlResponse } from "@/types/root-types"
 
 export interface UploadCreation {
   title: string
@@ -20,10 +21,7 @@ async function getCreationUploadUrl(
     throw response.error
   }
 
-  return response.data as {
-    url: string
-    key: string
-  }
+  return response.data as S3SignedUrlResponse
 }
 
 async function uploadFileFromCreationUploadUrl(

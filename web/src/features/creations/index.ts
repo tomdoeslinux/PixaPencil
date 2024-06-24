@@ -3,3 +3,4 @@ export { default as UploadCreationModal } from "./components/upload-creation-mod
 export { default as CreationDetailPopup } from "./components/creation-details-popup"
 export { default as CreationDetails } from "./components/creation-details"
 export { useGetCreationsQuery, useGetCreationQuery } from "./api/creations-api"
+export { creationsHandlers } from "./mocks/handlers"

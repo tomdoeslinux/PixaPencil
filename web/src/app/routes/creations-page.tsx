@@ -16,7 +16,7 @@ export default function CreationsPage() {
     null,
   )
   const { data: creationsResponse, refetch: refetchCreations } =
-    useGetCreationsQuery()
+    useGetCreationsQuery(0)
   const creations = creationsResponse?.content
 
   const { data: commentsResponse, refetch: refetchComments } =

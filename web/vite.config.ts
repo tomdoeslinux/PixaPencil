@@ -10,6 +10,9 @@ export default defineConfig({
   server: { port: 3000 },
   test: {
     includeSource: ["src/**/*.{js,ts}"],
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/setup-tests.js",
   },
   // Only for production:
   //
