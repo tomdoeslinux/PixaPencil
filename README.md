@@ -12,7 +12,7 @@ Join the [**official community**](https://discord.gg/cYtaTnuweW).
 
 PixaPencil is a sleek and user-friendly pixel art editor for Android, designed for both novice and expert artists. 
 
-**In January 2024, PixaPencil transitioned to new leadership and is being rewritten in React Native, you can view the old native code in the `native-archive` branch.**
+**In January 2024, PixaPencil transitioned to new leadership and is being rewritten in Flutter, you can view the old native code in the `native-archive` branch.**
 
 ## License Changes
 
