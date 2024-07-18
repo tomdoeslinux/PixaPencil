@@ -24,7 +24,7 @@ class Creation(
     var likeCount: Int = 0,
 
     @CreationTimestamp
-    var createdAt: LocalDateTime? = null,
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

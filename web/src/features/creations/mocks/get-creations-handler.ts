@@ -4,7 +4,7 @@ import { HttpResponse, http } from "msw"
 
 export default [
   http.get<never, never, ListResponse<Creation>>(
-    "https://localhost:8080/api/creations/gallery",
+    "http://localhost:8080/api/creations/gallery",
     () => {
       return HttpResponse.json({
         content: [

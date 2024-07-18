@@ -12,7 +12,7 @@ async function getCreationUploadUrl(
   fetchWithBQ: RootFetchWithBQ,
 ) {
   const response = await fetchWithBQ({
-    url: "users/creations/get-upload-url",
+    url: "/creations/get-upload-url",
     params: { mimeType },
     method: "GET",
   })
@@ -44,14 +44,14 @@ async function uploadFileFromCreationUploadUrl(
 }
 
 async function addCreation(
-  userId: number,
-  key: string,
+  imageKey: string,
+  uploadCreation: UploadCreation,
   fetchWithBQ: RootFetchWithBQ,
 ) {
   const response = await fetchWithBQ({
-    url: `/users/${userId}/creations`,
+    url: `/creations/upload`,
     method: "POST",
-    body: { ...uploadCreation, imageKey: key },
+    body: { ...uploadCreation, imageKey },
   })
 
   if (response.error) {
@@ -65,6 +65,7 @@ export function uploadCreation(builder: RootEndpointBulder) {
     { userId: number; uploadCreation: UploadCreation }
   >({
     queryFn: async ({ userId, uploadCreation }, _, __, fetchWithBQ) => {
+      console.log(uploadCreation)
       const mimeType = uploadCreation.file!.type
 
       const getUploadUrlResponseData = await getCreationUploadUrl(
@@ -80,7 +81,7 @@ export function uploadCreation(builder: RootEndpointBulder) {
 
       delete uploadCreation.file
 
-      await addCreation(userId, getUploadUrlResponseData.key, fetchWithBQ)
+      await addCreation(getUploadUrlResponseData.key, uploadCreation, fetchWithBQ)
 
       return { data: undefined }
     },

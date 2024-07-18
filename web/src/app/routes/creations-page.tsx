@@ -1,4 +1,4 @@
-import { Flex, Text, Button } from "@chakra-ui/react"
+import { Flex, Text, Button, Box } from "@chakra-ui/react"
 import { MdCloudUpload } from "react-icons/md"
 import { useState } from "react"
 import {

@@ -5,14 +5,14 @@ import { HttpResponse, http } from "msw"
 const uploadMockUrl = `${s3BaseUrl}/upload`
 
 export default [
-  http.post<{ mimeType: string }, never, S3SignedUrlResponse>(
-    "/users/creations/get-upload-url",
+  http.get<{ mimeType: string }, never, S3SignedUrlResponse>(
+    "http://localhost:8080/api/users/creations/get-upload-url",
     ({ params }) => {
       const mimeType = params.mimeType
       return HttpResponse.json({
         url: uploadMockUrl,
         key: `mock-key-${crypto.randomUUID()}.${mimeType}`,
-      })
+      });
     },
   ),
 

@@ -1,5 +1,5 @@
 import { Flex, Input, Image, IconButton, Text } from "@chakra-ui/react"
-import { useState, useRef } from "react"
+import React, { useState, useRef } from "react"
 import { useForm } from "react-hook-form"
 import { MdCloudUpload, MdOutlineEdit } from "react-icons/md"
 
@@ -17,6 +17,7 @@ export default function UploadFile(props: UploadFileProps) {
 
     if (files && files.length > 0) {
       const file = files[0]
+      console.log("FILE " + file)
       const fileReader = new FileReader()
 
       fileReader.readAsDataURL(file)
@@ -69,6 +70,7 @@ export default function UploadFile(props: UploadFileProps) {
         onChange={handleFileChange}
         ref={fileInputRef}
         display="none"
+        data-testid="upload-file-input"
       />
 
       {fileSrc && (

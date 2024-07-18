@@ -2,7 +2,6 @@ package com.pixapencil.server
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
-import com.pixapencil.server.config.TimeZoneFilter.Companion.TIME_ZONE_REQUEST_ATTRIBUTE
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.GetCreationDTO
@@ -12,11 +11,6 @@ import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
 import io.mockk.every
 import io.mockk.verify
-import jakarta.servlet.FilterChain
-import jakarta.servlet.http.HttpServletRequest
-import jakarta.servlet.http.HttpServletRequestWrapper
-import jakarta.servlet.http.HttpServletResponse
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -31,18 +25,10 @@ import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.request.RequestPostProcessor
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
-import org.springframework.web.context.WebApplicationContext
-import org.springframework.web.context.request.RequestAttributes
-import org.springframework.web.context.request.RequestContextHolder
-import org.springframework.web.context.request.ServletRequestAttributes
-import org.springframework.web.filter.OncePerRequestFilter
 import java.time.LocalDateTime
 import java.time.Month
 import java.time.ZoneId
-import java.util.*
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -65,11 +51,6 @@ class CreationControllerTests {
 
     @MockkBean
     lateinit var creationService: CreationService
-
-    private fun timeZoneHeader(timeZone: String = "UTC") = RequestPostProcessor { request ->
-        request.addHeader("X-Time-Zone", timeZone)
-        request
-    }
 
     private fun getDummyCreations(): List<GetCreationDTO> {
         val dummyDate = LocalDateTime.of(2024, Month.AUGUST, 23, 15, 12)

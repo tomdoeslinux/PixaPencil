@@ -38,16 +38,18 @@ class CreationService(
         creationId: Long,
         user: User,
     ) {
-        val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
+        synchronized(this) {
+            val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
-        if (creation.likedBy.contains(user)) {
-            throw IllegalArgumentException("User has already liked this creation")
+            if (creation.likedBy.contains(user)) {
+                throw IllegalArgumentException("User has already liked this creation")
+            }
+
+            creation.likedBy.add(user)
+            user.likedCreations.add(creation)
+            ++creation.likeCount
+            creationRepository.save(creation)
         }
-
-        creation.likedBy.add(user)
-        user.likedCreations.add(creation)
-        ++creation.likeCount
-        creationRepository.save(creation)
     }
 
     fun deleteCreation(id: Long) {
@@ -61,16 +63,18 @@ class CreationService(
         creationId: Long,
         user: User,
     ) {
-        val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
+        synchronized(this) {
+            val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
-        if (!creation.likedBy.contains(user)) {
-            throw IllegalArgumentException("User has not liked this creation")
+            if (!creation.likedBy.contains(user)) {
+                throw IllegalArgumentException("User has not liked this creation")
+            }
+
+            creation.likedBy.remove(user)
+            user.likedCreations.remove(creation)
+            --creation.likeCount
+            creationRepository.save(creation)
         }
-
-        creation.likedBy.remove(user)
-        user.likedCreations.remove(creation)
-        --creation.likeCount
-        creationRepository.save(creation)
     }
 
     fun getCreationUploadUrl(mimeType: String): Map<String, String> {
