@@ -173,7 +173,7 @@ class CreationControllerTests {
             )
         )
 
-        return dummyCreations.map { it.toGetCreationDTO(authContext.user, timeZone = ZoneId.of("UTC")) }
+        return dummyCreations.map { it.toGetCreationDTO(authContext.user) }
     }
 
     @Test
@@ -186,7 +186,6 @@ class CreationControllerTests {
         every { creationService.getCreations(pageable) } returns page
 
         val performAction = mockMvc.get("/api/creations/gallery") {
-            with(timeZoneHeader())
             param("page", "0")
         }
 
@@ -214,7 +213,6 @@ class CreationControllerTests {
         every { creationService.getCreation(1, authContext.user) } returns getDummyCreations().first()
 
         mockMvc.get("/api/creations/1") {
-            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             jsonPath("$.id").value(dummyCreation.id)
@@ -237,7 +235,6 @@ class CreationControllerTests {
         every { creationService.likeCreation(1, authContext.user) } returns Unit
 
         mockMvc.post("/api/creations/1/like") {
-            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -251,7 +248,6 @@ class CreationControllerTests {
         every { creationService.unlikeCreation(1, authContext.user) } returns Unit
 
         mockMvc.post("/api/creations/1/unlike") {
-            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -265,7 +261,6 @@ class CreationControllerTests {
         every { creationService.deleteCreation(1) } returns Unit
 
         mockMvc.delete("/api/creations/1") {
-            with(timeZoneHeader())
             with(user(authContext))
         }.andExpect {
             status { isOk() }
@@ -281,7 +276,6 @@ class CreationControllerTests {
         every { creationService.getCreationUploadUrl(mimeType) } returns uploadUrlResponse
 
         mockMvc.get("/api/creations/get-upload-url") {
-            with(timeZoneHeader())
             with(user(authContext))
             param("mimeType", mimeType)
         }.andExpect {
@@ -305,7 +299,6 @@ class CreationControllerTests {
         val jsonUploadCreation = mapper.writeValueAsString(uploadCreation)
 
         mockMvc.post("/api/creations/upload") {
-            with(timeZoneHeader())
             with(user(authContext))
             contentType = MediaType.APPLICATION_JSON
             content = jsonUploadCreation

@@ -14,8 +14,8 @@
 <div style="background: #F5F5F5; padding-bottom: 16px; padding-top: 8px; white-space: pre-wrap; font-family: Inter, sans-serif; padding-left: 32px;">
     Hi!
 
-    Please press this link to verify your account:
-    <h2>${verifLink}</h2>
+    Please enter this code to verify your account:
+    <h2>${verifCode}</h2>
 
     We’re glad you’re here,
 

@@ -12,7 +12,7 @@ class VerificationToken(
 
     @Column(nullable = false)
     @Lob
-    var token: String,
+    var code: String,
 
     @Column(nullable = false)
     var expiryDate: LocalDateTime,

@@ -25,10 +25,9 @@ class SecurityConfig {
             csrf { disable() }
             cors { }
 
-            addFilterBefore<BasicAuthenticationFilter>(TimeZoneFilter())
-
             authorizeHttpRequests {
                 authorize(HttpMethod.POST, "/api/users/register", permitAll)
+                authorize(HttpMethod.POST, "/api/users/login", permitAll)
                 authorize(HttpMethod.POST, "/api/users/verify", permitAll)
                 authorize(HttpMethod.GET, "/api/creations/gallery", permitAll)
                 authorize(anyRequest, authenticated)

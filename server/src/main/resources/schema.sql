@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS comments (
 
 CREATE TABLE IF NOT EXISTS verification_tokens (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    token TEXT NOT NULL,
+    code VARCHAR(6) NOT NULL,
     user_id BIGINT NOT NULL,
     expiry_date TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)

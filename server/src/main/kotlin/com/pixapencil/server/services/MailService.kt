@@ -26,9 +26,9 @@ class MailService(
 ) {
     fun sendVerificationMail(
         to: String,
-        verifLink: String,
+        verifCode: String,
     ) {
-        val htmlContent = templateToString("verify-email.ftl", mapOf("verifLink" to verifLink))
+        val htmlContent = templateToString("verify-email.ftl", mapOf("verifCode" to verifCode))
         val mail = PxpMail(from = "todoescode@gmail.com", to = to, subject = "Verify your account", body = htmlContent, isHtml = true)
 
         sendMail(mail)

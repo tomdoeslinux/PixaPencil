@@ -34,5 +34,5 @@ class User(
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "creation_id")]
     )
-    val likedCreations: MutableList<Creation> = mutableListOf(),
+    var likedCreations: MutableList<Creation> = mutableListOf(),
 )

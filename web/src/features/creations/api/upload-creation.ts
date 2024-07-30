@@ -60,12 +60,8 @@ async function addCreation(
 }
 
 export function uploadCreation(builder: RootEndpointBulder) {
-  return builder.mutation<
-    undefined,
-    { userId: number; uploadCreation: UploadCreation }
-  >({
-    queryFn: async ({ userId, uploadCreation }, _, __, fetchWithBQ) => {
-      console.log(uploadCreation)
+  return builder.mutation<undefined, UploadCreation>({
+    queryFn: async (uploadCreation, _, __, fetchWithBQ) => {
       const mimeType = uploadCreation.file!.type
 
       const getUploadUrlResponseData = await getCreationUploadUrl(
@@ -81,7 +77,11 @@ export function uploadCreation(builder: RootEndpointBulder) {
 
       delete uploadCreation.file
 
-      await addCreation(getUploadUrlResponseData.key, uploadCreation, fetchWithBQ)
+      await addCreation(
+        getUploadUrlResponseData.key,
+        uploadCreation,
+        fetchWithBQ,
+      )
 
       return { data: undefined }
     },

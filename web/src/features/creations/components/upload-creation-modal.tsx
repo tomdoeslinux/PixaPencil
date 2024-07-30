@@ -54,7 +54,7 @@ export default function UploadCreationModal(props: UploadCreationModalProps) {
             colorScheme="blue"
             type="submit"
             onClick={handleSubmit(async (formData) => {
-              await uploadCreation({ userId: 1, uploadCreation: formData })
+              await uploadCreation(formData)
               toast({
                 title: "Success",
                 description:

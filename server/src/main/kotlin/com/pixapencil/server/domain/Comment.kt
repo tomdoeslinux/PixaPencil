@@ -25,5 +25,5 @@ class Comment(
     var creation: Creation,
 
     @CreationTimestamp
-    var createdAt: LocalDateTime? = null,
+    var createdAt: LocalDateTime = LocalDateTime.now(),
 )

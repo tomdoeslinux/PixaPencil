@@ -1,5 +1,5 @@
 import { Author } from "@/types/root-types"
-import { Box, Button, Flex, Image, Text, Tooltip } from "@chakra-ui/react"
+import { Box, Flex, Image, Text, Tooltip } from "@chakra-ui/react"
 
 interface AuthorTagProps {
   author: Author

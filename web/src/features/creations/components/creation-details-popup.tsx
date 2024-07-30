@@ -4,7 +4,7 @@ import {
 } from "../api/creations-api"
 import { CreationDetailsProps } from "./creation-details"
 import { useArrowKeyNav } from "../hooks/use-arrow-key-nav"
-import { AppModal, AuthorTag, OutlineButton } from "@/components/index"
+import { AppModal, AuthorTag, OutlineButton } from "@/components"
 import { Flex, Heading, Box, Text, Image } from "@chakra-ui/react"
 import { MdChatBubbleOutline, MdOutlineVisibility } from "react-icons/md"
 import LikeButtonCounter from "./like-button-counter"

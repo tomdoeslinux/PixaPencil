@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useLikeButton } from "../hooks/use-like-button"
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import { LikeButtonIconProps } from "./like-button-icon"
-import { OutlineButton } from "@/components/index"
+import { OutlineButton } from "@/components"
 
 interface LikeButtonCounterProps extends LikeButtonIconProps {
   initialLikeCount: number

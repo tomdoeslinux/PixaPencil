@@ -7,10 +7,7 @@ interface CreationDetailsPageProps {
 }
 
 export default function CreationDetailsPage(props: CreationDetailsPageProps) {
-  const { data: creation } = useGetCreationQuery({
-    creationId: props.creationId,
-    page: 0,
-  })
+  const { data: creation } = useGetCreationQuery(props.creationId)
 
   const { data: commentsResponse, refetch: refetchComments } =
     useGetCommentsQuery({ creationId: creation?.id ?? 0 }, { skip: !creation })

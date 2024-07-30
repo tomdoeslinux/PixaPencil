@@ -29,3 +29,9 @@ export interface Creation {
   uploadDate: string
   timeSince: string
 }
+
+export interface User {
+  username: string
+  email: string
+  profilePictureUrl: string
+}

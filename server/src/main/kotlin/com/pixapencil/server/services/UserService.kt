@@ -2,18 +2,21 @@ package com.pixapencil.server.services
 
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.domain.VerificationToken
+import com.pixapencil.server.dtos.LoginUserDTO
 import com.pixapencil.server.dtos.RegisterUserDTO
+import com.pixapencil.server.dtos.GetUserDTO
+import com.pixapencil.server.dtos.toGetUserDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
+import com.pixapencil.server.exceptions.PasswordMismatchException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import java.time.LocalDateTime
-import java.util.*
 
 @Transactional
 @Service
@@ -23,7 +26,11 @@ class UserService(
     private val passwordEncoder: PasswordEncoder,
     private val emailService: MailService,
 ) {
-    fun registerUser(registerUser: RegisterUserDTO) {
+    fun registerUser(registerUser: RegisterUserDTO): GetUserDTO {
+        if (registerUser.password != registerUser.confirmPassword) {
+            throw PasswordMismatchException()
+        }
+
         if (userRepository.findByEmail(registerUser.email) != null) {
             throw EmailAlreadyInUseException()
         }
@@ -39,17 +46,20 @@ class UserService(
         val (token, rawToken) = createVerificationToken(user)
         verificationTokenRepository.save(token)
 
-        emailService.sendVerificationMail(user.email, createVerificationLink(user, rawToken))
+        emailService.sendVerificationMail(user.email, rawToken)
+
+        // We want to expose id since it's needed when verifying account
+        return user.toGetUserDTO(exposeId = true)
     }
 
     fun verifyUser(
         userId: Long,
-        token: String,
+        verificationCode: String,
     ): Boolean {
         val user = userRepository.findByIdOrNull(userId) ?: throw EntityNotFoundException()
         val verifToken = verificationTokenRepository.findByUser(user)
 
-        if (verifToken != null) {
+        if (verifToken?.code == verificationCode) {
             user.isVerified = true
 
             userRepository.save(user)
@@ -61,29 +71,26 @@ class UserService(
         return false
     }
 
+    fun authenticateUser(loginUser: LoginUserDTO): GetUserDTO? {
+        val user = userRepository.findByEmail(loginUser.email) ?: return null
+
+        return if (passwordEncoder.matches(loginUser.password, user.password)) {
+           user.toGetUserDTO()
+        } else {
+            throw BadCredentialsException("Invalid login credentials")
+        }
+    }
+
     private fun createVerificationToken(user: User): Pair<VerificationToken, String> {
-        val rawToken = UUID.randomUUID().toString()
-        val token = passwordEncoder.encode(rawToken)
+        val rawToken = (100000..999999).random().toString()
 
         val verificationToken =
             VerificationToken(
-                token = token,
+                code = rawToken,
                 expiryDate = LocalDateTime.now().plusDays(1),
                 user = user,
             )
 
         return Pair(verificationToken, rawToken)
-    }
-
-    private fun createVerificationLink(
-        user: User,
-        tokenValue: String,
-    ): String {
-        return ServletUriComponentsBuilder.fromCurrentContextPath()
-            .path("/api/users/verify")
-            .queryParam("token", tokenValue)
-            .queryParam("userId", user.id)
-            .build()
-            .toUriString()
     }
 }
