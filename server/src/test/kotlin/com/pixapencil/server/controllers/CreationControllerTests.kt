@@ -1,13 +1,13 @@
-package com.pixapencil.server
+package com.pixapencil.server.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
+import com.pixapencil.server.authContext
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.GetCreationDTO
 import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.dtos.toGetCreationDTO
-import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
 import io.mockk.every
 import io.mockk.verify
@@ -24,24 +24,14 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
-import org.springframework.test.web.servlet.request.RequestPostProcessor
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import java.time.LocalDateTime
 import java.time.Month
-import java.time.ZoneId
 
 @SpringBootTest
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
 class CreationControllerTests {
-
-    private val authContext = AuthUser(User(
-        username = "user",
-        email = "user@gmail.com",
-        password = "password",
-        profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
-        isVerified = true
-    ))
 
     @Autowired
     lateinit var mockMvc: MockMvc
@@ -210,7 +200,7 @@ class CreationControllerTests {
     @Test
     fun `returns proper single creation`() {
         val dummyCreation = getDummyCreations().first()
-        every { creationService.getCreation(1, authContext.user) } returns getDummyCreations().first()
+        every { creationService.getCreation(1, authContext) } returns getDummyCreations().first()
 
         mockMvc.get("/api/creations/1") {
             with(user(authContext))
@@ -227,12 +217,12 @@ class CreationControllerTests {
             jsonPath("$.timeSince").value(dummyCreation.timeSince)
         }
 
-        verify { creationService.getCreation(1, authContext.user) }
+        verify { creationService.getCreation(1, authContext) }
     }
 
     @Test
     fun `likes a creation without errors`() {
-        every { creationService.likeCreation(1, authContext.user) } returns Unit
+        every { creationService.likeCreation(1, authContext) } returns Unit
 
         mockMvc.post("/api/creations/1/like") {
             with(user(authContext))
@@ -240,12 +230,12 @@ class CreationControllerTests {
             status { isOk() }
         }
 
-        verify { creationService.likeCreation(1, authContext.user) }
+        verify { creationService.likeCreation(1, authContext) }
     }
 
     @Test
     fun `unlikes a creation without errors`() {
-        every { creationService.unlikeCreation(1, authContext.user) } returns Unit
+        every { creationService.unlikeCreation(1, authContext) } returns Unit
 
         mockMvc.post("/api/creations/1/unlike") {
             with(user(authContext))
@@ -253,7 +243,7 @@ class CreationControllerTests {
             status { isOk() }
         }
 
-        verify { creationService.unlikeCreation(1, authContext.user) }
+        verify { creationService.unlikeCreation(1, authContext) }
     }
 
     @Test
@@ -294,7 +284,7 @@ class CreationControllerTests {
             description = "Dummy Description",
             imageKey = "dummyImgKey"
         )
-        every { creationService.uploadCreation(uploadCreation, authContext.user) } returns Unit
+        every { creationService.uploadCreation(uploadCreation, authContext) } returns Unit
 
         val jsonUploadCreation = mapper.writeValueAsString(uploadCreation)
 
@@ -306,6 +296,6 @@ class CreationControllerTests {
             status { isOk() }
         }
 
-        verify { creationService.uploadCreation(uploadCreation, authContext.user) }
+        verify { creationService.uploadCreation(uploadCreation, authContext) }
     }
 }

@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.stereotype.Service
 
 @Transactional
@@ -27,8 +28,9 @@ class CreationService(
 
     fun getCreation(
         id: Long,
-        user: User,
+        authUser: AuthUser,
     ): GetCreationDTO {
+        val user = userRepository.findByIdOrNull(authUser.getUserId()) ?: throw EntityNotFoundException()
         val creation = creationRepository.findByIdOrNull(id) ?: throw EntityNotFoundException()
 
         return creation.toGetCreationDTO(user)
@@ -36,9 +38,10 @@ class CreationService(
 
     fun likeCreation(
         creationId: Long,
-        user: User,
+        authUser: AuthUser,
     ) {
         synchronized(this) {
+            val user = userRepository.findByIdOrNull(authUser.getUserId()) ?: throw EntityNotFoundException()
             val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
             if (creation.likedBy.contains(user)) {
@@ -61,9 +64,10 @@ class CreationService(
 
     fun unlikeCreation(
         creationId: Long,
-        user: User,
+        authUser: AuthUser,
     ) {
         synchronized(this) {
+            val user = userRepository.findByIdOrNull(authUser.getUserId()) ?: throw EntityNotFoundException()
             val creation = creationRepository.findByIdOrNull(creationId) ?: throw EntityNotFoundException()
 
             if (!creation.likedBy.contains(user)) {
@@ -84,7 +88,9 @@ class CreationService(
         return mapOf("url" to uploadUrl, "key" to key)
     }
 
-    fun uploadCreation(uploadCreation: UploadCreationDTO, user: User) {
+    fun uploadCreation(uploadCreation: UploadCreationDTO, authUser: AuthUser) {
+        val user = userRepository.findByIdOrNull(authUser.getUserId()) ?: throw EntityNotFoundException()
+
         val creation =
             Creation(
                 title = uploadCreation.title,

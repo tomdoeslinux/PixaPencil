@@ -7,7 +7,6 @@ import com.pixapencil.server.dtos.RegisterUserDTO
 import com.pixapencil.server.dtos.GetUserDTO
 import com.pixapencil.server.dtos.toGetUserDTO
 import com.pixapencil.server.exceptions.EmailAlreadyInUseException
-import com.pixapencil.server.exceptions.PasswordMismatchException
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
 import jakarta.persistence.EntityNotFoundException
@@ -27,10 +26,6 @@ class UserService(
     private val emailService: MailService,
 ) {
     fun registerUser(registerUser: RegisterUserDTO): GetUserDTO {
-        if (registerUser.password != registerUser.confirmPassword) {
-            throw PasswordMismatchException()
-        }
-
         if (userRepository.findByEmail(registerUser.email) != null) {
             throw EmailAlreadyInUseException()
         }
@@ -77,7 +72,7 @@ class UserService(
         return if (passwordEncoder.matches(loginUser.password, user.password)) {
            user.toGetUserDTO()
         } else {
-            throw BadCredentialsException("Invalid login credentials")
+           null
         }
     }
 

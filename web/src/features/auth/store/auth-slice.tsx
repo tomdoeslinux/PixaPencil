@@ -1,5 +1,5 @@
 import { User } from "@/types/root-types"
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import { authApi } from "../api/auth-api"
 
 interface AuthState {
@@ -15,11 +15,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    onLoggedIn(state, action: PayloadAction<User>) {
-      state.isAuthenticated = true
-      state.user = action.payload
-    },
-    onLoggedOut(state) {
+    logout(state) {
       state.isAuthenticated = false
       delete state.user
     },
@@ -27,13 +23,21 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addMatcher(
       authApi.endpoints.registerUser.matchFulfilled,
-      (state) => {
+      (state, action) => {
         state.isAuthenticated = true
+        state.user = action.payload
+      },
+    )
+    builder.addMatcher(
+      authApi.endpoints.loginUser.matchFulfilled,
+      (state, action) => {
+        state.isAuthenticated = true
+        state.user = action.payload
       },
     )
   },
 })
 
-export const { onLoggedIn, onLoggedOut } = authSlice.actions
+export const { logout } = authSlice.actions
 
 export default authSlice.reducer

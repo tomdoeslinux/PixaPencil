@@ -1,13 +1,13 @@
 package com.pixapencil.server.services
 
 import com.pixapencil.server.domain.Comment
-import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.AddCommentDTO
 import com.pixapencil.server.dtos.EditCommentDTO
 import com.pixapencil.server.dtos.GetCommentDTO
 import com.pixapencil.server.dtos.toGetCommentDTO
 import com.pixapencil.server.repos.CommentRepository
 import com.pixapencil.server.repos.CreationRepository
+import com.pixapencil.server.repos.UserRepository
 import jakarta.persistence.EntityNotFoundException
 import jakarta.transaction.Transactional
 import org.springframework.data.domain.Page
@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service
 class CommentService(
     private val creationRepository: CreationRepository,
     private val commentRepository: CommentRepository,
+    private val userRepository: UserRepository,
 ) {
     fun getComments(
         creationId: Long,
@@ -32,8 +33,9 @@ class CommentService(
 
     fun addComment(
         addCommentDTO: AddCommentDTO,
-        user: User,
+        authUser: AuthUser,
     ) {
+        val user = userRepository.findByIdOrNull(authUser.getUserId()) ?: throw EntityNotFoundException()
         val creation = creationRepository.findByIdOrNull(addCommentDTO.creationId) ?: throw EntityNotFoundException()
 
         val comment =

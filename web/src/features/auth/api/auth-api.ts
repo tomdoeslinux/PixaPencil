@@ -35,7 +35,7 @@ export const authApi = rootApi.injectEndpoints({
         params: { userId, code },
       }),
     }),
-    loginUser: builder.mutation<boolean, LoginUser>({
+    loginUser: builder.mutation<GetUser, LoginUser>({
       query: (loginUser) => ({
         url: "/users/login",
         method: "POST",

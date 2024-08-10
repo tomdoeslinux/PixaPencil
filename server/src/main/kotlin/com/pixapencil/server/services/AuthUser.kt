@@ -33,4 +33,6 @@ class AuthUser(val user: User) : UserDetails {
     override fun isEnabled(): Boolean {
         return user.isVerified
     }
+
+    fun getUserId() = user.id
 }

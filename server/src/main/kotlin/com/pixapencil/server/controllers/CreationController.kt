@@ -1,6 +1,5 @@
 package com.pixapencil.server.controllers
 
-import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
@@ -20,20 +19,20 @@ class CreationController(private val creationService: CreationService) {
     @GetMapping("/{id}")
     fun getCreation(
         @PathVariable id: Long,
-        @AuthenticationPrincipal(expression = "user") user: User,
-    ) = creationService.getCreation(id, user)
+        @AuthenticationPrincipal authUser: AuthUser,
+    ) = creationService.getCreation(id, authUser)
 
     @PostMapping("/{id}/like")
     fun likeCreation(
         @PathVariable id: Long,
-        @AuthenticationPrincipal(expression = "user") user: User,
-    ) = creationService.likeCreation(id, user)
+        @AuthenticationPrincipal authUser: AuthUser,
+    ) = creationService.likeCreation(id, authUser)
 
     @PostMapping("/{id}/unlike")
     fun unlikeCreation(
         @PathVariable id: Long,
-        @AuthenticationPrincipal(expression = "user") user: User,
-    ) = creationService.unlikeCreation(id, user)
+        @AuthenticationPrincipal authUser: AuthUser,
+    ) = creationService.unlikeCreation(id, authUser)
 
     @DeleteMapping("/{id}")
     fun deleteCreation(
@@ -47,7 +46,7 @@ class CreationController(private val creationService: CreationService) {
 
     @PostMapping("/upload")
     fun uploadCreation(
-        @AuthenticationPrincipal(expression = "user") user: User,
+        @AuthenticationPrincipal authUser: AuthUser,
         @RequestBody uploadCreation: UploadCreationDTO,
-    ) = creationService.uploadCreation(uploadCreation, user)
+    ) = creationService.uploadCreation(uploadCreation, authUser)
 }

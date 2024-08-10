@@ -3,6 +3,7 @@ package com.pixapencil.server.controllers
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.AddCommentDTO
 import com.pixapencil.server.dtos.EditCommentDTO
+import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CommentService
 import org.springframework.data.domain.PageRequest
 import org.springframework.security.core.annotation.AuthenticationPrincipal
@@ -22,8 +23,8 @@ class CommentController(
     @PostMapping
     fun addComment(
         @RequestBody addCommentDTO: AddCommentDTO,
-        @AuthenticationPrincipal(expression = "user") user: User,
-    ) = commentService.addComment(addCommentDTO, user)
+        @AuthenticationPrincipal authUser: AuthUser,
+    ) = commentService.addComment(addCommentDTO, authUser)
 
     @DeleteMapping("/{id}")
     fun deleteComment(

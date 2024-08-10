@@ -14,6 +14,7 @@ import {
 import { MdPersonOutline } from "react-icons/md"
 import LoginPage from "./routes/login-page"
 import RegisterPage from "./routes/register-page"
+import { useAppDispatch, useAppSelector } from "src/store/app-store"
 
 function AppRouter() {
   return (
@@ -31,6 +32,8 @@ function AppRouter() {
 }
 
 function Profile() {
+  const user = useAppSelector((state) => state.auth.user)
+
   return (
     <Popover>
       <PopoverTrigger>
@@ -51,8 +54,10 @@ function Profile() {
       <PopoverContent>
         <PopoverArrow />
         <PopoverCloseButton />
-        <PopoverHeader>Confirmation!</PopoverHeader>
-        <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+        <PopoverHeader>
+          {user?.username} {user?.email}
+        </PopoverHeader>
+        <PopoverBody>{user?.profilePictureUrl}</PopoverBody>
       </PopoverContent>
     </Popover>
   )

@@ -1,15 +1,13 @@
-package com.pixapencil.server
+package com.pixapencil.server.services
 
 import com.ninjasquad.springmockk.MockkBean
+import com.pixapencil.server.authContext
 import com.pixapencil.server.domain.Creation
 import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.dtos.toGetCreationDTO
 import com.pixapencil.server.repos.CreationRepository
 import com.pixapencil.server.repos.UserRepository
-import com.pixapencil.server.services.CreationService
-import com.pixapencil.server.services.S3Service
-import io.mockk.Runs
 import io.mockk.every
 import io.mockk.justRun
 import io.mockk.verify
@@ -43,14 +41,6 @@ class CreationServiceTests {
     @Autowired
     private lateinit var creationService: CreationService
 
-    private val dummyUser = User(
-        username = "user",
-        email = "user@gmail.com",
-        password = "password",
-        profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
-        isVerified = true
-    )
-
     private fun getDummyCreations(): List<Creation> {
         val dummyDate = LocalDateTime.of(2024, Month.JULY, 20, 12, 0, 0)
 
@@ -60,7 +50,7 @@ class CreationServiceTests {
                 title = "Sample Title",
                 description = "Sample Description",
                 imageKey = "key1",
-                user = dummyUser,
+                user = authContext.user,
                 likeCount = 0,
                 createdAt = dummyDate
             )
@@ -69,22 +59,21 @@ class CreationServiceTests {
         return creations
     }
 
-    private fun likeCreation(creation: Creation) {
+    private fun likeCreation(creation: Creation, user: User) {
         ++creation.likeCount
-        creation.likedBy.add(dummyUser)
-        // todo should probably not reference a class-level instance
-        dummyUser.likedCreations.add(creation)
+        creation.likedBy.add(authContext.user)
+        user.likedCreations.add(creation)
     }
 
     @Test
     fun `getCreations returns paginated results`() {
         val pageable = PageRequest.of(0, 10)
 
-        every { userRepository.findByIdOrNull(1L) } returns dummyUser
+        every { userRepository.findByIdOrNull(1L) } returns authContext.user
         every { creationRepository.findAll(pageable) } returns PageImpl(getDummyCreations())
 
         val result = creationService.getCreations(pageable)
-        val expected = PageImpl(getDummyCreations().map { it.toGetCreationDTO(dummyUser) })
+        val expected = PageImpl(getDummyCreations().map { it.toGetCreationDTO(authContext.user) })
 
         assertEquals(result, expected)
 
@@ -148,15 +137,16 @@ class CreationServiceTests {
             imageKey = "newKey"
         )
 
+        every { userRepository.findByIdOrNull(authContext.getUserId()) } returns authContext.user
         every { creationRepository.save(any()) } answers { firstArg() }
 
-        creationService.uploadCreation(uploadCreationDTO, dummyUser)
+        creationService.uploadCreation(uploadCreationDTO, authContext)
 
         verify { creationRepository.save(match<Creation> {
             it.title == uploadCreationDTO.title &&
             it.description == uploadCreationDTO.description &&
             it.imageKey == uploadCreationDTO.imageKey &&
-                    it.user == dummyUser
+                    it.user == authContext.user
         }) }
     }
 
@@ -164,14 +154,15 @@ class CreationServiceTests {
     fun `likeCreation adds user to likedBy and increments likeCount`() {
         val dummyCreation = getDummyCreations().first()
 
+        every { userRepository.findByIdOrNull(authContext.getUserId()) } returns authContext.user
         every { creationRepository.findByIdOrNull(1L) } returns dummyCreation
 
         // Return value for this function not important
         every { creationRepository.save(any()) } answers { firstArg() }
 
-        creationService.likeCreation(1L, dummyUser)
+        creationService.likeCreation(1L, authContext)
 
-        assertTrue(dummyCreation.likedBy.contains(dummyUser))
+        assertTrue(dummyCreation.likedBy.contains(authContext.user))
         assertEquals(dummyCreation.likeCount, 1)
 
         verify { creationRepository.findByIdOrNull(1L) }
@@ -182,16 +173,17 @@ class CreationServiceTests {
     fun `unlikeCreation removes user from likedBy and decrements likeCount`() {
         // Creation needs to be liked first before it can be unliked
         val dummyCreation = getDummyCreations().first()
-        likeCreation(dummyCreation)
+        likeCreation(dummyCreation, authContext.user)
 
+        every { userRepository.findByIdOrNull(authContext.getUserId()) } returns authContext.user
         every { creationRepository.findByIdOrNull(1L) } returns dummyCreation
 
         // Return value for this function not important
         every { creationRepository.save(any()) } answers { firstArg() }
 
-        creationService.unlikeCreation(1L, dummyUser)
+        creationService.unlikeCreation(1L, authContext)
 
-        assertFalse(dummyCreation.likedBy.contains(dummyUser))
+        assertFalse(dummyCreation.likedBy.contains(authContext.user))
         assertEquals(dummyCreation.likeCount, 0)
 
         verify { creationRepository.findByIdOrNull(1L) }
@@ -201,6 +193,7 @@ class CreationServiceTests {
     @Test
     fun `likeCreation handles concurrent likes correctly`() {
         val dummyCreation = getDummyCreations().first()
+        every { userRepository.findByIdOrNull(authContext.getUserId()) } returns authContext.user
         every { creationRepository.findByIdOrNull(1L) } returns dummyCreation
         every { creationRepository.save(any()) } answers { firstArg() }
 
@@ -209,7 +202,7 @@ class CreationServiceTests {
 
         for (i in 1..numThreads) {
             executorService.submit {
-                creationService.likeCreation(1L, dummyUser)
+                creationService.likeCreation(1L, authContext)
             }
         }
 
@@ -220,7 +213,7 @@ class CreationServiceTests {
 
         // We expect the like count to be exactly 1 because the same user cannot like more than once.
         assertEquals(1, dummyCreation.likeCount)
-        assertTrue(dummyCreation.likedBy.contains(dummyUser))
+        assertTrue(dummyCreation.likedBy.contains(authContext.user))
 
         verify { creationRepository.findByIdOrNull(1L) }
         verify(exactly = 1) { creationRepository.save(dummyCreation) }
@@ -230,8 +223,9 @@ class CreationServiceTests {
     fun `unlikeCreation handles concurrent likes correctly`() {
         // Creation needs to be liked first before it can be unliked
         val dummyCreation = getDummyCreations().first()
-        likeCreation(dummyCreation)
+        likeCreation(dummyCreation, authContext.user)
 
+        every { userRepository.findByIdOrNull(authContext.getUserId()) } answers { authContext.user }
         every { creationRepository.findByIdOrNull(1L) } returns dummyCreation
         every { creationRepository.save(any()) } answers { firstArg() }
 
@@ -240,7 +234,7 @@ class CreationServiceTests {
 
         for (i in 1..numThreads) {
             executorService.submit {
-                creationService.unlikeCreation(1L, dummyUser)
+                creationService.unlikeCreation(1L, authContext)
             }
         }
 
@@ -251,7 +245,7 @@ class CreationServiceTests {
 
         // We expect the like count to be exactly 1 because the same user cannot like more than once.
         assertEquals(0, dummyCreation.likeCount)
-        assertFalse(dummyCreation.likedBy.contains(dummyUser))
+        assertFalse(dummyCreation.likedBy.contains(authContext.user))
 
         verify { creationRepository.findByIdOrNull(1L) }
         verify(exactly = 1) { creationRepository.save(dummyCreation) }

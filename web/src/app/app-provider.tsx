@@ -1,7 +1,8 @@
 import { rootApi } from "@/api/root-api"
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
-import { ApiProvider } from "@reduxjs/toolkit/query/react"
 import { PropsWithChildren } from "react"
+import { Provider } from "react-redux"
+import store from "src/store/app-store"
 
 const chakraTheme = extendTheme({
   fonts: {
@@ -13,7 +14,7 @@ const chakraTheme = extendTheme({
 export function AppProvider(props: PropsWithChildren) {
   return (
     <ChakraProvider theme={chakraTheme}>
-      <ApiProvider api={rootApi}>{props.children}</ApiProvider>
+      <Provider store={store}>{props.children}</Provider>
     </ChakraProvider>
   )
 }
