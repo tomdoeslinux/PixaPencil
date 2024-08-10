@@ -51,14 +51,17 @@ class DrawingSurface extends StatefulWidget {
 
 class _DrawingSurfaceState extends State<DrawingSurface> {
   late ui.Rect _artboardRect;
-  late Bitmap _bitmap;
+  late final Bitmap _bitmap;
   ui.Image? _image;
+  final TransformationController _transformationController = TransformationController();
+  double _scale = 1.0;
+  double _initialScale = 1.0;
 
   @override
   void initState() {
     super.initState();
 
-    _bitmap = Bitmap(100, 50);
+    _bitmap = Bitmap(100, 100);
     _updateImage();
   }
 
@@ -72,7 +75,6 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
 
   void _drawPixel(Offset localPosition, Size size) {
     final artboardPosition = localPosition - _artboardRect.topLeft;
-    print("Joe biden " + artboardPosition.toString());
 
     final x = ((artboardPosition.dx / _artboardRect.width) * _bitmap.width).toInt();
     final y = ((artboardPosition.dy / _artboardRect.height) * _bitmap.height).toInt();
@@ -84,9 +86,10 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
   }
 
   ui.Rect _calculateArtboardRect(Size size) {
+    print("Joe biden $_scale");
     final centerOffset = Offset(size.width / 2, size.height / 2);
 
-    final width = min(size.width, _bitmap.width * (size.height / _bitmap.height));
+    final width = min(size.width, _bitmap.width * (size.height / _bitmap.height)) * _scale;
     final height = width * (_bitmap.height / _bitmap.width);
 
     return Rect.fromCenter(
@@ -104,8 +107,19 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
         _artboardRect = _calculateArtboardRect(availableSize);
 
         return GestureDetector(
-          onPanUpdate: (details) {
-            _drawPixel(details.localPosition, constraints.biggest);
+          onScaleStart: (details) {
+            _initialScale = _scale;
+          },
+          onScaleUpdate: (details) {
+            if (details.scale == 1) {
+              // No change in scale, so we treat as pan gesture
+              _drawPixel(details.localFocalPoint, constraints.biggest);
+            } else {
+              setState(() {
+                _scale = (details.scale * _initialScale).clamp(0.5, 3);
+                _artboardRect = _calculateArtboardRect(availableSize);
+              });
+            }
           },
           onTapDown: (details) {
             _drawPixel(details.localPosition, constraints.biggest);
