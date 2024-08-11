@@ -4,9 +4,19 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
 
 void main() {
+  _setupLogging();
   runApp(const MyApp());
+}
+
+void _setupLogging() {
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((record) {
+    // ignore: avoid_print
+    print('\x1B[33m${record.level.name}: ${record.time}: ${record.message}\x1B[0m');
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -53,9 +63,14 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
   late ui.Rect _artboardRect;
   late final Bitmap _bitmap;
   ui.Image? _image;
-  final TransformationController _transformationController = TransformationController();
   double _scale = 1.0;
   double _initialScale = 1.0;
+  Offset _panOffset = Offset.zero;
+  late Offset _initialPanOffset;
+  late Offset _zoomOrigin;
+  bool _moveMode = false;
+
+  final Logger logger = Logger("DrawingSurface");
 
   @override
   void initState() {
@@ -86,16 +101,14 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
   }
 
   ui.Rect _calculateArtboardRect(Size size) {
-    print("Joe biden $_scale");
-    final centerOffset = Offset(size.width / 2, size.height / 2);
-
     final width = min(size.width, _bitmap.width * (size.height / _bitmap.height)) * _scale;
     final height = width * (_bitmap.height / _bitmap.width);
 
-    return Rect.fromCenter(
-      center: centerOffset,
-      width: width,
-      height: height,
+    return Rect.fromLTWH(
+      _panOffset.dx + ((size.width - width) / 2),
+      _panOffset.dy + ((size.height - height) / 2),
+      width,
+      height,
     );
   }
 
@@ -106,28 +119,66 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
         final availableSize = constraints.biggest;
         _artboardRect = _calculateArtboardRect(availableSize);
 
+        final center = Offset(
+          availableSize.width / 2,
+          availableSize.height / 2,
+        );
+
         return GestureDetector(
           onScaleStart: (details) {
             _initialScale = _scale;
+            _zoomOrigin = details.localFocalPoint;
+            _initialPanOffset = _panOffset;
           },
           onScaleUpdate: (details) {
-            if (details.scale == 1) {
-              // No change in scale, so we treat as pan gesture
-              _drawPixel(details.localFocalPoint, constraints.biggest);
-            } else {
+            if (_moveMode) {
               setState(() {
-                _scale = (details.scale * _initialScale).clamp(0.5, 3);
-                _artboardRect = _calculateArtboardRect(availableSize);
+                if (details.scale == 1) {
+                  _panOffset += details.focalPointDelta;
+                } else {
+                  _scale = _initialScale * details.scale;
+
+                  final centerDelta = _zoomOrigin - center;
+                  final scaleRatio = _scale / _initialScale;
+                  final newCenter = _zoomOrigin - (centerDelta * scaleRatio);
+
+                  _panOffset = (_initialPanOffset * details.scale) + (newCenter - center);
+                }
               });
+            } else if (details.scale == 1) {
+              _drawPixel(details.localFocalPoint, constraints.biggest);
             }
           },
           onTapDown: (details) {
-            _drawPixel(details.localPosition, constraints.biggest);
+            if (!_moveMode) {
+              _drawPixel(details.localPosition, constraints.biggest);
+            }
           },
           child: _image != null
-              ? CustomPaint(
-                  painter: DrawingSurfacePainter(_image!, _artboardRect),
-                  size: Size.infinite,
+              ? Stack(
+                  children: [
+                    CustomPaint(
+                      painter: DrawingSurfacePainter(_image!, _artboardRect),
+                      size: Size.infinite,
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: IconButton(
+                        style: IconButton.styleFrom(
+                          backgroundColor: _moveMode ? Colors.green : Colors.transparent,
+                          foregroundColor: _moveMode ? Colors.white : Colors.black,
+                        ),
+                        iconSize: 64.0,
+                        onPressed: () {
+                          setState(() {
+                            _moveMode = !_moveMode;
+                          });
+                        },
+                        icon: const Icon(Icons.pan_tool_outlined),
+                      ),
+                    ),
+                  ],
                 )
               : const Center(
                   child: CircularProgressIndicator(),
