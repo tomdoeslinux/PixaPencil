@@ -7,6 +7,7 @@ import com.pixapencil.server.dtos.GetUserDTO
 import com.pixapencil.server.dtos.LoginUserDTO
 import com.pixapencil.server.dtos.RegisterUserDTO
 import com.pixapencil.server.repos.UserRepository
+import com.pixapencil.server.repos.VerificationTokenRepository
 import com.pixapencil.server.services.AuthUser
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,6 +28,9 @@ import java.time.LocalDateTime
 @AutoConfigureMockMvc
 @Transactional
 class UserControllerTests {
+
+    @Autowired
+    private lateinit var verificationTokenRepository: VerificationTokenRepository
 
     @Autowired
     private lateinit var userRepository: UserRepository
@@ -70,7 +74,6 @@ class UserControllerTests {
     fun `user can login without errors`() {
         // Setup
         val user = User(
-            id = 1L,
             username = "user",
             email = "user@example.com",
             password = passwordEncoder.encode("password"),
@@ -80,7 +83,7 @@ class UserControllerTests {
         userRepository.save(user)
 
         // Test
-        val loginUserDTO = LoginUserDTO(email = "user@gmail.com", password = "password")
+        val loginUserDTO = LoginUserDTO(email = "user@example.com", password = "password")
 
         val expectedGetUser = GetUserDTO(
             username = "user",
@@ -106,7 +109,6 @@ class UserControllerTests {
     fun `user can be verified`() {
         // Setup
         val user = User(
-            id = 1L,
             username = "user",
             email = "user@example.com",
             password = passwordEncoder.encode("password"),
@@ -115,11 +117,14 @@ class UserControllerTests {
         )
         userRepository.save(user)
 
+        println(userRepository.findAll().map { it.id })
+
         val verificationToken = VerificationToken(
             user = user,
             expiryDate = LocalDateTime.now().plusDays(1),
             code = "123456"
         )
+        verificationTokenRepository.save(verificationToken)
 
         // Test
         mockMvc.post("/api/users/verify") {
