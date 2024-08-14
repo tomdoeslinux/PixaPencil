@@ -30,18 +30,18 @@ import java.util.concurrent.Executors
 class CreationServiceTests {
 
     @MockkBean
-    private lateinit var s3Service: S3Service
+    lateinit var s3Service: S3Service
 
     @MockkBean
-    private lateinit var userRepository: UserRepository
+    lateinit var userRepository: UserRepository
 
     @MockkBean
-    private lateinit var creationRepository: CreationRepository
+    lateinit var creationRepository: CreationRepository
 
     @Autowired
-    private lateinit var creationService: CreationService
+    lateinit var creationService: CreationService
 
-    private fun getDummyCreations(): List<Creation> {
+    fun getDummyCreations(): List<Creation> {
         val dummyDate = LocalDateTime.of(2024, Month.JULY, 20, 12, 0, 0)
 
         val creations = listOf(
@@ -59,7 +59,7 @@ class CreationServiceTests {
         return creations
     }
 
-    private fun likeCreation(creation: Creation, user: User) {
+    fun likeCreation(creation: Creation, user: User) {
         ++creation.likeCount
         creation.likedBy.add(authContext.user)
         user.likedCreations.add(creation)

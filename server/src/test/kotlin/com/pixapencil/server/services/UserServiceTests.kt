@@ -27,34 +27,33 @@ import java.time.LocalDateTime
 class UserServiceTests {
 
     @MockkBean
-    private lateinit var userRepository: UserRepository
+    lateinit var userRepository: UserRepository
 
     @MockkBean
-    private lateinit var verificationTokenRepository: VerificationTokenRepository
+    lateinit var verificationTokenRepository: VerificationTokenRepository
 
     @MockkBean
-    private lateinit var passwordEncoder: PasswordEncoder
+    lateinit var passwordEncoder: PasswordEncoder
 
     @MockkBean
-    private lateinit var emailService: MailService
+    lateinit var emailService: MailService
 
     @Autowired
-    private lateinit var userService: UserService
+    lateinit var userService: UserService
 
-    private val registerUser = RegisterUserDTO(
+    val registerUser = RegisterUserDTO(
         username = "dummyUser",
         email = "dummy@example.com",
         password = "dummyPassword",
-        confirmPassword = "dummyPassword"
     )
 
-    private val verificationToken = VerificationToken(
+    val verificationToken = VerificationToken(
         code = "123456",
         expiryDate = LocalDateTime.now().plusDays(1),
         user = authContext.user
     )
 
-    private val unverifiedUser = User(
+    val unverifiedUser = User(
         id = 1L,
         username = "user",
         email = "user@gmail.com",

@@ -9,13 +9,17 @@ import com.pixapencil.server.dtos.RegisterUserDTO
 import com.pixapencil.server.repos.UserRepository
 import com.pixapencil.server.repos.VerificationTokenRepository
 import com.pixapencil.server.services.AuthUser
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.http.MediaType
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
@@ -27,13 +31,14 @@ import java.time.LocalDateTime
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
 @Transactional
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class UserControllerTests {
 
     @Autowired
-    private lateinit var verificationTokenRepository: VerificationTokenRepository
+    lateinit var verificationTokenRepository: VerificationTokenRepository
 
     @Autowired
-    private lateinit var userRepository: UserRepository
+    lateinit var userRepository: UserRepository
 
     @Autowired
     lateinit var mockMvc: MockMvc
@@ -44,16 +49,28 @@ class UserControllerTests {
     @Autowired
     lateinit var passwordEncoder: PasswordEncoder
 
+    lateinit var commonUser: User
+
+    @BeforeEach
+    fun setUp() {
+        commonUser = User(
+            username = "user",
+            email = "user@example.com",
+            password = passwordEncoder.encode("password"),
+            profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
+            isVerified = true
+        )
+    }
+
     @Test
     fun `user can register without errors`() {
         val pfpUrl = "https://example.com/profile/dummyUser.jpg"
         val expId = 1L
 
         val registerUser = RegisterUserDTO(
-            username = "user",
-            email = "user@gmail.com",
-            password = "password",
-            confirmPassword = "password",
+            username = commonUser.username,
+            email = commonUser.email,
+            password = commonUser.password,
         )
 
         val jsonRegisterUser = mapper.writeValueAsString(registerUser)
@@ -68,19 +85,24 @@ class UserControllerTests {
             jsonPath("$.email").value(registerUser.email)
             jsonPath("$.profilePictureUrl").value(pfpUrl)
         }
+
+        // Verify DB state
+        val users = userRepository.findAll()
+        assertTrue(users.isNotEmpty())
+
+        val savedUser = userRepository.findByEmail(registerUser.email)
+        assertNotNull(savedUser)
+        assertNotEquals(savedUser!!.password, registerUser.password)
+        assertFalse(savedUser.isVerified)
+
+        val verificationToken = verificationTokenRepository.findByUser(savedUser)
+        assertNotNull(verificationToken)
     }
 
     @Test
     fun `user can login without errors`() {
         // Setup
-        val user = User(
-            username = "user",
-            email = "user@example.com",
-            password = passwordEncoder.encode("password"),
-            profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
-            isVerified = true
-        )
-        userRepository.save(user)
+        userRepository.save(commonUser)
 
         // Test
         val loginUserDTO = LoginUserDTO(email = "user@example.com", password = "password")
@@ -94,7 +116,7 @@ class UserControllerTests {
         val jsonLoginUser = mapper.writeValueAsString(loginUserDTO)
 
         mockMvc.post("/api/users/login") {
-            with(user(AuthUser(user)))
+            with(user(AuthUser(commonUser)))
             contentType = MediaType.APPLICATION_JSON
             content = jsonLoginUser
         }.andExpect {
@@ -108,19 +130,10 @@ class UserControllerTests {
     @Test
     fun `user can be verified`() {
         // Setup
-        val user = User(
-            username = "user",
-            email = "user@example.com",
-            password = passwordEncoder.encode("password"),
-            profilePictureUrl = "https://example.com/profile/dummyUser.jpg",
-            isVerified = false,
-        )
-        userRepository.save(user)
-
-        println(userRepository.findAll().map { it.id })
+        val savedUser = userRepository.save(commonUser)
 
         val verificationToken = VerificationToken(
-            user = user,
+            user = savedUser,
             expiryDate = LocalDateTime.now().plusDays(1),
             code = "123456"
         )
@@ -128,10 +141,17 @@ class UserControllerTests {
 
         // Test
         mockMvc.post("/api/users/verify") {
-            param("userId", user.id.toString())
+            param("userId", commonUser.id.toString())
             param("code", verificationToken.code)
         }.andExpect {
             status { isOk() }
         }
+
+        // Verify DB state
+        val token = verificationTokenRepository.findById(verificationToken.id!!).isPresent
+        assertFalse(token)
+
+        val user = userRepository.findByIdOrNull(savedUser.id!!)
+        assertTrue(user!!.isVerified)
     }
 }
