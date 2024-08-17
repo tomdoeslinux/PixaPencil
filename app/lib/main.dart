@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import 'package:logging/logging.dart';
 
 void main() {
@@ -59,7 +60,7 @@ class DrawingSurface extends StatefulWidget {
   }
 }
 
-class _DrawingSurfaceState extends State<DrawingSurface> {
+class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProviderStateMixin {
   late ui.Rect _artboardRect;
   late final Bitmap _bitmap;
   ui.Image? _image;
@@ -69,8 +70,9 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
   late Offset _initialPanOffset;
   late Offset _zoomOrigin;
   bool _moveMode = false;
-
   final Logger logger = Logger("DrawingSurface");
+  late AnimationController _animationController;
+  Animation<ui.Offset>? _flingAnimation;
 
   @override
   void initState() {
@@ -78,6 +80,12 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
 
     _bitmap = Bitmap(100, 100);
     _updateImage();
+    _animationController = AnimationController(vsync: this)
+      ..addListener(() {
+        setState(() {
+          _panOffset = _flingAnimation!.value;
+        });
+      });
   }
 
   Future<void> _updateImage() async {
@@ -129,6 +137,7 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
             _initialScale = _scale;
             _zoomOrigin = details.localFocalPoint;
             _initialPanOffset = _panOffset;
+            _animationController.stop();
           },
           onScaleUpdate: (details) {
             if (_moveMode) {
@@ -152,6 +161,43 @@ class _DrawingSurfaceState extends State<DrawingSurface> {
           onTapDown: (details) {
             if (!_moveMode) {
               _drawPixel(details.localPosition, constraints.biggest);
+            }
+          },
+          onScaleEnd: (details) {
+            if (_moveMode) {
+              final velocity = details.velocity.pixelsPerSecond;
+              const velocityThreshold = 900.0;
+
+              if (velocity.distance < velocityThreshold) {
+                logger.info("WEAK");
+                return; // If not strong enough, don't start the animation
+              }
+
+              const deceleration = 0.01;
+              final scaledVelocity = velocity * 0.5;
+
+              final duration = (scaledVelocity.distance / deceleration).clamp(
+                  150, 600);
+
+              logger.info(duration);
+              final dxFinal = scaledVelocity.dx / (deceleration * 1000);
+              final dyFinal = scaledVelocity.dy / (deceleration * 1000);
+
+              _flingAnimation = Tween<Offset>(
+                begin: _panOffset,
+                end: _panOffset + Offset(dxFinal, dyFinal),
+              ).animate(
+                CurvedAnimation(
+                  parent: _animationController,
+                  curve: Curves.decelerate,
+                ),
+              );
+
+              _animationController.duration =
+                  Duration(milliseconds: duration.toInt());
+
+              // Start animation
+              _animationController.forward(from: 0.0);
             }
           },
           child: _image != null

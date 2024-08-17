@@ -1,7 +1,15 @@
 -- Run this file to initialize dummy data for DB
 
 INSERT INTO users (username, email, password, is_verified, profile_picture_url, created_at)
-VALUES ('tomdoeslinux', 'todoescode@gmail.com', 'password', TRUE, 'profile_pic.png', NOW());
+VALUES
+    (
+     'tomdoeslinux',
+     'todoescode@gmail.com',
+     '$2a$10$o1eHOfSSgpj4UhOvBnq4EuiVn6eeZAtYh3m8wS4n1i5mlYr/PlPzG',
+     TRUE,
+     'profile_pic.png',
+     NOW()
+    );
 
 INSERT INTO creations (title, description, image_key, user_id)
 VALUES
