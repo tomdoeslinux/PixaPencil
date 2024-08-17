@@ -40,12 +40,196 @@ class MyApp extends StatelessWidget {
 class ToolButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
+  final bool isSelected;
 
-  const ToolButton({super.key, required this.icon, required this.onPressed});
+  const ToolButton({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+    required this.isSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(onPressed: onPressed, icon: Icon(icon));
+    return IconButton(
+      style: IconButton.styleFrom(
+        backgroundColor: isSelected ? Colors.orange : Colors.white,
+      ),
+      onPressed: onPressed,
+      icon: Icon(icon),
+    );
+  }
+}
+
+class LineAlgorithm {
+  final Bitmap _bitmap;
+
+  LineAlgorithm(this._bitmap);
+
+  void _drawLineY(Point from, Point to) {
+    var x = from.x;
+    var y = from.y;
+
+    final differenceX = to.x - x;
+    var differenceY = to.y - y;
+
+    var yi = 1;
+    const xi = 1;
+
+    if (differenceY < 0) {
+      differenceY = -differenceY;
+      yi = -1;
+    }
+
+    var p = 2 * differenceY - differenceX;
+
+    while (x <= to.x) {
+      _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
+      ++x;
+
+      if (p < 0) {
+        p += 2 * differenceY;
+
+        if (differenceY > differenceX) {
+          x += xi;
+        }
+      } else {
+        p = p + 2 * differenceY - 2 * differenceX;
+        y += yi;
+      }
+    }
+  }
+
+  void _drawLineX(Point from, Point to) {
+    var x = from.x;
+    var y = from.y;
+
+    var differenceX = to.x - x;
+    final differenceY = to.y - y;
+
+    var xi = 1;
+
+    if (differenceX <= 0) {
+      differenceX = -differenceX;
+      xi = -1;
+    }
+
+    var p = 2 * differenceX - differenceY;
+
+    while (y <= to.y) {
+      _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
+      y++;
+
+      if (p < 0) {
+        p += 2 * differenceX;
+      } else {
+        p = p + 2 * differenceX - 2 * differenceY;
+        x += xi;
+      }
+    }
+  }
+
+  void compute(Point p1, Point p2) {
+    final x = p1.x;
+    final y = p1.y;
+
+    final differenceX = p2.x - x;
+    final differenceY = p2.y - y;
+
+    if (differenceY <= differenceX) {
+      if (differenceY.abs() > differenceX) {
+        _drawLineX(p2, p1);
+      } else {
+        _drawLineY(p1, p2);
+      }
+    } else {
+      if (differenceX.abs() > differenceY) {
+        _drawLineY(p2, p1);
+      } else {
+        _drawLineX(p1, p2);
+      }
+    }
+  }
+}
+
+typedef Point = ({int x, int y});
+
+abstract class Tool {
+  final Bitmap _bitmap;
+
+  Tool(this._bitmap);
+
+  void onTouchDown(Point point);
+  void onTouchMove(Point point);
+  void onTouchUp();
+}
+
+abstract class DrawingTool extends Tool {
+  Point? lastPoint;
+
+  DrawingTool(super._bitmap);
+
+  @override
+  void onTouchDown(Point point) {
+    drawPath(point, point);
+    lastPoint = point;
+  }
+
+  @override
+  void onTouchMove(Point point) {
+    drawPath(lastPoint ?? point, point);
+    lastPoint = point;
+  }
+
+  @override
+  void onTouchUp() {
+    lastPoint = null;
+  }
+
+  void drawPath(Point start, Point end);
+}
+
+class PencilTool extends DrawingTool {
+  late final LineAlgorithm _lineAlgorithm;
+
+  PencilTool(super._bitmap) : _lineAlgorithm = LineAlgorithm(_bitmap);
+
+  @override
+  void drawPath(Point start, Point end) {
+    if (start == end) {
+      _bitmap.setPixel(
+        start.x,
+        start.y,
+        const ColorRGBA(0, 0, 0, 255),
+      );
+    } else {
+      _lineAlgorithm.compute(start, end);
+    }
+  }
+}
+
+class ToolBar extends StatelessWidget {
+  const ToolBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.green,
+      child: Row(
+        children: [
+          ToolButton(
+            icon: Icons.draw,
+            onPressed: () { },
+            isSelected: true,
+          ),
+          ToolButton(
+            icon: Icons.phonelink_erase_outlined,
+            onPressed: () { },
+            isSelected: false,
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -92,6 +276,7 @@ class GestureController with ChangeNotifier {
   }
 
   void onScaleUpdate(ScaleUpdateDetails details, Offset center) {
+    _zoomAnimationController.stop(canceled: true);
     _flingAnimationController.stop(canceled: true);
 
     if (details.scale == 1) {
@@ -111,9 +296,17 @@ class GestureController with ChangeNotifier {
   }
 
   void onDoubleTapDown(TapDownDetails details, Offset center) {
-    const scaleAmount = 2.0;
+    if (_zoomAnimationController.isAnimating) {
+      logger.info("STOPPPPED");
+      _zoomAnimationController.stop(canceled: true);
+    }
+
     _initialScale = _scale;
-    _scale *= scaleAmount;
+
+    final shouldReset = _initialScale >= 5.0;
+    final newScale = shouldReset ? 1.0 : 5.0;
+
+    _scale = newScale;
 
     _zoomScaleAnimation = Tween<double>(
       begin: _initialScale,
@@ -129,11 +322,16 @@ class GestureController with ChangeNotifier {
     final tapOrigin = details.localPosition;
 
     final centerDelta = tapOrigin - center;
-    final scaleRatio = (_initialScale * scaleAmount) / _initialScale;
+    final scaleRatio = (newScale) / _initialScale;
     final newCenter = tapOrigin - (centerDelta * scaleRatio);
 
     _initialPanOffset = _panOffset;
-    final newPanOffset = (_initialPanOffset * scaleAmount) + (newCenter - center);
+
+    final newPanOffset = shouldReset
+        ? const Offset(0, 0)
+        : (_initialPanOffset * newScale) + (newCenter - center);
+
+    logger.info(newPanOffset);
 
     _zoomPanAnimation = Tween<Offset>(
       begin: initialPanOffset,
@@ -199,7 +397,14 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("PixaPencil"),
       ),
-      body: const DrawingSurface(),
+      body: const Column(
+        children: [
+          Expanded(
+            child: DrawingSurface(),
+          ),
+          ToolBar(),
+        ],
+      ),
     );
   }
 }
@@ -219,6 +424,7 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
   ui.Image? _image;
   bool _moveMode = false;
   final Logger logger = Logger("DrawingSurface");
+  late final PencilTool _pencilTool;
 
   @override
   void initState() {
@@ -226,6 +432,7 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
 
     _bitmap = Bitmap(100, 100);
     _updateImage();
+    _pencilTool = PencilTool(_bitmap);
   }
 
   Future<void> _updateImage() async {
@@ -236,18 +443,13 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
     });
   }
 
-  void _drawPixel(Offset localPosition, Size size) {
+  Point _convertLocalToBitmapCoordinates(Offset localPosition) {
     final artboardPosition = localPosition - _artboardRect.topLeft;
 
-    final x =
-        ((artboardPosition.dx / _artboardRect.width) * _bitmap.width).toInt();
-    final y =
-        ((artboardPosition.dy / _artboardRect.height) * _bitmap.height).toInt();
+    final x = ((artboardPosition.dx / _artboardRect.width) * _bitmap.width).toInt();
+    final y = ((artboardPosition.dy / _artboardRect.height) * _bitmap.height).toInt();
 
-    if (x >= 0 && x < _bitmap.width && y >= 0 && y < _bitmap.height) {
-      _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
-      _updateImage();
-    }
+    return (x: x, y: y);
   }
 
   Rect _calculateArtboardRect(Size size, ui.Offset panOffset, double scale) {
@@ -284,7 +486,9 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
                 onScaleStart: _moveMode ? controller.onScaleStart : null,
                 onTapDown: (details) {
                   if (!_moveMode) {
-                    _drawPixel(details.localPosition, constraints.biggest);
+                    Point point = _convertLocalToBitmapCoordinates(details.localPosition);
+                    _pencilTool.onTouchDown(point);
+                    _updateImage();
                   }
                 },
                 onDoubleTapDown: (details) {
@@ -296,10 +500,18 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
                   if (_moveMode) {
                     controller.onScaleUpdate(details, center);
                   } else if (details.scale == 1) {
-                    _drawPixel(details.localFocalPoint, constraints.biggest);
+                    Point point = _convertLocalToBitmapCoordinates(details.localFocalPoint);
+                    _pencilTool.onTouchMove(point);
+                    _updateImage();
                   }
                 },
-                onScaleEnd: _moveMode ? controller.onScaleEnd : null,
+                onScaleEnd: (details) {
+                  if (_moveMode) {
+                    controller.onScaleEnd(details);
+                  } else {
+                    _pencilTool.onTouchUp();
+                  }
+                },
                 child: _image != null
                     ? Stack(
                         children: [
@@ -401,12 +613,14 @@ class Bitmap {
   }
 
   void setPixel(int x, int y, ColorRGBA color) {
-    final index = _getIndex(x, y);
+    if (x >= 0 && x < width && y >= 0 && y < height) {
+      final index = _getIndex(x, y);
 
-    _pixels[index] = color.r;
-    _pixels[index + 1] = color.g;
-    _pixels[index + 2] = color.b;
-    _pixels[index + 3] = color.a;
+      _pixels[index] = color.r;
+      _pixels[index + 1] = color.g;
+      _pixels[index + 2] = color.b;
+      _pixels[index + 3] = color.a;
+    }
   }
 
   Future<ui.Image> toImage() {
