@@ -4,8 +4,8 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/physics.dart';
 import 'package:logging/logging.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   _setupLogging();
@@ -16,7 +16,8 @@ void _setupLogging() {
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
-    print('\x1B[33m${record.level.name}: ${record.time}: ${record.message}\x1B[0m');
+    print(
+        '\x1B[33m${record.level.name}: ${record.time}: ${record.message}\x1B[0m');
   });
 }
 
@@ -33,6 +34,158 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(),
     );
+  }
+}
+
+class ToolButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+
+  const ToolButton({super.key, required this.icon, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(onPressed: onPressed, icon: Icon(icon));
+  }
+}
+
+class GestureController with ChangeNotifier {
+  final Logger logger = Logger("GestureController");
+
+  double _scale = 1.0;
+  double _initialScale = 1.0;
+  Offset _panOffset = Offset.zero;
+  Offset _initialPanOffset = Offset.zero;
+  Offset _zoomOrigin = Offset.zero;
+
+  late AnimationController _zoomAnimationController;
+  late Animation<double> _zoomScaleAnimation;
+  late Animation<Offset> _zoomPanAnimation;
+
+  late AnimationController _flingAnimationController;
+  late Animation<Offset> _flingAnimation;
+
+  GestureController(TickerProvider vsync) {
+    _flingAnimationController = AnimationController(vsync: vsync);
+    _zoomAnimationController = AnimationController(vsync: vsync);
+    
+    _flingAnimationController.addListener(() {
+      _panOffset = _flingAnimation.value;
+      notifyListeners();
+    });
+
+    _zoomAnimationController.addListener(() {
+      _scale = _zoomScaleAnimation.value;
+      _panOffset = _zoomPanAnimation.value;
+      notifyListeners();
+    });
+  }
+
+  Offset get panOffset => _panOffset;
+  double get scale => _scale;
+
+  void onScaleStart(ScaleStartDetails details) {
+    _initialScale = _scale;
+    _zoomOrigin = details.localFocalPoint;
+    _initialPanOffset = _panOffset;
+    _flingAnimationController.stop();
+  }
+
+  void onScaleUpdate(ScaleUpdateDetails details, Offset center) {
+    _flingAnimationController.stop(canceled: true);
+
+    if (details.scale == 1) {
+      // User is just panning
+      _panOffset += details.focalPointDelta;
+    } else {
+      _scale = _initialScale * details.scale;
+
+      final centerDelta = _zoomOrigin - center;
+      final scaleRatio = _scale / _initialScale;
+      final newCenter = _zoomOrigin - (centerDelta * scaleRatio);
+
+      _panOffset = (_initialPanOffset * details.scale) + (newCenter - center);
+    }
+
+    notifyListeners();
+  }
+
+  void onDoubleTapDown(TapDownDetails details, Offset center) {
+    const scaleAmount = 2.0;
+    _initialScale = _scale;
+    _scale *= scaleAmount;
+
+    _zoomScaleAnimation = Tween<double>(
+      begin: _initialScale,
+      end: _scale,
+    ).animate(
+      CurvedAnimation(
+          parent: _zoomAnimationController,
+          curve: Curves.easeInOutCubic,
+      ),
+    );
+
+    final initialPanOffset = _panOffset;
+    final tapOrigin = details.localPosition;
+
+    final centerDelta = tapOrigin - center;
+    final scaleRatio = (_initialScale * scaleAmount) / _initialScale;
+    final newCenter = tapOrigin - (centerDelta * scaleRatio);
+
+    _initialPanOffset = _panOffset;
+    final newPanOffset = (_initialPanOffset * scaleAmount) + (newCenter - center);
+
+    _zoomPanAnimation = Tween<Offset>(
+      begin: initialPanOffset,
+      end: newPanOffset,
+    ).animate(
+      CurvedAnimation(
+        parent: _zoomAnimationController,
+        curve: Curves.easeInOutCubic,
+      ),
+    );
+
+    _zoomAnimationController.duration = const Duration(milliseconds: 350);
+    _zoomAnimationController.forward(from: 0.0);
+  }
+
+  void onScaleEnd(ScaleEndDetails details) {
+    final velocity = details.velocity.pixelsPerSecond;
+    const velocityThreshold = 900.0;
+
+    if (velocity.distance < velocityThreshold) {
+      return; // If not strong enough, don't start the animation
+    }
+
+    const deceleration = 0.01;
+    final scaledVelocity = velocity * 0.5;
+
+    final duration = (scaledVelocity.distance / deceleration).clamp(150, 600);
+
+    final dxFinal = scaledVelocity.dx / (deceleration * 1000);
+    final dyFinal = scaledVelocity.dy / (deceleration * 1000);
+
+    _flingAnimation = Tween<Offset>(
+      begin: _panOffset,
+      end: _panOffset + Offset(dxFinal, dyFinal),
+    ).animate(
+      CurvedAnimation(
+        parent: _flingAnimationController,
+        curve: Curves.decelerate,
+      ),
+    );
+
+    _flingAnimationController.duration = Duration(milliseconds: duration.toInt());
+
+    // Start animation
+    _flingAnimationController.forward(from: 0.0);
+  }
+
+  @override
+  void dispose() {
+    _flingAnimationController.dispose();
+    _zoomAnimationController.dispose();
+    super.dispose();
   }
 }
 
@@ -60,19 +213,12 @@ class DrawingSurface extends StatefulWidget {
   }
 }
 
-class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProviderStateMixin {
-  late ui.Rect _artboardRect;
+class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStateMixin {
+  late Rect _artboardRect;
   late final Bitmap _bitmap;
   ui.Image? _image;
-  double _scale = 1.0;
-  double _initialScale = 1.0;
-  Offset _panOffset = Offset.zero;
-  late Offset _initialPanOffset;
-  late Offset _zoomOrigin;
   bool _moveMode = false;
   final Logger logger = Logger("DrawingSurface");
-  late AnimationController _animationController;
-  Animation<ui.Offset>? _flingAnimation;
 
   @override
   void initState() {
@@ -80,12 +226,6 @@ class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProvid
 
     _bitmap = Bitmap(100, 100);
     _updateImage();
-    _animationController = AnimationController(vsync: this)
-      ..addListener(() {
-        setState(() {
-          _panOffset = _flingAnimation!.value;
-        });
-      });
   }
 
   Future<void> _updateImage() async {
@@ -99,8 +239,10 @@ class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProvid
   void _drawPixel(Offset localPosition, Size size) {
     final artboardPosition = localPosition - _artboardRect.topLeft;
 
-    final x = ((artboardPosition.dx / _artboardRect.width) * _bitmap.width).toInt();
-    final y = ((artboardPosition.dy / _artboardRect.height) * _bitmap.height).toInt();
+    final x =
+        ((artboardPosition.dx / _artboardRect.width) * _bitmap.width).toInt();
+    final y =
+        ((artboardPosition.dy / _artboardRect.height) * _bitmap.height).toInt();
 
     if (x >= 0 && x < _bitmap.width && y >= 0 && y < _bitmap.height) {
       _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
@@ -108,13 +250,14 @@ class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProvid
     }
   }
 
-  ui.Rect _calculateArtboardRect(Size size) {
-    final width = min(size.width, _bitmap.width * (size.height / _bitmap.height)) * _scale;
+  Rect _calculateArtboardRect(Size size, ui.Offset panOffset, double scale) {
+    final width =
+        min(size.width, _bitmap.width * (size.height / _bitmap.height)) * scale;
     final height = width * (_bitmap.height / _bitmap.width);
 
     return Rect.fromLTWH(
-      _panOffset.dx + ((size.width - width) / 2),
-      _panOffset.dy + ((size.height - height) / 2),
+      panOffset.dx + ((size.width - width) / 2),
+      panOffset.dy + ((size.height - height) / 2),
       width,
       height,
     );
@@ -125,110 +268,74 @@ class _DrawingSurfaceState extends State<DrawingSurface> with SingleTickerProvid
     return LayoutBuilder(
       builder: (context, constraints) {
         final availableSize = constraints.biggest;
-        _artboardRect = _calculateArtboardRect(availableSize);
 
         final center = Offset(
           availableSize.width / 2,
           availableSize.height / 2,
         );
 
-        return GestureDetector(
-          onScaleStart: (details) {
-            _initialScale = _scale;
-            _zoomOrigin = details.localFocalPoint;
-            _initialPanOffset = _panOffset;
-            _animationController.stop();
-          },
-          onScaleUpdate: (details) {
-            if (_moveMode) {
-              setState(() {
-                if (details.scale == 1) {
-                  _panOffset += details.focalPointDelta;
-                } else {
-                  _scale = _initialScale * details.scale;
+        return ChangeNotifierProvider<GestureController>(
+          create: (context) => GestureController(this),
+          child: Consumer<GestureController>(
+            builder: (context, controller, child) {
+              _artboardRect = _calculateArtboardRect(availableSize, controller.panOffset, controller.scale);
 
-                  final centerDelta = _zoomOrigin - center;
-                  final scaleRatio = _scale / _initialScale;
-                  final newCenter = _zoomOrigin - (centerDelta * scaleRatio);
-
-                  _panOffset = (_initialPanOffset * details.scale) + (newCenter - center);
-                }
-              });
-            } else if (details.scale == 1) {
-              _drawPixel(details.localFocalPoint, constraints.biggest);
-            }
-          },
-          onTapDown: (details) {
-            if (!_moveMode) {
-              _drawPixel(details.localPosition, constraints.biggest);
-            }
-          },
-          onScaleEnd: (details) {
-            if (_moveMode) {
-              final velocity = details.velocity.pixelsPerSecond;
-              const velocityThreshold = 900.0;
-
-              if (velocity.distance < velocityThreshold) {
-                logger.info("WEAK");
-                return; // If not strong enough, don't start the animation
-              }
-
-              const deceleration = 0.01;
-              final scaledVelocity = velocity * 0.5;
-
-              final duration = (scaledVelocity.distance / deceleration).clamp(
-                  150, 600);
-
-              logger.info(duration);
-              final dxFinal = scaledVelocity.dx / (deceleration * 1000);
-              final dyFinal = scaledVelocity.dy / (deceleration * 1000);
-
-              _flingAnimation = Tween<Offset>(
-                begin: _panOffset,
-                end: _panOffset + Offset(dxFinal, dyFinal),
-              ).animate(
-                CurvedAnimation(
-                  parent: _animationController,
-                  curve: Curves.decelerate,
-                ),
-              );
-
-              _animationController.duration =
-                  Duration(milliseconds: duration.toInt());
-
-              // Start animation
-              _animationController.forward(from: 0.0);
-            }
-          },
-          child: _image != null
-              ? Stack(
-                  children: [
-                    CustomPaint(
-                      painter: DrawingSurfacePainter(_image!, _artboardRect),
-                      size: Size.infinite,
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      right: 10,
-                      child: IconButton(
-                        style: IconButton.styleFrom(
-                          backgroundColor: _moveMode ? Colors.green : Colors.transparent,
-                          foregroundColor: _moveMode ? Colors.white : Colors.black,
-                        ),
-                        iconSize: 64.0,
-                        onPressed: () {
-                          setState(() {
-                            _moveMode = !_moveMode;
-                          });
-                        },
-                        icon: const Icon(Icons.pan_tool_outlined),
+              return GestureDetector(
+                onScaleStart: _moveMode ? controller.onScaleStart : null,
+                onTapDown: (details) {
+                  if (!_moveMode) {
+                    _drawPixel(details.localPosition, constraints.biggest);
+                  }
+                },
+                onDoubleTapDown: (details) {
+                  if (_moveMode) {
+                    controller.onDoubleTapDown(details, center);
+                  }
+                },
+                onScaleUpdate: (details) {
+                  if (_moveMode) {
+                    controller.onScaleUpdate(details, center);
+                  } else if (details.scale == 1) {
+                    _drawPixel(details.localFocalPoint, constraints.biggest);
+                  }
+                },
+                onScaleEnd: _moveMode ? controller.onScaleEnd : null,
+                child: _image != null
+                    ? Stack(
+                        children: [
+                          CustomPaint(
+                            painter:
+                                DrawingSurfacePainter(_image!, _artboardRect),
+                            size: Size.infinite,
+                          ),
+                          Positioned(
+                            bottom: 10,
+                            right: 10,
+                            child: IconButton(
+                              style: IconButton.styleFrom(
+                                backgroundColor: _moveMode
+                                    ? Colors.green
+                                    : Colors.transparent,
+                                foregroundColor:
+                                    _moveMode ? Colors.white : Colors.black,
+                              ),
+                              iconSize: 64.0,
+                              onPressed: () {
+                                setState(() {
+                                  _moveMode = !_moveMode;
+                                });
+                              },
+                              icon: const Icon(Icons.pan_tool_outlined),
+                            ),
+                          ),
+                        ],
+                      )
+                    : const Center(
+                        child: CircularProgressIndicator(),
                       ),
-                    ),
-                  ],
-                )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                ),
+              );
+            },
+          ),
         );
       },
     );
@@ -241,7 +348,7 @@ class DrawingSurfacePainter extends CustomPainter {
 
   DrawingSurfacePainter(this.image, this.artboardRect);
 
-  ui.Rect _getSrcRect() {
+  Rect _getSrcRect() {
     return Rect.fromLTWH(0, 0, image.width.toDouble(), image.height.toDouble());
   }
 
