@@ -26,13 +26,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "PixaPencil",
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: ( context) => ToolNotifier(),
+      child: MaterialApp(
+        title: "PixaPencil",
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const MyHomePage(),
       ),
-      home: const MyHomePage(),
     );
   }
 }
@@ -61,95 +64,306 @@ class ToolButton extends StatelessWidget {
   }
 }
 
-class LineAlgorithm {
-  final Bitmap _bitmap;
 
-  LineAlgorithm(this._bitmap);
+void _drawLineY(Bitmap bitmap, Point from, Point to, ColorRGBA color) {
+  var x = from.x;
+  var y = from.y;
 
-  void _drawLineY(Point from, Point to) {
-    var x = from.x;
-    var y = from.y;
+  final differenceX = to.x - x;
+  var differenceY = to.y - y;
 
-    final differenceX = to.x - x;
-    var differenceY = to.y - y;
+  var yi = 1;
+  const xi = 1;
 
-    var yi = 1;
-    const xi = 1;
-
-    if (differenceY < 0) {
-      differenceY = -differenceY;
-      yi = -1;
-    }
-
-    var p = 2 * differenceY - differenceX;
-
-    while (x <= to.x) {
-      _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
-      ++x;
-
-      if (p < 0) {
-        p += 2 * differenceY;
-
-        if (differenceY > differenceX) {
-          x += xi;
-        }
-      } else {
-        p = p + 2 * differenceY - 2 * differenceX;
-        y += yi;
-      }
-    }
+  if (differenceY < 0) {
+    differenceY = -differenceY;
+    yi = -1;
   }
 
-  void _drawLineX(Point from, Point to) {
-    var x = from.x;
-    var y = from.y;
+  var p = 2 * differenceY - differenceX;
 
-    var differenceX = to.x - x;
-    final differenceY = to.y - y;
+  while (x <= to.x) {
+    bitmap.setPixel(x, y, color);
+    ++x;
 
-    var xi = 1;
+    if (p < 0) {
+      p += 2 * differenceY;
 
-    if (differenceX <= 0) {
-      differenceX = -differenceX;
-      xi = -1;
-    }
-
-    var p = 2 * differenceX - differenceY;
-
-    while (y <= to.y) {
-      _bitmap.setPixel(x, y, const ColorRGBA(0, 0, 0, 255));
-      y++;
-
-      if (p < 0) {
-        p += 2 * differenceX;
-      } else {
-        p = p + 2 * differenceX - 2 * differenceY;
+      if (differenceY > differenceX) {
         x += xi;
       }
-    }
-  }
-
-  void compute(Point p1, Point p2) {
-    final x = p1.x;
-    final y = p1.y;
-
-    final differenceX = p2.x - x;
-    final differenceY = p2.y - y;
-
-    if (differenceY <= differenceX) {
-      if (differenceY.abs() > differenceX) {
-        _drawLineX(p2, p1);
-      } else {
-        _drawLineY(p1, p2);
-      }
     } else {
-      if (differenceX.abs() > differenceY) {
-        _drawLineY(p2, p1);
-      } else {
-        _drawLineX(p1, p2);
-      }
+      p = p + 2 * differenceY - 2 * differenceX;
+      y += yi;
     }
   }
+}
+
+void _drawLineX(Bitmap bitmap, Point from, Point to, ColorRGBA color) {
+  var x = from.x;
+  var y = from.y;
+
+  var differenceX = to.x - x;
+  final differenceY = to.y - y;
+
+  var xi = 1;
+
+  if (differenceX <= 0) {
+    differenceX = -differenceX;
+    xi = -1;
+  }
+
+  var p = 2 * differenceX - differenceY;
+
+  while (y <= to.y) {
+    bitmap.setPixel(x, y, color);
+    y++;
+
+    if (p < 0) {
+      p += 2 * differenceX;
+    } else {
+      p = p + 2 * differenceX - 2 * differenceY;
+      x += xi;
+    }
+  }
+}
+
+void drawLine(Bitmap bitmap, Point from, Point to, ColorRGBA color) {
+  final x = from.x;
+  final y = from.y;
+
+  final differenceX = to.x - x;
+  final differenceY = to.y - y;
+
+  if (differenceY <= differenceX) {
+    if (differenceY.abs() > differenceX) {
+      _drawLineX(bitmap, to, from, color);
+    } else {
+      _drawLineY(bitmap, from, to, color);
+    }
+  } else {
+    if (differenceX.abs() > differenceY) {
+      _drawLineY(bitmap, to, from, color);
+    } else {
+      _drawLineX(bitmap, from, to, color);
+    }
+  }
+}
+
+typedef Vector = (double x, double y);
+
+extension VectorUtils on Vector {
+  double get x => $1;
+  double get y => $2;
+
+  @pragma('vm:prefer-inline')
+  Vector subtract(Vector v1) {
+    return (x - v1.x, y - v1.y);
+  }
+
+  @pragma('vm:prefer-inline')
+  Vector add(Vector v1) {
+    return (x + v1.x, y + v1.y);
+  }
+
+  @pragma('vm:prefer-inline')
+  double dot(Vector v2) {
+    return x * v2.x + y * v2.y;
+  }
+
+  @pragma('vm:prefer-inline')
+  double magnitude() {
+    return sqrt(x * x + y * y);
+  }
+
+  @pragma('vm:prefer-inline')
+  Vector normalize() {
+    final mag = magnitude();
+
+    if (mag == 0) {
+      return (0, 0);
+    }
+
+    return (x / mag, y / mag);
+  }
+}
+class BitmapIterator {
+  final Bitmap _bitmap;
+
+  BitmapIterator(this._bitmap);
+
+  int _x = 0;
+  int _y = 0;
+
+  int get x => _x;
+  int get y => _y;
+
+  @pragma('vm:prefer-inline')
+  int get currentPixelIndex => (_y * _bitmap.width + _x) * Bitmap.rgbaByteCount;
+
+  @pragma('vm:prefer-inline')
+  int get currentPixel => _bitmap.getPixel(x, y).toHex();
+
+  @pragma('vm:prefer-inline')
+  void put(ColorRGBA color) {
+    _bitmap.setPixel(x, y, color);
+  }
+
+  @pragma("vm:prefer-inline")
+  ColorRGBA getPixel(int x, int y) => _bitmap.getPixel(x, y);
+
+  void reset() {
+    _x = 0;
+    _y = 0;
+  }
+
+  @pragma('vm:prefer-inline')
+  bool moveNext() {
+    // Move the iterator through the bitmap.
+    // - Start by moving rightwards along the x-axis.
+    // - Once the iterator reaches the final x position in the row,
+    // - ...move downwards to the next row on the y-axis and reset the x position to 0.
+    // - This continues until the entire bitmap is processed...
+
+    if (_x < _bitmap.width - 1) {
+      ++_x;
+    } else if (_y < _bitmap.height - 1) {
+      _x = 0;
+      ++_y;
+    } else {
+      return false;
+    }
+
+    return true;
+  }
+
+  @pragma('vm:prefer-inline')
+  bool moveHorizontal([int steps = 1]) {
+    final newX = _x + steps;
+
+    if (newX < _bitmap.width) {
+      _x = newX;
+    } else if (_y < _bitmap.height - 1) {
+      _x = 0;
+      ++_y;
+    } else {
+      return false;
+    }
+
+    return true;
+  }
+
+  @pragma('vm:prefer-inline')
+  bool moveVertical([int steps = 1]) {
+    final newY = _y + steps;
+
+    if (newY < _bitmap.height) {
+      _y = newY;
+    } else if (_x < _bitmap.width - 1) {
+      _y = 0;
+      ++_x;
+    } else {
+      return false;
+    }
+
+    return true;
+  }
+
+  @pragma('vm:prefer-inline')
+  void moveTo(int x, int y) {
+    _x = x;
+    _y = y;
+  }
+}
+
+@pragma('vm:prefer-inline')
+int interpolateColors(int c0, int c1, double factor) {
+  final c0r = (c0 >> 24) & 0xFF;
+  final c0g = (c0 >> 16) & 0xFF;
+  final c0b = (c0 >> 8) & 0xFF;
+  final c0a = c0 & 0xFF;
+
+  final c1r = (c1 >> 24) & 0xFF;
+  final c1g = (c1 >> 16) & 0xFF;
+  final c1b = (c1 >> 8) & 0xFF;
+  final c1a = c1 & 0xFF;
+
+  final r = (c0r + factor * (c1r - c0r)).round();
+  final g = (c0g + factor * (c1g - c0g)).round();
+  final b = (c0b + factor * (c1b - c0b)).round();
+  final a = (c0a + factor * (c1a - c0a)).round();
+
+  return (r << 24) | (g << 16) | (b << 8) | a;
+}
+
+void drawLinearGradient(Bitmap source, int fromX, int fromY, int toX, int toY, ColorRGBA fromColor, ColorRGBA toColor) {
+  if (fromColor == toColor) {
+    // clear
+  }
+
+  final Vector gradientStart = (fromX.toDouble(), fromY.toDouble());
+  final Vector gradientEnd = (toX.toDouble(), toY.toDouble());
+
+  final gradientLine = gradientEnd.subtract(gradientStart);
+  final gradientLineMagnitude = gradientLine.magnitude();
+
+  final gradientLineNorm = gradientLine.normalize();
+
+  if (fromColor.a == 0 && toColor.a != 0) {
+    fromColor = ColorRGBA(fromColor.r, fromColor.g, fromColor.b, 0);
+  } else if (fromColor.a != 0 && toColor.a == 0) {
+    toColor = ColorRGBA(toColor.r, toColor.g, toColor.b, 0);
+  }
+
+  final sourceIterator = BitmapIterator(source);
+
+  const steps = 256;
+  final colorLUT = List<int>.generate(steps, (i) {
+    final double factor = i / (steps - 1);
+    return interpolateColors(fromColor.toHex(), toColor.toHex(), factor);
+  });
+
+  ColorRGBA colorToSet;
+
+  do {
+    Vector curPixel = (sourceIterator.x.toDouble(), sourceIterator.y.toDouble());
+    curPixel = curPixel.subtract(gradientStart);
+
+    final projFactor = curPixel.dot(gradientLineNorm) / gradientLineMagnitude;
+
+    if (projFactor > 1) {
+      colorToSet = toColor;
+    } else if (projFactor < 0) {
+      colorToSet = fromColor;
+    } else {
+      final lutIndex = (projFactor * (steps - 1)).clamp(0, steps - 1).toInt();
+      colorToSet = ColorRGBA.fromHex(colorLUT[lutIndex]);
+    }
+
+    sourceIterator.put(colorToSet);
+
+  } while (sourceIterator.moveNext());
+}
+
+enum ToolType {
+  pencil(Icons.draw),
+  eraser(Icons.phonelink_erase),
+  gradient(Icons.gradient);
+
+  Tool getToolInstance(Bitmap bitmap) {
+    switch (this) {
+      case ToolType.pencil:
+        return PencilTool(bitmap);
+      case ToolType.eraser:
+        return EraserTool(bitmap);
+      case ToolType.gradient:
+        return GradientTool(bitmap);
+    }
+  }
+
+  final IconData icon;
+
+  const ToolType(this.icon);
 }
 
 typedef Point = ({int x, int y});
@@ -190,9 +404,7 @@ abstract class DrawingTool extends Tool {
 }
 
 class PencilTool extends DrawingTool {
-  late final LineAlgorithm _lineAlgorithm;
-
-  PencilTool(super._bitmap) : _lineAlgorithm = LineAlgorithm(_bitmap);
+  PencilTool(super._bitmap);
 
   @override
   void drawPath(Point start, Point end) {
@@ -200,33 +412,127 @@ class PencilTool extends DrawingTool {
       _bitmap.setPixel(
         start.x,
         start.y,
-        const ColorRGBA(0, 0, 0, 255),
+        ColorRGBA.black,
       );
     } else {
-      _lineAlgorithm.compute(start, end);
+      drawLine(_bitmap, start, end, ColorRGBA.black);
     }
   }
 }
 
-class ToolBar extends StatelessWidget {
-  const ToolBar({super.key});
+class EraserTool extends DrawingTool {
+  EraserTool(super._bitmap);
+
+  @override
+  void drawPath(Point start, Point end) {
+    if (start == end) {
+      _bitmap.setPixel(
+        start.x,
+        start.y,
+        ColorRGBA.transparent,
+      );
+    } else {
+      drawLine(_bitmap, start, end, ColorRGBA.transparent);
+    }
+  }
+}
+
+class GradientTool extends Tool {
+  Logger logger = Logger("GradientTool");
+  Point? startPoint;
+
+  GradientTool(super._bitmap);
+
+  @override
+  void onTouchDown(Point point) {
+    startPoint = point;
+  }
+
+  @override
+  void onTouchMove(Point point) {
+    if (startPoint == null) return;
+
+    logger.info("Drawing gradient");
+
+    drawLinearGradient(
+      _bitmap,
+      startPoint!.x,
+      startPoint!.y,
+      point.x,
+      point.y,
+      ColorRGBA.black,
+      const ColorRGBA(255, 0, 0, 255),
+    );
+  }
+
+  @override
+  void onTouchUp() {
+    startPoint = null;
+  }
+}
+
+class ColorSwatchPanel extends StatelessWidget {
+  static const List<ColorRGBA> _colors = [
+    ColorRGBA(0, 0, 0, 255),
+    ColorRGBA(255, 255, 255, 255),
+    ColorRGBA(255, 0, 0, 255),
+    ColorRGBA(0, 255, 0, 255),
+    ColorRGBA(0, 0, 255, 255),
+    ColorRGBA(255, 255, 0, 255),
+    ColorRGBA(0, 255, 255, 255),
+    ColorRGBA(255, 0, 255, 255),
+    ColorRGBA(255, 165, 0, 255),
+    ColorRGBA(128, 0, 128, 255),
+  ];
+
+  const ColorSwatchPanel({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          for (final color in _colors)
+            Container(
+              height: 50,
+              width: 50,
+              color: ui.Color.fromARGB(color.a, color.r, color.g, color.b),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class ToolNotifier extends ChangeNotifier {
+  var _currentToolType = ToolType.pencil;
+
+  ToolType get currentToolType => _currentToolType;
+
+  set currentToolType(ToolType toolType) {
+    _currentToolType = toolType;
+    notifyListeners();
+  }
+}
+
+class ToolPanel extends StatelessWidget {
+  const ToolPanel({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final toolNotifier = Provider.of<ToolNotifier>(context);
+    
     return Container(
       color: Colors.green,
       child: Row(
         children: [
-          ToolButton(
-            icon: Icons.draw,
-            onPressed: () { },
-            isSelected: true,
-          ),
-          ToolButton(
-            icon: Icons.phonelink_erase_outlined,
-            onPressed: () { },
-            isSelected: false,
-          ),
+          for (final toolType in ToolType.values) 
+            ToolButton(
+              icon: toolType.icon,
+              onPressed: () => toolNotifier.currentToolType = toolType,
+              isSelected: toolNotifier.currentToolType == toolType,
+            ),
         ],
       ),
     );
@@ -297,7 +603,6 @@ class GestureController with ChangeNotifier {
 
   void onDoubleTapDown(TapDownDetails details, Offset center) {
     if (_zoomAnimationController.isAnimating) {
-      logger.info("STOPPPPED");
       _zoomAnimationController.stop(canceled: true);
     }
 
@@ -402,7 +707,8 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: DrawingSurface(),
           ),
-          ToolBar(),
+          ColorSwatchPanel(),
+          ToolPanel(),
         ],
       ),
     );
@@ -424,7 +730,6 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
   ui.Image? _image;
   bool _moveMode = false;
   final Logger logger = Logger("DrawingSurface");
-  late final PencilTool _pencilTool;
 
   @override
   void initState() {
@@ -432,7 +737,6 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
 
     _bitmap = Bitmap(100, 100);
     _updateImage();
-    _pencilTool = PencilTool(_bitmap);
   }
 
   Future<void> _updateImage() async {
@@ -464,92 +768,103 @@ class _DrawingSurfaceState extends State<DrawingSurface> with TickerProviderStat
       height,
     );
   }
+  Tool? activeTool;
+  ToolType? previousToolType;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final toolType = Provider.of<ToolNotifier>(context).currentToolType;
+    if (toolType != previousToolType) {
+      activeTool = toolType.getToolInstance(_bitmap);
+      previousToolType = toolType;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final availableSize = constraints.biggest;
+    return ChangeNotifierProvider(
+      create: (context) => GestureController(this),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final availableSize = constraints.biggest;
+          final center = Offset(
+            availableSize.width / 2,
+            availableSize.height / 2,
+          );
+          final gestureController = Provider.of<GestureController>(context);
 
-        final center = Offset(
-          availableSize.width / 2,
-          availableSize.height / 2,
-        );
-
-        return ChangeNotifierProvider<GestureController>(
-          create: (context) => GestureController(this),
-          child: Consumer<GestureController>(
-            builder: (context, controller, child) {
-              _artboardRect = _calculateArtboardRect(availableSize, controller.panOffset, controller.scale);
-
-              return GestureDetector(
-                onScaleStart: _moveMode ? controller.onScaleStart : null,
-                onTapDown: (details) {
-                  if (!_moveMode) {
-                    Point point = _convertLocalToBitmapCoordinates(details.localPosition);
-                    _pencilTool.onTouchDown(point);
-                    _updateImage();
-                  }
-                },
-                onDoubleTapDown: (details) {
-                  if (_moveMode) {
-                    controller.onDoubleTapDown(details, center);
-                  }
-                },
-                onScaleUpdate: (details) {
-                  if (_moveMode) {
-                    controller.onScaleUpdate(details, center);
-                  } else if (details.scale == 1) {
-                    Point point = _convertLocalToBitmapCoordinates(details.localFocalPoint);
-                    _pencilTool.onTouchMove(point);
-                    _updateImage();
-                  }
-                },
-                onScaleEnd: (details) {
-                  if (_moveMode) {
-                    controller.onScaleEnd(details);
-                  } else {
-                    _pencilTool.onTouchUp();
-                  }
-                },
-                child: _image != null
-                    ? Stack(
-                        children: [
-                          CustomPaint(
-                            painter:
-                                DrawingSurfacePainter(_image!, _artboardRect),
-                            size: Size.infinite,
-                          ),
-                          Positioned(
-                            bottom: 10,
-                            right: 10,
-                            child: IconButton(
-                              style: IconButton.styleFrom(
-                                backgroundColor: _moveMode
-                                    ? Colors.green
-                                    : Colors.transparent,
-                                foregroundColor:
-                                    _moveMode ? Colors.white : Colors.black,
-                              ),
-                              iconSize: 64.0,
-                              onPressed: () {
-                                setState(() {
-                                  _moveMode = !_moveMode;
-                                });
-                              },
-                              icon: const Icon(Icons.pan_tool_outlined),
-                            ),
-                          ),
-                        ],
-                      )
-                    : const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-              );
+          _artboardRect = _calculateArtboardRect(
+              availableSize,
+            gestureController.panOffset,
+            gestureController.scale,
+          );
+      
+          return GestureDetector(
+            onScaleStart: _moveMode ? gestureController.onScaleStart : null,
+            onTapDown: (details) {
+              if (!_moveMode) {
+                Point point = _convertLocalToBitmapCoordinates(details.localPosition);
+                activeTool!.onTouchDown(point);
+                _updateImage();
+              }
             },
-          ),
-        );
-      },
+            onDoubleTapDown: (details) {
+              if (_moveMode) {
+                gestureController.onDoubleTapDown(details, center);
+              }
+            },
+            onScaleUpdate: (details) {
+              if (_moveMode) {
+                gestureController.onScaleUpdate(details, center);
+              } else if (details.scale == 1) {
+                Point point = _convertLocalToBitmapCoordinates(details.localFocalPoint);
+                activeTool!.onTouchMove(point);
+                _updateImage();
+              }
+            },
+            onScaleEnd: (details) {
+              if (_moveMode) {
+                gestureController.onScaleEnd(details);
+              } else {
+                activeTool!.onTouchUp();
+              }
+            },
+            child: _image != null
+                ? Stack(
+                    children: [
+                      CustomPaint(
+                        painter:
+                            DrawingSurfacePainter(_image!, _artboardRect),
+                        size: Size.infinite,
+                      ),
+                      Positioned(
+                        bottom: 10,
+                        right: 10,
+                        child: IconButton(
+                          style: IconButton.styleFrom(
+                            backgroundColor: _moveMode
+                                ? Colors.green
+                                : Colors.transparent,
+                            foregroundColor:
+                                _moveMode ? Colors.white : Colors.black,
+                          ),
+                          iconSize: 64.0,
+                          onPressed: () {
+                            setState(() {
+                              _moveMode = !_moveMode;
+                            });
+                          },
+                          icon: const Icon(Icons.pan_tool_outlined),
+                        ),
+                      ),
+                    ],
+                  )
+                : const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+          );
+        },
+      ),
     );
   }
 }
@@ -585,20 +900,38 @@ class ColorRGBA {
   final int a;
 
   const ColorRGBA(this.r, this.g, this.b, this.a);
+
+  const ColorRGBA.fromHex(int input)
+      : r = (input >> 24) & 0xFF,
+        g = (input >> 16) & 0xFF,
+        b = (input >> 8) & 0xFF,
+        a = input & 0xFF;
+
+  static const ColorRGBA black = ColorRGBA(0, 0, 0, 255);
+  static const ColorRGBA transparent = ColorRGBA(0, 0, 0, 0);
+
+  @pragma("vm:prefer-inline")
+  int toHex() {
+    return (r << 24) | (g << 16) | (b << 8) | a;
+  }
 }
 
 class Bitmap {
-  static const _bytesPerPixel = 4;
+  static const rgbaByteCount = 4;
 
   final int width;
   final int height;
   final Uint8List _pixels;
 
   Bitmap(this.width, this.height)
-      : _pixels = Uint8List(width * height * _bytesPerPixel);
+      : _pixels = Uint8List(width * height * rgbaByteCount);
+
+  Bitmap.fromPixels(this._pixels, this.width, this.height);
+
+  ByteBuffer get buffer => _pixels.buffer;
 
   int _getIndex(int x, int y) {
-    return (y * width + x) * _bytesPerPixel;
+    return (y * width + x) * rgbaByteCount;
   }
 
   ColorRGBA getPixel(int x, int y) {
