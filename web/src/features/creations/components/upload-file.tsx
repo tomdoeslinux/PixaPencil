@@ -1,7 +1,6 @@
 import { Flex, Input, Image, IconButton, Text } from "@chakra-ui/react"
 import React, { useState, useRef } from "react"
 import { useForm } from "react-hook-form"
-import { MdCloudUpload, MdOutlineEdit } from "react-icons/md"
 
 interface UploadFileProps {
   onUploadSuccess: (file: File) => void
@@ -45,7 +44,7 @@ export default function UploadFile(props: UploadFileProps) {
           justifyContent="center"
           gap="8px"
         >
-          <MdCloudUpload size={30} />
+          {/* <MdCloudUpload size={30} /> */}
 
           <Text textAlign="center" width="100%">
             Drop file here or
@@ -82,7 +81,7 @@ export default function UploadFile(props: UploadFileProps) {
             variant="outline"
             background="white"
             right="0"
-            icon={<MdOutlineEdit />}
+            // icon={<MdOutlineEdit />}
             aria-label="Replace file"
             borderRadius="999px"
             margin="8px"

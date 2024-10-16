@@ -20,7 +20,7 @@ export default function CreationDetailsPage(props: CreationDetailsPageProps) {
   return (
     <CreationDetails
       creation={creation}
-      onNavigation={(arg) => {}}
+      onNavigation={() => {}}
       commentsSlot={
         <CommentsList
           creationId={props.creationId}

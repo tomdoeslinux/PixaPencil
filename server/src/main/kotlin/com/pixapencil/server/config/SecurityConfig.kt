@@ -28,6 +28,7 @@ class SecurityConfig {
                 authorize(HttpMethod.POST, "/api/users/login", permitAll)
                 authorize(HttpMethod.POST, "/api/users/verify", permitAll)
                 authorize(HttpMethod.GET, "/api/creations/gallery", permitAll)
+                authorize(HttpMethod.GET, "/api/creations/daily-creation", permitAll)
                 authorize(anyRequest, authenticated)
             }
 

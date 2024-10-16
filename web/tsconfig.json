@@ -23,10 +23,11 @@
     "baseUrl": ".",
 
     "paths": {
-      "@/components": ["src/components"],
+      "@/components": ["src/components/index"],
       "@/api/*": ["src/api/*"],
       "@/features/*": ["src/features/*"],
-      "@/types/*": ["src/types/*"]
+      "@/types/*": ["src/types/*"],
+      "@/assets": ["src/assets/index"],
     },
 
     "types": ["vitest/importMeta", "vitest/globals", "@testing-library/jest-dom"]

@@ -3,13 +3,17 @@ package com.pixapencil.server.controllers
 import com.pixapencil.server.dtos.UploadCreationDTO
 import com.pixapencil.server.services.AuthUser
 import com.pixapencil.server.services.CreationService
+import com.pixapencil.server.services.DailyCreationService
 import org.springframework.data.domain.PageRequest
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/creations")
-class CreationController(private val creationService: CreationService) {
+class CreationController(
+    private val creationService: CreationService,
+    private val dailyCreationService: DailyCreationService,
+) {
 
     @GetMapping("/gallery")
     fun getCreations(
@@ -49,4 +53,7 @@ class CreationController(private val creationService: CreationService) {
         @AuthenticationPrincipal authUser: AuthUser,
         @RequestBody uploadCreation: UploadCreationDTO,
     ) = creationService.uploadCreation(uploadCreation, authUser)
+
+    @GetMapping("/daily-creation")
+    fun getDailyCreation() = dailyCreationService.getDailyCreation()
 }

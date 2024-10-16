@@ -1,20 +1,23 @@
-import { Flex, Text, Button, Box } from "@chakra-ui/react"
-import { MdCloudUpload } from "react-icons/md"
+import { Flex, Text } from "@chakra-ui/react"
 import { useState } from "react"
 import {
   CreationsGrid,
-  UploadCreationModal,
-  CreationDetailPopup,
+  CreationDetailsModal,
   useGetCreationsQuery,
+  TopBanner,
 } from "@/features/creations"
 import { Creation } from "@/types/root-types"
 import { CommentsList, useGetCommentsQuery } from "@/features/comments"
+import { PXTag, PXTags, usePXModal } from "@/components"
 
 export default function CreationsPage() {
-  const [showUploadModal, setShowUploadModal] = useState(false)
-  const [selectedCreation, setSelectedCreation] = useState<Creation | null>(
-    null,
-  )
+  const {
+    showModal: showCreationDetailsModal,
+    getModalProps: getCreationDetailsModalProps,
+  } = usePXModal()
+  const [selectedCreation, setSelectedCreation] = useState<
+    Creation | undefined
+  >(undefined)
   const { data: creationsResponse, refetch: refetchCreations } =
     useGetCreationsQuery(0)
   const creations = creationsResponse?.content
@@ -31,66 +34,70 @@ export default function CreationsPage() {
   }
 
   return (
-    <Flex
-      maxWidth="100vw"
-      alignItems="center"
-      flexDirection="column"
-      marginX="32px"
-    >
-      <Flex maxWidth="1200px" width="100%" flexDirection="column">
-        <Button
-          leftIcon={<MdCloudUpload />}
-          marginLeft="auto"
-          onClick={() => setShowUploadModal(true)}
-          textTransform="uppercase"
-          colorScheme="telegram"
-          marginTop="32px"
-          marginBottom="16px"
-        >
-          Upload
-        </Button>
+    <Flex maxWidth="100vw" flexDirection="column">
+      <TopBanner />
+
+      <Flex
+        width="1200px"
+        flexDirection="column"
+        alignSelf="center"
+        paddingTop="48px"
+      >
+        <PXTags>
+          <PXTag>Retro</PXTag>
+          <PXTag>Vintage</PXTag>
+          <PXTag>Modern</PXTag>
+          <PXTag>Classic</PXTag>
+          <PXTag>Futuristic</PXTag>
+          <PXTag>Eco</PXTag>
+          <PXTag>Minimalist</PXTag>
+          <PXTag>Art Deco</PXTag>
+          <PXTag>Baroque</PXTag>
+          <PXTag>Gothic</PXTag>
+          <PXTag>Victorian</PXTag>
+          <PXTag>Contemporary</PXTag>
+          <PXTag>Industrial</PXTag>
+          <PXTag>Rustic</PXTag>
+          <PXTag>Scandinavian</PXTag>
+          <PXTag>Mediterranean</PXTag>
+          <PXTag>Bohemian</PXTag>
+          <PXTag>Geometric</PXTag>
+          <PXTag>Nautical</PXTag>
+          <PXTag>Zen</PXTag>
+          <PXTag>Hi-Tech</PXTag>
+        </PXTags>
 
         <CreationsGrid
           creations={creations}
-          onCreationClick={(creation) => setSelectedCreation(creation)}
+          onCreationClick={(creation) => {
+            setSelectedCreation(creation)
+            showCreationDetailsModal()
+          }}
         />
       </Flex>
 
-      {selectedCreation && (
-        <CreationDetailPopup
-          creation={selectedCreation}
-          commentsSlot={
-            <CommentsList
-              creationId={selectedCreation.id}
-              refetchComments={refetchComments}
-              comments={comments}
-            />
-          }
-          onClose={() => setSelectedCreation(null)}
-          onNavigation={(direction) => {
-            const selectedCreationIndex = creations.indexOf(selectedCreation)
+      <CreationDetailsModal
+        {...getCreationDetailsModalProps({
+          onClose: () => setSelectedCreation(undefined),
+        })}
+        creation={selectedCreation}
+        commentsSlot={<CommentsList creation={selectedCreation!} />}
+        // onNavigation={(direction) => {
+        //   const selectedCreationIndex = creations.indexOf(selectedCreation)
 
-            if (direction === "right") {
-              const nextIndex = selectedCreationIndex + 1
-              if (nextIndex < creations.length) {
-                setSelectedCreation(creations[nextIndex])
-              }
-            } else if (direction === "left") {
-              const prevIndex = selectedCreationIndex - 1
-              if (prevIndex >= 0) {
-                setSelectedCreation(creations[prevIndex])
-              }
-            }
-          }}
-        />
-      )}
-
-      {showUploadModal && (
-        <UploadCreationModal
-          onUploadSuccess={() => refetchCreations()}
-          onClose={() => setShowUploadModal(false)}
-        />
-      )}
+        //   if (direction === "right") {
+        //     const nextIndex = selectedCreationIndex + 1
+        //     if (nextIndex < creations.length) {
+        //       setSelectedCreation(creations[nextIndex])
+        //     }
+        //   } else if (direction === "left") {
+        //     const prevIndex = selectedCreationIndex - 1
+        //     if (prevIndex >= 0) {
+        //       setSelectedCreation(creations[prevIndex])
+        //     }
+        //   }
+        // }}
+      />
     </Flex>
   )
 }

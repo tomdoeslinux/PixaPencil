@@ -17,7 +17,7 @@ const authSlice = createSlice({
   reducers: {
     logout(state) {
       state.isAuthenticated = false
-      delete state.user
+      state.user = undefined
     },
   },
   extraReducers: (builder) => {

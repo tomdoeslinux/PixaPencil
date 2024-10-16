@@ -19,7 +19,7 @@ module.exports = {
     "prettier/prettier": "error",
     "no-restricted-imports": [
       "error", { 
-        "patterns": ["@/features/*/*", "@/components/*/*", "@/app/*/*"] 
+        "patterns": ["@/features/*/*", "@/components/*/*", "@/app/*/*"]  // TODO
       }
     ]
   },

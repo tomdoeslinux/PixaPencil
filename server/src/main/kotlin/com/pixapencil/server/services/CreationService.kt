@@ -1,7 +1,6 @@
 package com.pixapencil.server.services
 
 import com.pixapencil.server.domain.Creation
-import com.pixapencil.server.domain.User
 import com.pixapencil.server.dtos.*
 import com.pixapencil.server.repos.CreationRepository
 import com.pixapencil.server.repos.UserRepository
@@ -10,7 +9,6 @@ import jakarta.transaction.Transactional
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.stereotype.Service
 
 @Transactional

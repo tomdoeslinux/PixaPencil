@@ -10,13 +10,14 @@ interface CreationsGridProps {
 export default function CreationsGrid(props: CreationsGridProps) {
   return (
     <Grid
+      marginTop="24px"
       templateColumns={{
         base: "1fr",
         sm: "repeat(2, 1fr)",
         md: "repeat(3, 1fr)",
-        lg: "repeat(4, 1fr)",
       }}
-      gap="8px"
+      columnGap="20px"
+      rowGap="24px"
     >
       {props.creations.map((creation) => (
         <CreationCard

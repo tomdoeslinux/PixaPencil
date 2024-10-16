@@ -1,4 +1,4 @@
-import { Route } from "wouter"
+import { Route, useLocation } from "wouter"
 import CreationsPage from "./routes/creations-page"
 import CreationDetailsPage from "./routes/creation-details-page"
 import {
@@ -10,15 +10,20 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
+  Text,
+  Image,
 } from "@chakra-ui/react"
-import { MdPersonOutline } from "react-icons/md"
 import LoginPage from "./routes/login-page"
 import RegisterPage from "./routes/register-page"
-import { useAppDispatch, useAppSelector } from "src/store/app-store"
+import { useAppSelector } from "src/store/app-store"
+import { ComponentsPage } from "@/components"
+import { appLogo } from "@/assets"
+import { useEffect, useState } from "react"
 
 function AppRouter() {
   return (
     <>
+      <Route path="/components" component={ComponentsPage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/" component={CreationsPage} />
@@ -47,7 +52,7 @@ function Profile() {
           borderRadius="999px"
           cursor="pointer"
         >
-          <MdPersonOutline size={20} />
+          {/* <MdPersonOutline size={20} /> */}
         </Flex>
       </PopoverTrigger>
 
@@ -63,15 +68,61 @@ function Profile() {
   )
 }
 
+function AppBar() {
+  const [headerBg, setHeaderBg] = useState("transparent")
+
+  function handleScroll() {
+    if (window.scrollY > 15) {
+      setHeaderBg("white")
+    } else {
+      setHeaderBg("transparent")
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  return (
+    <Flex
+      position="fixed"
+      justifyContent="center"
+      height="60px"
+      zIndex="999"
+      width="100%"
+      paddingTop="24px"
+      paddingBottom="24px"
+      borderBottom="1px solid"
+      borderBottomColor={
+        headerBg === "transparent" ? "transparent" : "gray.100"
+      }
+      background={headerBg}
+      transition="background 0.3s, border-bottom-color 0.2s"
+      padding="16px"
+    >
+      <Flex width="1200px" alignItems="center" gap="12px">
+        <Image src={appLogo} width="35px" />
+        <Text
+          transition="color 0.3s"
+          color={headerBg === "transparent" ? "white" : undefined}
+        >
+          PixaPencil
+        </Text>
+      </Flex>
+    </Flex>
+  )
+}
+
 export default function App() {
+  const [location] = useLocation()
+
   return (
     <>
-      <Flex justifyContent="center" height="60px" shadow="md">
-        <Flex maxWidth="1200px" width="100%" alignItems="center" marginX="32px">
-          PixaPencil
-          <Profile />
-        </Flex>
-      </Flex>
+      {location !== "/components" && <AppBar />}
       <AppRouter />
     </>
   )

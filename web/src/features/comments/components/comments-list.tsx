@@ -1,42 +1,27 @@
-import { Box, Button, Input } from "@chakra-ui/react"
-import CommentItem from "./comment-item"
-import { Comment } from "@/types/root-types"
-import { useAddCommentMutation } from "../api/comments-api"
-import { useForm } from "react-hook-form"
+import { Box, Flex, Text, Image } from "@chakra-ui/react"
+import { Creation } from "@/types/root-types"
+import { PXButton, PXTextarea } from "@/components"
+import AddComment from "./add-comment"
 
 interface CommentsListProps {
-  comments?: Comment[]
-  refetchComments: () => void
-  creationId: number
+  creation: Creation
 }
 
 export default function CommentsList(props: CommentsListProps) {
-  const { register, handleSubmit } = useForm<{ text: string }>()
-  const [addComment] = useAddCommentMutation()
-
   return (
-    <Box>
-      {props.comments?.map((comment) => (
-        <CommentItem
-          key={comment.id}
-          comment={comment}
-          onActionSuccess={props.refetchComments}
-        />
-      ))}
-
+    <Box background="#F5F5F5" padding="33px">
       <Box
-        as="form"
-        onSubmit={handleSubmit(async (commentText) => {
-          await addComment({
-            text: commentText.text,
-            creationId: props.creationId,
-          })
-
-          props.refetchComments()
-        })}
+        padding="27px"
+        fontWeight="semibold"
+        background="white"
+        border="1px solid #E8E8E8"
+        borderRadius="13px"
       >
-        <Input placeholder="Add a comment" {...register("text")} />
-        <Button type="submit">OK</Button>
+        <Text fontWeight="semibold" fontSize="24px">
+          33 Comments
+        </Text>
+
+        <AddComment creation={props.creation} />
       </Box>
     </Box>
   )

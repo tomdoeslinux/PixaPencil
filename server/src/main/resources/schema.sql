@@ -46,3 +46,10 @@ CREATE TABLE IF NOT EXISTS verification_tokens (
     expiry_date TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+CREATE TABLE IF NOT EXISTS daily_creations (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL UNIQUE,
+    creation_id BIGINT NOT NULL,
+    FOREIGN KEY (creation_id) REFERENCES creations(id)
+)

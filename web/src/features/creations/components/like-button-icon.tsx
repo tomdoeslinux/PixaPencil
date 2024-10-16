@@ -1,5 +1,4 @@
 import { ButtonProps, IconButton } from "@chakra-ui/react"
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md"
 import { useLikeButton } from "../hooks/use-like-button"
 
 export interface LikeButtonIconProps extends ButtonProps {
@@ -28,7 +27,7 @@ export default function LikeButtonIcon({
       _hover={{}}
       _active={{}}
       borderRadius="999px"
-      icon={isLiked ? <MdFavorite size={20} /> : <MdFavoriteBorder size={20} />}
+      // icon={isLiked ? <MdFavorite size={20} /> : <MdFavoriteBorder size={20} />}
       aria-label="Like"
       onClick={toggleLike}
       color={color}
