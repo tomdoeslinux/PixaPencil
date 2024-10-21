@@ -19,6 +19,7 @@ import { useAppSelector } from "src/store/app-store"
 import { ComponentsPage } from "@/components"
 import { appLogo } from "@/assets"
 import { useEffect, useState } from "react"
+import { PXLayout, PXLayoutContent } from "src/components/ui/px-layout"
 
 function AppRouter() {
   return (
@@ -88,23 +89,19 @@ function AppBar() {
   }, [])
 
   return (
-    <Flex
+    <PXLayout
       position="fixed"
       justifyContent="center"
       height="60px"
       zIndex="999"
-      width="100%"
-      paddingTop="24px"
-      paddingBottom="24px"
       borderBottom="1px solid"
       borderBottomColor={
         headerBg === "transparent" ? "transparent" : "gray.100"
       }
       background={headerBg}
       transition="background 0.3s, border-bottom-color 0.2s"
-      padding="16px"
     >
-      <Flex width="1200px" alignItems="center" gap="12px">
+      <PXLayoutContent flexDirection="row" alignItems="center" gap="12px">
         <Image src={appLogo} width="35px" />
         <Text
           transition="color 0.3s"
@@ -112,8 +109,8 @@ function AppBar() {
         >
           PixaPencil
         </Text>
-      </Flex>
-    </Flex>
+      </PXLayoutContent>
+    </PXLayout>
   )
 }
 

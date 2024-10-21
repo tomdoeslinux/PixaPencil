@@ -12,7 +12,6 @@ export default function CreationCard(props: CreationCardProps) {
   return (
     <Box>
       <Box
-        height="308px"
         position="relative"
         borderRadius="13px"
         overflow="clip"
@@ -22,6 +21,7 @@ export default function CreationCard(props: CreationCardProps) {
           },
         }}
         cursor="pointer"
+        aspectRatio="4 / 3"
         onClick={props.onClick}
       >
         <Image

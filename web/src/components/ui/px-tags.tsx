@@ -123,7 +123,7 @@ export default function PXTags({
             } satisfies PXTagProps | React.Attributes)
           } else {
             throw new Error(
-              "PXChips can only contain PXChip components as children.",
+              "PXTags can only contain PXTag components as children.",
             )
           }
         })}

@@ -49,7 +49,6 @@ export const PXInput = forwardRef<HTMLInputElement, InputProps>(
     return (
       <Input
         variant="unstyled"
-        width="fit-content"
         height="48px"
         paddingX="18px"
         ref={ref}

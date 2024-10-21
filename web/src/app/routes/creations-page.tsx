@@ -9,6 +9,7 @@ import {
 import { Creation } from "@/types/root-types"
 import { CommentsList, useGetCommentsQuery } from "@/features/comments"
 import { PXTag, PXTags, usePXModal } from "@/components"
+import { PXLayout, PXLayoutContent } from "src/components/ui/px-layout"
 
 export default function CreationsPage() {
   const {
@@ -34,70 +35,96 @@ export default function CreationsPage() {
   }
 
   return (
+    // <Flex maxWidth="100vw" flexDirection="column">
+    //   <TopBanner />
+
+    //   <Flex
+    //     maxWidth="1200px"
+    //     width="100%"
+    //     flexDirection="column"
+    //     alignSelf="center"
+    //     paddingTop="48px"
+    //     marginX="16px"
+    //   >
+    //     <Flex
+    //       maxWidth="1200px"
+    //       width="100%"
+    //       flexDirection="column"
+    //       alignSelf="center"
+    //       paddingTop="48px"
+    //       marginX="16px"
+    //     >
+    //       <PXTags>
+    //         <PXTag>Retro</PXTag>
+    //         <PXTag>Vintage</PXTag>
+    //         <PXTag>Modern</PXTag>
+    //         <PXTag>Classic</PXTag>
+    //         <PXTag>Futuristic</PXTag>
+    //         <PXTag>Eco</PXTag>
+    //         <PXTag>Minimalist</PXTag>
+    //         <PXTag>Art Deco</PXTag>
+    //         <PXTag>Baroque</PXTag>
+    //         <PXTag>Gothic</PXTag>
+    //         <PXTag>Victorian</PXTag>
+    //         <PXTag>Contemporary</PXTag>
+    //         <PXTag>Industrial</PXTag>
+    //         <PXTag>Rustic</PXTag>
+    //         <PXTag>Scandinavian</PXTag>
+    //         <PXTag>Mediterranean</PXTag>
+    //         <PXTag>Bohemian</PXTag>
+    //         <PXTag>Geometric</PXTag>
+    //         <PXTag>Nautical</PXTag>
+    //         <PXTag>Zen</PXTag>
+    //         <PXTag>Hi-Tech</PXTag>
+    //       </PXTags>
+    //     </Flex>
+
+    //     <CreationsGrid
+    //       creations={creations}
+    //       onCreationClick={(creation) => {
+    //         setSelectedCreation(creation)
+    //         showCreationDetailsModal()
+    //       }}
+    //     />
+    //   </Flex>
+
+    //   <CreationDetailsModal
+    //     {...getCreationDetailsModalProps({
+    //       onClose: () => setSelectedCreation(undefined),
+    //     })}
+    //     creation={selectedCreation}
+    //     commentsSlot={<CommentsList creation={selectedCreation!} />}
+    //     // onNavigation={(direction) => {
+    //     //   const selectedCreationIndex = creations.indexOf(selectedCreation)
+
+    //     //   if (direction === "right") {
+    //     //     const nextIndex = selectedCreationIndex + 1
+    //     //     if (nextIndex < creations.length) {
+    //     //       setSelectedCreation(creations[nextIndex])
+    //     //     }
+    //     //   } else if (direction === "left") {
+    //     //     const prevIndex = selectedCreationIndex - 1
+    //     //     if (prevIndex >= 0) {
+    //     //       setSelectedCreation(creations[prevIndex])
+    //     //     }
+    //     //   }
+    //     // }}
+    //   />
+    // </Flex>
     <Flex maxWidth="100vw" flexDirection="column">
       <TopBanner />
 
-      <Flex
-        width="1200px"
-        flexDirection="column"
-        alignSelf="center"
-        paddingTop="48px"
-      >
-        <PXTags>
-          <PXTag>Retro</PXTag>
-          <PXTag>Vintage</PXTag>
-          <PXTag>Modern</PXTag>
-          <PXTag>Classic</PXTag>
-          <PXTag>Futuristic</PXTag>
-          <PXTag>Eco</PXTag>
-          <PXTag>Minimalist</PXTag>
-          <PXTag>Art Deco</PXTag>
-          <PXTag>Baroque</PXTag>
-          <PXTag>Gothic</PXTag>
-          <PXTag>Victorian</PXTag>
-          <PXTag>Contemporary</PXTag>
-          <PXTag>Industrial</PXTag>
-          <PXTag>Rustic</PXTag>
-          <PXTag>Scandinavian</PXTag>
-          <PXTag>Mediterranean</PXTag>
-          <PXTag>Bohemian</PXTag>
-          <PXTag>Geometric</PXTag>
-          <PXTag>Nautical</PXTag>
-          <PXTag>Zen</PXTag>
-          <PXTag>Hi-Tech</PXTag>
-        </PXTags>
-
-        <CreationsGrid
-          creations={creations}
-          onCreationClick={(creation) => {
-            setSelectedCreation(creation)
-            showCreationDetailsModal()
-          }}
-        />
-      </Flex>
-
-      <CreationDetailsModal
-        {...getCreationDetailsModalProps({
-          onClose: () => setSelectedCreation(undefined),
-        })}
-        creation={selectedCreation}
-        commentsSlot={<CommentsList creation={selectedCreation!} />}
-        // onNavigation={(direction) => {
-        //   const selectedCreationIndex = creations.indexOf(selectedCreation)
-
-        //   if (direction === "right") {
-        //     const nextIndex = selectedCreationIndex + 1
-        //     if (nextIndex < creations.length) {
-        //       setSelectedCreation(creations[nextIndex])
-        //     }
-        //   } else if (direction === "left") {
-        //     const prevIndex = selectedCreationIndex - 1
-        //     if (prevIndex >= 0) {
-        //       setSelectedCreation(creations[prevIndex])
-        //     }
-        //   }
-        // }}
-      />
+      <PXLayout>
+        <PXLayoutContent>
+          <CreationsGrid
+            creations={creations}
+            onCreationClick={(creation) => {
+              setSelectedCreation(creation)
+              showCreationDetailsModal()
+            }}
+          />
+        </PXLayoutContent>
+      </PXLayout>
     </Flex>
   )
 }

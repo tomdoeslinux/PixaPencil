@@ -8,6 +8,7 @@ import PXTag from "./ui/px-tag"
 import PXTextarea from "./ui/px-textarea"
 import { PXInput, PXInputGroup, PXInputLeftElement } from "./ui/px-input"
 import PXIconButton from "./ui/px-icon-button"
+import { PXLayoutContent, PXLayout } from "./ui/px-layout"
 
 interface ComponentSectionProps extends PropsWithChildren {
   title: string
@@ -15,7 +16,13 @@ interface ComponentSectionProps extends PropsWithChildren {
 
 function ComponentSection(props: ComponentSectionProps) {
   return (
-    <Flex flexDirection="column" gap="32px" as="section" marginTop="32px">
+    <Flex
+      width="100%"
+      flexDirection="column"
+      gap="32px"
+      as="section"
+      marginTop="32px"
+    >
       <Heading as="h2" size="lg">
         {props.title}
       </Heading>
@@ -32,13 +39,8 @@ export default function ComponentsPage() {
   const { showModal, getModalProps } = usePXModal()
 
   return (
-    <Flex width="100vw" justifyContent="center">
-      <Flex
-        flexDirection="column"
-        width="1200px"
-        marginTop="48px"
-        marginX="24px"
-      >
+    <PXLayout maxWidth="100vw">
+      <PXLayoutContent>
         <Heading as="h1" fontWeight="bold">
           Components
         </Heading>
@@ -94,7 +96,15 @@ export default function ComponentsPage() {
             <ICOHeart />
           </PXIconButton>
         </ComponentSection>
-      </Flex>
-    </Flex>
+
+        <ComponentSection title="Layout">
+          <PXLayout maxWidth="700px" background="blue">
+            <PXLayoutContent width="200px" height="500px">
+              Text
+            </PXLayoutContent>
+          </PXLayout>
+        </ComponentSection>
+      </PXLayoutContent>
+    </PXLayout>
   )
 }

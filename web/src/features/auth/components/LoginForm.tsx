@@ -1,45 +1,75 @@
-import { Box, Button, Flex, Input, Spinner } from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
-import { LoginUser, useLoginUserMutation } from "../api/auth-api"
-import { useLocation } from "wouter"
+import { Box, Text, Flex, Image } from "@chakra-ui/react"
+import { Creation } from "@/types/root-types"
+import { PXButton, PXInput } from "@/components"
+import { googleLogo } from "@/assets"
 
-export default function LoginForm() {
-  const { register, handleSubmit } = useForm<LoginUser>()
-  const [login, { isLoading }] = useLoginUserMutation()
+interface LoginForm {
+  dailyCreation: Creation
+}
 
-  const [, setLocation] = useLocation()
-
+export default function LoginForm(props: LoginForm) {
+  // should main page also have background pos center for main img?
   return (
-    <Box
-      as="form"
-      onSubmit={handleSubmit(async (loginArgs) => {
-        const result = await login(loginArgs)
-        const user = result.data
-
-        if (user) {
-          setLocation("/")
-        }
-      })}
+    <Flex
+      background={`url(${props.dailyCreation.imageUrl})`}
+      sx={{ imageRendering: "pixelated" }}
+      backgroundAttachment="fixed"
+      backgroundPosition="center"
+      width="100vw"
+      height="100vh"
+      backgroundSize="cover"
+      alignItems="center"
+      justifyContent="center"
     >
-      <Input background="white" />
+      <Flex
+        flexDirection="column"
+        width="600px"
+        padding="64px"
+        background="white"
+        borderRadius="xl"
+      >
+        <Text fontSize="4xl">Login</Text>
 
-      <Flex gap="8px" alignItems="center" width="100%">
-        <Flex background="blue">
-          <Box>
-            <Input background="white"></Input>
+        <Box marginTop="32px">
+          <Text>Username</Text>
+          <PXInput marginTop="6px" placeholder="E.g: user@example.com" />
+        </Box>
 
-            <Flex gap="8px" alignItems="center" width="100%">
-              <Box>
-                {/* <MdCloudUpload /> */}
-              </Box>
-            </Flex>
-          </Box>
+        <Box marginTop="32px">
+          <Text>Password</Text>
+          <PXInput marginTop="6px" placeholder="Enter password" />
+        </Box>
+
+        <PXButton marginTop="32px" width="100%">
+          Login
+        </PXButton>
+
+        <Flex marginY="24px" alignItems="center" gap="24px">
+          <Box flexGrow={1} borderTop="1px solid" borderColor="gray.100" />
+          <Text textAlign="center">Or</Text>
+          <Box flexGrow={1} borderTop="1px solid" borderColor="gray.100" />
         </Flex>
-      </Flex>
-      <Input placeholder="Email" {...register("email")} />
-      <Input placeholder="Password" type="password" {...register("password")} />
 
-      <Button type="submit">{isLoading ? <Spinner /> : "Login"}</Button>
-    </Box>
+        <PXButton
+          variant="outlined"
+          leftIcon={<Image width="20px" src={googleLogo} />}
+        >
+          Continue with Google
+        </PXButton>
+
+        <Text marginTop="32px" alignSelf="center">
+          No account?{" "}
+          <Box
+            as="span"
+            cursor="pointer"
+            color="px.blue.med"
+            textUnderlineOffset="4px"
+            _hover={{ textDecoration: "underline" }}
+          >
+            Create one!
+          </Box>
+        </Text>
+      </Flex>
+    </Flex>
   )
 }
