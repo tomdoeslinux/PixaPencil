@@ -45,5 +45,21 @@ void main() {
       final a = color.a;
       expect(a, equals(43));
     });
+
+    test("rgb converts to HSV properly", () {
+      final hsvValues = List.filled(3, 0.0);
+
+      Colors.rgbToHsv(96, 4, 66, hsvValues);
+
+      expect(hsvValues.map((c) => double.parse(c.toStringAsFixed(2))), [319.57, 0.96, 0.38]);
+    });
+
+    test("hsv converts to rgb properly", () {
+      final color = Colors.hsvToRgb(44, 0.99, 0.32);
+
+      expect(color.r, 82);
+      expect(color.g, 60);
+      expect(color.b, 1);
+    });
   });
 }

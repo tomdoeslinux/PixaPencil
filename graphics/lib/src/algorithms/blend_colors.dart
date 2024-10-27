@@ -1,6 +1,19 @@
 import '../core/color.dart';
 
 Color blendColors(Color foreground, Color background) {
+  // Optimization: If the background alpha is 255 and the foreground is partially transparent, you can blend normally without considering any transparency from the background.
+  if (foreground.a == 255) {
+    return foreground;
+  } else if (foreground.a == 0) {
+    return background;
+  } else if (background.a == 0) {
+    return foreground;
+  } else if (background.a == 255 && foreground.a == 0) {
+    return background;
+  } else if (background.a == 0 && foreground.a == 0) {
+    return 0;
+  }
+
   // Extract RGBA values from a color (represented as an integer, exp format (0xRRGGBBAA)
   final fgRed = foreground.r / 255.0;
   final fgGreen = foreground.g / 255.0;

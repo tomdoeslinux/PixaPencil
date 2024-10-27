@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 
 // TODO width doesn't need to be specified
 Future<Bitmap> loadBitmapFromImage(
-  String filename,
-  int width,
-  int height,
-) async {
+  String filename, [
+  int? width,
+  int? height,
+]) async {
   final file = File(filename);
   final fileBytes = await file.readAsBytes();
   final bytes = Uint8List.fromList(fileBytes);
@@ -28,10 +28,12 @@ Future<Bitmap> loadBitmapFromImage(
     throw ArgumentError("Unsupported number of channels");
   }
 
+  print("width: ${image.width}, height: ${image.height}, numChannels: ${image.numChannels}");
+
   return Bitmap.fromPixels(
     pixels,
-    width,
-    height,
+    width ?? image.width,
+    height ?? image.height,
     config: config,
   );
 }
