@@ -46,20 +46,39 @@ void main() {
       expect(a, equals(43));
     });
 
-    test("rgb converts to HSV properly", () {
-      final hsvValues = List.filled(3, 0.0);
+    test("rgb converts to hsl properly", () {
+      final hslValues = List.filled(3, 0.0);
 
-      Colors.rgbToHsv(96, 4, 66, hsvValues);
+      Colors.rgbToHsl(96, 4, 66, hslValues);
 
-      expect(hsvValues.map((c) => double.parse(c.toStringAsFixed(2))), [319.57, 0.96, 0.38]);
+      print(hslValues);
+
+      expect(hslValues.map((c) => double.parse(c.toStringAsFixed(3))), [320.000, 0.920, 0.196]);
     });
 
-    test("hsv converts to rgb properly", () {
-      final color = Colors.hsvToRgb(44, 0.99, 0.32);
+    
+    test("rgb converts to hsl properly (2)", () {
+      final hslValues = List.filled(3, 0.0);
+
+      Colors.rgbToHsl(15, 145, 231, hslValues);
+
+      expect(hslValues.map((c) => double.parse(c.toStringAsFixed(3))), [204.000, 0.878, 0.482]);
+    });
+
+    test("hsl converts to rgb properly", () {
+      final color = Colors.hslToRgb(44, 0.99, 0.32);
+
+      expect(color.r, 162);
+      expect(color.g, 119);
+      expect(color.b, 1);
+    });
+
+    test("hsl converts to rgb properly (2)", () {
+      final color = Colors.hslToRgb(7, 1, 0.16);
 
       expect(color.r, 82);
-      expect(color.g, 60);
-      expect(color.b, 1);
+      expect(color.g, 10);
+      expect(color.b, 0);
     });
   });
 }

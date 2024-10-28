@@ -7,16 +7,13 @@ import '../../utils.dart';
 void main() {
   group("Gaussian blur tests", () {
     Future<void> runGaussianBlurTest({required double radius}) async {
-      const width = 1280;
-      const height = 851;
-
       final bitmap = await loadBitmapFromImage(
-          "$testAssetPath/dummy_image.jpg", width, height);
+          "$testAssetPath/dummy_image.jpg");
       final blurredBitmap = gaussianBlur(bitmap, radius);
 
       final expectedFileName = "dummy_image_blur_$radius.jpg";
       final expectedBitmap =
-          await loadBitmapFromImage(expectedFileName, width, height);
+          await loadBitmapFromImage(expectedFileName);
 
       expect(bitmapsAreEqual(blurredBitmap, expectedBitmap), isTrue);
     }

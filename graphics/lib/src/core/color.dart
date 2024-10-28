@@ -7,6 +7,7 @@ class Colors {
   static Color green = 0x00FF00FF;
   static Color blue = 0x0000FFFF;
   static Color black = 0x0FF;
+  static Color white = 0xFFFFFFFF;
 
   static Color rgba(int r, int g, int b, int a) {
     return (r << 24) | (g << 16) | (b << 8) | a;
@@ -16,7 +17,7 @@ class Colors {
     return (r << 24) | (g << 16) | (b << 8) | 0xFF;
   }
 
-  static void rgbToHsv(int r, int g, int b, List<double> hsv) {
+  static void rgbToHsl(int r, int g, int b, List<double> hsv) {
     final r1 = r / 255.0;
     final g1 = g / 255.0;
     final b1 = b / 255.0;
@@ -26,7 +27,7 @@ class Colors {
 
     final chroma = rgbMax - rgbMin;
 
-    var hue = 0.0;
+    late double hue;
 
     if (chroma == 0) {
       hue = 0;
@@ -38,21 +39,29 @@ class Colors {
       hue = 60.0 * (((r1 - g1) / chroma) + 4);
     }
 
-    final saturation = rgbMax == 0 ? 0.0 : (chroma / rgbMax) * 100.0;
+    final lightness = (rgbMax + rgbMin) / 2;
 
-    hsv[0] = hue;
-    hsv[1] = saturation / 100.0;
-    hsv[2] = rgbMax;
+    late double saturation;
+    
+    if (rgbMax == 0) {
+      saturation = 0;
+    } else {
+      saturation = chroma / (1 - (2 * lightness - 1).abs());
+    }
+
+    hsv[0] = hue.roundToDouble();
+    hsv[1] = saturation;
+    hsv[2] = lightness;
   }
 
-  static Color hsvToRgb(double h, double s, double v) {
-    final chroma = v * s;
-    final x = chroma * (1 - ((h / 60.0) % 2 - 1).abs());
-    final m = v - chroma;
+  static Color hslToRgb(double h, double s, double l) {
+    final chroma = (1 - ((2 * l) - 1).abs()) * s;
+    final x = chroma * (1 - (((h / 60) % 2) - 1).abs());
+    final m = l - chroma / 2;
 
-    var rPrime = 0.0;
-    var gPrime = 0.0;
-    var bPrime = 0.0;
+    late double rPrime;
+    late double gPrime;
+    late double bPrime;
 
     if (h >= 0 && h < 60) {
       rPrime = chroma;

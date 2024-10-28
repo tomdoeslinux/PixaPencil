@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:graphics_core/src/core/color.dart';
 import '../core/bitmap.dart';
 import '../core/bitmap_iterator.dart';
+import '../core/color.dart';
 
 int _getGaussianKernelSize(double sigma) {
   final size = (sigma * 6.5).ceil();
