@@ -17,3 +17,24 @@ bool bitmapsAreEqual(Bitmap a, Bitmap b) {
 
   return true;
 }
+
+void benchmark(void Function() action, {required int iterations}) {
+  final times = <int>[];
+  final stopwatch = Stopwatch();
+
+  for (var i = 0; i < iterations; ++i) {
+    stopwatch.reset();
+    stopwatch.start();
+
+    action();
+
+    stopwatch.stop();
+    times.add(stopwatch.elapsedMilliseconds);
+  }
+
+  final totalTime = times.fold(0, (sum, time) => sum + time);
+  final avgTimeMillis = (totalTime / iterations.toDouble());
+
+  print(
+      'Average execution time over $iterations iterations: $avgTimeMillis ms');
+}

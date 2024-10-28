@@ -214,5 +214,29 @@ void main() {
 
       expect(bitmapsAreEqual(output1, output2), isTrue);
     });
+
+    test("layer benchmark - add and process single layer", () async {
+      final layerBg = SourceNode(
+          source: await loadBitmapFromImage(
+              "$testAssetPath/layer_benchmark_bg.png"));
+      final layerA = SourceNode(
+          source: await loadBitmapFromImage(
+              "$testAssetPath/layer_benchmark_a.png"));
+
+      benchmark(() {
+        final layerGraph = NodeGraph(layerBg);
+        final layerManager = LayerManager(layerGraph);
+
+        layerManager.addLayer(layerA);
+        layerGraph.process(Rect(
+          x: 0,
+          y: 0,
+          width: layerBg.source.width,
+          height: layerBg.source.height,
+        ));
+      }, iterations: 200);
+
+      expect(true, isTrue);
+    });
   });
 }

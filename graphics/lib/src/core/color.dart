@@ -42,7 +42,7 @@ class Colors {
     final lightness = (rgbMax + rgbMin) / 2;
 
     late double saturation;
-    
+
     if (rgbMax == 0) {
       saturation = 0;
     } else {
