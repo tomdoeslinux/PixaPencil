@@ -23,7 +23,7 @@ import com.therealbluepandabear.pixapencil.models.ColorPalette
 
 fun ColorPalette.getFindAndReplaceCompatibleColorPaletteColorData(): MutableList<Int> {
     val palette = JsonConverter.convertJsonStringToListOfInt(colorPaletteColorData).toMutableList()
-    palette.removeLast()
+    palette.removeAt(palette.size - 1)
 
     return palette
 }

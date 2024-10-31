@@ -24,6 +24,7 @@ import android.view.Menu
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.takusemba.spotlight.Spotlight
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDeleteTapped
 import com.therealbluepandabear.pixapencil.activities.main.bottomsheet.extendedOnDuplicateTapped

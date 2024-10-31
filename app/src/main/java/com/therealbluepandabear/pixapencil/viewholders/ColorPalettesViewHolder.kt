@@ -32,7 +32,7 @@ class ColorPalettesViewHolder(val binding: ColorPalettesLayoutBinding, val conte
         binding.colorPalettesLayoutMaterialCardView.backgroundTintList = AppCompatResources.getColorStateList(context, R.color.recycler_view_item_untapped_color_daynight)
 
         val colorPaletteColorData = JsonConverter.convertJsonStringToListOfInt(colorPalette.colorPaletteColorData).toMutableList()
-        colorPaletteColorData.removeLast()
+        colorPaletteColorData.removeAt(colorPaletteColorData.size - 1)
 
         if (colorPaletteColorData.size >= 2) {
             if (binding.colorPalettesLayoutSecondColorRoot.visibility == View.INVISIBLE) {

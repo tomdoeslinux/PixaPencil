@@ -29,14 +29,14 @@ fun CanvasActivity.flip(flipValue: FlipValue) {
     if (flipValue == FlipValue.Horizontal) {
         if (binding.activityCanvasCardView.rotationY == 180f) {
             binding.activityCanvasCardView.rotationY = 0f
-            viewModel.flipMatrix.removeLast()
+            viewModel.flipMatrix.removeAt(viewModel.flipMatrix.size - 1)
         } else {
             binding.activityCanvasCardView.rotationY = 180f
         }
     } else {
         if (binding.activityCanvasCardView.rotationX == 180f) {
             binding.activityCanvasCardView.rotationX = 0f
-            viewModel.flipMatrix.removeLast()
+            viewModel.flipMatrix.removeAt(viewModel.flipMatrix.size - 1)
         } else {
             binding.activityCanvasCardView.rotationX = 180f
         }

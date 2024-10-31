@@ -16,8 +16,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:Suppress("DEPRECATION")
-
 package com.therealbluepandabear.pixapencil.utility.general
 
 import android.content.Context
@@ -113,11 +111,13 @@ class FileHelperUtilities(private val context: Context) {
                         val outputStream = FileOutputStream(file_)
 
                         if (compressionFormat == BitmapCompressFormat.JPEG) {
-                            val newBitmap = Bitmap.createBitmap(
-                                bitmap2.width,
-                                bitmap2.height,
-                                bitmap2.config
-                            )
+                            val newBitmap =
+                                Bitmap.createBitmap(
+                                    bitmap2.width,
+                                    bitmap2.height,
+                                    bitmap2.config!!
+                                )
+
                             val canvas = Canvas(newBitmap)
                             canvas.drawColor(Color.WHITE)
                             canvas.drawBitmap(bitmap2, 0f, 0f, null)
@@ -125,7 +125,8 @@ class FileHelperUtilities(private val context: Context) {
                             bitmap2 = newBitmap
                         }
 
-                        bitmap2.compress(compressionFormat.correspondingEnum.invoke(), compressionOutputQuality, outputStream)
+                        compressionFormat.correspondingEnum.invoke()
+                            ?.let { bitmap2.compress(it, compressionOutputQuality, outputStream) }
                         outputStream.close()
                     } catch (exception: Exception) {
                         exceptionMessage = exception.message

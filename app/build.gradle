@@ -1,11 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 android {
-    compileSdk 33
+    compileSdk 35
 
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
@@ -14,9 +14,13 @@ android {
     defaultConfig {
         applicationId "com.therealbluepandabear.pixapencil"
         minSdk 26
-        targetSdk 33
-        versionCode 26
-        versionName "0.1.8"
+        targetSdk 35
+        versionCode 27
+        versionName "0.1.8.1"
+
+        ksp {
+            arg('room.schemaLocation', "$projectDir/schemas")
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -52,12 +56,13 @@ android {
     }
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
     namespace 'com.therealbluepandabear.pixapencil'
     testOptions {
         unitTests.returnDefaultValues = true
     }
-    kotlin.sourceSets.all {
+    kotlin.sourceSets.configureEach {
         languageSettings.optIn("kotlin.RequiresOptIn")
     }
 }
@@ -122,8 +127,8 @@ dependencies {
     // Android Test Util
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 
-    // Kapt
-    kapt "androidx.room:room-compiler:2.4.3"
+    // Ksp
+    ksp "androidx.room:room-compiler:2.4.3"
 
     // Annotation Proc
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'

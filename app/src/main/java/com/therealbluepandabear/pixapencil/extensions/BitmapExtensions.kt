@@ -146,15 +146,15 @@ fun Bitmap.rotate(degrees: Int, flipMatrix: List<FlipValue>? = null): Bitmap {
 }
 
 fun Bitmap.clone(): Bitmap {
-    return copy(config, isMutable)
+    return copy(config!!, isMutable)
 }
 
 fun Bitmap.createMutableClone(): Bitmap {
-    return copy(config, true)
+    return copy(config!!, true)
 }
 
 fun Bitmap.overlay(bmp2: Bitmap, overlayType: OverlayType = OverlayType.Regular): Bitmap {
-    val bitmapOverlay = Bitmap.createBitmap(width, height, config)
+    val bitmapOverlay = Bitmap.createBitmap(width, height, config!!)
     val canvas = Canvas(bitmapOverlay)
 
     if (overlayType == OverlayType.Regular) {
