@@ -1,4 +1,4 @@
-import 'package:graphics_core/src/core/bitmap.dart';
+import 'package:graphics/src/core/bitmap.dart';
 
 const testAssetPath = "test/assets";
 

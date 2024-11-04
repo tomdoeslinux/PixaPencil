@@ -1,5 +1,5 @@
-import 'package:graphics_core/src/core/bitmap.dart';
-import 'package:graphics_core/src/core/color.dart';
+import 'package:graphics/src/core/bitmap.dart';
+import 'package:graphics/src/core/color.dart';
 import 'package:test/test.dart';
 
 void main() {

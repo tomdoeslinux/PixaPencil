@@ -1,9 +1,9 @@
-import 'package:graphics_core/src/core/rect.dart';
-import 'package:graphics_core/src/pipeline/layer_manager.dart';
-import 'package:graphics_core/src/pipeline/node.dart';
-import 'package:graphics_core/src/pipeline/node_graph.dart';
-import 'package:graphics_core/src/pipeline/source_node.dart';
-import 'package:graphics_core/src/utils.dart';
+import 'package:graphics/src/core/rect.dart';
+import 'package:graphics/src/pipeline/layer_manager.dart';
+import 'package:graphics/src/pipeline/node.dart';
+import 'package:graphics/src/pipeline/node_graph.dart';
+import 'package:graphics/src/pipeline/source_node.dart';
+import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
 
 import '../../utils.dart';

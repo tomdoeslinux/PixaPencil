@@ -1,5 +1,5 @@
-import 'package:graphics_core/src/algorithms/blend_colors.dart';
-import 'package:graphics_core/src/core/color.dart';
+import 'package:graphics/src/algorithms/blend_colors.dart';
+import 'package:graphics/src/core/color.dart';
 import 'package:test/test.dart';
 
 void main() {

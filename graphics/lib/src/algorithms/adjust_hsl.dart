@@ -1,5 +1,5 @@
-import 'package:graphics_core/src/algorithms/interpolate_colors.dart';
-import 'package:graphics_core/src/utils.dart';
+import 'package:graphics/src/algorithms/interpolate_colors.dart';
+import 'package:graphics/src/utils.dart';
 
 import '../core/bitmap.dart';
 import '../core/bitmap_iterator.dart';

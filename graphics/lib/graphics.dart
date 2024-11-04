@@ -5,7 +5,6 @@ library;
 
 import 'src/algorithms/adjust_hsl.dart';
 import 'src/utils.dart';
-export 'src/graphics_core_base.dart';
 
 void main() async {
   final bitmap = await loadBitmapFromImage("eiffel.png");

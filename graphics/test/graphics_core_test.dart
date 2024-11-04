@@ -1,4 +1,4 @@
-import 'package:graphics_core/graphics_core.dart';
+import 'package:graphics/graphics.dart';
 import 'package:test/test.dart';
 
 void main() {

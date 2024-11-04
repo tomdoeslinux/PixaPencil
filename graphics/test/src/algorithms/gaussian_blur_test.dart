@@ -1,5 +1,5 @@
-import 'package:graphics_core/src/algorithms/gaussian_blur.dart';
-import 'package:graphics_core/src/utils.dart';
+import 'package:graphics/src/algorithms/gaussian_blur.dart';
+import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
 
 import '../../utils.dart';

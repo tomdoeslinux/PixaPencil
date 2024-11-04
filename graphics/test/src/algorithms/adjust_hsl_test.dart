@@ -1,6 +1,6 @@
-import 'package:graphics_core/src/algorithms/adjust_hsl.dart';
-import 'package:graphics_core/src/core/bitmap.dart';
-import 'package:graphics_core/src/utils.dart';
+import 'package:graphics/src/algorithms/adjust_hsl.dart';
+import 'package:graphics/src/core/bitmap.dart';
+import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
 
 import '../../utils.dart';

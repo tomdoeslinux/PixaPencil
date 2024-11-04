@@ -1,8 +1,8 @@
-import 'package:graphics_core/src/algorithms/line.dart';
-import 'package:graphics_core/src/core/bitmap.dart';
-import 'package:graphics_core/src/core/color.dart';
-import 'package:graphics_core/src/core/point2d.dart';
-import 'package:graphics_core/src/utils.dart';
+import 'package:graphics/src/algorithms/line.dart';
+import 'package:graphics/src/core/bitmap.dart';
+import 'package:graphics/src/core/color.dart';
+import 'package:graphics/src/core/point2d.dart';
+import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
 
 import '../../utils.dart';
