@@ -36,13 +36,13 @@ abstract class Node {
   Bitmap operation(Rect? roi);
 
   Bitmap process(Rect? roi) {
-    if (_cache != null) {
-      ++_cacheHits;
-      return _cache!;
-    }
+    // if (_cache != null) {
+    //   ++_cacheHits;
+    //   return _cache!;
+    // }
 
     final bitmap = operation(roi);
-    _cache = bitmap;
+    // _cache = bitmap;
 
     return bitmap;
   }

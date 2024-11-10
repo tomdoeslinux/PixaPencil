@@ -1,7 +1,6 @@
-import 'package:app/features/canvas/widgets/drawing_canvas.dart';
+import 'package:app/screens/drawing/drawing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:graphics/src/core/bitmap.dart';
-
 
 void main() {
 
@@ -60,12 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: const DrawingCanvas(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: const DrawingScreen(),
     );
   }
 }

@@ -7,8 +7,9 @@ import 'node.dart';
 
 class PathNode extends Node {
   final List<Point2D> path;
+  final Color color;
 
-  PathNode({super.inputNode, required this.path});
+  PathNode({super.inputNode, required this.path, required this.color});
 
   void addPoint(Point2D point) {
     path.add(point);
@@ -26,7 +27,7 @@ class PathNode extends Node {
     Point2D? prevPoint;
 
     for (final point in path) {
-      drawLine(inputBitmap, prevPoint ?? point, point, Colors.black);
+      drawLine(inputBitmap, prevPoint ?? point, point, color);
       prevPoint = point;
     }
 

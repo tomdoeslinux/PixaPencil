@@ -59,7 +59,7 @@ class Bitmap {
 
   void setPixel(int x, int y, Color color) {
     if (_isOutOfBounds(x, y)) {
-      throw RangeError("(x: $x, y: $y) are out of bitmap bounds");
+      return;
     }
 
     final index = _getPixelArrayIndex(x, y);
