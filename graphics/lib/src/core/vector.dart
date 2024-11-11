@@ -1,20 +1,20 @@
 import 'dart:math';
 
-typedef Vector = (double x, double y);
+typedef GVector = (double x, double y);
 
-extension VectorUtils on Vector {
+extension VectorExtensions on GVector {
   double get x => $1;
   double get y => $2;
 
-  Vector subtract(Vector v1) {
+  GVector subtract(GVector v1) {
     return (x - v1.x, y - v1.y);
   }
 
-  Vector add(Vector v1) {
+  GVector add(GVector v1) {
     return (x + v1.x, y + v1.y);
   }
 
-  double dot(Vector v2) {
+  double dot(GVector v2) {
     return x * v2.x + y * v2.y;
   }
 
@@ -22,7 +22,7 @@ extension VectorUtils on Vector {
     return sqrt(x * x + y * y);
   }
 
-  Vector normalize() {
+  GVector normalize() {
     final mag = magnitude();
 
     if (mag == 0) {

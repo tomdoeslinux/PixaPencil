@@ -1,12 +1,12 @@
 import '../core/bitmap.dart';
 import '../core/color.dart';
-import '../core/point2d.dart';
+import '../core/point.dart';
 
 void _drawLineY(
-  Bitmap bitmap,
-  Point2D from,
-  Point2D to,
-  Color color,
+  GBitmap bitmap,
+  GPoint from,
+  GPoint to,
+  GColor color,
 ) {
   var x = from.x;
   var y = from.y;
@@ -42,10 +42,10 @@ void _drawLineY(
 }
 
 void _drawLineX(
-  Bitmap bitmap,
-  Point2D from,
-  Point2D to,
-  Color color,
+  GBitmap bitmap,
+  GPoint from,
+  GPoint to,
+  GColor color,
 ) {
   var x = from.x;
   var y = from.y;
@@ -76,10 +76,10 @@ void _drawLineX(
 }
 
 void drawLine(
-  Bitmap bitmap,
-  Point2D from,
-  Point2D to,
-  Color color,
+  GBitmap bitmap,
+  GPoint from,
+  GPoint to,
+  GColor color,
 ) {
   if (from == to) {
     bitmap.setPixel(from.x, from.y, color);

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 import '../../utils.dart';
 
 void main() {
-  late Bitmap eiffel;
+  late GBitmap eiffel;
 
   setUpAll(() async {
     eiffel = await loadBitmapFromImage("$testAssetPath/eiffel.png");

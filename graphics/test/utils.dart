@@ -2,7 +2,7 @@ import 'package:graphics/src/core/bitmap.dart';
 
 const testAssetPath = "test/assets";
 
-bool bitmapsAreEqual(Bitmap a, Bitmap b) {
+bool bitmapsAreEqual(GBitmap a, GBitmap b) {
   if (a.width != b.width || a.height != b.height) {
     return false;
   }

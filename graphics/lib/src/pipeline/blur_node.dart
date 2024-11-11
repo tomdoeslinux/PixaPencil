@@ -9,12 +9,12 @@ class BlurNode extends Node {
   BlurNode({super.inputNode, required this.radius});
 
   @override
-  Rect getRequiredROI(Rect outputRoi) {
+  GRect getRequiredROI(GRect outputRoi) {
     return outputRoi;
   }
 
   @override
-  Bitmap operation(Rect? roi) {
+  GBitmap operation(GRect? roi) {
     final inputBitmap = inputNode!.process(roi);
 
     return gaussianBlur(inputBitmap, radius);

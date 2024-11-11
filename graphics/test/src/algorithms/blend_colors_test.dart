@@ -5,8 +5,8 @@ import 'package:test/test.dart';
 void main() {
   group("Color blending tests", () {
     test("opaque red blends properly over opaque blue", () {
-      final foreground = Colors.rgba(255, 0, 0, 255);
-      final background = Colors.rgba(0, 0, 255, 255);
+      final foreground = GColors.rgba(255, 0, 0, 255);
+      final background = GColors.rgba(0, 0, 255, 255);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -14,8 +14,8 @@ void main() {
     });
 
     test("semi opaque green blends properly over opaque yellow", () {
-      final foreground = Colors.rgba(0, 128, 0, 128);
-      final background = Colors.rgba(255, 255, 0, 255);
+      final foreground = GColors.rgba(0, 128, 0, 128);
+      final background = GColors.rgba(255, 255, 0, 255);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -23,8 +23,8 @@ void main() {
     });
 
     test("transparent blue blends properly over opaque green", () {
-      final foreground = Colors.rgba(0, 0, 255, 0);
-      final background = Colors.rgba(0, 255, 0, 255);
+      final foreground = GColors.rgba(0, 0, 255, 0);
+      final background = GColors.rgba(0, 255, 0, 255);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -32,8 +32,8 @@ void main() {
     });
 
     test("opaque red blends properly over transparent blue", () {
-      final foreground = Colors.rgba(255, 0, 0, 255);
-      final background = Colors.rgba(0, 0, 255, 0);
+      final foreground = GColors.rgba(255, 0, 0, 255);
+      final background = GColors.rgba(0, 0, 255, 0);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -41,8 +41,8 @@ void main() {
     });
 
     test("opaque red blends properly over opaque red", () {
-      final foreground = Colors.rgba(255, 0, 0, 255);
-      final background = Colors.rgba(255, 0, 0, 255);
+      final foreground = GColors.rgba(255, 0, 0, 255);
+      final background = GColors.rgba(255, 0, 0, 255);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -50,8 +50,8 @@ void main() {
     });
 
     test("semi opaque green blends properly over semi opaque blue", () {
-      final foreground = Colors.rgba(0, 255, 0, 75);
-      final background = Colors.rgba(0, 0, 255, 75);
+      final foreground = GColors.rgba(0, 255, 0, 75);
+      final background = GColors.rgba(0, 0, 255, 75);
 
       final blendedColor = blendColors(foreground, background);
 
@@ -59,8 +59,8 @@ void main() {
     });
 
     test("transparent color blends properly over transparent color", () {
-      final foreground = Colors.rgba(0, 0, 0, 0);
-      final background = Colors.rgba(0, 0, 0, 0);
+      final foreground = GColors.rgba(0, 0, 0, 0);
+      final background = GColors.rgba(0, 0, 0, 0);
 
       final blendedColor = blendColors(foreground, background);
 

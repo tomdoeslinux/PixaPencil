@@ -1,7 +1,7 @@
 import 'package:graphics/src/algorithms/line.dart';
 import 'package:graphics/src/core/bitmap.dart';
 import 'package:graphics/src/core/color.dart';
-import 'package:graphics/src/core/point2d.dart';
+import 'package:graphics/src/core/point.dart';
 import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
 
@@ -9,12 +9,12 @@ import '../../utils.dart';
 
 void main() {
   group("Line tests", () {
-    Future<void> runLineTest(Point2D from, Point2D to) async {
+    Future<void> runLineTest(GPoint from, GPoint to) async {
       final width = (from.x > to.x ? from.x : to.x) + 1;
       final height = (from.y > to.y ? from.y : to.y) + 1;
 
-      final bitmap = Bitmap(width, height, config: BitmapConfig.rgba);
-      drawLine(bitmap, from, to, Colors.blue);
+      final bitmap = GBitmap(width, height, config: GBitmapConfig.rgba);
+      drawLine(bitmap, from, to, GColors.blue);
 
       final expectedFileName =
           "$testAssetPath/line_x${from.x}y${from.y}_x${to.x}y${to.y}.png";

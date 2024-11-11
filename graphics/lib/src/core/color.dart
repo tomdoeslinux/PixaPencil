@@ -1,19 +1,19 @@
 import 'dart:math';
 
-typedef Color = int;
+typedef GColor = int;
 
-class Colors {
-  static Color red = 0xFF0000FF;
-  static Color green = 0x00FF00FF;
-  static Color blue = 0x0000FFFF;
-  static Color black = 0x0FF;
-  static Color white = 0xFFFFFFFF;
+class GColors {
+  static GColor red = 0xFF0000FF;
+  static GColor green = 0x00FF00FF;
+  static GColor blue = 0x0000FFFF;
+  static GColor black = 0x0FF;
+  static GColor white = 0xFFFFFFFF;
 
-  static Color rgba(int r, int g, int b, int a) {
+  static GColor rgba(int r, int g, int b, int a) {
     return (r << 24) | (g << 16) | (b << 8) | a;
   }
 
-  static Color rgb(int r, int g, int b) {
+  static GColor rgb(int r, int g, int b) {
     return (r << 24) | (g << 16) | (b << 8) | 0xFF;
   }
 
@@ -54,7 +54,7 @@ class Colors {
     hsv[2] = lightness;
   }
 
-  static Color hslToRgb(double h, double s, double l) {
+  static GColor hslToRgb(double h, double s, double l) {
     final chroma = (1 - ((2 * l) - 1).abs()) * s;
     final x = chroma * (1 - (((h / 60) % 2) - 1).abs());
     final m = l - chroma / 2;
@@ -89,7 +89,7 @@ class Colors {
       bPrime = x;
     }
 
-    return Colors.rgb(
+    return GColors.rgb(
       ((rPrime + m) * 255.0).round(),
       ((gPrime + m) * 255.0).round(),
       ((bPrime + m) * 255.0).round(),
@@ -97,7 +97,7 @@ class Colors {
   }
 }
 
-extension ColorExtensions on Color {
+extension ColorExtensions on GColor {
   int get r => (this >> 24) & 0xFF;
   int get g => (this >> 16) & 0xFF;
   int get b => (this >> 8) & 0xFF;

@@ -31,14 +31,14 @@ List<double> _getGaussianKernel(double sigma) {
   return kernel.map((i) => i / kernelSum).toList();
 }
 
-Bitmap gaussianBlur(Bitmap source, double radius) {
+GBitmap gaussianBlur(GBitmap source, double radius) {
   final width = source.width;
   final height = source.height;
 
-  final sourceIterator = BitmapIterator(source);
+  final sourceIterator = GBitmapIterator(source);
 
-  final destBitmap = Bitmap(width, height, config: source.config);
-  final destIterator = BitmapIterator(destBitmap);
+  final destBitmap = GBitmap(width, height, config: source.config);
+  final destIterator = GBitmapIterator(destBitmap);
 
   // Calculate the gaussian kernel given the radius...
   final kernel = _getGaussianKernel(radius);
@@ -63,7 +63,7 @@ Bitmap gaussianBlur(Bitmap source, double radius) {
     final newB = b.round().clamp(0, 255);
     final newA = a.round().clamp(0, 255);
 
-    destIterator.put(Colors.rgba(newR, newG, newB, newA));
+    destIterator.put(GColors.rgba(newR, newG, newB, newA));
   } while (sourceIterator.moveHorizontal() && destIterator.moveHorizontal());
 
   sourceIterator.reset();
@@ -88,7 +88,7 @@ Bitmap gaussianBlur(Bitmap source, double radius) {
     final newB = b.round().clamp(0, 255);
     final newA = a.round().clamp(0, 255);
 
-    destIterator.put(Colors.rgba(newR, newG, newB, newA));
+    destIterator.put(GColors.rgba(newR, newG, newB, newA));
   } while (sourceIterator.moveVertical() && destIterator.moveVertical());
 
   return destBitmap;

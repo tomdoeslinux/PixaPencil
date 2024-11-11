@@ -1,4 +1,3 @@
-import 'package:graphics/graphics.dart';
 
 void main() {
   var awesome = Awesome();

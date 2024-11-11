@@ -40,6 +40,13 @@ class LayerManager {
       }
     });
 
+    if (layerNodes.isEmpty) {
+      final layer = Layer("Layer 0", nodeGraph.rootNode);
+      layers.add(layer);
+
+      return;
+    }
+
     for (final (indx, node) in layerNodes.indexed) {
       final layer = Layer("Layer ${layerNodes.length - indx}", node);
       layers.insert(0, layer);

@@ -1,7 +1,7 @@
-class Rect {
+class GRect {
   final int x, y, width, height;
 
-  Rect({
+  GRect({
     required this.x,
     required this.y,
     required this.width,

@@ -1,12 +1,23 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
-library;
+library graphics;
 
-import 'src/algorithms/adjust_hsl.dart';
-import 'src/utils.dart';
+export 'src/algorithms/adjust_hsl.dart';
+export 'src/algorithms/blend_colors.dart';
+export 'src/algorithms/gaussian_blur.dart';
+export 'src/algorithms/interpolate_colors.dart';
+export 'src/algorithms/line.dart';
+export 'src/algorithms/linear_gradient.dart';
 
-void main() async {
-  final bitmap = await loadBitmapFromImage("eiffel.png");
-  saveBitmapToLocalDir(adjustHsl(bitmap, 72, 1, 0, colorize: true), "eiffel_hue_plus_72_colorize.png");
-}
+export 'src/core/bitmap_iterator.dart';
+export 'src/core/bitmap.dart';
+export 'src/core/color.dart';
+export 'src/core/point.dart';
+export 'src/core/rect.dart';
+export 'src/core/vector.dart';
+
+export 'src/pipeline/blur_node.dart';
+export 'src/pipeline/layer_manager.dart';
+export 'src/pipeline/node_graph.dart';
+export 'src/pipeline/node.dart';
+export 'src/pipeline/over_node.dart';
+export 'src/pipeline/path_node.dart';
+export 'src/pipeline/source_node.dart';

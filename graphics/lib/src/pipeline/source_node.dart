@@ -3,17 +3,17 @@ import '../core/rect.dart';
 import 'node.dart';
 
 class SourceNode extends Node {
-  final Bitmap source;
+  final GBitmap source;
 
   SourceNode({required this.source}) : super(inputNode: null);
 
   @override
-  Rect getRequiredROI(Rect outputRoi) {
+  GRect getRequiredROI(GRect outputRoi) {
     return outputRoi;
   }
 
   @override
-  Bitmap operation(Rect? roi) {
+  GBitmap operation(GRect? roi) {
     return roi != null ? source.crop(roi) : source;
   }
 }

@@ -2,10 +2,10 @@ import 'bitmap.dart';
 import 'color.dart';
 
 // todo update
-class BitmapIterator {
-  final Bitmap _bitmap;
+class GBitmapIterator {
+  final GBitmap _bitmap;
 
-  BitmapIterator(this._bitmap);
+  GBitmapIterator(this._bitmap);
 
   int _x = 0;
   int _y = 0;
@@ -17,11 +17,11 @@ class BitmapIterator {
 
   int get currentPixel => _bitmap.getPixel(x, y);
 
-  void put(Color color) {
+  void put(GColor color) {
     _bitmap.setPixel(x, y, color);
   }
 
-  Color getPixel(int x, int y) => _bitmap.getPixel(x, y);
+  GColor getPixel(int x, int y) => _bitmap.getPixel(x, y);
 
   void reset() {
     _x = 0;

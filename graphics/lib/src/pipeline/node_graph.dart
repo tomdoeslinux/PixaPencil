@@ -17,7 +17,7 @@ class NodeGraph {
     });
   }
 
-  Bitmap process(Rect outputRoi) {
+  GBitmap process(GRect outputRoi) {
     final requiredRoi = rootNode.getRequiredROI(outputRoi);
 
     return rootNode.process(requiredRoi);

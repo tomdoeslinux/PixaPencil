@@ -1,6 +1,5 @@
 import 'package:app/screens/drawing/drawing_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:graphics/src/core/bitmap.dart';
 
 void main() {
 

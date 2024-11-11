@@ -1,7 +1,5 @@
 import 'package:app/models/tool.dart';
-import 'package:graphics/src/core/point2d.dart';
-import 'package:graphics/src/pipeline/path_node.dart';
-import 'package:graphics/src/core/color.dart' as g;
+import 'package:graphics/graphics.dart';
 
 class PencilTool extends Tool {
   PathNode? _currentPathNode;
@@ -9,13 +7,13 @@ class PencilTool extends Tool {
   PencilTool(super.nodeGraph);
 
   @override
-  void onTouchDown(Point2D point, g.Color color) {
+  void onTouchDown(GPoint point, GColor color) {
     _currentPathNode = PathNode(inputNode: nodeGraph.rootNode, path: [point], color: color);
     nodeGraph.rootNode = _currentPathNode!;
   }
 
   @override
-  void onTouchMove(Point2D point, g.Color color) {
+  void onTouchMove(GPoint point, GColor color) {
     _currentPathNode?.addPoint(point);
   }
 

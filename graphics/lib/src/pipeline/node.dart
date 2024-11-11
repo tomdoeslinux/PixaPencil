@@ -8,7 +8,7 @@ abstract class Node {
   Node? parentNode;
   Node? auxNode;
 
-  Bitmap? _cache;
+  GBitmap? _cache;
   var _cacheHits = 0;
 
   Node({required this.inputNode, this.auxNode}) : id = _generateId() {
@@ -31,11 +31,11 @@ abstract class Node {
 
   // Calculates the region of the source image that is necessary to process a
   // ...specific Region of Interest (ROI) in the output.
-  Rect getRequiredROI(Rect outputRoi);
+  GRect getRequiredROI(GRect outputRoi);
 
-  Bitmap operation(Rect? roi);
+  GBitmap operation(GRect? roi);
 
-  Bitmap process(Rect? roi) {
+  GBitmap process(GRect? roi) {
     // if (_cache != null) {
     //   ++_cacheHits;
     //   return _cache!;

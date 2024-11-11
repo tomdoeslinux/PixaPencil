@@ -10,12 +10,12 @@ class OverNode extends Node {
   OverNode({super.inputNode, super.auxNode});
 
   @override
-  Rect getRequiredROI(Rect outputRoi) {
+  GRect getRequiredROI(GRect outputRoi) {
     return outputRoi;
   }
 
   @override
-  Bitmap operation(Rect? roi) {
+  GBitmap operation(GRect? roi) {
     final baseBitmap = inputNode!.process(roi);
     final overlayBitmap = auxNode!.process(null);
 
@@ -32,14 +32,14 @@ class OverNode extends Node {
         final basePixelIndex = baseRowStartIndex + x * numChannels;
         final overlayPixelIndex = overlayRowStartIndex + x * numChannels;
 
-        final baseColor = Colors.rgba(
+        final baseColor = GColors.rgba(
           baseBitmap.pixels[basePixelIndex],
           baseBitmap.pixels[basePixelIndex + 1],
           baseBitmap.pixels[basePixelIndex + 2],
           baseBitmap.pixels[basePixelIndex + 3],
         );
 
-        final overlayColor = Colors.rgba(
+        final overlayColor = GColors.rgba(
           overlayBitmap.pixels[overlayPixelIndex],
           overlayBitmap.pixels[overlayPixelIndex + 1],
           overlayBitmap.pixels[overlayPixelIndex + 2],

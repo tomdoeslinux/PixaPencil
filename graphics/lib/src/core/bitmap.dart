@@ -2,25 +2,25 @@ import 'dart:typed_data';
 import 'color.dart';
 import 'rect.dart';
 
-enum BitmapConfig {
+enum GBitmapConfig {
   rgb(3),
   rgba(4);
 
   final int numChannels;
 
-  const BitmapConfig(this.numChannels);
+  const GBitmapConfig(this.numChannels);
 }
 
-class Bitmap {
+class GBitmap {
   final int width;
   final int height;
-  final BitmapConfig config;
+  final GBitmapConfig config;
   final Uint8List _pixels;
 
-  Bitmap(this.width, this.height, {required this.config})
+  GBitmap(this.width, this.height, {required this.config})
       : _pixels = Uint8List(width * height * config.numChannels);
 
-  Bitmap.fromPixels(this._pixels, this.width, this.height,
+  GBitmap.fromPixels(this._pixels, this.width, this.height,
       {required this.config});
 
   ByteBuffer get buffer => _pixels.buffer;
@@ -34,22 +34,22 @@ class Bitmap {
     return x < 0 || x >= width || y < 0 || y >= height;
   }
 
-  Color getPixel(int x, int y) {
+  GColor getPixel(int x, int y) {
     if (_isOutOfBounds(x, y)) {
       throw RangeError("(x: $x, y: $y) are out of bitmap bounds");
     }
 
     final index = _getPixelArrayIndex(x, y);
 
-    if (config == BitmapConfig.rgba) {
-      return Colors.rgba(
+    if (config == GBitmapConfig.rgba) {
+      return GColors.rgba(
         _pixels[index],
         _pixels[index + 1],
         _pixels[index + 2],
         _pixels[index + 3],
       );
     } else {
-      return Colors.rgb(
+      return GColors.rgb(
         _pixels[index],
         _pixels[index + 1],
         _pixels[index + 2],
@@ -57,7 +57,7 @@ class Bitmap {
     }
   }
 
-  void setPixel(int x, int y, Color color) {
+  void setPixel(int x, int y, GColor color) {
     if (_isOutOfBounds(x, y)) {
       return;
     }
@@ -68,24 +68,24 @@ class Bitmap {
     _pixels[index + 1] = color.g;
     _pixels[index + 2] = color.b;
 
-    if (config == BitmapConfig.rgba) {
+    if (config == GBitmapConfig.rgba) {
       _pixels[index + 3] = color.a;
     }
   }
 
-  void fillColor(Color color) {
+  void fillColor(GColor color) {
     for (var i = 0; i < _pixels.length; i += 4) {
       _pixels[i] = color.r;
       _pixels[i + 1] = color.g;
       _pixels[i + 2] = color.b;
 
-      if (config == BitmapConfig.rgba) {
+      if (config == GBitmapConfig.rgba) {
         _pixels[i + 3] = color.a;
       }
     }
   }
 
-  Bitmap crop(Rect region) {
+  GBitmap crop(GRect region) {
     final startX = region.x;
     final startY = region.y;
 
@@ -111,7 +111,7 @@ class Bitmap {
       croppedPixels.setRange(destStart, destEnd, _pixels, srcStart);
     }
 
-    return Bitmap.fromPixels(
+    return GBitmap.fromPixels(
       croppedPixels,
       region.width,
       region.height,

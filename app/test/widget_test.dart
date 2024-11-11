@@ -7,7 +7,7 @@
 
 import 'dart:ui';
 
-import 'package:app/features/canvas/widgets/drawing_canvas.dart';
+import 'package:app/models/bitmap_extensions.dart';
 import 'package:app/screens/drawing/widgets/drawing_canvas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -34,7 +34,7 @@ void main() {
   });
 
   test("CanvasPainter maintains correct aspect ratio for artboardRect", () async {
-    final dummyBitmap = Bitmap(40, 90, config: BitmapConfig.rgba);
+    final dummyBitmap = GBitmap(40, 90, config: GBitmapConfig.rgba);
     final image = await dummyBitmap.toFlutterImage();
     final painter = CanvasPainter(image, 0, Offset.zero);
 

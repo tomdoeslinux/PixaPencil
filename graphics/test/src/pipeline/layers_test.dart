@@ -1,6 +1,5 @@
 import 'package:graphics/src/core/rect.dart';
 import 'package:graphics/src/pipeline/layer_manager.dart';
-import 'package:graphics/src/pipeline/node.dart';
 import 'package:graphics/src/pipeline/node_graph.dart';
 import 'package:graphics/src/pipeline/source_node.dart';
 import 'package:graphics/src/utils.dart';
@@ -44,7 +43,7 @@ void main() {
       layerManager.addLayer(layerA);
       layerManager.addLayer(layerB);
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -71,7 +70,7 @@ void main() {
       layerManager.addLayer(layerB);
       layerManager.addLayer(layerC, position: 1);
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -106,7 +105,7 @@ void main() {
       layerManager.addLayer(layerC, position: 2);
       await exportGraphToPNG(layerGraph.rootNode, "layer_acb");
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -133,7 +132,7 @@ void main() {
 
       layerManager.removeLayer(2);
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -157,7 +156,7 @@ void main() {
 
       layerManager.removeLayer(1);
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -182,7 +181,7 @@ void main() {
 
       layerManager.removeLayer(2);
 
-      final outputBitmap = layerGraph.process(Rect(
+      final outputBitmap = layerGraph.process(GRect(
         x: 0,
         y: 0,
         width: 22,
@@ -205,11 +204,11 @@ void main() {
       layerManager.addLayer(layerB);
 
       final output1 =
-          layerGraph.process(Rect(x: 0, y: 0, width: 22, height: 22));
+          layerGraph.process(GRect(x: 0, y: 0, width: 22, height: 22));
       expect(layerGraph.rootNode.cacheHits, equals(0));
 
       final output2 =
-          layerGraph.process(Rect(x: 0, y: 0, width: 22, height: 22));
+          layerGraph.process(GRect(x: 0, y: 0, width: 22, height: 22));
       expect(layerGraph.rootNode.cacheHits, equals(1)); // cache was used
 
       expect(bitmapsAreEqual(output1, output2), isTrue);
@@ -228,7 +227,7 @@ void main() {
         final layerManager = LayerManager(layerGraph);
 
         layerManager.addLayer(layerA);
-        layerGraph.process(Rect(
+        layerGraph.process(GRect(
           x: 0,
           y: 0,
           width: layerBg.source.width,

@@ -6,7 +6,7 @@ import 'pipeline/node.dart';
 import 'package:http/http.dart' as http;
 
 // TODO width doesn't need to be specified
-Future<Bitmap> loadBitmapFromImage(
+Future<GBitmap> loadBitmapFromImage(
   String filename, [
   int? width,
   int? height,
@@ -18,19 +18,19 @@ Future<Bitmap> loadBitmapFromImage(
   final image = decodeImage(bytes);
   final pixels = image!.getBytes();
 
-  final BitmapConfig config;
+  final GBitmapConfig config;
 
   if (image.numChannels == 3) {
-    config = BitmapConfig.rgb;
+    config = GBitmapConfig.rgb;
   } else if (image.numChannels == 4) {
-    config = BitmapConfig.rgba;
+    config = GBitmapConfig.rgba;
   } else {
     throw ArgumentError("Unsupported number of channels");
   }
 
   print("width: ${image.width}, height: ${image.height}, numChannels: ${image.numChannels}");
 
-  return Bitmap.fromPixels(
+  return GBitmap.fromPixels(
     pixels,
     width ?? image.width,
     height ?? image.height,
@@ -38,13 +38,13 @@ Future<Bitmap> loadBitmapFromImage(
   );
 }
 
-Future<void> saveBitmapToLocalDir(Bitmap bmp, String name) async {
+Future<void> saveBitmapToLocalDir(GBitmap bmp, String name) async {
   final img = Image.fromBytes(
     width: bmp.width,
     height: bmp.height,
     bytes: bmp.buffer,
     order:
-        bmp.config == BitmapConfig.rgba ? ChannelOrder.rgba : ChannelOrder.rgb,
+        bmp.config == GBitmapConfig.rgba ? ChannelOrder.rgba : ChannelOrder.rgb,
   );
 
   List<int> pngBytes = encodePng(img);

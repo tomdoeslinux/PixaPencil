@@ -1,6 +1,6 @@
 import '../core/color.dart';
 
-Color blendColors(Color foreground, Color background) {
+GColor blendColors(GColor foreground, GColor background) {
   // Optimization: If the background alpha is 255 and the foreground is partially transparent, you can blend normally without considering any transparency from the background.
   if (foreground.a == 255) {
     return foreground;
@@ -54,7 +54,7 @@ Color blendColors(Color foreground, Color background) {
   final outBlue_ = (outBlue * 255).ceil();
   final outAlpha_ = (outAlpha * 255).ceil();
 
-  return Colors.rgba(
+  return GColors.rgba(
     outRed_,
     outGreen_,
     outBlue_,

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:graphics/src/pipeline/node_graph.dart';
+import 'package:graphics/graphics.dart';
 
 import 'pencil_tool.dart';
 import 'tool.dart';

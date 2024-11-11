@@ -1,36 +1,28 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:app/models/pencil_tool.dart';
+import 'package:app/models/bitmap_extensions.dart';
 import 'package:app/models/tool.dart';
-import 'package:app/models/tool_type.dart';
+import 'package:app/screens/drawing/drawing_state.dart';
 import 'package:flutter/material.dart';
-import 'package:graphics/src/core/bitmap.dart';
-import 'package:graphics/src/pipeline/node_graph.dart';
-import 'package:graphics/src/pipeline/source_node.dart';
-import 'package:graphics/src/core/rect.dart' as g;
-import 'package:graphics/src/core/color.dart' as g;
-import 'package:graphics/src/core/point2d.dart';
+import 'package:graphics/graphics.dart';
 import 'dart:ui' as ui;
 
-class DrawingCanvas extends StatefulWidget {
-  final ToolType tool;
-  final g.Color color;
+import 'package:provider/provider.dart';
 
-  const DrawingCanvas({
-    super.key,
-    required this.tool,
-    required this.color,
-  });
+class DrawingCanvas extends StatefulWidget {
+  const DrawingCanvas({super.key});
 
   @override
   State<DrawingCanvas> createState() => _DrawingCanvasState();
 }
 
 class _DrawingCanvasState extends State<DrawingCanvas> {
+  DrawingState get _drawingState =>
+      Provider.of<DrawingState>(context, listen: false);
+
   late Tool _toolInstance;
 
-  late NodeGraph _nodeGraph;
   ui.Image? _nodeOutput;
 
   var _moveMode = true;
@@ -43,7 +35,9 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   void initState() {
     super.initState();
 
-    _initializeNodeGraph();
+    _updateNodeOutput();
+    _toolInstance =
+        _drawingState.selectedTool.getToolInstance(_drawingState.nodeGraph);
   }
 
   void _onScaleStart(ScaleStartDetails details) {
@@ -67,7 +61,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
     } else {
       final point = _convertLocalToBitmapCoordinates(
           details.localFocalPoint, artboardRect);
-      _toolInstance.onTouchMove(point, widget.color);
+      _toolInstance.onTouchMove(point, _drawingState.selectedColor);
 
       _updateNodeOutput();
     }
@@ -76,40 +70,32 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   void _onTapDown(TapDownDetails details, Rect artboardRect) {
     final point =
         _convertLocalToBitmapCoordinates(details.localPosition, artboardRect);
-    _toolInstance.onTouchDown(point, widget.color);
+    _toolInstance.onTouchDown(point, _drawingState.selectedColor);
 
     _updateNodeOutput();
   }
 
-  Point2D _convertLocalToBitmapCoordinates(
-      Offset localPosition, Rect artboardRect) {
+  void _onTapUp(TapUpDetails details) {
+    _toolInstance.onTouchUp();
+  }
+
+  GPoint _convertLocalToBitmapCoordinates(
+      Offset localPosition, ui.Rect artboardRect) {
     final artboardPosition = localPosition - artboardRect.topLeft;
 
-    final x = ((artboardPosition.dx / artboardRect.width) * 20).toInt();
-    final y = ((artboardPosition.dy / artboardRect.height) * 20).toInt();
+    final x = ((artboardPosition.dx / artboardRect.width) * 200).toInt();
+    final y = ((artboardPosition.dy / artboardRect.height) * 200).toInt();
 
     return (x: x, y: y);
   }
 
-  void _initializeNodeGraph() {
-    final bitmap = Bitmap(20, 20, config: BitmapConfig.rgba);
-    bitmap.setPixel(0, 0, g.Colors.black);
-
-    final sourceNode = SourceNode(source: bitmap);
-    _nodeGraph = NodeGraph(sourceNode);
-
-    _updateNodeOutput();
-
-    _toolInstance = widget.tool.getToolInstance(_nodeGraph);
-  }
-
   Future<void> _updateNodeOutput() async {
-    final nodeOutputBitmap = _nodeGraph.process(
-      g.Rect(
+    final nodeOutputBitmap = _drawingState.nodeGraph.process(
+      GRect(
         x: 0,
         y: 0,
-        width: 20,
-        height: 20,
+        width: 200,
+        height: 200,
       ),
     );
     final updatedImage = await nodeOutputBitmap.toFlutterImage();
@@ -143,6 +129,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
             onTapDown: (details) {
               _onTapDown(details, canvasPainter.artboardRect);
             },
+            onTapUp: _onTapUp,
             child: CustomPaint(
               painter: canvasPainter,
               size: Size.infinite,
@@ -163,22 +150,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
         )
       ],
     );
-  }
-}
-
-extension FlutterBitmapExtension on Bitmap {
-  Future<ui.Image> toFlutterImage() {
-    final completer = Completer<ui.Image>();
-
-    ui.decodeImageFromPixels(
-      pixels,
-      width,
-      height,
-      ui.PixelFormat.rgba8888,
-      (img) => completer.complete(img),
-    );
-
-    return completer.future;
   }
 }
 
