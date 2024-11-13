@@ -87,35 +87,36 @@ export default function CreationsPage() {
     //       }}
     //     />
     //   </Flex>
-
-    //   <CreationDetailsModal
-    //     {...getCreationDetailsModalProps({
-    //       onClose: () => setSelectedCreation(undefined),
-    //     })}
-    //     creation={selectedCreation}
-    //     commentsSlot={<CommentsList creation={selectedCreation!} />}
-    //     // onNavigation={(direction) => {
-    //     //   const selectedCreationIndex = creations.indexOf(selectedCreation)
-
-    //     //   if (direction === "right") {
-    //     //     const nextIndex = selectedCreationIndex + 1
-    //     //     if (nextIndex < creations.length) {
-    //     //       setSelectedCreation(creations[nextIndex])
-    //     //     }
-    //     //   } else if (direction === "left") {
-    //     //     const prevIndex = selectedCreationIndex - 1
-    //     //     if (prevIndex >= 0) {
-    //     //       setSelectedCreation(creations[prevIndex])
-    //     //     }
-    //     //   }
-    //     // }}
-    //   />
     // </Flex>
     <Flex maxWidth="100vw" flexDirection="column">
       <TopBanner />
 
       <PXLayout>
         <PXLayoutContent>
+          <PXTags marginTop="32px">
+            <PXTag>Retro</PXTag>
+            <PXTag>Vintage</PXTag>
+            <PXTag>Modern</PXTag>
+            <PXTag>Classic</PXTag>
+            <PXTag>Futuristic</PXTag>
+            <PXTag>Eco</PXTag>
+            <PXTag>Minimalist</PXTag>
+            <PXTag>Art Deco</PXTag>
+            <PXTag>Baroque</PXTag>
+            <PXTag>Gothic</PXTag>
+            <PXTag>Victorian</PXTag>
+            <PXTag>Contemporary</PXTag>
+            <PXTag>Industrial</PXTag>
+            <PXTag>Rustic</PXTag>
+            <PXTag>Scandinavian</PXTag>
+            <PXTag>Mediterranean</PXTag>
+            <PXTag>Bohemian</PXTag>
+            <PXTag>Geometric</PXTag>
+            <PXTag>Nautical</PXTag>
+            <PXTag>Zen</PXTag>
+            <PXTag>Hi-Tech</PXTag>
+          </PXTags>
+
           <CreationsGrid
             creations={creations}
             onCreationClick={(creation) => {
@@ -125,6 +126,29 @@ export default function CreationsPage() {
           />
         </PXLayoutContent>
       </PXLayout>
+
+      <CreationDetailsModal
+        {...getCreationDetailsModalProps({
+          onClose: () => setSelectedCreation(undefined),
+        })}
+        creation={selectedCreation}
+        commentsSlot={<CommentsList creation={selectedCreation!} />}
+        onNavigation={(direction) => {
+          const selectedCreationIndex = creations.indexOf(selectedCreation)
+
+          if (direction === "right") {
+            const nextIndex = selectedCreationIndex + 1
+            if (nextIndex < creations.length) {
+              setSelectedCreation(creations[nextIndex])
+            }
+          } else if (direction === "left") {
+            const prevIndex = selectedCreationIndex - 1
+            if (prevIndex >= 0) {
+              setSelectedCreation(creations[prevIndex])
+            }
+          }
+        }}
+      />
     </Flex>
   )
 }

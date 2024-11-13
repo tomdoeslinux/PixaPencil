@@ -29,6 +29,21 @@ export default function TopBanner() {
         bottom="0"
         background="rgba(0, 0, 0, 0.6)"
       />
+      <Text
+        fontWeight="light"
+        fontSize="xs"
+        opacity={0.8}
+        color="white"
+        position="absolute"
+        right="0"
+        bottom="0"
+        padding="8px"
+      >
+        Photo by{" "}
+        <Text as="span" color="white" textDecoration="underline">
+          {dailyCreation?.author.username}
+        </Text>
+      </Text>
       <PXLayoutContent
         width="430px"
         position="relative"

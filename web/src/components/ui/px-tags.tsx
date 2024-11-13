@@ -80,7 +80,7 @@ export default function PXTags({
   }, [])
 
   return (
-    <Box position="relative" maxWidth={props.maxWidth}>
+    <Box position="relative" {...props}>
       {canScrollLeft && (
         <ScrollControl
           direction="left"
@@ -108,7 +108,6 @@ export default function PXTags({
         }}
         whiteSpace="nowrap"
         alignItems="center"
-        {...props}
       >
         {React.Children.map(children, (child, index) => {
           if (isValidElement(child) && child.type === PXTag) {

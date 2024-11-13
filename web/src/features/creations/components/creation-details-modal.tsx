@@ -3,14 +3,18 @@ import { PXButton, PXTag, PXTags, PXModal, PXModalProps } from "@/components"
 import { Creation } from "@/types/root-types"
 import { Image, Flex, Text, Box } from "@chakra-ui/react"
 import { ReactNode } from "react"
+import { NavDirection, useArrowKeyNav } from "../hooks/use-arrow-key-nav"
 
 // should b pxmodalbaseprops as it inherits flexprops
 interface CreationDetailsModalProps extends PXModalProps {
   creation?: Creation
   commentsSlot: ReactNode
+  onNavigation: (direction: NavDirection) => void
 }
 
 export default function CreationDetailsModal(props: CreationDetailsModalProps) {
+  useArrowKeyNav(props.onNavigation)
+
   return (
     <PXModal isOpen={props.isOpen} onClose={props.onClose}>
       <Flex padding="33px" alignItems="center" width="100%" gap="12px">

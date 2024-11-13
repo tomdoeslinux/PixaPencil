@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-type NavDirection = "left" | "right"
+export type NavDirection = "left" | "right"
 type OnNavCallback = (direction: NavDirection) => void
 
 export function useArrowKeyNav(onNav: OnNavCallback) {
