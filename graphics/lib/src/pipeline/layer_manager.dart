@@ -20,21 +20,21 @@ class LayerManager {
   var layers = <Layer>[];
 
   LayerManager(this.nodeGraph) {
-    _populateLayers();
+    populateLayers();
   }
 
-  void _populateLayers() {
+  void populateLayers() {
     layers.clear();
 
     final layerNodes = <Node>[];
 
     traverseGraphBFS(nodeGraph.rootNode, (node) {
-      if (node is OverNode) {
-        if (node.auxNode != null && node.auxNode is! OverNode) {
+      if (node is OverlayNode) {
+        if (node.auxNode != null && node.auxNode is! OverlayNode) {
           layerNodes.add(node.auxNode!);
         }
 
-        if (node.inputNode != null && node.inputNode is! OverNode) {
+        if (node.inputNode != null && node.inputNode is! OverlayNode) {
           layerNodes.add(node.inputNode!);
         }
       }
@@ -58,7 +58,7 @@ class LayerManager {
 
     if (insertIndex == layers.length) {
       nodeGraph.rootNode =
-          OverNode(inputNode: nodeGraph.rootNode, auxNode: newLayer);
+          OverlayNode(inputNode: nodeGraph.rootNode, auxNode: newLayer);
     } else {
       final existingLayer = layers[insertIndex];
       final node = existingLayer.rootNode;
@@ -66,11 +66,11 @@ class LayerManager {
       // we create copy to avoid circular reference
       final parent = node.parentNode;
       parent?.inputNode =
-          OverNode(inputNode: parent.inputNode, auxNode: newLayer);
+          OverlayNode(inputNode: parent.inputNode, auxNode: newLayer);
     }
 
     nodeGraph.populateNodeLUT();
-    _populateLayers();
+    populateLayers();
   }
 
   void removeLayer(int layerIndex) {
@@ -83,7 +83,6 @@ class LayerManager {
         nodeGraph.rootNode.parentNode = null;
       } else {
         parent?.parentNode?.inputNode = parent.auxNode;
-        parent?.parentNode?.inputNode?.parentNode = parent.parentNode;
       }
     } else if (parent?.auxNode?.id == layerNode.id) {
       if (parent?.parentNode == null) {
@@ -91,11 +90,10 @@ class LayerManager {
         nodeGraph.rootNode.parentNode = null;
       } else {
         parent?.parentNode?.inputNode = parent.inputNode;
-        parent?.parentNode?.inputNode?.parentNode = parent.parentNode;
       }
     }
 
     nodeGraph.populateNodeLUT();
-    _populateLayers();
+    populateLayers();
   }
 }

@@ -1,3 +1,5 @@
+import 'package:graphics/src/core/region.dart';
+
 import '../algorithms/line.dart';
 import '../core/bitmap.dart';
 import '../core/color.dart';
@@ -16,12 +18,7 @@ class PathNode extends Node {
   }
 
   @override
-  GRect getRequiredROI(GRect outputRoi) {
-    return outputRoi;
-  }
-
-  @override
-  GBitmap operation(GRect? roi) {
+  GBitmap operation(GRegion roi) {
     final inputBitmap = inputNode!.process(roi);
 
     GPoint? prevPoint;
@@ -32,5 +29,29 @@ class PathNode extends Node {
     }
 
     return inputBitmap;
+  }
+
+  @override
+  GRect get boundingBox {
+    var minX = path[0].x;
+    var minY = path[0].y;
+
+    var maxX = path[0].x;
+    var maxY = path[0].y;
+
+    for (final point in path) {
+      if (point.x < minX) minX = point.x;
+      if (point.y < minY) minY = point.y;
+
+      if (point.x > maxX) maxX = point.x;
+      if (point.y > maxY) maxY = point.y;
+    }
+
+    return GRect(
+      x: minX,
+      y: minY,
+      width: maxX - minX,
+      height: maxY - minY,
+    );
   }
 }

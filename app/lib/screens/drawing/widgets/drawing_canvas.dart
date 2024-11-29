@@ -21,8 +21,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   DrawingState get _drawingState =>
       Provider.of<DrawingState>(context, listen: false);
 
-  late Tool _toolInstance;
-
   ui.Image? _nodeOutput;
 
   var _moveMode = true;
@@ -36,8 +34,6 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
     super.initState();
 
     _updateNodeOutput();
-    _toolInstance =
-        _drawingState.selectedTool.getToolInstance(_drawingState.nodeGraph);
   }
 
   void _onScaleStart(ScaleStartDetails details) {
@@ -61,7 +57,7 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
     } else {
       final point = _convertLocalToBitmapCoordinates(
           details.localFocalPoint, artboardRect);
-      _toolInstance.onTouchMove(point, _drawingState.selectedColor);
+      _drawingState.selectedToolInstance.onTouchMove(point);
 
       _updateNodeOutput();
     }
@@ -70,35 +66,42 @@ class _DrawingCanvasState extends State<DrawingCanvas> {
   void _onTapDown(TapDownDetails details, Rect artboardRect) {
     final point =
         _convertLocalToBitmapCoordinates(details.localPosition, artboardRect);
-    _toolInstance.onTouchDown(point, _drawingState.selectedColor);
+    _drawingState.selectedToolInstance.onTouchDown(point);
 
     _updateNodeOutput();
   }
 
   void _onTapUp(TapUpDetails details) {
-    _toolInstance.onTouchUp();
+    _drawingState.selectedToolInstance.onTouchUp();
   }
 
   GPoint _convertLocalToBitmapCoordinates(
       Offset localPosition, ui.Rect artboardRect) {
     final artboardPosition = localPosition - artboardRect.topLeft;
 
-    final x = ((artboardPosition.dx / artboardRect.width) * 200).toInt();
-    final y = ((artboardPosition.dy / artboardRect.height) * 200).toInt();
+    final x =
+        ((artboardPosition.dx / artboardRect.width) * _drawingState.canvasWidth)
+            .toInt();
+    final y = ((artboardPosition.dy / artboardRect.height) *
+            _drawingState.canvasHeight)
+        .toInt();
 
     return (x: x, y: y);
   }
 
   Future<void> _updateNodeOutput() async {
+      final stopwatch = Stopwatch()..start(); // Start the stopwatch
+
     final nodeOutputBitmap = _drawingState.nodeGraph.process(
       GRect(
         x: 0,
         y: 0,
-        width: 200,
-        height: 200,
+        width: _drawingState.canvasWidth,
+        height: _drawingState.canvasHeight,
       ),
     );
     final updatedImage = await nodeOutputBitmap.toFlutterImage();
+  print('Time taken for _updateNodeOutput: ${stopwatch.elapsedMilliseconds} ms');
 
     setState(() {
       _nodeOutput = updatedImage;

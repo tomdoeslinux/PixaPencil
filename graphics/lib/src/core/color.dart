@@ -8,6 +8,7 @@ class GColors {
   static GColor blue = 0x0000FFFF;
   static GColor black = 0x0FF;
   static GColor white = 0xFFFFFFFF;
+  static GColor transparent = 0x0;
 
   static GColor rgba(int r, int g, int b, int a) {
     return (r << 24) | (g << 16) | (b << 8) | a;

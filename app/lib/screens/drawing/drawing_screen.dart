@@ -11,7 +11,7 @@ class DrawingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => DrawingState(),
+      create: (context) => DrawingState(canvasWidth: 500, canvasHeight: 500),
       child: const Column(
         children: [
           ColorPicker(),

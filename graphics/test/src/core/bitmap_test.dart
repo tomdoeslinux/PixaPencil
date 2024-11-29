@@ -1,6 +1,9 @@
 import 'package:graphics/src/core/bitmap.dart';
 import 'package:graphics/src/core/color.dart';
+import 'package:graphics/src/utils.dart';
 import 'package:test/test.dart';
+
+import '../../utils.dart';
 
 void main() {
   group("Bitmap tests", () {
@@ -31,6 +34,61 @@ void main() {
           expect(bitmap.getPixel(x, y), equals(GColors.blue));
         }
       }
+    });
+
+    test("overlay works as expected", () async {
+      final baseBitmap =
+          await loadBitmapFromImage("$testAssetPath/base_bitmap.jpg");
+      final overlayBitmap =
+          await loadBitmapFromImage("$testAssetPath/overlay_bitmap.png");
+
+      final overlayedBitmap = GBitmap.overlay(baseBitmap, overlayBitmap);
+      final expectedBitmap =
+          await loadBitmapFromImage("$testAssetPath/overlayed_bitmap.png");
+
+      expect(bitmapsAreEqual(overlayedBitmap, expectedBitmap), isTrue);
+    });
+
+    test("overlay works as expected with startX 215, startY 93", () async {
+      final baseBitmap =
+          await loadBitmapFromImage("$testAssetPath/base_bitmap.jpg");
+      final overlayBitmap =
+          await loadBitmapFromImage("$testAssetPath/overlay_bitmap.png");
+
+      final overlayedBitmap =
+          GBitmap.overlay(baseBitmap, overlayBitmap, startX: 215, startY: 93);
+      final expectedBitmap = await loadBitmapFromImage(
+          "$testAssetPath/overlayed_bitmap_offset_x215_y93.png");
+
+      expect(bitmapsAreEqual(overlayedBitmap, expectedBitmap), isTrue);
+    });
+
+    test("overlay works as expected with startX -137, startY -132", () async {
+      final baseBitmap =
+          await loadBitmapFromImage("$testAssetPath/base_bitmap.jpg");
+      final overlayBitmap =
+          await loadBitmapFromImage("$testAssetPath/overlay_bitmap.png");
+
+      final overlayedBitmap =
+          GBitmap.overlay(baseBitmap, overlayBitmap, startX: 137, startY: -132);
+      final expectedBitmap = await loadBitmapFromImage(
+          "$testAssetPath/overlayed_bitmap_offset_x137_y-132.png");
+
+      expect(bitmapsAreEqual(overlayedBitmap, expectedBitmap), isTrue);
+    });
+
+    test("overlay works as expected with startX -312, startY -192", () async {
+      final baseBitmap =
+          await loadBitmapFromImage("$testAssetPath/base_bitmap.jpg");
+      final overlayBitmap =
+          await loadBitmapFromImage("$testAssetPath/overlay_bitmap.png");
+
+      final overlayedBitmap = GBitmap.overlay(baseBitmap, overlayBitmap,
+          startX: -312, startY: -192);
+      final expectedBitmap = await loadBitmapFromImage(
+          "$testAssetPath/overlayed_bitmap_offset_x-312_y-192.png");
+
+      expect(bitmapsAreEqual(overlayedBitmap, expectedBitmap), isTrue);
     });
   });
 }

@@ -5,7 +5,6 @@ import 'core/bitmap.dart';
 import 'pipeline/node.dart';
 import 'package:http/http.dart' as http;
 
-// TODO width doesn't need to be specified
 Future<GBitmap> loadBitmapFromImage(
   String filename, [
   int? width,
@@ -28,7 +27,7 @@ Future<GBitmap> loadBitmapFromImage(
     throw ArgumentError("Unsupported number of channels");
   }
 
-  print("width: ${image.width}, height: ${image.height}, numChannels: ${image.numChannels}");
+  print(config);
 
   return GBitmap.fromPixels(
     pixels,
@@ -52,7 +51,7 @@ Future<void> saveBitmapToLocalDir(GBitmap bmp, String name) async {
   await File(name).writeAsBytes(pngBytes);
 }
 
-Future<void> exportGraphToPNG(Node rootNode, String fileName) async {
+Future<Uint8List> generateGraphImage(Node rootNode) async {
   final dotContentBuffer = StringBuffer();
   dotContentBuffer.writeln('digraph G {');
 
@@ -85,7 +84,13 @@ Future<void> exportGraphToPNG(Node rootNode, String fileName) async {
   );
 
   final response = await http.get(url);
-  final file = File('$fileName.png');
 
-  await file.writeAsBytes(response.bodyBytes);
+  return response.bodyBytes;
+}
+
+Future<void> exportGraphToPNG(Node rootNode, String fileName) async {
+  final file = File('$fileName.png');
+  final bytes = await generateGraphImage(rootNode);
+
+  await file.writeAsBytes(bytes);
 }

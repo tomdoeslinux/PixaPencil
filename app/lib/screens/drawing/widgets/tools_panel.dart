@@ -23,6 +23,15 @@ class ToolsPanel extends StatelessWidget {
                 ? Colors.white
                 : null,
           ),
+          IconButton(
+            onPressed: () {
+              drawingState.selectedTool = ToolType.eraser;
+            },
+            icon: const Icon(Icons.error),
+            color: drawingState.selectedTool == ToolType.eraser
+                ? Colors.white
+                : null,
+          ),
         ],
       ),
     );

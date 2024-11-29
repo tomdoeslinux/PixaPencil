@@ -1,5 +1,6 @@
-import '../core/bitmap.dart';
-import '../core/rect.dart';
+import 'package:graphics/src/core/bitmap.dart';
+import 'package:graphics/src/core/region.dart';
+
 import 'graph_traversal.dart';
 import 'node.dart';
 
@@ -17,9 +18,7 @@ class NodeGraph {
     });
   }
 
-  GBitmap process(GRect outputRoi) {
-    final requiredRoi = rootNode.getRequiredROI(outputRoi);
-
-    return rootNode.process(requiredRoi);
+  GBitmap process(GRegion outputRoi) {
+    return rootNode.process(outputRoi);
   }
 }

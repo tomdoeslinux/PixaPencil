@@ -1,11 +1,14 @@
+import 'package:app/screens/drawing/drawing_state.dart';
 import 'package:graphics/graphics.dart';
 
 abstract class Tool {
-  final NodeGraph nodeGraph;
+  final DrawingState drawingState;
 
-  Tool(this.nodeGraph);
+  Node get operatingNode => drawingState.layers[drawingState.activeLayerIndex].rootNode;
 
-  void onTouchDown(GPoint point, GColor color);
-  void onTouchMove(GPoint point, GColor color);
+  Tool(this.drawingState);
+
+  void onTouchDown(GPoint point);
+  void onTouchMove(GPoint point);
   void onTouchUp();
 }

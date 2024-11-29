@@ -1,23 +1,32 @@
+import 'package:app/models/tool.dart';
 import 'package:app/models/tool_type.dart';
 import 'package:flutter/material.dart';
 import 'package:graphics/graphics.dart';
 
 class DrawingState with ChangeNotifier {
   var _selectedTool = ToolType.pencil;
+  late Tool _selectedToolInstance;
   var _selectedColor = GColors.black;
 
-  late NodeGraph _nodeGraph;
-  late LayerManager _layerManager;
+  late final NodeGraph _nodeGraph;
+  late final LayerManager layerManager;
   var _layers = <Layer>[];
+  var _activeLayerIndex = 1;
+
+  final int canvasWidth;
+  final int canvasHeight;
 
   ToolType get selectedTool => _selectedTool;
+  Tool get selectedToolInstance => _selectedToolInstance;
   GColor get selectedColor => _selectedColor;
 
   NodeGraph get nodeGraph => _nodeGraph;
   List<Layer> get layers => _layers;
+  int get activeLayerIndex => _activeLayerIndex;
 
   set selectedTool(ToolType tool) {
     _selectedTool = tool;
+    _updateSelectedToolInstance();
     notifyListeners();
   }
 
@@ -26,27 +35,53 @@ class DrawingState with ChangeNotifier {
     notifyListeners();
   }
 
-  DrawingState() {
-    _initializeNodeGraph();
-  }
-
-  void _updateLayers() {
-    _layers = _layerManager.layers;
+  set activeLayerIndex(int index) {
+    _activeLayerIndex = index;
     notifyListeners();
   }
 
+  DrawingState({required this.canvasWidth, required this.canvasHeight}) {
+    _initializeNodeGraph();
+    _updateSelectedToolInstance();
+  }
+
+  void _updateSelectedToolInstance() {
+    _selectedToolInstance = _selectedTool.getToolInstance(this);
+  }
+
+  void _updateLayers() {
+    _layers = layerManager.layers;
+    notifyListeners();
+  }
+
+  void addLayer() {
+    layerManager.addLayer(
+      SourceNode(
+        source: GBitmap(canvasWidth, canvasHeight, config: GBitmapConfig.rgba)
+      ),
+    );
+    _updateLayers();
+  }
+
   void _initializeNodeGraph() {
-    final bitmap = GBitmap(200, 200, config: GBitmapConfig.rgba);
+    final bitmap =
+        GBitmap(canvasWidth, canvasHeight, config: GBitmapConfig.rgba);
     bitmap.fillColor(GColors.green);
 
     final rootNode = SourceNode(source: bitmap);
     _nodeGraph = NodeGraph(rootNode);
 
-    final layer2Bitmap = GBitmap(200, 200, config: GBitmapConfig.rgba);
-    drawLine(layer2Bitmap, (x: 0, y: 0), (x: 100, y: 100), GColors.black);
+    final layer2Bitmap =
+        GBitmap(canvasWidth, canvasHeight, config: GBitmapConfig.rgba);
+    drawLine(
+      layer2Bitmap,
+      (x: 0, y: 0),
+      (x: (canvasWidth / 2).floor(), y: (canvasHeight / 2).floor()),
+      GColors.black,
+    );
 
-    _layerManager = LayerManager(_nodeGraph);
-    _layerManager.addLayer(SourceNode(source: layer2Bitmap));
+    layerManager = LayerManager(_nodeGraph);
+    layerManager.addLayer(SourceNode(source: layer2Bitmap));
 
     _updateLayers();
   }

@@ -19,7 +19,7 @@ void main() {
       final expectedFileName =
           "$testAssetPath/line_x${from.x}y${from.y}_x${to.x}y${to.y}.png";
       final expectedBitmap =
-          await loadBitmapFromImage(expectedFileName, width, height);
+          await loadBitmapFromImage(expectedFileName);
 
       expect(bitmapsAreEqual(bitmap, expectedBitmap), isTrue);
     }
